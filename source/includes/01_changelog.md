@@ -1,5 +1,9 @@
 # Changelog
 
+### 10.11.2017:
+
+* Restructurize the docs
+
 ### 27.10.2017: 
 
 * Rename `/check_exsistance` endpoints to `/public_info`
