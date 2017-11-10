@@ -403,6 +403,46 @@ Requires <code>BL:Api:Members:Tokens:Create</code> permit
 
 <!--- ############################################################################################################# --->
 
+## <a name="v3-members-send-one-time-password"></a> Send one time password
+
+> Example:
+
+```shell
+curl "https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members/by_msisdn/4740485124/send_one_time_password" \
+  -H 'Content-Type: application/json' \
+  -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+  -H 'X-Product-Name: default' \
+  -H 'X-User-Agent: CURL manual test'
+```
+
+> Always returns an empty JSON object
+
+```json
+{
+  // Empty object
+}
+```
+
+**POST** `/api/v3/loyalty_clubs/:loyalty_club_slug/members/by_msisdn/:msisdn/send_one_time_password`
+
+Sends an SMS to given msisdn if it is associated with member in given loyalty club.
+
+The SMS contains a token generated for member, valid for 10 minutes.
+
+@todo: Describe signing in using the OTP 
+
+### URL Parameters
+
+Parameter | Description | Type
+--------- | ----------- | ------
+msisdn | Member's msisdn | string (format as defined [here](#msisdn-member-identifier) - example: `4740485124`)
+
+<aside class="notice">
+Requires <code>BL:Api:Members:CreateOneTimePassword</code> permit
+</aside>
+
+<!--- ############################################################################################################# --->
+
 ## <a name="v3-members-verify-token"></a> Verify token
 
 > Example:
