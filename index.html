@@ -1424,6 +1424,54 @@ Requires <code>BL:Api:Members:Tokens:Create</code> permit
 
 <!--- ############################################################################################################# --->
 
+<h2 id="send-one-time-password"><a name="v3-members-send-one-time-password"></a> Send one time password</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members/by_msisdn/4740485124/send_one_time_password"</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+  -H <span class="s1">'X-User-Agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>Always returns an empty JSON object</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="err">//</span><span class="w"> </span><span class="err">Empty</span><span class="w"> </span><span class="err">object</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>POST</strong> <code class="prettyprint">/api/v3/loyalty_clubs/:loyalty_club_slug/members/by_msisdn/:msisdn/send_one_time_password</code></p>
+
+<p>Sends an SMS to given msisdn if it is associated with member in given loyalty club.</p>
+
+<p>The SMS contains a token generated for member, valid for 10 minutes.</p>
+
+<p>@todo: Describe signing in using the OTP </p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>msisdn</td>
+<td>Member&rsquo;s msisdn</td>
+<td>string (format as defined <a href="#msisdn-member-identifier">here</a> - example: <code class="prettyprint">4740485124</code>)</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>BL:Api:Members:CreateOneTimePassword</code> permit
+</aside>
+
+<!--- ############################################################################################################# --->
+
 <h2 id="verify-token"><a name="v3-members-verify-token"></a> Verify token</h2>
 
 <blockquote>
@@ -2416,6 +2464,7 @@ Requires <code>BL:Api:Members:OAuth</code> permit
 
 <ul>
 <li>Restructurize the docs</li>
+<li>Add <code class="prettyprint">POST /api/v3/loyalty_clubs/:loyalty_club_slug/members/by_msisdn/:msisdn/send_one_time_password</code></li>
 </ul>
 
 <h3 id="27-10-2017">27.10.2017:</h3>
@@ -2424,8 +2473,6 @@ Requires <code>BL:Api:Members:OAuth</code> permit
 <li>Rename <code class="prettyprint">/check_exsistance</code> endpoints to <code class="prettyprint">/public_info</code></li>
 <li>Add :can_login attribute to <code class="prettyprint">/public_info</code> response</li>
 <li>Remove :exists attribute from <code class="prettyprint">/public_info</code> response and make it to return nil when member does not exist</li>
-<li>Add <code class="prettyprint">PUT /api/v3/loyalty_clubs/:loyalty_club_slug/members/emails/:email/verify</code></li>
-<li>Add <code class="prettyprint">PUT /api/v3/loyalty_clubs/:loyalty_club_slug/members/by_email/:email/unsubscribe</code></li>
 </ul>
 
       </div>
