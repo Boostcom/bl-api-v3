@@ -1,0 +1,114 @@
+<h1 id="endpoints-loyalty-clubs">Endpoints &bull; Loyalty Clubs</h1>
+
+<h2 id="get-schema"><a name="v3-loyalty-clubs-schema"></a> Get schema</h2>
+
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/member_schema"</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+  -H <span class="s1">'X-User-Agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>When successful, the above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"$schema"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://json-schema.org/draft-04/schema#"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"object"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"identifiers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"email"</span><span class="p">],</span><span class="w">
+  </span><span class="s2">"languages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"en"</span><span class="p">,</span><span class="w"> </span><span class="s2">"no"</span><span class="p">],</span><span class="w">
+  </span><span class="s2">"default_language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"no"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"v2"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"email"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"birthday"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"date"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"interests"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"array"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"enum"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="s2">"bikes_and_cars"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"sportwear"</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"required"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"first_name"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_name"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"birthday"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>GET</strong> <code class="prettyprint">api/v3/loyalty_clubs/:loyalty_club_slug/member_schema</code></p>
+
+<p>Properties for members are defined as part of the loyalty club they belong to.</p>
+
+<p>To describe member properties we use <a href="http://json-schema.org/documentation.html">JSON Schema</a> definition.
+Properties of each member must conform to the defined schema.</p>
+
+<p>We support <strong>JSON schema Draft V4</strong> with format extension for <code class="prettyprint">date</code> (YYYY-MM-DD).</p>
+
+<h3 id="response-json-object">Response (JSON object)</h3>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>identifiers</td>
+<td>Fields that are set to identify member</td>
+<td>Array<string></td>
+</tr>
+<tr>
+<td>languages</td>
+<td>Languages set up in loyalty club</td>
+<td>Array<string></td>
+</tr>
+<tr>
+<td>default_language</td>
+<td>Default language used in loyalty club and also used for mappings to Api v2</td>
+<td>string</td>
+</tr>
+<tr>
+<td>version</td>
+<td>Version of schema, currently the newest is <code class="prettyprint">v2</code></td>
+<td>string</td>
+</tr>
+<tr>
+<td>products</td>
+<td>Properties scoping and ordering by product name, default one is <code class="prettyprint">default</code></td>
+<td>object</td>
+</tr>
+<tr>
+<td>required</td>
+<td>Required properties for member</td>
+<td>integer (timestamp)</td>
+</tr>
+<tr>
+<td>properties</td>
+<td>Properties describing member</td>
+<td>object</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>BL:Api:Schema:Get</code> permit
+</aside>

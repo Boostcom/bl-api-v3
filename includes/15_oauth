@@ -1,0 +1,315 @@
+<h1 id="endpoints-oauth">Endpoints &bull; OAuth</h1>
+
+<h2 id="create-token"><a name="v3-token-create"></a> Create token</h2>
+
+<blockquote>
+<p>Create token example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members/oauth/token"</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+  -H <span class="s1">'X-User-Agent: CURL manual test'</span> <span class="se">\</span>
+  -d <span class="s1">'{
+      "grant_type": "password",
+      "identifier_type": "id",
+      "identifier": 42,
+      "password": "123"
+    }'</span>
+</code></pre>
+<blockquote>
+<p>Refresh token example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members/oauth/token"</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+  -H <span class="s1">'X-User-Agent: CURL manual test'</span> <span class="se">\</span>
+  -d <span class="s1">'{
+      "grant_type": "refresh_token",
+      "refresh_token": "36c636e4290d28488a13691afce351397bec21b1246c2c7896a8262d9bfbc4c4"
+    }'</span>
+</code></pre>
+<blockquote>
+<p>When successful, both commands return JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"af9e5361cd7e083dfa4132df3ea7ab82fac21496991632a9994a8c2a9f33884f"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bearer"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="mi">86400</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"refresh_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"36c636e4290d28488a13691afce351397bec21b1246c2c7896a8262d9bfbc4c4"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1506523094</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"resource_owner_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>POST</strong> <code class="prettyprint">api/v3/loyalty_clubs/:loyalty_club_slug/members/oauth/token</code></p>
+
+<p>Creates a new access token by one of two methods (grant types):</p>
+
+<ul>
+<li><code class="prettyprint">password</code> - token is issued by providing user credentials</li>
+<li><code class="prettyprint">refresh_token</code> - token is issued by providing refresh token obtained from <code class="prettyprint">password</code> grant type </li>
+</ul>
+
+<h3 id="creating-token-password-grant">Creating token (<code class="prettyprint">password</code> grant)</h3>
+
+<p>When creating new access token, <code class="prettyprint">&quot;grant_type&quot;: &quot;password&quot;</code> should be given along with member credentials (see example on the right).</p>
+
+<p>In response, two tokens are returned:</p>
+
+<ul>
+<li><code class="prettyprint">access_token</code> that is valid for <strong>24 hours</strong> - may be used to authenticate member in member-related actions (see: <a href="#v3-oauth2">OAuth2</a>).</li>
+<li><code class="prettyprint">refresh_token</code> which is valid for <strong>1 year</strong> - may be used to get a new access token (with <code class="prettyprint">refresh_token</code> grant)</li>
+</ul>
+
+<p>Also, <code class="prettyprint">resource_owner_id</code> is returned, is an ID of member that the token has been issued for. </p>
+
+<h3 id="refreshing-token-refresh_token-grant">Refreshing token (<code class="prettyprint">refresh_token</code> grant)</h3>
+
+<p>You can obtain a new token after (or before) it&rsquo;s expiration time, by using <code class="prettyprint">refresh_token</code> grant.</p>
+
+<p>Param <code class="prettyprint">grant_type: &quot;refresh_token&quot;</code> must be provided along with <code class="prettyprint">refresh_token: &quot;:refresh_token&quot;</code>  (see example on the right).</p>
+
+<p>It returns a token response, same as for <code class="prettyprint">password</code> grant, but with new tokens.</p>
+
+<h3 id="post-parameters-json-object">POST Parameters (JSON object)</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+<th>For grant type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>grant_type</td>
+<td>type of grant</td>
+<td>enum: <code class="prettyprint">password</code>, <code class="prettyprint">refresh_token</code></td>
+<td>-</td>
+</tr>
+<tr>
+<td>identifier_type</td>
+<td>identifier type that user should be retrieved by</td>
+<td>enum: <code class="prettyprint">id</code>, <code class="prettyprint">email</code>, <code class="prettyprint">msisdn</code></td>
+<td><code class="prettyprint">password</code></td>
+</tr>
+<tr>
+<td>identifier</td>
+<td>value of member identifier</td>
+<td>mixed (e.g. <code class="prettyprint">134123123</code>, <code class="prettyprint">+47123456789</code> or <code class="prettyprint">alice@example.com</code>)</td>
+<td><code class="prettyprint">password</code></td>
+</tr>
+<tr>
+<td>password</td>
+<td>member password</td>
+<td>string</td>
+<td><code class="prettyprint">password</code></td>
+</tr>
+<tr>
+<td>refresh_token</td>
+<td>refresh token</td>
+<td>string</td>
+<td><code class="prettyprint">access_token</code></td>
+</tr>
+</tbody></table>
+
+<h3 id="response-json-object">Response (JSON object)</h3>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>access_token</td>
+<td>Token that member can be authenticated with</td>
+<td>string</td>
+</tr>
+<tr>
+<td>token_type</td>
+<td>Always &ldquo;bearer&rdquo;</td>
+<td>string</td>
+</tr>
+<tr>
+<td>expires_in</td>
+<td>Seconds for how long token will be valid</td>
+<td>integer (seconds)</td>
+</tr>
+<tr>
+<td>refresh_token</td>
+<td>Token that may be used to issue a new :access_token</td>
+<td>string</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>When the token has been created</td>
+<td>integer (timestamp)</td>
+</tr>
+<tr>
+<td>resource_owner_id</td>
+<td>ID of member that the token has been for</td>
+<td>integer</td>
+</tr>
+</tbody></table>
+
+<h3 id="error-responses">Error responses</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">461</code></td>
+<td>Invalid member credentials provided for <code class="prettyprint">password</code> grant. Either member could not be found or password is wrong</td>
+</tr>
+<tr>
+<td><code class="prettyprint">462</code></td>
+<td>Invalid refresh_token provided for <code class="prettyprint">refresh_token</code> grant (may be expired)</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>BL:Api:Members:OAuth</code> permit
+</aside>
+
+<!--- ############################################################################################################# --->
+
+<h2 id="revoke-token"><a name="v3-token-revoke"></a> Revoke token</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members/oauth/revoke"</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+  -H <span class="s1">'X-User-Agent: CURL manual test'</span> <span class="se">\</span>
+  -d <span class="s1">'{
+      "token": "36c636e4290d28488a13691afce351397bec21b1246c2c7896a8262d9bfbc4c4" 
+    }'</span>
+</code></pre>
+<blockquote>
+<p>Always returns an empty JSON object</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="err">//</span><span class="w"> </span><span class="err">Empty</span><span class="w"> </span><span class="err">object</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>POST</strong> <code class="prettyprint">api/v3/loyalty_clubs/:loyalty_club_slug/members/oauth/revoke</code></p>
+
+<p>Revokes a token (access or refresh). </p>
+
+<p>Always returns an empty JSON object (even if given token is invalid).</p>
+
+<h3 id="post-parameters-json">POST Parameters (JSON)</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>token</td>
+<td>access or refresh token obtained from <a href="#v3-token-create">OAuth Token &bull; Create</a></td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>BL:Api:Members:OAuth</code> permit
+</aside>
+
+<!--- ############################################################################################################# --->
+
+<h2 id="get-token-info"><a name="v3-token-info"></a> Get token info</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members/oauth/token/info"</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+  -H <span class="s1">'X-User-Agent: CURL manual test'</span> <span class="se">\</span>
+  -H <span class="s1">'Authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522'</span>
+
+</code></pre>
+<blockquote>
+<p>When successful, return JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"resource_owner_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">ID</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">member</span><span class="w"> </span><span class="err">that</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">token</span><span class="w"> </span><span class="err">has</span><span class="w"> </span><span class="err">been</span><span class="w"> </span><span class="err">issued</span><span class="w"> </span><span class="err">for</span><span class="w">
+    </span><span class="s2">"scopes"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"expires_in_seconds"</span><span class="p">:</span><span class="w"> </span><span class="mi">73614</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Seconds</span><span class="w"> </span><span class="err">until</span><span class="w"> </span><span class="err">expiration</span><span class="w">
+    </span><span class="s2">"application"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"uid"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1506516784</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>GET</strong> <code class="prettyprint">api/v3/loyalty_clubs/:loyalty_club_slug/members/oauth/token/info</code></p>
+
+<p>Returns info of given token (not refresh token) from <code class="prettyprint">Authorization</code> header.</p>
+
+<h3 id="response-json-object">Response (JSON object)</h3>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>resource_owner_id</td>
+<td>ID of member that the token has been for</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>scopes</td>
+<td>Not implemented</td>
+<td>Array<string></td>
+</tr>
+<tr>
+<td>expires_in_seconds</td>
+<td>Seconds for how long token will be valid</td>
+<td>integer (seconds)</td>
+</tr>
+<tr>
+<td>application</td>
+<td>Not implemented</td>
+<td>Object</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>When the token has been created</td>
+<td>integer (timestamp)</td>
+</tr>
+</tbody></table>
+
+<h3 id="error-responses">Error responses</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">460</code></td>
+<td>Token from <code class="prettyprint">Authorization</code> is invalid (or expired)</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>BL:Api:Members:OAuth</code> permit
+</aside>
+
+<!--- ############################################################################################################# --->

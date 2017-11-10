@@ -1,0 +1,8 @@
+<h1 id="introduction">Introduction</h1>
+
+<p>It&rsquo;s an API to manage loyalty club&rsquo;s members.
+It can be accessed from both Boostcom&rsquo;s internal server applications, from native mobile applications as well as external client&rsquo;s server applications.</p>
+
+<aside class="notice">
+You can use Api V3 only when your customer is migrated to new backend service for data.
+</aside>
