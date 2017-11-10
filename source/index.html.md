@@ -9,7 +9,6 @@ toc_footers:
 
 includes:
   - 00_introduction
-  - 01_changelog
   - 02_general_info
   - 03_params
   - 11_loyalty_clubs
@@ -17,6 +16,7 @@ includes:
   - 13_members_bulks
   - 14_oauth_members
   - 15_oauth
+  - 20_changelog
 
 search: true
 ---
