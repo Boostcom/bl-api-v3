@@ -12,7 +12,6 @@
 
 ## General info
 
-
 **This is only draft!**
 
 You can use Api V3 only when your customer is migrated to new backend service for data.
