@@ -78,7 +78,7 @@ Parameter | Description | Type | For grant type
 grant_type | type of grant | enum: `password`, `refresh_token` | -
 identifier_type | identifier type that user should be retrieved by | enum: `id`, `email`, `msisdn` | `password` 
 identifier | value of member identifier | mixed (e.g. `134123123`, `+47123456789` or `alice@example.com`) | `password`
-password | member password | string | `password`
+password | member password or One-Time-Password | string | `password`
 refresh_token | refresh token | string | `access_token`
 
 ### Response (JSON object)

@@ -49,6 +49,12 @@ can_login | boolean | Is this member able to sign?
 Requires <code>BL:Api:Members:Check</code> permit
 </aside>
 
+### Error responses
+
+Status | Reason
+--------- | ----------- 
+`422` | Invalid MSISDN param
+
 <!--- ############################################################################################################# --->
 
 ## <a name="v3-members-get"></a> Get
@@ -90,6 +96,7 @@ See: [Member model](#v3-member-model)
 Status | Reason
 --------- | ----------- 
 `404` | Member with given identifier could not found 
+`422` | Invalid MSISDN param
 
 <aside class="notice">
 Requires <code>BL:Api:Members:Get</code> permit
@@ -150,6 +157,11 @@ or Loyalty has disabled welcome messages or Loyalty Club has no e-mails configur
 
 There is also a possibility to have multiple SMS welcome messages sent. The one that matches Product or default one will be sent.
 
+### <a name="v3-members-create-registration-password"></a> Registration Password
+
+Some API clients (depends on Permit assigned to given `X-Client-Authorization` token) may be required to provide 
+valid `registration_password` param that is sent to user with [Members &bull; Send registration password](#v3-members-send-registration-password) 
+
 ### Headers
 
 Header name | Required? | Description
@@ -170,21 +182,24 @@ email_enabled | no | true | Should email channel be enabled for member? | Boolea
 push_enabled | no | true | Should push channel will be enabled for member? | Boolean
 send_sms_welcome_message | no | true | Should SMS welcome message be sent to member? | Boolean
 send_email_welcome_message | no | true | Should email welcome be sent to member | Boolean
+registration_password | depends | none | Password for registration for member MSISDN verification, see [above](#v3-members-create-registration-password)
 
 &ast; At least one of those properties must be provided
-
+ 
 ### Response (JSON object)
 
 Created member properties - see: [Member model](#v3-member-model)
 
 ### Error responses
 
-Status | Reason
+Status | Description
 --------- | ----------- 
 `422` | [validation errors](#validation-on-members) JSON object.
+`465` | `registration_password` param is missing
+`466` | `registration_password` param is invalid
 
 <aside class="notice">
-Requires <code>BL:Api:Members:Create</code> permit
+Requires <code>BL:Api:Members:Create</code> or <code>BL:Api:Members:CreateWithVerification</code>permit
 </aside>
 
 <!--- ############################################################################################################# --->
@@ -427,9 +442,9 @@ curl "https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members/by_
 
 Sends an SMS to given msisdn if it is associated with member in given loyalty club.
 
-The SMS contains a token generated for member, valid for 10 minutes.
+The SMS contains 4-digit One-Time-Password generated for member, valid for 10 minutes.
 
-@todo: Describe signing in using the OTP 
+This password then can be used to sign in, just as "regular" member password - see:  [OAuth Token &bull; Create](#v3-token-create).
 
 ### URL Parameters
 
@@ -437,8 +452,60 @@ Parameter | Description | Type
 --------- | ----------- | ------
 msisdn | Member's msisdn | string (format as defined [here](#msisdn-member-identifier) - example: `4740485124`)
 
+### Error responses
+
+Status | Reason
+--------- | ----------- 
+`422` | Invalid MSISDN param
+
 <aside class="notice">
 Requires <code>BL:Api:Members:CreateOneTimePassword</code> permit
+</aside>
+
+<!--- ############################################################################################################# --->
+
+## <a name="v3-members-send-registration-password"></a> Send registration password
+
+> Example:
+
+```shell
+curl "https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members/by_msisdn/4740485124/send_registration_password" \
+  -H 'Content-Type: application/json' \
+  -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+  -H 'X-Product-Name: default' \
+  -H 'X-User-Agent: CURL manual test'
+```
+
+> Always returns an empty JSON object
+
+```json
+{
+  // Empty object
+}
+```
+
+**POST** `/api/v3/loyalty_clubs/:loyalty_club_slug/members/by_msisdn/:msisdn/send_registration_password`
+
+Sends SMS to given MSISDN.
+
+The sent message contains 4-digit registration password, valid for 10 minutes.
+
+This password may be required for member registration - see: [Registration password](#v3-members-create-registration-password)
+
+### URL Parameters
+
+Parameter | Description | Type
+--------- | ----------- | ------
+msisdn | MSISDN | string (format as defined [here](#msisdn-member-identifier) - example: `4740485124`)
+
+### Error responses
+
+Status | Reason
+--------- | ----------- 
+`422` | Invalid MSISDN param
+
+<aside class="notice">
+Requires <code>BL:Api:Members:CreateRegistrationPassword</code> permit
 </aside>
 
 <!--- ############################################################################################################# --->
