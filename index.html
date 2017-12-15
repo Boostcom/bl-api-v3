@@ -641,9 +641,6 @@ That will allow further targeting members by communication channel.</p>
 <p>Members in our systems may be identified with their phone numbers (msisdns) according to <a href="https://en.wikipedia.org/wiki/E.164">E.164</a>
 We use format without leading <code class="prettyprint">00</code> or <code class="prettyprint">+</code> and without spaces, so that it contains only digits, i.e. <code class="prettyprint">4740485124</code>.</p>
 
-<p>There is no special handling in case it has wrong format, except for creating a member and sending a token.
-<code class="prettyprint">404 Not Found</code> is returned and empty response body unless stated otherwise.</p>
-
           <h1 id="endpoints-loyalty-clubs">Endpoints &bull; Loyalty Clubs</h1>
 
 <h2 id="get-schema"><a name="v3-loyalty-clubs-schema"></a> Get schema</h2>
@@ -839,6 +836,20 @@ Requires <code>BL:Api:Schema:Get</code> permit
 Requires <code>BL:Api:Members:Check</code> permit
 </aside>
 
+<h3 id="error-responses">Error responses</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">422</code></td>
+<td>Invalid MSISDN param</td>
+</tr>
+</tbody></table>
+
 <!--- ############################################################################################################# --->
 
 <h2 id="get"><a name="v3-members-get"></a> Get</h2>
@@ -906,6 +917,10 @@ Requires <code>BL:Api:Members:Check</code> permit
 <td><code class="prettyprint">404</code></td>
 <td>Member with given identifier could not found</td>
 </tr>
+<tr>
+<td><code class="prettyprint">422</code></td>
+<td>Invalid MSISDN param</td>
+</tr>
 </tbody></table>
 
 <aside class="notice">
@@ -964,6 +979,11 @@ For example, even if send_email_welcome_message:true param is provided, message 
 or Loyalty has disabled welcome messages or Loyalty Club has no e-mails configured at all.</p>
 
 <p>There is also a possibility to have multiple SMS welcome messages sent. The one that matches Product or default one will be sent.</p>
+
+<h3 id="registration-password"><a name="v3-members-create-registration-password"></a> Registration Password</h3>
+
+<p>Some API clients (depends on Permit assigned to given <code class="prettyprint">X-Client-Authorization</code> token) may be required to provide 
+valid <code class="prettyprint">registration_password</code> param that is sent to user with <a href="#v3-members-send-registration-password">Members &bull; Send registration password</a> </p>
 
 <h3 id="headers">Headers</h3>
 
@@ -1062,6 +1082,13 @@ or Loyalty has disabled welcome messages or Loyalty Club has no e-mails configur
 <td>Should email welcome be sent to member</td>
 <td>Boolean</td>
 </tr>
+<tr>
+<td>registration_password</td>
+<td>depends</td>
+<td>none</td>
+<td>Password for registration for member MSISDN verification, see <a href="#v3-members-create-registration-password">above</a></td>
+<td></td>
+</tr>
 </tbody></table>
 
 <p>&ast; At least one of those properties must be provided</p>
@@ -1075,17 +1102,25 @@ or Loyalty has disabled welcome messages or Loyalty Club has no e-mails configur
 <table><thead>
 <tr>
 <th>Status</th>
-<th>Reason</th>
+<th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td><code class="prettyprint">422</code></td>
 <td><a href="#validation-on-members">validation errors</a> JSON object.</td>
 </tr>
+<tr>
+<td><code class="prettyprint">465</code></td>
+<td><code class="prettyprint">registration_password</code> param is missing</td>
+</tr>
+<tr>
+<td><code class="prettyprint">466</code></td>
+<td><code class="prettyprint">registration_password</code> param is invalid</td>
+</tr>
 </tbody></table>
 
 <aside class="notice">
-Requires <code>BL:Api:Members:Create</code> permit
+Requires <code>BL:Api:Members:Create</code> or <code>BL:Api:Members:CreateWithVerification</code>permit
 </aside>
 
 <!--- ############################################################################################################# --->
@@ -1446,9 +1481,9 @@ Requires <code>BL:Api:Members:Tokens:Create</code> permit
 
 <p>Sends an SMS to given msisdn if it is associated with member in given loyalty club.</p>
 
-<p>The SMS contains a token generated for member, valid for 10 minutes.</p>
+<p>The SMS contains 4-digit One-Time-Password generated for member, valid for 10 minutes.</p>
 
-<p>@todo: Describe signing in using the OTP </p>
+<p>This password then can be used to sign in, just as &ldquo;regular&rdquo; member password - see:  <a href="#v3-token-create">OAuth Token &bull; Create</a>.</p>
 
 <h3 id="url-parameters">URL Parameters</h3>
 
@@ -1466,8 +1501,84 @@ Requires <code>BL:Api:Members:Tokens:Create</code> permit
 </tr>
 </tbody></table>
 
+<h3 id="error-responses">Error responses</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">422</code></td>
+<td>Invalid MSISDN param</td>
+</tr>
+</tbody></table>
+
 <aside class="notice">
 Requires <code>BL:Api:Members:CreateOneTimePassword</code> permit
+</aside>
+
+<!--- ############################################################################################################# --->
+
+<h2 id="send-registration-password"><a name="v3-members-send-registration-password"></a> Send registration password</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members/by_msisdn/4740485124/send_registration_password"</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+  -H <span class="s1">'X-User-Agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>Always returns an empty JSON object</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="err">//</span><span class="w"> </span><span class="err">Empty</span><span class="w"> </span><span class="err">object</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>POST</strong> <code class="prettyprint">/api/v3/loyalty_clubs/:loyalty_club_slug/members/by_msisdn/:msisdn/send_registration_password</code></p>
+
+<p>Sends SMS to given MSISDN.</p>
+
+<p>The sent message contains 4-digit registration password, valid for 10 minutes.</p>
+
+<p>This password may be required for member registration - see: <a href="#v3-members-create-registration-password">Registration password</a></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>msisdn</td>
+<td>MSISDN</td>
+<td>string (format as defined <a href="#msisdn-member-identifier">here</a> - example: <code class="prettyprint">4740485124</code>)</td>
+</tr>
+</tbody></table>
+
+<h3 id="error-responses">Error responses</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">422</code></td>
+<td>Invalid MSISDN param</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>BL:Api:Members:CreateRegistrationPassword</code> permit
 </aside>
 
 <!--- ############################################################################################################# --->
@@ -2246,7 +2357,7 @@ Requires <code>BL:Api:Members:OAuth:Destroy</code> permit.
 </tr>
 <tr>
 <td>password</td>
-<td>member password</td>
+<td>member password or One-Time-Password</td>
 <td>string</td>
 <td><code class="prettyprint">password</code></td>
 </tr>
@@ -2460,17 +2571,25 @@ Requires <code>BL:Api:Members:OAuth</code> permit
 
           <h1 id="changelog">Changelog</h1>
 
-<h3 id="10-11-2017">10.11.2017:</h3>
+<h3 id="15-12-2017-wip-not-on-production-yet-piotr-witlicki">15.12.2017 (WIP, not on production yet) | Piotr Świtlicki:</h3>
+
+<ul>
+<li>Add <code class="prettyprint">POST /api/v3/loyalty_clubs/:loyalty_club_slug/members/by_msisdn/:msisdn/send_registration_password</code></li>
+<li>Add information about <code class="prettyprint">registration_password</code> in <a href="#v3-members-create">Members &bull; Create</a></li>
+<li>Add some other minor fixes</li>
+</ul>
+
+<h3 id="10-11-2017-piotr-witlicki">10.11.2017 | Piotr Świtlicki:</h3>
 
 <ul>
 <li>Restructurize the docs</li>
 <li>Add <code class="prettyprint">POST /api/v3/loyalty_clubs/:loyalty_club_slug/members/by_msisdn/:msisdn/send_one_time_password</code></li>
 </ul>
 
-<h3 id="27-10-2017">27.10.2017:</h3>
+<h3 id="27-10-2017-piotr-witlicki">27.10.2017 | Piotr Świtlicki:</h3>
 
 <ul>
-<li>Rename <code class="prettyprint">/check_exsistance</code> endpoints to <code class="prettyprint">/public_info</code></li>
+<li>Rename <code class="prettyprint">/check_existance</code> endpoints to <code class="prettyprint">/public_info</code></li>
 <li>Add :can_login attribute to <code class="prettyprint">/public_info</code> response</li>
 <li>Remove :exists attribute from <code class="prettyprint">/public_info</code> response and make it to return nil when member does not exist</li>
 </ul>

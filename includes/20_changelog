@@ -1,16 +1,24 @@
 <h1 id="changelog">Changelog</h1>
 
-<h3 id="10-11-2017">10.11.2017:</h3>
+<h3 id="15-12-2017-wip-not-on-production-yet-piotr-witlicki">15.12.2017 (WIP, not on production yet) | Piotr Świtlicki:</h3>
+
+<ul>
+<li>Add <code class="prettyprint">POST /api/v3/loyalty_clubs/:loyalty_club_slug/members/by_msisdn/:msisdn/send_registration_password</code></li>
+<li>Add information about <code class="prettyprint">registration_password</code> in <a href="#v3-members-create">Members &bull; Create</a></li>
+<li>Add some other minor fixes</li>
+</ul>
+
+<h3 id="10-11-2017-piotr-witlicki">10.11.2017 | Piotr Świtlicki:</h3>
 
 <ul>
 <li>Restructurize the docs</li>
 <li>Add <code class="prettyprint">POST /api/v3/loyalty_clubs/:loyalty_club_slug/members/by_msisdn/:msisdn/send_one_time_password</code></li>
 </ul>
 
-<h3 id="27-10-2017">27.10.2017:</h3>
+<h3 id="27-10-2017-piotr-witlicki">27.10.2017 | Piotr Świtlicki:</h3>
 
 <ul>
-<li>Rename <code class="prettyprint">/check_exsistance</code> endpoints to <code class="prettyprint">/public_info</code></li>
+<li>Rename <code class="prettyprint">/check_existance</code> endpoints to <code class="prettyprint">/public_info</code></li>
 <li>Add :can_login attribute to <code class="prettyprint">/public_info</code> response</li>
 <li>Remove :exists attribute from <code class="prettyprint">/public_info</code> response and make it to return nil when member does not exist</li>
 </ul>

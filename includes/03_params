@@ -68,6 +68,3 @@ That will allow further targeting members by communication channel.</p>
 
 <p>Members in our systems may be identified with their phone numbers (msisdns) according to <a href="https://en.wikipedia.org/wiki/E.164">E.164</a>
 We use format without leading <code class="prettyprint">00</code> or <code class="prettyprint">+</code> and without spaces, so that it contains only digits, i.e. <code class="prettyprint">4740485124</code>.</p>
-
-<p>There is no special handling in case it has wrong format, except for creating a member and sending a token.
-<code class="prettyprint">404 Not Found</code> is returned and empty response body unless stated otherwise.</p>
