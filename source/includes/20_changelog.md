@@ -1,6 +1,6 @@
 # Changelog
 
-### 15.12.2017 (WIP, not on production yet) | Piotr Świtlicki:
+### 15.12.2017 | Piotr Świtlicki:
 
 * Add `POST /api/v3/loyalty_clubs/:loyalty_club_slug/members/by_msisdn/:msisdn/send_registration_password`
 * Add information about `registration_password` in [Members &bull; Create](#v3-members-create)
