@@ -348,3 +348,5 @@ Errors format and strings are not yet stable and may change without further noti
 <li>If status is <code class="prettyprint">false</code> - Member disapproved consent.</li>
 <li>If you can find slug on Member: he/she haven&rsquo;t disapproved or approved consent.</li>
 </ul>
+
+<p>Available consents for Loyalty Club are described in <a href="#v3-loyalty-clubs-schema">schema</a>.</p>
