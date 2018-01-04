@@ -19,6 +19,7 @@ curl "https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/member_sche
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "identifiers": ["email"],
+  "consents": { "consent1": { "version": "" }, "consent2": { "version": "" } },
   "languages": ["en", "no"],
   "default_language": "no",
   "version": "v2",
@@ -70,6 +71,7 @@ We support **JSON schema Draft V4** with format extension for `date` (YYYY-MM-DD
 Key | Description | Type
 --------- | ----------- | ---------
 identifiers | Fields that are set to identify member | Array<string>
+consents | Definition of available consents. Versions are now `''`. | JSON Object
 languages | Languages set up in loyalty club | Array<string>
 default_language | Default language used in loyalty club and also used for mappings to Api v2 | string
 version | Version of schema, currently the newest is `v2` | string

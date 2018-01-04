@@ -1,5 +1,9 @@
 # Changelog
 
+### 4.01.2017 | Jakub Kruczek:
+
+* Add `consents` fields to schema and Member payload
+
 ### 15.12.2017 | Piotr Świtlicki:
 
 * Add `POST /api/v3/loyalty_clubs/:loyalty_club_slug/members/by_msisdn/:msisdn/send_registration_password`

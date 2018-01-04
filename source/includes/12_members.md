@@ -124,6 +124,10 @@ curl -X POST \
 		"first_name": "The",
 		"last_name": "Doge"
 	},
+	"consents": {
+	    "consent1": { status: true },
+	    "consent2": { status: false }
+	},
 	"send_sms_welcome_message": false
 }'
 
@@ -176,6 +180,7 @@ properties | **yes** | none | JSON with properties for member | JSON Object
 properties\['language'\] | no | "default_language" from schema | Language used by user | string
 properties\['msisdn'\] | yes* | none | Unique member's msisdn as defined [here](#msisdn-member-identifier)) Example: `4740485124`.| string
 properties\['email'\] | yes* | none | Member's email | string
+consents | no | {} | Member's consents (similar to [Member's consents JSON model](#v3-member-consents-model)) | JSON Object
 password | no | none | Member's password. Not required, but user won't be able to log in without this | string
 sms_enabled | no | true | Should SMS channel be enabled for member? | Boolean
 email_enabled | no | true | Should email channel be enabled for member? | Boolean
@@ -231,14 +236,16 @@ curl -X PUT \
 
 **PUT** `api/v3/loyalty_clubs/:loyalty_club_slug/members/:id`
 
-Update member's properties with given ones.
+Update member's properties, consents and other with given ones.
 
-It is intended for partial updates - not given properties are neither deleted nor overwritten.
+It is intended for partial updates:
+* not given properties are neither deleted nor overwritten,
+* not given consents won't be changed in any way.
 
-If deleting attribute is intended, it's value should be sent as `null`.
+If deleting properties attribute is intended, it's value should be sent as `null`.
 
 This endpoint may return validation errors (`422`) because of current member data invalidity 
-as loyalty club schema may get changed over time and make existing users invalid.   
+as loyalty club schema may get changed over time and make existing users invalid.
 
 ### URL Parameters
 
@@ -251,6 +258,7 @@ id | Member's ID | integer
 Parameter | Description | Type
 --------- | --------- | -----------
 properties | JSON with properties for member | JSON Object
+consents | Member's consents (similar to [Member's consents JSON model](#v3-member-consents-model)) | JSON Object
 password | Member's password | string
 sms_enabled | Should SMS channel be enabled for member? | Boolean
 email_enabled | Should email channel be enabled for member? | Boolean

@@ -139,6 +139,10 @@ duplicated_email | The email was duplicated in community
     ],
     "language": "no"
   },
+  "consents": {
+    "consent1": { "status": true },
+    "consent2": { "status": false }
+  },
   "sms_status": "enabled",
   "email_status": "hard_bounced",
   "push_status": "disabled",
@@ -154,9 +158,19 @@ Key | Description | Type
 id | Member ID | integer
 properties | Object with member's properties | JSON Object
 properties\['language'\] | Language used by user | string
-consents | [incoming] | JSON Object
+consents | Member's consents JSON model (see below) | JSON Object
 sms_status | Status of sms channel | string
 email_status | Status of email channel | string
 push_status | Status of push channel | string
 created_at | Time when the user was firstly created | string
 updated_at | Time when the user was last updated | string
+
+## <a name="v3-member-consents-model"></a> Member's consents JSON model
+
+JSON model for consents. Keys can be dynamically created based on customer's need.
+
+It consists of: `'consent-slug': { status: <boolean value> }`
+
+* If status is `true` - Member approved consent.
+* If status is `false` - Member disapproved consent.
+* If you can find slug on Member: he/she haven't disapproved or approved consent.
