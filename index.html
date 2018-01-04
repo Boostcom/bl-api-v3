@@ -508,6 +508,10 @@ Errors format and strings are not yet stable and may change without further noti
     </span><span class="p">],</span><span class="w">
     </span><span class="s2">"language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"no"</span><span class="w">
   </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"consents"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"consent1"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"consent2"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
   </span><span class="s2">"sms_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"enabled"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"email_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hard_bounced"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"push_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"disabled"</span><span class="p">,</span><span class="w">
@@ -541,7 +545,7 @@ Errors format and strings are not yet stable and may change without further noti
 </tr>
 <tr>
 <td>consents</td>
-<td>[incoming]</td>
+<td>Member&rsquo;s consents JSON model (see below)</td>
 <td>JSON Object</td>
 </tr>
 <tr>
@@ -570,6 +574,18 @@ Errors format and strings are not yet stable and may change without further noti
 <td>string</td>
 </tr>
 </tbody></table>
+
+<h2 id="members-consents-json-model"><a name="v3-member-consents-model"></a> Member&rsquo;s consents JSON model</h2>
+
+<p>JSON model for consents. Keys can be dynamically created based on customer&rsquo;s need.</p>
+
+<p>It consists of: <code class="prettyprint">&#39;consent-slug&#39;: { status: &lt;boolean value&gt; }</code></p>
+
+<ul>
+<li>If status is <code class="prettyprint">true</code> - Member approved consent.</li>
+<li>If status is <code class="prettyprint">false</code> - Member disapproved consent.</li>
+<li>If you can find slug on Member: he/she haven&rsquo;t disapproved or approved consent.</li>
+</ul>
 
           <h1 id="common-params-and-headers">Common params and headers</h1>
 
@@ -662,6 +678,7 @@ We use format without leading <code class="prettyprint">00</code> or <code class
   </span><span class="s2">"$schema"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://json-schema.org/draft-04/schema#"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"object"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"identifiers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"email"</span><span class="p">],</span><span class="w">
+  </span><span class="s2">"consents"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"consent1"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="s2">"consent2"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span><span class="w">
   </span><span class="s2">"languages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"en"</span><span class="p">,</span><span class="w"> </span><span class="s2">"no"</span><span class="p">],</span><span class="w">
   </span><span class="s2">"default_language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"no"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"v2"</span><span class="p">,</span><span class="w">
@@ -720,6 +737,11 @@ Properties of each member must conform to the defined schema.</p>
 <td>identifiers</td>
 <td>Fields that are set to identify member</td>
 <td>Array<string></td>
+</tr>
+<tr>
+<td>consents</td>
+<td>Definition of available consents. Versions are now <code class="prettyprint">&#39;&#39;</code>.</td>
+<td>JSON Object</td>
 </tr>
 <tr>
 <td>languages</td>
@@ -950,6 +972,10 @@ curl -X POST <span class="se">\</span>
         "first_name": "The",
         "last_name": "Doge"
     },
+    "consents": {
+        "consent1": { status: true },
+        "consent2": { status: false }
+    },
     "send_sms_welcome_message": false
 }'</span>
 
@@ -1040,6 +1066,13 @@ valid <code class="prettyprint">registration_password</code> param that is sent 
 <td>none</td>
 <td>Member&rsquo;s email</td>
 <td>string</td>
+</tr>
+<tr>
+<td>consents</td>
+<td>no</td>
+<td>{}</td>
+<td>Member&rsquo;s consents (similar to <a href="#v3-member-consents-model">Member&rsquo;s consents JSON model</a>)</td>
+<td>JSON Object</td>
 </tr>
 <tr>
 <td>password</td>
@@ -1154,14 +1187,16 @@ curl -X PUT <span class="se">\</span>
 
 <p><strong>PUT</strong> <code class="prettyprint">api/v3/loyalty_clubs/:loyalty_club_slug/members/:id</code></p>
 
-<p>Update member&rsquo;s properties with given ones.</p>
+<p>Update member&rsquo;s properties, consents and other with given ones.</p>
 
-<p>It is intended for partial updates - not given properties are neither deleted nor overwritten.</p>
+<p>It is intended for partial updates:
+* not given properties are neither deleted nor overwritten,
+* not given consents won&rsquo;t be changed in any way.</p>
 
-<p>If deleting attribute is intended, it&rsquo;s value should be sent as <code class="prettyprint">null</code>.</p>
+<p>If deleting properties attribute is intended, it&rsquo;s value should be sent as <code class="prettyprint">null</code>.</p>
 
 <p>This endpoint may return validation errors (<code class="prettyprint">422</code>) because of current member data invalidity 
-as loyalty club schema may get changed over time and make existing users invalid.   </p>
+as loyalty club schema may get changed over time and make existing users invalid.</p>
 
 <h3 id="url-parameters">URL Parameters</h3>
 
@@ -1191,6 +1226,11 @@ as loyalty club schema may get changed over time and make existing users invalid
 <tr>
 <td>properties</td>
 <td>JSON with properties for member</td>
+<td>JSON Object</td>
+</tr>
+<tr>
+<td>consents</td>
+<td>Member&rsquo;s consents (similar to <a href="#v3-member-consents-model">Member&rsquo;s consents JSON model</a>)</td>
 <td>JSON Object</td>
 </tr>
 <tr>
@@ -2571,6 +2611,12 @@ Requires <code>BL:Api:Members:OAuth</code> permit
 <!--- ############################################################################################################# --->
 
           <h1 id="changelog">Changelog</h1>
+
+<h3 id="4-01-2017-jakub-kruczek">4.01.2017 | Jakub Kruczek:</h3>
+
+<ul>
+<li>Add <code class="prettyprint">consents</code> fields to schema and Member payload</li>
+</ul>
 
 <h3 id="15-12-2017-piotr-witlicki">15.12.2017 | Piotr Świtlicki:</h3>
 

@@ -191,6 +191,10 @@ curl -X POST <span class="se">\</span>
         "first_name": "The",
         "last_name": "Doge"
     },
+    "consents": {
+        "consent1": { status: true },
+        "consent2": { status: false }
+    },
     "send_sms_welcome_message": false
 }'</span>
 
@@ -281,6 +285,13 @@ valid <code class="prettyprint">registration_password</code> param that is sent 
 <td>none</td>
 <td>Member&rsquo;s email</td>
 <td>string</td>
+</tr>
+<tr>
+<td>consents</td>
+<td>no</td>
+<td>{}</td>
+<td>Member&rsquo;s consents (similar to <a href="#v3-member-consents-model">Member&rsquo;s consents JSON model</a>)</td>
+<td>JSON Object</td>
 </tr>
 <tr>
 <td>password</td>
@@ -395,14 +406,16 @@ curl -X PUT <span class="se">\</span>
 
 <p><strong>PUT</strong> <code class="prettyprint">api/v3/loyalty_clubs/:loyalty_club_slug/members/:id</code></p>
 
-<p>Update member&rsquo;s properties with given ones.</p>
+<p>Update member&rsquo;s properties, consents and other with given ones.</p>
 
-<p>It is intended for partial updates - not given properties are neither deleted nor overwritten.</p>
+<p>It is intended for partial updates:
+* not given properties are neither deleted nor overwritten,
+* not given consents won&rsquo;t be changed in any way.</p>
 
-<p>If deleting attribute is intended, it&rsquo;s value should be sent as <code class="prettyprint">null</code>.</p>
+<p>If deleting properties attribute is intended, it&rsquo;s value should be sent as <code class="prettyprint">null</code>.</p>
 
 <p>This endpoint may return validation errors (<code class="prettyprint">422</code>) because of current member data invalidity 
-as loyalty club schema may get changed over time and make existing users invalid.   </p>
+as loyalty club schema may get changed over time and make existing users invalid.</p>
 
 <h3 id="url-parameters">URL Parameters</h3>
 
@@ -432,6 +445,11 @@ as loyalty club schema may get changed over time and make existing users invalid
 <tr>
 <td>properties</td>
 <td>JSON with properties for member</td>
+<td>JSON Object</td>
+</tr>
+<tr>
+<td>consents</td>
+<td>Member&rsquo;s consents (similar to <a href="#v3-member-consents-model">Member&rsquo;s consents JSON model</a>)</td>
 <td>JSON Object</td>
 </tr>
 <tr>

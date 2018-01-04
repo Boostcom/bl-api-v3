@@ -270,6 +270,10 @@ Errors format and strings are not yet stable and may change without further noti
     </span><span class="p">],</span><span class="w">
     </span><span class="s2">"language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"no"</span><span class="w">
   </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"consents"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"consent1"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"consent2"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
   </span><span class="s2">"sms_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"enabled"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"email_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hard_bounced"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"push_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"disabled"</span><span class="p">,</span><span class="w">
@@ -303,7 +307,7 @@ Errors format and strings are not yet stable and may change without further noti
 </tr>
 <tr>
 <td>consents</td>
-<td>[incoming]</td>
+<td>Member&rsquo;s consents JSON model (see below)</td>
 <td>JSON Object</td>
 </tr>
 <tr>
@@ -332,3 +336,15 @@ Errors format and strings are not yet stable and may change without further noti
 <td>string</td>
 </tr>
 </tbody></table>
+
+<h2 id="members-consents-json-model"><a name="v3-member-consents-model"></a> Member&rsquo;s consents JSON model</h2>
+
+<p>JSON model for consents. Keys can be dynamically created based on customer&rsquo;s need.</p>
+
+<p>It consists of: <code class="prettyprint">&#39;consent-slug&#39;: { status: &lt;boolean value&gt; }</code></p>
+
+<ul>
+<li>If status is <code class="prettyprint">true</code> - Member approved consent.</li>
+<li>If status is <code class="prettyprint">false</code> - Member disapproved consent.</li>
+<li>If you can find slug on Member: he/she haven&rsquo;t disapproved or approved consent.</li>
+</ul>
