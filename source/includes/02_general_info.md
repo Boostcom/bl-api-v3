@@ -174,3 +174,5 @@ It consists of: `'consent-slug': { status: <boolean value> }`
 * If status is `true` - Member approved consent.
 * If status is `false` - Member disapproved consent.
 * If you can find slug on Member: he/she haven't disapproved or approved consent.
+
+Available consents for Loyalty Club are described in [schema](#v3-loyalty-clubs-schema).
