@@ -1,5 +1,11 @@
 <h1 id="changelog">Changelog</h1>
 
+<h3 id="9-01-2017-piotr-witlicki">9.01.2017 | Piotr Świtlicki:</h3>
+
+<ul>
+<li>Update staging domain to: <code class="prettyprint">https://bl-api.bl-stg.boostcom.cc/</code></li>
+</ul>
+
 <h3 id="4-01-2017-jakub-kruczek">4.01.2017 | Jakub Kruczek:</h3>
 
 <ul>
