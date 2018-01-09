@@ -5,7 +5,7 @@
 
 Production: [https://bpc-api.boostcom.no](https://bpc-api.boostcom.no)
 
-Staging: [https://bpc-api.stg.boostcom.no](https://bpc-api.stg.boostcom.no)
+Staging: [https://bl-api.bl-stg.boostcom.cc](https://bl-api.bl-stg.boostcom.cc)
 
 ## Common HTTP error codes
 

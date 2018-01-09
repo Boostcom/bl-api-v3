@@ -1,5 +1,9 @@
 # Changelog
 
+### 9.01.2017 | Piotr Świtlicki:
+
+* Update staging domain to: `https://bl-api.bl-stg.boostcom.cc/`
+
 ### 4.01.2017 | Jakub Kruczek:
 
 * Add `consents` fields to schema and Member payload
