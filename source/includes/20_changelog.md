@@ -1,5 +1,9 @@
 # Changelog
 
+### 22.01.2017 | Jakub Kruczek:
+
+* Update staging domain to: `https://bpc-api.dev.boostcom.no/`
+
 ### 9.01.2017 | Piotr Świtlicki:
 
 * Update staging domain to: `https://bl-api.bl-stg.boostcom.cc/`
