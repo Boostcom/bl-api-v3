@@ -783,6 +783,155 @@ Requires <code>BL:Api:Schema:Get</code> permit
 
           <h1 id="endpoints-members">Endpoints &bull; Members</h1>
 
+<h2 id="index"><a name="v3-members-index"></a> Index</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members?per_page=100&amp;page=1"</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+  -H <span class="s1">'X-User-Agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>Returns hash structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"members"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">List</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">members</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="w"> </span><span class="s2">"General Info -&gt; Member JSON model"</span><span class="w">
+  </span><span class="s2">"pagination_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"total_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">2050</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"per_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total_pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"current_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"next_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"prev_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"is_first_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"is_last_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"is_out_of_range"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+  </span><span class="p">}</span><span class="w">  
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p><strong>GET</strong> <code class="prettyprint">api/v3/loyalty_clubs/:loyalty_club_slug/members?per_page=:per_page&amp;page=:page</code></p>
+
+<p>Returns paginated list of all Loyalty Club members, sorted by <code class="prettyprint">created_at ASC</code>.</p>
+
+<p>Every returned member is represented by <a href="#v3-member-model">Member model</a>.</p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required?</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>per_page</td>
+<td>integer</td>
+<td>no</td>
+<td>1000</td>
+<td>Number of results to be returned per request (1000 is the maximum)</td>
+</tr>
+<tr>
+<td>page_no</td>
+<td>integer</td>
+<td>no</td>
+<td>1</td>
+<td>Number of results page</td>
+</tr>
+</tbody></table>
+
+<h3 id="response-json-object">Response (JSON object)</h3>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>members</td>
+<td>Array<Member></td>
+<td>Array of <a href="#v3-member-model">Members</a></td>
+</tr>
+<tr>
+<td>pagination_info</td>
+<td>Object</td>
+<td></td>
+</tr>
+<tr>
+<td>pagination_info[&lsquo;total_count&rsquo;]</td>
+<td>integer</td>
+<td>Number of all available results</td>
+</tr>
+<tr>
+<td>pagination_info[&lsquo;per_page&rsquo;]</td>
+<td>integer</td>
+<td>Number of results returned per request</td>
+</tr>
+<tr>
+<td>pagination_info[&lsquo;total_pages&rsquo;]</td>
+<td>integer</td>
+<td>Number of all available pages</td>
+</tr>
+<tr>
+<td>pagination_info[&lsquo;current_page&rsquo;]</td>
+<td>integer</td>
+<td></td>
+</tr>
+<tr>
+<td>pagination_info[&lsquo;next_page&rsquo;]</td>
+<td>integer</td>
+<td>Next available page (<code class="prettyprint">null</code> when it&rsquo;s a last page)</td>
+</tr>
+<tr>
+<td>pagination_info[&lsquo;prev_page&rsquo;]</td>
+<td>integer</td>
+<td>Previous available page (<code class="prettyprint">null</code> when it&rsquo;s a first page)</td>
+</tr>
+<tr>
+<td>pagination_info[&lsquo;is_first_page&rsquo;]</td>
+<td>integer</td>
+<td></td>
+</tr>
+<tr>
+<td>pagination_info[&lsquo;is_last_page&rsquo;]</td>
+<td>boolean</td>
+<td></td>
+</tr>
+<tr>
+<td>pagination_info[&lsquo;is_out_of_range&rsquo;]</td>
+<td>boolean</td>
+<td>Is given <code class="prettyprint">per_page</code> param out of range?</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>BL:Api:Members:Index</code> permit
+</aside>
+
+<h3 id="error-responses">Error responses</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">400</code></td>
+<td>:per_page param exceeds the limit</td>
+</tr>
+</tbody></table>
+
+<!--- ############################################################################################################# --->
+
 <h2 id="get-public-info"><a name="v3-members-public-info"></a> Get public info</h2>
 
 <blockquote>
@@ -2613,6 +2762,12 @@ Requires <code>BL:Api:Members:OAuth</code> permit
 <!--- ############################################################################################################# --->
 
           <h1 id="changelog">Changelog</h1>
+
+<h3 id="29-01-2017-piotr-witlicki">29.01.2017 | Piotr Świtlicki:</h3>
+
+<ul>
+<li>Add <code class="prettyprint">GET /api/v3/loyalty_clubs/:loyalty_club_slug/members</code> (<a href="#v3-members-index">Members &bull; Index</a>)</li>
+</ul>
 
 <h3 id="22-01-2017-jakub-kruczek">22.01.2017 | Jakub Kruczek:</h3>
 
