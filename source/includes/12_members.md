@@ -1,5 +1,78 @@
 # Endpoints &bull; Members
 
+## <a name="v3-members-index"></a> Index
+
+> Example:
+
+```shell
+curl "https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members?per_page=100&page=1" \
+  -H 'Content-Type: application/json' \
+  -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+  -H 'X-Product-Name: default' \
+  -H 'X-User-Agent: CURL manual test'
+```
+
+> Returns hash structured like this:
+
+```json
+{
+  "members": [], // List of members - See "General Info -> Member JSON model"
+  "pagination_info": {
+    "total_count": 2050,
+    "per_page": 1000,
+    "total_pages": 3,
+    "current_page": 1,
+    "next_page": 2,
+    "prev_page": null,
+    "is_first_page": true,
+    "is_last_page": false,
+    "is_out_of_range": false
+  }  
+}
+
+```
+
+**GET** `api/v3/loyalty_clubs/:loyalty_club_slug/members?per_page=:per_page&page=:page`
+
+Returns paginated list of all Loyalty Club members, sorted by `created_at ASC`.
+
+Every returned member is represented by [Member model](#v3-member-model).
+
+### Query Parameters
+
+Parameter | Type | Required? | Default | Description
+--------- | ----------- | ----------- | --------- | -----------
+per_page | integer | no | 1000 | Number of results to be returned per request (1000 is the maximum)
+page_no | integer | no | 1 | Number of results page
+
+### Response (JSON object)
+
+Key | Type | Description
+--------- | --------- | ---------
+members | Array<Member> | Array of [Members](#v3-member-model)
+pagination_info | Object |
+pagination_info['total_count'] | integer | Number of all available results
+pagination_info['per_page'] | integer | Number of results returned per request
+pagination_info['total_pages'] | integer | Number of all available pages
+pagination_info['current_page'] | integer |
+pagination_info['next_page'] | integer | Next available page (`null` when it's a last page)
+pagination_info['prev_page'] | integer | Previous available page (`null` when it's a first page)
+pagination_info['is_first_page'] | integer | 
+pagination_info['is_last_page'] | boolean | 
+pagination_info['is_out_of_range'] | boolean | Is given `per_page` param out of range?
+
+<aside class="notice">
+Requires <code>BL:Api:Members:Index</code> permit
+</aside>
+
+### Error responses
+
+Status | Reason
+--------- | ----------- 
+`400` | :per_page param exceeds the limit
+
+<!--- ############################################################################################################# --->
+
 ## <a name="v3-members-public-info"></a> Get public info
 
 > Example:

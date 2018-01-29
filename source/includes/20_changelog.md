@@ -1,5 +1,9 @@
 # Changelog
 
+### 29.01.2017 | Piotr Świtlicki:
+
+* Add `GET /api/v3/loyalty_clubs/:loyalty_club_slug/members` ([Members &bull; Index](#v3-members-index))
+
 ### 22.01.2017 | Jakub Kruczek:
 
 * Update staging domain to: `https://bpc-api.dev.boostcom.no/`
