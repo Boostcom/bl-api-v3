@@ -16,7 +16,7 @@ curl "https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members?per
 
 ```json
 {
-  "members": [], // List of members - See "General Info -> Member JSON model"
+  "members": [], // List of members - See: "General Info -> Member JSON model"
   "pagination_info": {
     "total_count": 2050,
     "per_page": 1000,
