@@ -44,6 +44,7 @@ Parameter | Type | Required? | Default | Description
 --------- | ----------- | ----------- | --------- | -----------
 per_page | integer | no | 1000 | Number of results to be returned per request (1000 is the maximum)
 page_no | integer | no | 1 | Number of results page
+ids | Array<integer> | no | [] | IDs of members to return 
 
 ### Response (JSON object)
 

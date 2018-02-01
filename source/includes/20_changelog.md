@@ -1,5 +1,10 @@
 # Changelog
 
+
+### 01.02.2017 | Piotr Świtlicki:
+
+* Add `ids` query param to `GET /api/v3/loyalty_clubs/:loyalty_club_slug/members` ([Members &bull; Index](#v3-members-index))
+
 ### 29.01.2017 | Piotr Świtlicki:
 
 * Add `GET /api/v3/loyalty_clubs/:loyalty_club_slug/members` ([Members &bull; Index](#v3-members-index))
