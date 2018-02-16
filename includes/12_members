@@ -5,7 +5,7 @@
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members?per_page=100&amp;page=1"</span> <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members?per_page=100&amp;page=1&amp;ids[]=1&amp;ids[]=2"</span> <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
   -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
@@ -30,7 +30,7 @@
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
-<p><strong>GET</strong> <code class="prettyprint">api/v3/loyalty_clubs/:loyalty_club_slug/members?per_page=:per_page&amp;page=:page</code></p>
+<p><strong>GET</strong> <code class="prettyprint">api/v3/loyalty_clubs/:loyalty_club_slug/members?per_page=:per_page&amp;page=:page&amp;ids[]=1&amp;ids[]=2</code></p>
 
 <p>Returns paginated list of all Loyalty Club members, sorted by <code class="prettyprint">created_at ASC</code>.</p>
 
@@ -65,7 +65,7 @@
 <td>ids</td>
 <td>Array<integer></td>
 <td>no</td>
-<td>[]</td>
+<td>null</td>
 <td>IDs of members to return</td>
 </tr>
 </tbody></table>
