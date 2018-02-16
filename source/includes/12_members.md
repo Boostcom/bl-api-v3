@@ -5,7 +5,7 @@
 > Example:
 
 ```shell
-curl "https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members?per_page=100&page=1" \
+curl "https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members?per_page=100&page=1&ids[]=1&ids[]=2" \
   -H 'Content-Type: application/json' \
   -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
   -H 'X-Product-Name: default' \
@@ -32,7 +32,7 @@ curl "https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members?per
 
 ```
 
-**GET** `api/v3/loyalty_clubs/:loyalty_club_slug/members?per_page=:per_page&page=:page`
+**GET** `api/v3/loyalty_clubs/:loyalty_club_slug/members?per_page=:per_page&page=:page&ids[]=1&ids[]=2`
 
 Returns paginated list of all Loyalty Club members, sorted by `created_at ASC`.
 
@@ -44,7 +44,7 @@ Parameter | Type | Required? | Default | Description
 --------- | ----------- | ----------- | --------- | -----------
 per_page | integer | no | 1000 | Number of results to be returned per request (1000 is the maximum)
 page_no | integer | no | 1 | Number of results page
-ids | Array<integer> | no | [] | IDs of members to return 
+ids | Array<integer> | no | null | IDs of members to return 
 
 ### Response (JSON object)
 
