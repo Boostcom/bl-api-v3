@@ -1,5 +1,11 @@
 <h1 id="changelog">Changelog</h1>
 
+<h3 id="01-02-2017-piotr-witlicki">01.02.2017 | Piotr Świtlicki:</h3>
+
+<ul>
+<li>Add <code class="prettyprint">ids</code> query param to <code class="prettyprint">GET /api/v3/loyalty_clubs/:loyalty_club_slug/members</code> (<a href="#v3-members-index">Members &bull; Index</a>)</li>
+</ul>
+
 <h3 id="29-01-2017-piotr-witlicki">29.01.2017 | Piotr Świtlicki:</h3>
 
 <ul>
