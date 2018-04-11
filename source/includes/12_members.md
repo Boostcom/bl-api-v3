@@ -131,6 +131,97 @@ Status | Reason
 
 <!--- ############################################################################################################# --->
 
+## <a name="v3-members-person-id"></a> Get person id
+
+> Example:
+
+```shell
+curl "https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members/:id/person_id" \
+  -H 'Content-Type: application/json' \
+  -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+  -H 'X-Product-Name: default' \
+  -H 'X-User-Agent: CURL manual test'
+```
+
+> Returns hash structured like this:
+
+```json
+{
+  "source": "storage", 
+  "person_id": 92 
+}
+```
+
+**GET** `api/v3/loyalty_clubs/:loyalty_club_slug/members/:id/person_id`
+
+**GET** `api/v3/loyalty_clubs/:loyalty_club_slug/members/by_msisdn/:msisdn/person_id`
+
+**GET** `api/v3/loyalty_clubs/:loyalty_club_slug/members/by_email/:email/person_id`
+
+Returns `person_id` for given member. Please note that `person_id` cannot be preset in member payload and will be silently ignored. Also, it cannot be updated.
+
+> There are 3 possible successful responses:
+
+> If member currently exists in database:
+
+```json
+{
+  "success": true,
+  "source": "db", 
+  "person_id": 92 
+}
+```
+
+
+> If member does not exist but was deleted in last 30 days:
+
+```json
+{
+  "success": true,
+  "source": "storage", 
+  "person_id": 92 
+}
+```
+
+> If member does not exist and never existed or did not exist in last 30 days:
+
+```json
+{
+  "success": true,
+  "source": "not_found", 
+  "person_id": null 
+}
+```
+
+### URL Parameters
+
+Parameter | Description | Type
+--------- | ----------- | ------
+id | Member's ID | integer
+msisdn | Member's msisdn | string (format as defined [here](#msisdn-member-identifier) - example: `4740485124`)
+email | Member's email | string (email)
+
+### Response (JSON object)
+
+Key | Type | Description
+--------- | --------- | ---------
+success | boolean | If query was successful?
+source | string | Source of `person_id` (possible values are: `not_found`, `db`, `storage`)
+person_id | integer | Member's `person_id`
+
+<aside class="notice">
+Requires <code>BL:Api:Members:Check</code> permit
+</aside>
+
+### Error responses
+
+Status | Reason
+--------- | ----------- 
+`422` | Invalid MSISDN param
+
+<!--- ############################################################################################################# --->
+
+
 ## <a name="v3-members-get"></a> Get
 
 > Example:

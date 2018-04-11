@@ -1,5 +1,9 @@
 # Changelog
 
+### 11.04.2018 | Dominik Halat
+
+* Add `person_id` to `Member`
+* Add new endpoint `GET /api/v3/loyalty_clubs/:loyalty_club_slug/members/person_id` ([Members &bull; Index](#v3-members-index))
 
 ### 01.02.2017 | Piotr Świtlicki:
 

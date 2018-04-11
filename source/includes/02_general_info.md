@@ -147,7 +147,8 @@ duplicated_email | The email was duplicated in community
   "email_status": "hard_bounced",
   "push_status": "disabled",
   "created_at": "2017-01-19T10:07:08.336+01:00",
-  "updated_at": "2017-04-03T09:35:19.313+02:00"
+  "updated_at": "2017-04-03T09:35:19.313+02:00",
+  "person_id": 99
 }
 ```
 
@@ -164,6 +165,7 @@ email_status | Status of email channel | string
 push_status | Status of push channel | string
 created_at | Time when the user was firstly created | string
 updated_at | Time when the user was last updated | string
+person_id | Unique Member's identifier (set internally) | string
 
 ## <a name="v3-member-consents-model"></a> Member's consents JSON model
 
