@@ -516,7 +516,8 @@ Errors format and strings are not yet stable and may change without further noti
   </span><span class="s2">"email_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hard_bounced"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"push_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"disabled"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-19T10:07:08.336+01:00"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-04-03T09:35:19.313+02:00"</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-04-03T09:35:19.313+02:00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"person_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">99</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Standard member JSON model returned from many API endpoints.</p>
@@ -571,6 +572,11 @@ Errors format and strings are not yet stable and may change without further noti
 <tr>
 <td>updated_at</td>
 <td>Time when the user was last updated</td>
+<td>string</td>
+</tr>
+<tr>
+<td>person_id</td>
+<td>Unique Member&rsquo;s identifier (set internally)</td>
 <td>string</td>
 </tr>
 </tbody></table>
@@ -1010,6 +1016,134 @@ Requires <code>BL:Api:Members:Index</code> permit
 <td>can_login</td>
 <td>boolean</td>
 <td>Is this member able to sign?</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>BL:Api:Members:Check</code> permit
+</aside>
+
+<h3 id="error-responses">Error responses</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">422</code></td>
+<td>Invalid MSISDN param</td>
+</tr>
+</tbody></table>
+
+<!--- ############################################################################################################# --->
+
+<h2 id="get-person-id"><a name="v3-members-person-id"></a> Get person id</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members/:id/person_id"</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+  -H <span class="s1">'X-User-Agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>Returns hash structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"storage"</span><span class="p">,</span><span class="w"> 
+  </span><span class="s2">"person_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">92</span><span class="w"> 
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>GET</strong> <code class="prettyprint">api/v3/loyalty_clubs/:loyalty_club_slug/members/:id/person_id</code></p>
+
+<p><strong>GET</strong> <code class="prettyprint">api/v3/loyalty_clubs/:loyalty_club_slug/members/by_msisdn/:msisdn/person_id</code></p>
+
+<p><strong>GET</strong> <code class="prettyprint">api/v3/loyalty_clubs/:loyalty_club_slug/members/by_email/:email/person_id</code></p>
+
+<p>Returns <code class="prettyprint">person_id</code> for given member. Please note that <code class="prettyprint">person_id</code> cannot be preset in member payload and will be silently ignored. Also, it cannot be updated.</p>
+
+<blockquote>
+<p>There are 3 possible successful responses:</p>
+
+<p>If member currently exists in database:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"db"</span><span class="p">,</span><span class="w"> 
+  </span><span class="s2">"person_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">92</span><span class="w"> 
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>If member does not exist but was deleted in last 30 days:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"storage"</span><span class="p">,</span><span class="w"> 
+  </span><span class="s2">"person_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">92</span><span class="w"> 
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>If member does not exist and never existed or did not exist in last 30 days:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"not_found"</span><span class="p">,</span><span class="w"> 
+  </span><span class="s2">"person_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w"> 
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Member&rsquo;s ID</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>msisdn</td>
+<td>Member&rsquo;s msisdn</td>
+<td>string (format as defined <a href="#msisdn-member-identifier">here</a> - example: <code class="prettyprint">4740485124</code>)</td>
+</tr>
+<tr>
+<td>email</td>
+<td>Member&rsquo;s email</td>
+<td>string (email)</td>
+</tr>
+</tbody></table>
+
+<h3 id="response-json-object">Response (JSON object)</h3>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>success</td>
+<td>boolean</td>
+<td>If query was successful?</td>
+</tr>
+<tr>
+<td>source</td>
+<td>string</td>
+<td>Source of <code class="prettyprint">person_id</code> (possible values are: <code class="prettyprint">not_found</code>, <code class="prettyprint">db</code>, <code class="prettyprint">storage</code>)</td>
+</tr>
+<tr>
+<td>person_id</td>
+<td>integer</td>
+<td>Member&rsquo;s <code class="prettyprint">person_id</code></td>
 </tr>
 </tbody></table>
 
@@ -2769,6 +2903,13 @@ Requires <code>BL:Api:Members:OAuth</code> permit
 <!--- ############################################################################################################# --->
 
           <h1 id="changelog">Changelog</h1>
+
+<h3 id="11-04-2018-dominik-halat">11.04.2018 | Dominik Halat</h3>
+
+<ul>
+<li>Add <code class="prettyprint">person_id</code> to <code class="prettyprint">Member</code></li>
+<li>Add new endpoint <code class="prettyprint">GET /api/v3/loyalty_clubs/:loyalty_club_slug/members/person_id</code> (<a href="#v3-members-index">Members &bull; Index</a>)</li>
+</ul>
 
 <h3 id="01-02-2017-piotr-witlicki">01.02.2017 | Piotr Świtlicki:</h3>
 

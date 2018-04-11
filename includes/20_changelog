@@ -1,5 +1,12 @@
 <h1 id="changelog">Changelog</h1>
 
+<h3 id="11-04-2018-dominik-halat">11.04.2018 | Dominik Halat</h3>
+
+<ul>
+<li>Add <code class="prettyprint">person_id</code> to <code class="prettyprint">Member</code></li>
+<li>Add new endpoint <code class="prettyprint">GET /api/v3/loyalty_clubs/:loyalty_club_slug/members/person_id</code> (<a href="#v3-members-index">Members &bull; Index</a>)</li>
+</ul>
+
 <h3 id="01-02-2017-piotr-witlicki">01.02.2017 | Piotr Świtlicki:</h3>
 
 <ul>
