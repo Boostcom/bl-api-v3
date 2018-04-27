@@ -118,3 +118,78 @@ Properties of each member must conform to the defined schema.</p>
 <aside class="notice">
 Requires <code>BL:Api:Schema:Get</code> permit
 </aside>
+
+<h2 id="list-products"><a name="v3-loyalty-clubs-products"></a> List products</h2>
+
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/products"</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+  -H <span class="s1">'X-User-Agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>When successful, the above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Webforms"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"webforms"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"filtered_member_properties"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"msisdn"</span><span class="p">,</span><span class="w"> </span><span class="s2">"email"</span><span class="p">,</span><span class="w"> </span><span class="s2">"first_name"</span><span class="p">,</span><span class="w"> </span><span class="s2">"last_name"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"subproducts"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="s2">"is_webform"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Default"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"default"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"filtered_member_properties"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="s2">"subproducts"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="s2">"is_webform"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p><strong>GET</strong> <code class="prettyprint">api/v3/loyalty_clubs/:loyalty_club_slug/products</code></p>
+
+<p>Returns list of Products (AKA Channels, AKA Sources) defined for Loyalty Club.</p>
+
+<h3 id="product-response-model-in-json-array">Product response model (in JSON array)</h3>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>Product name</td>
+<td>string</td>
+</tr>
+<tr>
+<td>slug</td>
+<td>Product slug</td>
+<td>string</td>
+</tr>
+<tr>
+<td>filtered_member_properties</td>
+<td>Member that are available to access (CRUD) for this product. When empty, all properties are available.</td>
+<td>Array<string></td>
+</tr>
+<tr>
+<td>subproducts</td>
+<td>Subproducts/Subchannels available for the product</td>
+<td>Array<string></td>
+</tr>
+<tr>
+<td>is_webform</td>
+<td>Is the product also a webform?</td>
+<td>boolean</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>BL:Api:Products:Index</code> permit
+</aside>

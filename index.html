@@ -515,6 +515,8 @@ Errors format and strings are not yet stable and may change without further noti
   </span><span class="s2">"sms_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"enabled"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"email_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hard_bounced"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"push_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"disabled"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"optin_channel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"webforms"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"optin_subchannel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"campaign-10-2017"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-19T10:07:08.336+01:00"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-04-03T09:35:19.313+02:00"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"person_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">99</span><span class="w">
@@ -562,6 +564,16 @@ Errors format and strings are not yet stable and may change without further noti
 <tr>
 <td>push_status</td>
 <td>Status of push channel</td>
+<td>string</td>
+</tr>
+<tr>
+<td>optin_channel</td>
+<td>Channel (<code class="prettyprint">X-Product-Name</code> header) which had been used to register member</td>
+<td>string</td>
+</tr>
+<tr>
+<td>optin_subchannel</td>
+<td>Subchannel (<code class="prettyprint">X-Subproduct-Name</code> header) which had been used to register member</td>
 <td>string</td>
 </tr>
 <tr>
@@ -787,9 +799,84 @@ Properties of each member must conform to the defined schema.</p>
 Requires <code>BL:Api:Schema:Get</code> permit
 </aside>
 
+<h2 id="list-products"><a name="v3-loyalty-clubs-products"></a> List products</h2>
+
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/products"</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+  -H <span class="s1">'X-User-Agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>When successful, the above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Webforms"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"webforms"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"filtered_member_properties"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"msisdn"</span><span class="p">,</span><span class="w"> </span><span class="s2">"email"</span><span class="p">,</span><span class="w"> </span><span class="s2">"first_name"</span><span class="p">,</span><span class="w"> </span><span class="s2">"last_name"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"subproducts"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="s2">"is_webform"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Default"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"default"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"filtered_member_properties"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="s2">"subproducts"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="s2">"is_webform"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p><strong>GET</strong> <code class="prettyprint">api/v3/loyalty_clubs/:loyalty_club_slug/products</code></p>
+
+<p>Returns list of Products (AKA Channels, AKA Sources) defined for Loyalty Club.</p>
+
+<h3 id="product-response-model-in-json-array">Product response model (in JSON array)</h3>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>Product name</td>
+<td>string</td>
+</tr>
+<tr>
+<td>slug</td>
+<td>Product slug</td>
+<td>string</td>
+</tr>
+<tr>
+<td>filtered_member_properties</td>
+<td>Member that are available to access (CRUD) for this product. When empty, all properties are available.</td>
+<td>Array<string></td>
+</tr>
+<tr>
+<td>subproducts</td>
+<td>Subproducts/Subchannels available for the product</td>
+<td>Array<string></td>
+</tr>
+<tr>
+<td>is_webform</td>
+<td>Is the product also a webform?</td>
+<td>boolean</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>BL:Api:Products:Index</code> permit
+</aside>
+
           <h1 id="endpoints-members">Endpoints &bull; Members</h1>
 
-<h2 id="index"><a name="v3-members-index"></a> Index</h2>
+<h2 id="list"><a name="v3-members-index"></a> List</h2>
 
 <blockquote>
 <p>Example:</p>
@@ -1483,12 +1570,15 @@ curl -X PUT <span class="se">\</span>
 
 <p>It is intended for partial updates:
 * not given properties are neither deleted nor overwritten,
-* not given consents won&rsquo;t be changed in any way.</p>
+* not given attributes (like consents) won&rsquo;t be changed in any way.</p>
 
-<p>If deleting properties attribute is intended, it&rsquo;s value should be sent as <code class="prettyprint">null</code>.</p>
+<p>If deleting properties is intended, their value should be sent as <code class="prettyprint">null</code>.</p>
 
-<p>This endpoint may return validation errors (<code class="prettyprint">422</code>) because of current member data invalidity 
-as loyalty club schema may get changed over time and make existing users invalid.</p>
+<p>This endpoint may return validation errors (<code class="prettyprint">422</code>) even for current member properties. 
+That&rsquo;s because loyalty club schema may get changed over time which results in invalidating existing users.</p>
+
+<p>To bypass such validation errors, you may provide <code class="prettyprint">validate_partially: true</code> param which will validate and update only 
+attributes that were provided in payload. </p>
 
 <h3 id="url-parameters">URL Parameters</h3>
 
@@ -1513,37 +1603,50 @@ as loyalty club schema may get changed over time and make existing users invalid
 <th>Parameter</th>
 <th>Description</th>
 <th>Type</th>
+<th>Default</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>properties</td>
 <td>JSON with properties for member</td>
 <td>JSON Object</td>
+<td>null</td>
 </tr>
 <tr>
 <td>consents</td>
 <td>Member&rsquo;s consents (similar to <a href="#v3-member-consents-model">Member&rsquo;s consents JSON model</a>)</td>
 <td>JSON Object</td>
+<td>null</td>
 </tr>
 <tr>
 <td>password</td>
 <td>Member&rsquo;s password</td>
 <td>string</td>
+<td>null</td>
 </tr>
 <tr>
 <td>sms_enabled</td>
 <td>Should SMS channel be enabled for member?</td>
 <td>Boolean</td>
+<td>null</td>
 </tr>
 <tr>
 <td>email_enabled</td>
 <td>Should email channel be enabled for member?</td>
 <td>Boolean</td>
+<td>null</td>
 </tr>
 <tr>
 <td>push_enabled</td>
 <td>Should push channel will be enabled for member?</td>
 <td>Boolean</td>
+<td>null</td>
+</tr>
+<tr>
+<td>validate_partially</td>
+<td>Should only provided data be validated?</td>
+<td>Boolean</td>
+<td>false</td>
 </tr>
 </tbody></table>
 
@@ -2408,12 +2511,10 @@ Requires <code>BL:Api:Members:OAuth:Get</code> permit.
 
 <p><strong>PUT</strong> <code class="prettyprint">api/v3/loyalty_clubs/:loyalty_club_slug/members/me</code></p>
 
-<p>Updates &ldquo;current&rdquo; member - the one that given Authorization token has been issued for.</p>
+<p>Updates &ldquo;current&rdquo; member - the one that given Authorization token has been issued for.
+As a member-related action, it requires member authorization. See <a href="#v3-oauth2">OAuth</a>.</p>
 
-<p>As a member-related action, it requires member authorization. See <a href="#v3-oauth2">OAuth</a>.</p>
-
-<p>This endpoint may return validation errors (<code class="prettyprint">422</code>) because of current member data invalidity 
-as loyalty club schema may get changed over time and make existing users invalid.   </p>
+<p>Besides that OAuth context, it works exactly the same as <a href="#v3-members-update">Members &bull; Update</a>. </p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -2902,25 +3003,184 @@ Requires <code>BL:Api:Members:OAuth</code> permit
 
 <!--- ############################################################################################################# --->
 
+          <h1 id="endpoints-push-notifications">Endpoints &bull; Push Notifications</h1>
+
+<h2 id="create"><a name="v3-push-notification-create"></a> Create</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/push_notifications"</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+  -H <span class="s1">'X-User-Agent: CURL manual test'</span> <span class="se">\</span>
+  -d <span class="s1">'
+    {
+      "notifications":[
+        {
+          "id":"push_1",
+          "member_ids":[1, 2],
+          "notification":{ "title": "Hey man", "body": "Great offer for you!" }
+        },
+        {
+          "id": "push_2",
+          "member_ids": [3],
+          "shortening_enabled": true,
+          "notification": { "body":"Great offer!" }
+        }
+      ]
+    }
+  '</span>
+</code></pre>
+<blockquote>
+<p>When successful (200), returns a hash structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"push_1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"results"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w"> </span><span class="s2">"member_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sent"</span><span class="w"> </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w"> </span><span class="s2">"member_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"no_device"</span><span class="w"> </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"push_2"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"results"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w"> </span><span class="s2">"member_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sent"</span><span class="w"> </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+
+</span></code></pre>
+<blockquote>
+<p>When payload is invalid (422), returns a hash structured like this:</p>
+</blockquote>
+<pre class="highlight ruby tab-ruby"><code><span class="p">{</span>
+    <span class="s2">"error"</span><span class="p">:</span> <span class="s2">"At least one notification is invalid"</span><span class="p">,</span>
+    <span class="s2">"notifications_errors"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"notifications[0]"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">"notification"</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">"can't be blank"</span>
+            <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="s2">"notifications[1]"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">"notification"</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">"can't be blank"</span>
+            <span class="p">],</span>
+            <span class="s2">"user_assigned_id"</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">"must be a String (but is a Integer)"</span>
+            <span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<p><strong>POST</strong> <code class="prettyprint">api/v3/loyalty_clubs/:loyalty_club_slug/push_notifications</code></p>
+
+<p>Sends notifications (100 max) to target members.</p>
+
+<p>The notifications are sent from our systems with Firebase API, so for more information on <code class="prettyprint">notification</code> and <code class="prettyprint">data</code> parameters, see <a href="https://firebase.google.com/docs/cloud-messaging/http-server-ref">Firebase docs</a> </p>
+
+<p>Not all target members may be eligible for receiving a push notification (or may not actually exist), so for every recipient 
+in every notification a result (<code class="prettyprint">sent|no_device</code>) is returned - see an example on the right</p>
+
+<h3 id="post-parameters-json-array">POST Parameters (JSON array)</h3>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>notifications</td>
+<td>array</td>
+<td>List of notifications to send</td>
+</tr>
+<tr>
+<td>notifications[][&lsquo;id&rsquo;]</td>
+<td>string</td>
+<td>ID of message. It&rsquo;s value is up to you, but it&rsquo;s suggested <br /> to make it unique so their may be distinguishable for us and for you</td>
+</tr>
+<tr>
+<td>notifications[][&lsquo;member_ids&rsquo;]</td>
+<td>array</td>
+<td>IDs of members the notification should be sent to</td>
+</tr>
+<tr>
+<td>notifications[][&lsquo;shortening_enabled&rsquo;]</td>
+<td>bool</td>
+<td>Should links in payload get shortened with Boostcom Shortener?</td>
+</tr>
+<tr>
+<td>notifications[][&lsquo;notification&rsquo;]</td>
+<td>object</td>
+<td>Predefined, user-visible key-value pairs of the notification payload. <br /> For more information, see <a href="https://firebase.google.com/docs/cloud-messaging/http-server-ref#notification-payload-support">Firebase docs</a></td>
+</tr>
+<tr>
+<td>notifications[][&lsquo;notification&rsquo;][&lsquo;body&rsquo;]</td>
+<td>string</td>
+<td>Body of push notification</td>
+</tr>
+<tr>
+<td>notifications[][&lsquo;notification&rsquo;][&lsquo;title&rsquo;]</td>
+<td>string</td>
+<td>Title to be displayed in push notification</td>
+</tr>
+<tr>
+<td>notifications[][&lsquo;data&rsquo;]</td>
+<td>object</td>
+<td>Custom key-value pairs of the message&rsquo;s payload. <br /> For more information, see <a href="https://firebase.google.com/docs/cloud-messaging/http-server-ref#data">Firebase docs</a></td>
+</tr>
+</tbody></table>
+
+<h3 id="error-responses">Error responses</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">422</code></td>
+<td>Invalid payload (see example on the right)</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>BL:Api:PushNotifications:Send</code> permit
+</aside>
+
           <h1 id="changelog">Changelog</h1>
+
+<h3 id="27-04-2018-piotr-witlicki">27.04.2018 | Piotr Świtlicki:</h3>
+
+<ul>
+<li>Add <code class="prettyprint">channel</code> and <code class="prettyprint">subchannel</code> attributes to <code class="prettyprint">Member</code></li>
+<li>Add <code class="prettyprint">validate_partially</code> param in (<a href="v3-members-update">Members &bull; Update</a> and (<a href="#v3-me-update">Me &bull; Update</a></li>
+<li>Add <code class="prettyprint">GET /api/v3/loyalty_clubs/:loyalty_club_slug/products</code> (<a href="#v3-loyalty-clubs-products">Loyalty Clubs &bull; List Products</a>)</li>
+<li>Add <code class="prettyprint">POST /api/v3/loyalty_clubs/:loyalty_club_slug/push_notifications</code> (<a href="#v3-push-notification-create">Push Notifications &bull; Create</a>)</li>
+</ul>
 
 <h3 id="11-04-2018-dominik-halat">11.04.2018 | Dominik Halat</h3>
 
 <ul>
 <li>Add <code class="prettyprint">person_id</code> to <code class="prettyprint">Member</code></li>
-<li>Add new endpoint <code class="prettyprint">GET /api/v3/loyalty_clubs/:loyalty_club_slug/members/person_id</code> (<a href="#v3-members-index">Members &bull; Index</a>)</li>
+<li>Add new endpoint <code class="prettyprint">GET /api/v3/loyalty_clubs/:loyalty_club_slug/members/person_id</code> (<a href="#v3-members-index">Members &bull; List</a>)</li>
 </ul>
 
 <h3 id="01-02-2017-piotr-witlicki">01.02.2017 | Piotr Świtlicki:</h3>
 
 <ul>
-<li>Add <code class="prettyprint">ids</code> query param to <code class="prettyprint">GET /api/v3/loyalty_clubs/:loyalty_club_slug/members</code> (<a href="#v3-members-index">Members &bull; Index</a>)</li>
+<li>Add <code class="prettyprint">ids</code> query param to <code class="prettyprint">GET /api/v3/loyalty_clubs/:loyalty_club_slug/members</code> (<a href="#v3-members-index">Members &bull; List</a>)</li>
 </ul>
 
 <h3 id="29-01-2017-piotr-witlicki">29.01.2017 | Piotr Świtlicki:</h3>
 
 <ul>
-<li>Add <code class="prettyprint">GET /api/v3/loyalty_clubs/:loyalty_club_slug/members</code> (<a href="#v3-members-index">Members &bull; Index</a>)</li>
+<li>Add <code class="prettyprint">GET /api/v3/loyalty_clubs/:loyalty_club_slug/members</code> (<a href="#v3-members-index">Members &bull; List</a>)</li>
 </ul>
 
 <h3 id="22-01-2017-jakub-kruczek">22.01.2017 | Jakub Kruczek:</h3>

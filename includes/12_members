@@ -1,6 +1,6 @@
 <h1 id="endpoints-members">Endpoints &bull; Members</h1>
 
-<h2 id="index"><a name="v3-members-index"></a> Index</h2>
+<h2 id="list"><a name="v3-members-index"></a> List</h2>
 
 <blockquote>
 <p>Example:</p>
@@ -694,12 +694,15 @@ curl -X PUT <span class="se">\</span>
 
 <p>It is intended for partial updates:
 * not given properties are neither deleted nor overwritten,
-* not given consents won&rsquo;t be changed in any way.</p>
+* not given attributes (like consents) won&rsquo;t be changed in any way.</p>
 
-<p>If deleting properties attribute is intended, it&rsquo;s value should be sent as <code class="prettyprint">null</code>.</p>
+<p>If deleting properties is intended, their value should be sent as <code class="prettyprint">null</code>.</p>
 
-<p>This endpoint may return validation errors (<code class="prettyprint">422</code>) because of current member data invalidity 
-as loyalty club schema may get changed over time and make existing users invalid.</p>
+<p>This endpoint may return validation errors (<code class="prettyprint">422</code>) even for current member properties. 
+That&rsquo;s because loyalty club schema may get changed over time which results in invalidating existing users.</p>
+
+<p>To bypass such validation errors, you may provide <code class="prettyprint">validate_partially: true</code> param which will validate and update only 
+attributes that were provided in payload. </p>
 
 <h3 id="url-parameters">URL Parameters</h3>
 
@@ -724,37 +727,50 @@ as loyalty club schema may get changed over time and make existing users invalid
 <th>Parameter</th>
 <th>Description</th>
 <th>Type</th>
+<th>Default</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>properties</td>
 <td>JSON with properties for member</td>
 <td>JSON Object</td>
+<td>null</td>
 </tr>
 <tr>
 <td>consents</td>
 <td>Member&rsquo;s consents (similar to <a href="#v3-member-consents-model">Member&rsquo;s consents JSON model</a>)</td>
 <td>JSON Object</td>
+<td>null</td>
 </tr>
 <tr>
 <td>password</td>
 <td>Member&rsquo;s password</td>
 <td>string</td>
+<td>null</td>
 </tr>
 <tr>
 <td>sms_enabled</td>
 <td>Should SMS channel be enabled for member?</td>
 <td>Boolean</td>
+<td>null</td>
 </tr>
 <tr>
 <td>email_enabled</td>
 <td>Should email channel be enabled for member?</td>
 <td>Boolean</td>
+<td>null</td>
 </tr>
 <tr>
 <td>push_enabled</td>
 <td>Should push channel will be enabled for member?</td>
 <td>Boolean</td>
+<td>null</td>
+</tr>
+<tr>
+<td>validate_partially</td>
+<td>Should only provided data be validated?</td>
+<td>Boolean</td>
+<td>false</td>
 </tr>
 </tbody></table>
 

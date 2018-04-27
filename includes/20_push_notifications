@@ -1,0 +1,149 @@
+<h1 id="endpoints-push-notifications">Endpoints &bull; Push Notifications</h1>
+
+<h2 id="create"><a name="v3-push-notification-create"></a> Create</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/push_notifications"</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+  -H <span class="s1">'X-User-Agent: CURL manual test'</span> <span class="se">\</span>
+  -d <span class="s1">'
+    {
+      "notifications":[
+        {
+          "id":"push_1",
+          "member_ids":[1, 2],
+          "notification":{ "title": "Hey man", "body": "Great offer for you!" }
+        },
+        {
+          "id": "push_2",
+          "member_ids": [3],
+          "shortening_enabled": true,
+          "notification": { "body":"Great offer!" }
+        }
+      ]
+    }
+  '</span>
+</code></pre>
+<blockquote>
+<p>When successful (200), returns a hash structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"push_1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"results"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w"> </span><span class="s2">"member_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sent"</span><span class="w"> </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w"> </span><span class="s2">"member_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"no_device"</span><span class="w"> </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"push_2"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"results"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w"> </span><span class="s2">"member_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sent"</span><span class="w"> </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+
+</span></code></pre>
+<blockquote>
+<p>When payload is invalid (422), returns a hash structured like this:</p>
+</blockquote>
+<pre class="highlight ruby tab-ruby"><code><span class="p">{</span>
+    <span class="s2">"error"</span><span class="p">:</span> <span class="s2">"At least one notification is invalid"</span><span class="p">,</span>
+    <span class="s2">"notifications_errors"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"notifications[0]"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">"notification"</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">"can't be blank"</span>
+            <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="s2">"notifications[1]"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">"notification"</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">"can't be blank"</span>
+            <span class="p">],</span>
+            <span class="s2">"user_assigned_id"</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">"must be a String (but is a Integer)"</span>
+            <span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<p><strong>POST</strong> <code class="prettyprint">api/v3/loyalty_clubs/:loyalty_club_slug/push_notifications</code></p>
+
+<p>Sends notifications (100 max) to target members.</p>
+
+<p>The notifications are sent from our systems with Firebase API, so for more information on <code class="prettyprint">notification</code> and <code class="prettyprint">data</code> parameters, see <a href="https://firebase.google.com/docs/cloud-messaging/http-server-ref">Firebase docs</a> </p>
+
+<p>Not all target members may be eligible for receiving a push notification (or may not actually exist), so for every recipient 
+in every notification a result (<code class="prettyprint">sent|no_device</code>) is returned - see an example on the right</p>
+
+<h3 id="post-parameters-json-array">POST Parameters (JSON array)</h3>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>notifications</td>
+<td>array</td>
+<td>List of notifications to send</td>
+</tr>
+<tr>
+<td>notifications[][&lsquo;id&rsquo;]</td>
+<td>string</td>
+<td>ID of message. It&rsquo;s value is up to you, but it&rsquo;s suggested <br /> to make it unique so their may be distinguishable for us and for you</td>
+</tr>
+<tr>
+<td>notifications[][&lsquo;member_ids&rsquo;]</td>
+<td>array</td>
+<td>IDs of members the notification should be sent to</td>
+</tr>
+<tr>
+<td>notifications[][&lsquo;shortening_enabled&rsquo;]</td>
+<td>bool</td>
+<td>Should links in payload get shortened with Boostcom Shortener?</td>
+</tr>
+<tr>
+<td>notifications[][&lsquo;notification&rsquo;]</td>
+<td>object</td>
+<td>Predefined, user-visible key-value pairs of the notification payload. <br /> For more information, see <a href="https://firebase.google.com/docs/cloud-messaging/http-server-ref#notification-payload-support">Firebase docs</a></td>
+</tr>
+<tr>
+<td>notifications[][&lsquo;notification&rsquo;][&lsquo;body&rsquo;]</td>
+<td>string</td>
+<td>Body of push notification</td>
+</tr>
+<tr>
+<td>notifications[][&lsquo;notification&rsquo;][&lsquo;title&rsquo;]</td>
+<td>string</td>
+<td>Title to be displayed in push notification</td>
+</tr>
+<tr>
+<td>notifications[][&lsquo;data&rsquo;]</td>
+<td>object</td>
+<td>Custom key-value pairs of the message&rsquo;s payload. <br /> For more information, see <a href="https://firebase.google.com/docs/cloud-messaging/http-server-ref#data">Firebase docs</a></td>
+</tr>
+</tbody></table>
+
+<h3 id="error-responses">Error responses</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">422</code></td>
+<td>Invalid payload (see example on the right)</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>BL:Api:PushNotifications:Send</code> permit
+</aside>

@@ -87,12 +87,10 @@ Requires <code>BL:Api:Members:OAuth:Get</code> permit.
 
 <p><strong>PUT</strong> <code class="prettyprint">api/v3/loyalty_clubs/:loyalty_club_slug/members/me</code></p>
 
-<p>Updates &ldquo;current&rdquo; member - the one that given Authorization token has been issued for.</p>
+<p>Updates &ldquo;current&rdquo; member - the one that given Authorization token has been issued for.
+As a member-related action, it requires member authorization. See <a href="#v3-oauth2">OAuth</a>.</p>
 
-<p>As a member-related action, it requires member authorization. See <a href="#v3-oauth2">OAuth</a>.</p>
-
-<p>This endpoint may return validation errors (<code class="prettyprint">422</code>) because of current member data invalidity 
-as loyalty club schema may get changed over time and make existing users invalid.   </p>
+<p>Besides that OAuth context, it works exactly the same as <a href="#v3-members-update">Members &bull; Update</a>. </p>
 
 <h3 id="parameters">Parameters</h3>
 
