@@ -1,17 +1,24 @@
 # Changelog
 
+### 27.04.2018 | Piotr Świtlicki:
+
+* Add `channel` and `subchannel` attributes to `Member`
+* Add `validate_partially` param in ([Members &bull; Update](v3-members-update) and ([Me &bull; Update](#v3-me-update)
+* Add `GET /api/v3/loyalty_clubs/:loyalty_club_slug/products` ([Loyalty Clubs &bull; List Products](#v3-loyalty-clubs-products))
+* Add `POST /api/v3/loyalty_clubs/:loyalty_club_slug/push_notifications` ([Push Notifications &bull; Create](#v3-push-notification-create))
+
 ### 11.04.2018 | Dominik Halat
 
 * Add `person_id` to `Member`
-* Add new endpoint `GET /api/v3/loyalty_clubs/:loyalty_club_slug/members/person_id` ([Members &bull; Index](#v3-members-index))
+* Add new endpoint `GET /api/v3/loyalty_clubs/:loyalty_club_slug/members/person_id` ([Members &bull; List](#v3-members-index))
 
 ### 01.02.2017 | Piotr Świtlicki:
 
-* Add `ids` query param to `GET /api/v3/loyalty_clubs/:loyalty_club_slug/members` ([Members &bull; Index](#v3-members-index))
+* Add `ids` query param to `GET /api/v3/loyalty_clubs/:loyalty_club_slug/members` ([Members &bull; List](#v3-members-index))
 
 ### 29.01.2017 | Piotr Świtlicki:
 
-* Add `GET /api/v3/loyalty_clubs/:loyalty_club_slug/members` ([Members &bull; Index](#v3-members-index))
+* Add `GET /api/v3/loyalty_clubs/:loyalty_club_slug/members` ([Members &bull; List](#v3-members-index))
 
 ### 22.01.2017 | Jakub Kruczek:
 

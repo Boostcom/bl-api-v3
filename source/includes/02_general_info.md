@@ -146,6 +146,8 @@ duplicated_email | The email was duplicated in community
   "sms_status": "enabled",
   "email_status": "hard_bounced",
   "push_status": "disabled",
+  "optin_channel": "webforms",
+  "optin_subchannel": "campaign-10-2017",
   "created_at": "2017-01-19T10:07:08.336+01:00",
   "updated_at": "2017-04-03T09:35:19.313+02:00",
   "person_id": 99
@@ -163,6 +165,8 @@ consents | Member's consents JSON model (see below) | JSON Object
 sms_status | Status of sms channel | string
 email_status | Status of email channel | string
 push_status | Status of push channel | string
+optin_channel | Channel (`X-Product-Name` header) which had been used to register member | string
+optin_subchannel | Subchannel (`X-Subproduct-Name` header) which had been used to register member | string
 created_at | Time when the user was firstly created | string
 updated_at | Time when the user was last updated | string
 person_id | Unique Member's identifier (set internally) | string

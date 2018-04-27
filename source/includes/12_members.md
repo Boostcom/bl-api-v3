@@ -1,6 +1,6 @@
 # Endpoints &bull; Members
 
-## <a name="v3-members-index"></a> Index
+## <a name="v3-members-index"></a> List
 
 > Example:
 
@@ -405,12 +405,15 @@ Update member's properties, consents and other with given ones.
 
 It is intended for partial updates:
 * not given properties are neither deleted nor overwritten,
-* not given consents won't be changed in any way.
+* not given attributes (like consents) won't be changed in any way.
 
-If deleting properties attribute is intended, it's value should be sent as `null`.
+If deleting properties is intended, their value should be sent as `null`.
 
-This endpoint may return validation errors (`422`) because of current member data invalidity 
-as loyalty club schema may get changed over time and make existing users invalid.
+This endpoint may return validation errors (`422`) even for current member properties. 
+That's because loyalty club schema may get changed over time which results in invalidating existing users.
+
+To bypass such validation errors, you may provide `validate_partially: true` param which will validate and update only 
+attributes that were provided in payload. 
 
 ### URL Parameters
 
@@ -420,14 +423,15 @@ id | Member's ID | integer
 
 ### PUT Parameters (JSON)
 
-Parameter | Description | Type
---------- | --------- | -----------
-properties | JSON with properties for member | JSON Object
-consents | Member's consents (similar to [Member's consents JSON model](#v3-member-consents-model)) | JSON Object
-password | Member's password | string
-sms_enabled | Should SMS channel be enabled for member? | Boolean
-email_enabled | Should email channel be enabled for member? | Boolean
-push_enabled | Should push channel will be enabled for member? | Boolean
+Parameter | Description | Type | Default
+--------- | --------- | ----------- | -----------
+properties | JSON with properties for member | JSON Object | null
+consents | Member's consents (similar to [Member's consents JSON model](#v3-member-consents-model)) | JSON Object | null
+password | Member's password | string | null
+sms_enabled | Should SMS channel be enabled for member? | Boolean | null
+email_enabled | Should email channel be enabled for member? | Boolean | null
+push_enabled | Should push channel will be enabled for member? | Boolean | null
+validate_partially | Should only provided data be validated? | Boolean | false
 
 ### Response (JSON object)
 

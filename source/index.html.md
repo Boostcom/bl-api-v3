@@ -17,7 +17,8 @@ includes:
   - 13_members_bulks
   - 14_oauth_members
   - 15_oauth
-  - 20_changelog
+  - 20_push_notifications
+  - 99_changelog
 
 search: true
 ---

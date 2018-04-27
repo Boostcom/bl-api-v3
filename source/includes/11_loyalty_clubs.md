@@ -83,3 +83,53 @@ properties | Properties describing member | object
 Requires <code>BL:Api:Schema:Get</code> permit
 </aside>
 
+## <a name="v3-loyalty-clubs-products"></a> List products
+
+> Example
+
+```shell
+curl "https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/products" \
+  -H 'Content-Type: application/json' \
+  -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+  -H 'X-Product-Name: default' \
+  -H 'X-User-Agent: CURL manual test'
+```
+
+> When successful, the above command returns JSON structured like this:
+
+```json
+[
+    {
+        "name": "Webforms",
+        "slug": "webforms",
+        "filtered_member_properties": ["msisdn", "email", "first_name", "last_name"],
+        "subproducts": [],
+        "is_webform": true
+    },
+    {
+        "name": "Default",
+        "slug": "default",
+        "filtered_member_properties": [],
+        "subproducts": [],
+        "is_webform": false
+    }
+]
+```
+
+**GET** `api/v3/loyalty_clubs/:loyalty_club_slug/products`
+
+Returns list of Products (AKA Channels, AKA Sources) defined for Loyalty Club.
+
+### Product response model (in JSON array)
+
+Key | Description | Type
+--------- | ----------- | ---------
+name | Product name | string
+slug | Product slug | string
+filtered_member_properties | Member that are available to access (CRUD) for this product. When empty, all properties are available. | Array<string>
+subproducts | Subproducts/Subchannels available for the product | Array<string>
+is_webform | Is the product also a webform? | boolean
+
+<aside class="notice">
+Requires <code>BL:Api:Products:Index</code> permit
+</aside>

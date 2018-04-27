@@ -73,11 +73,9 @@ curl -X PUT \
 **PUT** `api/v3/loyalty_clubs/:loyalty_club_slug/members/me`
 
 Updates "current" member - the one that given Authorization token has been issued for.
-
 As a member-related action, it requires member authorization. See [OAuth](#v3-oauth2).
 
-This endpoint may return validation errors (`422`) because of current member data invalidity 
-as loyalty club schema may get changed over time and make existing users invalid.   
+Besides that OAuth context, it works exactly the same as [Members &bull; Update](#v3-members-update). 
 
 ### Parameters
 
