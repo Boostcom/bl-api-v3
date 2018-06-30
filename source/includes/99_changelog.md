@@ -2,6 +2,10 @@
 
 ### 27.04.2018 | Piotr Świtlicki:
 
+* Add `POST /api/v3/loyalty_clubs/:loyalty_club_slug/members/by_email/:email/send_one_time_password` ([Members &bull; Send one time password E-mail](#v3-members-send-one-time-password-email))
+
+### 27.04.2018 | Piotr Świtlicki:
+
 * Add `channel` and `subchannel` attributes to `Member`
 * Add `validate_partially` param in ([Members &bull; Update](v3-members-update) and ([Me &bull; Update](#v3-me-update)
 * Add `GET /api/v3/loyalty_clubs/:loyalty_club_slug/products` ([Loyalty Clubs &bull; List Products](#v3-loyalty-clubs-products))

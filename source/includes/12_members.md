@@ -595,7 +595,7 @@ Requires <code>BL:Api:Members:Tokens:Create</code> permit
 
 <!--- ############################################################################################################# --->
 
-## <a name="v3-members-send-one-time-password"></a> Send one time password
+## <a name="v3-members-send-one-time-password"></a> Send one time password SMS
 
 > Example:
 
@@ -619,7 +619,7 @@ curl "https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members/by_
 
 Sends an SMS to given msisdn if it is associated with member in given loyalty club.
 
-The SMS contains 4-digit One-Time-Password generated for member, valid for 10 minutes.
+The SMS contains 4-digit One-Time-Password generated for member, valid for 1 hour.
 
 This password then can be used to sign in, just as "regular" member password - see:  [OAuth Token &bull; Create](#v3-token-create).
 
@@ -629,11 +629,51 @@ Parameter | Description | Type
 --------- | ----------- | ------
 msisdn | Member's msisdn | string (format as defined [here](#msisdn-member-identifier) - example: `4740485124`)
 
+<aside class="notice">
+Requires <code>BL:Api:Members:CreateOneTimePassword</code> permit
+</aside>
+
+<!--- ############################################################################################################# --->
+
+## <a name="v3-members-send-one-time-password-email"></a> Send one time password E-mail (WIP)
+
+> Example:
+
+```shell
+curl "https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members/by_email/user@example.com/send_one_time_password" \
+  -H 'Content-Type: application/json' \
+  -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+  -H 'X-Product-Name: default' \
+  -H 'X-User-Agent: CURL manual test'
+```
+
+> Always returns an empty JSON object
+
+```json
+{
+  // Empty object
+}
+```
+
+**POST** `/api/v3/loyalty_clubs/:loyalty_club_slug/members/by_msisdn/:msisdn/send_one_time_password`
+
+Sends a "Login" e-mail to given address if it is associated with member in given loyalty club. The e-mail contains a deep link to the mobile app.
+ 
+The link scheme is: `https://<app_scheme>.al.bstcm.no/lgn?member_id=<member_id>&otp=<otp>` and contains member id and 16-digit password generated for member, valid for 1 hour.  
+
+Those params then can be used to sign in the user, just as "regular" member password - see:  [OAuth Token &bull; Create](#v3-token-create).
+
+### URL Parameters
+
+Parameter | Description | Type
+--------- | ----------- | ------
+email | Member's email | e-mail
+
 ### Error responses
 
 Status | Reason
 --------- | ----------- 
-`422` | Invalid MSISDN param
+`422` | Invalid e-mail param
 
 <aside class="notice">
 Requires <code>BL:Api:Members:CreateOneTimePassword</code> permit
