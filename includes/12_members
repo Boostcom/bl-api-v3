@@ -1019,7 +1019,7 @@ Requires <code>BL:Api:Members:Tokens:Create</code> permit
 
 <!--- ############################################################################################################# --->
 
-<h2 id="send-one-time-password"><a name="v3-members-send-one-time-password"></a> Send one time password</h2>
+<h2 id="send-one-time-password-sms"><a name="v3-members-send-one-time-password"></a> Send one time password SMS</h2>
 
 <blockquote>
 <p>Example:</p>
@@ -1041,7 +1041,7 @@ Requires <code>BL:Api:Members:Tokens:Create</code> permit
 
 <p>Sends an SMS to given msisdn if it is associated with member in given loyalty club.</p>
 
-<p>The SMS contains 4-digit One-Time-Password generated for member, valid for 10 minutes.</p>
+<p>The SMS contains 4-digit One-Time-Password generated for member, valid for 1 hour.</p>
 
 <p>This password then can be used to sign in, just as &ldquo;regular&rdquo; member password - see:  <a href="#v3-token-create">OAuth Token &bull; Create</a>.</p>
 
@@ -1061,6 +1061,54 @@ Requires <code>BL:Api:Members:Tokens:Create</code> permit
 </tr>
 </tbody></table>
 
+<aside class="notice">
+Requires <code>BL:Api:Members:CreateOneTimePassword</code> permit
+</aside>
+
+<!--- ############################################################################################################# --->
+
+<h2 id="send-one-time-password-e-mail-wip"><a name="v3-members-send-one-time-password-email"></a> Send one time password E-mail (WIP)</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members/by_email/user@example.com/send_one_time_password"</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+  -H <span class="s1">'X-User-Agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>Always returns an empty JSON object</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="err">//</span><span class="w"> </span><span class="err">Empty</span><span class="w"> </span><span class="err">object</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>POST</strong> <code class="prettyprint">/api/v3/loyalty_clubs/:loyalty_club_slug/members/by_msisdn/:msisdn/send_one_time_password</code></p>
+
+<p>Sends a &ldquo;Login&rdquo; e-mail to given address if it is associated with member in given loyalty club. The e-mail contains a deep link to the mobile app.</p>
+
+<p>The link scheme is: <code class="prettyprint">https://&lt;app_scheme&gt;.al.bstcm.no/lgn?member_id=&lt;member_id&gt;&amp;otp=&lt;otp&gt;</code> and contains member id and 16-digit password generated for member, valid for 1 hour.  </p>
+
+<p>Those params then can be used to sign in the user, just as &ldquo;regular&rdquo; member password - see:  <a href="#v3-token-create">OAuth Token &bull; Create</a>.</p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>email</td>
+<td>Member&rsquo;s email</td>
+<td>e-mail</td>
+</tr>
+</tbody></table>
+
 <h3 id="error-responses">Error responses</h3>
 
 <table><thead>
@@ -1071,7 +1119,7 @@ Requires <code>BL:Api:Members:Tokens:Create</code> permit
 </thead><tbody>
 <tr>
 <td><code class="prettyprint">422</code></td>
-<td>Invalid MSISDN param</td>
+<td>Invalid e-mail param</td>
 </tr>
 </tbody></table>
 

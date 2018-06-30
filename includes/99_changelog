@@ -3,6 +3,12 @@
 <h3 id="27-04-2018-piotr-witlicki">27.04.2018 | Piotr Świtlicki:</h3>
 
 <ul>
+<li>Add <code class="prettyprint">POST /api/v3/loyalty_clubs/:loyalty_club_slug/members/by_email/:email/send_one_time_password</code> (<a href="#v3-members-send-one-time-password-email">Members &bull; Send one time password E-mail</a>)</li>
+</ul>
+
+<h3 id="27-04-2018-piotr-witlicki">27.04.2018 | Piotr Świtlicki:</h3>
+
+<ul>
 <li>Add <code class="prettyprint">channel</code> and <code class="prettyprint">subchannel</code> attributes to <code class="prettyprint">Member</code></li>
 <li>Add <code class="prettyprint">validate_partially</code> param in (<a href="v3-members-update">Members &bull; Update</a> and (<a href="#v3-me-update">Me &bull; Update</a></li>
 <li>Add <code class="prettyprint">GET /api/v3/loyalty_clubs/:loyalty_club_slug/products</code> (<a href="#v3-loyalty-clubs-products">Loyalty Clubs &bull; List Products</a>)</li>
