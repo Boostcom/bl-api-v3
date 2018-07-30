@@ -349,7 +349,7 @@ consents | no | {} | Member's consents (similar to [Member's consents JSON model
 password | no | none | Member's password. Not required, but user won't be able to log in without this | string
 sms_enabled | no | true | Should SMS channel be enabled for member? | Boolean
 email_enabled | no | true | Should email channel be enabled for member? | Boolean
-push_enabled | no | true | Should push channel will be enabled for member? | Boolean
+push_enabled | no | true | Should push channel be enabled for member? | Boolean
 send_sms_welcome_message | no | true | Should SMS welcome message be sent to member? | Boolean
 send_email_welcome_message | no | true | Should email welcome be sent to member | Boolean
 registration_password | depends | none | Password for registration for member MSISDN verification, see [above](#v3-members-create-registration-password)
