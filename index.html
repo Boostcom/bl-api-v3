@@ -308,30 +308,32 @@ Errors format and strings are not yet stable and may change without further noti
 <p>Example response (with code 400):</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"birthday"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"invalid_date_format"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"property"</span><span class="p">:</span><span class="w"> </span><span class="s2">"birthday"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">],</span><span class="w">
-      </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value_not_match"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"property"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gender"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"man"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"values"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mann, Kvinne"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">],</span><span class="w">
-      </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"not_contain_required_property"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"property"</span><span class="p">:</span><span class="w"> </span><span class="s2">"first_name"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">]</span><span class="w">
+  </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"invalid"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"property"</span><span class="p">:</span><span class="w"> </span><span class="s2">"email"</span><span class="w">
     </span><span class="p">}</span><span class="w">
-  </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"language"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value_not_match"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"een"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"values"</span><span class="p">:</span><span class="w"> </span><span class="s2">"en, no"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"property"</span><span class="p">:</span><span class="w"> </span><span class="s2">"language"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"optin_channel"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"not_contain_required_property"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"property"</span><span class="p">:</span><span class="w"> </span><span class="s2">"optin_channel"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <table><thead>
@@ -1478,7 +1480,7 @@ valid <code class="prettyprint">registration_password</code> param that is sent 
 <td>push_enabled</td>
 <td>no</td>
 <td>true</td>
-<td>Should push channel will be enabled for member?</td>
+<td>Should push channel be enabled for member?</td>
 <td>Boolean</td>
 </tr>
 <tr>
@@ -2147,329 +2149,6 @@ Requires <code>BL:Api:Members:CreateRegistrationPassword</code> permit
 Requires <code>BL:Api:Members:Tokens:Verify</code> permit
 </aside>
 
-          <h1 id="endpoints-members-bulks">Endpoints &bull; Members Bulks</h1>
-
-<h2 id="create-or-update-async-work-in-progress"><a name="v3-members-bulk-create-or-update"></a> Create or Update (ASync, work in progress)</h2>
-
-<p><strong>This may change</strong></p>
-
-<p><strong>POST</strong> <code class="prettyprint">api/v3/loyalty_clubs/:loyalty_club_slug/members/bulks/create_or_update</code></p>
-
-<p>Creates new members or updates existing ones (based on unique identifiers). Job will be done in background.</p>
-
-<p>It is possible to trigger sms and email welcome message by setting <code class="prettyprint">send_sms_welcome_message: true</code> or <code class="prettyprint">send_email_welcome_message: true</code>.
-It will be only send when member is created (nothing will be send to members that are being updated). 
-Welcome messages depends on Loyalty Club and Product configuration.</p>
-
-<blockquote>
-<p>Example:</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
-    <span class="s2">"https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members/bulks/create_or_update"</span> <span class="se">\</span>
-    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
-    -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
-    -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
-    -H <span class="s1">'X-User-Agent: CURL manual test'</span>
-</code></pre>
-<blockquote>
-<p>When successful, JSON will be returned:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"job_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23388281912"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<h3 id="members-array">Members Array</h3>
-
-<p>Requirements:</p>
-
-<ul>
-<li>all members must have unique identifiers (and also email and msisdn)</li>
-<li>maximum number of items in array is 5000</li>
-</ul>
-
-<table><thead>
-<tr>
-<th>Key</th>
-<th>Required?</th>
-<th>Default</th>
-<th>Description</th>
-<th>Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>properties</td>
-<td>yes</td>
-<td>-</td>
-<td>JSON with properties for member (similar as in Members Create endpoint)</td>
-<td>JSON Object</td>
-</tr>
-<tr>
-<td>password</td>
-<td>no</td>
-<td>null</td>
-<td>Member’s password. Not required, but user won’t be able to log in without this</td>
-<td>String</td>
-</tr>
-<tr>
-<td>sms_enabled</td>
-<td>no</td>
-<td>true</td>
-<td>Should SMS channel be enabled for member?</td>
-<td>Boolean</td>
-</tr>
-<tr>
-<td>email_enabled</td>
-<td>no</td>
-<td>true</td>
-<td>Should email channel be enabled for member?</td>
-<td>Boolean</td>
-</tr>
-<tr>
-<td>push_enabled</td>
-<td>no</td>
-<td>true</td>
-<td>Should push channel will be enabled for member?</td>
-<td>Boolean</td>
-</tr>
-<tr>
-<td>source</td>
-<td>no</td>
-<td>&ldquo;Product&rdquo; header</td>
-<td>Source of member. Used only when creating member</td>
-<td>String</td>
-</tr>
-<tr>
-<td>subsource</td>
-<td>no</td>
-<td>&ldquo;Subproduct&rdquo; header</td>
-<td>Subsource of member. Used only when creating member</td>
-<td>String</td>
-</tr>
-</tbody></table>
-
-<h3 id="post-parameters-json">POST Parameters (JSON)</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Required?</th>
-<th>Default</th>
-<th>Description</th>
-<th>Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>members</td>
-<td>yes</td>
-<td>-</td>
-<td>Array with members payloads</td>
-<td>Array<JSON Object></td>
-</tr>
-<tr>
-<td>only_create</td>
-<td>no</td>
-<td>false</td>
-<td>Only create members. Don&rsquo;t update existing ones</td>
-<td>Boolean</td>
-</tr>
-<tr>
-<td>job_id</td>
-<td>no</td>
-<td>auto-generated</td>
-<td>When you&rsquo;re making more than 1 call you can consider adding it. Otherwise it will be auto-generated</td>
-<td>String</td>
-</tr>
-<tr>
-<td>request_number</td>
-<td>no</td>
-<td>auto-generated</td>
-<td>Number of request to identify errors in &ldquo;Status&rdquo; endpoint easier. Useless without specifying <code class="prettyprint">job_id</code></td>
-<td>Integer</td>
-</tr>
-<tr>
-<td>send_sms_welcome_message</td>
-<td>no</td>
-<td>true</td>
-<td>Should SMS welcome message be sent to member?</td>
-<td>Boolean</td>
-</tr>
-<tr>
-<td>send_email_welcome_message</td>
-<td>no</td>
-<td>true</td>
-<td>Should email welcome be sent to member?</td>
-<td>Boolean</td>
-</tr>
-</tbody></table>
-
-<h3 id="response-json-object">Response (JSON object)</h3>
-
-<table><thead>
-<tr>
-<th>Key</th>
-<th>Description</th>
-<th>Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>success</td>
-<td>Job was successfully scheduled</td>
-<td>Boolean</td>
-</tr>
-<tr>
-<td>job_id</td>
-<td>ID for checking batch job status</td>
-<td>String</td>
-</tr>
-</tbody></table>
-
-<h3 id="error-responses">Error responses</h3>
-
-<table><thead>
-<tr>
-<th>Status</th>
-<th>Reason</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code class="prettyprint">422</code></td>
-<td>Most likely you have duplicated identifiers in <code class="prettyprint">members</code> param.</td>
-</tr>
-</tbody></table>
-
-<aside class="notice">
-Requires <code>BL:Api:MemberBulks:CreateOrUpdate</code> permit
-</aside>
-
-<h2 id="create-or-update-status-work-in-progress"><a name="v3-members-bulk-create-or-update-status"></a> Create or Update Status (work in progress)</h2>
-
-<p><strong>This may change</strong></p>
-
-<p><strong>GET</strong> <code class="prettyprint">api/v3/loyalty_clubs/:loyalty_club_slug/members/bulks/create_or_update/:job_id</code></p>
-
-<p>Returns status about &ldquo;Bulk Create or Update&rdquo; background job.</p>
-
-<p>Access jobs&rsquo; statuses is scoped by client authorization token.</p>
-
-<blockquote>
-<p>Example:</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
-    <span class="s2">"https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/member_bulks/create_or_update/:job_id"</span> <span class="se">\</span>
-    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
-    -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
-    -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
-    -H <span class="s1">'X-User-Agent: CURL manual test'</span>
-</code></pre>
-<blockquote>
-<p>When successful, JSON will be returned:</p>
-</blockquote>
-
-<h3 id="url-parameters">URL Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>job_id</td>
-<td>ID of bulk job</td>
-</tr>
-</tbody></table>
-
-<h3 id="response-json-object">Response (JSON object)</h3>
-
-<table><thead>
-<tr>
-<th>Key</th>
-<th>Description</th>
-<th>Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>status</td>
-<td>One of: [&lsquo;finished&rsquo;, &lsquo;waiting&rsquo;, &lsquo;in_progress&rsquo;, &lsquo;fatal_error&rsquo;]</td>
-<td>String</td>
-</tr>
-<tr>
-<td>bulk_jobs</td>
-<td>Number of bulk jobs scheduled internally</td>
-<td>Integer</td>
-</tr>
-<tr>
-<td>bulk_jobs_done</td>
-<td>Number of bulk jobs already done</td>
-<td>Integer</td>
-</tr>
-<tr>
-<td>members_created_number</td>
-<td>Number of members that were successfully created</td>
-<td>Integer</td>
-</tr>
-<tr>
-<td>members_updated_number</td>
-<td>Number of members that were successfully updated</td>
-<td>Integer</td>
-</tr>
-<tr>
-<td>members_with_validation_errors_number</td>
-<td>Number of members that weren&rsquo;t create nor updated due to validation errors</td>
-<td>Integer</td>
-</tr>
-<tr>
-<td>errors</td>
-<td>Array with errors</td>
-<td>Array<JSON Object></td>
-</tr>
-</tbody></table>
-
-<h3 id="errors-json-object">Errors JSON Object</h3>
-
-<table><thead>
-<tr>
-<th>Key</th>
-<th>Description</th>
-<th>Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>request_number</td>
-<td>Number of request specified while making bulk for creating bulk job</td>
-<td>Integer</td>
-</tr>
-<tr>
-<td>position</td>
-<td>Member payload position in members&rsquo; array</td>
-<td>Integer</td>
-</tr>
-<tr>
-<td>errors</td>
-<td><a href="#validation-on-members">validation errors</a> JSON object.</td>
-<td>JSON Object</td>
-</tr>
-</tbody></table>
-
-<h3 id="error-responses">Error responses</h3>
-
-<table><thead>
-<tr>
-<th>Status</th>
-<th>Reason</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code class="prettyprint">404</code></td>
-<td>Job with such ID wasn&rsquo;t found.</td>
-</tr>
-</tbody></table>
-
-<aside class="notice">
-Requires <code>BL:Api:MemberBulks:CreateOrUpdate</code> permit
-</aside>
-
           <h1 id="endpoints-me">Endpoints &bull; Me</h1>
 
 <h2 id="introduction"><a name="v3-oauth2"></a> Introduction</h2>
@@ -3051,6 +2730,575 @@ Requires <code>BL:Api:Members:OAuth</code> permit
 
 <!--- ############################################################################################################# --->
 
+          <h1 id="endpoints-members-imports">Endpoints &bull; Members Imports</h1>
+
+<h2 id="import-flow"><a name="v3-members-imports-import-flow"></a> Import flow</h2>
+
+<h4 id="import-bulks">Import bulks</h4>
+
+<p>At most 1000 member records may be sent in one request.</p>
+
+<p>If you intend to import more than that, you may group them by <code class="prettyprint">import_id</code>, so multiple bulks will be grouped into one import.</p>
+
+<p>Nevertheless, keep in mind, that import always consists of at least one bulk.</p>
+
+<h4 id="import-statuses">Import statuses</h4>
+
+<p>Each bulk is processed by an asynchronous job, so you need to check it&rsquo;s status some time after sending a request.</p>
+
+<p>For that, you should firstly check the import status <a href="#v3-members-imports-status">here</a> and then 
+check bulks details for each bulk <a href="#v3-members-imports-bulk-status">here</a>.</p>
+
+<p>Please note that:</p>
+
+<ul>
+<li>We recommend to check status in intervals not smaller than 5 seconds</li>
+<li>In extreme cases, it make take even few hours for bulk to be fully processed</li>
+<li>24 hours after import request any potential personal data (contained in <code class="prettyprint">member_payloads</code> and <code class="prettyprint">errors</code>) is permanently removed from server</li>
+</ul>
+
+<h4 id="bulk-statuses">Bulk statuses</h4>
+
+<p>When bulk is created, it gets <code class="prettyprint">waiting</code> status.</p>
+
+<p>When bulk has been picked by asynchronous job, it transitions into <code class="prettyprint">working</code> status.
+Depending on the server load, it may get picked instantly or even after few hours in extreme cases.</p>
+
+<p>When the job has been executed successfully (which make take up to few minutes), bulk will have <code class="prettyprint">finished</code> status assigned.
+Please note that it doesn&rsquo;t mean that members have been successfully processed (there may be even none), you&rsquo;ll need to check bulk status
+for errors.</p>
+
+<p>When job failed for some internal reason, it will have either <code class="prettyprint">failed</code> or <code class="prettyprint">waiting_for_retry</code> status. See below
+for more details.  </p>
+
+<h4 id="asynchronous-job-failures">Asynchronous job failures</h4>
+
+<p>Jobs that couldn&rsquo;t be processed because of some internal reasons will be retried up to 5 times.</p>
+
+<p>After each failure, the bulk will have <code class="prettyprint">waiting_for_retry</code> status assigned and it&rsquo;s <code class="prettyprint">retries</code> attribute will be incremented.</p>
+
+<p>After 5th failure, the bulk will have <code class="prettyprint">failed</code> status assigned. In such case, please contact us, so we may identify 
+and resolve the problem.</p>
+
+<h2 id="send-import-request"><a name="v3-members-imports"></a> Send import request</h2>
+
+<p><strong>POST</strong> <code class="prettyprint">api/v3/loyalty_clubs/:loyalty_club_slug/members/imports</code></p>
+
+<p>Creates new members or updates existing ones (based on <code class="prettyprint">msisdn</code> and <code class="prettyprint">e-mail</code> identifiers).</p>
+
+<p>There is a maximum number of members that can be sent in one request (1000). So, if you intend to import more than 
+that, you may want to identify all bulks with the same <code class="prettyprint">import_id</code> and pass consequent <code class="prettyprint">request_number</code> to each of them.</p>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
+    <span class="s2">"https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members/imports"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+    -H <span class="s1">'X-User-Agent: CURL manual test'</span>
+  -d <span class="se">\</span>
+    <span class="s1">'{
+      "import_id": "import_21",
+      "request_number": 3,
+      "only_create": false,
+      "members": [
+        {
+          "properties": { "email": "foo@bar.baz" },
+          "password": "pass",
+          "sms_enabled": true,
+          "email_enabled": true,
+          "push_enabled": true,
+          "optin_channel": true,
+          "optin_subchannel": true,
+          "created_at": "foo",
+          "updated_at": "bar",
+          "consents": { "email_marketing": { "status": true } }
+        }
+      ]
+    }'</span>    
+</code></pre>
+<blockquote>
+<p>When successful, JSON will be returned:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"import_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a9a00143-6488-4d4f-87d4-29c2da02d678"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>When input is invalid, returns the error object:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"duplicated_msisdns"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h3 id="post-parameters-json">POST Parameters (JSON)</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required?</th>
+<th>Default</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>import_id</td>
+<td>no</td>
+<td>auto-generated</td>
+<td>When you&rsquo;re making more than one call you can consider adding it. Otherwise it will be auto-generated</td>
+<td>String</td>
+</tr>
+<tr>
+<td>request_number</td>
+<td>no</td>
+<td>-</td>
+<td>A number that you can use for bulk identification in &ldquo;Status&rdquo; endpoint. It&rsquo;s up to you to provide it&rsquo;s uniqueness. Useless without specifying <code class="prettyprint">import_id</code></td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>members</td>
+<td>yes</td>
+<td>-</td>
+<td>Array with members payloads - See below</td>
+<td>Array <JSON Object></td>
+</tr>
+<tr>
+<td>only_create</td>
+<td>no</td>
+<td>false</td>
+<td>When true, it does not update members</td>
+<td>Boolean</td>
+</tr>
+</tbody></table>
+
+<h4 id="members-array">Members Array</h4>
+
+<p>General requirements:</p>
+
+<ul>
+<li>all members must have unique identifiers (<code class="prettyprint">msisdn</code> or <code class="prettyprint">email</code>)</li>
+<li>maximum number of items in array is 1000</li>
+</ul>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Required?</th>
+<th>Default</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>properties</td>
+<td>yes</td>
+<td>-</td>
+<td>JSON with properties for member (see: <a href="#v3-member-model">Member model</a></td>
+<td>JSON Object</td>
+</tr>
+<tr>
+<td>properties[&lsquo;msisdn&rsquo;]</td>
+<td>yes*</td>
+<td>none</td>
+<td>Unique member&rsquo;s msisdn as defined <a href="#msisdn-member-identifier">here</a>) Example: <code class="prettyprint">4740485124</code>.</td>
+<td>string</td>
+</tr>
+<tr>
+<td>properties[&lsquo;email&rsquo;]</td>
+<td>yes*</td>
+<td>none</td>
+<td>Member&rsquo;s email</td>
+<td>string</td>
+</tr>
+<tr>
+<td>password</td>
+<td>no</td>
+<td>null</td>
+<td>Member’s password. Not required, but user may not be able to log in without this</td>
+<td>String</td>
+</tr>
+<tr>
+<td>sms_enabled</td>
+<td>no</td>
+<td>true</td>
+<td>Should SMS channel be enabled for member?</td>
+<td>Boolean</td>
+</tr>
+<tr>
+<td>email_enabled</td>
+<td>no</td>
+<td>true</td>
+<td>Should email channel be enabled for member?</td>
+<td>Boolean</td>
+</tr>
+<tr>
+<td>push_enabled</td>
+<td>no</td>
+<td>true</td>
+<td>Should push channel be enabled for member?</td>
+<td>Boolean</td>
+</tr>
+<tr>
+<td>optin_channel</td>
+<td>no</td>
+<td>&ldquo;import&rdquo;**</td>
+<td>Source of member</td>
+<td>String</td>
+</tr>
+<tr>
+<td>optin_subchannel</td>
+<td>no</td>
+<td>import&rsquo;s id**</td>
+<td>Subsource of member</td>
+<td>String</td>
+</tr>
+<tr>
+<td>consents</td>
+<td>no</td>
+<td>{}</td>
+<td>Members consents</td>
+<td>See <a href="#v3-member-consents-model">Member&rsquo;s consents JSON model</a></td>
+</tr>
+</tbody></table>
+
+<p>&ast; At least one of those properties must be provided</p>
+
+<p>&ast;&ast; When those member attributes are missing on creation, defaults will be used. When on update, they won&rsquo;t be overwritten.</p>
+
+<h3 id="response-json-object">Response (JSON object)</h3>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>import_id</td>
+<td>Identifier for import status checking (either provided by you or auto-generated)</td>
+<td>String</td>
+</tr>
+</tbody></table>
+
+<h3 id="error-responses">Error responses</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Reason</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">422</code></td>
+<td>Invalid payload</td>
+<td>Returns error object - see below</td>
+</tr>
+</tbody></table>
+
+<h4 id="invalid-payload-error-json-object">Invalid Payload Error (JSON object)</h4>
+
+<p>When payload is invalid, an object is returned: <code class="prettyprint">{&quot;error&quot; =&gt; &lt;reason&gt;}</code></p>
+
+<p>Possible reasons are:</p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">duplicated_emails</code></td>
+<td>At least two members in payload share same email</td>
+</tr>
+<tr>
+<td><code class="prettyprint">duplicated_msisdns</code></td>
+<td>At least two members in payload share same msisdn</td>
+</tr>
+<tr>
+<td><code class="prettyprint">members_size_incorrect</code></td>
+<td>Members number in payload exceeds maximum (1000)</td>
+</tr>
+<tr>
+<td><code class="prettyprint">members_empty</code></td>
+<td>Payload is empty</td>
+</tr>
+<tr>
+<td><code class="prettyprint">missing_identifier</code></td>
+<td>At least one member in payload misses required identifier (depends on Community)</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>BL:Api:Members:Imports:Create</code> permit
+</aside>
+
+<h2 id="get-import-status"><a name="v3-members-imports-status"></a> Get import status</h2>
+
+<p><strong>GET</strong> <code class="prettyprint">api/v3/loyalty_clubs/:loyalty_club_slug/members/imports/:import_id</code></p>
+
+<p>Returns status of import with a list of references to bulks (<code class="prettyprint">id</code> and <code class="prettyprint">request_number</code>). </p>
+
+<p>You need to call <a href="#v3-members-import-bulk-status">Members Imports &bull; Get bulk status</a> to see bulks details.</p>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+    <span class="s2">"https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members/imports/:import_id"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+    -H <span class="s1">'X-User-Agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>When successful, JSON will be returned:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"members_in_payloads_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">4000</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"members_created_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">3020</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"members_updated_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">531</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"members_with_validation_errors_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">449</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-30T11:23:08.417Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"bulks"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w"> </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">83473</span><span class="p">,</span><span class="w"> </span><span class="s2">"request_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"finished"</span><span class="w"> </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w"> </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">83474</span><span class="p">,</span><span class="w"> </span><span class="s2">"request_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"failed"</span><span class="w"> </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w"> </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">83475</span><span class="p">,</span><span class="w"> </span><span class="s2">"request_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"working"</span><span class="w"> </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w"> </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">83476</span><span class="p">,</span><span class="w"> </span><span class="s2">"request_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"waiting"</span><span class="w"> </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>import_id</td>
+<td>Import identifier</td>
+</tr>
+</tbody></table>
+
+<h3 id="response-json-object">Response (JSON object)</h3>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>members_in_payload_number</td>
+<td>A total number of members that were requested for importing</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>members_created_number</td>
+<td>A total number of members that were successfully created</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>members_updated_number</td>
+<td>A total number of members that were successfully updated</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>members_with_validation_errors_number</td>
+<td>A total number of members that had validation errors</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>The date of import creation</td>
+<td>Date</td>
+</tr>
+<tr>
+<td>bulks</td>
+<td>A list of bulks in the import</td>
+<td>Array<Object>, where Object consists: of <code class="prettyprint">id</code>, <code class="prettyprint">request_number</code> and <code class="prettyprint">status</code> attributes</td>
+</tr>
+</tbody></table>
+
+<h3 id="error-responses">Error responses</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">404</code></td>
+<td>Job with such ID wasn&rsquo;t found.</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>BL:Api:Members:Imports:Get</code> permit
+</aside>
+
+<h2 id="get-bulk-status"><a name="v3-members-imports-bulk-status"></a> Get bulk status</h2>
+
+<p><strong>GET</strong> <code class="prettyprint">api/v3/loyalty_clubs/:loyalty_club_slug/members/imports/:import_id/bulks/:bulk_id</code></p>
+
+<p>Returns status of import bulk.</p>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+    <span class="s2">"https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members/imports/:import_id/bulks/:bulk_id"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+    -H <span class="s1">'X-User-Agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>When successful, JSON will be returned:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"import_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"89405ae3-2dd5-46cb-a13b-840bc588199b"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"request_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"only_create"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"finished"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"members_in_payload_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"members_created_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"members_updated_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"members_with_validation_errors_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"retries"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"members_errors"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"joe@example.com"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="s2">"language"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                            </span><span class="p">{</span><span class="w"> 
+                              </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value_not_match"</span><span class="p">,</span><span class="w">
+                              </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pl"</span><span class="p">,</span><span class="w">
+                              </span><span class="s2">"values"</span><span class="p">:</span><span class="w"> </span><span class="s2">"en, no"</span><span class="p">,</span><span class="w">
+                              </span><span class="s2">"property"</span><span class="p">:</span><span class="w"> </span><span class="s2">"language"</span><span class="w">
+                            </span><span class="p">}</span><span class="w">
+                        </span><span class="p">]</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-30T17:14:03.738Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>import_id</td>
+<td>Import identifier</td>
+</tr>
+<tr>
+<td>bulk_id</td>
+<td>ID of bulk</td>
+</tr>
+</tbody></table>
+
+<h3 id="response-json-object">Response (JSON object)</h3>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>ID of bulk</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>import_id</td>
+<td>Import identifier</td>
+<td>String</td>
+</tr>
+<tr>
+<td>request_number</td>
+<td>The number of the bulk</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>status</td>
+<td>Job status - one of: &lsquo;waiting&rsquo;, &lsquo;working&rsquo;, &lsquo;finished&rsquo;, &lsquo;failed&rsquo; &lsquo;waiting_for_retry&rsquo; - see more <a href="#v3-members-imports-import-flow">here</a> in &ldquo;Bulk statuses&rdquo; section</td>
+<td>String</td>
+</tr>
+<tr>
+<td>members_in_payload_number</td>
+<td>A number of members that were requested for importing</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>members_created_number</td>
+<td>A number of members that were successfully created</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>members_updated_number</td>
+<td>A number of members that were successfully updated</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>members_with_validation_errors_number</td>
+<td>A number of members that had validation errors</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>retries</td>
+<td>A number of background job retries (max 5)</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>members_errors</td>
+<td>Members errors. Each invalid member will be returned in this object, where key is his identifier (<code class="prettyprint">email</code> or <code class="prettyprint">msisdn</code>) and the value is a list of it&rsquo;s <a href="#validation-on-members">validation errors</a></td>
+<td>Object</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>The date of bulk creation</td>
+<td>Date</td>
+</tr>
+</tbody></table>
+
+<h3 id="error-responses">Error responses</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">404</code></td>
+<td>Bulk with such ID wasn&rsquo;t found.</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>BL:Api:Members:Imports:Get</code> permit
+</aside>
+
           <h1 id="endpoints-push-notifications">Endpoints &bull; Push Notifications</h1>
 
 <h2 id="create"><a name="v3-push-notification-create"></a> Create</h2>
@@ -3202,6 +3450,12 @@ Requires <code>BL:Api:PushNotifications:Send</code> permit
 </aside>
 
           <h1 id="changelog">Changelog</h1>
+
+<h3 id="03-08-2018-piotr-witlicki">03.08.2018 | Piotr Świtlicki:</h3>
+
+<ul>
+<li>Add <a href="#v3-members-imports-import-flow">Members Import</a></li>
+</ul>
 
 <h3 id="27-04-2018-piotr-witlicki">27.04.2018 | Piotr Świtlicki:</h3>
 

@@ -602,7 +602,7 @@ valid <code class="prettyprint">registration_password</code> param that is sent 
 <td>push_enabled</td>
 <td>no</td>
 <td>true</td>
-<td>Should push channel will be enabled for member?</td>
+<td>Should push channel be enabled for member?</td>
 <td>Boolean</td>
 </tr>
 <tr>

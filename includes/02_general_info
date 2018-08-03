@@ -70,30 +70,32 @@ Errors format and strings are not yet stable and may change without further noti
 <p>Example response (with code 400):</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"birthday"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"invalid_date_format"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"property"</span><span class="p">:</span><span class="w"> </span><span class="s2">"birthday"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">],</span><span class="w">
-      </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value_not_match"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"property"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gender"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"man"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"values"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mann, Kvinne"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">],</span><span class="w">
-      </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"not_contain_required_property"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"property"</span><span class="p">:</span><span class="w"> </span><span class="s2">"first_name"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">]</span><span class="w">
+  </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"invalid"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"property"</span><span class="p">:</span><span class="w"> </span><span class="s2">"email"</span><span class="w">
     </span><span class="p">}</span><span class="w">
-  </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"language"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value_not_match"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"een"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"values"</span><span class="p">:</span><span class="w"> </span><span class="s2">"en, no"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"property"</span><span class="p">:</span><span class="w"> </span><span class="s2">"language"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"optin_channel"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"not_contain_required_property"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"property"</span><span class="p">:</span><span class="w"> </span><span class="s2">"optin_channel"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <table><thead>
