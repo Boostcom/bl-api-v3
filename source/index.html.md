@@ -14,9 +14,9 @@ includes:
   - 03_params
   - 11_loyalty_clubs
   - 12_members
-  - 13_members_bulks
   - 14_oauth_members
   - 15_oauth
+  - 16_members_imports
   - 20_push_notifications
   - 99_changelog
 

@@ -1,5 +1,9 @@
 # Changelog
 
+### 03.08.2018 | Piotr Świtlicki:
+
+* Add [Members Import](#v3-members-imports-import-flow)
+
 ### 27.04.2018 | Piotr Świtlicki:
 
 * Add `POST /api/v3/loyalty_clubs/:loyalty_club_slug/members/by_email/:email/send_one_time_password` ([Members &bull; Send one time password E-mail](#v3-members-send-one-time-password-email))

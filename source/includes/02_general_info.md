@@ -51,32 +51,33 @@ curl -X PUT -H "X-Product-Name: custom-product-name" \
 
 ```json
 {
-  "errors": {
-    "properties": {
-      "birthday": [
-        {
-          "error": "invalid_date_format",
-          "property": "birthday"
-        }
-      ],
-      "gender": [
-        {
-          "error": "value_not_match",
-          "property": "gender",
-          "value": "man",
-          "values": "Mann, Kvinne"
-        }
-      ],
-      "first_name": [
-        {
-          "error": "not_contain_required_property",
-          "property": "first_name"
-        }
-      ]
+  "email": [
+    {
+      "error": "invalid",
+      "property": "email"
     }
-  }
+  ],
+  "properties": [
+    {
+      "error": {
+        "language": [
+          {
+            "error": "value_not_match",
+            "value": "een",
+            "values": "en, no",
+            "property": "language"
+          }
+        ],
+        "optin_channel": [
+          {
+            "error": "not_contain_required_property",
+            "property": "optin_channel"
+          }
+        ]
+      }
+    }
+  ]
 }
-
 ```
 
 Error | Description
