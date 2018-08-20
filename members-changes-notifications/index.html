@@ -1,0 +1,353 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>Member Changes Notifications</title>
+
+  <style>
+    .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .cd {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+  </style>
+  <link href="../stylesheets/screen.css" rel="stylesheet" media="screen" />
+  <link href="../stylesheets/print.css" rel="stylesheet" media="print" />
+  <link href="../stylesheets/index.css" rel="stylesheet" />
+    <script src="../javascripts/all_nosearch.js"></script>
+</head>
+
+<body class="members-changes-notifications members-changes-notifications_index" data-languages="[]">
+<a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="../images/navbar.png" alt="Navbar" />
+      </span>
+</a>
+<div class="tocify-wrapper">
+  <img src="../images/logo.svg" alt="Logo" />
+    <ul class="toc-footer">
+        <li><a href='https://loyalty.boostcom.no'>Boostcom Loyalty</a></li>
+        <li><a href='http://boostcom.com/'>Boostcom</a></li>
+        <li><hr/></li>
+        <li><a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a></li>
+    </ul>
+</div>
+<div class="page-wrapper">
+  <div class="dark-box"></div>
+  <div class="content">
+    <h1 id="members-changes-notifications">Members Changes Notifications</h1>
+
+<p>A Loyalty Club may be configured to send notifications (as HTTP POST requests) when a change occurs within its member 
+database (e.g. when member registers).</p>
+
+<p>If you wish to configure a Loyalty Club to have such notifications enabled, please contact us us.
+You will need to provide us a HTTPS (for security reasons, we don&rsquo;t support HTTP) URL that notifications will
+be sent to.</p>
+
+<h2 id="subscription">Subscription</h2>
+
+<p>As it is possible to have multiple endpoints configured for receiving notifications in one Loyalty Club, for each 
+endpoint we setup a Subscription.</p>
+
+<p>Each Subscription has its own Secret Token (see below) and may be configured to send notifications only on specific 
+changes (<code class="prettyprint">import</code>, <code class="prettyprint">update</code>, <code class="prettyprint">delete</code>).</p>
+
+<h2 id="authentication-token">Authentication token</h2>
+
+<p>Each notification request is signed with <code class="prettyprint">X-Secret-Token</code> header that contains Secret Token configured for given 
+Subscription.</p>
+
+<p>In order to assure that notifications you receive are sent from us, you should check if its value matches 
+the Secret Token that you received from us when the subscription has been set up.</p>
+
+<h2 id="notifications-format">Notifications format</h2>
+
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"bulk"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"customer_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Infinity Mall"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">447</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"event_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"update"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">44882174</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"birthday"</span><span class="p">:{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"string"</span><span class="p">,</span><span class="s2">"value"</span><span class="p">:</span><span class="s2">"1990-01-01"</span><span class="w"> </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"woman"</span><span class="w"> </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"language"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"en"</span><span class="w"> </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="w"> </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Doe"</span><span class="w"> </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"optin_channel"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"webforms"</span><span class="w"> </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"msisdn"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4740769126"</span><span class="w"> </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"j.doe@example.com"</span><span class="w"> </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"sms_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"verified"</span><span class="w"> </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"email_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unsubscribed"</span><span class="w"> </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"push_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"enabled"</span><span class="w"> </span><span class="p">}</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="s2">"consents"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"dmp_profiling"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"sms_marketing"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"email_marketing"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"custom_consent"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-28T08:34:59.231Z"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"optin_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-24T11:23:41.231Z"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Changes are always sent in bulks (however, in most cases the <code class="prettyprint">bulk</code> array will consist of only one element).</p>
+
+<p>Each change in the <code class="prettyprint">bulk</code> is identified by following attributes:</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>customer_name</td>
+<td>String</td>
+<td>Name of Loyalty Club</td>
+</tr>
+<tr>
+<td>customer_id</td>
+<td>Integer</td>
+<td>ID of Loyalty Club</td>
+</tr>
+<tr>
+<td>event_type</td>
+<td><code class="prettyprint">import</code>, <code class="prettyprint">update</code>, or <code class="prettyprint">delete</code></td>
+<td>A type of the change</td>
+</tr>
+<tr>
+<td>external_id</td>
+<td>Integer</td>
+<td>ID of member</td>
+</tr>
+<tr>
+<td>properties</td>
+<td>Object</td>
+<td>Member properties. Each of them has a <code class="prettyprint">type &lt;String&gt;</code> and <code class="prettyprint">value &lt;String&gt;</code>. Empty when <code class="prettyprint">event_type</code> is <code class="prettyprint">delete</code></td>
+</tr>
+<tr>
+<td>consents</td>
+<td>Object</td>
+<td>Member consents and their values. Empty when <code class="prettyprint">event_type</code> is <code class="prettyprint">delete</code>.</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>Date</td>
+<td>When the change occurred</td>
+</tr>
+<tr>
+<td>optin_date</td>
+<td>Date</td>
+<td>When the member has been created</td>
+</tr>
+</tbody></table>
+
+<h2 id="notifications-delivery">Notifications delivery</h2>
+
+<p>Your endpoint must return a <code class="prettyprint">2xx</code> (<code class="prettyprint">200</code> or <code class="prettyprint">201</code> preferably) HTTP status code. Only then the notification 
+will be treated as delivered.</p>
+
+<p>If your server returns <code class="prettyprint">5xx</code> code, the delivery will be treated as failed, and our system will make another attempt later.
+On consequent failures, deliveries will be attempted up to 20 days.</p>
+
+<p>If your server returns a <code class="prettyprint">4xx</code> code, the delivery will be ignored.</p>
+
+  </div>
+  <div class="dark-box">
+  </div>
+</div>
+</body>
+</html>
