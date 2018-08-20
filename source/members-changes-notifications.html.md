@@ -1,6 +1,6 @@
 ---
 title: Member Changes Notifications
-layout: index
+layout: slate
 
 toc_footers:
   - <a href='https://loyalty.boostcom.no'>Boostcom Loyalty</a>
