@@ -1,0 +1,26 @@
+@import 'variables';
+
+body.index {
+  width: 100%;
+  height: 100%;
+  background: $examples-bg;
+
+  .content ul {
+    padding-left: 30px;
+
+    li {
+      //list-style: none;
+    }
+
+    a {
+      color: $main-text;
+      text-decoration: none;
+      font-size: 1.3em;
+      line-height: 1.3em;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

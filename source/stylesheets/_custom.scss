@@ -1,3 +1,11 @@
 .content h4 {
   font-size: 1em;
 }
+
+.tocify-wrapper {
+  & > a img {
+    display: block;
+    max-width: 80%;
+    margin: 10px auto 0 auto;
+  }
+}
