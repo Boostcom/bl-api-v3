@@ -1,5 +1,11 @@
 <h1 id="changelog">Changelog</h1>
 
+<h3 id="12-10-2018-piotr-witlicki">12.10.2018 | Piotr Świtlicki:</h3>
+
+<ul>
+<li>Add <code class="prettyprint">GET /api/v3/loyalty_clubs/:loyalty_club_slug/members/imports/:import_id/bulks//by_request_number/:request_number</code></li>
+</ul>
+
 <h3 id="03-08-2018-piotr-witlicki">03.08.2018 | Piotr Świtlicki:</h3>
 
 <ul>

@@ -418,6 +418,8 @@ Requires <code>BL:Api:Members:Imports:Get</code> permit
 
 <p><strong>GET</strong> <code class="prettyprint">api/v3/loyalty_clubs/:loyalty_club_slug/members/imports/:import_id/bulks/:bulk_id</code></p>
 
+<p><strong>GET</strong> <code class="prettyprint">api/v3/loyalty_clubs/:loyalty_club_slug/members/imports/:import_id/bulks/by_request_number/:request_number</code></p>
+
 <p>Returns status of import bulk.</p>
 
 <blockquote>
@@ -479,7 +481,11 @@ Requires <code>BL:Api:Members:Imports:Get</code> permit
 </tr>
 <tr>
 <td>bulk_id</td>
-<td>ID of bulk</td>
+<td>ID of the bulk</td>
+</tr>
+<tr>
+<td>request_number</td>
+<td>Request number of the bulk</td>
 </tr>
 </tbody></table>
 

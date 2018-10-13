@@ -3151,6 +3151,8 @@ Requires <code>BL:Api:Members:Imports:Get</code> permit
 
 <p><strong>GET</strong> <code class="prettyprint">api/v3/loyalty_clubs/:loyalty_club_slug/members/imports/:import_id/bulks/:bulk_id</code></p>
 
+<p><strong>GET</strong> <code class="prettyprint">api/v3/loyalty_clubs/:loyalty_club_slug/members/imports/:import_id/bulks/by_request_number/:request_number</code></p>
+
 <p>Returns status of import bulk.</p>
 
 <blockquote>
@@ -3212,7 +3214,11 @@ Requires <code>BL:Api:Members:Imports:Get</code> permit
 </tr>
 <tr>
 <td>bulk_id</td>
-<td>ID of bulk</td>
+<td>ID of the bulk</td>
+</tr>
+<tr>
+<td>request_number</td>
+<td>Request number of the bulk</td>
 </tr>
 </tbody></table>
 
@@ -3451,6 +3457,12 @@ Requires <code>BL:Api:PushNotifications:Send</code> permit
 </aside>
 
           <h1 id="changelog">Changelog</h1>
+
+<h3 id="12-10-2018-piotr-witlicki">12.10.2018 | Piotr Świtlicki:</h3>
+
+<ul>
+<li>Add <code class="prettyprint">GET /api/v3/loyalty_clubs/:loyalty_club_slug/members/imports/:import_id/bulks//by_request_number/:request_number</code></li>
+</ul>
 
 <h3 id="03-08-2018-piotr-witlicki">03.08.2018 | Piotr Świtlicki:</h3>
 
