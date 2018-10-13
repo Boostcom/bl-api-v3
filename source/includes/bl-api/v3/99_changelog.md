@@ -1,5 +1,9 @@
 # Changelog
 
+### 12.10.2018 | Piotr Świtlicki:
+
+* Add `GET /api/v3/loyalty_clubs/:loyalty_club_slug/members/imports/:import_id/bulks//by_request_number/:request_number`
+
 ### 03.08.2018 | Piotr Świtlicki:
 
 * Add [Members Import](#v3-members-imports-import-flow)

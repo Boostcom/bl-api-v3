@@ -234,6 +234,8 @@ Requires <code>BL:Api:Members:Imports:Get</code> permit
 
 **GET** `api/v3/loyalty_clubs/:loyalty_club_slug/members/imports/:import_id/bulks/:bulk_id`
 
+**GET** `api/v3/loyalty_clubs/:loyalty_club_slug/members/imports/:import_id/bulks/by_request_number/:request_number`
+
 Returns status of import bulk.
 
 > Example:
@@ -289,7 +291,8 @@ curl -X GET \
 Parameter | Description
 --------- | ----------- |
 import_id | Import identifier |
-bulk_id | ID of bulk |
+bulk_id | ID of the bulk |
+request_number | Request number of the bulk |
 
 ### Response (JSON object)
 
