@@ -84,16 +84,19 @@ in every notification a result (`sent|no_device`) is returned - see an example o
 
 ### POST Parameters (JSON array)
 
+The expected payload consists of `messages` object which has array of objects with following attributes:
+
 Key | Type | Description
 --------- | --------- | ---------
-notifications | array | List of notifications to send
-notifications[]['id'] | string | ID of message. It's value is up to you, but it's suggested <br /> to make it unique so their may be distinguishable for us and for you
-notifications[]['member_ids'] | array | IDs of members the notification should be sent to
-notifications[]['shortening_enabled'] | bool | Should links in payload get shortened with Boostcom Shortener?
-notifications[]['notification'] | object | Predefined, user-visible key-value pairs of the notification payload. <br /> For more information, see [Firebase docs](https://firebase.google.com/docs/cloud-messaging/http-server-ref#notification-payload-support)
-notifications[]['notification']['body'] | string | Body of push notification
-notifications[]['notification']['title'] | string | Title to be displayed in push notification
-notifications[]['data'] | object | Custom key-value pairs of the message's payload. <br /> For more information, see [Firebase docs](https://firebase.google.com/docs/cloud-messaging/http-server-ref#data)
+id* | string | ID of message. It's value is up to you, but we suggest <br /> to make it unique so the messages may be distinguished
+member_ids* | array | IDs of members the notification should be sent to
+shortening_enabled | bool | Should links in payload get shortened with Boostcom Shortener?
+notification* | object | Predefined, user-visible key-value pairs of the notification payload. <br /> For more information, see [Firebase docs](https://firebase.google.com/docs/cloud-messaging/http-server-ref#notification-payload-support)
+notification['body'] | string | Body of push notification
+notification['title'] | string | Title to be displayed in push notification
+data | object | Custom key-value pairs of the message's payload. <br /> For more information, see [Firebase docs](https://firebase.google.com/docs/cloud-messaging/http-server-ref#data)
+
+\* required
 
 ### Error responses
 

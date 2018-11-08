@@ -1,5 +1,9 @@
 # Changelog
 
+### 08.11.2018 | Piotr Świtlicki:
+
+* Add `POST /api/v3/loyalty_clubs/:loyalty_club_slug/smses` ([SMSes &bull; Create](#v3-smses-create))
+
 ### 12.10.2018 | Piotr Świtlicki:
 
 * Add `GET /api/v3/loyalty_clubs/:loyalty_club_slug/members/imports/:import_id/bulks//by_request_number/:request_number`
