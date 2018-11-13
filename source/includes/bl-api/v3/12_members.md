@@ -797,6 +797,7 @@ curl -X PUT \
 **PUT** `/api/v3/loyalty_clubs/:loyalty_club_slug/members/channels/msisdn/:msisdn/send_verification`
 
 Generates a verification token for member identified by given MSISDN and sends it to him with an SMS message.
+The token is valid for 30 days.
 
 By default, a link to Webforms is sent.
 When `for_mobile_app = true` param is provided, a deep link to mobile app is generated instead.
