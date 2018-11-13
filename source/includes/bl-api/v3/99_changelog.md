@@ -1,5 +1,10 @@
 # Changelog
 
+### 13.11.2018 | Piotr Świtlicki:
+
+* Add `PUT /api/v3/loyalty_clubs/:loyalty_club_slug/members/channels/msisdn/:msisdn/send_verification`([Members &bull; Send MSISDN verification SMS](#v3-members-send-verification-sms))
+* Add `PUT /api/v3/loyalty_clubs/:loyalty_club_slug/members/channels/msisdn/:msisdn/verify` ([Members &bull; Verify MSISDN](#v3-members-verify-msisdn))
+
 ### 08.11.2018 | Piotr Świtlicki:
 
 * Add `POST /api/v3/loyalty_clubs/:loyalty_club_slug/smses` ([SMSes &bull; Create](#v3-smses-create))

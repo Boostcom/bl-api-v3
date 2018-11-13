@@ -635,7 +635,7 @@ Requires <code>BL:Api:Members:CreateOneTimePassword</code> permit
 
 <!--- ############################################################################################################# --->
 
-## <a name="v3-members-send-one-time-password-email"></a> Send one time password E-mail (WIP)
+## <a name="v3-members-send-one-time-password-email"></a> Send one time password E-mail
 
 > Example:
 
@@ -773,4 +773,93 @@ Status | Reason
 
 <aside class="notice">
 Requires <code>BL:Api:Members:Tokens:Verify</code> permit
+</aside>
+
+<!--- ############################################################################################################# --->
+
+## <a name="v3-members-send-verification-sms"></a> Send MSISDN verification SMS
+
+> Example:
+
+```shell
+curl -X PUT \
+  "https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members/channels/msisdn/4740485124/send_verification" \
+  -H 'Content-Type: application/json' \
+  -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+  -H 'X-Product-Name: default' \
+  -H 'X-User-Agent: CURL manual test' \
+  -d \
+    '{
+      "for_mobile_app": false
+    }'
+```
+
+**PUT** `/api/v3/loyalty_clubs/:loyalty_club_slug/members/channels/msisdn/:msisdn/send_verification`
+
+Generates a verification token for member identified by given MSISDN and sends it to him with an SMS message.
+
+By default, a link to Webforms is sent.
+When `for_mobile_app = true` param is provided, a deep link to mobile app is generated instead.
+
+### PUT body parameters
+
+Parameter | Type | Required? | Default | Description
+--------- | ----------- | ------ | ------ | ------
+for_mobile_app | boolean | no | false | Should a deep-link to mobile app be generated?
+
+### Response
+
+Always returns `204 (No content)`
+
+<aside class="notice">
+Requires <code>BL:Api:Members:Msisdns:Verify</code> permit
+</aside>
+
+<!--- ############################################################################################################# --->
+
+## <a name="v3-members-verify-msisdn"></a> Verify MSISDN
+
+> Example:
+
+```shell
+curl -X PUT \
+  "https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members/channels/msisdn/4740485124/verify" \
+  -H 'Content-Type: application/json' \
+  -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+  -H 'X-Product-Name: default' \
+  -H 'X-User-Agent: CURL manual test' \
+  -d \
+    '{
+      "token": "shNWPezzYoIuJV2qDIcQrdFQqUdlVdquwUJrNb2Nuw"
+    }'
+```
+
+> When successful, returns an empty object:
+
+```json
+{
+  // Empty object
+}
+```
+
+**PUT** `/api/v3/loyalty_clubs/:loyalty_club_slug/members/channels/msisdn/:msisdn/verify`
+
+Uses given token (sent with [Members &bull; Send MSISDN verification SMS](#v3-members-send-verification-sms)) to verify
+user identified with given MSISDN.
+
+### PUT body parameters
+
+Parameter | Type | Required? | Description
+--------- | ----------- | ------ | ------
+token | string | yes | Token generated and sent with [Members &bull; Send MSISDN verification SMS](#v3-members-send-verification-sms)
+
+### Error responses
+
+Status | Reason
+--------- | ----------- 
+`400` | Token missing
+`463` | Invalid token
+
+<aside class="notice">
+Requires <code>BL:Api:Members:Msisdns:Verify</code> permit
 </aside>
