@@ -859,7 +859,7 @@ token | string | yes | Token generated and sent with [Members &bull; Send MSISDN
 Status | Reason
 --------- | ----------- 
 `400` | Token missing
-`463` | Invalid token
+`463` | Invalid token (it may not exist, or not match the user or be expired)
 
 <aside class="notice">
 Requires <code>BL:Api:Members:Msisdns:Verify</code> permit
