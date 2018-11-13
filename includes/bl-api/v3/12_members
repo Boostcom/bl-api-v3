@@ -1291,7 +1291,8 @@ Requires <code>BL:Api:Members:Tokens:Verify</code> permit
 </code></pre>
 <p><strong>PUT</strong> <code class="prettyprint">/api/v3/loyalty_clubs/:loyalty_club_slug/members/channels/msisdn/:msisdn/send_verification</code></p>
 
-<p>Generates a verification token for member identified by given MSISDN and sends it to him with an SMS message.</p>
+<p>Generates a verification token for member identified by given MSISDN and sends it to him with an SMS message.
+The token is valid for 30 days.</p>
 
 <p>By default, a link to Webforms is sent.
 When <code class="prettyprint">for_mobile_app = true</code> param is provided, a deep link to mobile app is generated instead.</p>
@@ -1386,7 +1387,7 @@ user identified with given MSISDN.</p>
 </tr>
 <tr>
 <td><code class="prettyprint">463</code></td>
-<td>Invalid token</td>
+<td>Invalid token (it may not exist, or not match the user or be expired)</td>
 </tr>
 </tbody></table>
 
