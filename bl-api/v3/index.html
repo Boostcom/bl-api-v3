@@ -1946,7 +1946,7 @@ Requires <code>BL:Api:Members:CreateOneTimePassword</code> permit
 
 <!--- ############################################################################################################# --->
 
-<h2 id="send-one-time-password-e-mail-wip"><a name="v3-members-send-one-time-password-email"></a> Send one time password E-mail (WIP)</h2>
+<h2 id="send-one-time-password-e-mail"><a name="v3-members-send-one-time-password-email"></a> Send one time password E-mail</h2>
 
 <blockquote>
 <p>Example:</p>
@@ -2148,6 +2148,129 @@ Requires <code>BL:Api:Members:CreateRegistrationPassword</code> permit
 
 <aside class="notice">
 Requires <code>BL:Api:Members:Tokens:Verify</code> permit
+</aside>
+
+<!--- ############################################################################################################# --->
+
+<h2 id="send-msisdn-verification-sms"><a name="v3-members-send-verification-sms"></a> Send MSISDN verification SMS</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X PUT <span class="se">\</span>
+  <span class="s2">"https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members/channels/msisdn/4740485124/send_verification"</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+  -H <span class="s1">'X-User-Agent: CURL manual test'</span> <span class="se">\</span>
+  -d <span class="se">\</span>
+    <span class="s1">'{
+      "for_mobile_app": false
+    }'</span>
+</code></pre>
+<p><strong>PUT</strong> <code class="prettyprint">/api/v3/loyalty_clubs/:loyalty_club_slug/members/channels/msisdn/:msisdn/send_verification</code></p>
+
+<p>Generates a verification token for member identified by given MSISDN and sends it to him with an SMS message.</p>
+
+<p>By default, a link to Webforms is sent.
+When <code class="prettyprint">for_mobile_app = true</code> param is provided, a deep link to mobile app is generated instead.</p>
+
+<h3 id="put-body-parameters">PUT body parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required?</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>for_mobile_app</td>
+<td>boolean</td>
+<td>no</td>
+<td>false</td>
+<td>Should a deep-link to mobile app be generated?</td>
+</tr>
+</tbody></table>
+
+<h3 id="response">Response</h3>
+
+<p>Always returns <code class="prettyprint">204 (No content)</code></p>
+
+<aside class="notice">
+Requires <code>BL:Api:Members:Msisdns:Verify</code> permit
+</aside>
+
+<!--- ############################################################################################################# --->
+
+<h2 id="verify-msisdn"><a name="v3-members-verify-msisdn"></a> Verify MSISDN</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X PUT <span class="se">\</span>
+  <span class="s2">"https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members/channels/msisdn/4740485124/verify"</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+  -H <span class="s1">'X-User-Agent: CURL manual test'</span> <span class="se">\</span>
+  -d <span class="se">\</span>
+    <span class="s1">'{
+      "token": "shNWPezzYoIuJV2qDIcQrdFQqUdlVdquwUJrNb2Nuw"
+    }'</span>
+</code></pre>
+<blockquote>
+<p>When successful, returns an empty object:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="err">//</span><span class="w"> </span><span class="err">Empty</span><span class="w"> </span><span class="err">object</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>PUT</strong> <code class="prettyprint">/api/v3/loyalty_clubs/:loyalty_club_slug/members/channels/msisdn/:msisdn/verify</code></p>
+
+<p>Uses given token (sent with <a href="#v3-members-send-verification-sms">Members &bull; Send MSISDN verification SMS</a>) to verify
+user identified with given MSISDN.</p>
+
+<h3 id="put-body-parameters">PUT body parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required?</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>token</td>
+<td>string</td>
+<td>yes</td>
+<td>Token generated and sent with <a href="#v3-members-send-verification-sms">Members &bull; Send MSISDN verification SMS</a></td>
+</tr>
+</tbody></table>
+
+<h3 id="error-responses">Error responses</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">400</code></td>
+<td>Token missing</td>
+</tr>
+<tr>
+<td><code class="prettyprint">463</code></td>
+<td>Invalid token</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>BL:Api:Members:Msisdns:Verify</code> permit
 </aside>
 
           <h1 id="endpoints-me">Endpoints &bull; Me</h1>
@@ -3649,6 +3772,13 @@ Requires <code>BL:Api:Smses:Send</code> permit
 </aside>
 
           <h1 id="changelog">Changelog</h1>
+
+<h3 id="13-11-2018-piotr-witlicki">13.11.2018 | Piotr Świtlicki:</h3>
+
+<ul>
+<li>Add <code class="prettyprint">PUT /api/v3/loyalty_clubs/:loyalty_club_slug/members/channels/msisdn/:msisdn/send_verification</code>(<a href="#v3-members-send-verification-sms">Members &bull; Send MSISDN verification SMS</a>)</li>
+<li>Add <code class="prettyprint">PUT /api/v3/loyalty_clubs/:loyalty_club_slug/members/channels/msisdn/:msisdn/verify</code> (<a href="#v3-members-verify-msisdn">Members &bull; Verify MSISDN</a>)</li>
+</ul>
 
 <h3 id="08-11-2018-piotr-witlicki">08.11.2018 | Piotr Świtlicki:</h3>
 

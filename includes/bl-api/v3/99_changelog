@@ -1,5 +1,12 @@
 <h1 id="changelog">Changelog</h1>
 
+<h3 id="13-11-2018-piotr-witlicki">13.11.2018 | Piotr Świtlicki:</h3>
+
+<ul>
+<li>Add <code class="prettyprint">PUT /api/v3/loyalty_clubs/:loyalty_club_slug/members/channels/msisdn/:msisdn/send_verification</code>(<a href="#v3-members-send-verification-sms">Members &bull; Send MSISDN verification SMS</a>)</li>
+<li>Add <code class="prettyprint">PUT /api/v3/loyalty_clubs/:loyalty_club_slug/members/channels/msisdn/:msisdn/verify</code> (<a href="#v3-members-verify-msisdn">Members &bull; Verify MSISDN</a>)</li>
+</ul>
+
 <h3 id="08-11-2018-piotr-witlicki">08.11.2018 | Piotr Świtlicki:</h3>
 
 <ul>
