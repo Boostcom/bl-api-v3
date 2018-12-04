@@ -1,5 +1,9 @@
 # Changelog
 
+### 04.12.2018 | Piotr Świtlicki:
+
+* Add `language` param to `/api/v3/loyalty_clubs/:loyalty_club_slug/members/by_msisdn/:msisdn/send_registration_password`
+
 ### 13.11.2018 | Piotr Świtlicki:
 
 * Add `PUT /api/v3/loyalty_clubs/:loyalty_club_slug/members/channels/msisdn/:msisdn/send_verification`([Members &bull; Send MSISDN verification SMS](#v3-members-send-verification-sms))

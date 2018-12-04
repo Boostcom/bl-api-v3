@@ -690,7 +690,11 @@ curl "https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members/by_
   -H 'Content-Type: application/json' \
   -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
   -H 'X-Product-Name: default' \
-  -H 'X-User-Agent: CURL manual test'
+  -H 'X-User-Agent: CURL manual test' \
+  -d \
+    '{
+      "language": "en"
+     }'
 ```
 
 > Always returns an empty JSON object
@@ -714,6 +718,12 @@ This password may be required for member registration - see: [Registration passw
 Parameter | Description | Type
 --------- | ----------- | ------
 msisdn | MSISDN | string (format as defined [here](#msisdn-member-identifier) - example: `4740485124`)
+
+### POST Parameters
+
+Parameter | Description | Type
+--------- | ----------- | ------
+language | Language of the registration password message. When not provided, default LC language will be used | string
 
 ### Error responses
 
