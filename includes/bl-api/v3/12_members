@@ -1138,7 +1138,11 @@ Requires <code>BL:Api:Members:CreateOneTimePassword</code> permit
   -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
   -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
-  -H <span class="s1">'X-User-Agent: CURL manual test'</span>
+  -H <span class="s1">'X-User-Agent: CURL manual test'</span> <span class="se">\</span>
+  -d <span class="se">\</span>
+    <span class="s1">'{
+      "language": "en"
+     }'</span>
 </code></pre>
 <blockquote>
 <p>Always returns an empty JSON object</p>
@@ -1168,6 +1172,22 @@ Requires <code>BL:Api:Members:CreateOneTimePassword</code> permit
 <td>msisdn</td>
 <td>MSISDN</td>
 <td>string (format as defined <a href="#msisdn-member-identifier">here</a> - example: <code class="prettyprint">4740485124</code>)</td>
+</tr>
+</tbody></table>
+
+<h3 id="post-parameters">POST Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>language</td>
+<td>Language of the registration password message. When not provided, default LC language will be used</td>
+<td>string</td>
 </tr>
 </tbody></table>
 

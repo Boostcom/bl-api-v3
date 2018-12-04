@@ -1,5 +1,11 @@
 <h1 id="changelog">Changelog</h1>
 
+<h3 id="04-12-2018-piotr-witlicki">04.12.2018 | Piotr Świtlicki:</h3>
+
+<ul>
+<li>Add <code class="prettyprint">language</code> param to <code class="prettyprint">/api/v3/loyalty_clubs/:loyalty_club_slug/members/by_msisdn/:msisdn/send_registration_password</code></li>
+</ul>
+
 <h3 id="13-11-2018-piotr-witlicki">13.11.2018 | Piotr Świtlicki:</h3>
 
 <ul>

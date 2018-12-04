@@ -2017,7 +2017,11 @@ Requires <code>BL:Api:Members:CreateOneTimePassword</code> permit
   -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
   -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
-  -H <span class="s1">'X-User-Agent: CURL manual test'</span>
+  -H <span class="s1">'X-User-Agent: CURL manual test'</span> <span class="se">\</span>
+  -d <span class="se">\</span>
+    <span class="s1">'{
+      "language": "en"
+     }'</span>
 </code></pre>
 <blockquote>
 <p>Always returns an empty JSON object</p>
@@ -2047,6 +2051,22 @@ Requires <code>BL:Api:Members:CreateOneTimePassword</code> permit
 <td>msisdn</td>
 <td>MSISDN</td>
 <td>string (format as defined <a href="#msisdn-member-identifier">here</a> - example: <code class="prettyprint">4740485124</code>)</td>
+</tr>
+</tbody></table>
+
+<h3 id="post-parameters">POST Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>language</td>
+<td>Language of the registration password message. When not provided, default LC language will be used</td>
+<td>string</td>
 </tr>
 </tbody></table>
 
@@ -3773,6 +3793,12 @@ Requires <code>BL:Api:Smses:Send</code> permit
 </aside>
 
           <h1 id="changelog">Changelog</h1>
+
+<h3 id="04-12-2018-piotr-witlicki">04.12.2018 | Piotr Świtlicki:</h3>
+
+<ul>
+<li>Add <code class="prettyprint">language</code> param to <code class="prettyprint">/api/v3/loyalty_clubs/:loyalty_club_slug/members/by_msisdn/:msisdn/send_registration_password</code></li>
+</ul>
 
 <h3 id="13-11-2018-piotr-witlicki">13.11.2018 | Piotr Świtlicki:</h3>
 
