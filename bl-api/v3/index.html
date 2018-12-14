@@ -512,8 +512,8 @@ Errors format and strings are not yet stable and may change without further noti
     </span><span class="s2">"language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"no"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"consents"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"consent1"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"consent2"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">}</span><span class="w">
+    </span><span class="s2">"consent1"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-14T21:57:20.063Z"</span><span class="w"> </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"consent2"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-10-25T21:57:43.738Z"</span><span class="w"> </span><span class="p">}</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"sms_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"enabled"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"email_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hard_bounced"</span><span class="p">,</span><span class="w">
@@ -600,13 +600,15 @@ Errors format and strings are not yet stable and may change without further noti
 
 <p>JSON model for consents. Keys can be dynamically created based on customer&rsquo;s need.</p>
 
-<p>It consists of: <code class="prettyprint">&#39;consent-slug&#39;: { status: &lt;boolean value&gt; }</code></p>
+<p>It consists of: <code class="prettyprint">&#39;consent-slug&#39;: { &quot;status&quot;: &lt;boolean_value&gt;, &quot;updated_at&quot;: &lt;time&gt; }</code></p>
 
 <ul>
 <li>If status is <code class="prettyprint">true</code> - Member approved consent.</li>
 <li>If status is <code class="prettyprint">false</code> - Member disapproved consent.</li>
-<li>If you can find slug on Member: he/she haven&rsquo;t disapproved or approved consent.</li>
+<li>If you can&rsquo;t find slug on Member: he/she haven&rsquo;t disapproved or approved consent.</li>
 </ul>
+
+<p><code class="prettyprint">updated_at</code> is the time of last consent update. It can be also not provided or null.</p>
 
 <p>Available consents for Loyalty Club are described in <a href="#v3-loyalty-clubs-schema">schema</a>.</p>
 
@@ -3793,6 +3795,12 @@ Requires <code>BL:Api:Smses:Send</code> permit
 </aside>
 
           <h1 id="changelog">Changelog</h1>
+
+<h3 id="14-12-2018-jakub-kruczek">14.12.2018 | Jakub Kruczek:</h3>
+
+<ul>
+<li>Add <code class="prettyprint">updated_at</code> to consents value on member</li>
+</ul>
 
 <h3 id="04-12-2018-piotr-witlicki">04.12.2018 | Piotr Świtlicki:</h3>
 

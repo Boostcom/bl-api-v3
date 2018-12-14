@@ -1,5 +1,11 @@
 <h1 id="changelog">Changelog</h1>
 
+<h3 id="14-12-2018-jakub-kruczek">14.12.2018 | Jakub Kruczek:</h3>
+
+<ul>
+<li>Add <code class="prettyprint">updated_at</code> to consents value on member</li>
+</ul>
+
 <h3 id="04-12-2018-piotr-witlicki">04.12.2018 | Piotr Świtlicki:</h3>
 
 <ul>
