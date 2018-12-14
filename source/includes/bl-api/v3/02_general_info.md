@@ -142,8 +142,8 @@ duplicated_email | The email was duplicated in community
     "language": "no"
   },
   "consents": {
-    "consent1": { "status": true },
-    "consent2": { "status": false }
+    "consent1": { "status": true, "updated_at": "2018-12-14T21:57:20.063Z" },
+    "consent2": { "status": false, "updated_at": "2018-10-25T21:57:43.738Z" }
   },
   "sms_status": "enabled",
   "email_status": "hard_bounced",
@@ -177,10 +177,12 @@ person_id | Unique Member's identifier (set internally) | string
 
 JSON model for consents. Keys can be dynamically created based on customer's need.
 
-It consists of: `'consent-slug': { status: <boolean value> }`
+It consists of: `'consent-slug': { "status": <boolean_value>, "updated_at": <time> }`
 
 * If status is `true` - Member approved consent.
 * If status is `false` - Member disapproved consent.
-* If you can find slug on Member: he/she haven't disapproved or approved consent.
+* If you can't find slug on Member: he/she haven't disapproved or approved consent.
+
+`updated_at` is the time of last consent update. It can be also not provided or null.
 
 Available consents for Loyalty Club are described in [schema](#v3-loyalty-clubs-schema).

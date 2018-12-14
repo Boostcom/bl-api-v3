@@ -1,5 +1,9 @@
 # Changelog
 
+### 14.12.2018 | Jakub Kruczek:
+
+* Add `updated_at` to consents value on member
+
 ### 04.12.2018 | Piotr Świtlicki:
 
 * Add `language` param to `/api/v3/loyalty_clubs/:loyalty_club_slug/members/by_msisdn/:msisdn/send_registration_password`
