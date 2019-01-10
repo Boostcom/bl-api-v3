@@ -3,7 +3,7 @@ title: Member Changes Notifications
 layout: slate
 
 toc_footers:
-  - <a href='https://loyalty.boostcom.no'>Performance Cloud</a>
+  - <a href='https://loyalty.boostcom.no'>Mall/Retail Performance Cloud</a>
   - <a href='http://boostcom.com/'>Boostcom</a>
   - <hr/>
   - <a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a>
