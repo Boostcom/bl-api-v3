@@ -290,8 +290,8 @@ curl -X POST \
 		"last_name": "Doge"
 	},
 	"consents": {
-	    "consent1": { status: true },
-	    "consent2": { status: false }
+	    "consent1": { "status": true },
+	    "consent2": { "status": false }
 	},
 	"send_sms_welcome_message": false
 }'
