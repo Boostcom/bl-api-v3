@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>Boostcom Loyalty API V3 Reference</title>
+    <title>Boostcom Mall/Retail Performance Cloud API V3 Reference</title>
 
     <style>
       .highlight table td { padding: 5px; }
@@ -218,7 +218,7 @@
       <div id="toc">
       </div>
         <ul class="toc-footer">
-            <li><a href='https://loyalty.boostcom.no'>Boostcom Loyalty</a></li>
+            <li><a href='https://loyalty.boostcom.no'>Mall/Retail Performance Cloud</a></li>
             <li><a href='http://boostcom.com/'>Boostcom</a></li>
             <li><hr/></li>
             <li><a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a></li>
@@ -232,10 +232,6 @@
 
 <p>It&rsquo;s an API to manage loyalty club&rsquo;s members.
 It can be accessed from both Boostcom&rsquo;s internal server applications, from native mobile applications as well as external client&rsquo;s server applications.</p>
-
-<aside class="notice">
-You can use Api V3 only when your customer is migrated to new backend service for data.
-</aside>
 
           <h1 id="general-info">General info</h1>
 
@@ -1357,8 +1353,8 @@ curl -X POST <span class="se">\</span>
         "last_name": "Doge"
     },
     "consents": {
-        "consent1": { status: true },
-        "consent2": { status: false }
+        "consent1": { "status": true },
+        "consent2": { "status": false }
     },
     "send_sms_welcome_message": false
 }'</span>
