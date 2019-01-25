@@ -1,5 +1,10 @@
 # Changelog
 
+### 25.01.2019 | Dominik Halat:
+
+* Add `POST /api/v3/loyalty_clubs/:loyalty_club_slug/emails` ([Emails &bull; Create](#v3-emails-create))
+* Add `db_and_cache` response type for Member#person_id ([Get person id](#v3-members-person-id))
+
 ### 14.12.2018 | Jakub Kruczek:
 
 * Add `updated_at` to consents value on member

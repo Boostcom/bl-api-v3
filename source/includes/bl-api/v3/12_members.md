@@ -160,7 +160,7 @@ curl "https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members/:id
 
 Returns `person_id` for given member. Please note that `person_id` cannot be preset in member payload and will be silently ignored. Also, it cannot be updated.
 
-> There are 3 possible successful responses:
+> There are 4 possible successful responses:
 
 > If member currently exists in database:
 
@@ -172,7 +172,6 @@ Returns `person_id` for given member. Please note that `person_id` cannot be pre
 }
 ```
 
-
 > If member does not exist but was deleted in last 30 days:
 
 ```json
@@ -180,6 +179,16 @@ Returns `person_id` for given member. Please note that `person_id` cannot be pre
   "success": true,
   "source": "storage", 
   "person_id": 92 
+}
+```
+
+> If member had existed, was deleted (in last 30 days) and was created again so it exists now:
+
+```json
+{
+  "success": true,
+  "source": "db_and_cache", 
+  "person_id": null 
 }
 ```
 
