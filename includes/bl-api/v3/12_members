@@ -278,7 +278,7 @@ Requires <code>BL:Api:Members:Check</code> permit
 <p>Returns <code class="prettyprint">person_id</code> for given member. Please note that <code class="prettyprint">person_id</code> cannot be preset in member payload and will be silently ignored. Also, it cannot be updated.</p>
 
 <blockquote>
-<p>There are 3 possible successful responses:</p>
+<p>There are 4 possible successful responses:</p>
 
 <p>If member currently exists in database:</p>
 </blockquote>
@@ -295,6 +295,15 @@ Requires <code>BL:Api:Members:Check</code> permit
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="s2">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"storage"</span><span class="p">,</span><span class="w"> 
   </span><span class="s2">"person_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">92</span><span class="w"> 
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>If member had existed, was deleted (in last 30 days) and was created again so it exists now:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"db_and_cache"</span><span class="p">,</span><span class="w"> 
+  </span><span class="s2">"person_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w"> 
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>

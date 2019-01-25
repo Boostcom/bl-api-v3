@@ -1,5 +1,12 @@
 <h1 id="changelog">Changelog</h1>
 
+<h3 id="25-01-2019-dominik-halat">25.01.2019 | Dominik Halat:</h3>
+
+<ul>
+<li>Add <code class="prettyprint">POST /api/v3/loyalty_clubs/:loyalty_club_slug/emails</code> (<a href="#v3-emails-create">Emails &bull; Create</a>)</li>
+<li>Add <code class="prettyprint">db_and_cache</code> response type for Member#person_id (<a href="#v3-members-person-id">Get person id</a>)</li>
+</ul>
+
 <h3 id="14-12-2018-jakub-kruczek">14.12.2018 | Jakub Kruczek:</h3>
 
 <ul>
