@@ -5,7 +5,7 @@
 <blockquote>
 <p>Create token example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members/oauth/token"</span> <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/members/oauth/token"</span> <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
   -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
@@ -20,7 +20,7 @@
 <blockquote>
 <p>Refresh token example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members/oauth/token"</span> <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/members/oauth/token"</span> <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
   -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
@@ -42,7 +42,7 @@
   </span><span class="s2">"resource_owner_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>POST</strong> <code class="prettyprint">api/v3/loyalty_clubs/:loyalty_club_slug/members/oauth/token</code></p>
+<p><strong>POST</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/oauth/token</code></p>
 
 <p>Creates a new access token by one of two methods (grant types):</p>
 
@@ -184,7 +184,7 @@ Requires <code>BL:Api:Members:OAuth</code> permit
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members/oauth/revoke"</span> <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/members/oauth/revoke"</span> <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
   -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
@@ -200,7 +200,7 @@ Requires <code>BL:Api:Members:OAuth</code> permit
   </span><span class="err">//</span><span class="w"> </span><span class="err">Empty</span><span class="w"> </span><span class="err">object</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>POST</strong> <code class="prettyprint">api/v3/loyalty_clubs/:loyalty_club_slug/members/oauth/revoke</code></p>
+<p><strong>POST</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/oauth/revoke</code></p>
 
 <p>Revokes a token (access or refresh). </p>
 
@@ -233,7 +233,7 @@ Requires <code>BL:Api:Members:OAuth</code> permit
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members/oauth/token/info"</span> <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/members/oauth/token/info"</span> <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
   -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
@@ -254,7 +254,7 @@ Requires <code>BL:Api:Members:OAuth</code> permit
     </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1506516784</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>GET</strong> <code class="prettyprint">api/v3/loyalty_clubs/:loyalty_club_slug/members/oauth/token/info</code></p>
+<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/oauth/token/info</code></p>
 
 <p>Returns info of given token (not refresh token) from <code class="prettyprint">Authorization</code> header.</p>
 

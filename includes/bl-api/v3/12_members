@@ -5,7 +5,7 @@
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members?per_page=100&amp;page=1&amp;ids[]=1&amp;ids[]=2"</span> <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/members?per_page=100&amp;page=1&amp;ids[]=1&amp;ids[]=2"</span> <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
   -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
@@ -30,7 +30,7 @@
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
-<p><strong>GET</strong> <code class="prettyprint">api/v3/loyalty_clubs/:loyalty_club_slug/members?per_page=:per_page&amp;page=:page&amp;ids[]=1&amp;ids[]=2</code></p>
+<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members?per_page=:per_page&amp;page=:page&amp;ids[]=1&amp;ids[]=2</code></p>
 
 <p>Returns paginated list of all Loyalty Club members, sorted by <code class="prettyprint">created_at ASC</code>.</p>
 
@@ -161,7 +161,7 @@ Requires <code>BL:Api:Members:Index</code> permit
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members/:id/public_info"</span> <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/members/:id/public_info"</span> <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
   -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
@@ -175,11 +175,11 @@ Requires <code>BL:Api:Members:Index</code> permit
   </span><span class="s2">"can_login"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> 
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>GET</strong> <code class="prettyprint">api/v3/loyalty_clubs/:loyalty_club_slug/members/:id/public_info</code></p>
+<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/:id/public_info</code></p>
 
-<p><strong>GET</strong> <code class="prettyprint">api/v3/loyalty_clubs/:loyalty_club_slug/members/by_msisdn/:msisdn/public_info</code></p>
+<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/by_msisdn/:msisdn/public_info</code></p>
 
-<p><strong>GET</strong> <code class="prettyprint">api/v3/loyalty_clubs/:loyalty_club_slug/members/by_email/:email/public_info</code></p>
+<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/by_email/:email/public_info</code></p>
 
 <p>Returns basic info for given member. If member does not exist, returns `null&rsquo;.</p>
 
@@ -255,7 +255,7 @@ Requires <code>BL:Api:Members:Check</code> permit
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members/:id/person_id"</span> <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/members/:id/person_id"</span> <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
   -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
@@ -269,11 +269,11 @@ Requires <code>BL:Api:Members:Check</code> permit
   </span><span class="s2">"person_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">92</span><span class="w"> 
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>GET</strong> <code class="prettyprint">api/v3/loyalty_clubs/:loyalty_club_slug/members/:id/person_id</code></p>
+<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/:id/person_id</code></p>
 
-<p><strong>GET</strong> <code class="prettyprint">api/v3/loyalty_clubs/:loyalty_club_slug/members/by_msisdn/:msisdn/person_id</code></p>
+<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/by_msisdn/:msisdn/person_id</code></p>
 
-<p><strong>GET</strong> <code class="prettyprint">api/v3/loyalty_clubs/:loyalty_club_slug/members/by_email/:email/person_id</code></p>
+<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/by_email/:email/person_id</code></p>
 
 <p>Returns <code class="prettyprint">person_id</code> for given member. Please note that <code class="prettyprint">person_id</code> cannot be preset in member payload and will be silently ignored. Also, it cannot be updated.</p>
 
@@ -392,7 +392,7 @@ Requires <code>BL:Api:Members:Check</code> permit
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members/:id"</span> <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/members/:id"</span> <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
   -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
@@ -402,11 +402,11 @@ Requires <code>BL:Api:Members:Check</code> permit
 <p>When successful, the above command returns member object as depicted <a href="#v3-member-model">here</a></p>
 </blockquote>
 
-<p><strong>GET</strong> <code class="prettyprint">api/v3/loyalty_clubs/:loyalty_club_slug/members/:id</code></p>
+<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/:id</code></p>
 
-<p><strong>GET</strong> <code class="prettyprint">api/v3/loyalty_clubs/:loyalty_club_slug/members/by_msisdn/:msisdn</code></p>
+<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/by_msisdn/:msisdn</code></p>
 
-<p><strong>GET</strong> <code class="prettyprint">api/v3/loyalty_clubs/:loyalty_club_slug/members/by_email/:email</code></p>
+<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/by_email/:email</code></p>
 
 <p>Returns member by one of three identifier types: <code class="prettyprint">id</code>, <code class="prettyprint">member</code> or <code class="prettyprint">email</code></p>
 
@@ -471,7 +471,7 @@ Requires <code>BL:Api:Members:Get</code> permit
 </blockquote>
 <pre class="highlight shell tab-shell"><code>
 curl -X POST <span class="se">\</span>
-  https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members <span class="se">\</span>
+  https://bpc-api.boostcom.no/v3/infinity-mall/members <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
   -H <span class="s1">'X-Product-Name: facebook'</span> <span class="se">\</span>
@@ -507,7 +507,7 @@ curl -X POST <span class="se">\</span>
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>POST</strong> <code class="prettyprint">api/v3/loyalty_clubs/:loyalty_club_slug/members</code></p>
+<p><strong>POST</strong> <code class="prettyprint">v3/:loyalty_club_slug/members</code></p>
 
 <p>Create member with given properties.</p>
 
@@ -678,7 +678,7 @@ Requires <code>BL:Api:Members:Create</code> or <code>BL:Api:Members:CreateWithVe
 </blockquote>
 <pre class="highlight shell tab-shell"><code>
 curl -X PUT <span class="se">\</span>
-  https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members/:id <span class="se">\</span>
+  https://bpc-api.boostcom.no/v3/infinity-mall/members/:id <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
   -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
@@ -697,7 +697,7 @@ curl -X PUT <span class="se">\</span>
 <p>When payload is invalid, validation errors as depicted <a href="#v3-members-create">here</a></p>
 </blockquote>
 
-<p><strong>PUT</strong> <code class="prettyprint">api/v3/loyalty_clubs/:loyalty_club_slug/members/:id</code></p>
+<p><strong>PUT</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/:id</code></p>
 
 <p>Update member&rsquo;s properties, consents and other with given ones.</p>
 
@@ -813,7 +813,7 @@ Requires <code>BL:Api:Members:Update</code> permit
 
 <h2 id="destroy"><a name="v3-members-destroy"></a> Destroy</h2>
 
-<p><strong>DELETE</strong> <code class="prettyprint">api/v3/loyalty_clubs/:loyalty_club_slug/members/:id</code></p>
+<p><strong>DELETE</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/:id</code></p>
 
 <p>Permanently removes member.</p>
 
@@ -824,7 +824,7 @@ Same as welcome messages, optout messages sending also depends on Loyalty Club a
 <p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X DELETE <span class="se">\</span>
-    <span class="s2">"https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members/:id"</span> <span class="se">\</span>
+    <span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/members/:id"</span> <span class="se">\</span>
     -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
     -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
@@ -904,7 +904,7 @@ Requires <code>BL:Api:Members:Destroy</code> permit
 <p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X PUT <span class="se">\</span>
-  <span class="s2">"https://bpc-api.boostcom.no/api/v3/loyalty_clubs/:loyalty_club_slug/members/by_email/:email/reset_password"</span> <span class="se">\</span>
+  <span class="s2">"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/members/by_email/:email/reset_password"</span> <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
   -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
@@ -922,7 +922,7 @@ Requires <code>BL:Api:Members:Destroy</code> permit
   </span><span class="err">//</span><span class="w"> </span><span class="err">Empty</span><span class="w"> </span><span class="err">object</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>PUT</strong> <code class="prettyprint">/api/v3/loyalty_clubs/:loyalty_club_slug/members/by_email/:email/reset_password</code></p>
+<p><strong>PUT</strong> <code class="prettyprint">/v3/:loyalty_club_slug/members/by_email/:email/reset_password</code></p>
 
 <p>Updates given member password if token is valid.</p>
 
@@ -984,7 +984,7 @@ Requires <code>BL:Api:Members:ResetPassword</code> permit
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members/by_email/joe@example.com/send_password_reset_token"</span> <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/members/by_email/joe@example.com/send_password_reset_token"</span> <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
   -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
@@ -997,7 +997,7 @@ Requires <code>BL:Api:Members:ResetPassword</code> permit
   </span><span class="err">//</span><span class="w"> </span><span class="err">Empty</span><span class="w"> </span><span class="err">object</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>POST</strong> <code class="prettyprint">/api/v3/loyalty_clubs/:loyalty_club_slug/members/by_email/:email/send_password_reset_token</code></p>
+<p><strong>POST</strong> <code class="prettyprint">/v3/:loyalty_club_slug/members/by_email/:email/send_password_reset_token</code></p>
 
 <p>Sends password reset link to given e-mail address if it is associated with member in given loyalty club.</p>
 
@@ -1033,7 +1033,7 @@ Requires <code>BL:Api:Members:Tokens:Create</code> permit
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members/by_msisdn/4740485124/send_one_time_password"</span> <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/members/by_msisdn/4740485124/send_one_time_password"</span> <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
   -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
@@ -1046,7 +1046,7 @@ Requires <code>BL:Api:Members:Tokens:Create</code> permit
   </span><span class="err">//</span><span class="w"> </span><span class="err">Empty</span><span class="w"> </span><span class="err">object</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>POST</strong> <code class="prettyprint">/api/v3/loyalty_clubs/:loyalty_club_slug/members/by_msisdn/:msisdn/send_one_time_password</code></p>
+<p><strong>POST</strong> <code class="prettyprint">/v3/:loyalty_club_slug/members/by_msisdn/:msisdn/send_one_time_password</code></p>
 
 <p>Sends an SMS to given msisdn if it is associated with member in given loyalty club.</p>
 
@@ -1081,7 +1081,7 @@ Requires <code>BL:Api:Members:CreateOneTimePassword</code> permit
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members/by_email/user@example.com/send_one_time_password"</span> <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/members/by_email/user@example.com/send_one_time_password"</span> <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
   -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
@@ -1094,7 +1094,7 @@ Requires <code>BL:Api:Members:CreateOneTimePassword</code> permit
   </span><span class="err">//</span><span class="w"> </span><span class="err">Empty</span><span class="w"> </span><span class="err">object</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>POST</strong> <code class="prettyprint">/api/v3/loyalty_clubs/:loyalty_club_slug/members/by_msisdn/:msisdn/send_one_time_password</code></p>
+<p><strong>POST</strong> <code class="prettyprint">/v3/:loyalty_club_slug/members/by_msisdn/:msisdn/send_one_time_password</code></p>
 
 <p>Sends a &ldquo;Login&rdquo; e-mail to given address if it is associated with member in given loyalty club. The e-mail contains a deep link to the mobile app.</p>
 
@@ -1143,7 +1143,7 @@ Requires <code>BL:Api:Members:CreateOneTimePassword</code> permit
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members/by_msisdn/4740485124/send_registration_password"</span> <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/members/by_msisdn/4740485124/send_registration_password"</span> <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
   -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
@@ -1160,7 +1160,7 @@ Requires <code>BL:Api:Members:CreateOneTimePassword</code> permit
   </span><span class="err">//</span><span class="w"> </span><span class="err">Empty</span><span class="w"> </span><span class="err">object</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>POST</strong> <code class="prettyprint">/api/v3/loyalty_clubs/:loyalty_club_slug/members/by_msisdn/:msisdn/send_registration_password</code></p>
+<p><strong>POST</strong> <code class="prettyprint">/v3/:loyalty_club_slug/members/by_msisdn/:msisdn/send_registration_password</code></p>
 
 <p>Sends SMS to given MSISDN.</p>
 
@@ -1225,7 +1225,7 @@ Requires <code>BL:Api:Members:CreateRegistrationPassword</code> permit
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members/by_email/joe@example.com/verify_token/password_reset/k4wort03j2"</span> <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/members/by_email/joe@example.com/verify_token/password_reset/k4wort03j2"</span> <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
   -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
@@ -1238,7 +1238,7 @@ Requires <code>BL:Api:Members:CreateRegistrationPassword</code> permit
   </span><span class="s2">"valid"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>GET</strong> <code class="prettyprint">/api/v3/loyalty_clubs/:loyalty_club_slug/members/by_email/:email/verify_token/:type/:token</code></p>
+<p><strong>GET</strong> <code class="prettyprint">/v3/:loyalty_club_slug/members/by_email/:email/verify_token/:type/:token</code></p>
 
 <p>Verifies given member token. Returns response indicating if given token is (still) valid.</p>
 
@@ -1308,7 +1308,7 @@ Requires <code>BL:Api:Members:Tokens:Verify</code> permit
 <p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X PUT <span class="se">\</span>
-  <span class="s2">"https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members/channels/msisdn/4740485124/send_verification"</span> <span class="se">\</span>
+  <span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/members/channels/msisdn/4740485124/send_verification"</span> <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
   -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
@@ -1318,7 +1318,7 @@ Requires <code>BL:Api:Members:Tokens:Verify</code> permit
       "for_mobile_app": false
     }'</span>
 </code></pre>
-<p><strong>PUT</strong> <code class="prettyprint">/api/v3/loyalty_clubs/:loyalty_club_slug/members/channels/msisdn/:msisdn/send_verification</code></p>
+<p><strong>PUT</strong> <code class="prettyprint">/v3/:loyalty_club_slug/members/channels/msisdn/:msisdn/send_verification</code></p>
 
 <p>Generates a verification token for member identified by given MSISDN and sends it to him with an SMS message.
 The token is valid for 30 days.</p>
@@ -1362,7 +1362,7 @@ Requires <code>BL:Api:Members:Msisdns:Verify</code> permit
 <p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X PUT <span class="se">\</span>
-  <span class="s2">"https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members/channels/msisdn/4740485124/verify"</span> <span class="se">\</span>
+  <span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/members/channels/msisdn/4740485124/verify"</span> <span class="se">\</span>
   -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
   -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
@@ -1379,7 +1379,7 @@ Requires <code>BL:Api:Members:Msisdns:Verify</code> permit
   </span><span class="err">//</span><span class="w"> </span><span class="err">Empty</span><span class="w"> </span><span class="err">object</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>PUT</strong> <code class="prettyprint">/api/v3/loyalty_clubs/:loyalty_club_slug/members/channels/msisdn/:msisdn/verify</code></p>
+<p><strong>PUT</strong> <code class="prettyprint">/v3/:loyalty_club_slug/members/channels/msisdn/:msisdn/verify</code></p>
 
 <p>Uses given token (sent with <a href="#v3-members-send-verification-sms">Members &bull; Send MSISDN verification SMS</a>) to verify
 user identified with given MSISDN.</p>

@@ -6,7 +6,7 @@
 <p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
-<span class="s2">"https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/smses"</span> <span class="se">\</span>
+<span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/smses"</span> <span class="se">\</span>
     -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
     -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
@@ -59,7 +59,7 @@
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>POST</strong> <code class="prettyprint">api/v3/loyalty_clubs/:loyalty_club_slug/smses</code></p>
+<p><strong>POST</strong> <code class="prettyprint">v3/:loyalty_club_slug/smses</code></p>
 
 <p>Sends SMSes (100 max) to target members.</p>
 

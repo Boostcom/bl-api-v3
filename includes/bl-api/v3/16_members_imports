@@ -50,7 +50,7 @@ and resolve the problem.</p>
 
 <h2 id="send-import-request"><a name="v3-members-imports"></a> Send import request</h2>
 
-<p><strong>POST</strong> <code class="prettyprint">api/v3/loyalty_clubs/:loyalty_club_slug/members/imports</code></p>
+<p><strong>POST</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/imports</code></p>
 
 <p>Creates new members or updates existing ones (based on <code class="prettyprint">msisdn</code> and <code class="prettyprint">e-mail</code> identifiers).</p>
 
@@ -61,7 +61,7 @@ that, you may want to identify all bulks with the same <code class="prettyprint"
 <p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
-    <span class="s2">"https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members/imports"</span> <span class="se">\</span>
+    <span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/members/imports"</span> <span class="se">\</span>
     -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
     -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
@@ -308,7 +308,7 @@ Requires <code>BL:Api:Members:Imports:Create</code> permit
 
 <h2 id="get-import-status"><a name="v3-members-imports-status"></a> Get import status</h2>
 
-<p><strong>GET</strong> <code class="prettyprint">api/v3/loyalty_clubs/:loyalty_club_slug/members/imports/:import_id</code></p>
+<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/imports/:import_id</code></p>
 
 <p>Returns status of import with a list of references to bulks (<code class="prettyprint">id</code> and <code class="prettyprint">request_number</code>). </p>
 
@@ -318,7 +318,7 @@ Requires <code>BL:Api:Members:Imports:Create</code> permit
 <p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
-    <span class="s2">"https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members/imports/:import_id"</span> <span class="se">\</span>
+    <span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/members/imports/:import_id"</span> <span class="se">\</span>
     -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
     -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
@@ -416,9 +416,9 @@ Requires <code>BL:Api:Members:Imports:Get</code> permit
 
 <h2 id="get-bulk-status"><a name="v3-members-imports-bulk-status"></a> Get bulk status</h2>
 
-<p><strong>GET</strong> <code class="prettyprint">api/v3/loyalty_clubs/:loyalty_club_slug/members/imports/:import_id/bulks/:bulk_id</code></p>
+<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/imports/:import_id/bulks/:bulk_id</code></p>
 
-<p><strong>GET</strong> <code class="prettyprint">api/v3/loyalty_clubs/:loyalty_club_slug/members/imports/:import_id/bulks/by_request_number/:request_number</code></p>
+<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/imports/:import_id/bulks/by_request_number/:request_number</code></p>
 
 <p>Returns status of import bulk.</p>
 
@@ -426,7 +426,7 @@ Requires <code>BL:Api:Members:Imports:Get</code> permit
 <p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
-    <span class="s2">"https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members/imports/:import_id/bulks/:bulk_id"</span> <span class="se">\</span>
+    <span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/members/imports/:import_id/bulks/:bulk_id"</span> <span class="se">\</span>
     -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
     -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>

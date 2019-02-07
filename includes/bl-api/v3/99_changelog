@@ -1,9 +1,15 @@
 <h1 id="changelog">Changelog</h1>
 
+<h3 id="07-02-2019-piotr-witlicki">07.02.2019 | Piotr Świtlicki:</h3>
+
+<ul>
+<li>Replace paths: <code class="prettyprint">/api/v3/loyalty_clubs/:loyalty_club_slug/</code> with <code class="prettyprint">/v3/:loyalty_clubs/</code> (old ones will still work)</li>
+</ul>
+
 <h3 id="25-01-2019-dominik-halat">25.01.2019 | Dominik Halat:</h3>
 
 <ul>
-<li>Add <code class="prettyprint">POST /api/v3/loyalty_clubs/:loyalty_club_slug/emails</code> (<a href="#v3-emails-create">Emails &bull; Create</a>)</li>
+<li>Add <code class="prettyprint">POST /v3/:loyalty_club_slug/emails</code> (<a href="#v3-emails-create">Emails &bull; Create</a>)</li>
 <li>Add <code class="prettyprint">db_and_cache</code> response type for Member#person_id (<a href="#v3-members-person-id">Get person id</a>)</li>
 </ul>
 
@@ -16,26 +22,26 @@
 <h3 id="04-12-2018-piotr-witlicki">04.12.2018 | Piotr Świtlicki:</h3>
 
 <ul>
-<li>Add <code class="prettyprint">language</code> param to <code class="prettyprint">/api/v3/loyalty_clubs/:loyalty_club_slug/members/by_msisdn/:msisdn/send_registration_password</code></li>
+<li>Add <code class="prettyprint">language</code> param to <code class="prettyprint">/v3/:loyalty_club_slug/members/by_msisdn/:msisdn/send_registration_password</code></li>
 </ul>
 
 <h3 id="13-11-2018-piotr-witlicki">13.11.2018 | Piotr Świtlicki:</h3>
 
 <ul>
-<li>Add <code class="prettyprint">PUT /api/v3/loyalty_clubs/:loyalty_club_slug/members/channels/msisdn/:msisdn/send_verification</code>(<a href="#v3-members-send-verification-sms">Members &bull; Send MSISDN verification SMS</a>)</li>
-<li>Add <code class="prettyprint">PUT /api/v3/loyalty_clubs/:loyalty_club_slug/members/channels/msisdn/:msisdn/verify</code> (<a href="#v3-members-verify-msisdn">Members &bull; Verify MSISDN</a>)</li>
+<li>Add <code class="prettyprint">PUT /v3/:loyalty_club_slug/members/channels/msisdn/:msisdn/send_verification</code>(<a href="#v3-members-send-verification-sms">Members &bull; Send MSISDN verification SMS</a>)</li>
+<li>Add <code class="prettyprint">PUT /v3/:loyalty_club_slug/members/channels/msisdn/:msisdn/verify</code> (<a href="#v3-members-verify-msisdn">Members &bull; Verify MSISDN</a>)</li>
 </ul>
 
 <h3 id="08-11-2018-piotr-witlicki">08.11.2018 | Piotr Świtlicki:</h3>
 
 <ul>
-<li>Add <code class="prettyprint">POST /api/v3/loyalty_clubs/:loyalty_club_slug/smses</code> (<a href="#v3-smses-create">SMSes &bull; Create</a>)</li>
+<li>Add <code class="prettyprint">POST /v3/:loyalty_club_slug/smses</code> (<a href="#v3-smses-create">SMSes &bull; Create</a>)</li>
 </ul>
 
 <h3 id="12-10-2018-piotr-witlicki">12.10.2018 | Piotr Świtlicki:</h3>
 
 <ul>
-<li>Add <code class="prettyprint">GET /api/v3/loyalty_clubs/:loyalty_club_slug/members/imports/:import_id/bulks//by_request_number/:request_number</code></li>
+<li>Add <code class="prettyprint">GET /v3/:loyalty_club_slug/members/imports/:import_id/bulks//by_request_number/:request_number</code></li>
 </ul>
 
 <h3 id="03-08-2018-piotr-witlicki">03.08.2018 | Piotr Świtlicki:</h3>
@@ -47,7 +53,7 @@
 <h3 id="27-04-2018-piotr-witlicki">27.04.2018 | Piotr Świtlicki:</h3>
 
 <ul>
-<li>Add <code class="prettyprint">POST /api/v3/loyalty_clubs/:loyalty_club_slug/members/by_email/:email/send_one_time_password</code> (<a href="#v3-members-send-one-time-password-email">Members &bull; Send one time password E-mail</a>)</li>
+<li>Add <code class="prettyprint">POST /v3/:loyalty_club_slug/members/by_email/:email/send_one_time_password</code> (<a href="#v3-members-send-one-time-password-email">Members &bull; Send one time password E-mail</a>)</li>
 </ul>
 
 <h3 id="27-04-2018-piotr-witlicki">27.04.2018 | Piotr Świtlicki:</h3>
@@ -55,27 +61,27 @@
 <ul>
 <li>Add <code class="prettyprint">channel</code> and <code class="prettyprint">subchannel</code> attributes to <code class="prettyprint">Member</code></li>
 <li>Add <code class="prettyprint">validate_partially</code> param in (<a href="v3-members-update">Members &bull; Update</a> and (<a href="#v3-me-update">Me &bull; Update</a></li>
-<li>Add <code class="prettyprint">GET /api/v3/loyalty_clubs/:loyalty_club_slug/products</code> (<a href="#v3-loyalty-clubs-products">Loyalty Clubs &bull; List Products</a>)</li>
-<li>Add <code class="prettyprint">POST /api/v3/loyalty_clubs/:loyalty_club_slug/push_notifications</code> (<a href="#v3-push-notification-create">Push Notifications &bull; Create</a>)</li>
+<li>Add <code class="prettyprint">GET /v3/:loyalty_club_slug/products</code> (<a href="#v3-loyalty-clubs-products">Loyalty Clubs &bull; List Products</a>)</li>
+<li>Add <code class="prettyprint">POST /v3/:loyalty_club_slug/push_notifications</code> (<a href="#v3-push-notification-create">Push Notifications &bull; Create</a>)</li>
 </ul>
 
 <h3 id="11-04-2018-dominik-halat">11.04.2018 | Dominik Halat</h3>
 
 <ul>
 <li>Add <code class="prettyprint">person_id</code> to <code class="prettyprint">Member</code></li>
-<li>Add new endpoint <code class="prettyprint">GET /api/v3/loyalty_clubs/:loyalty_club_slug/members/person_id</code> (<a href="#v3-members-index">Members &bull; List</a>)</li>
+<li>Add new endpoint <code class="prettyprint">GET /v3/:loyalty_club_slug/members/person_id</code> (<a href="#v3-members-index">Members &bull; List</a>)</li>
 </ul>
 
 <h3 id="01-02-2017-piotr-witlicki">01.02.2017 | Piotr Świtlicki:</h3>
 
 <ul>
-<li>Add <code class="prettyprint">ids</code> query param to <code class="prettyprint">GET /api/v3/loyalty_clubs/:loyalty_club_slug/members</code> (<a href="#v3-members-index">Members &bull; List</a>)</li>
+<li>Add <code class="prettyprint">ids</code> query param to <code class="prettyprint">GET /v3/:loyalty_club_slug/members</code> (<a href="#v3-members-index">Members &bull; List</a>)</li>
 </ul>
 
 <h3 id="29-01-2017-piotr-witlicki">29.01.2017 | Piotr Świtlicki:</h3>
 
 <ul>
-<li>Add <code class="prettyprint">GET /api/v3/loyalty_clubs/:loyalty_club_slug/members</code> (<a href="#v3-members-index">Members &bull; List</a>)</li>
+<li>Add <code class="prettyprint">GET /v3/:loyalty_club_slug/members</code> (<a href="#v3-members-index">Members &bull; List</a>)</li>
 </ul>
 
 <h3 id="22-01-2017-jakub-kruczek">22.01.2017 | Jakub Kruczek:</h3>
@@ -99,7 +105,7 @@
 <h3 id="15-12-2017-piotr-witlicki">15.12.2017 | Piotr Świtlicki:</h3>
 
 <ul>
-<li>Add <code class="prettyprint">POST /api/v3/loyalty_clubs/:loyalty_club_slug/members/by_msisdn/:msisdn/send_registration_password</code></li>
+<li>Add <code class="prettyprint">POST /v3/:loyalty_club_slug/members/by_msisdn/:msisdn/send_registration_password</code></li>
 <li>Add information about <code class="prettyprint">registration_password</code> in <a href="#v3-members-create">Members &bull; Create</a></li>
 <li>Add some other minor fixes</li>
 </ul>
@@ -108,7 +114,7 @@
 
 <ul>
 <li>Restructurize the docs</li>
-<li>Add <code class="prettyprint">POST /api/v3/loyalty_clubs/:loyalty_club_slug/members/by_msisdn/:msisdn/send_one_time_password</code></li>
+<li>Add <code class="prettyprint">POST /v3/:loyalty_club_slug/members/by_msisdn/:msisdn/send_one_time_password</code></li>
 </ul>
 
 <h3 id="27-10-2017-piotr-witlicki">27.10.2017 | Piotr Świtlicki:</h3>
