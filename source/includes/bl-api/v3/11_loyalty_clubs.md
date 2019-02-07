@@ -5,7 +5,7 @@
 > Example
 
 ```shell
-curl "https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/member_schema" \
+curl "https://bpc-api.boostcom.no/v3/infinity-mall/member_schema" \
   -H 'Content-Type: application/json' \
   -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
   -H 'X-Product-Name: default' \
@@ -57,7 +57,7 @@ curl "https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/member_sche
 }
 ```
 
-**GET** `api/v3/loyalty_clubs/:loyalty_club_slug/member_schema`
+**GET** `v3/:loyalty_club_slug/member_schema`
 
 Properties for members are defined as part of the loyalty club they belong to.
 
@@ -88,7 +88,7 @@ Requires <code>BL:Api:Schema:Get</code> permit
 > Example
 
 ```shell
-curl "https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/products" \
+curl "https://bpc-api.boostcom.no/v3/infinity-mall/products" \
   -H 'Content-Type: application/json' \
   -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
   -H 'X-Product-Name: default' \
@@ -116,7 +116,7 @@ curl "https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/products" \
 ]
 ```
 
-**GET** `api/v3/loyalty_clubs/:loyalty_club_slug/products`
+**GET** `v3/:loyalty_club_slug/products`
 
 Returns list of Products (AKA Channels, AKA Sources) defined for Loyalty Club.
 

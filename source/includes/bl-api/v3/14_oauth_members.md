@@ -16,7 +16,7 @@ Look at [OAuth Token &bull; Create](#v3-token-create) to see how to obtain the :
 > Example:
 
 ```shell
-curl "https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members/me" \
+curl "https://bpc-api.boostcom.no/v3/infinity-mall/members/me" \
   -H 'Content-Type: application/json' \
   -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
   -H 'X-Product-Name: default' \
@@ -26,7 +26,7 @@ curl "https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members/me"
 
 > Responses as same as in [Members &bull; Get](#v3-members-get)
 
-**GET** `api/v3/loyalty_clubs/:loyalty_club_slug/members/me`
+**GET** `v3/:loyalty_club_slug/members/me`
 
 Returns "current" member - the one that given Authorization token has been issued for.
 
@@ -53,7 +53,7 @@ Requires <code>BL:Api:Members:OAuth:Get</code> permit.
 
 ```shell
 curl -X PUT \
-  https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members/me \
+  https://bpc-api.boostcom.no/v3/infinity-mall/members/me \
   -H 'Content-Type: application/json' \
   -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
   -H 'X-Product-Name: default' \
@@ -70,7 +70,7 @@ curl -X PUT \
 
 > Responses are same as in [Members &bull; Update](#v3-members-update)
 
-**PUT** `api/v3/loyalty_clubs/:loyalty_club_slug/members/me`
+**PUT** `v3/:loyalty_club_slug/members/me`
 
 Updates "current" member - the one that given Authorization token has been issued for.
 As a member-related action, it requires member authorization. See [OAuth](#v3-oauth2).
@@ -103,7 +103,7 @@ Requires <code>BL:Api:Members:OAuth:Update</code> permit.
 
 ```shell
 curl -X PUT \
-  https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members/me/update_password \
+  https://bpc-api.boostcom.no/v3/infinity-mall/members/me/update_password \
   -H 'Content-Type: application/json' \
   -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
   -H 'X-Product-Name: default' \
@@ -124,7 +124,7 @@ curl -X PUT \
 }
 ```
 
-**PUT** `api/v3/loyalty_clubs/:loyalty_club_slug/members/update_password`
+**PUT** `v3/:loyalty_club_slug/members/update_password`
 
 Updates "current" member (the one that given Authorization token has been issued for) password.
 
@@ -158,7 +158,7 @@ Requires <code>BL:Api:Members:OAuth:UpdatePassword</code> permit.
 
 ```shell
 curl -X DELETE \
-    "https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members/me" \
+    "https://bpc-api.boostcom.no/v3/infinity-mall/members/me" \
     -H 'Content-Type: application/json' \
     -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
     -H 'X-Product-Name: default' \
@@ -168,7 +168,7 @@ curl -X DELETE \
 
 > Response as same as in [Members &bull; Destroy](#v3-members-destroy)
 
-**DELETE** `api/v3/loyalty_clubs/:loyalty_club_slug/members/me`
+**DELETE** `v3/:loyalty_club_slug/members/me`
 
 Permanently removes "current" member - the one that given Authorization token has been issued for.
 

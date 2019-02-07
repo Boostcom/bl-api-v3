@@ -5,7 +5,7 @@
 > Example:
 
 ```shell
-curl -X POST "https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/push_notifications" \
+curl -X POST "https://bpc-api.boostcom.no/v3/infinity-mall/push_notifications" \
   -H 'Content-Type: application/json' \
   -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
   -H 'X-Product-Name: default' \
@@ -73,7 +73,7 @@ curl -X POST "https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/pus
 }
 ``` 
 
-**POST** `api/v3/loyalty_clubs/:loyalty_club_slug/push_notifications`
+**POST** `v3/:loyalty_club_slug/push_notifications`
 
 Sends notifications (100 max) to target members.
 

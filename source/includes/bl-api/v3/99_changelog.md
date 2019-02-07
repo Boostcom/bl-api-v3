@@ -1,8 +1,12 @@
 # Changelog
 
+### 07.02.2019 | Piotr Świtlicki:
+
+* Replace paths: `/api/v3/loyalty_clubs/:loyalty_club_slug/` with `/v3/:loyalty_clubs/` (old ones will still work)
+
 ### 25.01.2019 | Dominik Halat:
 
-* Add `POST /api/v3/loyalty_clubs/:loyalty_club_slug/emails` ([Emails &bull; Create](#v3-emails-create))
+* Add `POST /v3/:loyalty_club_slug/emails` ([Emails &bull; Create](#v3-emails-create))
 * Add `db_and_cache` response type for Member#person_id ([Get person id](#v3-members-person-id))
 
 ### 14.12.2018 | Jakub Kruczek:
@@ -11,20 +15,20 @@
 
 ### 04.12.2018 | Piotr Świtlicki:
 
-* Add `language` param to `/api/v3/loyalty_clubs/:loyalty_club_slug/members/by_msisdn/:msisdn/send_registration_password`
+* Add `language` param to `/v3/:loyalty_club_slug/members/by_msisdn/:msisdn/send_registration_password`
 
 ### 13.11.2018 | Piotr Świtlicki:
 
-* Add `PUT /api/v3/loyalty_clubs/:loyalty_club_slug/members/channels/msisdn/:msisdn/send_verification`([Members &bull; Send MSISDN verification SMS](#v3-members-send-verification-sms))
-* Add `PUT /api/v3/loyalty_clubs/:loyalty_club_slug/members/channels/msisdn/:msisdn/verify` ([Members &bull; Verify MSISDN](#v3-members-verify-msisdn))
+* Add `PUT /v3/:loyalty_club_slug/members/channels/msisdn/:msisdn/send_verification`([Members &bull; Send MSISDN verification SMS](#v3-members-send-verification-sms))
+* Add `PUT /v3/:loyalty_club_slug/members/channels/msisdn/:msisdn/verify` ([Members &bull; Verify MSISDN](#v3-members-verify-msisdn))
 
 ### 08.11.2018 | Piotr Świtlicki:
 
-* Add `POST /api/v3/loyalty_clubs/:loyalty_club_slug/smses` ([SMSes &bull; Create](#v3-smses-create))
+* Add `POST /v3/:loyalty_club_slug/smses` ([SMSes &bull; Create](#v3-smses-create))
 
 ### 12.10.2018 | Piotr Świtlicki:
 
-* Add `GET /api/v3/loyalty_clubs/:loyalty_club_slug/members/imports/:import_id/bulks//by_request_number/:request_number`
+* Add `GET /v3/:loyalty_club_slug/members/imports/:import_id/bulks//by_request_number/:request_number`
 
 ### 03.08.2018 | Piotr Świtlicki:
 
@@ -32,27 +36,27 @@
 
 ### 27.04.2018 | Piotr Świtlicki:
 
-* Add `POST /api/v3/loyalty_clubs/:loyalty_club_slug/members/by_email/:email/send_one_time_password` ([Members &bull; Send one time password E-mail](#v3-members-send-one-time-password-email))
+* Add `POST /v3/:loyalty_club_slug/members/by_email/:email/send_one_time_password` ([Members &bull; Send one time password E-mail](#v3-members-send-one-time-password-email))
 
 ### 27.04.2018 | Piotr Świtlicki:
 
 * Add `channel` and `subchannel` attributes to `Member`
 * Add `validate_partially` param in ([Members &bull; Update](v3-members-update) and ([Me &bull; Update](#v3-me-update)
-* Add `GET /api/v3/loyalty_clubs/:loyalty_club_slug/products` ([Loyalty Clubs &bull; List Products](#v3-loyalty-clubs-products))
-* Add `POST /api/v3/loyalty_clubs/:loyalty_club_slug/push_notifications` ([Push Notifications &bull; Create](#v3-push-notification-create))
+* Add `GET /v3/:loyalty_club_slug/products` ([Loyalty Clubs &bull; List Products](#v3-loyalty-clubs-products))
+* Add `POST /v3/:loyalty_club_slug/push_notifications` ([Push Notifications &bull; Create](#v3-push-notification-create))
 
 ### 11.04.2018 | Dominik Halat
 
 * Add `person_id` to `Member`
-* Add new endpoint `GET /api/v3/loyalty_clubs/:loyalty_club_slug/members/person_id` ([Members &bull; List](#v3-members-index))
+* Add new endpoint `GET /v3/:loyalty_club_slug/members/person_id` ([Members &bull; List](#v3-members-index))
 
 ### 01.02.2017 | Piotr Świtlicki:
 
-* Add `ids` query param to `GET /api/v3/loyalty_clubs/:loyalty_club_slug/members` ([Members &bull; List](#v3-members-index))
+* Add `ids` query param to `GET /v3/:loyalty_club_slug/members` ([Members &bull; List](#v3-members-index))
 
 ### 29.01.2017 | Piotr Świtlicki:
 
-* Add `GET /api/v3/loyalty_clubs/:loyalty_club_slug/members` ([Members &bull; List](#v3-members-index))
+* Add `GET /v3/:loyalty_club_slug/members` ([Members &bull; List](#v3-members-index))
 
 ### 22.01.2017 | Jakub Kruczek:
 
@@ -68,14 +72,14 @@
 
 ### 15.12.2017 | Piotr Świtlicki:
 
-* Add `POST /api/v3/loyalty_clubs/:loyalty_club_slug/members/by_msisdn/:msisdn/send_registration_password`
+* Add `POST /v3/:loyalty_club_slug/members/by_msisdn/:msisdn/send_registration_password`
 * Add information about `registration_password` in [Members &bull; Create](#v3-members-create)
 * Add some other minor fixes
 
 ### 10.11.2017 | Piotr Świtlicki:
 
 * Restructurize the docs
-* Add `POST /api/v3/loyalty_clubs/:loyalty_club_slug/members/by_msisdn/:msisdn/send_one_time_password`
+* Add `POST /v3/:loyalty_club_slug/members/by_msisdn/:msisdn/send_one_time_password`
 
 ### 27.10.2017 | Piotr Świtlicki: 
 

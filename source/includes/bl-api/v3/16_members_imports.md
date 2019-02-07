@@ -48,7 +48,7 @@ and resolve the problem.
 
 ## <a name="v3-members-imports"></a> Send import request
 
-**POST** `api/v3/loyalty_clubs/:loyalty_club_slug/members/imports`
+**POST** `v3/:loyalty_club_slug/members/imports`
 
 Creates new members or updates existing ones (based on `msisdn` and `e-mail` identifiers).
 
@@ -59,7 +59,7 @@ that, you may want to identify all bulks with the same `import_id` and pass cons
 
 ```shell
 curl -X POST \
-    "https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members/imports" \
+    "https://bpc-api.boostcom.no/v3/infinity-mall/members/imports" \
     -H 'Content-Type: application/json' \
     -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
     -H 'X-Product-Name: default' \
@@ -167,7 +167,7 @@ Requires <code>BL:Api:Members:Imports:Create</code> permit
 
 ## <a name="v3-members-imports-status"></a> Get import status
 
-**GET** `api/v3/loyalty_clubs/:loyalty_club_slug/members/imports/:import_id`
+**GET** `v3/:loyalty_club_slug/members/imports/:import_id`
 
 Returns status of import with a list of references to bulks (`id` and `request_number`). 
 
@@ -177,7 +177,7 @@ You need to call [Members Imports &bull; Get bulk status](#v3-members-import-bul
 
 ```shell
 curl -X GET \
-    "https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members/imports/:import_id" \
+    "https://bpc-api.boostcom.no/v3/infinity-mall/members/imports/:import_id" \
     -H 'Content-Type: application/json' \
     -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
     -H 'X-Product-Name: default' \
@@ -232,9 +232,9 @@ Requires <code>BL:Api:Members:Imports:Get</code> permit
 
 ## <a name="v3-members-imports-bulk-status"></a> Get bulk status
 
-**GET** `api/v3/loyalty_clubs/:loyalty_club_slug/members/imports/:import_id/bulks/:bulk_id`
+**GET** `v3/:loyalty_club_slug/members/imports/:import_id/bulks/:bulk_id`
 
-**GET** `api/v3/loyalty_clubs/:loyalty_club_slug/members/imports/:import_id/bulks/by_request_number/:request_number`
+**GET** `v3/:loyalty_club_slug/members/imports/:import_id/bulks/by_request_number/:request_number`
 
 Returns status of import bulk.
 
@@ -242,7 +242,7 @@ Returns status of import bulk.
 
 ```shell
 curl -X GET \
-    "https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members/imports/:import_id/bulks/:bulk_id" \
+    "https://bpc-api.boostcom.no/v3/infinity-mall/members/imports/:import_id/bulks/:bulk_id" \
     -H 'Content-Type: application/json' \
     -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
     -H 'X-Product-Name: default' \

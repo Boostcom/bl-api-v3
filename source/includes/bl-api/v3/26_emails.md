@@ -6,7 +6,7 @@
 
 ```shell
 curl -X POST \
-"https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/emails" \
+"https://bpc-api.boostcom.no/v3/infinity-mall/emails" \
     -H 'Content-Type: application/json' \
     -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
     -H 'X-Product-Name: default' \
@@ -58,7 +58,7 @@ curl -X POST \
 }
 ``` 
 
-**POST** `api/v3/loyalty_clubs/:loyalty_club_slug/emails`
+**POST** `v3/:loyalty_club_slug/emails`
 
 Sends Emails (100 max) to target members.
 

@@ -5,7 +5,7 @@
 > Create token example:
 
 ```shell
-curl -X POST "https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members/oauth/token" \
+curl -X POST "https://bpc-api.boostcom.no/v3/infinity-mall/members/oauth/token" \
   -H 'Content-Type: application/json' \
   -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
   -H 'X-Product-Name: default' \
@@ -21,7 +21,7 @@ curl -X POST "https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/mem
 > Refresh token example:
 
 ```shell
-curl -X POST "https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members/oauth/token" \
+curl -X POST "https://bpc-api.boostcom.no/v3/infinity-mall/members/oauth/token" \
   -H 'Content-Type: application/json' \
   -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
   -H 'X-Product-Name: default' \
@@ -45,7 +45,7 @@ curl -X POST "https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/mem
 }
 ```
 
-**POST** `api/v3/loyalty_clubs/:loyalty_club_slug/members/oauth/token`
+**POST** `v3/:loyalty_club_slug/members/oauth/token`
 
 Creates a new access token by one of two methods (grant types):
 
@@ -110,7 +110,7 @@ Requires <code>BL:Api:Members:OAuth</code> permit
 > Example:
 
 ```shell
-curl -X POST "https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members/oauth/revoke" \
+curl -X POST "https://bpc-api.boostcom.no/v3/infinity-mall/members/oauth/revoke" \
   -H 'Content-Type: application/json' \
   -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
   -H 'X-Product-Name: default' \
@@ -128,7 +128,7 @@ curl -X POST "https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/mem
 }
 ```
 
-**POST** `api/v3/loyalty_clubs/:loyalty_club_slug/members/oauth/revoke`
+**POST** `v3/:loyalty_club_slug/members/oauth/revoke`
 
 Revokes a token (access or refresh). 
 
@@ -151,7 +151,7 @@ Requires <code>BL:Api:Members:OAuth</code> permit
 > Example:
 
 ```shell
-curl "https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members/oauth/token/info" \
+curl "https://bpc-api.boostcom.no/v3/infinity-mall/members/oauth/token/info" \
   -H 'Content-Type: application/json' \
   -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
   -H 'X-Product-Name: default' \
@@ -174,7 +174,7 @@ curl "https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members/oau
 }
 ```
 
-**GET** `api/v3/loyalty_clubs/:loyalty_club_slug/members/oauth/token/info`
+**GET** `v3/:loyalty_club_slug/members/oauth/token/info`
 
 Returns info of given token (not refresh token) from `Authorization` header.
 

@@ -5,7 +5,7 @@
 > Example:
 
 ```shell
-curl "https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members?per_page=100&page=1&ids[]=1&ids[]=2" \
+curl "https://bpc-api.boostcom.no/v3/infinity-mall/members?per_page=100&page=1&ids[]=1&ids[]=2" \
   -H 'Content-Type: application/json' \
   -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
   -H 'X-Product-Name: default' \
@@ -32,7 +32,7 @@ curl "https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members?per
 
 ```
 
-**GET** `api/v3/loyalty_clubs/:loyalty_club_slug/members?per_page=:per_page&page=:page&ids[]=1&ids[]=2`
+**GET** `v3/:loyalty_club_slug/members?per_page=:per_page&page=:page&ids[]=1&ids[]=2`
 
 Returns paginated list of all Loyalty Club members, sorted by `created_at ASC`.
 
@@ -79,7 +79,7 @@ Status | Reason
 > Example:
 
 ```shell
-curl "https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members/:id/public_info" \
+curl "https://bpc-api.boostcom.no/v3/infinity-mall/members/:id/public_info" \
   -H 'Content-Type: application/json' \
   -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
   -H 'X-Product-Name: default' \
@@ -95,11 +95,11 @@ curl "https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members/:id
 }
 ```
 
-**GET** `api/v3/loyalty_clubs/:loyalty_club_slug/members/:id/public_info`
+**GET** `v3/:loyalty_club_slug/members/:id/public_info`
 
-**GET** `api/v3/loyalty_clubs/:loyalty_club_slug/members/by_msisdn/:msisdn/public_info`
+**GET** `v3/:loyalty_club_slug/members/by_msisdn/:msisdn/public_info`
 
-**GET** `api/v3/loyalty_clubs/:loyalty_club_slug/members/by_email/:email/public_info`
+**GET** `v3/:loyalty_club_slug/members/by_email/:email/public_info`
 
 Returns basic info for given member. If member does not exist, returns `null'.
 
@@ -136,7 +136,7 @@ Status | Reason
 > Example:
 
 ```shell
-curl "https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members/:id/person_id" \
+curl "https://bpc-api.boostcom.no/v3/infinity-mall/members/:id/person_id" \
   -H 'Content-Type: application/json' \
   -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
   -H 'X-Product-Name: default' \
@@ -152,11 +152,11 @@ curl "https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members/:id
 }
 ```
 
-**GET** `api/v3/loyalty_clubs/:loyalty_club_slug/members/:id/person_id`
+**GET** `v3/:loyalty_club_slug/members/:id/person_id`
 
-**GET** `api/v3/loyalty_clubs/:loyalty_club_slug/members/by_msisdn/:msisdn/person_id`
+**GET** `v3/:loyalty_club_slug/members/by_msisdn/:msisdn/person_id`
 
-**GET** `api/v3/loyalty_clubs/:loyalty_club_slug/members/by_email/:email/person_id`
+**GET** `v3/:loyalty_club_slug/members/by_email/:email/person_id`
 
 Returns `person_id` for given member. Please note that `person_id` cannot be preset in member payload and will be silently ignored. Also, it cannot be updated.
 
@@ -236,7 +236,7 @@ Status | Reason
 > Example:
 
 ```shell
-curl "https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members/:id" \
+curl "https://bpc-api.boostcom.no/v3/infinity-mall/members/:id" \
   -H 'Content-Type: application/json' \
   -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
   -H 'X-Product-Name: default' \
@@ -245,11 +245,11 @@ curl "https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members/:id
 
 > When successful, the above command returns member object as depicted [here](#v3-member-model)
 
-**GET** `api/v3/loyalty_clubs/:loyalty_club_slug/members/:id`
+**GET** `v3/:loyalty_club_slug/members/:id`
 
-**GET** `api/v3/loyalty_clubs/:loyalty_club_slug/members/by_msisdn/:msisdn`
+**GET** `v3/:loyalty_club_slug/members/by_msisdn/:msisdn`
 
-**GET** `api/v3/loyalty_clubs/:loyalty_club_slug/members/by_email/:email`
+**GET** `v3/:loyalty_club_slug/members/by_email/:email`
 
 Returns member by one of three identifier types: `id`, `member` or `email`
 
@@ -285,7 +285,7 @@ Requires <code>BL:Api:Members:Get</code> permit
 ```shell
 
 curl -X POST \
-  https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members \
+  https://bpc-api.boostcom.no/v3/infinity-mall/members \
   -H 'Content-Type: application/json' \
   -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
   -H 'X-Product-Name: facebook' \
@@ -323,7 +323,7 @@ curl -X POST \
 }
 ```
 
-**POST** `api/v3/loyalty_clubs/:loyalty_club_slug/members`
+**POST** `v3/:loyalty_club_slug/members`
 
 Create member with given properties.
 
@@ -390,7 +390,7 @@ Requires <code>BL:Api:Members:Create</code> or <code>BL:Api:Members:CreateWithVe
 ```shell
 
 curl -X PUT \
-  https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members/:id \
+  https://bpc-api.boostcom.no/v3/infinity-mall/members/:id \
   -H 'Content-Type: application/json' \
   -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
   -H 'X-Product-Name: default' \
@@ -408,7 +408,7 @@ curl -X PUT \
 
 > When payload is invalid, validation errors as depicted [here](#v3-members-create)
 
-**PUT** `api/v3/loyalty_clubs/:loyalty_club_slug/members/:id`
+**PUT** `v3/:loyalty_club_slug/members/:id`
 
 Update member's properties, consents and other with given ones.
 
@@ -461,7 +461,7 @@ Requires <code>BL:Api:Members:Update</code> permit
 
 ## <a name="v3-members-destroy"></a> Destroy
 
-**DELETE** `api/v3/loyalty_clubs/:loyalty_club_slug/members/:id`
+**DELETE** `v3/:loyalty_club_slug/members/:id`
 
 Permanently removes member.
 
@@ -472,7 +472,7 @@ Same as welcome messages, optout messages sending also depends on Loyalty Club a
 
 ```shell
 curl -X DELETE \
-    "https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members/:id" \
+    "https://bpc-api.boostcom.no/v3/infinity-mall/members/:id" \
     -H 'Content-Type: application/json' \
     -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
     -H 'X-Product-Name: default' \
@@ -517,7 +517,7 @@ Requires <code>BL:Api:Members:Destroy</code> permit
 
 ```shell
 curl -X PUT \
-  "https://bpc-api.boostcom.no/api/v3/loyalty_clubs/:loyalty_club_slug/members/by_email/:email/reset_password" \
+  "https://bpc-api.boostcom.no/v3/:loyalty_club_slug/members/by_email/:email/reset_password" \
   -H 'Content-Type: application/json' \
   -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
   -H 'X-Product-Name: default' \
@@ -537,7 +537,7 @@ curl -X PUT \
 }
 ```
 
-**PUT** `/api/v3/loyalty_clubs/:loyalty_club_slug/members/by_email/:email/reset_password`
+**PUT** `/v3/:loyalty_club_slug/members/by_email/:email/reset_password`
 
 Updates given member password if token is valid.
 
@@ -568,7 +568,7 @@ Requires <code>BL:Api:Members:ResetPassword</code> permit
 > Example:
 
 ```shell
-curl "https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members/by_email/joe@example.com/send_password_reset_token" \
+curl "https://bpc-api.boostcom.no/v3/infinity-mall/members/by_email/joe@example.com/send_password_reset_token" \
   -H 'Content-Type: application/json' \
   -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
   -H 'X-Product-Name: default' \
@@ -583,7 +583,7 @@ curl "https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members/by_
 }
 ```
 
-**POST** `/api/v3/loyalty_clubs/:loyalty_club_slug/members/by_email/:email/send_password_reset_token`
+**POST** `/v3/:loyalty_club_slug/members/by_email/:email/send_password_reset_token`
 
 Sends password reset link to given e-mail address if it is associated with member in given loyalty club.
 
@@ -609,7 +609,7 @@ Requires <code>BL:Api:Members:Tokens:Create</code> permit
 > Example:
 
 ```shell
-curl "https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members/by_msisdn/4740485124/send_one_time_password" \
+curl "https://bpc-api.boostcom.no/v3/infinity-mall/members/by_msisdn/4740485124/send_one_time_password" \
   -H 'Content-Type: application/json' \
   -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
   -H 'X-Product-Name: default' \
@@ -624,7 +624,7 @@ curl "https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members/by_
 }
 ```
 
-**POST** `/api/v3/loyalty_clubs/:loyalty_club_slug/members/by_msisdn/:msisdn/send_one_time_password`
+**POST** `/v3/:loyalty_club_slug/members/by_msisdn/:msisdn/send_one_time_password`
 
 Sends an SMS to given msisdn if it is associated with member in given loyalty club.
 
@@ -649,7 +649,7 @@ Requires <code>BL:Api:Members:CreateOneTimePassword</code> permit
 > Example:
 
 ```shell
-curl "https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members/by_email/user@example.com/send_one_time_password" \
+curl "https://bpc-api.boostcom.no/v3/infinity-mall/members/by_email/user@example.com/send_one_time_password" \
   -H 'Content-Type: application/json' \
   -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
   -H 'X-Product-Name: default' \
@@ -664,7 +664,7 @@ curl "https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members/by_
 }
 ```
 
-**POST** `/api/v3/loyalty_clubs/:loyalty_club_slug/members/by_msisdn/:msisdn/send_one_time_password`
+**POST** `/v3/:loyalty_club_slug/members/by_msisdn/:msisdn/send_one_time_password`
 
 Sends a "Login" e-mail to given address if it is associated with member in given loyalty club. The e-mail contains a deep link to the mobile app.
  
@@ -695,7 +695,7 @@ Requires <code>BL:Api:Members:CreateOneTimePassword</code> permit
 > Example:
 
 ```shell
-curl "https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members/by_msisdn/4740485124/send_registration_password" \
+curl "https://bpc-api.boostcom.no/v3/infinity-mall/members/by_msisdn/4740485124/send_registration_password" \
   -H 'Content-Type: application/json' \
   -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
   -H 'X-Product-Name: default' \
@@ -714,7 +714,7 @@ curl "https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members/by_
 }
 ```
 
-**POST** `/api/v3/loyalty_clubs/:loyalty_club_slug/members/by_msisdn/:msisdn/send_registration_password`
+**POST** `/v3/:loyalty_club_slug/members/by_msisdn/:msisdn/send_registration_password`
 
 Sends SMS to given MSISDN.
 
@@ -751,7 +751,7 @@ Requires <code>BL:Api:Members:CreateRegistrationPassword</code> permit
 > Example:
 
 ```shell
-curl "https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members/by_email/joe@example.com/verify_token/password_reset/k4wort03j2" \
+curl "https://bpc-api.boostcom.no/v3/infinity-mall/members/by_email/joe@example.com/verify_token/password_reset/k4wort03j2" \
   -H 'Content-Type: application/json' \
   -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
   -H 'X-Product-Name: default' \
@@ -766,7 +766,7 @@ curl "https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members/by_
 }
 ```
 
-**GET** `/api/v3/loyalty_clubs/:loyalty_club_slug/members/by_email/:email/verify_token/:type/:token`
+**GET** `/v3/:loyalty_club_slug/members/by_email/:email/verify_token/:type/:token`
 
 Verifies given member token. Returns response indicating if given token is (still) valid.
 
@@ -802,7 +802,7 @@ Requires <code>BL:Api:Members:Tokens:Verify</code> permit
 
 ```shell
 curl -X PUT \
-  "https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members/channels/msisdn/4740485124/send_verification" \
+  "https://bpc-api.boostcom.no/v3/infinity-mall/members/channels/msisdn/4740485124/send_verification" \
   -H 'Content-Type: application/json' \
   -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
   -H 'X-Product-Name: default' \
@@ -813,7 +813,7 @@ curl -X PUT \
     }'
 ```
 
-**PUT** `/api/v3/loyalty_clubs/:loyalty_club_slug/members/channels/msisdn/:msisdn/send_verification`
+**PUT** `/v3/:loyalty_club_slug/members/channels/msisdn/:msisdn/send_verification`
 
 Generates a verification token for member identified by given MSISDN and sends it to him with an SMS message.
 The token is valid for 30 days.
@@ -843,7 +843,7 @@ Requires <code>BL:Api:Members:Msisdns:Verify</code> permit
 
 ```shell
 curl -X PUT \
-  "https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/members/channels/msisdn/4740485124/verify" \
+  "https://bpc-api.boostcom.no/v3/infinity-mall/members/channels/msisdn/4740485124/verify" \
   -H 'Content-Type: application/json' \
   -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
   -H 'X-Product-Name: default' \
@@ -862,7 +862,7 @@ curl -X PUT \
 }
 ```
 
-**PUT** `/api/v3/loyalty_clubs/:loyalty_club_slug/members/channels/msisdn/:msisdn/verify`
+**PUT** `/v3/:loyalty_club_slug/members/channels/msisdn/:msisdn/verify`
 
 Uses given token (sent with [Members &bull; Send MSISDN verification SMS](#v3-members-send-verification-sms)) to verify
 user identified with given MSISDN.

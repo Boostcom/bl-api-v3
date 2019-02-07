@@ -6,7 +6,7 @@
 
 ```shell
 curl -X POST \
-"https://bpc-api.boostcom.no/api/v3/loyalty_clubs/infinity-mall/smses" \
+"https://bpc-api.boostcom.no/v3/infinity-mall/smses" \
     -H 'Content-Type: application/json' \
     -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
     -H 'X-Product-Name: default' \
@@ -62,7 +62,7 @@ curl -X POST \
 }
 ``` 
 
-**POST** `api/v3/loyalty_clubs/:loyalty_club_slug/smses`
+**POST** `v3/:loyalty_club_slug/smses`
 
 Sends SMSes (100 max) to target members.
 
