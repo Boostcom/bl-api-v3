@@ -127,12 +127,6 @@ Messages are being sent asynchronously. Also, it cannot be guaranteed that the m
 <td>false</td>
 <td>Should member Email verification status be ignored?</td>
 </tr>
-<tr>
-<td>shortening_enabled</td>
-<td>bool</td>
-<td>Loyalty Club settings will be applied.</td>
-<td>Should links in payload get shortened with Boostcom Shortener?</td>
-</tr>
 </tbody></table>
 
 <p>* required</p>

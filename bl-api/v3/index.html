@@ -3928,12 +3928,6 @@ Messages are being sent asynchronously. Also, it cannot be guaranteed that the m
 <td>false</td>
 <td>Should member Email verification status be ignored?</td>
 </tr>
-<tr>
-<td>shortening_enabled</td>
-<td>bool</td>
-<td>Loyalty Club settings will be applied.</td>
-<td>Should links in payload get shortened with Boostcom Shortener?</td>
-</tr>
 </tbody></table>
 
 <p>* required</p>
@@ -3999,6 +3993,12 @@ Requires <code>BL:Api:Emails:Send</code> permit
 </aside>
 
           <h1 id="changelog">Changelog</h1>
+
+<h3 id="07-02-2019-dominik-halat">07.02.2019 | Dominik Halat:</h3>
+
+<ul>
+<li>Remove <code class="prettyprint">shortening_enabled</code> param from Emails API (<a href="#v3-emails-create">Emails &bull; Create</a>)</li>
+</ul>
 
 <h3 id="07-02-2019-piotr-witlicki">07.02.2019 | Piotr Świtlicki:</h3>
 

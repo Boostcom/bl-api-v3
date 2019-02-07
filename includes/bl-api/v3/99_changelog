@@ -1,5 +1,11 @@
 <h1 id="changelog">Changelog</h1>
 
+<h3 id="07-02-2019-dominik-halat">07.02.2019 | Dominik Halat:</h3>
+
+<ul>
+<li>Remove <code class="prettyprint">shortening_enabled</code> param from Emails API (<a href="#v3-emails-create">Emails &bull; Create</a>)</li>
+</ul>
+
 <h3 id="07-02-2019-piotr-witlicki">07.02.2019 | Piotr Świtlicki:</h3>
 
 <ul>
