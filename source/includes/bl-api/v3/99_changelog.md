@@ -1,5 +1,9 @@
 # Changelog
 
+### 07.02.2019 | Dominik Halat:
+
+* Remove `shortening_enabled` param from Emails API ([Emails &bull; Create](#v3-emails-create))
+
 ### 07.02.2019 | Piotr Świtlicki:
 
 * Replace paths: `/api/v3/loyalty_clubs/:loyalty_club_slug/` with `/v3/:loyalty_clubs/` (old ones will still work)

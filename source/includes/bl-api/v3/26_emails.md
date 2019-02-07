@@ -84,7 +84,6 @@ from_name | string | Loyalty Club settings wil be applied.| *From* field.
 from_email | string | Loyalty Club settings wil be applied.| *Sender* field. Must be a valid (and verified - contact support@boostcom.no in case you don't have any verified domain) email address.
 ignore_consents | bool | false | Should member consents be ignored?
 ignore_email_verification_status | bool | false | Should member Email verification status be ignored?
-shortening_enabled | bool | Loyalty Club settings will be applied. | Should links in payload get shortened with Boostcom Shortener?
 
 \* required
 
