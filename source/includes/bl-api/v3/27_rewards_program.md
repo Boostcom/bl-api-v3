@@ -57,13 +57,13 @@ curl \
   "achievements": [
     {
       "type": "app_opened",
-      "point": 50,
+      "points": 50,
       "limit": 20,
       "maximum_frequency": "@todo"
     },
     {
       "type": "consent_granted",
-      "point": 1000,
+      "points": 1000,
       "limit": 1,
       "maximum_frequency": "@todo"
     }
@@ -171,18 +171,18 @@ curl \
   "balance": 180,
   "transactions": [
     {
+      "type": "usage",
+      "date": "2019-12-15T08:00:15063Z",
+      "amount": -20,
+      "expired_at": null,
+      "details": { "reward_name": "Awesome Toaster" }
+    },
+    {
       "type": "expiration",
       "date": "2019-12-14T08:00:15063Z",
       "amount": -110,
       "expired_at": null,
       "details": {}
-    },
-    {
-      "type": "usage",
-      "date": "2019-12-14T08:00:15063Z",
-      "amount": -20,
-      "expired_at": null,
-      "details": { "reward_name": "Awesome Toaster" }
     },
     {
       "type": "achievement",

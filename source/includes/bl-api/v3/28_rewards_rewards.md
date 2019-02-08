@@ -28,18 +28,21 @@ curl \
           "url": "https://offers-api.s3.eu-central-1.amazonaws.com/offer-1000062-default-mobile.jpg",
           "width": 225,
           "height": 300,
+          "kind": "reward",
           "size_type": "thumbnail"
         },
         {
           "url": "https://offers-api.s3.eu-central-1.amazonaws.com/offer-1000062-default-mobile.jpg",
           "width": 300,
           "height": 400,
+          "kind": "reward",
           "size_type": "base"
         },
         {
           "url": "https://offers-api.s3.eu-central-1.amazonaws.com/offer-1000062-default-mobile.jpg",
           "width": 600,
           "height": 800,
+          "kind": "reward",
           "size_type": "original"
         }                
       ]
@@ -81,6 +84,7 @@ Key | Type | Description
 url | URL | Link to image
 width | integer | Image width
 height | integer | Image height
+kind | string | Kind of image, always "reward"
 size_type | string | One of: 'original', 'base', 'thumbnail' 
 
 <aside class="notice">
@@ -112,18 +116,21 @@ curl \
           "url": "https://offers-api.s3.eu-central-1.amazonaws.com/offer-1000062-default-mobile.jpg",
           "width": 225,
           "height": 300,
+          "kind": "reward",
           "size_type": "thumbnail"
         },
         {
           "url": "https://offers-api.s3.eu-central-1.amazonaws.com/offer-1000062-default-mobile.jpg",
           "width": 300,
           "height": 400,
+          "kind": "reward",
           "size_type": "base"
         },
         {
           "url": "https://offers-api.s3.eu-central-1.amazonaws.com/offer-1000062-default-mobile.jpg",
           "width": 600,
           "height": 800,
+          "kind": "reward",
           "size_type": "original"
         }                
       ],
@@ -155,7 +162,7 @@ Key | Type | Description
 limit | integer | (optional) How many times member can use the reward in total. If null, there's no limit
 left | integer | (optional) How many usages are left for member. Null, when there's no usage limit - see above
 usable | boolean | Is the reward usable currently?
-active_until | Date | The last time time the coupon has been used + activation time (configurable per Loyalty Club, e.x. 30s)
+active_until | Date | (optional) The last time time the coupon has been used + activation time (configurable per Loyalty Club, e.x. 30s). When null, the reward has not been activated yet
 
 <aside class="notice">
 Requires <code>Rewards:Api:OAuth:Rewards:ListPurchased</code> permit
