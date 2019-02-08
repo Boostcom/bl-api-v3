@@ -28,21 +28,21 @@ curl \
           "url": "https://offers-api.s3.eu-central-1.amazonaws.com/offer-1000062-default-mobile.jpg",
           "width": 225,
           "height": 300,
-          "kind": "reward",
+          "kind": "reward_default",
           "size_type": "thumbnail"
         },
         {
           "url": "https://offers-api.s3.eu-central-1.amazonaws.com/offer-1000062-default-mobile.jpg",
           "width": 300,
           "height": 400,
-          "kind": "reward",
+          "kind": "reward_default",
           "size_type": "base"
         },
         {
           "url": "https://offers-api.s3.eu-central-1.amazonaws.com/offer-1000062-default-mobile.jpg",
           "width": 600,
           "height": 800,
-          "kind": "reward",
+          "kind": "reward_default",
           "size_type": "original"
         }                
       ]
@@ -84,7 +84,7 @@ Key | Type | Description
 url | URL | Link to image
 width | integer | Image width
 height | integer | Image height
-kind | string | Kind of image, always "reward"
+kind | string | Kind of image, always "reward_default"
 size_type | string | One of: 'original', 'base', 'thumbnail' 
 
 <aside class="notice">
@@ -116,21 +116,21 @@ curl \
           "url": "https://offers-api.s3.eu-central-1.amazonaws.com/offer-1000062-default-mobile.jpg",
           "width": 225,
           "height": 300,
-          "kind": "reward",
+          "kind": "reward_default",
           "size_type": "thumbnail"
         },
         {
           "url": "https://offers-api.s3.eu-central-1.amazonaws.com/offer-1000062-default-mobile.jpg",
           "width": 300,
           "height": 400,
-          "kind": "reward",
+          "kind": "reward_default",
           "size_type": "base"
         },
         {
           "url": "https://offers-api.s3.eu-central-1.amazonaws.com/offer-1000062-default-mobile.jpg",
           "width": 600,
           "height": 800,
-          "kind": "reward",
+          "kind": "reward_default",
           "size_type": "original"
         }                
       ],
