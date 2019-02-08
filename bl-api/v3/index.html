@@ -4183,6 +4183,8 @@ Requires <code>Rewards:Api:OAuth:Program:GetInfo</code> permit
 
 <p>Registers current member in Rewards Program. This results granting &ldquo;rewards_enrollment&rdquo; consent to user.</p>
 
+<p>As a member-related action, it requires member authorization. See <a href="#v3-oauth2">OAuth</a>.</p>
+
 <aside class="notice">
 Requires <code>Rewards:Api:OAuth:Memberships:Create</code> permit
 </aside>
@@ -4210,6 +4212,8 @@ Requires <code>Rewards:Api:OAuth:Memberships:Create</code> permit
 
 <p>Removes current member from Rewards Program. This results in removing &ldquo;rewards_enrollment&rdquo; consent from member
 and <strong>deletion of all points and transaction from Rewards Program.</strong></p>
+
+<p>As a member-related action, it requires member authorization. See <a href="#v3-oauth2">OAuth</a>.</p>
 
 <aside class="notice">
 Requires <code>Rewards:Api:OAuth:Memberships:Delete</code> permit
@@ -4457,6 +4461,8 @@ Requires <code>Rewards:Api:OAuth:Memberships:CheckStatus</code> permit
 
 <p>Returns list of rewards available to purchase by member.</p>
 
+<p>As a member-related action, it requires member authorization. See <a href="#v3-oauth2">OAuth</a>.</p>
+
 <h3 id="response-json-object">Response (JSON object)</h3>
 
 <table><thead>
@@ -4602,6 +4608,8 @@ Requires <code>Rewards:Api:OAuth:Rewards:List</code> permit
 
 <p>Returns list of rewards purchased by member.</p>
 
+<p>As a member-related action, it requires member authorization. See <a href="#v3-oauth2">OAuth</a>.</p>
+
 <h3 id="response-json-object">Response (JSON object)</h3>
 
 <p>Response looks as in <a href="#v3-reward-list">Reward list</a>, but - additionally - each reward includes reward usage information</p>
@@ -4660,6 +4668,8 @@ Requires <code>Rewards:Api:OAuth:Rewards:ListPurchased</code> permit
 
 <p>Adds one of available rewards to member&rsquo;s purchased list.</p>
 
+<p>As a member-related action, it requires member authorization. See <a href="#v3-oauth2">OAuth</a>.</p>
+
 <aside class="notice">
 Requires <code>Rewards:Api:OAuth:Rewards:Purchase</code> permit
 </aside>
@@ -4687,6 +4697,8 @@ Requires <code>Rewards:Api:OAuth:Rewards:Purchase</code> permit
 <p><strong>POST</strong> <code class="prettyprint">v3/infinity-mall/members/me/rewards-program/rewards/:id/use</code></p>
 
 <p>Uses (activates) one of usable rewards purchased by member.</p>
+
+<p>As a member-related action, it requires member authorization. See <a href="#v3-oauth2">OAuth</a>.</p>
 
 <h3 id="response-json-object">Response (JSON object)</h3>
 

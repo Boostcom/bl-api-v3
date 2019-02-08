@@ -176,6 +176,8 @@ Requires <code>Rewards:Api:OAuth:Program:GetInfo</code> permit
 
 <p>Registers current member in Rewards Program. This results granting &ldquo;rewards_enrollment&rdquo; consent to user.</p>
 
+<p>As a member-related action, it requires member authorization. See <a href="#v3-oauth2">OAuth</a>.</p>
+
 <aside class="notice">
 Requires <code>Rewards:Api:OAuth:Memberships:Create</code> permit
 </aside>
@@ -203,6 +205,8 @@ Requires <code>Rewards:Api:OAuth:Memberships:Create</code> permit
 
 <p>Removes current member from Rewards Program. This results in removing &ldquo;rewards_enrollment&rdquo; consent from member
 and <strong>deletion of all points and transaction from Rewards Program.</strong></p>
+
+<p>As a member-related action, it requires member authorization. See <a href="#v3-oauth2">OAuth</a>.</p>
 
 <aside class="notice">
 Requires <code>Rewards:Api:OAuth:Memberships:Delete</code> permit
