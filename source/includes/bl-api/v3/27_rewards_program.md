@@ -112,6 +112,8 @@ curl -X POST \
 
 Registers current member in Rewards Program. This results granting "rewards_enrollment" consent to user.
 
+As a member-related action, it requires member authorization. See [OAuth](#v3-oauth2).
+
 <aside class="notice">
 Requires <code>Rewards:Api:OAuth:Memberships:Create</code> permit
 </aside>
@@ -141,6 +143,8 @@ curl -X DELETE \
 
 Removes current member from Rewards Program. This results in removing "rewards_enrollment" consent from member
 and **deletion of all points and transaction from Rewards Program.**
+
+As a member-related action, it requires member authorization. See [OAuth](#v3-oauth2).
 
 <aside class="notice">
 Requires <code>Rewards:Api:OAuth:Memberships:Delete</code> permit

@@ -53,6 +53,8 @@ curl \
 
 Returns list of rewards available to purchase by member.
 
+As a member-related action, it requires member authorization. See [OAuth](#v3-oauth2).
+
 ### Response (JSON object)
 
 Key | Type | Description
@@ -140,6 +142,8 @@ curl \
 
 Returns list of rewards purchased by member.
 
+As a member-related action, it requires member authorization. See [OAuth](#v3-oauth2).
+
 ### Response (JSON object)
 
 Response looks as in [Reward list](#v3-reward-list), but - additionally - each reward includes reward usage information
@@ -180,6 +184,8 @@ curl -X POST \
 
 Adds one of available rewards to member's purchased list.
 
+As a member-related action, it requires member authorization. See [OAuth](#v3-oauth2).
+
 <aside class="notice">
 Requires <code>Rewards:Api:OAuth:Rewards:Purchase</code> permit
 </aside>
@@ -211,6 +217,8 @@ curl -X POST \
 **POST** `v3/infinity-mall/members/me/rewards-program/rewards/:id/use`
 
 Uses (activates) one of usable rewards purchased by member.
+
+As a member-related action, it requires member authorization. See [OAuth](#v3-oauth2).
 
 ### Response (JSON object)
 
