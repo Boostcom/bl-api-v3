@@ -1,0 +1,397 @@
+<h1 id="endpoints-rewards-program-draft">Endpoints &bull; Rewards Program (draft)</h1>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>Boostcom Rewards is a Loyalty Program that awards members for achieving some defined goals with points.</p>
+
+<p>The points may be spent on acquiring (purchasing) special rewards and then using them.
+Points may expire after some time.</p>
+
+<p>Participation in program is optional, so member can enroll (join) to it and leave it.</p>
+
+<h3 id="achievements">Achievements</h3>
+
+<p>Every Loyalty Club that has Boostcom Rewards enabled, has defined list of achievements that have rules attached to them.
+The rules are described below.</p>
+
+<h3 id="achievements"><a name="v3-rewards-program-achievements"></a> Achievements</h3>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>see <a href="#v3-rewards-program-achievement-types">Achievement types</a></td>
+</tr>
+<tr>
+<td>points</td>
+<td>integer</td>
+<td>How many points the achievement grants</td>
+</tr>
+<tr>
+<td>maximum_frequency</td>
+<td>@todo</td>
+<td>How often the achievement may be granted to member</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>integer</td>
+<td>Maximum number of times the member can have the achievement granted</td>
+</tr>
+</tbody></table>
+
+<h3 id="achievement-types"><a name="v3-rewards-program-achievement-types"></a> Achievement types</h3>
+
+<table><thead>
+<tr>
+<th>type</th>
+<th>Event</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>app_open</td>
+<td>The member opened the loyalty club mobile application</td>
+</tr>
+<tr>
+<td>coupon_use</td>
+<td>Member used some coupon</td>
+</tr>
+<tr>
+<td>link_click</td>
+<td>Member clicked on link that has been sent from us</td>
+</tr>
+<tr>
+<td>email_open</td>
+<td>Member opened an email that has been sent from us</td>
+</tr>
+<tr>
+<td>push_open</td>
+<td>Member opened a push message that has been sent from us</td>
+</tr>
+<tr>
+<td>wifi_login</td>
+<td>Member logged in to loyalty club WiFi</td>
+</tr>
+<tr>
+<td>geofence_enter</td>
+<td>Member entered a geofence defined by loyalty club mobile application</td>
+</tr>
+<tr>
+<td>beacon_event</td>
+<td>Member approached one of loyalty club&rsquo;s beacons</td>
+</tr>
+<tr>
+<td>consent_grant</td>
+<td>Member granted one of loyalty club&rsquo;s consents</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-info"><a name="v3-rewards-program-info"></a> Get info</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="se">\</span>
+<span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/rewards-program/info"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+    -H <span class="s1">'X-User-Agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>When successful (200), returns an object structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"achievements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"app_open"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"point"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"maximum_frequency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@todo"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"consent_grant"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"point"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"maximum_frequency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@todo"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"reward_activation_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">35</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>GET</strong> <code class="prettyprint">v3/infinity-mall/rewards-program/info</code></p>
+
+<p>Returns information about Rewards Program in Loyalty Club. </p>
+
+<h3 id="response-json-object">Response (JSON object)</h3>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>achievements</td>
+<td>Array</td>
+<td>List of Achievement objects - see <a href="#v3-rewards-program-achievements">Achievements</a></td>
+</tr>
+<tr>
+<td>reward_activation_time</td>
+<td>integer</td>
+<td>Time in seconds describing how long the reward is active after use</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Rewards:Api:OAuth:Program:GetInfo</code> permit
+</aside>
+
+<h2 id="join"><a name="v3-rewards-program-join"></a> Join</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
+<span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/members/me/rewards-program/join"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+    -H <span class="s1">'X-User-Agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>When successful (200), returns an empty object:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="err">//</span><span class="w"> </span><span class="err">Empty</span><span class="w"> </span><span class="err">object</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>POST</strong> <code class="prettyprint">v3/infinity-mall/members/me/rewards-program/join</code></p>
+
+<p>Registers current member in Rewards Program. This results granting &ldquo;rewards_enrollment&rdquo; consent to user.</p>
+
+<aside class="notice">
+Requires <code>Rewards:Api:OAuth:Memberships:Create</code> permit
+</aside>
+
+<h2 id="leave"><a name="v3-rewards-program-leave"></a> Leave</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X DELETE <span class="se">\</span>
+<span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/members/me/rewards-program/leave"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+    -H <span class="s1">'X-User-Agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>When successful (200), returns an empty object:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="err">//</span><span class="w"> </span><span class="err">Empty</span><span class="w"> </span><span class="err">object</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>DELETE</strong> <code class="prettyprint">v3/infinity-mall/members/me/rewards-program/leave</code></p>
+
+<p>Removes current member from Rewards Program. This results in removing &ldquo;rewards_enrollment&rdquo; consent from member
+and <strong>deletion of all points and transaction from Rewards Program.</strong></p>
+
+<aside class="notice">
+Requires <code>Rewards:Api:OAuth:Memberships:Delete</code> permit
+</aside>
+
+<h2 id="get-status"><a name="v3-rewards-program-status"></a> Get status</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="se">\</span>
+<span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/members/me/rewards-program/status"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+    -H <span class="s1">'X-User-Agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>When successful (200), returns an object structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"membership"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"balance"</span><span class="p">:</span><span class="w"> </span><span class="mi">180</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"transactions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"expiration"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-12-14T08:00:15063Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">-110</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"expired_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"usage"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-12-14T08:00:15063Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">-20</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"expired_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"reward_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Awesome Toaster"</span><span class="w"> </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"achievement"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-12-10T08:00:15063Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">150</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"expired_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"achievement_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wifi_login"</span><span class="w"> </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"correction"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-12-05T08:00:15063Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"expired_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"comment"</span><span class="p">:</span><span class="w">  </span><span class="s2">"Just for you"</span><span class="w"> </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"achievement"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-41T08:00:15063Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">110</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"expired_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-12-15T08:00:15063Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"trigger_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"coupon_use"</span><span class="w"> </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>When member hasn&rsquo;t joined the program, returns a response having only one key:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"membership"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>GET</strong> <code class="prettyprint">v3/infinity-mall/members/me/rewards-program/status</code></p>
+
+<p>Returns Rewards Program status for current member.</p>
+
+<h3 id="response-json-object">Response (JSON object)</h3>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>membership</td>
+<td>boolean</td>
+<td>Does member participate the Rewards Program?</td>
+</tr>
+<tr>
+<td>balance</td>
+<td>integer</td>
+<td>Member&rsquo;s current points number</td>
+</tr>
+<tr>
+<td>transactions</td>
+<td>Array</td>
+<td>List of Transactions objects, ordered by date descending. See below</td>
+</tr>
+</tbody></table>
+
+<h3 id="transaction-object">Transaction object</h3>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>type</td>
+<td>One of: &lsquo;achievement&rsquo;, &lsquo;usage&rsquo;, &lsquo;expiration&rsquo; and &lsquo;correction&rsquo;</td>
+<td>see &ldquo;Transaction types&rdquo; below</td>
+</tr>
+<tr>
+<td>date</td>
+<td>Date</td>
+<td>When the transaction has been made</td>
+</tr>
+<tr>
+<td>balance</td>
+<td>integer</td>
+<td>How many points the transaction added or subtracted</td>
+</tr>
+<tr>
+<td>expired_at</td>
+<td>Date</td>
+<td>(optional) When the points granted by the transaction expired. When null, they&rsquo;re not expired</td>
+</tr>
+<tr>
+<td>details</td>
+<td>Object</td>
+<td>Transaction-specific details - see &ldquo;Transaction details&rdquo; below</td>
+</tr>
+</tbody></table>
+
+<h3 id="transaction-types">Transaction types</h3>
+
+<table><thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>achievement</td>
+<td>Addition of points triggered by fulfilling an achievement goal</td>
+</tr>
+<tr>
+<td>usage</td>
+<td>Reduction of points caused by purchasing a reward by member</td>
+</tr>
+<tr>
+<td>expiration</td>
+<td>Reduction of points caused by automatic expiration of old transactions</td>
+</tr>
+<tr>
+<td>correction</td>
+<td>Change of points caused by admin&rsquo;s manual correction</td>
+</tr>
+</tbody></table>
+
+<h3 id="transaction-details">Transaction details</h3>
+
+<p>Depending on transaction type, the details contain different kind of data.</p>
+
+<table><thead>
+<tr>
+<th>Transaction type</th>
+<th>Key</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>achievement</td>
+<td>achievement_type</td>
+<td>Type of achievement that granted the points - see <a href="#v3-rewards-program-achievement-types">Achievement types</a></td>
+</tr>
+<tr>
+<td>usage</td>
+<td>reward_name</td>
+<td>Name of reward that the points have been spent on</td>
+</tr>
+<tr>
+<td>correction</td>
+<td>comment</td>
+<td>(optional) Admin&rsquo;s notes</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Rewards:Api:OAuth:Memberships:CheckStatus</code> permit
+</aside>

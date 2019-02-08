@@ -372,3 +372,61 @@ Errors format and strings are not yet stable and may change without further noti
 <p><code class="prettyprint">updated_at</code> is the time of last consent update. It can be also not provided or null.</p>
 
 <p>Available consents for Loyalty Club are described in <a href="#v3-loyalty-clubs-schema">schema</a>.</p>
+
+<h2 id="pagination-json-model"><a name="v3-pagination-model"></a> Pagination JSON model</h2>
+
+<p>Used to present information about paginated pages</p>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>total_count</td>
+<td>integer</td>
+<td>Number of all available results</td>
+</tr>
+<tr>
+<td>per_page</td>
+<td>integer</td>
+<td>Number of results returned per request</td>
+</tr>
+<tr>
+<td>total_pages</td>
+<td>integer</td>
+<td>Number of all available pages</td>
+</tr>
+<tr>
+<td>current_page</td>
+<td>integer</td>
+<td></td>
+</tr>
+<tr>
+<td>next_page</td>
+<td>integer</td>
+<td>Next available page (<code class="prettyprint">null</code> when it&rsquo;s a last page)</td>
+</tr>
+<tr>
+<td>prev_page</td>
+<td>integer</td>
+<td>Previous available page (<code class="prettyprint">null</code> when it&rsquo;s a first page)</td>
+</tr>
+<tr>
+<td>is_first_page</td>
+<td>boolean</td>
+<td></td>
+</tr>
+<tr>
+<td>is_last_page</td>
+<td>boolean</td>
+<td></td>
+</tr>
+<tr>
+<td>is_out_of_range</td>
+<td>boolean</td>
+<td>Is given <code class="prettyprint">per_page</code> param out of range?</td>
+</tr>
+</tbody></table>

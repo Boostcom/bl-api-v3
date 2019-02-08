@@ -87,52 +87,7 @@
 <tr>
 <td>pagination_info</td>
 <td>Object</td>
-<td></td>
-</tr>
-<tr>
-<td>pagination_info[&lsquo;total_count&rsquo;]</td>
-<td>integer</td>
-<td>Number of all available results</td>
-</tr>
-<tr>
-<td>pagination_info[&lsquo;per_page&rsquo;]</td>
-<td>integer</td>
-<td>Number of results returned per request</td>
-</tr>
-<tr>
-<td>pagination_info[&lsquo;total_pages&rsquo;]</td>
-<td>integer</td>
-<td>Number of all available pages</td>
-</tr>
-<tr>
-<td>pagination_info[&lsquo;current_page&rsquo;]</td>
-<td>integer</td>
-<td></td>
-</tr>
-<tr>
-<td>pagination_info[&lsquo;next_page&rsquo;]</td>
-<td>integer</td>
-<td>Next available page (<code class="prettyprint">null</code> when it&rsquo;s a last page)</td>
-</tr>
-<tr>
-<td>pagination_info[&lsquo;prev_page&rsquo;]</td>
-<td>integer</td>
-<td>Previous available page (<code class="prettyprint">null</code> when it&rsquo;s a first page)</td>
-</tr>
-<tr>
-<td>pagination_info[&lsquo;is_first_page&rsquo;]</td>
-<td>integer</td>
-<td></td>
-</tr>
-<tr>
-<td>pagination_info[&lsquo;is_last_page&rsquo;]</td>
-<td>boolean</td>
-<td></td>
-</tr>
-<tr>
-<td>pagination_info[&lsquo;is_out_of_range&rsquo;]</td>
-<td>boolean</td>
-<td>Is given <code class="prettyprint">per_page</code> param out of range?</td>
+<td><a href="#v3-pagination-model">Pagination</a> object</td>
 </tr>
 </tbody></table>
 
