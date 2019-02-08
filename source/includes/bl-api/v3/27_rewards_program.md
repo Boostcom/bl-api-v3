@@ -84,7 +84,7 @@ achievements | Array| List of Achievement objects - see [Achievements](#v3-rewar
 reward_activation_time | integer| Time in seconds describing how long the reward is active after use
 
 <aside class="notice">
-Requires <code>Rewards:Api:OAuth:Program:GetInfo</code> permit
+Requires <code>Rewards:Api:Program:GetInfo</code> permit
 </aside>
 
 ## <a name="v3-rewards-program-join"></a> Join
