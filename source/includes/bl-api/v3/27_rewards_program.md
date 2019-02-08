@@ -27,15 +27,15 @@ limit | integer | Maximum number of times the member can have the achievement gr
 
 type | Event
 ---- | -----------
-app_open | The member opened the loyalty club mobile application
-coupon_use | Member used some coupon
-link_click | Member clicked on link that has been sent from us
-email_open | Member opened an email that has been sent from us
-push_open | Member opened a push message that has been sent from us
-wifi_login | Member logged in to loyalty club WiFi
-geofence_enter | Member entered a geofence defined by loyalty club mobile application
-beacon_event | Member approached one of loyalty club's beacons
-consent_grant | Member granted one of loyalty club's consents
+app_opened | The member opened the loyalty club mobile application
+coupon_used | Member used some coupon
+link_clicked | Member clicked on link that has been sent from us
+email_opened | Member opened an email that has been sent from us
+push_opened | Member opened a push message that has been sent from us
+wifi_approached | Member approached (logged in to) loyalty club's WiFi
+geofence_approached | Member approached geofence defined by loyalty club mobile application
+beacon_approached | Member approached one of loyalty club's beacons
+consent_granted | Member granted one of loyalty club's consents
 
 ## <a name="v3-rewards-program-info"></a> Get info
 
@@ -56,13 +56,13 @@ curl \
 {
   "achievements": [
     {
-      "type": "app_open",
+      "type": "app_opened",
       "point": 50,
       "limit": 20,
       "maximum_frequency": "@todo"
     },
     {
-      "type": "consent_grant",
+      "type": "consent_granted",
       "point": 1000,
       "limit": 1,
       "maximum_frequency": "@todo"
@@ -185,7 +185,7 @@ curl \
       "date": "2019-12-10T08:00:15063Z",
       "amount": 150,
       "expired_at": null,
-      "details": { "achievement_type": "wifi_login" }
+      "details": { "achievement_type": "app_opened" }
     },
     {
       "type": "correction",
@@ -199,7 +199,7 @@ curl \
       "date": "2019-06-41T08:00:15063Z",
       "amount": 110,
       "expired_at": "2019-12-15T08:00:15063Z",
-      "details": { "trigger_type": "coupon_use" }
+      "details": { "achievement_type": "coupon_used" }
     }
   ]
 }
