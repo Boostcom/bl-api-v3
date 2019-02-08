@@ -4061,39 +4061,39 @@ The rules are described below.</p>
 </tr>
 </thead><tbody>
 <tr>
-<td>app_open</td>
+<td>app_opened</td>
 <td>The member opened the loyalty club mobile application</td>
 </tr>
 <tr>
-<td>coupon_use</td>
+<td>coupon_used</td>
 <td>Member used some coupon</td>
 </tr>
 <tr>
-<td>link_click</td>
+<td>link_clicked</td>
 <td>Member clicked on link that has been sent from us</td>
 </tr>
 <tr>
-<td>email_open</td>
+<td>email_opened</td>
 <td>Member opened an email that has been sent from us</td>
 </tr>
 <tr>
-<td>push_open</td>
+<td>push_opened</td>
 <td>Member opened a push message that has been sent from us</td>
 </tr>
 <tr>
-<td>wifi_login</td>
-<td>Member logged in to loyalty club WiFi</td>
+<td>wifi_approached</td>
+<td>Member approached (logged in to) loyalty club&rsquo;s WiFi</td>
 </tr>
 <tr>
-<td>geofence_enter</td>
-<td>Member entered a geofence defined by loyalty club mobile application</td>
+<td>geofence_approached</td>
+<td>Member approached geofence defined by loyalty club mobile application</td>
 </tr>
 <tr>
-<td>beacon_event</td>
+<td>beacon_approached</td>
 <td>Member approached one of loyalty club&rsquo;s beacons</td>
 </tr>
 <tr>
-<td>consent_grant</td>
+<td>consent_granted</td>
 <td>Member granted one of loyalty club&rsquo;s consents</td>
 </tr>
 </tbody></table>
@@ -4116,13 +4116,13 @@ The rules are described below.</p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"achievements"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"app_open"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"app_opened"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"point"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w">
       </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
       </span><span class="s2">"maximum_frequency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@todo"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"consent_grant"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"consent_granted"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"point"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
       </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
       </span><span class="s2">"maximum_frequency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@todo"</span><span class="w">
@@ -4253,7 +4253,7 @@ Requires <code>Rewards:Api:OAuth:Memberships:Delete</code> permit
       </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-12-10T08:00:15063Z"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">150</span><span class="p">,</span><span class="w">
       </span><span class="s2">"expired_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"achievement_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wifi_login"</span><span class="w"> </span><span class="p">}</span><span class="w">
+      </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"achievement_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"app_opened"</span><span class="w"> </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"correction"</span><span class="p">,</span><span class="w">
@@ -4267,7 +4267,7 @@ Requires <code>Rewards:Api:OAuth:Memberships:Delete</code> permit
       </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-41T08:00:15063Z"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">110</span><span class="p">,</span><span class="w">
       </span><span class="s2">"expired_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-12-15T08:00:15063Z"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"trigger_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"coupon_use"</span><span class="w"> </span><span class="p">}</span><span class="w">
+      </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"achievement_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"coupon_used"</span><span class="w"> </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
