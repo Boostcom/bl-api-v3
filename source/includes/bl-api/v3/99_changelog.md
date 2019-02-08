@@ -1,12 +1,25 @@
 # Changelog
 
+### 08.02.2019 | Piotr Świtlicki:
+
+Boostcom Rewards draft
+
+* Add `GET /v3/infinity-mall/rewards-program/info` ([Rewards Program &bull; Get Info](#v3-rewards-program-info))
+* Add `POST /v3/infinity-mall/members/me/rewards-program/join` ([Rewards Program &bull; Join](#v3-rewards-program-join))
+* Add `DELETE /v3/infinity-mall/members/me/rewards-program/leave` ([Rewards Program &bull; Leave](#v3-rewards-program-leave))
+* Add `DELETE /v3/infinity-mall/members/me/rewards-program/status` ([Rewards Program &bull; Get status](#v3-rewards-program-status))
+* Add `GET /v3/infinity-mall/members/me/rewards-program/rewards` ([Rewards &bull; List](#v3-rewards-list))
+* Add `GET /v3/infinity-mall/members/me/rewards-program/rewards/purchased` ([Rewards &bull; List purchased](#v3-rewards-list-purchased))
+* Add `POST /v3/infinity-mall/members/me/rewards-program/rewards/:id/purchase` ([Rewards &bull; Purchase](#v3-rewards-purchase))
+* Add `POST /v3/infinity-mall/members/me/rewards-program/rewards/:id/use` ([Rewards &bull; Use](#v3-rewards-use))
+
 ### 07.02.2019 | Dominik Halat:
 
 * Remove `shortening_enabled` param from Emails API ([Emails &bull; Create](#v3-emails-create))
 
 ### 07.02.2019 | Piotr Świtlicki:
 
-* Replace paths: `/api/v3/loyalty_clubs/:loyalty_club_slug/` with `/v3/:loyalty_clubs/` (old ones will still work)
+* Replace paths: `/v3/loyalty_clubs/:loyalty_club_slug/` with `/v3/:loyalty_clubs/` (old ones will still work)
 
 ### 25.01.2019 | Dominik Halat:
 

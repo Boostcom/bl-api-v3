@@ -186,3 +186,19 @@ It consists of: `'consent-slug': { "status": <boolean_value>, "updated_at": <tim
 `updated_at` is the time of last consent update. It can be also not provided or null.
 
 Available consents for Loyalty Club are described in [schema](#v3-loyalty-clubs-schema).
+
+## <a name="v3-pagination-model"></a> Pagination JSON model
+
+Used to present information about paginated pages
+
+Key | Type | Description
+--- | ---- | -----------
+total_count | integer | Number of all available results
+per_page | integer | Number of results returned per request
+total_pages | integer | Number of all available pages
+current_page | integer |
+next_page | integer | Next available page (`null` when it's a last page)
+prev_page | integer | Previous available page (`null` when it's a first page)
+is_first_page | boolean | 
+is_last_page | boolean | 
+is_out_of_range | boolean | Is given `per_page` param out of range?

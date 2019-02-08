@@ -51,16 +51,7 @@ ids | Array<integer> | no | null | IDs of members to return
 Key | Type | Description
 --------- | --------- | ---------
 members | Array<Member> | Array of [Members](#v3-member-model)
-pagination_info | Object |
-pagination_info['total_count'] | integer | Number of all available results
-pagination_info['per_page'] | integer | Number of results returned per request
-pagination_info['total_pages'] | integer | Number of all available pages
-pagination_info['current_page'] | integer |
-pagination_info['next_page'] | integer | Next available page (`null` when it's a last page)
-pagination_info['prev_page'] | integer | Previous available page (`null` when it's a first page)
-pagination_info['is_first_page'] | integer | 
-pagination_info['is_last_page'] | boolean | 
-pagination_info['is_out_of_range'] | boolean | Is given `per_page` param out of range?
+pagination_info | Object | [Pagination](#v3-pagination-model) object
 
 <aside class="notice">
 Requires <code>BL:Api:Members:Index</code> permit
