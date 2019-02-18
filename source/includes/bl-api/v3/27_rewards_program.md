@@ -171,7 +171,7 @@ curl \
   "balance": 180,
   "transactions": [
     {
-      "type": "usage",
+      "type": "reward_purchase",
       "date": "2019-12-15T08:00:15063Z",
       "amount": -20,
       "expired_at": null,
@@ -205,7 +205,18 @@ curl \
       "expired_at": "2019-12-15T08:00:15063Z",
       "details": { "achievement_type": "coupon_used" }
     }
-  ]
+  ],
+  "pagination_info": {
+    "total_count": 2050,
+    "per_page": 1000,
+    "total_pages": 3,
+    "current_page": 1,
+    "next_page": 2,
+    "prev_page": null,
+    "is_first_page": true,
+    "is_last_page": false,
+    "is_out_of_range": false
+  }  
 }
 ```
 
@@ -221,6 +232,13 @@ curl \
 
 Returns Rewards Program status for current member.
 
+### Query Parameters
+
+Parameter | Type | Required? | Default | Description
+--------- | ----------- | ----------- | --------- | -----------
+per_page | integer | no | 1000 | Number of transactions to be returned per request (1000 is the maximum)
+page_no | integer | no | 1 | Number of transactions page
+
 ### Response (JSON object)
 
 Key | Type | Description
@@ -228,14 +246,15 @@ Key | Type | Description
 membership | boolean | Does member participate the Rewards Program?
 balance | integer | Member's current points number
 transactions | Array| List of Transactions objects, ordered by date descending. See below
+pagination_info | Object | [Pagination](#v3-pagination-model) object describing transactions list
 
 ### Transaction object
 
 Key | Type | Description
 --------- | --------- | ---------
-type | One of: 'achievement', 'usage', 'expiration' and 'correction' | see "Transaction types" below
+type | One of: 'achievement', 'reward_purchase', 'expiration' and 'correction' | see "Transaction types" below
 date | Date | When the transaction has been made
-balance | integer | How many points the transaction added or subtracted  
+amount | integer | How many points the transaction added or subtracted  
 expired_at | Date | (optional) When the points granted by the transaction expired. When null, they're not expired
 details | Object | Transaction-specific details - see "Transaction details" below
 
@@ -244,7 +263,7 @@ details | Object | Transaction-specific details - see "Transaction details" belo
 Type | Description |
 ----- | ----------- 
 achievement | Addition of points triggered by fulfilling an achievement goal
-usage | Reduction of points caused by purchasing a reward by member
+reward_purchase | Reduction of points caused by purchasing a reward by member
 expiration | Reduction of points caused by automatic expiration of old transactions
 correction | Change of points caused by admin's manual correction
 
@@ -255,7 +274,7 @@ Depending on transaction type, the details contain different kind of data.
 Transaction type | Key | Description
 --- | --- | ---
 achievement | achievement_type | Type of achievement that granted the points - see [Achievement types](#v3-rewards-program-achievement-types)
-usage | reward_name | Name of reward that the points have been spent on
+reward_purchase | reward_name | Name of reward that the points have been spent on
 correction | comment | (optional) Admin's notes
 
 <aside class="notice">
