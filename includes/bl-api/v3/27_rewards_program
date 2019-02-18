@@ -232,7 +232,7 @@ Requires <code>Rewards:Api:OAuth:Memberships:Delete</code> permit
   </span><span class="s2">"balance"</span><span class="p">:</span><span class="w"> </span><span class="mi">180</span><span class="p">,</span><span class="w">
   </span><span class="s2">"transactions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"usage"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"reward_purchase"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-12-15T08:00:15063Z"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">-20</span><span class="p">,</span><span class="w">
       </span><span class="s2">"expired_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -266,7 +266,18 @@ Requires <code>Rewards:Api:OAuth:Memberships:Delete</code> permit
       </span><span class="s2">"expired_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-12-15T08:00:15063Z"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"achievement_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"coupon_used"</span><span class="w"> </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"pagination_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"total_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">2050</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"per_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total_pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"current_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"next_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"prev_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"is_first_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"is_last_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"is_out_of_range"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+  </span><span class="p">}</span><span class="w">  
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
@@ -279,6 +290,33 @@ Requires <code>Rewards:Api:OAuth:Memberships:Delete</code> permit
 <p><strong>GET</strong> <code class="prettyprint">v3/infinity-mall/members/me/rewards-program/status</code></p>
 
 <p>Returns Rewards Program status for current member.</p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required?</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>per_page</td>
+<td>integer</td>
+<td>no</td>
+<td>1000</td>
+<td>Number of transactions to be returned per request (1000 is the maximum)</td>
+</tr>
+<tr>
+<td>page_no</td>
+<td>integer</td>
+<td>no</td>
+<td>1</td>
+<td>Number of transactions page</td>
+</tr>
+</tbody></table>
 
 <h3 id="response-json-object">Response (JSON object)</h3>
 
@@ -304,6 +342,11 @@ Requires <code>Rewards:Api:OAuth:Memberships:Delete</code> permit
 <td>Array</td>
 <td>List of Transactions objects, ordered by date descending. See below</td>
 </tr>
+<tr>
+<td>pagination_info</td>
+<td>Object</td>
+<td><a href="#v3-pagination-model">Pagination</a> object describing transactions list</td>
+</tr>
 </tbody></table>
 
 <h3 id="transaction-object">Transaction object</h3>
@@ -317,7 +360,7 @@ Requires <code>Rewards:Api:OAuth:Memberships:Delete</code> permit
 </thead><tbody>
 <tr>
 <td>type</td>
-<td>One of: &lsquo;achievement&rsquo;, &lsquo;usage&rsquo;, &lsquo;expiration&rsquo; and &lsquo;correction&rsquo;</td>
+<td>One of: &lsquo;achievement&rsquo;, &lsquo;reward_purchase&rsquo;, &lsquo;expiration&rsquo; and &lsquo;correction&rsquo;</td>
 <td>see &ldquo;Transaction types&rdquo; below</td>
 </tr>
 <tr>
@@ -326,7 +369,7 @@ Requires <code>Rewards:Api:OAuth:Memberships:Delete</code> permit
 <td>When the transaction has been made</td>
 </tr>
 <tr>
-<td>balance</td>
+<td>amount</td>
 <td>integer</td>
 <td>How many points the transaction added or subtracted</td>
 </tr>
@@ -355,7 +398,7 @@ Requires <code>Rewards:Api:OAuth:Memberships:Delete</code> permit
 <td>Addition of points triggered by fulfilling an achievement goal</td>
 </tr>
 <tr>
-<td>usage</td>
+<td>reward_purchase</td>
 <td>Reduction of points caused by purchasing a reward by member</td>
 </tr>
 <tr>
@@ -385,7 +428,7 @@ Requires <code>Rewards:Api:OAuth:Memberships:Delete</code> permit
 <td>Type of achievement that granted the points - see <a href="#v3-rewards-program-achievement-types">Achievement types</a></td>
 </tr>
 <tr>
-<td>usage</td>
+<td>reward_purchase</td>
 <td>reward_name</td>
 <td>Name of reward that the points have been spent on</td>
 </tr>
