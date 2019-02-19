@@ -1,6 +1,6 @@
-<h1 id="endpoints-rewards-draft">Endpoints &bull; Rewards (draft)</h1>
+<h1 id="endpoints-rewards-wip">Endpoints &bull; Rewards (WIP)</h1>
 
-<h2 id="list"><a name="v3-rewards-list"></a> List</h2>
+<h2 id="list-draft"><a name="v3-rewards-list"></a> List (draft)</h2>
 
 <blockquote>
 <p>Example:</p>
@@ -156,7 +156,7 @@
 Requires <code>Rewards:Api:OAuth:Rewards:List</code> permit
 </aside>
 
-<h2 id="list-purchased"><a name="v3-rewards-list-purchased"></a> List purchased</h2>
+<h2 id="list-purchased-draft"><a name="v3-rewards-list-purchased"></a> List purchased (draft)</h2>
 <pre class="highlight shell tab-shell"><code>curl <span class="se">\</span>
 <span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/members/me/rewards-program/rewards/purchased"</span> <span class="se">\</span>
     -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
@@ -251,7 +251,7 @@ Requires <code>Rewards:Api:OAuth:Rewards:List</code> permit
 Requires <code>Rewards:Api:OAuth:Rewards:ListPurchased</code> permit
 </aside>
 
-<h2 id="purchase"><a name="v3-rewards-purchase"></a> Purchase</h2>
+<h2 id="purchase-draft"><a name="v3-rewards-purchase"></a> Purchase (draft)</h2>
 <pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
 <span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/members/me/rewards-program/rewards/153/purchase"</span> <span class="se">\</span>
     -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
@@ -276,7 +276,7 @@ Requires <code>Rewards:Api:OAuth:Rewards:ListPurchased</code> permit
 Requires <code>Rewards:Api:OAuth:Rewards:Purchase</code> permit
 </aside>
 
-<h2 id="use"><a name="v3-rewards-use"></a> Use</h2>
+<h2 id="use-draft"><a name="v3-rewards-use"></a> Use (draft)</h2>
 <pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
 <span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/members/me/rewards-program/rewards/153/use"</span> <span class="se">\</span>
     -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>

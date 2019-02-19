@@ -4005,7 +4005,7 @@ Messages are being sent asynchronously. Also, it cannot be guaranteed that the m
 Requires <code>BL:Api:Emails:Send</code> permit
 </aside>
 
-          <h1 id="endpoints-rewards-program-draft">Endpoints &bull; Rewards Program (draft)</h1>
+          <h1 id="endpoints-rewards-program-wip">Endpoints &bull; Rewards Program (WIP)</h1>
 
 <h2 id="introduction">Introduction</h2>
 
@@ -4098,7 +4098,7 @@ The rules are described below.</p>
 </tr>
 </tbody></table>
 
-<h2 id="get-info"><a name="v3-rewards-program-info"></a> Get info</h2>
+<h2 id="get-info-draft"><a name="v3-rewards-program-info"></a> Get info (draft)</h2>
 
 <blockquote>
 <p>Example:</p>
@@ -4160,7 +4160,7 @@ The rules are described below.</p>
 Requires <code>Rewards:Api:Program:GetInfo</code> permit
 </aside>
 
-<h2 id="join"><a name="v3-rewards-program-join"></a> Join</h2>
+<h2 id="join-draft"><a name="v3-rewards-program-join"></a> Join (draft)</h2>
 
 <blockquote>
 <p>Example:</p>
@@ -4189,7 +4189,7 @@ Requires <code>Rewards:Api:Program:GetInfo</code> permit
 Requires <code>Rewards:Api:OAuth:Memberships:Create</code> permit
 </aside>
 
-<h2 id="leave"><a name="v3-rewards-program-leave"></a> Leave</h2>
+<h2 id="leave-draft"><a name="v3-rewards-program-leave"></a> Leave (draft)</h2>
 
 <blockquote>
 <p>Example:</p>
@@ -4297,6 +4297,8 @@ Requires <code>Rewards:Api:OAuth:Memberships:Delete</code> permit
 <p><strong>GET</strong> <code class="prettyprint">v3/infinity-mall/members/me/rewards-program/status</code></p>
 
 <p>Returns Rewards Program status for current member.</p>
+
+<p>As a member-related action, it requires member authorization. See <a href="#v3-oauth2">OAuth</a>.</p>
 
 <h3 id="query-parameters">Query Parameters</h3>
 
@@ -4450,9 +4452,34 @@ Requires <code>Rewards:Api:OAuth:Memberships:Delete</code> permit
 Requires <code>Rewards:Api:OAuth:Memberships:CheckStatus</code> permit
 </aside>
 
-          <h1 id="endpoints-rewards-draft">Endpoints &bull; Rewards (draft)</h1>
+<h2 id="get-status-by-member-id"><a name="v3-rewards-program-status-by-member-id"></a> Get status by member ID</h2>
 
-<h2 id="list"><a name="v3-rewards-list"></a> List</h2>
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="se">\</span>
+<span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/members/837182/rewards-program/status"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+    -H <span class="s1">'X-User-Agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>Returns response as in <a href="$v3-rewards-program-status">Rewards Program &bull; Get Status</a></p>
+</blockquote>
+
+<p><strong>GET</strong> <code class="prettyprint">v3/infinity-mall/members/:id/rewards-program/status</code></p>
+
+<p>Returns Rewards Program status for member identified by given ID.
+Works just the same as <a href="#v3-rewards-program-status">Rewards Program &bull; Get Status</a>.</p>
+
+<aside class="notice">
+Requires <code>Rewards:Api:Memberships:CheckStatus</code> permit
+</aside>
+
+          <h1 id="endpoints-rewards-wip">Endpoints &bull; Rewards (WIP)</h1>
+
+<h2 id="list-draft"><a name="v3-rewards-list"></a> List (draft)</h2>
 
 <blockquote>
 <p>Example:</p>
@@ -4608,7 +4635,7 @@ Requires <code>Rewards:Api:OAuth:Memberships:CheckStatus</code> permit
 Requires <code>Rewards:Api:OAuth:Rewards:List</code> permit
 </aside>
 
-<h2 id="list-purchased"><a name="v3-rewards-list-purchased"></a> List purchased</h2>
+<h2 id="list-purchased-draft"><a name="v3-rewards-list-purchased"></a> List purchased (draft)</h2>
 <pre class="highlight shell tab-shell"><code>curl <span class="se">\</span>
 <span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/members/me/rewards-program/rewards/purchased"</span> <span class="se">\</span>
     -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
@@ -4703,7 +4730,7 @@ Requires <code>Rewards:Api:OAuth:Rewards:List</code> permit
 Requires <code>Rewards:Api:OAuth:Rewards:ListPurchased</code> permit
 </aside>
 
-<h2 id="purchase"><a name="v3-rewards-purchase"></a> Purchase</h2>
+<h2 id="purchase-draft"><a name="v3-rewards-purchase"></a> Purchase (draft)</h2>
 <pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
 <span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/members/me/rewards-program/rewards/153/purchase"</span> <span class="se">\</span>
     -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
@@ -4728,7 +4755,7 @@ Requires <code>Rewards:Api:OAuth:Rewards:ListPurchased</code> permit
 Requires <code>Rewards:Api:OAuth:Rewards:Purchase</code> permit
 </aside>
 
-<h2 id="use"><a name="v3-rewards-use"></a> Use</h2>
+<h2 id="use-draft"><a name="v3-rewards-use"></a> Use (draft)</h2>
 <pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
 <span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/members/me/rewards-program/rewards/153/use"</span> <span class="se">\</span>
     -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
@@ -4776,6 +4803,12 @@ Requires <code>Rewards:Api:OAuth:Rewards:Use</code> permit
 
           <h1 id="changelog">Changelog</h1>
 
+<h3 id="19-02-2019-piotr-witlicki">19.02.2019 | Piotr Świtlicki:</h3>
+
+<ul>
+<li>Add <code class="prettyprint">GET /v3/infinity-mall/members/:id/rewards-program/status</code> (<a href="#v3-rewards-program-status-by-member-id">Rewards Program &bull; Get status by member ID</a>)</li>
+</ul>
+
 <h3 id="08-02-2019-piotr-witlicki">08.02.2019 | Piotr Świtlicki:</h3>
 
 <p>Boostcom Rewards draft</p>
@@ -4784,7 +4817,7 @@ Requires <code>Rewards:Api:OAuth:Rewards:Use</code> permit
 <li>Add <code class="prettyprint">GET /v3/infinity-mall/rewards-program/info</code> (<a href="#v3-rewards-program-info">Rewards Program &bull; Get Info</a>)</li>
 <li>Add <code class="prettyprint">POST /v3/infinity-mall/members/me/rewards-program/join</code> (<a href="#v3-rewards-program-join">Rewards Program &bull; Join</a>)</li>
 <li>Add <code class="prettyprint">DELETE /v3/infinity-mall/members/me/rewards-program/leave</code> (<a href="#v3-rewards-program-leave">Rewards Program &bull; Leave</a>)</li>
-<li>Add <code class="prettyprint">DELETE /v3/infinity-mall/members/me/rewards-program/status</code> (<a href="#v3-rewards-program-status">Rewards Program &bull; Get status</a>)</li>
+<li>Add <code class="prettyprint">GET /v3/infinity-mall/members/me/rewards-program/status</code> (<a href="#v3-rewards-program-status">Rewards Program &bull; Get status</a>)</li>
 <li>Add <code class="prettyprint">GET /v3/infinity-mall/members/me/rewards-program/rewards</code> (<a href="#v3-rewards-list">Rewards &bull; List</a>)</li>
 <li>Add <code class="prettyprint">GET /v3/infinity-mall/members/me/rewards-program/rewards/purchased</code> (<a href="#v3-rewards-list-purchased">Rewards &bull; List purchased</a>)</li>
 <li>Add <code class="prettyprint">POST /v3/infinity-mall/members/me/rewards-program/rewards/:id/purchase</code> (<a href="#v3-rewards-purchase">Rewards &bull; Purchase</a>)</li>

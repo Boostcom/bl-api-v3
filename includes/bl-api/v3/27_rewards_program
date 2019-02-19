@@ -1,4 +1,4 @@
-<h1 id="endpoints-rewards-program-draft">Endpoints &bull; Rewards Program (draft)</h1>
+<h1 id="endpoints-rewards-program-wip">Endpoints &bull; Rewards Program (WIP)</h1>
 
 <h2 id="introduction">Introduction</h2>
 
@@ -91,7 +91,7 @@ The rules are described below.</p>
 </tr>
 </tbody></table>
 
-<h2 id="get-info"><a name="v3-rewards-program-info"></a> Get info</h2>
+<h2 id="get-info-draft"><a name="v3-rewards-program-info"></a> Get info (draft)</h2>
 
 <blockquote>
 <p>Example:</p>
@@ -153,7 +153,7 @@ The rules are described below.</p>
 Requires <code>Rewards:Api:Program:GetInfo</code> permit
 </aside>
 
-<h2 id="join"><a name="v3-rewards-program-join"></a> Join</h2>
+<h2 id="join-draft"><a name="v3-rewards-program-join"></a> Join (draft)</h2>
 
 <blockquote>
 <p>Example:</p>
@@ -182,7 +182,7 @@ Requires <code>Rewards:Api:Program:GetInfo</code> permit
 Requires <code>Rewards:Api:OAuth:Memberships:Create</code> permit
 </aside>
 
-<h2 id="leave"><a name="v3-rewards-program-leave"></a> Leave</h2>
+<h2 id="leave-draft"><a name="v3-rewards-program-leave"></a> Leave (draft)</h2>
 
 <blockquote>
 <p>Example:</p>
@@ -290,6 +290,8 @@ Requires <code>Rewards:Api:OAuth:Memberships:Delete</code> permit
 <p><strong>GET</strong> <code class="prettyprint">v3/infinity-mall/members/me/rewards-program/status</code></p>
 
 <p>Returns Rewards Program status for current member.</p>
+
+<p>As a member-related action, it requires member authorization. See <a href="#v3-oauth2">OAuth</a>.</p>
 
 <h3 id="query-parameters">Query Parameters</h3>
 
@@ -441,4 +443,29 @@ Requires <code>Rewards:Api:OAuth:Memberships:Delete</code> permit
 
 <aside class="notice">
 Requires <code>Rewards:Api:OAuth:Memberships:CheckStatus</code> permit
+</aside>
+
+<h2 id="get-status-by-member-id"><a name="v3-rewards-program-status-by-member-id"></a> Get status by member ID</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="se">\</span>
+<span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/members/837182/rewards-program/status"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+    -H <span class="s1">'X-User-Agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>Returns response as in <a href="$v3-rewards-program-status">Rewards Program &bull; Get Status</a></p>
+</blockquote>
+
+<p><strong>GET</strong> <code class="prettyprint">v3/infinity-mall/members/:id/rewards-program/status</code></p>
+
+<p>Returns Rewards Program status for member identified by given ID.
+Works just the same as <a href="#v3-rewards-program-status">Rewards Program &bull; Get Status</a>.</p>
+
+<aside class="notice">
+Requires <code>Rewards:Api:Memberships:CheckStatus</code> permit
 </aside>
