@@ -239,7 +239,7 @@ As a member-related action, it requires member authorization. See [OAuth](#v3-oa
 Parameter | Type | Required? | Default | Description
 --------- | ----------- | ----------- | --------- | -----------
 per_page | integer | no | 1000 | Number of transactions to be returned per request (1000 is the maximum)
-page_no | integer | no | 1 | Number of transactions page
+page | integer | no | 1 | Number of transactions page
 
 ### Response (JSON object)
 
