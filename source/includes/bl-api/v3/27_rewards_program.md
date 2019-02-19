@@ -1,4 +1,4 @@
-# Endpoints &bull; Rewards Program (draft)
+# Endpoints &bull; Rewards Program (WIP)
 
 ## Introduction
 
@@ -37,7 +37,7 @@ geofence_approached | Member approached geofence defined by loyalty club mobile 
 beacon_approached | Member approached one of loyalty club's beacons
 consent_granted | Member granted one of loyalty club's consents
 
-## <a name="v3-rewards-program-info"></a> Get info
+## <a name="v3-rewards-program-info"></a> Get info (draft)
 
 > Example:
 
@@ -87,7 +87,7 @@ reward_activation_time | integer| Time in seconds describing how long the reward
 Requires <code>Rewards:Api:Program:GetInfo</code> permit
 </aside>
 
-## <a name="v3-rewards-program-join"></a> Join
+## <a name="v3-rewards-program-join"></a> Join (draft)
 
 > Example:
 
@@ -118,7 +118,7 @@ As a member-related action, it requires member authorization. See [OAuth](#v3-oa
 Requires <code>Rewards:Api:OAuth:Memberships:Create</code> permit
 </aside>
 
-## <a name="v3-rewards-program-leave"></a> Leave
+## <a name="v3-rewards-program-leave"></a> Leave (draft)
 
 > Example:
 
@@ -232,6 +232,8 @@ curl \
 
 Returns Rewards Program status for current member.
 
+As a member-related action, it requires member authorization. See [OAuth](#v3-oauth2).
+
 ### Query Parameters
 
 Parameter | Type | Required? | Default | Description
@@ -279,4 +281,28 @@ correction | comment | (optional) Admin's notes
 
 <aside class="notice">
 Requires <code>Rewards:Api:OAuth:Memberships:CheckStatus</code> permit
+</aside>
+
+## <a name="v3-rewards-program-status-by-member-id"></a> Get status by member ID
+
+> Example:
+
+```shell
+curl \
+"https://bpc-api.boostcom.no/v3/infinity-mall/members/837182/rewards-program/status" \
+    -H 'Content-Type: application/json' \
+    -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+    -H 'X-Product-Name: default' \
+    -H 'X-User-Agent: CURL manual test'
+```
+
+> Returns response as in [Rewards Program &bull; Get Status]($v3-rewards-program-status)
+
+**GET** `v3/infinity-mall/members/:id/rewards-program/status`
+
+Returns Rewards Program status for member identified by given ID.
+Works just the same as [Rewards Program &bull; Get Status](#v3-rewards-program-status).
+
+<aside class="notice">
+Requires <code>Rewards:Api:Memberships:CheckStatus</code> permit
 </aside>

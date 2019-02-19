@@ -1,5 +1,5 @@
-# Endpoints &bull; Rewards (draft)
-## <a name="v3-rewards-list"></a> List
+# Endpoints &bull; Rewards (WIP)
+## <a name="v3-rewards-list"></a> List (draft)
 
 > Example:
 
@@ -91,7 +91,7 @@ size_type | string | One of: 'original', 'base', 'thumbnail'
 Requires <code>Rewards:Api:OAuth:Rewards:List</code> permit
 </aside>
 
-## <a name="v3-rewards-list-purchased"></a> List purchased
+## <a name="v3-rewards-list-purchased"></a> List purchased (draft)
 
 ```shell
 curl \
@@ -168,7 +168,7 @@ active_until | Date | (optional) The last time time the coupon has been used + a
 Requires <code>Rewards:Api:OAuth:Rewards:ListPurchased</code> permit
 </aside>
 
-## <a name="v3-rewards-purchase"></a> Purchase
+## <a name="v3-rewards-purchase"></a> Purchase (draft)
 
 ```shell
 curl -X POST \
@@ -197,7 +197,7 @@ As a member-related action, it requires member authorization. See [OAuth](#v3-oa
 Requires <code>Rewards:Api:OAuth:Rewards:Purchase</code> permit
 </aside>
 
-## <a name="v3-rewards-use"></a> Use
+## <a name="v3-rewards-use"></a> Use (draft)
 
 ```shell
 curl -X POST \
