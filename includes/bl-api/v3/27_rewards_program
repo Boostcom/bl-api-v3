@@ -312,7 +312,7 @@ Requires <code>Rewards:Api:OAuth:Memberships:Delete</code> permit
 <td>Number of transactions to be returned per request (1000 is the maximum)</td>
 </tr>
 <tr>
-<td>page_no</td>
+<td>page</td>
 <td>integer</td>
 <td>no</td>
 <td>1</td>
