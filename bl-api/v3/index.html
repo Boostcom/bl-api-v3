@@ -4479,7 +4479,7 @@ Requires <code>Rewards:Api:Memberships:CheckStatus</code> permit
 
           <h1 id="endpoints-rewards-wip">Endpoints &bull; Rewards (WIP)</h1>
 
-<h2 id="list-draft"><a name="v3-rewards-list"></a> List (draft)</h2>
+<h2 id="list"><a name="v3-rewards-list"></a> List</h2>
 
 <blockquote>
 <p>Example:</p>
@@ -4631,11 +4631,25 @@ Requires <code>Rewards:Api:Memberships:CheckStatus</code> permit
 </tr>
 </tbody></table>
 
+<h3 id="error-responses">Error responses</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Response (and reason)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">480</code></td>
+<td><code class="prettyprint">{&quot;error&quot;: &quot;Member is not participating in Rewards Program&quot;}</code></td>
+</tr>
+</tbody></table>
+
 <aside class="notice">
 Requires <code>Rewards:Api:OAuth:Rewards:List</code> permit
 </aside>
 
-<h2 id="list-purchased-draft"><a name="v3-rewards-list-purchased"></a> List purchased (draft)</h2>
+<h2 id="list-purchased"><a name="v3-rewards-list-purchased"></a> List purchased</h2>
 <pre class="highlight shell tab-shell"><code>curl <span class="se">\</span>
 <span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/members/me/rewards-program/rewards/purchased"</span> <span class="se">\</span>
     -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
@@ -4676,7 +4690,6 @@ Requires <code>Rewards:Api:OAuth:Rewards:List</code> permit
         </span><span class="p">}</span><span class="w">                
       </span><span class="p">],</span><span class="w">
       </span><span class="s2">"usage"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
         </span><span class="s2">"left"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
         </span><span class="s2">"usable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
         </span><span class="s2">"active_until"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-31T11:24:15.278Z"</span><span class="w">
@@ -4705,24 +4718,33 @@ Requires <code>Rewards:Api:OAuth:Rewards:List</code> permit
 </tr>
 </thead><tbody>
 <tr>
-<td>limit</td>
-<td>integer</td>
-<td>(optional) How many times member can use the reward in total. If null, there&rsquo;s no limit</td>
-</tr>
-<tr>
 <td>left</td>
 <td>integer</td>
-<td>(optional) How many usages are left for member. Null, when there&rsquo;s no usage limit - see above</td>
-</tr>
-<tr>
-<td>usable</td>
-<td>boolean</td>
-<td>Is the reward usable currently?</td>
+<td>(optional) How many more times the member can use the Reward. Null, when there&rsquo;s no usage limit</td>
 </tr>
 <tr>
 <td>active_until</td>
 <td>Date</td>
 <td>(optional) The last time time the coupon has been used + activation time (configurable per Loyalty Club, e.x. 30s). When null, the reward has not been activated yet</td>
+</tr>
+<tr>
+<td>usable</td>
+<td>boolean</td>
+<td>Will the reward be still usable after activation time passes?</td>
+</tr>
+</tbody></table>
+
+<h3 id="error-responses">Error responses</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Response (and reason)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">480</code></td>
+<td><code class="prettyprint">{&quot;error&quot;: &quot;Member is not participating in Rewards Program&quot;}</code></td>
 </tr>
 </tbody></table>
 
@@ -4730,7 +4752,7 @@ Requires <code>Rewards:Api:OAuth:Rewards:List</code> permit
 Requires <code>Rewards:Api:OAuth:Rewards:ListPurchased</code> permit
 </aside>
 
-<h2 id="purchase-draft"><a name="v3-rewards-purchase"></a> Purchase (draft)</h2>
+<h2 id="purchase"><a name="v3-rewards-purchase"></a> Purchase</h2>
 <pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
 <span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/members/me/rewards-program/rewards/153/purchase"</span> <span class="se">\</span>
     -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
@@ -4747,15 +4769,46 @@ Requires <code>Rewards:Api:OAuth:Rewards:ListPurchased</code> permit
 </span></code></pre>
 <p><strong>POST</strong> <code class="prettyprint">v3/infinity-mall/members/me/rewards-program/rewards/:id/purchase</code></p>
 
-<p>Adds one of available rewards to member&rsquo;s purchased list.</p>
+<p>Adds one of available rewards to member&rsquo;s purchased list and reduces member&rsquo;s balance by price.</p>
 
 <p>As a member-related action, it requires member authorization. See <a href="#v3-oauth2">OAuth</a>.</p>
+
+<h3 id="error-responses">Error responses</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Response body</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">480</code></td>
+<td><code class="prettyprint">{&quot;error&quot;: &quot;Member is not participating in Rewards Program&quot;}</code></td>
+<td>-</td>
+</tr>
+<tr>
+<td><code class="prettyprint">404</code></td>
+<td><code class="prettyprint">{&quot;error&quot;: &quot;Reward#10000951 not found&quot;}</code></td>
+<td>-</td>
+</tr>
+<tr>
+<td><code class="prettyprint">422</code></td>
+<td><code class="prettyprint">{&quot;error&quot;: &quot;Not enough points&quot;}</code></td>
+<td>Member has no enough points to purchase the reward</td>
+</tr>
+<tr>
+<td><code class="prettyprint">422</code></td>
+<td><code class="prettyprint">{&quot;error&quot;: &quot;Global limit exceeded&quot;}</code></td>
+<td>There are no more rewards available to purchase</td>
+</tr>
+</tbody></table>
 
 <aside class="notice">
 Requires <code>Rewards:Api:OAuth:Rewards:Purchase</code> permit
 </aside>
 
-<h2 id="use-draft"><a name="v3-rewards-use"></a> Use (draft)</h2>
+<h2 id="use"><a name="v3-rewards-use"></a> Use</h2>
 <pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
 <span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/members/me/rewards-program/rewards/153/use"</span> <span class="se">\</span>
     -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
@@ -4768,7 +4821,6 @@ Requires <code>Rewards:Api:OAuth:Rewards:Purchase</code> permit
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"usage"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
     </span><span class="s2">"left"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
     </span><span class="s2">"usable"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
     </span><span class="s2">"active_until"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-31T11:24:15.278Z"</span><span class="w">
@@ -4794,6 +4846,42 @@ Requires <code>Rewards:Api:OAuth:Rewards:Purchase</code> permit
 <td>usage</td>
 <td>Object</td>
 <td>See <a href="#v3-rewards-usage">Reward Usage</a></td>
+</tr>
+</tbody></table>
+
+<h3 id="error-responses">Error responses</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Response body</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">480</code></td>
+<td><code class="prettyprint">{&quot;error&quot;: &quot;Member is not participating in Rewards Program&quot;}</code></td>
+<td>-</td>
+</tr>
+<tr>
+<td><code class="prettyprint">404</code></td>
+<td><code class="prettyprint">{&quot;error&quot;: &quot;Reward#10000951 not found&quot;}</code></td>
+<td>-</td>
+</tr>
+<tr>
+<td><code class="prettyprint">422</code></td>
+<td><code class="prettyprint">{&quot;error&quot;: &quot;Already active&quot;}</code></td>
+<td>The reward has been just used</td>
+</tr>
+<tr>
+<td><code class="prettyprint">422</code></td>
+<td><code class="prettyprint">{&quot;error&quot;: &quot;Not granted&quot;}</code></td>
+<td>The reward has not been purchased by member</td>
+</tr>
+<tr>
+<td><code class="prettyprint">422</code></td>
+<td><code class="prettyprint">{&quot;error&quot;: &quot;User limit exceeded&quot;}</code></td>
+<td>There are no more rewards available to purchase for the member</td>
 </tr>
 </tbody></table>
 
