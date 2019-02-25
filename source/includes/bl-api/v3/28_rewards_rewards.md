@@ -1,5 +1,5 @@
 # Endpoints &bull; Rewards (WIP)
-## <a name="v3-rewards-list"></a> List (draft)
+## <a name="v3-rewards-list"></a> List
 
 > Example:
 
@@ -87,11 +87,17 @@ height | integer | Image height
 kind | string | Kind of image, always "reward_default"
 size_type | string | One of: 'original', 'base', 'thumbnail' 
 
+### Error responses
+
+Status | Response (and reason)
+--------- | ----------- 
+`480` | `{"error": "Member is not participating in Rewards Program"}`
+
 <aside class="notice">
 Requires <code>Rewards:Api:OAuth:Rewards:List</code> permit
 </aside>
 
-## <a name="v3-rewards-list-purchased"></a> List purchased (draft)
+## <a name="v3-rewards-list-purchased"></a> List purchased
 
 ```shell
 curl \
@@ -135,7 +141,6 @@ curl \
         }                
       ],
       "usage": {
-        "limit": 5,
         "left": 3,
         "usable": true,
         "active_until": "2019-01-31T11:24:15.278Z"
@@ -159,16 +164,21 @@ Response looks as in [Reward list](#v3-reward-list), but - additionally - each r
 
 Key | Type | Description
 --------- | --------- | ---------
-limit | integer | (optional) How many times member can use the reward in total. If null, there's no limit
-left | integer | (optional) How many usages are left for member. Null, when there's no usage limit - see above
-usable | boolean | Is the reward usable currently?
+left | integer | (optional) How many more times the member can use the Reward. Null, when there's no usage limit
 active_until | Date | (optional) The last time time the coupon has been used + activation time (configurable per Loyalty Club, e.x. 30s). When null, the reward has not been activated yet
+usable | boolean | Will the reward be still usable after activation time passes?
+
+### Error responses
+
+Status | Response (and reason)
+--------- | ----------- 
+`480` | `{"error": "Member is not participating in Rewards Program"}`
 
 <aside class="notice">
 Requires <code>Rewards:Api:OAuth:Rewards:ListPurchased</code> permit
 </aside>
 
-## <a name="v3-rewards-purchase"></a> Purchase (draft)
+## <a name="v3-rewards-purchase"></a> Purchase
 
 ```shell
 curl -X POST \
@@ -189,15 +199,24 @@ curl -X POST \
 
 **POST** `v3/infinity-mall/members/me/rewards-program/rewards/:id/purchase`
 
-Adds one of available rewards to member's purchased list.
+Adds one of available rewards to member's purchased list and reduces member's balance by price.
 
 As a member-related action, it requires member authorization. See [OAuth](#v3-oauth2).
+
+### Error responses
+
+Status | Response body | Description
+--------- | ----------- | -------- 
+`480` | `{"error": "Member is not participating in Rewards Program"}` | -
+`404` | `{"error": "Reward#10000951 not found"}`| -
+`422` | `{"error": "Not enough points"}` | Member has no enough points to purchase the reward
+`422` | `{"error": "Global limit exceeded"}` | There are no more rewards available to purchase
 
 <aside class="notice">
 Requires <code>Rewards:Api:OAuth:Rewards:Purchase</code> permit
 </aside>
 
-## <a name="v3-rewards-use"></a> Use (draft)
+## <a name="v3-rewards-use"></a> Use
 
 ```shell
 curl -X POST \
@@ -213,7 +232,6 @@ curl -X POST \
 ```json
 {
   "usage": {
-    "limit": 5,
     "left": 3,
     "usable": false,
     "active_until": "2019-01-31T11:24:15.278Z"
@@ -232,6 +250,16 @@ As a member-related action, it requires member authorization. See [OAuth](#v3-oa
 Key | Type | Description
 --------- | --------- | ---------
 usage | Object| See [Reward Usage](#v3-rewards-usage)
+
+### Error responses
+
+Status | Response body | Description
+--------- | ----------- | -------- 
+`480` | `{"error": "Member is not participating in Rewards Program"}` | -
+`404` | `{"error": "Reward#10000951 not found"}`| -
+`422` | `{"error": "Already active"}` | The reward has been just used
+`422` | `{"error": "Not granted"}` | The reward has not been purchased by member
+`422` | `{"error": "User limit exceeded"}` | There are no more rewards available to purchase for the member
 
 <aside class="notice">
 Requires <code>Rewards:Api:OAuth:Rewards:Use</code> permit
