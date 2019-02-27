@@ -37,6 +37,13 @@ geofence_approached | Member approached geofence defined by loyalty club mobile 
 beacon_approached | Member approached one of loyalty club's beacons
 consent_granted | Member granted one of loyalty club's consents
 
+### Common error responses
+
+Status | Response body
+--------- | ----------- 
+`480` | `{"error": "Member is not participating in Rewards Program"}` | -
+`481` | `{"error": "Rewards Program is not enabled for the Loyalty Club"}` |
+
 ## <a name="v3-rewards-program-info"></a> Get info (draft)
 
 > Example:

@@ -87,12 +87,6 @@ height | integer | Image height
 kind | string | Kind of image, always "reward_default"
 size_type | string | One of: 'original', 'base', 'thumbnail' 
 
-### Error responses
-
-Status | Response (and reason)
---------- | ----------- 
-`480` | `{"error": "Member is not participating in Rewards Program"}`
-
 <aside class="notice">
 Requires <code>Rewards:Api:OAuth:Rewards:List</code> permit
 </aside>
@@ -168,12 +162,6 @@ left | integer | (optional) How many more times the member can use the Reward. N
 active_until | Date | (optional) The last time time the coupon has been used + activation time (configurable per Loyalty Club, e.x. 30s). When null, the reward has not been activated yet
 usable | boolean | Will the reward be still usable after activation time passes?
 
-### Error responses
-
-Status | Response (and reason)
---------- | ----------- 
-`480` | `{"error": "Member is not participating in Rewards Program"}`
-
 <aside class="notice">
 Requires <code>Rewards:Api:OAuth:Rewards:ListPurchased</code> permit
 </aside>
@@ -207,7 +195,6 @@ As a member-related action, it requires member authorization. See [OAuth](#v3-oa
 
 Status | Response body | Description
 --------- | ----------- | -------- 
-`480` | `{"error": "Member is not participating in Rewards Program"}` | -
 `404` | `{"error": "Reward#10000951 not found"}`| -
 `422` | `{"error": "Not enough points"}` | Member has no enough points to purchase the reward
 `422` | `{"error": "Global limit exceeded"}` | There are no more rewards available to purchase
@@ -255,7 +242,6 @@ usage | Object| See [Reward Usage](#v3-rewards-usage)
 
 Status | Response body | Description
 --------- | ----------- | -------- 
-`480` | `{"error": "Member is not participating in Rewards Program"}` | -
 `404` | `{"error": "Reward#10000951 not found"}`| -
 `422` | `{"error": "Already active"}` | The reward has been just used
 `422` | `{"error": "Not granted"}` | The reward has not been purchased by member
