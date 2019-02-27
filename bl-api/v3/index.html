@@ -757,7 +757,10 @@ We use format without leading <code class="prettyprint">00</code> or <code class
   </span><span class="s2">"$schema"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://json-schema.org/draft-04/schema#"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"object"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"identifiers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"email"</span><span class="p">],</span><span class="w">
-  </span><span class="s2">"consents"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"consent1"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="s2">"consent2"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"consents"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"consent1"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> </span><span class="s2">"required"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="s2">"show_in_profile"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="s2">"show_at_registration"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"consent2"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> </span><span class="s2">"required"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="s2">"show_in_profile"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="s2">"show_at_registration"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
   </span><span class="s2">"languages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"en"</span><span class="p">,</span><span class="w"> </span><span class="s2">"no"</span><span class="p">],</span><span class="w">
   </span><span class="s2">"default_language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"no"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"v2"</span><span class="p">,</span><span class="w">
@@ -4889,7 +4892,598 @@ Requires <code>Rewards:Api:OAuth:Rewards:Purchase</code> permit
 Requires <code>Rewards:Api:OAuth:Rewards:Use</code> permit
 </aside>
 
+          <h1 id="endpoints-transactions">Endpoints &bull; Transactions</h1>
+
+<h2 id="create"><a name="v3-transactions-create"></a> Create</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
+<span class="s2">"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/transactions"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+    -H <span class="s1">'X-User-Agent: CURL manual test'</span>
+    -d <span class="se">\</span>
+    <span class="s1">'{
+         "transactions": [
+             {
+                 "identifier_type": "id",
+                 "identifier": 123456,
+                 "store_id": "store_id",
+                 "event_date": "2019-02-02 02:02:02",
+                 "total": 10.0,
+                 "receipt_id": "receipt id",
+                 "discount": 0.0,
+                 "tax": 1.0,
+                 "currency": "NOK",
+                 "items": [
+                     {
+                         "id": "1",
+                         "discount": 0.0,
+                         "tax": 1,
+                         "amount": 1,
+                         "price": 5.0,
+                         "main_product_category": "category name",
+                         "main_product_category_id": "category id",
+                         "main_product_category_number": "1",
+                         "product_category": "category name",
+                         "product_category_id": "category id",
+                         "product_category_number": "1",
+                         "description": "item description"
+                     },
+                     {
+                         "id": "2",
+                         "discount": 0.0,
+                         "tax": 1.0,
+                         "amount": 1,
+                         "price": 5,
+                         "main_product_category": "category name",
+                         "main_product_category_id": "category id"
+                     }
+                 ],
+                 "loyalty_points": 100
+             }
+         ]
+     }'</span>
+</code></pre>
+<blockquote>
+<p>When successful (200), returns a feedback object structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"receipt_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"id"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"43cb7852-5190-4d1d-9b1f-6d6cf552424b"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"receipt_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"id"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f4c2b7a6-e0fb-47a3-9b5a-02d3854fcea3"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Member doesn't exist"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>When payload is invalid (422), returns an object structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid format"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"transactions[1].store_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This value should not be blank."</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+<span class="s2">"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/transactions?transaction_id=43cb7852-5190-4d1d-9b1f-6d6cf552424b"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+    -H <span class="s1">'X-User-Agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>When successful (200), returns an array of transactions objects structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"43cb7852-5190-4d1d-9b1f-6d6cf552424b"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"member_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123456</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"store_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"store id"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"receipt_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"receipt id"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"event_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-02T02:02:02+0000"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mf">10.0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"tax"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NOK"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"sales_person"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sales person"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>When payload is invalid (422), returns an object structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid format"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"transactions[1].store_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This value should not be blank."</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>POST</strong> <code class="prettyprint">v3/:loyalty_club_slug/transactions</code></p>
+
+<p>Register transactions, stamps or bonus points will be calculated based on the configured loyalty program.</p>
+
+<h3 id="messages-post-parameters-json-array">Messages POST Parameters (JSON array)</h3>
+
+<p>The expected payload consists of <code class="prettyprint">transactions</code> object which has an hash of objects with following attributes:</p>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>identifier_type *</td>
+<td>string (id, msisdn, email)</td>
+<td>n/a</td>
+<td></td>
+</tr>
+<tr>
+<td>identifier *</td>
+<td>msisdn (string), email (string), member_id (int)</td>
+<td>n/a</td>
+<td></td>
+</tr>
+<tr>
+<td>store_id *</td>
+<td>string</td>
+<td>n/a</td>
+<td></td>
+</tr>
+<tr>
+<td>receipt_id</td>
+<td>string</td>
+<td>n/a</td>
+<td></td>
+</tr>
+<tr>
+<td>event_date *</td>
+<td>string</td>
+<td>n/a</td>
+<td></td>
+</tr>
+<tr>
+<td>total *</td>
+<td>float</td>
+<td>n/a</td>
+<td></td>
+</tr>
+<tr>
+<td>tax *</td>
+<td>float</td>
+<td>n/a</td>
+<td></td>
+</tr>
+<tr>
+<td>items *</td>
+<td>array</td>
+<td>n/a</td>
+<td>array of <code class="prettyprint">item</code> objects</td>
+</tr>
+<tr>
+<td>calculate_rewards</td>
+<td>bool</td>
+<td>true</td>
+<td></td>
+</tr>
+<tr>
+<td>currency</td>
+<td>string</td>
+<td>Loyalty Club&rsquo;s currency</td>
+<td></td>
+</tr>
+<tr>
+<td>sales_person</td>
+<td>string</td>
+<td>n/a</td>
+<td></td>
+</tr>
+<tr>
+<td>terminal_id</td>
+<td>string</td>
+<td>n/a</td>
+<td></td>
+</tr>
+<tr>
+<td>store_tax_id</td>
+<td>string</td>
+<td>n/a</td>
+<td></td>
+</tr>
+<tr>
+<td>discount</td>
+<td>float</td>
+<td>n/a</td>
+<td></td>
+</tr>
+<tr>
+<td>store_msisdn</td>
+<td>string</td>
+<td>n/a</td>
+<td></td>
+</tr>
+<tr>
+<td>loyalty_coupons</td>
+<td>array of strings</td>
+<td>n/a</td>
+<td>list of coupons ids / codes</td>
+</tr>
+<tr>
+<td>loyalty_giftcards</td>
+<td>array of strings</td>
+<td>n/a</td>
+<td>list of codes</td>
+</tr>
+<tr>
+<td>loyalty_points</td>
+<td>integer</td>
+<td>n/a</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p>* required</p>
+
+<p><code class="prettyprint">item</code> object is a hash with following attributes:</p>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Default</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>item_id *</td>
+<td>string</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>price *</td>
+<td>float</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>amount *</td>
+<td>integer</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>discount *</td>
+<td>float</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>tax *</td>
+<td>float</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>calculate_rewards *</td>
+<td>bool</td>
+<td>true</td>
+</tr>
+<tr>
+<td>item_number</td>
+<td>string</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>description</td>
+<td>string</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>properties</td>
+<td>hash key: value</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>product_category</td>
+<td>string</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>product_category_id</td>
+<td>string</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>product_category_number</td>
+<td>string</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>main_product_category</td>
+<td>string</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>main_product_category_id</td>
+<td>string</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>main_product_category_number</td>
+<td>string</td>
+<td>n/a</td>
+</tr>
+</tbody></table>
+
+<p>* required</p>
+
+<h3 id="feedback-statuses">Feedback statuses</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ok</td>
+<td>Message has been accepted for sending</td>
+</tr>
+<tr>
+<td>Member doesn&rsquo;t exist</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h3 id="error-responses">Error responses</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">422</code></td>
+<td>Invalid parameters (see example on the right)</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Transaction:Api:Transactions:Create</code> permit
+</aside>
+
+<h2 id="list"><a name="v3-transactions-list"></a> List</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+<span class="s2">"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/transactions?transaction_id=43cb7852-5190-4d1d-9b1f-6d6cf552424b"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+    -H <span class="s1">'X-User-Agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>When successful (200), returns an array of transactions objects structured like below. Some values may be omitted if were not provided:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"43cb7852-5190-4d1d-9b1f-6d6cf552424b"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"member_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123456</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"store_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"store id"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"receipt_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"receipt id"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"event_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-02T02:02:02+0000"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mf">10.0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"tax"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NOK"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"sales_person"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sales person"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"terminal_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"terminal id"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"store_tax_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"store tax id"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"discount"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"store_msisdn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"msisdn"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>When parameters are invalid (422), returns an object structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid format"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"query"</span><span class="p">:</span><span class="w"> </span><span class="s2">"At least one value required: {{ transactionId, storeId, receiptId, memberId, salesPerson, currency }}"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/transactions</code></p>
+
+<p>List registered transactions</p>
+
+<h3 id="request-parameters">Request Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>transaction_id *</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>store_id *</td>
+<td>array</td>
+<td></td>
+</tr>
+<tr>
+<td>receipt_id *</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>member_id *</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td>sales_person *</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>currency *</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>ignore_loyalty</td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td>min_total_gross</td>
+<td>float</td>
+<td></td>
+</tr>
+<tr>
+<td>max_total_gross</td>
+<td>float</td>
+<td></td>
+</tr>
+<tr>
+<td>sort</td>
+<td>string</td>
+<td>field to sort by</td>
+</tr>
+<tr>
+<td>order</td>
+<td>string (ASC, DESC)</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p>* required at least one of starred parameters </p>
+
+<h3 id="error-responses">Error responses</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">422</code></td>
+<td>Invalid parameters (see example on the right)</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Transaction:Api:Transactions:Read</code> permit
+</aside> 
+
+<h2 id="get"><a name="v3-transactions-get"></a> Get</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+<span class="s2">"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/transactions/43cb7852-5190-4d1d-9b1f-6d6cf552424b"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+    -H <span class="s1">'X-User-Agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>When successful (200), returns transactions object structured like below. Some values may be omitted if were not provided:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"43cb7852-5190-4d1d-9b1f-6d6cf552424b"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"member_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123456</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"store_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"store id"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"receipt_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"receipt id"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"event_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-02T02:02:02+0000"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mf">10.0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"tax"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NOK"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"sales_person"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sales person"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"terminal_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"terminal id"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"store_tax_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"store tax id"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"discount"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"store_msisdn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"msisdn"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">10.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"discount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"tax"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"description"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"productCategoryId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"category id"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"productCategoryNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"productCategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Category"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>When <code class="prettyprint">transaction_id</code> is invalid (422), returns:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Transaction not found"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/transactions/:id</code></p>
+
+<p>Get transaction with items</p>
+
+<h3 id="error-responses">Error responses</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">422</code></td>
+<td>Invalid parameters (see example on the right)</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Transaction:Api:Transactions:Read</code> permit
+</aside> 
+
           <h1 id="changelog">Changelog</h1>
+
+<h3 id="27-02-2019-jakub-kruczek">27.02.2019 | Jakub Kruczek:</h3>
+
+<ul>
+<li>Extend consent definitions example (<a href="#v3-loyalty-clubs-schema">Loyalty Clubs &bull; Get schema</a>)</li>
+</ul>
+
+<h3 id="27-02-2019-adam-ku">27.02.2019 | Adam Kuś:</h3>
+
+<ul>
+<li>Add <code class="prettyprint">POST /v3/infinity-mall/transactions</code> (<a href="#v3-transactions-create">Transactions &bull; Create</a>)</li>
+<li>Add <code class="prettyprint">GET /v3/infinity-mall/transactions</code> (<a href="#v3-transactions-list">Transactions &bull; List</a>)</li>
+<li>Add <code class="prettyprint">GET /v3/infinity-mall/transactions/:id</code> (<a href="#v3-transactions-get">Transactions &bull; Get</a>)</li>
+</ul>
 
 <h3 id="19-02-2019-piotr-witlicki">19.02.2019 | Piotr Świtlicki:</h3>
 

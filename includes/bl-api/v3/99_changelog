@@ -1,5 +1,19 @@
 <h1 id="changelog">Changelog</h1>
 
+<h3 id="27-02-2019-jakub-kruczek">27.02.2019 | Jakub Kruczek:</h3>
+
+<ul>
+<li>Extend consent definitions example (<a href="#v3-loyalty-clubs-schema">Loyalty Clubs &bull; Get schema</a>)</li>
+</ul>
+
+<h3 id="27-02-2019-adam-ku">27.02.2019 | Adam Kuś:</h3>
+
+<ul>
+<li>Add <code class="prettyprint">POST /v3/infinity-mall/transactions</code> (<a href="#v3-transactions-create">Transactions &bull; Create</a>)</li>
+<li>Add <code class="prettyprint">GET /v3/infinity-mall/transactions</code> (<a href="#v3-transactions-list">Transactions &bull; List</a>)</li>
+<li>Add <code class="prettyprint">GET /v3/infinity-mall/transactions/:id</code> (<a href="#v3-transactions-get">Transactions &bull; Get</a>)</li>
+</ul>
+
 <h3 id="19-02-2019-piotr-witlicki">19.02.2019 | Piotr Świtlicki:</h3>
 
 <ul>
