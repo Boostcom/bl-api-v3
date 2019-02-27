@@ -1,5 +1,8 @@
 # Changelog
 
+### 27.02.2019 | Jakub Kruczek:
+* Extend consent definitions example ([Loyalty Clubs &bull; Get schema](#v3-loyalty-clubs-schema))
+
 ### 27.02.2019 | Adam Kuś:
 * Add `POST /v3/infinity-mall/transactions` ([Transactions &bull; Create](#v3-transactions-create))
 * Add `GET /v3/infinity-mall/transactions` ([Transactions &bull; List](#v3-transactions-list))

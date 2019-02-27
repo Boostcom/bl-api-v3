@@ -19,7 +19,10 @@ curl "https://bpc-api.boostcom.no/v3/infinity-mall/member_schema" \
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "identifiers": ["email"],
-  "consents": { "consent1": { "version": "" }, "consent2": { "version": "" } },
+  "consents": {
+    "consent1": { "version": "", "required": true, "show_in_profile": true, "show_at_registration": true },
+    "consent2": { "version": "", "required": true, "show_in_profile": true, "show_at_registration": true }
+  },
   "languages": ["en", "no"],
   "default_language": "no",
   "version": "v2",
