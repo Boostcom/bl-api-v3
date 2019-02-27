@@ -1,5 +1,10 @@
 # Changelog
 
+### 27.02.2019 | Adam Kuś:
+* Add `POST /v3/infinity-mall/transactions` ([Transactions &bull; Create](#v3-transactions-create))
+* Add `GET /v3/infinity-mall/transactions` ([Transactions &bull; List](#v3-transactions-list))
+* Add `GET /v3/infinity-mall/transactions/:id` ([Transactions &bull; Get](#v3-transactions-get))
+
 ### 19.02.2019 | Piotr Świtlicki:
 * Add `GET /v3/infinity-mall/members/:id/rewards-program/status` ([Rewards Program &bull; Get status by member ID](#v3-rewards-program-status-by-member-id))
 
