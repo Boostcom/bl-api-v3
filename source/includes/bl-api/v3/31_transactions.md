@@ -6,7 +6,7 @@
 
 ```shell
 curl -X POST \
-"https://bpc-api.boostcom.no/v3/transactions" \
+"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/transactions" \
     -H 'Content-Type: application/json' \
     -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
     -H 'X-Product-Name: default' \
@@ -87,7 +87,7 @@ curl -X POST \
 
 ```shell
 curl -X GET \
-"https://bpc-api.boostcom.no/v3/transactions?transaction_id=43cb7852-5190-4d1d-9b1f-6d6cf552424b" \
+"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/transactions?transaction_id=43cb7852-5190-4d1d-9b1f-6d6cf552424b" \
     -H 'Content-Type: application/json' \
     -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
     -H 'X-Product-Name: default' \
@@ -175,10 +175,10 @@ main_product_category_number | string | n/a |
 
 ### Feedback statuses
 
-Key | Description
+Status | Description
 ---- | ----
 ok | Message has been accepted for sending
-Member doesn't exist 
+Member doesn't exist | 
 
 ### Error responses
 
@@ -197,7 +197,7 @@ Requires <code>Transaction:Api:Transactions:Create</code> permit
 
 ```shell
 curl -X GET \
-"https://bpc-api.boostcom.no/v3/transactions?transaction_id=43cb7852-5190-4d1d-9b1f-6d6cf552424b" \
+"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/transactions?transaction_id=43cb7852-5190-4d1d-9b1f-6d6cf552424b" \
     -H 'Content-Type: application/json' \
     -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
     -H 'X-Product-Name: default' \
@@ -273,7 +273,7 @@ Requires <code>Transaction:Api:Transactions:Read</code> permit
 
 ```shell
 curl -X GET \
-"https://bpc-api.boostcom.no/v3/transactions/43cb7852-5190-4d1d-9b1f-6d6cf552424b" \
+"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/transactions/43cb7852-5190-4d1d-9b1f-6d6cf552424b" \
     -H 'Content-Type: application/json' \
     -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
     -H 'X-Product-Name: default' \
