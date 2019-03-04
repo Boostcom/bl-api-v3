@@ -152,20 +152,6 @@
 </tr>
 </tbody></table>
 
-<h3 id="error-responses">Error responses</h3>
-
-<table><thead>
-<tr>
-<th>Status</th>
-<th>Response (and reason)</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code class="prettyprint">480</code></td>
-<td><code class="prettyprint">{&quot;error&quot;: &quot;Member is not participating in Rewards Program&quot;}</code></td>
-</tr>
-</tbody></table>
-
 <aside class="notice">
 Requires <code>Rewards:Api:OAuth:Rewards:List</code> permit
 </aside>
@@ -255,20 +241,6 @@ Requires <code>Rewards:Api:OAuth:Rewards:List</code> permit
 </tr>
 </tbody></table>
 
-<h3 id="error-responses">Error responses</h3>
-
-<table><thead>
-<tr>
-<th>Status</th>
-<th>Response (and reason)</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code class="prettyprint">480</code></td>
-<td><code class="prettyprint">{&quot;error&quot;: &quot;Member is not participating in Rewards Program&quot;}</code></td>
-</tr>
-</tbody></table>
-
 <aside class="notice">
 Requires <code>Rewards:Api:OAuth:Rewards:ListPurchased</code> permit
 </aside>
@@ -303,11 +275,6 @@ Requires <code>Rewards:Api:OAuth:Rewards:ListPurchased</code> permit
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td><code class="prettyprint">480</code></td>
-<td><code class="prettyprint">{&quot;error&quot;: &quot;Member is not participating in Rewards Program&quot;}</code></td>
-<td>-</td>
-</tr>
 <tr>
 <td><code class="prettyprint">404</code></td>
 <td><code class="prettyprint">{&quot;error&quot;: &quot;Reward#10000951 not found&quot;}</code></td>
@@ -379,11 +346,6 @@ Requires <code>Rewards:Api:OAuth:Rewards:Purchase</code> permit
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td><code class="prettyprint">480</code></td>
-<td><code class="prettyprint">{&quot;error&quot;: &quot;Member is not participating in Rewards Program&quot;}</code></td>
-<td>-</td>
-</tr>
 <tr>
 <td><code class="prettyprint">404</code></td>
 <td><code class="prettyprint">{&quot;error&quot;: &quot;Reward#10000951 not found&quot;}</code></td>
