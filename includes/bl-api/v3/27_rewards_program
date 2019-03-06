@@ -109,7 +109,7 @@ The rules are described below.</p>
 </tr>
 </tbody></table>
 
-<h2 id="get-info-draft"><a name="v3-rewards-program-info"></a> Get info (draft)</h2>
+<h2 id="get-info"><a name="v3-rewards-program-info"></a> Get info</h2>
 
 <blockquote>
 <p>Example:</p>
@@ -171,7 +171,7 @@ The rules are described below.</p>
 Requires <code>Rewards:Api:Program:GetInfo</code> permit
 </aside>
 
-<h2 id="join-draft"><a name="v3-rewards-program-join"></a> Join (draft)</h2>
+<h2 id="join"><a name="v3-rewards-program-join"></a> Join</h2>
 
 <blockquote>
 <p>Example:</p>
@@ -179,6 +179,7 @@ Requires <code>Rewards:Api:Program:GetInfo</code> permit
 <pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
 <span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/members/me/rewards-program/join"</span> <span class="se">\</span>
     -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'Authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522'</span> <span class="se">\</span>
     -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
     -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
     -H <span class="s1">'X-User-Agent: CURL manual test'</span>
@@ -208,6 +209,7 @@ Requires <code>Rewards:Api:OAuth:Memberships:Create</code> permit
 <pre class="highlight shell tab-shell"><code>curl -X DELETE <span class="se">\</span>
 <span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/members/me/rewards-program/leave"</span> <span class="se">\</span>
     -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'Authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522'</span> <span class="se">\</span>
     -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
     -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
     -H <span class="s1">'X-User-Agent: CURL manual test'</span>
@@ -238,6 +240,7 @@ Requires <code>Rewards:Api:OAuth:Memberships:Delete</code> permit
 <pre class="highlight shell tab-shell"><code>curl <span class="se">\</span>
 <span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/members/me/rewards-program/status"</span> <span class="se">\</span>
     -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'Authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522'</span> <span class="se">\</span>
     -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
     -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
     -H <span class="s1">'X-User-Agent: CURL manual test'</span>
