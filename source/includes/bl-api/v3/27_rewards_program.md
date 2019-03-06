@@ -126,7 +126,7 @@ As a member-related action, it requires member authorization. See [OAuth](#v3-oa
 Requires <code>Rewards:Api:OAuth:Memberships:Create</code> permit
 </aside>
 
-## <a name="v3-rewards-program-leave"></a> Leave (draft)
+## <a name="v3-rewards-program-leave"></a> Leave
 
 > Example:
 
