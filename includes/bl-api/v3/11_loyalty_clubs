@@ -196,3 +196,280 @@ Requires <code>BL:Api:Schema:Get</code> permit
 <aside class="notice">
 Requires <code>BL:Api:Products:Index</code> permit
 </aside>
+
+<h2 id="files-configuration"><a name="v3-loyalty-clubs-files-configuration"></a> Files configuration</h2>
+
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/files/configuration"</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+  -H <span class="s1">'X-User-Agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>Example response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"kinds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"collection_cover_default"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IMAGE"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ratio"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2:1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"sizes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"base"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"min_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"min_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"max_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"max_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"thumbnail"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"min_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"min_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">150</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"max_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"max_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">150</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"original"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"min_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"min_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"max_width"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"max_height"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"offer_default"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IMAGE"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ratio"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3:4"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"sizes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"base"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"min_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"min_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">800</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"max_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"max_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">800</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"thumbnail"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"min_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">225</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"min_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"max_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">225</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"max_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"original"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"min_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"min_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">800</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"max_width"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"max_height"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"reward_default"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IMAGE"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ratio"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3:4"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"sizes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"base"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"min_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"min_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">800</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"max_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"max_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">800</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"thumbnail"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"min_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">225</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"min_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"max_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">225</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"max_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"original"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"min_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"min_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">800</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"max_width"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"max_height"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="err">//</span><span class="w"> </span><span class="err">Hypothetical.</span><span class="w"> </span><span class="err">Represents</span><span class="w"> </span><span class="err">an</span><span class="w"> </span><span class="err">image</span><span class="w"> </span><span class="err">rescaled</span><span class="w"> </span><span class="err">(up</span><span class="w"> </span><span class="err">or</span><span class="w"> </span><span class="err">down)</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">width</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="w">
+      </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example_without_ratio"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IMAGE"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ratio"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"sizes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"base"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"min_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"min_height"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"max_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"max_height"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"thumbnail"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"min_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"min_height"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"max_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"max_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"original"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"min_width"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"min_height"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"max_width"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"max_height"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/files/configuration</code> (draft)</p>
+
+<p>Returns a list of file kinds configured for the Loyalty Club.</p>
+
+<h3 id="standard-file-kinds"><a name="v3-file-standard-kinds"></a> Standard file kinds</h3>
+
+<p>There are some standard file kinds, their size definitions differ among Loyalty Clubs.</p>
+
+<table><thead>
+<tr>
+<th>Identifier</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">collection_cover_default</code></td>
+<td>Cover for Offer collections</td>
+</tr>
+<tr>
+<td><code class="prettyprint">offer_default</code></td>
+<td>Default Offer image</td>
+</tr>
+<tr>
+<td><code class="prettyprint">reward_default</code></td>
+<td>Default Reward image</td>
+</tr>
+</tbody></table>
+
+<h3 id="ratio"><a name="v3-file-kind-ratio"></a> Ratio</h3>
+
+<p>Currently, all images have fixed proportions ratio which is represented as a string: <code class="prettyprint">&quot;&lt;width&gt;:&lt;height&gt;&quot;</code></p>
+
+<p>In future, there may be file kinds without fixed ratio defined. They may look like <code class="prettyprint">&quot;example_without_ratio&quot;</code> on the right.</p>
+
+<h3 id="file-sizes"><a name="v3-file-sizes"></a> File sizes</h3>
+
+<p>Every file has at least three file sizes available: </p>
+
+<h4 id="base"><code class="prettyprint">base</code></h4>
+
+<p>Actual file size. Currently all file kinds have this size with fixed proportions (so <code class="prettyprint">min</code> == <code class="prettyprint">max</code>) that match the ratio.</p>
+
+<h4 id="thumbnail"><code class="prettyprint">thumbnail</code></h4>
+
+<p>Rescaled version of <code class="prettyprint">base</code> size. Currently, rescaling always works this way:</p>
+
+<ul>
+<li>pick the higher dimension of file</li>
+<li>shrink the image so:
+
+<ul>
+<li>the higher dimension gets shrunk to <code class="prettyprint">300px</code></li>
+<li>the lower dimensions gets shrunk so the image keeps the original ratio</li>
+</ul></li>
+</ul>
+
+<p>Examples:</p>
+
+<ul>
+<li>File with resolution <code class="prettyprint">600x800</code> gets shrunk down to <code class="prettyprint">225x300</code></li>
+<li>File with resolution <code class="prettyprint">800x600</code> gets shrunk down to <code class="prettyprint">300x225</code></li>
+<li>File with resolution <code class="prettyprint">400x300</code> gets shrunk down to <code class="prettyprint">300x225</code></li>
+<li>File with resolution <code class="prettyprint">400x200</code> gets shrunk down to <code class="prettyprint">300x150</code></li>
+<li>File with resolution <code class="prettyprint">300x250</code> is not shrunk down</li>
+</ul>
+
+<h4 id="original"><code class="prettyprint">original</code></h4>
+
+<p>Original file that that has been uploaded and was used for generating other file sizes.</p>
+
+<p>Currently, we require all original files to have proper ratios and minimum sizes of at least the <code class="prettyprint">base</code> size.
+Because of that, you can expect them to have <code class="prettyprint">min_height</code> and <code class="prettyprint">min_width</code> that match the <code class="prettyprint">base</code> size, 
+but they never have <code class="prettyprint">max_width</code> or <code class="prettyprint">max_height</code> defined.   </p>
+
+<h3 id="file-kind-model"><a name="v3-file-kind-model"></a> File kind model</h3>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>identifier</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>Currently, only <code class="prettyprint">IMAGE</code> (mime: &lsquo;image/gif&rsquo;, &lsquo;image/jpeg&rsquo;, &lsquo;image/png&rsquo;) is supported</td>
+</tr>
+<tr>
+<td>ratio</td>
+<td>string</td>
+<td>Describes ratio of an image. See: <a href="#v3-file-kind-ratio">Ratio</a></td>
+</tr>
+<tr>
+<td>sizes</td>
+<td>Array<Object></td>
+<td>See: <a href="#v3-file-sizes">File sizes</a> and below</td>
+</tr>
+</tbody></table>
+
+<h3 id="file-kind-size-model"><a name="v3-file-kind-size-model"></a> File kind size model</h3>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Optional</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>identifier</td>
+<td>string</td>
+<td>no</td>
+</tr>
+<tr>
+<td>min_width</td>
+<td>integer</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>min_height</td>
+<td>integer</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>max_width</td>
+<td>integer</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>max_height</td>
+<td>integer</td>
+<td>yes</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Files:Api:GetConfiguration</code> permit
+</aside>

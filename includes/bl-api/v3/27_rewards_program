@@ -201,7 +201,7 @@ Requires <code>Rewards:Api:Program:GetInfo</code> permit
 Requires <code>Rewards:Api:OAuth:Memberships:Create</code> permit
 </aside>
 
-<h2 id="leave-draft"><a name="v3-rewards-program-leave"></a> Leave (draft)</h2>
+<h2 id="leave"><a name="v3-rewards-program-leave"></a> Leave</h2>
 
 <blockquote>
 <p>Example:</p>
