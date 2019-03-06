@@ -44,7 +44,7 @@ Status | Response body
 `480` | `{"error": "Member is not participating in Rewards Program"}` | -
 `481` | `{"error": "Rewards Program is not enabled for the Loyalty Club"}` |
 
-## <a name="v3-rewards-program-info"></a> Get info (draft)
+## <a name="v3-rewards-program-info"></a> Get info
 
 > Example:
 
@@ -94,7 +94,7 @@ reward_activation_time | integer| Time in seconds describing how long the reward
 Requires <code>Rewards:Api:Program:GetInfo</code> permit
 </aside>
 
-## <a name="v3-rewards-program-join"></a> Join (draft)
+## <a name="v3-rewards-program-join"></a> Join
 
 > Example:
 
@@ -102,6 +102,7 @@ Requires <code>Rewards:Api:Program:GetInfo</code> permit
 curl -X POST \
 "https://bpc-api.boostcom.no/v3/infinity-mall/members/me/rewards-program/join" \
     -H 'Content-Type: application/json' \
+    -H 'Authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522' \
     -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
     -H 'X-Product-Name: default' \
     -H 'X-User-Agent: CURL manual test'
@@ -133,6 +134,7 @@ Requires <code>Rewards:Api:OAuth:Memberships:Create</code> permit
 curl -X DELETE \
 "https://bpc-api.boostcom.no/v3/infinity-mall/members/me/rewards-program/leave" \
     -H 'Content-Type: application/json' \
+    -H 'Authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522' \
     -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
     -H 'X-Product-Name: default' \
     -H 'X-User-Agent: CURL manual test'
@@ -165,6 +167,7 @@ Requires <code>Rewards:Api:OAuth:Memberships:Delete</code> permit
 curl \
 "https://bpc-api.boostcom.no/v3/infinity-mall/members/me/rewards-program/status" \
     -H 'Content-Type: application/json' \
+    -H 'Authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522' \
     -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
     -H 'X-Product-Name: default' \
     -H 'X-User-Agent: CURL manual test'
