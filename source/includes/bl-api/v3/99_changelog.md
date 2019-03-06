@@ -1,7 +1,8 @@
 # Changelog
 
 ### 27.02.2019 | Piotr Świtlicki:
-* Add `GET /v3/infinity-mall/files/configuration` ([Loyalty Clubs &bull; Files Configuration](#v3-loyalty-clubs-files-configuration))
+* Add files schema info ([General info&bull; Files schema](#v3-file-schema))
+* Add `GET /v3/infinity-mall/files/schema` ([Files&bull; Get schema](#v3-get-files-schema))
 
 ### 27.02.2019 | Jakub Kruczek:
 * Extend consent definitions example ([Loyalty Clubs &bull; Get schema](#v3-loyalty-clubs-schema))

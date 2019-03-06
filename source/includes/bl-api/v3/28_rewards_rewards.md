@@ -74,19 +74,7 @@ name | string | (optional)
 description | string | (optional)
 price | integer | Number of points that must be spent to purchase the reward
 remaining_stock | integer | (optional) Number of items that is available for purchase. When null, there is no limit
-files | Array | A list of Reward Files - see below
-
-### <a name="v3-rewards-file"></a> Reward File
-
-(@todo: describe File Model globally)
-
-Key | Type | Description
---- | --- | -----------
-url | URL | Link to image
-width | integer | Image width
-height | integer | Image height
-kind | string | Kind of image, always "reward_default"
-size_type | string | One of: 'original', 'base', 'thumbnail' 
+files | Array | A list of Reward Files - see [File model](#v3-file-model)
 
 <aside class="notice">
 Requires <code>Rewards:Api:OAuth:Rewards:List</code> permit
