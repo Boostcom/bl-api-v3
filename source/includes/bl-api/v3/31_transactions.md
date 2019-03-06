@@ -145,7 +145,6 @@ currency | string | Loyalty Club's currency |
 sales_person | string | n/a |
 terminal_id | string | n/a |
 store_tax_id | string | n/a |
-discount | float | n/a |
 store_msisdn | string | n/a |
 loyalty_coupons | array of strings | n/a | list of coupons ids / codes
 loyalty_giftcards | array of strings | n/a | list of codes
