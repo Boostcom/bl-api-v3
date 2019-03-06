@@ -21,7 +21,6 @@ curl -X POST \
                  "event_date": "2019-02-02 02:02:02",
                  "total": 10.0,
                  "receipt_id": "receipt id",
-                 "discount": 0.0,
                  "tax": 1.0,
                  "currency": "NOK",
                  "items": [
