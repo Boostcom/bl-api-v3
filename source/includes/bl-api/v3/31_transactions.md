@@ -128,7 +128,7 @@ Register transactions, stamps or bonus points will be calculated based on the co
 
 ### Messages POST Parameters (JSON array)
 
-The expected payload consists of `transactions` object which has an hash of objects with following attributes:
+Expected payload is either object with `transactions` attribute containing array of `transaction` objects with attributes as described below or single `transaction` object:
 
 Key | Type | Default | Description
 --------- | --------- | --------- | --------- 
@@ -154,11 +154,11 @@ loyalty_points | integer | n/a
 
 `item` object is a hash with following attributes:
 
-Key | Type | Default 
---------- | --------- | --------- 
+Key | Type | Default | Description
+--------- | --------- | --------- | --------- 
 item_id * | string | n/a | 
-price * | float | n/a |
-amount * | integer | n/a |
+price * | float | n/a | negative values will be treated as discounts |
+amount * | integer | n/a | negative values will be treated as refunds |
 discount * | float | n/a |
 tax * | float | n/a |
 calculate_rewards * | bool | true |
@@ -172,6 +172,8 @@ main_product_category | string | n/a |
 main_product_category_id | string | n/a |
 main_product_category_number | string | n/a |
 \* required
+
+Negative price and amount will result in error
 
 ### Feedback statuses
 
