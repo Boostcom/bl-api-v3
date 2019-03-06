@@ -111,45 +111,7 @@
 <tr>
 <td>files</td>
 <td>Array</td>
-<td>A list of Reward Files - see below</td>
-</tr>
-</tbody></table>
-
-<h3 id="reward-file"><a name="v3-rewards-file"></a> Reward File</h3>
-
-<p>(@todo: describe File Model globally)</p>
-
-<table><thead>
-<tr>
-<th>Key</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>url</td>
-<td>URL</td>
-<td>Link to image</td>
-</tr>
-<tr>
-<td>width</td>
-<td>integer</td>
-<td>Image width</td>
-</tr>
-<tr>
-<td>height</td>
-<td>integer</td>
-<td>Image height</td>
-</tr>
-<tr>
-<td>kind</td>
-<td>string</td>
-<td>Kind of image, always &ldquo;reward_default&rdquo;</td>
-</tr>
-<tr>
-<td>size_type</td>
-<td>string</td>
-<td>One of: &lsquo;original&rsquo;, &lsquo;base&rsquo;, &lsquo;thumbnail&rsquo;</td>
+<td>A list of Reward Files - see <a href="#v3-file-model">File model</a></td>
 </tr>
 </tbody></table>
 

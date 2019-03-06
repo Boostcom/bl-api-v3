@@ -3,7 +3,8 @@
 <h3 id="27-02-2019-piotr-witlicki">27.02.2019 | Piotr Świtlicki:</h3>
 
 <ul>
-<li>Add <code class="prettyprint">GET /v3/infinity-mall/files/configuration</code> (<a href="#v3-loyalty-clubs-files-configuration">Loyalty Clubs &bull; Files Configuration</a>)</li>
+<li>Add files schema info (<a href="#v3-file-schema">General info&bull; Files schema</a>)</li>
+<li>Add <code class="prettyprint">GET /v3/infinity-mall/files/schema</code> (<a href="#v3-get-files-schema">Files&bull; Get schema</a>)</li>
 </ul>
 
 <h3 id="27-02-2019-jakub-kruczek">27.02.2019 | Jakub Kruczek:</h3>

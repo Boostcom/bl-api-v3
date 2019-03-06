@@ -1,0 +1,25 @@
+<h1 id="endpoints-files-wip">Endpoints &bull; Files (WIP)</h1>
+
+<h2 id="get-files-schema"><a name="v3-get-files-schema"></a> Get files schema</h2>
+
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/files/schema"</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+  -H <span class="s1">'X-User-Agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>Example response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="err">//</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">example</span><span class="w"> </span><span class="err">schema</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="p">[</span><span class="err">Files</span><span class="w"> </span><span class="err">-&gt;</span><span class="w"> </span><span class="err">Schema</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/files/schema</code></p>
+
+<p>Returns the Loyalty Club files schema. See: <a href="#v3-file-schema">Files &bull; Schema</a></p>
+
+<aside class="notice">
+Requires <code>Files:Api:GetSchema</code> permit
+</aside>
