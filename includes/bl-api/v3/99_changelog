@@ -1,6 +1,12 @@
 <h1 id="changelog">Changelog</h1>
 
-<h3 id="27-02-2019-piotr-witlicki">27.02.2019 | Piotr Świtlicki:</h3>
+<h3 id="07-03-2019-piotr-witlicki">07.03.2019 | Piotr Świtlicki:</h3>
+
+<ul>
+<li>Add <code class="prettyprint">GET /v3/infinity-mall/rewards-program/status/achievements_by_type</code> (<a href="#v3-rewards-program-achievements-by-type">Rewards Program &bull; Achievements summary</a>)</li>
+</ul>
+
+<h3 id="06-03-2019-piotr-witlicki">06.03.2019 | Piotr Świtlicki:</h3>
 
 <ul>
 <li>Add files schema info (<a href="#v3-file-schema">General info&bull; Files schema</a>)</li>
