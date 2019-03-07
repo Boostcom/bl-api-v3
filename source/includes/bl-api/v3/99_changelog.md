@@ -1,6 +1,9 @@
 # Changelog
 
-### 27.02.2019 | Piotr Świtlicki:
+### 07.03.2019 | Piotr Świtlicki:
+* Add `GET /v3/infinity-mall/rewards-program/status/achievements_by_type` ([Rewards Program &bull; Achievements summary](#v3-rewards-program-achievements-by-type))
+
+### 06.03.2019 | Piotr Świtlicki:
 * Add files schema info ([General info&bull; Files schema](#v3-file-schema))
 * Add `GET /v3/infinity-mall/files/schema` ([Files&bull; Get schema](#v3-get-files-schema))
 

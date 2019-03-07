@@ -316,3 +316,59 @@ Works just the same as [Rewards Program &bull; Get Status](#v3-rewards-program-s
 <aside class="notice">
 Requires <code>Rewards:Api:Memberships:CheckStatus</code> permit
 </aside>
+
+## <a name="v3-rewards-program-achievements-by-type"></a> Achievements summary
+
+> Example:
+
+```shell
+curl \
+"https://bpc-api.boostcom.no/v3/infinity-mall/members/me/rewards-program/status/achievements_by_type" \
+    -H 'Content-Type: application/json' \
+    -H 'Authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522' \
+    -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+    -H 'X-Product-Name: default' \
+    -H 'X-User-Agent: CURL manual test'
+```
+
+> When successful (200), returns an object structured like this:
+
+```json
+{
+    "achievements_by_type": [
+        {
+            "type": "app_opened",
+            "times_achieved": 3,
+            "total_amount_earned": 30
+        },
+        {
+            "type": "beacon_approached",
+            "times_achieved": 3,
+            "total_amount_earned": 150
+        },
+        {
+            "type": "link_clicked",
+            "times_achieved": 4,
+            "total_amount_earned": 80
+        }
+    ]
+}
+```
+
+**GET** `v3/infinity-mall/members/me/rewards-program/status/achievements_by_type`
+
+Returns a summary for achievements made by member.
+
+As a member-related action, it requires member authorization. See [OAuth](#v3-oauth2).
+
+### Achievement summary model (JSON object)
+
+Key | Type | Description
+--------- | --------- | ---------
+type | string | See: [Achievement types](#v3-rewards-program-achievement-types)
+times_achieved | integer | Number of times member made the achievements of this type
+total_amount_earned | integer | Sum of points member get with this achievement type 
+
+<aside class="notice">
+Requires <code>Rewards:Api:OAuth:Memberships:CheckStatus</code> permit
+</aside>
