@@ -317,13 +317,13 @@ Works just the same as [Rewards Program &bull; Get Status](#v3-rewards-program-s
 Requires <code>Rewards:Api:Memberships:CheckStatus</code> permit
 </aside>
 
-## <a name="v3-rewards-program-achievements-by-type"></a> Achievements summary
+## <a name="v3-rewards-program-achievements-summary"></a> Achievements summary
 
 > Example:
 
 ```shell
 curl \
-"https://bpc-api.boostcom.no/v3/infinity-mall/members/me/rewards-program/status/achievements_by_type" \
+"https://bpc-api.boostcom.no/v3/infinity-mall/members/me/rewards-program/status/achievements_summary" \
     -H 'Content-Type: application/json' \
     -H 'Authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522' \
     -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
@@ -351,23 +351,53 @@ curl \
             "times_achieved": 4,
             "total_amount_earned": 80
         }
+    ],
+    "achievements_by_month": [
+        {
+            "year": 2019,
+            "month": 2,
+            "achievements_made": 20,
+            "total_amount_earned": 800
+        },
+        {
+            "year": 2019,
+            "month": 1,
+            "achievements_made": 35,
+            "total_amount_earned": 950
+        },
+        {
+            "year": 2018,
+            "month": 12,
+            "achievements_made": 12,
+            "total_amount_earned": 580
+        }
+        // (...) another 9 months
     ]
 }
 ```
 
-**GET** `v3/infinity-mall/members/me/rewards-program/status/achievements_by_type`
+**GET** `v3/infinity-mall/members/me/rewards-program/status/achievements_summary`
 
-Returns a summary for achievements made by member.
+Returns a summary for achievements made by member, grouped by type and month.
 
 As a member-related action, it requires member authorization. See [OAuth](#v3-oauth2).
 
-### Achievement summary model (JSON object)
+### Achievement by type JSON object
 
 Key | Type | Description
 --------- | --------- | ---------
 type | string | See: [Achievement types](#v3-rewards-program-achievement-types)
 times_achieved | integer | Number of times member made the achievements of this type
 total_amount_earned | integer | Sum of points member get with this achievement type 
+
+### Achievement by month JSON object
+
+Key | Type | Description
+--------- | --------- | ---------
+year | integer | four-digit year, e.x. 2019 
+month | integer | 1-12
+achievements_made | integer |  Number of achievements made by member in that month
+total_amount_earned | integer | Sum of points member achieved in that month
 
 <aside class="notice">
 Requires <code>Rewards:Api:OAuth:Memberships:CheckStatus</code> permit
