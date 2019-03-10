@@ -554,6 +554,26 @@ Requires <code>Rewards:Api:Memberships:CheckStatus</code> permit
 
 <p>As a member-related action, it requires member authorization. See <a href="#v3-oauth2">OAuth</a>.</p>
 
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required?</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>months_no</td>
+<td>integer</td>
+<td>no</td>
+<td>12</td>
+<td>Number of last months to fetch.</td>
+</tr>
+</tbody></table>
+
 <h3 id="achievement-by-type-json-object">Achievement by type JSON object</h3>
 
 <table><thead>
