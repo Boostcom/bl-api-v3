@@ -382,6 +382,12 @@ Returns a summary for achievements made by member, grouped by type and month.
 
 As a member-related action, it requires member authorization. See [OAuth](#v3-oauth2).
 
+### Query Parameters
+
+Parameter | Type | Required? | Default | Description
+--------- | ----------- | ----------- | --------- | -----------
+months_no | integer | no | 12 | Number of last months to fetch. Must be in (0..999) range
+
 ### Achievement by type JSON object
 
 Key | Type | Description
