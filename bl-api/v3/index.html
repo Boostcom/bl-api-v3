@@ -666,7 +666,7 @@ Errors format and strings are not yet stable and may change without further noti
 </tr>
 </tbody></table>
 
-<h2 id="file-model-wip"><a name="v3-file-model"></a> File model (WIP)</h2>
+<h2 id="file-model"><a name="v3-file-model"></a> File model</h2>
 
 <p>Every file attached to some entity (Offer, Reward, Offer Collection) follows the files schema and is defined like this:</p>
 
@@ -704,7 +704,7 @@ Errors format and strings are not yet stable and may change without further noti
 </tr>
 </tbody></table>
 
-<h2 id="files-schema-wip"><a name="v3-file-schema"></a> Files schema (WIP)</h2>
+<h2 id="files-schema"><a name="v3-file-schema"></a> Files schema</h2>
 
 <p>Files schema defines a list of files kinds available in the Loyalty club. 
 Each file kind is also available in multiple sizes. </p>
@@ -5854,7 +5854,7 @@ Requires <code>Transaction:Api:Transactions:Read</code> permit
 Requires <code>Transaction:Api:Transactions:Read</code> permit
 </aside> 
 
-          <h1 id="endpoints-files-wip">Endpoints &bull; Files (WIP)</h1>
+          <h1 id="endpoints-files">Endpoints &bull; Files</h1>
 
 <h2 id="get-files-schema"><a name="v3-get-files-schema"></a> Get files schema</h2>
 
@@ -5868,10 +5868,9 @@ Requires <code>Transaction:Api:Transactions:Read</code> permit
   -H <span class="s1">'X-User-Agent: CURL manual test'</span>
 </code></pre>
 <blockquote>
-<p>Example response</p>
+<p>Returns the schema as described <a href="#v3-file-schema">here</a></p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="err">//</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">example</span><span class="w"> </span><span class="err">schema</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="p">[</span><span class="err">Files</span><span class="w"> </span><span class="err">-&gt;</span><span class="w"> </span><span class="err">Schema</span><span class="p">]</span><span class="w">
-</span></code></pre>
+
 <p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/files/schema</code></p>
 
 <p>Returns the Loyalty Club files schema. See: <a href="#v3-file-schema">Files &bull; Schema</a></p>
