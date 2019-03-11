@@ -1,4 +1,4 @@
-# Endpoints &bull; Files (WIP)
+# Endpoints &bull; Files
 
 ## <a name="v3-get-files-schema"></a> Get files schema
 
@@ -12,11 +12,7 @@ curl "https://bpc-api.boostcom.no/v3/infinity-mall/files/schema" \
   -H 'X-User-Agent: CURL manual test'
 ```
 
-> Example response
-
-```json
-// see example schema in [Files -> Schema]
-```
+> Returns the schema as described [here](#v3-file-schema)
 
 **GET** `v3/:loyalty_club_slug/files/schema`
 
