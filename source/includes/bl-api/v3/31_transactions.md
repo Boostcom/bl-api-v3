@@ -21,7 +21,6 @@ curl -X POST \
                  "event_date": "2019-02-02 02:02:02",
                  "total": 10.0,
                  "receipt_id": "receipt id",
-                 "discount": 0.0,
                  "tax": 1.0,
                  "currency": "NOK",
                  "items": [
@@ -128,7 +127,7 @@ Register transactions, stamps or bonus points will be calculated based on the co
 
 ### Messages POST Parameters (JSON array)
 
-The expected payload consists of `transactions` object which has an hash of objects with following attributes:
+Expected payload is either object with `transactions` attribute containing array of `transaction` objects with attributes as described below or single `transaction` object:
 
 Key | Type | Default | Description
 --------- | --------- | --------- | --------- 
@@ -145,7 +144,6 @@ currency | string | Loyalty Club's currency |
 sales_person | string | n/a |
 terminal_id | string | n/a |
 store_tax_id | string | n/a |
-discount | float | n/a |
 store_msisdn | string | n/a |
 loyalty_coupons | array of strings | n/a | list of coupons ids / codes
 loyalty_giftcards | array of strings | n/a | list of codes
@@ -154,11 +152,11 @@ loyalty_points | integer | n/a
 
 `item` object is a hash with following attributes:
 
-Key | Type | Default 
---------- | --------- | --------- 
+Key | Type | Default | Description
+--------- | --------- | --------- | --------- 
 item_id * | string | n/a | 
-price * | float | n/a |
-amount * | integer | n/a |
+price * | float | n/a | negative values will be treated as discounts |
+amount * | integer | n/a | negative values will be treated as refunds |
 discount * | float | n/a |
 tax * | float | n/a |
 calculate_rewards * | bool | true |
@@ -172,6 +170,8 @@ main_product_category | string | n/a |
 main_product_category_id | string | n/a |
 main_product_category_number | string | n/a |
 \* required
+
+Negative price and amount will result in error
 
 ### Feedback statuses
 
