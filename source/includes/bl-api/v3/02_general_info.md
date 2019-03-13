@@ -205,7 +205,7 @@ is_out_of_range | boolean | Is given `per_page` param out of range?
 
 ## <a name="v3-file-model"></a> File model
 
-Every file attached to some entity (Offer, Reward, Offer Collection) follows the files schema and is defined like this:
+Every file attached to some entity (Offer, Reward, Offer Collection) follows the file schema and is defined like this:
 
 Key | Type | Description
 --- | --- | -----------
@@ -215,12 +215,12 @@ height | integer | Image height
 kind | string | File kind identifier (e.x. `offer_default`), see [Standard file kinds](#v3-file-kinds)
 size_type | string | e.x. `base`, see: [File sizes](#v3-file-sizes)
 
-## <a name="v3-file-schema"></a> Files schema
+## <a name="v3-file-schema"></a> File schema
 
-Files schema defines a list of files kinds available in the Loyalty club. 
+File schema defines a list of files kinds available in the Loyalty club. 
 Each file kind is also available in multiple sizes. 
 
-The schema may get retrieved with [Files&bull; Get schema](#v3-get-files-schema) endpoint.
+The schema may get retrieved with [Files&bull; Get schema](#v3-get-file-schema) endpoint.
 
 > Example loyalty club file schema
 

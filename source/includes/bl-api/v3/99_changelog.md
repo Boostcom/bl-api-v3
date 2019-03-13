@@ -4,8 +4,8 @@
 * Add `GET /v3/infinity-mall/rewards-program/status/achievements_summary` ([Rewards Program &bull; Achievements summary](#v3-rewards-program-achievements-summary))
 
 ### 06.03.2019 | Piotr Świtlicki:
-* Add files schema info ([General info&bull; Files schema](#v3-file-schema))
-* Add `GET /v3/infinity-mall/files/schema` ([Files&bull; Get schema](#v3-get-files-schema))
+* Add file schema info ([General info&bull; Files schema](#v3-file-schema))
+* Add `GET /v3/infinity-mall/files/schema` ([Files&bull; Get schema](#v3-get-file-schema))
 
 ### 27.02.2019 | Jakub Kruczek:
 * Extend consent definitions example ([Loyalty Clubs &bull; Get schema](#v3-loyalty-clubs-schema))

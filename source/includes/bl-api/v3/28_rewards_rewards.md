@@ -142,7 +142,7 @@ As a member-related action, it requires member authorization. See [OAuth](#v3-oa
 
 ### Response (JSON object)
 
-Response looks as in [Reward list](#v3-reward-list), but - additionally - each reward includes reward usage information
+Response looks as in [Reward list](#v3-rewards-list), but with reward usage instead of purchasing info
 
 ### <a name="v3-rewards-usage"></a> Usage
 
