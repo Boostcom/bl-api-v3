@@ -433,7 +433,7 @@ Errors format and strings are not yet stable and may change without further noti
 
 <h2 id="file-model"><a name="v3-file-model"></a> File model</h2>
 
-<p>Every file attached to some entity (Offer, Reward, Offer Collection) follows the files schema and is defined like this:</p>
+<p>Every file attached to some entity (Offer, Reward, Offer Collection) follows the file schema and is defined like this:</p>
 
 <table><thead>
 <tr>
@@ -469,12 +469,12 @@ Errors format and strings are not yet stable and may change without further noti
 </tr>
 </tbody></table>
 
-<h2 id="files-schema"><a name="v3-file-schema"></a> Files schema</h2>
+<h2 id="file-schema"><a name="v3-file-schema"></a> File schema</h2>
 
-<p>Files schema defines a list of files kinds available in the Loyalty club. 
+<p>File schema defines a list of files kinds available in the Loyalty club. 
 Each file kind is also available in multiple sizes. </p>
 
-<p>The schema may get retrieved with <a href="#v3-get-files-schema">Files&bull; Get schema</a> endpoint.</p>
+<p>The schema may get retrieved with <a href="#v3-get-file-schema">Files&bull; Get schema</a> endpoint.</p>
 
 <blockquote>
 <p>Example loyalty club file schema</p>

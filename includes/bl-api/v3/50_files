@@ -1,6 +1,6 @@
 <h1 id="endpoints-files">Endpoints &bull; Files</h1>
 
-<h2 id="get-files-schema"><a name="v3-get-files-schema"></a> Get files schema</h2>
+<h2 id="get-file-schema"><a name="v3-get-file-schema"></a> Get file schema</h2>
 
 <blockquote>
 <p>Example request</p>
@@ -17,7 +17,7 @@
 
 <p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/files/schema</code></p>
 
-<p>Returns the Loyalty Club files schema. See: <a href="#v3-file-schema">Files &bull; Schema</a></p>
+<p>Returns the Loyalty Club file schema. See: <a href="#v3-file-schema">Files &bull; Schema</a></p>
 
 <aside class="notice">
 Requires <code>Files:Api:GetSchema</code> permit

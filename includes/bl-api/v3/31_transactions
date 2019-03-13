@@ -21,7 +21,6 @@
                  "event_date": "2019-02-02 02:02:02",
                  "total": 10.0,
                  "receipt_id": "receipt id",
-                 "discount": 0.0,
                  "tax": 1.0,
                  "currency": "NOK",
                  "items": [
@@ -123,7 +122,7 @@
 
 <h3 id="messages-post-parameters-json-array">Messages POST Parameters (JSON array)</h3>
 
-<p>The expected payload consists of <code class="prettyprint">transactions</code> object which has an hash of objects with following attributes:</p>
+<p>Expected payload is either object with <code class="prettyprint">transactions</code> attribute containing array of <code class="prettyprint">transaction</code> objects with attributes as described below or single <code class="prettyprint">transaction</code> object:</p>
 
 <table><thead>
 <tr>
@@ -212,12 +211,6 @@
 <td></td>
 </tr>
 <tr>
-<td>discount</td>
-<td>float</td>
-<td>n/a</td>
-<td></td>
-</tr>
-<tr>
 <td>store_msisdn</td>
 <td>string</td>
 <td>n/a</td>
@@ -252,86 +245,104 @@
 <th>Key</th>
 <th>Type</th>
 <th>Default</th>
+<th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>item_id *</td>
 <td>string</td>
 <td>n/a</td>
+<td></td>
 </tr>
 <tr>
 <td>price *</td>
 <td>float</td>
 <td>n/a</td>
+<td>negative values will be treated as discounts</td>
 </tr>
 <tr>
 <td>amount *</td>
 <td>integer</td>
 <td>n/a</td>
+<td>negative values will be treated as refunds</td>
 </tr>
 <tr>
 <td>discount *</td>
 <td>float</td>
 <td>n/a</td>
+<td></td>
 </tr>
 <tr>
 <td>tax *</td>
 <td>float</td>
 <td>n/a</td>
+<td></td>
 </tr>
 <tr>
 <td>calculate_rewards *</td>
 <td>bool</td>
 <td>true</td>
+<td></td>
 </tr>
 <tr>
 <td>item_number</td>
 <td>string</td>
 <td>n/a</td>
+<td></td>
 </tr>
 <tr>
 <td>description</td>
 <td>string</td>
 <td>n/a</td>
+<td></td>
 </tr>
 <tr>
 <td>properties</td>
 <td>hash key: value</td>
 <td>n/a</td>
+<td></td>
 </tr>
 <tr>
 <td>product_category</td>
 <td>string</td>
 <td>n/a</td>
+<td></td>
 </tr>
 <tr>
 <td>product_category_id</td>
 <td>string</td>
 <td>n/a</td>
+<td></td>
 </tr>
 <tr>
 <td>product_category_number</td>
 <td>string</td>
 <td>n/a</td>
+<td></td>
 </tr>
 <tr>
 <td>main_product_category</td>
 <td>string</td>
 <td>n/a</td>
+<td></td>
 </tr>
 <tr>
 <td>main_product_category_id</td>
 <td>string</td>
 <td>n/a</td>
+<td></td>
 </tr>
 <tr>
 <td>main_product_category_number</td>
 <td>string</td>
 <td>n/a</td>
+<td></td>
 </tr>
 </tbody></table>
 
 <p>* required</p>
+
+<p>Negative price and amount will result in error</p>
 
 <h3 id="feedback-statuses">Feedback statuses</h3>
 

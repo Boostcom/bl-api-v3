@@ -668,7 +668,7 @@ Errors format and strings are not yet stable and may change without further noti
 
 <h2 id="file-model"><a name="v3-file-model"></a> File model</h2>
 
-<p>Every file attached to some entity (Offer, Reward, Offer Collection) follows the files schema and is defined like this:</p>
+<p>Every file attached to some entity (Offer, Reward, Offer Collection) follows the file schema and is defined like this:</p>
 
 <table><thead>
 <tr>
@@ -704,12 +704,12 @@ Errors format and strings are not yet stable and may change without further noti
 </tr>
 </tbody></table>
 
-<h2 id="files-schema"><a name="v3-file-schema"></a> Files schema</h2>
+<h2 id="file-schema"><a name="v3-file-schema"></a> File schema</h2>
 
-<p>Files schema defines a list of files kinds available in the Loyalty club. 
+<p>File schema defines a list of files kinds available in the Loyalty club. 
 Each file kind is also available in multiple sizes. </p>
 
-<p>The schema may get retrieved with <a href="#v3-get-files-schema">Files&bull; Get schema</a> endpoint.</p>
+<p>The schema may get retrieved with <a href="#v3-get-file-schema">Files&bull; Get schema</a> endpoint.</p>
 
 <blockquote>
 <p>Example loyalty club file schema</p>
@@ -5116,7 +5116,7 @@ Requires <code>Rewards:Api:OAuth:Rewards:List</code> permit
 
 <h3 id="response-json-object">Response (JSON object)</h3>
 
-<p>Response looks as in <a href="#v3-reward-list">Reward list</a>, but - additionally - each reward includes reward usage information</p>
+<p>Response looks as in <a href="#v3-rewards-list">Reward list</a>, but with reward usage instead of purchasing info</p>
 
 <h3 id="usage"><a name="v3-rewards-usage"></a> Usage</h3>
 
@@ -5300,7 +5300,6 @@ Requires <code>Rewards:Api:OAuth:Rewards:Use</code> permit
                  "event_date": "2019-02-02 02:02:02",
                  "total": 10.0,
                  "receipt_id": "receipt id",
-                 "discount": 0.0,
                  "tax": 1.0,
                  "currency": "NOK",
                  "items": [
@@ -5402,7 +5401,7 @@ Requires <code>Rewards:Api:OAuth:Rewards:Use</code> permit
 
 <h3 id="messages-post-parameters-json-array">Messages POST Parameters (JSON array)</h3>
 
-<p>The expected payload consists of <code class="prettyprint">transactions</code> object which has an hash of objects with following attributes:</p>
+<p>Expected payload is either object with <code class="prettyprint">transactions</code> attribute containing array of <code class="prettyprint">transaction</code> objects with attributes as described below or single <code class="prettyprint">transaction</code> object:</p>
 
 <table><thead>
 <tr>
@@ -5491,12 +5490,6 @@ Requires <code>Rewards:Api:OAuth:Rewards:Use</code> permit
 <td></td>
 </tr>
 <tr>
-<td>discount</td>
-<td>float</td>
-<td>n/a</td>
-<td></td>
-</tr>
-<tr>
 <td>store_msisdn</td>
 <td>string</td>
 <td>n/a</td>
@@ -5531,86 +5524,104 @@ Requires <code>Rewards:Api:OAuth:Rewards:Use</code> permit
 <th>Key</th>
 <th>Type</th>
 <th>Default</th>
+<th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>item_id *</td>
 <td>string</td>
 <td>n/a</td>
+<td></td>
 </tr>
 <tr>
 <td>price *</td>
 <td>float</td>
 <td>n/a</td>
+<td>negative values will be treated as discounts</td>
 </tr>
 <tr>
 <td>amount *</td>
 <td>integer</td>
 <td>n/a</td>
+<td>negative values will be treated as refunds</td>
 </tr>
 <tr>
 <td>discount *</td>
 <td>float</td>
 <td>n/a</td>
+<td></td>
 </tr>
 <tr>
 <td>tax *</td>
 <td>float</td>
 <td>n/a</td>
+<td></td>
 </tr>
 <tr>
 <td>calculate_rewards *</td>
 <td>bool</td>
 <td>true</td>
+<td></td>
 </tr>
 <tr>
 <td>item_number</td>
 <td>string</td>
 <td>n/a</td>
+<td></td>
 </tr>
 <tr>
 <td>description</td>
 <td>string</td>
 <td>n/a</td>
+<td></td>
 </tr>
 <tr>
 <td>properties</td>
 <td>hash key: value</td>
 <td>n/a</td>
+<td></td>
 </tr>
 <tr>
 <td>product_category</td>
 <td>string</td>
 <td>n/a</td>
+<td></td>
 </tr>
 <tr>
 <td>product_category_id</td>
 <td>string</td>
 <td>n/a</td>
+<td></td>
 </tr>
 <tr>
 <td>product_category_number</td>
 <td>string</td>
 <td>n/a</td>
+<td></td>
 </tr>
 <tr>
 <td>main_product_category</td>
 <td>string</td>
 <td>n/a</td>
+<td></td>
 </tr>
 <tr>
 <td>main_product_category_id</td>
 <td>string</td>
 <td>n/a</td>
+<td></td>
 </tr>
 <tr>
 <td>main_product_category_number</td>
 <td>string</td>
 <td>n/a</td>
+<td></td>
 </tr>
 </tbody></table>
 
 <p>* required</p>
+
+<p>Negative price and amount will result in error</p>
 
 <h3 id="feedback-statuses">Feedback statuses</h3>
 
@@ -5856,7 +5867,7 @@ Requires <code>Transaction:Api:Transactions:Read</code> permit
 
           <h1 id="endpoints-files">Endpoints &bull; Files</h1>
 
-<h2 id="get-files-schema"><a name="v3-get-files-schema"></a> Get files schema</h2>
+<h2 id="get-file-schema"><a name="v3-get-file-schema"></a> Get file schema</h2>
 
 <blockquote>
 <p>Example request</p>
@@ -5873,7 +5884,7 @@ Requires <code>Transaction:Api:Transactions:Read</code> permit
 
 <p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/files/schema</code></p>
 
-<p>Returns the Loyalty Club files schema. See: <a href="#v3-file-schema">Files &bull; Schema</a></p>
+<p>Returns the Loyalty Club file schema. See: <a href="#v3-file-schema">Files &bull; Schema</a></p>
 
 <aside class="notice">
 Requires <code>Files:Api:GetSchema</code> permit
@@ -5890,8 +5901,8 @@ Requires <code>Files:Api:GetSchema</code> permit
 <h3 id="06-03-2019-piotr-witlicki">06.03.2019 | Piotr Świtlicki:</h3>
 
 <ul>
-<li>Add files schema info (<a href="#v3-file-schema">General info&bull; Files schema</a>)</li>
-<li>Add <code class="prettyprint">GET /v3/infinity-mall/files/schema</code> (<a href="#v3-get-files-schema">Files&bull; Get schema</a>)</li>
+<li>Add file schema info (<a href="#v3-file-schema">General info&bull; Files schema</a>)</li>
+<li>Add <code class="prettyprint">GET /v3/infinity-mall/files/schema</code> (<a href="#v3-get-file-schema">Files&bull; Get schema</a>)</li>
 </ul>
 
 <h3 id="27-02-2019-jakub-kruczek">27.02.2019 | Jakub Kruczek:</h3>

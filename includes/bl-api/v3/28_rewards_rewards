@@ -177,7 +177,7 @@ Requires <code>Rewards:Api:OAuth:Rewards:List</code> permit
 
 <h3 id="response-json-object">Response (JSON object)</h3>
 
-<p>Response looks as in <a href="#v3-reward-list">Reward list</a>, but - additionally - each reward includes reward usage information</p>
+<p>Response looks as in <a href="#v3-rewards-list">Reward list</a>, but with reward usage instead of purchasing info</p>
 
 <h3 id="usage"><a name="v3-rewards-usage"></a> Usage</h3>
 
