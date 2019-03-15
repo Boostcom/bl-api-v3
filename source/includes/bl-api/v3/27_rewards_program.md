@@ -20,8 +20,10 @@ Key | Type | Description
 --------- | --------- | ---------
 type | string | see [Achievement types](#v3-rewards-program-achievement-types)
 points | integer | How many points the achievement grants
-maximum_frequency | @todo | How often the achievement may be granted to member
-limit | integer | Maximum number of times the member can have the achievement granted  
+limit | integer | Maximum number of times the member can have the achievement granted (when null, there's no limit)  
+frequency | Object | How often the achievement may be granted to member (when null, there are no constraints). For example, achievement with frequency defined as `{"timespan": "day", "limit": 5}` means that member may get points for it at most 5 times a day.
+frequency['timespan'] | string | One of: `['hour', 'day', 'week', 'month', 'year']`
+frequency['limit'] | integer |
 
 ### <a name="v3-rewards-program-achievement-types"></a> Achievement types
 
@@ -66,14 +68,22 @@ curl \
       "type": "app_opened",
       "points": 50,
       "limit": 20,
-      "maximum_frequency": "@todo"
+      "frequency": {
+        "limit": 10,
+        "timespan": "day"
+      }
     },
     {
       "type": "consent_granted",
       "points": 1000,
-      "limit": 1,
-      "maximum_frequency": "@todo"
+      "limit": null,
+      "frequency": null
     }
+  ],
+  "tiers": [
+    { "threshold": 100 },
+    { "threshold": 500 },
+    { "threshold": 1000 }
   ],
   "reward_activation_time": 35
 }
@@ -87,8 +97,10 @@ Returns information about Rewards Program in Loyalty Club.
 
 Key | Type | Description
 --------- | --------- | ---------
-achievements | Array| List of Achievement objects - see [Achievements](#v3-rewards-program-achievements)
-reward_activation_time | integer| Time in seconds describing how long the reward is active after use
+achievements | Array | List of Achievement objects - see [Achievements](#v3-rewards-program-achievements)
+reward_activation_time | integer | Time in seconds describing how long the reward is active after use
+tiers | Array &lt;Object&gt; | List of member tier points thresholds
+tiers['threshold'] | integer | 
 
 <aside class="notice">
 Requires <code>Rewards:Api:Program:GetInfo</code> permit
