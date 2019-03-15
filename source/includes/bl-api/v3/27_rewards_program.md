@@ -81,9 +81,9 @@ curl \
     }
   ],
   "tiers": [
-    { "threshold": 100 },
-    { "threshold": 500 },
-    { "threshold": 1000 }
+    { "points_threshold": 100 },
+    { "points_threshold": 500 },
+    { "points_threshold": 1000 }
   ],
   "reward_activation_time": 35
 }
@@ -100,7 +100,7 @@ Key | Type | Description
 achievements | Array | List of Achievement objects - see [Achievements](#v3-rewards-program-achievements)
 reward_activation_time | integer | Time in seconds describing how long the reward is active after use
 tiers | Array &lt;Object&gt; | List of member tier points thresholds
-tiers['threshold'] | integer | 
+tiers['points_threshold'] | integer | 
 
 <aside class="notice">
 Requires <code>Rewards:Api:Program:GetInfo</code> permit
