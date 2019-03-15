@@ -34,14 +34,24 @@ The rules are described below.</p>
 <td>How many points the achievement grants</td>
 </tr>
 <tr>
-<td>maximum_frequency</td>
-<td>@todo</td>
-<td>How often the achievement may be granted to member</td>
-</tr>
-<tr>
 <td>limit</td>
 <td>integer</td>
-<td>Maximum number of times the member can have the achievement granted</td>
+<td>Maximum number of times the member can have the achievement granted (when null, there&rsquo;s no limit)</td>
+</tr>
+<tr>
+<td>frequency</td>
+<td>Object</td>
+<td>How often the achievement may be granted to member (when null, there are no constraints). For example, achievement with frequency defined as <code class="prettyprint">{&quot;timespan&quot;: &quot;day&quot;, &quot;limit&quot;: 5}</code> means that member may get points for it at most 5 times a day.</td>
+</tr>
+<tr>
+<td>frequency[&lsquo;timespan&rsquo;]</td>
+<td>string</td>
+<td>One of: <code class="prettyprint">[&#39;hour&#39;, &#39;day&#39;, &#39;week&#39;, &#39;month&#39;, &#39;year&#39;]</code></td>
+</tr>
+<tr>
+<td>frequency[&lsquo;limit&rsquo;]</td>
+<td>integer</td>
+<td></td>
 </tr>
 </tbody></table>
 
@@ -130,14 +140,22 @@ The rules are described below.</p>
       </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"app_opened"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"points"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w">
       </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"maximum_frequency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@todo"</span><span class="w">
+      </span><span class="s2">"frequency"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"timespan"</span><span class="p">:</span><span class="w"> </span><span class="s2">"day"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"consent_granted"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"points"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"maximum_frequency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@todo"</span><span class="w">
+      </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"frequency"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
     </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"tiers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w"> </span><span class="s2">"threshold"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w"> </span><span class="s2">"threshold"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="w"> </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w"> </span><span class="s2">"threshold"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="w"> </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="s2">"reward_activation_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">35</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -164,6 +182,16 @@ The rules are described below.</p>
 <td>reward_activation_time</td>
 <td>integer</td>
 <td>Time in seconds describing how long the reward is active after use</td>
+</tr>
+<tr>
+<td>tiers</td>
+<td>Array &lt;Object&gt;</td>
+<td>List of member tier points thresholds</td>
+</tr>
+<tr>
+<td>tiers[&lsquo;threshold&rsquo;]</td>
+<td>integer</td>
+<td></td>
 </tr>
 </tbody></table>
 
