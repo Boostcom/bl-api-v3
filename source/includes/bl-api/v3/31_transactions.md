@@ -196,7 +196,7 @@ Status | Description
 `422` | Invalid parameters (see example on the right)
 
 <aside class="notice">
-Requires <code>Transaction:Api:Transactions:Create</code> permit
+Requires <code>Transaction:Api:Transactions:Create</code> and <code>BL:Api:Members:Get</code> permits
 </aside>
 
 
