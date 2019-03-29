@@ -410,7 +410,7 @@ Get categories
 Key | Type | Default
 --------- | --------- | ---------
 type | string (main, sub, item) | 
-parentId | string | 
+parent_id | string | 
 name | string | 
 limit | int | 100
 id | array | 
