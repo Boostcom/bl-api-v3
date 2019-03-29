@@ -351,7 +351,7 @@ Requires <code>Transaction:Api:Transactions:Read</code> permit
 
 ```shell
 curl -X GET \
-"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/categories" \
+"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/transactions/categories" \
     -H 'Content-Type: application/json' \
     -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
     -H 'X-Product-Name: default' \
@@ -401,7 +401,7 @@ curl -X GET \
 }
 ``` 
 
-**GET** `v3/:loyalty_club_slug/categories`
+**GET** `v3/:loyalty_club_slug/transactions/categories`
 
 Get categories
 
