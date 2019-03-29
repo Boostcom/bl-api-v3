@@ -107,7 +107,7 @@ curl -X GET \
       "tax": 1.0,
       "currency": "NOK",
       "sales_person": "sales person"
-  },
+  }
 ]
 ``` 
 
@@ -171,7 +171,16 @@ main_product_category_id | string | n/a |
 main_product_category_number | string | n/a |
 \* required
 
-Negative price and amount will result in error
+Negative price and amount will result in error.
+
+You can provide `callback_url` in the root object. If it's available after processing we will send `POST` request to that URL with body as below:
+```
+{
+    "transaction_id": "UUID",
+    "receipt_id": "id",
+    "result" => "OK|error message"
+}
+```
 
 ### Feedback statuses
 
@@ -305,9 +314,9 @@ curl -X GET \
         "discount": 0,
         "tax": 1.0,
         "description": "description",
-        "productCategoryId": "category id",
-        "productCategoryNumber": "12345",
-        "productCategory": "Category"
+        "product_category_id": "category id",
+        "product_category_number": "12345",
+        "product_category": "Category"
     }
   ]
 }
@@ -324,6 +333,87 @@ curl -X GET \
 **GET** `v3/:loyalty_club_slug/transactions/:id`
 
 Get transaction with items
+
+### Error responses
+
+Status | Description
+--------- | ----------- 
+`422` | Invalid parameters (see example on the right)
+
+<aside class="notice">
+Requires <code>Transaction:Api:Transactions:Read</code> permit
+</aside> 
+
+
+## <a name="v3-transactions-categories-get"></a> Get categories
+
+> Example:
+
+```shell
+curl -X GET \
+"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/categories" \
+    -H 'Content-Type: application/json' \
+    -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+    -H 'X-Product-Name: default' \
+    -H 'X-User-Agent: CURL manual test'
+```
+
+> When successful (200), returns categories objects structured like below:
+
+```json
+[
+    {
+        "id": "2276bb58-45a4-4d49-b25b-896a78b06730",
+        "type": "main",
+        "name": "category",
+        "parent_id": null,
+        "external_id": "ID",
+        "number": "1"
+    },
+    {
+        "id": "13b2a321-280e-48fc-bf18-54b61dc6d577",
+        "type": "sub",
+        "name": "subcategory",
+        "parent_id": "2276bb58-45a4-4d49-b25b-896a78b06730",
+        "external_id": "ID2",
+        "number": "12"
+    },
+    {
+        "id": "19c3f19c-f090-43f1-8439-824406449a2e",
+        "type": "item",
+        "name": "item",
+        "parent_id": "13b2a321-280e-48fc-bf18-54b61dc6d577",
+        "external_id": "2",
+        "number": null
+    }
+]
+``` 
+
+> When parameters are invalid (422), returns:
+
+```json
+{
+    "error": "Invalid format",
+    "details": {
+        "type": "The value you selected is not a valid choice.",
+        "id": "This value should be of type array."
+    }
+}
+``` 
+
+**GET** `v3/:loyalty_club_slug/categories`
+
+Get categories
+
+### Request Parameters
+
+Key | Type | Default
+--------- | --------- | ---------
+type | string (main, sub, item) | 
+parentId | string | 
+name | string | 
+limit | int | 100
+id | array | 
 
 ### Error responses
 
