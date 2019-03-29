@@ -149,7 +149,7 @@ Response looks as in [Reward list](#v3-rewards-list), but with reward usage inst
 Key | Type | Description
 --------- | --------- | ---------
 left | integer | (optional) How many more times the member can use the Reward. Null, when there's no usage limit
-active_until | Date | (optional) The last time time the coupon has been used + activation time (configurable per Loyalty Club, e.x. 30s). When null, the reward has not been activated yet
+active_until | Date | (optional) The last time time the reward has been used + activation time (configurable per Loyalty Club, e.x. 30s). When null, the reward has not been activated (used) yet
 usable | boolean | Will the reward be still usable after activation time passes?
 
 <aside class="notice">
@@ -242,3 +242,6 @@ Status | Response body | Description
 <aside class="notice">
 Requires <code>Rewards:Api:OAuth:Rewards:Use</code> permit
 </aside>
+
+`return true if !limit_present? || !current_outgoing`
+`return true unless (limit_present? && current_outgoing)`
