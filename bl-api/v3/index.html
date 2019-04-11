@@ -5163,7 +5163,7 @@ Requires <code>Rewards:Api:OAuth:Rewards:List</code> permit
 <tr>
 <td>active_until</td>
 <td>Date</td>
-<td>(optional) The last time time the coupon has been used + activation time (configurable per Loyalty Club, e.x. 30s). When null, the reward has not been activated yet</td>
+<td>(optional) The last time time the reward has been used + activation time (configurable per Loyalty Club, e.x. 30s). When null, the reward has not been activated (used) yet</td>
 </tr>
 <tr>
 <td>usable</td>
@@ -5305,6 +5305,9 @@ Requires <code>Rewards:Api:OAuth:Rewards:Purchase</code> permit
 Requires <code>Rewards:Api:OAuth:Rewards:Use</code> permit
 </aside>
 
+<p><code class="prettyprint">return true if !limit_present? || !current_outgoing</code>
+<code class="prettyprint">return true unless (limit_present? &amp;&amp; current_outgoing)</code></p>
+
           <h1 id="endpoints-transactions">Endpoints &bull; Transactions</h1>
 
 <h2 id="create"><a name="v3-transactions-create"></a> Create</h2>
@@ -5410,7 +5413,7 @@ Requires <code>Rewards:Api:OAuth:Rewards:Use</code> permit
       </span><span class="s2">"tax"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NOK"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"sales_person"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sales person"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 <blockquote>
@@ -5649,7 +5652,16 @@ Requires <code>Rewards:Api:OAuth:Rewards:Use</code> permit
 
 <p>* required</p>
 
-<p>Negative price and amount will result in error</p>
+<p>Negative price and amount will result in error.</p>
+
+<p>You can provide <code class="prettyprint">callback_url</code> in the root object. If it&rsquo;s available after processing we will send <code class="prettyprint">POST</code> request to that URL with body as below:
+<code class="prettyprint">
+{
+    &quot;transaction_id&quot;: &quot;UUID&quot;,
+    &quot;receipt_id&quot;: &quot;id&quot;,
+    &quot;result&quot; =&gt; &quot;OK|error message&quot;
+}
+</code></p>
 
 <h3 id="feedback-statuses">Feedback statuses</h3>
 
@@ -5684,7 +5696,7 @@ Requires <code>Rewards:Api:OAuth:Rewards:Use</code> permit
 </tbody></table>
 
 <aside class="notice">
-Requires <code>Transaction:Api:Transactions:Create</code> permit
+Requires <code>Transaction:Api:Transactions:Create</code> and <code>BL:Api:Members:Get</code> permits
 </aside>
 
 <h2 id="list"><a name="v3-transactions-list"></a> List</h2>
@@ -5857,9 +5869,9 @@ Requires <code>Transaction:Api:Transactions:Read</code> permit
         </span><span class="s2">"discount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
         </span><span class="s2">"tax"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
         </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"description"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"productCategoryId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"category id"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"productCategoryNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"productCategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Category"</span><span class="w">
+        </span><span class="s2">"product_category_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"category id"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"product_category_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"product_category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Category"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -5874,6 +5886,117 @@ Requires <code>Transaction:Api:Transactions:Read</code> permit
 <p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/transactions/:id</code></p>
 
 <p>Get transaction with items</p>
+
+<h3 id="error-responses">Error responses</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">422</code></td>
+<td>Invalid parameters (see example on the right)</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Transaction:Api:Transactions:Read</code> permit
+</aside> 
+
+<h2 id="get-categories"><a name="v3-transactions-categories-get"></a> Get categories</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+<span class="s2">"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/transactions/categories"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+    -H <span class="s1">'X-User-Agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>When successful (200), returns categories objects structured like below:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2276bb58-45a4-4d49-b25b-896a78b06730"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"main"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"category"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"parent_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13b2a321-280e-48fc-bf18-54b61dc6d577"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sub"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"subcategory"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"parent_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2276bb58-45a4-4d49-b25b-896a78b06730"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID2"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"19c3f19c-f090-43f1-8439-824406449a2e"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"item"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"item"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"parent_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13b2a321-280e-48fc-bf18-54b61dc6d577"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>When parameters are invalid (422), returns:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid format"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The value you selected is not a valid choice."</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This value should be of type array."</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/transactions/categories</code></p>
+
+<p>Get categories</p>
+
+<h3 id="request-parameters">Request Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Default</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>type</td>
+<td>string (main, sub, item)</td>
+<td></td>
+</tr>
+<tr>
+<td>parent_id</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>limit</td>
+<td>int</td>
+<td>100</td>
+</tr>
+<tr>
+<td>id</td>
+<td>array</td>
+<td></td>
+</tr>
+</tbody></table>
 
 <h3 id="error-responses">Error responses</h3>
 

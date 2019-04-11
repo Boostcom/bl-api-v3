@@ -196,7 +196,7 @@ Requires <code>Rewards:Api:OAuth:Rewards:List</code> permit
 <tr>
 <td>active_until</td>
 <td>Date</td>
-<td>(optional) The last time time the coupon has been used + activation time (configurable per Loyalty Club, e.x. 30s). When null, the reward has not been activated yet</td>
+<td>(optional) The last time time the reward has been used + activation time (configurable per Loyalty Club, e.x. 30s). When null, the reward has not been activated (used) yet</td>
 </tr>
 <tr>
 <td>usable</td>
@@ -337,3 +337,6 @@ Requires <code>Rewards:Api:OAuth:Rewards:Purchase</code> permit
 <aside class="notice">
 Requires <code>Rewards:Api:OAuth:Rewards:Use</code> permit
 </aside>
+
+<p><code class="prettyprint">return true if !limit_present? || !current_outgoing</code>
+<code class="prettyprint">return true unless (limit_present? &amp;&amp; current_outgoing)</code></p>
