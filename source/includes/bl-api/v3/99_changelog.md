@@ -1,5 +1,8 @@
 # Changelog
 
+### 16.04.2019 | Piotr Świtlicki:
+* Add `X-Usage-Token` header to [Rewards &bull; Use](#v3-rewards-use)
+
 ### 07.03.2019 | Piotr Świtlicki:
 * Add `GET /v3/infinity-mall/rewards-program/status/achievements_summary` ([Rewards Program &bull; Achievements summary](#v3-rewards-program-achievements-summary))
 
