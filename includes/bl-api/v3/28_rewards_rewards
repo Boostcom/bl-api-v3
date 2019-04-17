@@ -287,6 +287,14 @@ Requires <code>Rewards:Api:OAuth:Rewards:Purchase</code> permit
 
 <p>As a member-related action, it requires member authorization. See <a href="#v3-oauth2">OAuth</a>.</p>
 
+<h3 id="x-usage-token-header"><code class="prettyprint">X-Usage-Token</code> header</h3>
+
+<p>It is possible to require user to provide a token (for example, encoded with QR code) before he is able to use the offer.</p>
+
+<p>In such case, the token should be sent as a <code class="prettyprint">X-Usage-Token</code> header. When such header is present, it&rsquo;s value 
+is validated against the list of tokens configured for Loyalty Club. 
+A corresponding error message will be returned when token happens to be invalid.</p>
+
 <h3 id="response-json-object">Response (JSON object)</h3>
 
 <table><thead>
@@ -329,6 +337,11 @@ Requires <code>Rewards:Api:OAuth:Rewards:Purchase</code> permit
 </tr>
 <tr>
 <td><code class="prettyprint">422</code></td>
+<td><code class="prettyprint">{&quot;error&quot;: &quot;Usage authorization token invalid&quot;}</code></td>
+<td>Provided usage token is invalid</td>
+</tr>
+<tr>
+<td><code class="prettyprint">422</code></td>
 <td><code class="prettyprint">{&quot;error&quot;: &quot;User limit exceeded&quot;}</code></td>
 <td>There are no more rewards available to purchase for the member</td>
 </tr>
@@ -337,6 +350,3 @@ Requires <code>Rewards:Api:OAuth:Rewards:Purchase</code> permit
 <aside class="notice">
 Requires <code>Rewards:Api:OAuth:Rewards:Use</code> permit
 </aside>
-
-<p><code class="prettyprint">return true if !limit_present? || !current_outgoing</code>
-<code class="prettyprint">return true unless (limit_present? &amp;&amp; current_outgoing)</code></p>
