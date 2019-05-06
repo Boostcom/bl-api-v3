@@ -1,4 +1,4 @@
-# Endpoints &bull; Rewards (WIP)
+# Endpoints &bull; Rewards
 ## <a name="v3-rewards-list"></a> List
 
 > Example:
@@ -149,7 +149,7 @@ Response looks as in [Reward list](#v3-rewards-list), but with reward usage inst
 Key | Type | Description
 --------- | --------- | ---------
 left | integer | (optional) How many more times the member can use the Reward. Null, when there's no usage limit
-active_until | Date | (optional) The last time time the reward has been used + activation time (configurable per Loyalty Club, e.x. 30s). When null, the reward has not been activated (used) yet
+active_until | Date | (optional) The last time time the reward has been used at + activation time (configurable per Loyalty Club, e.x. 30s). When null, the reward has not been activated (used) yet
 usable | boolean | Will the reward be still usable after activation time passes?
 
 <aside class="notice">
@@ -226,11 +226,7 @@ As a member-related action, it requires member authorization. See [OAuth](#v3-oa
 
 ### `X-Usage-Token` header
 
-It is possible to require user to provide a token (for example, encoded with QR code) before he is able to use the offer.
-
-In such case, the token should be sent as a `X-Usage-Token` header. When such header is present, it's value 
-is validated against the list of tokens configured for Loyalty Club. 
-A corresponding error message will be returned when token happens to be invalid.
+It is possible to require user to provide a token before he is able to use the reward. See [`X-Usage-Token` header](#v3-usage-token)
 
 ### Response (JSON object)
 

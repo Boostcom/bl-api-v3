@@ -1,4 +1,4 @@
-# Endpoints &bull; Rewards Program (WIP)
+# Endpoints &bull; Rewards Program
 
 ## Introduction
 

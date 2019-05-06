@@ -189,6 +189,22 @@ Available consents for Loyalty Club are described in [schema](#v3-loyalty-clubs-
 
 ## <a name="v3-pagination-model"></a> Pagination JSON model
 
+> Example:
+
+```json
+{
+    "total_count": 2050,
+    "per_page": 1000,
+    "total_pages": 3,
+    "current_page": 1,
+    "next_page": 2,
+    "prev_page": null,
+    "is_first_page": true,
+    "is_last_page": false,
+    "is_out_of_range": false
+}
+```
+
 Used to present information about paginated pages
 
 Key | Type | Description

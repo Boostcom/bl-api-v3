@@ -1,5 +1,15 @@
 # Changelog
 
+### 06.05.2019 | Piotr Świtlicki:
+Offers
+
+* Add `GET /v3/infinity-mall/members/me/offers/meta` ([Offers &bull; Get offers meta](#v3-offers-meta))
+* Add `GET /v3/infinity-mall/members/me/offers/:id` ([Offers &bull; Get offer](#v3-get-offer))
+* Add `GET /v3/infinity-mall/members/me/offers` ([Offers &bull; List offers](#v3-list-offers))
+* Add `POST /v3/infinity-mall/members/me/offers/:id/use` ([Offers &bull; Use offer](#v3-use-offer))
+* Add `PUT /v3/infinity-mall/members/me/offers/:id/like` ([Offers &bull; Like offer](#v3-like-offer))
+* Add `PUT /v3/infinity-mall/members/me/offers/:id/unlike` ([Offers &bull; Unlike offer](#v3-unlike-offer))
+
 ### 16.04.2019 | Piotr Świtlicki:
 * Add `X-Usage-Token` header to [Rewards &bull; Use](#v3-rewards-use)
 
