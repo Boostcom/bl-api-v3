@@ -1,5 +1,7 @@
 # Endpoints &bull; Offers (WIP)
 
+NOTE: The Offers API is in development state. Changes (rather small) may occur during our mobile apps development & testing process.
+
 ## Common params
 
 ### <a name="v3-offers-preview"></a> `preview` query param
