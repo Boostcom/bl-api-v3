@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>Boostcom Mall/Retail Performance Cloud API V3 Reference</title>
+    <title>Boostcom Performance Cloud API V3 Reference</title>
 
     <style>
       .highlight table td { padding: 5px; }
@@ -218,7 +218,7 @@
       <div id="toc">
       </div>
         <ul class="toc-footer">
-            <li><a href='https://loyalty.boostcom.no'>Mall/Retail Performance Cloud</a></li>
+            <li><a href='https://loyalty.boostcom.no'>Performance Cloud</a></li>
             <li><a href='http://boostcom.com/'>Boostcom</a></li>
             <li><hr/></li>
             <li><a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a></li>
@@ -610,6 +610,21 @@ Errors format and strings are not yet stable and may change without further noti
 
 <h2 id="pagination-json-model"><a name="v3-pagination-model"></a> Pagination JSON model</h2>
 
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"total_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">2050</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"per_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total_pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"current_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"next_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"prev_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"is_first_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"is_last_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"is_out_of_range"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <p>Used to present information about paginated pages</p>
 
 <table><thead>
@@ -4300,7 +4315,752 @@ Messages are being sent asynchronously. Also, it cannot be guaranteed that the m
 Requires <code>BL:Api:Emails:Send</code> permit
 </aside>
 
-          <h1 id="endpoints-rewards-program-wip">Endpoints &bull; Rewards Program (WIP)</h1>
+          <h1 id="endpoints-offers-wip">Endpoints &bull; Offers (WIP)</h1>
+
+<h2 id="common-params">Common params</h2>
+
+<h3 id="preview-query-param"><a name="v3-offers-preview"></a> <code class="prettyprint">preview</code> query param</h3>
+
+<p>It is possible to use some endpoints without authenticated user by adding <code class="prettyprint">preview=true</code> query param.</p>
+
+<p>This allows to preview the endpoint&rsquo;s content without requiring the user to be signed-in.</p>
+
+<p>With this param given, authentication will not be required (<code class="prettyprint">Authorization</code> header may be skipped) and therefore, 
+response will be user-agnostic.</p>
+
+<h2 id="common-error-responses">Common error responses</h2>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Response body</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">485</code></td>
+<td><code class="prettyprint">{&quot;error&quot;: &quot;Offers API is not enabled for the Loyalty Club&quot;}</code></td>
+</tr>
+</tbody></table>
+
+<h2 id="common-models">Common models</h2>
+
+<h3 id="offer"><a name="v3-offer-model"></a> Offer</h3>
+
+<blockquote>
+<p>Offer example:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000115</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Buy two shoes, get one jacket"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"external_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/foo"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"read_more"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"button_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Button title"</span><span class="p">,</span><span class="w"> </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Title"</span><span class="p">,</span><span class="w"> </span><span class="s2">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Text"</span><span class="w"> </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"usable_since"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-13T17:32:00.000Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"usable_until"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"collection_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1000016</span><span class="p">,</span><span class="w"> </span><span class="mi">1000017</span><span class="p">],</span><span class="w">
+  </span><span class="s2">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"2 + 1"</span><span class="p">],</span><span class="w">
+  </span><span class="s2">"shops"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"M&amp;H"</span><span class="p">],</span><span class="w">
+  </span><span class="s2">"files"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://offers-api.s3.eu-central-1.amazonaws.com/offer-1000115-offer_default-original.jpg"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">800</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"offer_default"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"size_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"base"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"liked"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"usage"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"usable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"max_uses"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"uses_left"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active_until"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-13T18:41:00.000Z"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"extras"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Optional?</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>no</td>
+<td></td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>yes</td>
+<td></td>
+</tr>
+<tr>
+<td>description</td>
+<td>string</td>
+<td>yes</td>
+<td></td>
+</tr>
+<tr>
+<td>external_url</td>
+<td>string</td>
+<td>yes</td>
+<td>The URL the offer may be linked with</td>
+</tr>
+<tr>
+<td>read_more</td>
+<td>Object</td>
+<td>no</td>
+<td>Additional offer display data</td>
+</tr>
+<tr>
+<td>read_more.button_title</td>
+<td>string</td>
+<td>yes</td>
+<td></td>
+</tr>
+<tr>
+<td>read_more.url</td>
+<td>string</td>
+<td>yes</td>
+<td></td>
+</tr>
+<tr>
+<td>read_more.title</td>
+<td>string</td>
+<td>yes</td>
+<td></td>
+</tr>
+<tr>
+<td>read_more.text</td>
+<td>string</td>
+<td>yes</td>
+<td></td>
+</tr>
+<tr>
+<td>usable_since</td>
+<td>Date</td>
+<td>yes</td>
+<td>Time since the offer may be used. If null, there is no restriction.</td>
+</tr>
+<tr>
+<td>usable_until</td>
+<td>Date</td>
+<td>yes</td>
+<td>Time until the offer may be used. If null, there is no restriction.</td>
+</tr>
+<tr>
+<td>collection_ids</td>
+<td>integer[]</td>
+<td>no (may be empty)</td>
+<td>List of collections ids the offer belongs to</td>
+</tr>
+<tr>
+<td>tags</td>
+<td>string[]</td>
+<td>no (may be empty)</td>
+<td>List of tags associated with the offer</td>
+</tr>
+<tr>
+<td>shops</td>
+<td>string[]</td>
+<td>no (may be empty)</td>
+<td>List of shop names associated with the offer</td>
+</tr>
+<tr>
+<td>files</td>
+<td>File[]</td>
+<td>no</td>
+<td>A list of offer files - see <a href="#v3-file-model">File model</a></td>
+</tr>
+<tr>
+<td>liked</td>
+<td>Boolean</td>
+<td>no</td>
+<td>Has offer been liked by user?</td>
+</tr>
+<tr>
+<td>usage</td>
+<td>Usage</td>
+<td>no</td>
+<td>Usage information object - see <a href="#v3-offer-usage-model">Offer usage model</a></td>
+</tr>
+<tr>
+<td>extras</td>
+<td>Object</td>
+<td>no (may be empty)</td>
+<td>Extendable container for any potential extra data</td>
+</tr>
+</tbody></table>
+
+<h3 id="offer-usage"><a name="v3-offer-usage-model"></a> Offer usage</h3>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Optional?</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>usable</td>
+<td>Boolean</td>
+<td>no</td>
+<td>Is the offer usable?</td>
+</tr>
+<tr>
+<td>max_uses</td>
+<td>integer</td>
+<td>yes</td>
+<td>Maximum number of times the specific member can use the offer. When null, there&rsquo;s no limit.</td>
+</tr>
+<tr>
+<td>uses_left</td>
+<td>integer</td>
+<td>yes</td>
+<td>How many more times the specific member can use the offer - this number can be also affected by global offer limit. When null, there&rsquo;s no limit.</td>
+</tr>
+<tr>
+<td>active_until</td>
+<td>Date</td>
+<td>yes</td>
+<td>The last time time the offer has been used at+ activation time (configurable per Loyalty Club, e.x. 30s). When null, the offer has not been activated (used) yet</td>
+</tr>
+</tbody></table>
+
+<h3 id="collection"><a name="v3-offers-collection-model"></a> Collection</h3>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Optional?</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>no</td>
+<td></td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td>yes</td>
+<td></td>
+</tr>
+<tr>
+<td>description</td>
+<td>string</td>
+<td>yes</td>
+<td></td>
+</tr>
+<tr>
+<td>short_description</td>
+<td>string</td>
+<td>yes</td>
+<td></td>
+</tr>
+<tr>
+<td>offers_order</td>
+<td>integer[]</td>
+<td>no (may be empty)</td>
+<td>Describes order in which offers should be displayed inside this collection</td>
+</tr>
+<tr>
+<td>files</td>
+<td>File[]</td>
+<td>no</td>
+<td>A list of Offer Files - see <a href="#v3-file-model">File model</a></td>
+</tr>
+</tbody></table>
+
+<h2 id="get-offers-meta"><a name="v3-offers-meta"></a> Get offers meta</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="se">\</span>
+<span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/members/me/offers/meta"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'Authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+    -H <span class="s1">'X-User-Agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>When successful (200), returns an object structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"-50%"</span><span class="p">,</span><span class="w"> </span><span class="s2">"great deal"</span><span class="p">,</span><span class="w"> </span><span class="s2">"2 + 1"</span><span class="p">],</span><span class="w">
+    </span><span class="s2">"shops"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"M&amp;H"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Doo Doo"</span><span class="p">],</span><span class="w">
+    </span><span class="s2">"collections"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000016</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Collection #1"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"short_title"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"offers_order"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1000115</span><span class="p">,</span><span class="w"> </span><span class="mi">1000112</span><span class="p">,</span><span class="w"> </span><span class="mi">1000114</span><span class="p">],</span><span class="w">
+            </span><span class="s2">"files"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://offers-api.s3.eu-central-1.amazonaws.com/collection-1000016-collection_cover_default-original.jpg"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"collection_cover_default"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"size_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"original"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://offers-api.s3.eu-central-1.amazonaws.com/collection-1000016-collection_cover_default-thumbnail.jpg"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">150</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"collection_cover_default"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"size_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"thumbnail"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://offers-api.s3.eu-central-1.amazonaws.com/collection-1000016-collection_cover_default-base.jpg"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"collection_cover_default"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"size_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"base"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"activated_seconds_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">35</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"usage_authorization_tokens"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"secret"</span><span class="p">,</span><span class="w"> </span><span class="s2">"another-secret"</span><span class="p">,</span><span class="w"> </span><span class="s2">"06edd7397efa83b1e4d07a195324b8a5a"</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>GET</strong> <code class="prettyprint">v3/infinity-mall/members/me/offers/meta</code> [<a href="#v3-oauth2">OAuth</a>]</p>
+
+<p>Returns offers metadata which consists of:</p>
+
+<ul>
+<li>aggregated lists of records currently associated with offers (shops, tags, collections)</li>
+<li>Loyalty Club configuration</li>
+</ul>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>preview</td>
+<td>Boolean</td>
+<td>false</td>
+<td>See <a href="#v3-offers-preview"><code class="prettyprint">preview</code> param</a></td>
+</tr>
+</tbody></table>
+
+<h3 id="response-json-object">Response (JSON object)</h3>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Optional?</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>tags</td>
+<td>string[]</td>
+<td>no (may be empty)</td>
+<td>List of unique tags assigned to offers</td>
+</tr>
+<tr>
+<td>shops</td>
+<td>string[]</td>
+<td>no (may be empty)</td>
+<td>List of unique shops assigned to offers</td>
+</tr>
+<tr>
+<td>collections</td>
+<td>Collection[]</td>
+<td>no (may be empty)</td>
+<td>List of unique collections assigned to offers - see <a href="#v3-offers-collection-model">Collection model</a></td>
+</tr>
+<tr>
+<td>activated_seconds_time</td>
+<td>integer</td>
+<td>no</td>
+<td>Number of seconds the offers stays active after member uses it</td>
+</tr>
+<tr>
+<td>usage_authorization_tokens</td>
+<td>string[]</td>
+<td>no (may be empty)</td>
+<td>List of tokens permitted to use the offers. See <a href="#v3-usage-token"><code class="prettyprint">X-Usage-Token</code> header</a></td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Offers:Api:MemberOffers:GetMeta</code> permit
+</aside>
+
+<h2 id="get-offer"><a name="v3-get-offer"></a> Get offer</h2>
+
+<p><strong>GET</strong> <code class="prettyprint">v3/infinity-mall/members/me/offers/:id</code> [<a href="#v3-oauth2">OAuth</a>]</p>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="se">\</span>
+<span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/members/me/offers/1000016"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'Authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+    -H <span class="s1">'X-User-Agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>When successful (200), returns an Offer object under &ldquo;offer&rdquo; key. See <a href="#v3-offer-model">Offer model</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"offer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="err">//</span><span class="w"> </span><span class="err">(...)</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">Offer</span><span class="w"> </span><span class="err">model</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Returns details of the specified offer.</p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>preview</td>
+<td>Boolean</td>
+<td>false</td>
+<td>See <a href="#v3-offers-preview"><code class="prettyprint">preview</code> param</a></td>
+</tr>
+</tbody></table>
+
+<h3 id="response-json-object">Response (JSON object)</h3>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Optional?</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>offer</td>
+<td>Offer</td>
+<td>no</td>
+<td>See <a href="#v3-offer-model">Offer model</a></td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Offers:Api:MemberOffers:Get</code> permit
+</aside>
+
+<h2 id="list-offers"><a name="v3-list-offers"></a> List offers</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="se">\</span>
+<span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/members/me/offers"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'Authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+    -H <span class="s1">'X-User-Agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>When successful (200), returns a list of offers and pagination info. 
+  See <a href="#v3-offer-model">Offer model</a> and <a href="#pagination-json-model">Pagination info model</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"offers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="err">//</span><span class="w"> </span><span class="err">(...)</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">Offer</span><span class="w"> </span><span class="err">model</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"pagination_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="err">//</span><span class="w"> </span><span class="err">(...)</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">Pagination</span><span class="w"> </span><span class="err">info</span><span class="w"> </span><span class="err">model</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>GET</strong> <code class="prettyprint">v3/infinity-mall/members/me/offers</code> [<a href="#v3-oauth2">OAuth</a>]</p>
+
+<p>Returns offers list.</p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>per_page</td>
+<td>integer</td>
+<td>100</td>
+<td>Number of results to be returned per request (100 is the maximum)</td>
+</tr>
+<tr>
+<td>page_no</td>
+<td>integer</td>
+<td>1</td>
+<td>Number of results page</td>
+</tr>
+<tr>
+<td>preview</td>
+<td>boolean</td>
+<td>false</td>
+<td>See <a href="#v3-offers-preview"><code class="prettyprint">preview</code> param</a></td>
+</tr>
+<tr>
+<td>include_total</td>
+<td>boolean</td>
+<td>false</td>
+<td>When true, detailed pagination info (containing info like total records count, next page) will be returned</td>
+</tr>
+<tr>
+<td>sort_by</td>
+<td>string</td>
+<td>&ldquo;name&rdquo;</td>
+<td>What attribute should results be sorted by? Supported attributes are: <code class="prettyprint">[&quot;name&quot;, &quot;usable_since&quot;, &quot;usable_until&quot;]</code></td>
+</tr>
+<tr>
+<td>sort_direction</td>
+<td>string</td>
+<td>&ldquo;asc&rdquo;</td>
+<td>Direction of sorting: &ldquo;asc&rdquo; or &ldquo;desc&rdquo;</td>
+</tr>
+<tr>
+<td>collection_ids</td>
+<td>integer[]</td>
+<td>null</td>
+<td>When present, only offers belonging to least one of given collections will be returned</td>
+</tr>
+<tr>
+<td>tags</td>
+<td>string[]</td>
+<td>null</td>
+<td>When present, only offers having at least one of given tags will be returned</td>
+</tr>
+<tr>
+<td>shops</td>
+<td>string[]</td>
+<td>null</td>
+<td>When present, only offers having at least one of given shops will be returned</td>
+</tr>
+<tr>
+<td>campaign_id</td>
+<td>integer[]</td>
+<td>null</td>
+<td>When present, only offers with this campaign_id will be returned</td>
+</tr>
+<tr>
+<td>search</td>
+<td>string</td>
+<td>null</td>
+<td>When present, only offers that match the query string will be returned</td>
+</tr>
+<tr>
+<td>only_usable</td>
+<td>boolean</td>
+<td>false</td>
+<td>When true, only offers that are usable will be returned</td>
+</tr>
+</tbody></table>
+
+<p>All parameters are optional.</p>
+
+<h3 id="response-json-object">Response (JSON object)</h3>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Optional?</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>offers</td>
+<td>Offer[]</td>
+<td>no (may be empty)</td>
+<td>See <a href="#v3-offer-model">Offer model</a></td>
+</tr>
+<tr>
+<td>pagination_info</td>
+<td>PaginationInfo</td>
+<td>no</td>
+<td>See <a href="#pagination-json-model">Pagination info model</a></td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Offers:Api:MemberOffers:ListVisibleByMemberId</code> permit
+</aside>
+
+<h2 id="use-offer"><a name="v3-use-offer"></a> Use offer</h2>
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
+<span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/members/me/offers/1000016"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'Authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+    -H <span class="s1">'X-User-Agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>When successful (200), returns a Offer usage object - See <a href="#v3-offer-usage-model">Offer usage model</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"usage"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"usable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"max_uses"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"uses_left"</span><span class="p">:</span><span class="w"> </span><span class="mi">68</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"active_until"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-08T14:47:22.323Z"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>POST</strong> <code class="prettyprint">v3/infinity-mall/members/me/offers/:id/use</code> [<a href="#v3-oauth2">OAuth</a>]</p>
+
+<p>Uses (activates) the offer by member.</p>
+
+<h3 id="x-usage-token-header"><a name="v3-usage-token"></a> <code class="prettyprint">X-Usage-Token</code> header</h3>
+
+<p>It is possible to require user to provide a token (for example, encoded as a QR code) before he is able to use the offer.</p>
+
+<p>In such case, the token should be sent as a <code class="prettyprint">X-Usage-Token</code> header. When such header is present, it&rsquo;s value 
+is validated against the list of tokens configured for Loyalty Club. 
+A corresponding error message will be returned when token happens to be invalid.</p>
+
+<h3 id="error-responses">Error responses</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Response body</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">404</code></td>
+<td><code class="prettyprint">{&quot;error&quot;: &quot;Offer#10000951 not found&quot;}</code></td>
+<td>-</td>
+</tr>
+<tr>
+<td><code class="prettyprint">422</code></td>
+<td><code class="prettyprint">{&quot;error&quot;: &quot;Already active&quot;}</code></td>
+<td>The offer has been just used</td>
+</tr>
+<tr>
+<td><code class="prettyprint">422</code></td>
+<td><code class="prettyprint">{&quot;error&quot;: &quot;Not granted&quot;}</code></td>
+<td>The offer has not been purchased by member</td>
+</tr>
+<tr>
+<td><code class="prettyprint">422</code></td>
+<td><code class="prettyprint">{&quot;error&quot;: &quot;Usage authorization token invalid&quot;}</code></td>
+<td>Provided usage token is invalid</td>
+</tr>
+<tr>
+<td><code class="prettyprint">422</code></td>
+<td><code class="prettyprint">{&quot;error&quot;: &quot;User limit exceeded&quot;}</code></td>
+<td>There are no more offers available to purchase for the member</td>
+</tr>
+<tr>
+<td><code class="prettyprint">422</code></td>
+<td><code class="prettyprint">{&quot;error&quot;: &quot;Global limit exceeded&quot;}</code></td>
+<td>There are no more offers available globally (stock is empty)</td>
+</tr>
+<tr>
+<td><code class="prettyprint">422</code></td>
+<td><code class="prettyprint">{&quot;error&quot;: &quot;Not in usable timeframes&quot;}</code></td>
+<td>Offer is not usable yet or anymore</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Offers:Api:MemberOffers:Use</code> permit
+</aside>
+
+<h2 id="like-offer"><a name="v3-like-offer"></a> Like offer</h2>
+
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X PUT <span class="se">\</span>
+<span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/members/me/offers/1000016/like"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'Authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+    -H <span class="s1">'X-User-Agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>When successful (200), returns an empty object:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="err">//</span><span class="w"> </span><span class="err">Empty</span><span class="w"> </span><span class="err">object</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>PUT</strong> <code class="prettyprint">v3/infinity-mall/members/me/offers/:id/like</code> [<a href="#v3-oauth2">OAuth</a>]</p>
+
+<p>Marks offer as &ldquo;liked&rdquo; by user.</p>
+
+<aside class="notice">
+Requires <code>Offers:Api:MemberOffers:Like</code> permit
+</aside>
+
+<h2 id="unlike-offer"><a name="v3-unlike-offer"></a> Unlike offer</h2>
+
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X PUT <span class="se">\</span>
+<span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/members/me/offers/1000016/unlike"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'Authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+    -H <span class="s1">'X-User-Agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>When successful (200), returns an empty object:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="err">//</span><span class="w"> </span><span class="err">Empty</span><span class="w"> </span><span class="err">object</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>PUT</strong> <code class="prettyprint">v3/infinity-mall/members/me/offers/:id/unlike</code> [<a href="#v3-oauth2">OAuth</a>]</p>
+
+<p>Marks offer as &ldquo;unliked&rdquo; by user.</p>
+
+<aside class="notice">
+Requires <code>Offers:Api:MemberOffers:Like</code> permit
+</aside>
+
+          <h1 id="endpoints-rewards-program">Endpoints &bull; Rewards Program</h1>
 
 <h2 id="introduction">Introduction</h2>
 
@@ -4965,7 +5725,7 @@ Requires <code>Rewards:Api:Memberships:CheckStatus</code> permit
 Requires <code>Rewards:Api:OAuth:Memberships:CheckStatus</code> permit
 </aside>
 
-          <h1 id="endpoints-rewards-wip">Endpoints &bull; Rewards (WIP)</h1>
+          <h1 id="endpoints-rewards">Endpoints &bull; Rewards</h1>
 
 <h2 id="list"><a name="v3-rewards-list"></a> List</h2>
 
@@ -5163,7 +5923,7 @@ Requires <code>Rewards:Api:OAuth:Rewards:List</code> permit
 <tr>
 <td>active_until</td>
 <td>Date</td>
-<td>(optional) The last time time the reward has been used + activation time (configurable per Loyalty Club, e.x. 30s). When null, the reward has not been activated (used) yet</td>
+<td>(optional) The last time time the reward has been used at + activation time (configurable per Loyalty Club, e.x. 30s). When null, the reward has not been activated (used) yet</td>
 </tr>
 <tr>
 <td>usable</td>
@@ -5256,11 +6016,7 @@ Requires <code>Rewards:Api:OAuth:Rewards:Purchase</code> permit
 
 <h3 id="x-usage-token-header"><code class="prettyprint">X-Usage-Token</code> header</h3>
 
-<p>It is possible to require user to provide a token (for example, encoded with QR code) before he is able to use the offer.</p>
-
-<p>In such case, the token should be sent as a <code class="prettyprint">X-Usage-Token</code> header. When such header is present, it&rsquo;s value 
-is validated against the list of tokens configured for Loyalty Club. 
-A corresponding error message will be returned when token happens to be invalid.</p>
+<p>It is possible to require user to provide a token before he is able to use the reward. See <a href="#v3-usage-token"><code class="prettyprint">X-Usage-Token</code> header</a></p>
 
 <h3 id="response-json-object">Response (JSON object)</h3>
 
@@ -6052,6 +6808,19 @@ Requires <code>Files:Api:GetSchema</code> permit
 </aside>
 
           <h1 id="changelog">Changelog</h1>
+
+<h3 id="06-05-2019-piotr-witlicki">06.05.2019 | Piotr Świtlicki:</h3>
+
+<p>Offers</p>
+
+<ul>
+<li>Add <code class="prettyprint">GET /v3/infinity-mall/members/me/offers/meta</code> (<a href="#v3-offers-meta">Offers &bull; Get offers meta</a>)</li>
+<li>Add <code class="prettyprint">GET /v3/infinity-mall/members/me/offers/:id</code> (<a href="#v3-get-offer">Offers &bull; Get offer</a>)</li>
+<li>Add <code class="prettyprint">GET /v3/infinity-mall/members/me/offers</code> (<a href="#v3-list-offers">Offers &bull; List offers</a>)</li>
+<li>Add <code class="prettyprint">POST /v3/infinity-mall/members/me/offers/:id/use</code> (<a href="#v3-use-offer">Offers &bull; Use offer</a>)</li>
+<li>Add <code class="prettyprint">PUT /v3/infinity-mall/members/me/offers/:id/like</code> (<a href="#v3-like-offer">Offers &bull; Like offer</a>)</li>
+<li>Add <code class="prettyprint">PUT /v3/infinity-mall/members/me/offers/:id/unlike</code> (<a href="#v3-unlike-offer">Offers &bull; Unlike offer</a>)</li>
+</ul>
 
 <h3 id="16-04-2019-piotr-witlicki">16.04.2019 | Piotr Świtlicki:</h3>
 

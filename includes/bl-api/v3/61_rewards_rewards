@@ -1,4 +1,4 @@
-<h1 id="endpoints-rewards-wip">Endpoints &bull; Rewards (WIP)</h1>
+<h1 id="endpoints-rewards">Endpoints &bull; Rewards</h1>
 
 <h2 id="list"><a name="v3-rewards-list"></a> List</h2>
 
@@ -196,7 +196,7 @@ Requires <code>Rewards:Api:OAuth:Rewards:List</code> permit
 <tr>
 <td>active_until</td>
 <td>Date</td>
-<td>(optional) The last time time the reward has been used + activation time (configurable per Loyalty Club, e.x. 30s). When null, the reward has not been activated (used) yet</td>
+<td>(optional) The last time time the reward has been used at + activation time (configurable per Loyalty Club, e.x. 30s). When null, the reward has not been activated (used) yet</td>
 </tr>
 <tr>
 <td>usable</td>
@@ -289,11 +289,7 @@ Requires <code>Rewards:Api:OAuth:Rewards:Purchase</code> permit
 
 <h3 id="x-usage-token-header"><code class="prettyprint">X-Usage-Token</code> header</h3>
 
-<p>It is possible to require user to provide a token (for example, encoded with QR code) before he is able to use the offer.</p>
-
-<p>In such case, the token should be sent as a <code class="prettyprint">X-Usage-Token</code> header. When such header is present, it&rsquo;s value 
-is validated against the list of tokens configured for Loyalty Club. 
-A corresponding error message will be returned when token happens to be invalid.</p>
+<p>It is possible to require user to provide a token before he is able to use the reward. See <a href="#v3-usage-token"><code class="prettyprint">X-Usage-Token</code> header</a></p>
 
 <h3 id="response-json-object">Response (JSON object)</h3>
 
