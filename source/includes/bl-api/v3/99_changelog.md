@@ -1,48 +1,51 @@
 # Changelog
 
+### 13.05.2019 | Piotr Świtlicki:
+* Add `GET /v3/:loyalty_club_slug/translations` ([Translations &bull; List](#v3-list-translations))
+
 ### 06.05.2019 | Piotr Świtlicki:
 Offers
 
-* Add `GET /v3/infinity-mall/members/me/offers/meta` ([Offers &bull; Get offers meta](#v3-offers-meta))
-* Add `GET /v3/infinity-mall/members/me/offers/:id` ([Offers &bull; Get offer](#v3-get-offer))
-* Add `GET /v3/infinity-mall/members/me/offers` ([Offers &bull; List offers](#v3-list-offers))
-* Add `POST /v3/infinity-mall/members/me/offers/:id/use` ([Offers &bull; Use offer](#v3-use-offer))
-* Add `PUT /v3/infinity-mall/members/me/offers/:id/like` ([Offers &bull; Like offer](#v3-like-offer))
-* Add `PUT /v3/infinity-mall/members/me/offers/:id/unlike` ([Offers &bull; Unlike offer](#v3-unlike-offer))
+* Add `GET /v3/:loyalty_club_slug/members/me/offers/meta` ([Offers &bull; Get offers meta](#v3-offers-meta))
+* Add `GET /v3/:loyalty_club_slug/members/me/offers/:id` ([Offers &bull; Get offer](#v3-get-offer))
+* Add `GET /v3/:loyalty_club_slug/members/me/offers` ([Offers &bull; List offers](#v3-list-offers))
+* Add `POST /v3/:loyalty_club_slug/members/me/offers/:id/use` ([Offers &bull; Use offer](#v3-use-offer))
+* Add `PUT /v3/:loyalty_club_slug/members/me/offers/:id/like` ([Offers &bull; Like offer](#v3-like-offer))
+* Add `PUT /v3/:loyalty_club_slug/members/me/offers/:id/unlike` ([Offers &bull; Unlike offer](#v3-unlike-offer))
 
 ### 16.04.2019 | Piotr Świtlicki:
 * Add `X-Usage-Token` header to [Rewards &bull; Use](#v3-rewards-use)
 
 ### 07.03.2019 | Piotr Świtlicki:
-* Add `GET /v3/infinity-mall/rewards-program/status/achievements_summary` ([Rewards Program &bull; Achievements summary](#v3-rewards-program-achievements-summary))
+* Add `GET /v3/:loyalty_club_slug/rewards-program/status/achievements_summary` ([Rewards Program &bull; Achievements summary](#v3-rewards-program-achievements-summary))
 
 ### 06.03.2019 | Piotr Świtlicki:
 * Add file schema info ([General info&bull; Files schema](#v3-file-schema))
-* Add `GET /v3/infinity-mall/files/schema` ([Files&bull; Get schema](#v3-get-file-schema))
+* Add `GET /v3/:loyalty_club_slug/files/schema` ([Files&bull; Get schema](#v3-get-file-schema))
 
 ### 27.02.2019 | Jakub Kruczek:
 * Extend consent definitions example ([Loyalty Clubs &bull; Get schema](#v3-loyalty-clubs-schema))
 
 ### 27.02.2019 | Adam Kuś:
-* Add `POST /v3/infinity-mall/transactions` ([Transactions &bull; Create](#v3-transactions-create))
-* Add `GET /v3/infinity-mall/transactions` ([Transactions &bull; List](#v3-transactions-list))
-* Add `GET /v3/infinity-mall/transactions/:id` ([Transactions &bull; Get](#v3-transactions-get))
+* Add `POST /v3/:loyalty_club_slug/transactions` ([Transactions &bull; Create](#v3-transactions-create))
+* Add `GET /v3/:loyalty_club_slug/transactions` ([Transactions &bull; List](#v3-transactions-list))
+* Add `GET /v3/:loyalty_club_slug/transactions/:id` ([Transactions &bull; Get](#v3-transactions-get))
 
 ### 19.02.2019 | Piotr Świtlicki:
-* Add `GET /v3/infinity-mall/members/:id/rewards-program/status` ([Rewards Program &bull; Get status by member ID](#v3-rewards-program-status-by-member-id))
+* Add `GET /v3/:loyalty_club_slug/members/:id/rewards-program/status` ([Rewards Program &bull; Get status by member ID](#v3-rewards-program-status-by-member-id))
 
 ### 08.02.2019 | Piotr Świtlicki:
 
 Boostcom Rewards draft
 
-* Add `GET /v3/infinity-mall/rewards-program/info` ([Rewards Program &bull; Get Info](#v3-rewards-program-info))
-* Add `POST /v3/infinity-mall/members/me/rewards-program/join` ([Rewards Program &bull; Join](#v3-rewards-program-join))
-* Add `DELETE /v3/infinity-mall/members/me/rewards-program/leave` ([Rewards Program &bull; Leave](#v3-rewards-program-leave))
-* Add `GET /v3/infinity-mall/members/me/rewards-program/status` ([Rewards Program &bull; Get status](#v3-rewards-program-status))
-* Add `GET /v3/infinity-mall/members/me/rewards-program/rewards` ([Rewards &bull; List](#v3-rewards-list))
-* Add `GET /v3/infinity-mall/members/me/rewards-program/rewards/purchased` ([Rewards &bull; List purchased](#v3-rewards-list-purchased))
-* Add `POST /v3/infinity-mall/members/me/rewards-program/rewards/:id/purchase` ([Rewards &bull; Purchase](#v3-rewards-purchase))
-* Add `POST /v3/infinity-mall/members/me/rewards-program/rewards/:id/use` ([Rewards &bull; Use](#v3-rewards-use))
+* Add `GET /v3/:loyalty_club_slug/rewards-program/info` ([Rewards Program &bull; Get Info](#v3-rewards-program-info))
+* Add `POST /v3/:loyalty_club_slug/members/me/rewards-program/join` ([Rewards Program &bull; Join](#v3-rewards-program-join))
+* Add `DELETE /v3/:loyalty_club_slug/members/me/rewards-program/leave` ([Rewards Program &bull; Leave](#v3-rewards-program-leave))
+* Add `GET /v3/:loyalty_club_slug/members/me/rewards-program/status` ([Rewards Program &bull; Get status](#v3-rewards-program-status))
+* Add `GET /v3/:loyalty_club_slug/members/me/rewards-program/rewards` ([Rewards &bull; List](#v3-rewards-list))
+* Add `GET /v3/:loyalty_club_slug/members/me/rewards-program/rewards/purchased` ([Rewards &bull; List purchased](#v3-rewards-list-purchased))
+* Add `POST /v3/:loyalty_club_slug/members/me/rewards-program/rewards/:id/purchase` ([Rewards &bull; Purchase](#v3-rewards-purchase))
+* Add `POST /v3/:loyalty_club_slug/members/me/rewards-program/rewards/:id/use` ([Rewards &bull; Use](#v3-rewards-use))
 
 ### 07.02.2019 | Dominik Halat:
 
