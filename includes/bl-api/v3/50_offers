@@ -148,7 +148,7 @@ response will be user-agnostic.</p>
 <td>tags</td>
 <td>string[]</td>
 <td>no (may be empty)</td>
-<td>List of tags associated with the offer</td>
+<td>List of tags identifiers associated with the offer. Information from <a href="#v3-list-translations">Translations &bull; List</a> should be used to display the tags.</td>
 </tr>
 <tr>
 <td>shops</td>
