@@ -1,16 +1,22 @@
 <h1 id="changelog">Changelog</h1>
 
+<h3 id="13-05-2019-piotr-witlicki">13.05.2019 | Piotr Świtlicki:</h3>
+
+<ul>
+<li>Add <code class="prettyprint">GET /v3/:loyalty_club_slug/translations</code> (<a href="#v3-list-translations">Translations &bull; List</a>)</li>
+</ul>
+
 <h3 id="06-05-2019-piotr-witlicki">06.05.2019 | Piotr Świtlicki:</h3>
 
 <p>Offers</p>
 
 <ul>
-<li>Add <code class="prettyprint">GET /v3/infinity-mall/members/me/offers/meta</code> (<a href="#v3-offers-meta">Offers &bull; Get offers meta</a>)</li>
-<li>Add <code class="prettyprint">GET /v3/infinity-mall/members/me/offers/:id</code> (<a href="#v3-get-offer">Offers &bull; Get offer</a>)</li>
-<li>Add <code class="prettyprint">GET /v3/infinity-mall/members/me/offers</code> (<a href="#v3-list-offers">Offers &bull; List offers</a>)</li>
-<li>Add <code class="prettyprint">POST /v3/infinity-mall/members/me/offers/:id/use</code> (<a href="#v3-use-offer">Offers &bull; Use offer</a>)</li>
-<li>Add <code class="prettyprint">PUT /v3/infinity-mall/members/me/offers/:id/like</code> (<a href="#v3-like-offer">Offers &bull; Like offer</a>)</li>
-<li>Add <code class="prettyprint">PUT /v3/infinity-mall/members/me/offers/:id/unlike</code> (<a href="#v3-unlike-offer">Offers &bull; Unlike offer</a>)</li>
+<li>Add <code class="prettyprint">GET /v3/:loyalty_club_slug/members/me/offers/meta</code> (<a href="#v3-offers-meta">Offers &bull; Get offers meta</a>)</li>
+<li>Add <code class="prettyprint">GET /v3/:loyalty_club_slug/members/me/offers/:id</code> (<a href="#v3-get-offer">Offers &bull; Get offer</a>)</li>
+<li>Add <code class="prettyprint">GET /v3/:loyalty_club_slug/members/me/offers</code> (<a href="#v3-list-offers">Offers &bull; List offers</a>)</li>
+<li>Add <code class="prettyprint">POST /v3/:loyalty_club_slug/members/me/offers/:id/use</code> (<a href="#v3-use-offer">Offers &bull; Use offer</a>)</li>
+<li>Add <code class="prettyprint">PUT /v3/:loyalty_club_slug/members/me/offers/:id/like</code> (<a href="#v3-like-offer">Offers &bull; Like offer</a>)</li>
+<li>Add <code class="prettyprint">PUT /v3/:loyalty_club_slug/members/me/offers/:id/unlike</code> (<a href="#v3-unlike-offer">Offers &bull; Unlike offer</a>)</li>
 </ul>
 
 <h3 id="16-04-2019-piotr-witlicki">16.04.2019 | Piotr Świtlicki:</h3>
@@ -22,14 +28,14 @@
 <h3 id="07-03-2019-piotr-witlicki">07.03.2019 | Piotr Świtlicki:</h3>
 
 <ul>
-<li>Add <code class="prettyprint">GET /v3/infinity-mall/rewards-program/status/achievements_summary</code> (<a href="#v3-rewards-program-achievements-summary">Rewards Program &bull; Achievements summary</a>)</li>
+<li>Add <code class="prettyprint">GET /v3/:loyalty_club_slug/rewards-program/status/achievements_summary</code> (<a href="#v3-rewards-program-achievements-summary">Rewards Program &bull; Achievements summary</a>)</li>
 </ul>
 
 <h3 id="06-03-2019-piotr-witlicki">06.03.2019 | Piotr Świtlicki:</h3>
 
 <ul>
 <li>Add file schema info (<a href="#v3-file-schema">General info&bull; Files schema</a>)</li>
-<li>Add <code class="prettyprint">GET /v3/infinity-mall/files/schema</code> (<a href="#v3-get-file-schema">Files&bull; Get schema</a>)</li>
+<li>Add <code class="prettyprint">GET /v3/:loyalty_club_slug/files/schema</code> (<a href="#v3-get-file-schema">Files&bull; Get schema</a>)</li>
 </ul>
 
 <h3 id="27-02-2019-jakub-kruczek">27.02.2019 | Jakub Kruczek:</h3>
@@ -41,15 +47,15 @@
 <h3 id="27-02-2019-adam-ku">27.02.2019 | Adam Kuś:</h3>
 
 <ul>
-<li>Add <code class="prettyprint">POST /v3/infinity-mall/transactions</code> (<a href="#v3-transactions-create">Transactions &bull; Create</a>)</li>
-<li>Add <code class="prettyprint">GET /v3/infinity-mall/transactions</code> (<a href="#v3-transactions-list">Transactions &bull; List</a>)</li>
-<li>Add <code class="prettyprint">GET /v3/infinity-mall/transactions/:id</code> (<a href="#v3-transactions-get">Transactions &bull; Get</a>)</li>
+<li>Add <code class="prettyprint">POST /v3/:loyalty_club_slug/transactions</code> (<a href="#v3-transactions-create">Transactions &bull; Create</a>)</li>
+<li>Add <code class="prettyprint">GET /v3/:loyalty_club_slug/transactions</code> (<a href="#v3-transactions-list">Transactions &bull; List</a>)</li>
+<li>Add <code class="prettyprint">GET /v3/:loyalty_club_slug/transactions/:id</code> (<a href="#v3-transactions-get">Transactions &bull; Get</a>)</li>
 </ul>
 
 <h3 id="19-02-2019-piotr-witlicki">19.02.2019 | Piotr Świtlicki:</h3>
 
 <ul>
-<li>Add <code class="prettyprint">GET /v3/infinity-mall/members/:id/rewards-program/status</code> (<a href="#v3-rewards-program-status-by-member-id">Rewards Program &bull; Get status by member ID</a>)</li>
+<li>Add <code class="prettyprint">GET /v3/:loyalty_club_slug/members/:id/rewards-program/status</code> (<a href="#v3-rewards-program-status-by-member-id">Rewards Program &bull; Get status by member ID</a>)</li>
 </ul>
 
 <h3 id="08-02-2019-piotr-witlicki">08.02.2019 | Piotr Świtlicki:</h3>
@@ -57,14 +63,14 @@
 <p>Boostcom Rewards draft</p>
 
 <ul>
-<li>Add <code class="prettyprint">GET /v3/infinity-mall/rewards-program/info</code> (<a href="#v3-rewards-program-info">Rewards Program &bull; Get Info</a>)</li>
-<li>Add <code class="prettyprint">POST /v3/infinity-mall/members/me/rewards-program/join</code> (<a href="#v3-rewards-program-join">Rewards Program &bull; Join</a>)</li>
-<li>Add <code class="prettyprint">DELETE /v3/infinity-mall/members/me/rewards-program/leave</code> (<a href="#v3-rewards-program-leave">Rewards Program &bull; Leave</a>)</li>
-<li>Add <code class="prettyprint">GET /v3/infinity-mall/members/me/rewards-program/status</code> (<a href="#v3-rewards-program-status">Rewards Program &bull; Get status</a>)</li>
-<li>Add <code class="prettyprint">GET /v3/infinity-mall/members/me/rewards-program/rewards</code> (<a href="#v3-rewards-list">Rewards &bull; List</a>)</li>
-<li>Add <code class="prettyprint">GET /v3/infinity-mall/members/me/rewards-program/rewards/purchased</code> (<a href="#v3-rewards-list-purchased">Rewards &bull; List purchased</a>)</li>
-<li>Add <code class="prettyprint">POST /v3/infinity-mall/members/me/rewards-program/rewards/:id/purchase</code> (<a href="#v3-rewards-purchase">Rewards &bull; Purchase</a>)</li>
-<li>Add <code class="prettyprint">POST /v3/infinity-mall/members/me/rewards-program/rewards/:id/use</code> (<a href="#v3-rewards-use">Rewards &bull; Use</a>)</li>
+<li>Add <code class="prettyprint">GET /v3/:loyalty_club_slug/rewards-program/info</code> (<a href="#v3-rewards-program-info">Rewards Program &bull; Get Info</a>)</li>
+<li>Add <code class="prettyprint">POST /v3/:loyalty_club_slug/members/me/rewards-program/join</code> (<a href="#v3-rewards-program-join">Rewards Program &bull; Join</a>)</li>
+<li>Add <code class="prettyprint">DELETE /v3/:loyalty_club_slug/members/me/rewards-program/leave</code> (<a href="#v3-rewards-program-leave">Rewards Program &bull; Leave</a>)</li>
+<li>Add <code class="prettyprint">GET /v3/:loyalty_club_slug/members/me/rewards-program/status</code> (<a href="#v3-rewards-program-status">Rewards Program &bull; Get status</a>)</li>
+<li>Add <code class="prettyprint">GET /v3/:loyalty_club_slug/members/me/rewards-program/rewards</code> (<a href="#v3-rewards-list">Rewards &bull; List</a>)</li>
+<li>Add <code class="prettyprint">GET /v3/:loyalty_club_slug/members/me/rewards-program/rewards/purchased</code> (<a href="#v3-rewards-list-purchased">Rewards &bull; List purchased</a>)</li>
+<li>Add <code class="prettyprint">POST /v3/:loyalty_club_slug/members/me/rewards-program/rewards/:id/purchase</code> (<a href="#v3-rewards-purchase">Rewards &bull; Purchase</a>)</li>
+<li>Add <code class="prettyprint">POST /v3/:loyalty_club_slug/members/me/rewards-program/rewards/:id/use</code> (<a href="#v3-rewards-use">Rewards &bull; Use</a>)</li>
 </ul>
 
 <h3 id="07-02-2019-dominik-halat">07.02.2019 | Dominik Halat:</h3>
