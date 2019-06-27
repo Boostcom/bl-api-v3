@@ -5165,7 +5165,59 @@ The rules are described below.</p>
 </tr>
 </tbody></table>
 
-<h3 id="common-error-responses">Common error responses</h3>
+<h3 id="member-levels"><a name="v3-rewards-program-levels-program"></a> Member levels</h3>
+
+<blockquote>
+<p>Example configuration for regular levels</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"regular"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"levels"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"points_threshold"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"points_threshold"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"points_threshold"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"points_threshold"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example configuration for virtual level</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"virtual_level"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"maximum_points"</span><span class="p">:</span><span class="w"> </span><span class="mi">1500</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Loyalty Club may have members level defined (available in <a href="#v3-rewards-program-info">Rewards Program &bull; Get info</a> response).
+There are two types of them: <code class="prettyprint">regular</code> and <code class="prettyprint">virtual_level</code>.</p>
+
+<h4 id="regular-levels">Regular levels</h4>
+
+<p>When regular levels are enabled, members get levels based on the amount of points that they have earned 
+in program (in <strong>total</strong>, not the current balance) and may need to have minimal level to purchase some rewards. </p>
+
+<p>Each level has <code class="prettyprint">points_threshold</code> value (integer) that describes how many points are needed to reach the level (first level always requires 0 points to have).
+Levels are returned in ascending order, sorted by the <code class="prettyprint">points_threshold</code> attribute. </p>
+
+<h4 id="single-virtual-level">Single virtual level</h4>
+
+<p>When single virtual level is enabled, it is just used to show member how he performs in the Rewards Program.</p>
+
+<p>It defines <code class="prettyprint">maximum_points</code> value, that is meant to be compared with member&rsquo;s <strong>current</strong> points balance.</p>
+
+<h2 id="common-error-responses">Common error responses</h2>
 
 <table><thead>
 <tr>
@@ -5216,11 +5268,23 @@ The rules are described below.</p>
       </span><span class="s2">"frequency"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
-  </span><span class="s2">"tiers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w"> </span><span class="s2">"points_threshold"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w"> </span><span class="s2">"points_threshold"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="w"> </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w"> </span><span class="s2">"points_threshold"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="w"> </span><span class="p">}</span><span class="w">
-  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"levels_program"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"regular"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"levels"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"points_threshold"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"points_threshold"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"points_threshold"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">},</span><span class="w">
   </span><span class="s2">"reward_activation_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">35</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -5239,7 +5303,7 @@ The rules are described below.</p>
 </thead><tbody>
 <tr>
 <td>achievements</td>
-<td>Array</td>
+<td>Array<Achievement></td>
 <td>List of Achievement objects - see <a href="#v3-rewards-program-achievements">Achievements</a></td>
 </tr>
 <tr>
@@ -5248,14 +5312,9 @@ The rules are described below.</p>
 <td>Time in seconds describing how long the reward is active after use</td>
 </tr>
 <tr>
-<td>tiers</td>
-<td>Array &lt;Object&gt;</td>
-<td>List of member tier points thresholds</td>
-</tr>
-<tr>
-<td>tiers[&lsquo;points_threshold&rsquo;]</td>
-<td>integer</td>
-<td></td>
+<td>levels_program</td>
+<td>object</td>
+<td>Definition of member levels - see <a href="#v3-rewards-program-levels-program">Levels</a>. When null, there are no levels.</td>
 </tr>
 </tbody></table>
 
@@ -5752,6 +5811,7 @@ Requires <code>Rewards:Api:OAuth:Memberships:CheckStatus</code> permit
       </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Awesome Toaster"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"It has incredible features."</span><span class="p">,</span><span class="w">
       </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"required_member_level"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"remaining_stock"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
       </span><span class="s2">"files"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
@@ -5831,6 +5891,11 @@ Requires <code>Rewards:Api:OAuth:Memberships:CheckStatus</code> permit
 <td>price</td>
 <td>integer</td>
 <td>Number of points that must be spent to purchase the reward</td>
+</tr>
+<tr>
+<td>required_member_level</td>
+<td>string</td>
+<td>(optional) Minimal level name the members needs to have to be able to purchase the reward. See <a href="#v3-rewards-program-levels-program">Levels</a></td>
 </tr>
 <tr>
 <td>remaining_stock</td>
@@ -5978,6 +6043,11 @@ Requires <code>Rewards:Api:OAuth:Rewards:ListPurchased</code> permit
 <td><code class="prettyprint">422</code></td>
 <td><code class="prettyprint">{&quot;error&quot;: &quot;Not enough points&quot;}</code></td>
 <td>Member has no enough points to purchase the reward</td>
+</tr>
+<tr>
+<td><code class="prettyprint">422</code></td>
+<td><code class="prettyprint">{&quot;error&quot;: &quot;Member level is not high enough&quot;}</code></td>
+<td>Member level is not high enough to purchase the reward</td>
 </tr>
 <tr>
 <td><code class="prettyprint">422</code></td>
@@ -6935,6 +7005,12 @@ Requires <code>Translations:Api:Index</code> permit
 </aside>
 
           <h1 id="changelog">Changelog</h1>
+
+<h3 id="27-06-2019-piotr-witlicki">27.06.2019 | Piotr Świtlicki</h3>
+
+<ul>
+<li>Introduce <a href="#v3-rewards-program-levels-program">Levels</a> </li>
+</ul>
 
 <h3 id="13-05-2019-piotr-witlicki">13.05.2019 | Piotr Świtlicki:</h3>
 
