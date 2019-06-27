@@ -1,5 +1,8 @@
 # Changelog
 
+### 27.06.2019 | Piotr Świtlicki
+* Introduce [Levels](#v3-rewards-program-levels-program) 
+
 ### 13.05.2019 | Piotr Świtlicki:
 * Add `GET /v3/:loyalty_club_slug/translations` ([Translations &bull; List](#v3-list-translations))
 

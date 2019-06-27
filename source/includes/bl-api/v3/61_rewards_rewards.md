@@ -23,6 +23,7 @@ curl \
       "name": "Awesome Toaster",
       "description": "It has incredible features.",
       "price": 300,
+      "required_member_level": "2",
       "remaining_stock": 15,
       "files": [
         {
@@ -73,6 +74,7 @@ id | integer |
 name | string | (optional) 
 description | string | (optional)
 price | integer | Number of points that must be spent to purchase the reward
+required_member_level | string| (optional) Minimal level name the members needs to have to be able to purchase the reward. See [Levels](#v3-rewards-program-levels-program)
 remaining_stock | integer | (optional) Number of items that is available for purchase. When null, there is no limit
 files | Array | A list of Reward Files - see [File model](#v3-file-model)
 
@@ -188,6 +190,7 @@ Status | Response body | Description
 --------- | ----------- | -------- 
 `404` | `{"error": "Reward#10000951 not found"}`| -
 `422` | `{"error": "Not enough points"}` | Member has no enough points to purchase the reward
+`422` | `{"error": "Member level is not high enough"}` | Member level is not high enough to purchase the reward
 `422` | `{"error": "Global limit exceeded"}` | There are no more rewards available to purchase
 
 <aside class="notice">

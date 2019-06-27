@@ -39,7 +39,61 @@ geofence_approached | Member approached geofence defined by loyalty club mobile 
 beacon_approached | Member approached one of loyalty club's beacons
 consent_granted | Member granted one of loyalty club's consents
 
-### Common error responses
+### <a name="v3-rewards-program-levels-program"></a> Member levels
+
+> Example configuration for regular levels
+
+```json
+{
+    "type": "regular",
+    "levels": [
+        {
+            "name": "1",
+            "points_threshold": 0
+        },
+        {
+            "name": "2",
+            "points_threshold": 300
+        },
+        {
+            "name": "3",
+            "points_threshold": 500
+        },
+        {
+            "name": "4",
+            "points_threshold": 500
+        }
+    ]
+}
+```
+
+> Example configuration for virtual level
+
+```json
+{
+    "type": "virtual_level",
+    "maximum_points": 1500
+}
+```
+
+Loyalty Club may have members level defined (available in [Rewards Program &bull; Get info](#v3-rewards-program-info) response).
+There are two types of them: `regular` and `virtual_level`.
+
+#### Regular levels
+
+When regular levels are enabled, members get levels based on the amount of points that they have earned 
+in program (in **total**, not the current balance) and may need to have minimal level to purchase some rewards. 
+
+Each level has `points_threshold` value (integer) that describes how many points are needed to reach the level (first level always requires 0 points to have).
+Levels are returned in ascending order, sorted by the `points_threshold` attribute. 
+
+#### Single virtual level
+
+When single virtual level is enabled, it is just used to show member how he performs in the Rewards Program.
+
+It defines `maximum_points` value, that is meant to be compared with member's **current** points balance.
+
+## Common error responses
 
 Status | Response body
 --------- | ----------- 
@@ -80,11 +134,23 @@ curl \
       "frequency": null
     }
   ],
-  "tiers": [
-    { "points_threshold": 100 },
-    { "points_threshold": 500 },
-    { "points_threshold": 1000 }
-  ],
+  "levels_program": {
+    "type": "regular",
+    "levels": [
+        {
+          "name": "1",
+          "points_threshold": 100
+        },
+        {
+          "name": "2",
+          "points_threshold": 300
+        },
+        {
+          "name": "3",
+          "points_threshold": 500
+        }
+    ]
+  },
   "reward_activation_time": 35
 }
 ```
@@ -97,10 +163,9 @@ Returns information about Rewards Program in Loyalty Club.
 
 Key | Type | Description
 --------- | --------- | ---------
-achievements | Array | List of Achievement objects - see [Achievements](#v3-rewards-program-achievements)
+achievements | Array<Achievement> | List of Achievement objects - see [Achievements](#v3-rewards-program-achievements)
 reward_activation_time | integer | Time in seconds describing how long the reward is active after use
-tiers | Array &lt;Object&gt; | List of member tier points thresholds
-tiers['points_threshold'] | integer | 
+levels_program | object |  Definition of member levels - see [Levels](#v3-rewards-program-levels-program). When null, there are no levels.
 
 <aside class="notice">
 Requires <code>Rewards:Api:Program:GetInfo</code> permit
