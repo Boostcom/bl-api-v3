@@ -82,7 +82,9 @@ curl "https://bpc-api.boostcom.no/v3/infinity-mall/members/:id/public_info" \
 ```json
 {
   "exists": true, 
-  "can_login": true 
+  "can_login": true, // deprecated
+  "available_identifiers": ["email"],
+  "has_password": true
 }
 ```
 
@@ -108,7 +110,9 @@ email | Member's email | string (email)
 Key | Type | Description
 --------- | --------- | ---------
 exists | boolean | Does member with given identifier exist in given Loyalty Club? 
-can_login | boolean | Is this member able to sign? 
+can_login | boolean | Is this member able to sign? (deprecated)
+available_identifiers | string[] | Identifiers that are set on member
+has_password | boolean | Was password set by member?
 
 <aside class="notice">
 Requires <code>BL:Api:Members:Check</code> permit
