@@ -127,7 +127,9 @@ Requires <code>BL:Api:Members:Index</code> permit
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"exists"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> 
-  </span><span class="s2">"can_login"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> 
+  </span><span class="s2">"can_login"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">deprecated</span><span class="w">
+  </span><span class="s2">"available_identifiers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"email"</span><span class="p">],</span><span class="w">
+  </span><span class="s2">"has_password"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/:id/public_info</code></p>
@@ -181,7 +183,17 @@ Requires <code>BL:Api:Members:Index</code> permit
 <tr>
 <td>can_login</td>
 <td>boolean</td>
-<td>Is this member able to sign?</td>
+<td>Is this member able to sign? (deprecated)</td>
+</tr>
+<tr>
+<td>available_identifiers</td>
+<td>string[]</td>
+<td>Identifiers that are set on member</td>
+</tr>
+<tr>
+<td>has_password</td>
+<td>boolean</td>
+<td>Was password set by member?</td>
 </tr>
 </tbody></table>
 
@@ -542,13 +554,6 @@ valid <code class="prettyprint">registration_password</code> param that is sent 
 <td>JSON Object</td>
 </tr>
 <tr>
-<td>password</td>
-<td>no</td>
-<td>none</td>
-<td>Member&rsquo;s password. Not required, but user won&rsquo;t be able to log in without this</td>
-<td>string</td>
-</tr>
-<tr>
 <td>sms_enabled</td>
 <td>no</td>
 <td>true</td>
@@ -584,6 +589,13 @@ valid <code class="prettyprint">registration_password</code> param that is sent 
 <td>Boolean</td>
 </tr>
 <tr>
+<td>password</td>
+<td>depends</td>
+<td>none</td>
+<td>Member&rsquo;s password. Not required, but user won&rsquo;t be able to log in without this when only its email is provided</td>
+<td>string</td>
+</tr>
+<tr>
 <td>registration_password</td>
 <td>depends</td>
 <td>none</td>
@@ -612,7 +624,7 @@ valid <code class="prettyprint">registration_password</code> param that is sent 
 </tr>
 <tr>
 <td><code class="prettyprint">465</code></td>
-<td><code class="prettyprint">registration_password</code> param is missing</td>
+<td><code class="prettyprint">registration_password</code> or <code class="prettyprint">password</code> param is missing</td>
 </tr>
 <tr>
 <td><code class="prettyprint">466</code></td>
