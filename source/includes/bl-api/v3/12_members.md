@@ -350,12 +350,12 @@ properties\['language'\] | no | "default_language" from schema | Language used b
 properties\['msisdn'\] | yes* | none | Unique member's msisdn as defined [here](#msisdn-member-identifier)) Example: `4740485124`.| string
 properties\['email'\] | yes* | none | Member's email | string
 consents | no | {} | Member's consents (similar to [Member's consents JSON model](#v3-member-consents-model)) | JSON Object
-password | no | none | Member's password. Not required, but user won't be able to log in without this | string
 sms_enabled | no | true | Should SMS channel be enabled for member? | Boolean
 email_enabled | no | true | Should email channel be enabled for member? | Boolean
 push_enabled | no | true | Should push channel be enabled for member? | Boolean
 send_sms_welcome_message | no | true | Should SMS welcome message be sent to member? | Boolean
 send_email_welcome_message | no | true | Should email welcome be sent to member | Boolean
+password | depends | none | Member's password. Not required, but user won't be able to log in without this when only its email is provided | string
 registration_password | depends | none | Password for registration for member MSISDN verification, see [above](#v3-members-create-registration-password)
 
 &ast; At least one of those properties must be provided
@@ -369,7 +369,7 @@ Created member properties - see: [Member model](#v3-member-model)
 Status | Description
 --------- | ----------- 
 `422` | [validation errors](#validation-on-members) JSON object.
-`465` | `registration_password` param is missing
+`465` | `registration_password` or `password` param is missing
 `466` | `registration_password` param is invalid
 
 <aside class="notice">
