@@ -1,5 +1,16 @@
 # Changelog
 
+### 29.07.2019 | Jakub Kruczek:
+* Deprecate:
+  * [Members &bull; Send one time password SMS](#send-one-time-password-sms)
+  * [Members &bull; Send one time password E-mail](#send-one-time-password-e-mail)
+* Add:
+  * [Members &bull; Send one time password via SMS](#send-one-time-password-via-sms)
+  * [Members &bull; Send one time password via E-mail](#send-one-time-password-via-email)
+
+### 23.07.2019 | Jakub Kruczek:
+* Add additional information in public info endpoints and deprecate "can_login" attribute.
+
 ### 27.06.2019 | Piotr Świtlicki
 * Introduce [Levels](#v3-rewards-program-levels-program) 
 

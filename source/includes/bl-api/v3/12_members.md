@@ -599,12 +599,12 @@ Requires <code>BL:Api:Members:Tokens:Create</code> permit
 
 <!--- ############################################################################################################# --->
 
-## <a name="v3-members-send-one-time-password"></a> Send one time password SMS
+## <a name="v3-members-send-one-time-password-via-sms"></a> Send one time password via SMS
 
 > Example:
 
 ```shell
-curl "https://bpc-api.boostcom.no/v3/infinity-mall/members/by_msisdn/4740485124/send_one_time_password" \
+curl "https://bpc-api.boostcom.no/v3/infinity-mall/members/by_msisdn/4740485124/send_one_time_password_via_sms" \
   -H 'Content-Type: application/json' \
   -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
   -H 'X-Product-Name: default' \
@@ -619,19 +619,33 @@ curl "https://bpc-api.boostcom.no/v3/infinity-mall/members/by_msisdn/4740485124/
 }
 ```
 
-**POST** `/v3/:loyalty_club_slug/members/by_msisdn/:msisdn/send_one_time_password`
+**POST** `/v3/:loyalty_club_slug/members/:id/send_one_time_password_via_sms`
 
-Sends an SMS to given msisdn if it is associated with member in given loyalty club.
+**POST** `/v3/:loyalty_club_slug/members/by_msisdn/:msisdn/send_one_time_password_via_sms`
+
+**POST** `/v3/:loyalty_club_slug/members/by_email/:email/send_one_time_password_via_sms`
+
+Sends an SMS to given member if exists in given loyalty club.
 
 The SMS contains 4-digit One-Time-Password generated for member, valid for 1 hour.
+Optionally it can also include magic link that can be used instead copy-pasting password.
 
-This password then can be used to sign in, just as "regular" member password - see:  [OAuth Token &bull; Create](#v3-token-create).
+This password and token inside magic link then can be used to sign in - see:  [OAuth Token &bull; Create](#v3-token-create).
 
 ### URL Parameters
 
 Parameter | Description | Type
 --------- | ----------- | ------
+id | Member's ID | integer
 msisdn | Member's msisdn | string (format as defined [here](#msisdn-member-identifier) - example: `4740485124`)
+email | Member's email | string (email)
+
+### POST parameters
+
+Parameter | Description | Type | Default
+--------- | ----------- | ------ | ------
+magic_link_url | Magic link url that will be included in message (appended with token) e.g. providing "https://example.com/abc" will result in link "https://example.com/abc?token=abcdefghijk&id=1234". Domain must be first allowed to use as magic link. | string | null
+
 
 <aside class="notice">
 Requires <code>BL:Api:Members:CreateOneTimePassword</code> permit
@@ -639,12 +653,12 @@ Requires <code>BL:Api:Members:CreateOneTimePassword</code> permit
 
 <!--- ############################################################################################################# --->
 
-## <a name="v3-members-send-one-time-password-email"></a> Send one time password E-mail
+## <a name="v3-members-send-one-time-password-via-email"></a> Send one time password via E-mail
 
 > Example:
 
 ```shell
-curl "https://bpc-api.boostcom.no/v3/infinity-mall/members/by_email/user@example.com/send_one_time_password" \
+curl "https://bpc-api.boostcom.no/v3/infinity-mall/members/by_email/user@example.com/send_one_time_password_via_email" \
   -H 'Content-Type: application/json' \
   -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
   -H 'X-Product-Name: default' \
@@ -659,25 +673,31 @@ curl "https://bpc-api.boostcom.no/v3/infinity-mall/members/by_email/user@example
 }
 ```
 
-**POST** `/v3/:loyalty_club_slug/members/by_msisdn/:msisdn/send_one_time_password`
+**POST** `/v3/:loyalty_club_slug/members/:id/send_one_time_password_via_email`
 
-Sends a "Login" e-mail to given address if it is associated with member in given loyalty club. The e-mail contains a deep link to the mobile app.
- 
-The link scheme is: `https://<app_scheme>.al.bstcm.no/lgn?member_id=<member_id>&otp=<otp>` and contains member id and 16-digit password generated for member, valid for 1 hour.  
+**POST** `/v3/:loyalty_club_slug/members/by_msisdn/:msisdn/send_one_time_password_via_email`
+
+**POST** `/v3/:loyalty_club_slug/members/by_email/:email/send_one_time_password_via_email`
+
+
+Sends a "Login" e-mail to given address if exists in given loyalty club. The e-mail contains magic link (can be deep link to the mobile app) and password (which are valid for 1 hour).
 
 Those params then can be used to sign in the user, just as "regular" member password - see:  [OAuth Token &bull; Create](#v3-token-create).
+
 
 ### URL Parameters
 
 Parameter | Description | Type
 --------- | ----------- | ------
-email | Member's email | e-mail
+id | Member's ID | integer
+msisdn | Member's msisdn | string (format as defined [here](#msisdn-member-identifier) - example: `4740485124`)
+email | Member's email | string (email)
+### POST parameters
 
-### Error responses
+Parameter | Description | Type | Default
+--------- | ----------- | ------ | ------
+magic_link_url | Magic link url that will be included in message (appended with token) e.g. providing "https://example.com/abc" will result in link "https://example.com/abc?token=abcdefghijk&id=1234". Domain must be first allowed to use as magic link. | string | null
 
-Status | Reason
---------- | ----------- 
-`422` | Invalid e-mail param
 
 <aside class="notice">
 Requires <code>BL:Api:Members:CreateOneTimePassword</code> permit
@@ -877,4 +897,90 @@ Status | Reason
 
 <aside class="notice">
 Requires <code>BL:Api:Members:Msisdns:Verify</code> permit
+</aside>
+
+<!--- ############################################################################################################# --->
+
+## <a name="v3-members-send-one-time-password"></a> (DEPRECATED) Send one time password SMS
+
+> Example:
+
+```shell
+curl "https://bpc-api.boostcom.no/v3/infinity-mall/members/by_msisdn/4740485124/send_one_time_password" \
+  -H 'Content-Type: application/json' \
+  -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+  -H 'X-Product-Name: default' \
+  -H 'X-User-Agent: CURL manual test'
+```
+
+> Always returns an empty JSON object
+
+```json
+{
+  // Empty object
+}
+```
+
+**POST** `/v3/:loyalty_club_slug/members/by_msisdn/:msisdn/send_one_time_password` (DEPRECATED)
+
+Sends an SMS to given msisdn if it is associated with member in given loyalty club.
+
+The SMS contains 4-digit One-Time-Password generated for member, valid for 1 hour.
+
+This password then can be used to sign in, just as "regular" member password - see:  [OAuth Token &bull; Create](#v3-token-create).
+
+### URL Parameters
+
+Parameter | Description | Type
+--------- | ----------- | ------
+msisdn | Member's msisdn | string (format as defined [here](#msisdn-member-identifier) - example: `4740485124`)
+
+<aside class="notice">
+Requires <code>BL:Api:Members:CreateOneTimePassword</code> permit
+</aside>
+
+<!--- ############################################################################################################# --->
+
+## <a name="v3-members-send-one-time-password-email"></a> (DEPRECATED) Send one time password E-mail
+
+> Example:
+
+```shell
+curl "https://bpc-api.boostcom.no/v3/infinity-mall/members/by_email/user@example.com/send_one_time_password" \
+  -H 'Content-Type: application/json' \
+  -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+  -H 'X-Product-Name: default' \
+  -H 'X-User-Agent: CURL manual test'
+```
+
+> Always returns an empty JSON object
+
+```json
+{
+  // Empty object
+}
+```
+
+**POST** `/v3/:loyalty_club_slug/members/by_msisdn/:msisdn/send_one_time_password` (DEPRECATED)
+
+Sends a "Login" e-mail to given address if it is associated with member in given loyalty club. The e-mail contains a deep link to the mobile app.
+ 
+The link scheme is: `https://<app_scheme>.al.bstcm.no/lgn?member_id=<member_id>&otp=<otp>` and contains member id and 16-digit password generated for member, valid for 1 hour.  
+
+Those params then can be used to sign in the user, just as "regular" member password - see:  [OAuth Token &bull; Create](#v3-token-create).
+
+### URL Parameters
+
+Parameter | Description | Type
+--------- | ----------- | ------
+email | Member's email | e-mail
+
+### Error responses
+
+Status | Reason
+--------- | ----------- 
+`422` | Invalid e-mail param
+
+<aside class="notice">
+Requires <code>BL:Api:Members:CreateOneTimePassword</code> permit
 </aside>
