@@ -83,7 +83,7 @@ customer_name | String | Name of Loyalty Club
 customer_id | Integer | ID of Loyalty Club
 event_type | `import`, `update`, or `delete` | A type of the change
 external_id | Integer | ID of member
-properties | Object | Member properties. Each of them has a `type <String>` and `value <String>`. Empty when `event_type` is `delete`
+properties | Object | Member properties. Each of them has a `type <String>` and `value <String>`. When `event_type` is `delete`, contains only member identifiers (`msisdn`, `email`)
 consents | Object | Member consents and their values. Empty when `event_type` is `delete`.
 created_at | Date | When the change occurred
 optin_date | Date | When the member has been created
