@@ -1,5 +1,19 @@
 <h1 id="changelog">Changelog</h1>
 
+<h3 id="08-08-2019-natalia-styrska">08.08.2019 | Natalia Styrska</h3>
+
+<p>Stores</p>
+
+<ul>
+<li>Add <code class="prettyprint">GET /v3/:loyalty_club_slug/stores</code> (<a href="#v3-store-list">Stores &bull; List</a>)</li>
+<li>Add <code class="prettyprint">GET /v3/:loyalty_club_slug/stores/:id</code> (<a href="#v3-store-get">Stores &bull; Get</a>)</li>
+<li>Add <code class="prettyprint">POST /v3/:loyalty_club_slug/stores</code> (<a href="#v3-store-create">Stores &bull; Create</a>)</li>
+<li>Add <code class="prettyprint">PUT /v3/:loyalty_club_slug/stores</code> (<a href="#v3-store-update">Stores &bull; Update</a>)</li>
+<li>Add <code class="prettyprint">DELETE /v3/:loyalty_club_slug/stores</code> (<a href="#v3-store-delete">Stores &bull; Delete</a>)</li>
+<li>Add <code class="prettyprint">GET /v3/:loyalty_club_slug/stores/malls</code> (<a href="#v3-mall-list">Malls &bull; List</a>)</li>
+<li>Add <code class="prettyprint">GET /v3/:loyalty_club_slug/stores/malls/:id</code> (<a href="#v3-mall-get">Malls &bull; Get</a>)</li>
+</ul>
+
 <h3 id="27-06-2019-piotr-witlicki">27.06.2019 | Piotr Świtlicki</h3>
 
 <ul>
