@@ -1,5 +1,11 @@
 # Changelog
 
+### 09.08.2019 | Piotr Świtlicki
+* Add [Offers Admin](#v3-offers-admin) section
+* Add [Files &bull; Create](#v3-create-file)
+* Add [Files &bull; Update](#v3-update-file)
+* Add [Files &bull; Delete](#v3-delete-file)
+
 ### 08.08.2019 | Natalia Styrska
 Stores
 
