@@ -1,5 +1,17 @@
 # Changelog
 
+### 08.08.2019 | Natalia Styrska
+Stores
+
+* Add `GET /v3/:loyalty_club_slug/stores` ([Stores &bull; List](#v3-store-list))
+* Add `GET /v3/:loyalty_club_slug/stores/:id` ([Stores &bull; Get](#v3-store-get))
+* Add `POST /v3/:loyalty_club_slug/stores` ([Stores &bull; Create](#v3-store-create))
+* Add `PUT /v3/:loyalty_club_slug/stores` ([Stores &bull; Update](#v3-store-update))
+* Add `DELETE /v3/:loyalty_club_slug/stores` ([Stores &bull; Delete](#v3-store-delete))
+* Add `GET /v3/:loyalty_club_slug/stores/malls` ([Malls &bull; List](#v3-mall-list))
+* Add `GET /v3/:loyalty_club_slug/stores/malls/:id` ([Malls &bull; Get](#v3-mall-get))
+
+
 ### 27.06.2019 | Piotr Świtlicki
 * Introduce [Levels](#v3-rewards-program-levels-program) 
 
