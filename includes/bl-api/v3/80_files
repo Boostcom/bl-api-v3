@@ -1,5 +1,84 @@
 <h1 id="endpoints-files">Endpoints &bull; Files</h1>
 
+<h2 id="general-info">General info</h2>
+
+<h3 id="file-cropping"><a name="v3-file-cropping"></a> File cropping</h3>
+
+<blockquote>
+<p><code class="prettyprint">crop_to</code> param interpretation may be visualized like this:</p>
+</blockquote>
+<pre class="highlight plaintext"><code>
+                           x_top_left     x_bottom_right
+                    |-------------------------------------
+                    | ..........................
+                    | ..........................
+     y_top_left     | .....*---------------.....
+                    | .....|..............|.....
+                    | .....|..............|.....
+                    | .....|..............|....
+     y_bottom_right | .....---------------*.....
+                    | ..........................
+                    |
+
+</code></pre>
+<p>When file is uploaded and it&rsquo;s too large to match the required base size, it may get cropped.
+This can be achieved by providing cropping param (<code class="prettyprint">crop_to</code>).</p>
+
+<p>The param has following syntax: <code class="prettyprint">x_top_left,y_top_left,x_bottom_right,y_bottom_right</code> and represents boundaries of a cropping area. </p>
+
+<p>When uploaded file is too large and <code class="prettyprint">crop_to</code> param is not provided, the file will be automatically cropped with gravity set in center of image.</p>
+
+<h4 id="example">Example</h4>
+
+<p>The kind&rsquo;s base size is 400x200px and the uploaded file is 1000x1000px. </p>
+
+<p>With crop_to=&ldquo;0,250,1000,750&rdquo;, a rectangle of &ldquo;1000x500&rdquo; size will be cropped, with 250px left offset.
+The file will be then also resized to 400x200.</p>
+
+<h3 id="uploaded-instances-projections"><a name="v3-projected-file-versions"></a> Uploaded instances projections</h3>
+
+<p>When file is uploaded, only original file is physically processed and stored. <code class="prettyprint">base</code> and other versions are processed asynchronously. 
+So, the responses returned on upload contains only &ldquo;projected&rdquo; info about files.</p>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>size_type</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>url</td>
+<td>string</td>
+<td>An URL the file be available on <strong>after</strong> it gets processed.</td>
+</tr>
+<tr>
+<td>min_width</td>
+<td>integer</td>
+<td></td>
+</tr>
+<tr>
+<td>max_width</td>
+<td>integer</td>
+<td></td>
+</tr>
+<tr>
+<td>min_height</td>
+<td>integer</td>
+<td></td>
+</tr>
+<tr>
+<td>max_height</td>
+<td>integer</td>
+<td></td>
+</tr>
+</tbody></table>
+
 <h2 id="get-file-schema"><a name="v3-get-file-schema"></a> Get file schema</h2>
 
 <blockquote>
@@ -21,4 +100,260 @@
 
 <aside class="notice">
 Requires <code>Files:Api:GetSchema</code> permit
+</aside>
+
+<h2 id="create-file"><a name="v3-create-file"></a> Create file</h2>
+
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
+  https://bpc-api.boostcom.no/v3/infinity-mall/files/offers/1000289/offer_default <span class="se">\</span>
+  -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+  -H <span class="s1">'X-User-Agent: CURL manual test'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW'</span> <span class="se">\</span>
+  -F <span class="nv">file</span><span class="o">=</span>@some_file.png <span class="se">\</span>
+  -F <span class="s1">'crop_to=256,256,856,1056'</span>
+
+</code></pre>
+<blockquote>
+<p>Returns info about uploaded file and it&rsquo;s projected versions</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"original"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"size_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"original"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://offers-api.s3.eu-central-1.amazonaws.com/offer-1000289-offer_default-original.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"file_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IMAGE"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">1024</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">1024</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"offer_default"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"projected_versions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"size_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"base"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://offers-api.s3.eu-central-1.amazonaws.com/offer-1000289-offer_default-base.png"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"min_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"min_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">800</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"max_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"max_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">800</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"size_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"thumbnail"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://offers-api.s3.eu-central-1.amazonaws.com/offer-1000289-offer_default-thumbnail.png"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"min_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">225</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"min_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"max_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">225</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"max_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>POST</strong> <code class="prettyprint">v3/:loyalty_club_slug/files/:fileable_type/:fileable_id/kind</code></p>
+
+<p>Creates new file for given Fileable (e.g. Offer).</p>
+
+<h3 id="url-parameters"><a name="v3-create-file-url-parameters"></a> URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>fileable_type</td>
+<td>enum: <code class="prettyprint">[&#39;offers&#39;, &#39;collections&#39;]</code></td>
+<td></td>
+</tr>
+<tr>
+<td>fileable_id</td>
+<td>integer</td>
+<td></td>
+</tr>
+<tr>
+<td>kind</td>
+<td>enum</td>
+<td>see <a href="#v3-file-kinds">Standard file kinds</a></td>
+</tr>
+</tbody></table>
+
+<h3 id="post-parameters"><a name="v3-create-file-post-parameters"></a> POST Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required?</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>file</td>
+<td>binary</td>
+<td>yes</td>
+<td>File to upload</td>
+</tr>
+<tr>
+<td>crop_to</td>
+<td>string</td>
+<td>no</td>
+<td>See: <a href="#v3-file-cropping">cropping</a></td>
+</tr>
+</tbody></table>
+
+<h3 id="response-json-object"><a name="v3-create-file-response"></a> Response (JSON object)</h3>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>original</td>
+<td>File</td>
+<td>See <a href="#v3-file-model">File model</a></td>
+</tr>
+<tr>
+<td>projected_versions</td>
+<td>ProjectedVersion[]</td>
+<td>See <a href="#v3-projected-file-versions">Projected file versions</a></td>
+</tr>
+</tbody></table>
+
+<h3 id="error-responses">Error responses</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">404</code></td>
+<td>The Fileable does not exist</td>
+</tr>
+<tr>
+<td><code class="prettyprint">422</code></td>
+<td>Invalid parameters</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Files:Api:Create</code> permit
+</aside>
+
+<h2 id="update-file"><a name="v3-update-file"></a> Update file</h2>
+
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X PUT <span class="se">\</span>
+  https://bpc-api.boostcom.no/v3/infinity-mall/files/offers/1000289/offer_default <span class="se">\</span>
+  -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+  -H <span class="s1">'X-User-Agent: CURL manual test'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW'</span> <span class="se">\</span>
+  -F <span class="nv">file</span><span class="o">=</span>@some_file.png <span class="se">\</span>
+  -F <span class="s1">'crop_to=256,256,856,1056'</span>
+
+</code></pre>
+<blockquote>
+<p>When successful (200), Returns info about uploaded file. Same as <a href="#v3-create-file">Create file</a> example response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="err">//</span><span class="w"> </span><span class="err">(...)</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="s2">"Create file"</span><span class="w"> </span><span class="err">example</span><span class="w"> </span><span class="err">response</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>PUT</strong> <code class="prettyprint">v3/:loyalty_club_slug/files/:fileable_type/:fileable_id/kind</code></p>
+
+<p>Updates file for given Fileable (e.g. Offer).</p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<p>See: <a href="#v3-create-file-url-parameters">Create File URL Parameters</a></p>
+
+<h3 id="post-parameters">POST Parameters</h3>
+
+<p>See: <a href="#v3-create-file-post-parameters">Create File POST Parameters</a></p>
+
+<h3 id="response-json-object">Response (JSON object)</h3>
+
+<p>See: <a href="#v3-create-file-response">Create File Response</a></p>
+
+<h3 id="error-responses">Error responses</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">404</code></td>
+<td>Fileable not found</td>
+</tr>
+<tr>
+<td><code class="prettyprint">404</code></td>
+<td>File not found</td>
+</tr>
+<tr>
+<td><code class="prettyprint">422</code></td>
+<td>Invalid parameters</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Files:Api:Update</code> permit
+</aside>
+
+<h2 id="delete-file"><a name="v3-delete-file"></a> Delete file</h2>
+
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X DELETE <span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/files/offers/1000289/offer_default </span><span class="se">\</span><span class="s2">
+  -H 'Content-Type: application/json' </span><span class="se">\</span><span class="s2">
+  -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' </span><span class="se">\</span><span class="s2">
+  -H 'X-Product-Name: default' </span><span class="se">\</span><span class="s2">
+  -H 'X-User-Agent: CURL manual test'
+</span></code></pre>
+<blockquote>
+<p>When successful (200), returns an empty object</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="err">//</span><span class="w"> </span><span class="err">Empty</span><span class="w"> </span><span class="err">object</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>DELETE</strong> <code class="prettyprint">v3/:loyalty_club_slug/files/:fileable_type/:fileable_id/kind</code></p>
+
+<p>Deletes file of given Fileable (e.g. Offer).</p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<p>See: <a href="#v3-create-file-url-parameters">Create File URL Parameters</a></p>
+
+<h3 id="error-responses">Error responses</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">404</code></td>
+<td>Fileable not found</td>
+</tr>
+<tr>
+<td><code class="prettyprint">404</code></td>
+<td>File not found</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Files:Api:Delete</code> permit
 </aside>

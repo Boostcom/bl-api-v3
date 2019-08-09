@@ -1,0 +1,809 @@
+<h1 id="endpoints-offers-admin-wip"><a name="v3-offers-admin"></a> Endpoints &bull; Offers Admin (WIP)</h1>
+
+<p>NOTE: The Offers Admin API is in development state.</p>
+
+<h2 id="common-error-responses">Common error responses</h2>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Response body</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">485</code></td>
+<td><code class="prettyprint">{&quot;error&quot;: &quot;Offers API is not enabled for the Loyalty Club&quot;}</code></td>
+</tr>
+</tbody></table>
+
+<h2 id="common-models">Common models</h2>
+
+<h3 id="offer"><a name="v3-admin-offer-model"></a> Offer</h3>
+
+<blockquote>
+<p>Offer example:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000115</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Buy two shoes, get one jacket"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"external_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/foo"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"read_more"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"button_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Button title"</span><span class="p">,</span><span class="w"> </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Title"</span><span class="p">,</span><span class="w"> </span><span class="s2">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Text"</span><span class="w"> </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"usable_since"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-13T17:32:00.000Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"usable_until"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"collection_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1000016</span><span class="p">,</span><span class="w"> </span><span class="mi">1000017</span><span class="p">],</span><span class="w">
+  </span><span class="s2">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"2 + 1"</span><span class="p">],</span><span class="w">
+  </span><span class="s2">"stores"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"M&amp;H"</span><span class="p">],</span><span class="w">
+  </span><span class="s2">"files"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://offers-api.s3.eu-central-1.amazonaws.com/offer-1000115-offer_default-original.jpg"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">800</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"offer_default"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"size_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"base"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"liked"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"usage"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"usable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"max_uses"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"uses_left"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active_until"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-13T18:41:00.000Z"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"extras"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Optional?</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>no</td>
+<td></td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>yes</td>
+<td></td>
+</tr>
+<tr>
+<td>description</td>
+<td>string</td>
+<td>yes</td>
+<td></td>
+</tr>
+<tr>
+<td>internal_name</td>
+<td>string</td>
+<td>yes</td>
+<td></td>
+</tr>
+<tr>
+<td>internal_description</td>
+<td>string</td>
+<td>yes</td>
+<td></td>
+</tr>
+<tr>
+<td>external_url</td>
+<td>string</td>
+<td>yes</td>
+<td>The URL the offer may be linked with</td>
+</tr>
+<tr>
+<td>read_more</td>
+<td>Object</td>
+<td>no</td>
+<td>Additional offer display data</td>
+</tr>
+<tr>
+<td>read_more.button_title</td>
+<td>string</td>
+<td>yes</td>
+<td></td>
+</tr>
+<tr>
+<td>read_more.url</td>
+<td>string</td>
+<td>yes</td>
+<td></td>
+</tr>
+<tr>
+<td>read_more.title</td>
+<td>string</td>
+<td>yes</td>
+<td></td>
+</tr>
+<tr>
+<td>read_more.text</td>
+<td>string</td>
+<td>yes</td>
+<td></td>
+</tr>
+<tr>
+<td>status</td>
+<td>enum: <code class="prettyprint">[&#39;draft&#39;, &#39;published&#39;]</code></td>
+<td>no</td>
+<td>Offer is visible only when status is <code class="prettyprint">&#39;published&#39;</code></td>
+</tr>
+<tr>
+<td>usable_since</td>
+<td>Date</td>
+<td>yes</td>
+<td>Time since the offer may be used. If null, there is no restriction.</td>
+</tr>
+<tr>
+<td>usable_until</td>
+<td>Date</td>
+<td>yes</td>
+<td>Time until the offer may be used. If null, there is no restriction.</td>
+</tr>
+<tr>
+<td>visible_since</td>
+<td>Date</td>
+<td>yes</td>
+<td>Time since the offer is visible to members. If null, there is no restriction.</td>
+</tr>
+<tr>
+<td>visible_until</td>
+<td>Date</td>
+<td>yes</td>
+<td>Time until the offer is visible to members. If null, there is no restriction.</td>
+</tr>
+<tr>
+<td>collection_ids</td>
+<td>integer[]</td>
+<td>no (may be empty)</td>
+<td>List of collections ids the offer belongs to</td>
+</tr>
+<tr>
+<td>tags</td>
+<td>string[]</td>
+<td>no (may be empty)</td>
+<td>List of tags identifiers associated with the offer. Information from <a href="#v3-list-translations">Translations &bull; List</a> should be used to display the tags.</td>
+</tr>
+<tr>
+<td>stores</td>
+<td>string[]</td>
+<td>no (may be empty)</td>
+<td>List of stores names associated with the offer. See <a href="#v3-store-list">Stores &bull; List</a>. NOTE: this attribute is called &ldquo;shops&rdquo; in member-facing API</td>
+</tr>
+<tr>
+<td>audience_id</td>
+<td>Integer</td>
+<td>yes</td>
+<td>DMP&rsquo;s audience ID. If it is set, the offer is available only to members belonging to this audience</td>
+</tr>
+<tr>
+<td>campaign_id</td>
+<td>Integer</td>
+<td>yes</td>
+<td>MPC&rsquo;s campaign ID</td>
+</tr>
+<tr>
+<td>files</td>
+<td>File[]</td>
+<td>no</td>
+<td>A list of offer files - see <a href="#v3-file-model">File model</a></td>
+</tr>
+<tr>
+<td>extras</td>
+<td>Object</td>
+<td>no (may be empty)</td>
+<td>Extendable container for any potential extra data</td>
+</tr>
+<tr>
+<td>maximum_uses_per_user</td>
+<td>Integer</td>
+<td>yes</td>
+<td>Limit of of uses individual member may perform. When empty, there&rsquo;s no limit.</td>
+</tr>
+<tr>
+<td>stock</td>
+<td>Integer</td>
+<td>yes</td>
+<td>Global limit of member uses. When empty, there&rsquo;s no limit.</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>Date</td>
+<td>no</td>
+<td>When the offer has been created</td>
+</tr>
+<tr>
+<td>updated_at</td>
+<td>Date</td>
+<td>no</td>
+<td>Last time when the offer has been updated</td>
+</tr>
+<tr>
+<td>archived_at</td>
+<td>Date</td>
+<td>yes</td>
+<td>Time when the offer has been archived</td>
+</tr>
+<tr>
+<td>uses_count</td>
+<td>Date</td>
+<td>no</td>
+<td>Total number of times the offer has been used by members</td>
+</tr>
+</tbody></table>
+
+<h3 id="offerpayload"><a name="v3-admin-offer-payload"></a> OfferPayload</h3>
+
+<p>Following Offer attributes (described above) are available to set when creating or updating offers.</p>
+
+<ul>
+<li>name</li>
+<li>description</li>
+<li>internal_name</li>
+<li>internal_description</li>
+<li>external_url</li>
+<li>read_more</li>
+<li>status</li>
+<li>usable_since</li>
+<li>usable_until</li>
+<li>visible_since</li>
+<li>visible_until</li>
+<li>collection_ids</li>
+<li>tags</li>
+<li>stores</li>
+<li>audience_id</li>
+<li>campaign_id</li>
+<li>extras</li>
+<li>maximum_uses_per_user</li>
+<li>stock</li>
+</ul>
+
+<h2 id="get-offer"><a name="v3-get-offer"></a> Get offer</h2>
+
+<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/offers/:id</code></p>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="se">\</span>
+<span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/offers/1000016"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+    -H <span class="s1">'X-User-Agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>When successful (200), returns an Offer object under &ldquo;offer&rdquo; key. See <a href="#v3-admin-offer-model">Offer model</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"offer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="err">//</span><span class="w"> </span><span class="err">(...)</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">Offer</span><span class="w"> </span><span class="err">model</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Returns details of the specified offer.</p>
+
+<h3 id="response-json-object">Response (JSON object)</h3>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Optional?</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>offer</td>
+<td>Offer</td>
+<td>no</td>
+<td>See <a href="#v3-admin-offer-model">Offer model</a></td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Offers:Api:Offers:Get</code> permit
+</aside>
+
+<h2 id="list-offers"><a name="v3-list-offers"></a> List offers</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="se">\</span>
+<span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/offers"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+    -H <span class="s1">'X-User-Agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>When successful (200), returns a list of offers and pagination info. 
+  See <a href="#v3-admin-offer-model">Offer model</a> and <a href="#pagination-json-model">Pagination info model</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"offers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="err">//</span><span class="w"> </span><span class="err">(...)</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">Offer</span><span class="w"> </span><span class="err">model</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"pagination_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="err">//</span><span class="w"> </span><span class="err">(...)</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">Pagination</span><span class="w"> </span><span class="err">info</span><span class="w"> </span><span class="err">model</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/offers</code></p>
+
+<p>Returns offers list.</p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>per_page</td>
+<td>integer</td>
+<td>100</td>
+<td>Number of results to be returned per request (100 is the maximum)</td>
+</tr>
+<tr>
+<td>page_no</td>
+<td>integer</td>
+<td>1</td>
+<td>Number of results page</td>
+</tr>
+<tr>
+<td>include_total</td>
+<td>boolean</td>
+<td>false</td>
+<td>When true, detailed pagination info (containing info like total records count, next page) will be returned</td>
+</tr>
+<tr>
+<td>sort_by</td>
+<td>string</td>
+<td>&ldquo;name&rdquo;</td>
+<td>What attribute should results be sorted by? Supported attributes are: <code class="prettyprint">[&quot;name&quot;, &quot;usable_since&quot;, &quot;usable_until&quot;, &quot;visible_since&quot;, &quot;visible_until&quot;, &quot;created_at&quot;, &quot;updated_at&quot;, &quot;archived_at&quot;]</code></td>
+</tr>
+<tr>
+<td>sort_direction</td>
+<td>string</td>
+<td>&ldquo;asc&rdquo;</td>
+<td>Direction of sorting: &ldquo;asc&rdquo; or &ldquo;desc&rdquo;</td>
+</tr>
+<tr>
+<td>collection_ids</td>
+<td>integer[]</td>
+<td>null</td>
+<td>When present, only offers belonging to least one of given collections will be returned</td>
+</tr>
+<tr>
+<td>tags</td>
+<td>string[]</td>
+<td>null</td>
+<td>When present, only offers having at least one of given tags will be returned</td>
+</tr>
+<tr>
+<td>stores</td>
+<td>string[]</td>
+<td>null</td>
+<td>When present, only offers having at least one of given stores will be returned</td>
+</tr>
+<tr>
+<td>campaign_id</td>
+<td>integer[]</td>
+<td>null</td>
+<td>When present, only offers with this campaign_id will be returned</td>
+</tr>
+<tr>
+<td>audience_id</td>
+<td>integer[]</td>
+<td>null</td>
+<td>When present, only offers with this audience_id will be returned</td>
+</tr>
+<tr>
+<td>search</td>
+<td>string</td>
+<td>null</td>
+<td>When present, only offers that match the query string will be returned</td>
+</tr>
+<tr>
+<td>ids</td>
+<td>integer[]</td>
+<td>null</td>
+<td>When present, only offers having one of provided IDs will be returned</td>
+</tr>
+<tr>
+<td>without_collection</td>
+<td>boolean</td>
+<td>false</td>
+<td>When present, only offers without collections will be returned</td>
+</tr>
+<tr>
+<td>without_tag</td>
+<td>boolean</td>
+<td>false</td>
+<td>When present, only offers without tags will be returned</td>
+</tr>
+<tr>
+<td>without_audience_id</td>
+<td>boolean</td>
+<td>false</td>
+<td>When present, only offers without audiences will be returned</td>
+</tr>
+<tr>
+<td>without_campaign_id</td>
+<td>boolean</td>
+<td>false</td>
+<td>When present, only offers without campaigns will be returned</td>
+</tr>
+<tr>
+<td>without_shop</td>
+<td>boolean</td>
+<td>false</td>
+<td>When present, only offers without stores will be returned</td>
+</tr>
+<tr>
+<td>with_archived</td>
+<td>boolean</td>
+<td>false</td>
+<td>When present, also archived offers will be returned</td>
+</tr>
+<tr>
+<td>only_archived</td>
+<td>boolean</td>
+<td>false</td>
+<td>When present, only archived offers will be returned</td>
+</tr>
+</tbody></table>
+
+<p>All parameters are optional.</p>
+
+<h3 id="response-json-object">Response (JSON object)</h3>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Optional?</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>offers</td>
+<td>Offer[]</td>
+<td>no (may be empty)</td>
+<td>See <a href="#v3-admin-offer-model">Offer model</a></td>
+</tr>
+<tr>
+<td>pagination_info</td>
+<td>PaginationInfo</td>
+<td>no</td>
+<td>See <a href="#pagination-json-model">Pagination info model</a></td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Offers:Api:Offers:List</code> permit
+</aside>
+
+<h2 id="create-offers"><a name="v3-create-offers"></a> Create offers</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
+<span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/offers"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+    -H <span class="s1">'X-User-Agent: CURL manual test'</span> <span class="se">\</span>
+    -d <span class="s1">'
+        {
+            "offers":[
+                {
+                    "name": "Offer 1"
+                },
+                {
+                    "name": "Offer 2"
+                }
+            ]
+        }
+    '</span>
+</code></pre>
+<blockquote>
+<p>When successful (200), returns IDs of offers that have been created </p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1000284</span><span class="p">,</span><span class="w"> </span><span class="mi">1000285</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>When payload is invalid (422), returns validation errors</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid parameters"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"offers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"0"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                    </span><span class="s2">"must be one of: draft, published"</span><span class="w">
+                </span><span class="p">]</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"1"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"stock"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                    </span><span class="s2">"must be an integer"</span><span class="w">
+                </span><span class="p">]</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>POST</strong> <code class="prettyprint">v3/:loyalty_club_slug/offers</code></p>
+
+<p>Creates offer(s) with given lists of attributes (OfferPayloads). </p>
+
+<h3 id="post-parameters-json">POST Parameters (JSON)</h3>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>offers</td>
+<td>OfferPayload[]</td>
+<td>List of offers to create. See <a href="#v3-admin-offer-payload">Offer payload</a></td>
+</tr>
+</tbody></table>
+
+<h3 id="response-json-object">Response (JSON object)</h3>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ids</td>
+<td>integer[]</td>
+<td>IDs of offers that have been created</td>
+</tr>
+</tbody></table>
+
+<h3 id="error-responses">Error responses</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">422</code></td>
+<td>Invalid payload (see example on the right)</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Offers:Api:Offers:Create</code> permit
+</aside>
+
+<h2 id="update-offers"><a name="v3-update-offers"></a> Update offers</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X PUT <span class="se">\</span>
+<span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/offers"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+    -H <span class="s1">'X-User-Agent: CURL manual test'</span> <span class="se">\</span>
+    -d <span class="s1">'
+        {
+            "offers":[
+                {
+                    "id": 1000284,
+                    "name": "Offer 1"
+                },
+                {
+                    "id": 1000285,
+                    "name": "Offer 2"
+                }
+            ]
+        }
+    '</span>
+</code></pre>
+<blockquote>
+<p>When successful (200), returns an empty object</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="err">//</span><span class="w"> </span><span class="err">Empty</span><span class="w"> </span><span class="err">object</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>When payload is invalid (422), returns validation errors</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid parameters"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"offers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"0"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                    </span><span class="s2">"must be one of: draft, published"</span><span class="w">
+                </span><span class="p">]</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"1"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"stock"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                    </span><span class="s2">"must be an integer"</span><span class="w">
+                </span><span class="p">]</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>PUT</strong> <code class="prettyprint">v3/:loyalty_club_slug/offers</code></p>
+
+<p>Updates offer(s) with given lists of attributes (OfferPayloads). Also, each payload record must contain offer ID that is meant to be updated.
+Update is not partial, so all attributes that aren&rsquo;t present in the payload will be nullified. </p>
+
+<h3 id="post-parameters-json">POST Parameters (JSON)</h3>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>offers</td>
+<td>OfferPayload[]</td>
+<td>List of offers to update. See <a href="#v3-admin-offer-payload">Offer payload</a>.</td>
+</tr>
+</tbody></table>
+
+<h3 id="error-responses">Error responses</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">422</code></td>
+<td>Invalid payload (see example on the right)</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Offers:Api:Offers:Update</code> permit
+</aside>
+
+<h2 id="clone-offers"><a name="v3-clone-offers"></a> Clone offers</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X DELETE <span class="se">\</span>
+<span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/offers/clone"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+    -H <span class="s1">'X-User-Agent: CURL manual test'</span> <span class="se">\</span>
+    -d <span class="s1">'
+        {
+            "ids":[1000284, 1000285]
+        }
+    '</span>
+</code></pre>
+<blockquote>
+<p>When successful (200), returns IDs of offers that have been cloned </p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1000301</span><span class="p">,</span><span class="w"> </span><span class="mi">1000302</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>POST</strong> <code class="prettyprint">v3/:loyalty_club_slug/offers/clones</code></p>
+
+<p>Clones given offers (by their IDs)</p>
+
+<h3 id="post-parameters-json">POST Parameters (JSON)</h3>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ids</td>
+<td>integer[]</td>
+<td>List of offers ids to clone</td>
+</tr>
+</tbody></table>
+
+<h3 id="response-json-object">Response (JSON object)</h3>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ids</td>
+<td>integer[]</td>
+<td>IDs of offers that have been cloned</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Offers:Api:Offers:Clone</code> permit
+</aside>
+
+<h2 id="delete-offers"><a name="v3-update-offers"></a> Delete offers</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X DELETE <span class="se">\</span>
+<span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/offers"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+    -H <span class="s1">'X-User-Agent: CURL manual test'</span> <span class="se">\</span>
+    -d <span class="s1">'
+        {
+            "ids":[1000284, 1000285]
+        }
+    '</span>
+</code></pre>
+<blockquote>
+<p>When successful (200), returns an empty object</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="err">//</span><span class="w"> </span><span class="err">Empty</span><span class="w"> </span><span class="err">object</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>DELETE</strong> <code class="prettyprint">v3/:loyalty_club_slug/offers</code></p>
+
+<p>Deletes given offers (by their IDs).</p>
+
+<h3 id="post-parameters-json">POST Parameters (JSON)</h3>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ids</td>
+<td>integer[]</td>
+<td>List of offers ids to delete</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Offers:Api:Offers:Destroy</code> permit
+</aside>

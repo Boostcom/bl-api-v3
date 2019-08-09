@@ -1,5 +1,14 @@
 <h1 id="changelog">Changelog</h1>
 
+<h3 id="09-08-2019-piotr-witlicki">09.08.2019 | Piotr Świtlicki</h3>
+
+<ul>
+<li>Add <a href="#v3-offers-admin">Offers Admin</a> section</li>
+<li>Add <a href="#v3-create-file">Files &bull; Create</a></li>
+<li>Add <a href="#v3-update-file">Files &bull; Update</a></li>
+<li>Add <a href="#v3-delete-file">Files &bull; Delete</a></li>
+</ul>
+
 <h3 id="08-08-2019-natalia-styrska">08.08.2019 | Natalia Styrska</h3>
 
 <p>Stores</p>
