@@ -310,6 +310,70 @@ Requires <code>Files:Api:Create</code> permit
 Requires <code>Files:Api:Update</code> permit
 </aside>
 
+<h2 id="reprocess-file"><a name="v3-reprocess-file"></a> Reprocess file</h2>
+
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X PUT <span class="se">\</span>
+  https://bpc-api.boostcom.no/v3/infinity-mall/files/offers/1000289/offer_default/reprocess <span class="se">\</span>
+  -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+  -H <span class="s1">'X-User-Agent: CURL manual test'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW'</span> <span class="se">\</span>
+  -F <span class="s1">'crop_to=256,256,856,1056'</span>
+
+</code></pre>
+<blockquote>
+<p>When successful (200), Returns info about uploaded file. Same as <a href="#v3-create-file">Create file</a> example response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="err">//</span><span class="w"> </span><span class="err">(...)</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="s2">"Create file"</span><span class="w"> </span><span class="err">example</span><span class="w"> </span><span class="err">response</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>PUT</strong> <code class="prettyprint">v3/:loyalty_club_slug/files/:fileable_type/:fileable_id/kind/reprocess</code></p>
+
+<p>Reprocesses file for given Fileable (e.g. Offer).
+It means that no file needs to be uploaded, instead the original file will be reprocessed according to given parameters. </p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<p>See: <a href="#v3-create-file-url-parameters">Create File URL Parameters</a></p>
+
+<h3 id="post-parameters">POST Parameters</h3>
+
+<p>See: <a href="#v3-create-file-post-parameters">Create File POST Parameters</a> - except no <code class="prettyprint">file</code> param is accepted here</p>
+
+<h3 id="response-json-object">Response (JSON object)</h3>
+
+<p>See: <a href="#v3-create-file-response">Create File Response</a></p>
+
+<h3 id="error-responses">Error responses</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">404</code></td>
+<td>Fileable not found</td>
+</tr>
+<tr>
+<td><code class="prettyprint">404</code></td>
+<td>File not found</td>
+</tr>
+<tr>
+<td><code class="prettyprint">422</code></td>
+<td>Invalid parameters</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Files:Api:Reprocess</code> permit
+</aside>
+
 <h2 id="delete-file"><a name="v3-delete-file"></a> Delete file</h2>
 
 <blockquote>

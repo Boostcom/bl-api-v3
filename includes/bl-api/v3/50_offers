@@ -527,16 +527,10 @@ Requires <code>Offers:Api:MemberOffers:Get</code> permit
 <td>When true, detailed pagination info (containing info like total records count, next page) will be returned</td>
 </tr>
 <tr>
-<td>sort_by</td>
+<td>order_by</td>
 <td>string</td>
 <td>&ldquo;name&rdquo;</td>
-<td>What attribute should results be sorted by? Supported attributes are: <code class="prettyprint">[&quot;name&quot;, &quot;usable_since&quot;, &quot;usable_until&quot;]</code></td>
-</tr>
-<tr>
-<td>sort_direction</td>
-<td>string</td>
-<td>&ldquo;asc&rdquo;</td>
-<td>Direction of sorting: &ldquo;asc&rdquo; or &ldquo;desc&rdquo;</td>
+<td>See <a href="#v3-offers-list-order-by"><code class="prettyprint">order_by</code> param</a></td>
 </tr>
 <tr>
 <td>collection_ids</td>
@@ -577,6 +571,22 @@ Requires <code>Offers:Api:MemberOffers:Get</code> permit
 </tbody></table>
 
 <p>All parameters are optional.</p>
+
+<h4 id="order_by-param"><a name="v3-offers-list-order-by"></a> <code class="prettyprint">order_by</code> param</h4>
+
+<p>Offers list may be sorted by <code class="prettyprint">order_by</code> param, which has similar syntax as ORDER BY keyword in SQL statements.</p>
+
+<p>For example <code class="prettyprint">order_by=usable ASC, created_at DESC</code> will return offers sorted by their usability, then by their creation date.</p>
+
+<p>Following offer attributes may be used for ordering:</p>
+
+<ul>
+<li>name</li>
+<li>usable_since</li>
+<li>usable_until</li>
+<li>created_at</li>
+<li>usable </li>
+</ul>
 
 <h3 id="response-json-object">Response (JSON object)</h3>
 
