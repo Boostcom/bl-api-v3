@@ -209,6 +209,58 @@ Status | Reason
 Requires <code>Files:Api:Update</code> permit
 </aside>
 
+## <a name="v3-reprocess-file"></a> Reprocess file
+
+> Example request
+
+```shell
+curl -X PUT \
+  https://bpc-api.boostcom.no/v3/infinity-mall/files/offers/1000289/offer_default/reprocess \
+  -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+  -H 'X-Product-Name: default' \
+  -H 'X-User-Agent: CURL manual test' \
+  -H 'Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW' \
+  -F 'crop_to=256,256,856,1056'
+
+```
+
+> When successful (200), Returns info about uploaded file. Same as [Create file](#v3-create-file) example response
+
+```json
+{
+  // (...) - see "Create file" example response
+}
+```
+
+**PUT** `v3/:loyalty_club_slug/files/:fileable_type/:fileable_id/kind/reprocess`
+
+Reprocesses file for given Fileable (e.g. Offer).
+It means that no file needs to be uploaded, instead the original file will be reprocessed according to given parameters. 
+
+### URL Parameters
+
+See: [Create File URL Parameters](#v3-create-file-url-parameters)
+
+### POST Parameters
+
+See: [Create File POST Parameters](#v3-create-file-post-parameters) - except no `file` param is accepted here
+
+### Response (JSON object)
+
+See: [Create File Response](#v3-create-file-response)
+
+### Error responses
+
+Status | Reason
+--------- | ----------- 
+`404` | Fileable not found
+`404` | File not found
+`422` | Invalid parameters
+
+<aside class="notice">
+Requires <code>Files:Api:Reprocess</code> permit
+</aside>
+
 ## <a name="v3-delete-file"></a> Delete file
 
 > Example request

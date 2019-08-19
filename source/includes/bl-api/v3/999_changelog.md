@@ -1,5 +1,8 @@
 # Changelog
 
+### 19.08.2019 | Piotr Świtlicki
+* Add [Offers &bull; Reprocess](#v3-reprocess-file)
+
 ### 09.08.2019 | Piotr Świtlicki
 * Add [Offers Admin](#v3-offers-admin) section
 * Add [Files &bull; Create](#v3-create-file)
