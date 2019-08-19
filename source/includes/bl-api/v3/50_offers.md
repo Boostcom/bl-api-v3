@@ -268,8 +268,7 @@ per_page | integer | 100 | Number of results to be returned per request (100 is 
 page_no | integer | 1 | Number of results page
 preview | boolean | false | See [`preview` param](#v3-offers-preview)
 include_total | boolean | false | When true, detailed pagination info (containing info like total records count, next page) will be returned
-sort_by | string | "name" | What attribute should results be sorted by? Supported attributes are: `["name", "usable_since", "usable_until"]`
-sort_direction | string | "asc" | Direction of sorting: "asc" or "desc"
+order_by | string | "name" | See [`order_by` param](#v3-offers-list-order-by)
 collection_ids | integer[] | null |  When present, only offers belonging to least one of given collections will be returned
 tags | string[] | null |  When present, only offers having at least one of given tags will be returned
 shops | string[] | null | When present, only offers having at least one of given shops will be returned
@@ -278,6 +277,20 @@ search | string | null | When present, only offers that match the query string w
 only_usable | boolean | false | When true, only offers that are usable will be returned
 
 All parameters are optional.
+
+#### <a name="v3-offers-list-order-by"></a> `order_by` param
+
+Offers list may be sorted by `order_by` param, which has similar syntax as ORDER BY keyword in SQL statements.
+
+For example `order_by=usable ASC, created_at DESC` will return offers sorted by their usability, then by their creation date.
+
+Following offer attributes may be used for ordering:
+
+* name
+* usable_since
+* usable_until
+* created_at
+* usable 
 
 ### Response (JSON object)
 

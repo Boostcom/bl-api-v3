@@ -2,6 +2,7 @@
 
 ### 19.08.2019 | Piotr Świtlicki
 * Add [Offers &bull; Reprocess](#v3-reprocess-file)
+* Add [`order_by` param](#v3-offers-list-order-by) to Offers List
 
 ### 09.08.2019 | Piotr Świtlicki
 * Add [Offers Admin](#v3-offers-admin) section
