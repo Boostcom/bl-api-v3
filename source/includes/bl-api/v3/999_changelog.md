@@ -1,5 +1,9 @@
 # Changelog
 
+### 23.08.2019 | Piotr Świtlicki
+* Add [Members &bull; Validate](#v3-members-validate) endpoint
+* Change [Offers &bull; List](#v3-offers-list) to accept `include_pagination_info` instead of `include_total` param
+
 ### 19.08.2019 | Piotr Świtlicki
 * Add [Offers &bull; Reprocess](#v3-reprocess-file)
 * Add [`order_by` param](#v3-offers-list-order-by) to Offers List

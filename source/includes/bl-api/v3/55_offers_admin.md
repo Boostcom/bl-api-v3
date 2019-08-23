@@ -1,6 +1,9 @@
 # <a name="v3-offers-admin"></a> Endpoints &bull; Offers Admin (WIP)
 
-NOTE: The Offers Admin API is in development state.
+This section describes endpoints destined for offers management. 
+Navigate to [Offers](#v3-offers) section to see docs for member-related endpoints.
+
+NOTE: The Offers Admin API is in development state. Changes (rather small) may occur during our mobile apps development & testing process.
 
 ## Common error responses
 

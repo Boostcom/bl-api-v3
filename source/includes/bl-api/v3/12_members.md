@@ -341,7 +341,7 @@ Header name | Required? | Description
 ------ | --------- | -----------
 X-Subproduct-Name | no | Additional source/optin channel information
 
-### POST Parameters (JSON)
+### <a name="v3-members-create-post-parameters"></a> POST Parameters (JSON)
 
 Parameter | Required? | Default | Description | Type
 --------- | ----------- | ----------- | --------- | -----------
@@ -505,6 +505,98 @@ Requires <code>BL:Api:Members:Destroy</code> permit
 
 
 <!--- ############################################################################################################# --->
+
+
+## <a name="v3-members-validate"></a> Validate
+
+> Example:
+
+```shell
+
+curl -X POST \
+  https://bpc-api.boostcom.no/v3/infinity-mall/members/validate \
+  -H 'Content-Type: application/json' \
+  -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+  -H 'X-Product-Name: android-app' \
+  -H 'X-Subproduct-Name: campaign-10-2017' \
+  -H 'X-User-Agent: CURL manual test' \
+  -d '{
+	"properties": {
+		"gender": "wrong",
+		"email": "foo@ba.r.ba.z"
+	},
+	"registration_password": "a145"
+  }'
+
+```
+
+> When data is valid, returns JSON object structured like this 
+
+```json
+{
+    "valid": true,
+    "errors": null
+}
+```
+
+> When data is not valid, returns JSON object structured like this 
+
+```json
+{
+    "valid": false,
+    "errors": {
+        "properties": [
+            {
+                "error": {
+                    "gender": [
+                        { "error": "value_not_match", "property": "gender", "value": "wrong", "values": "man, woman" }
+                    ]
+                }
+            }
+        ],
+        "email": [{ "error": "invalid_mx", "property": "email"}
+        ],
+        "registration_password": [
+            {
+                "error": "invalid"
+            }
+        ]
+    }
+}
+```
+
+**POST** `v3/:loyalty_club_slug/members/validate`
+
+Validates if given data is valid for new member registration.
+
+Only properties which keys are present in given payload, will be validated against presence validation.
+
+For example, let's say that Loyalty Club configuration requires member to have `msisdn` property set.
+
+* if `"msisdn": ""` or`"msisdn": null`" is present in the payload, the validation will return error stating that `msisdn` must be present.
+* however, when payload doesn't include the `msisdn` key, such error will not be returned.
+
+This behaviour has been designed to allow validate member partially, property by property. This way you can choose 
+what values should be validated at specific point of registration.
+
+### <a name="v3-members-validate-post-parameters"></a> POST Parameters (JSON)
+
+Following keys of [Members &bull; Create](#v3-members-create-post-parameters) payload are supported when validating:
+
+* properties
+* consents
+* registration_password
+
+### Response (JSON object)
+
+Key | Type | Description
+--------- | --------- | ---------
+valid | boolean | Is the data valid?
+errors | object | [validation errors](#validation-on-members) JSON object, `null` when data is valid
+
+<aside class="notice">
+Requires <code>BL:Api:Members:Validate</code> permit
+</aside>
 
 ## <a name="v3-members-reset-password"></a> Reset password
 

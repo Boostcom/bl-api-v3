@@ -1,4 +1,7 @@
-# Endpoints &bull; Offers (WIP)
+# <a name="v3-offers"></a>  Endpoints &bull; Offers (WIP)
+
+This section describes endpoints destined for end user (e.g. for mobile apps) and work mostly in member context. 
+Navigate to [Offers Admin](#v3-offers-admin) section to see docs for offers management endpoints.
 
 NOTE: The Offers API is in development state. Changes (rather small) may occur during our mobile apps development & testing process.
 
@@ -267,7 +270,7 @@ Parameter | Type | Default | Description
 per_page | integer | 100 | Number of results to be returned per request (100 is the maximum)
 page_no | integer | 1 | Number of results page
 preview | boolean | false | See [`preview` param](#v3-offers-preview)
-include_total | boolean | false | When true, detailed pagination info (containing info like total records count, next page) will be returned
+include_pagination_info | boolean | false | When true, pagination info (containing info like total records count, next page) will be returned
 order_by | string | "name" | See [`order_by` param](#v3-offers-list-order-by)
 collection_ids | integer[] | null |  When present, only offers belonging to least one of given collections will be returned
 tags | string[] | null |  When present, only offers having at least one of given tags will be returned
@@ -297,7 +300,7 @@ Following offer attributes may be used for ordering:
 Key | Type | Optional? | Description
 --------- | --------- | -------- | ---------
 offers | Offer[] | no (may be empty)| See [Offer model](#v3-offer-model) 
-pagination_info | PaginationInfo | no| See [Pagination info model](#pagination-json-model)
+pagination_info | PaginationInfo | yes| See [Pagination info model](#pagination-json-model)
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:ListVisibleByMemberId</code> permit
