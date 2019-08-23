@@ -922,9 +922,11 @@ curl -X POST <span class="se">\</span>
 </span></code></pre>
 <p><strong>POST</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/validate</code></p>
 
-<p>Validates if given data is valid for new member registration.</p>
+<p>Checks if given data is valid for new member registration. Returns successful response (200), regardless of data validity.</p>
 
-<p>Only properties which keys are present in given payload, will be validated against presence validation.</p>
+<h3 id="about-partial-validation-mechanism">About partial validation mechanism</h3>
+
+<p>Only properties which keys are present in given payload will be checked against presence validation.</p>
 
 <p>For example, let&rsquo;s say that Loyalty Club configuration requires member to have <code class="prettyprint">msisdn</code> property set.</p>
 
