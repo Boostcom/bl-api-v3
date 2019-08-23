@@ -1,6 +1,9 @@
 <h1 id="endpoints-offers-admin-wip"><a name="v3-offers-admin"></a> Endpoints &bull; Offers Admin (WIP)</h1>
 
-<p>NOTE: The Offers Admin API is in development state.</p>
+<p>This section describes endpoints destined for offers management. 
+Navigate to <a href="#v3-offers">Offers</a> section to see docs for member-related endpoints.</p>
+
+<p>NOTE: The Offers Admin API is in development state. Changes (rather small) may occur during our mobile apps development &amp; testing process.</p>
 
 <h2 id="common-error-responses">Common error responses</h2>
 

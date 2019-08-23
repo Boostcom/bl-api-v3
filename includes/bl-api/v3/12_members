@@ -507,7 +507,7 @@ valid <code class="prettyprint">registration_password</code> param that is sent 
 </tr>
 </tbody></table>
 
-<h3 id="post-parameters-json">POST Parameters (JSON)</h3>
+<h3 id="post-parameters-json"><a name="v3-members-create-post-parameters"></a> POST Parameters (JSON)</h3>
 
 <table><thead>
 <tr>
@@ -865,6 +865,112 @@ Requires <code>BL:Api:Members:Destroy</code> permit
 
 <!--- ############################################################################################################# --->
 
+<h2 id="validate"><a name="v3-members-validate"></a> Validate</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>
+curl -X POST <span class="se">\</span>
+  https://bpc-api.boostcom.no/v3/infinity-mall/members/validate <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Product-Name: android-app'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Subproduct-Name: campaign-10-2017'</span> <span class="se">\</span>
+  -H <span class="s1">'X-User-Agent: CURL manual test'</span> <span class="se">\</span>
+  -d <span class="s1">'{
+    "properties": {
+        "gender": "wrong",
+        "email": "foo@ba.r.ba.z"
+    },
+    "registration_password": "a145"
+  }'</span>
+
+</code></pre>
+<blockquote>
+<p>When data is valid, returns JSON object structured like this </p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"valid"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>When data is not valid, returns JSON object structured like this </p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"valid"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                        </span><span class="p">{</span><span class="w"> </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value_not_match"</span><span class="p">,</span><span class="w"> </span><span class="s2">"property"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gender"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wrong"</span><span class="p">,</span><span class="w"> </span><span class="s2">"values"</span><span class="p">:</span><span class="w"> </span><span class="s2">"man, woman"</span><span class="w"> </span><span class="p">}</span><span class="w">
+                    </span><span class="p">]</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"invalid_mx"</span><span class="p">,</span><span class="w"> </span><span class="s2">"property"</span><span class="p">:</span><span class="w"> </span><span class="s2">"email"</span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"registration_password"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"invalid"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>POST</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/validate</code></p>
+
+<p>Validates if given data is valid for new member registration.</p>
+
+<p>Only properties which keys are present in given payload, will be validated against presence validation.</p>
+
+<p>For example, let&rsquo;s say that Loyalty Club configuration requires member to have <code class="prettyprint">msisdn</code> property set.</p>
+
+<ul>
+<li>if <code class="prettyprint">&quot;msisdn&quot;: &quot;&quot;</code> or<code class="prettyprint">&quot;msisdn&quot;: null</code>&ldquo; is present in the payload, the validation will return error stating that <code class="prettyprint">msisdn</code> must be present.</li>
+<li>however, when payload doesn&rsquo;t include the <code class="prettyprint">msisdn</code> key, such error will not be returned.</li>
+</ul>
+
+<p>This behaviour has been designed to allow validate member partially, property by property. This way you can choose 
+what values should be validated at specific point of registration.</p>
+
+<h3 id="post-parameters-json"><a name="v3-members-validate-post-parameters"></a> POST Parameters (JSON)</h3>
+
+<p>Following keys of <a href="#v3-members-create-post-parameters">Members &bull; Create</a> payload are supported when validating:</p>
+
+<ul>
+<li>properties</li>
+<li>consents</li>
+<li>registration_password</li>
+</ul>
+
+<h3 id="response-json-object">Response (JSON object)</h3>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>valid</td>
+<td>boolean</td>
+<td>Is the data valid?</td>
+</tr>
+<tr>
+<td>errors</td>
+<td>object</td>
+<td><a href="#validation-on-members">validation errors</a> JSON object, <code class="prettyprint">null</code> when data is valid</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>BL:Api:Members:Validate</code> permit
+</aside>
+
 <h2 id="reset-password"><a name="v3-members-reset-password"></a> Reset password</h2>
 
 <blockquote>
@@ -1019,7 +1125,7 @@ Requires <code>BL:Api:Members:Tokens:Create</code> permit
 
 <p>The SMS contains 4-digit One-Time-Password generated for member, valid for 1 hour.</p>
 
-<p>This password then can be used to sign in, just as &ldquo;regular&rdquo; member password - see:  <a href="#v3-token-create">OAuth Token &bull; Create</a>.</p>
+<p>This password then can be used to sign in, just as &quot;regular&rdquo; member password - see:  <a href="#v3-token-create">OAuth Token &bull; Create</a>.</p>
 
 <h3 id="url-parameters">URL Parameters</h3>
 

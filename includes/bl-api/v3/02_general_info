@@ -241,6 +241,10 @@ Errors format and strings are not yet stable and may change without further noti
 <td>Invalid email format</td>
 </tr>
 <tr>
+<td>invalid_mx</td>
+<td>Invalid (inaccessible) email domain</td>
+</tr>
+<tr>
 <td>disposable_email</td>
 <td>The email was <a href="https://github.com/lisinge/valid_email2/blob/master/vendor/disposable_emails.yml">disposable</a></td>
 </tr>

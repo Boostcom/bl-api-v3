@@ -1,4 +1,7 @@
-<h1 id="endpoints-offers-wip">Endpoints &bull; Offers (WIP)</h1>
+<h1 id="endpoints-offers-wip"><a name="v3-offers"></a>  Endpoints &bull; Offers (WIP)</h1>
+
+<p>This section describes endpoints destined for end user (e.g. for mobile apps) and work mostly in member context. 
+Navigate to <a href="#v3-offers-admin">Offers Admin</a> section to see docs for offers management endpoints.</p>
 
 <p>NOTE: The Offers API is in development state. Changes (rather small) may occur during our mobile apps development &amp; testing process.</p>
 
@@ -521,10 +524,10 @@ Requires <code>Offers:Api:MemberOffers:Get</code> permit
 <td>See <a href="#v3-offers-preview"><code class="prettyprint">preview</code> param</a></td>
 </tr>
 <tr>
-<td>include_total</td>
+<td>include_pagination_info</td>
 <td>boolean</td>
 <td>false</td>
-<td>When true, detailed pagination info (containing info like total records count, next page) will be returned</td>
+<td>When true, pagination info (containing info like total records count, next page) will be returned</td>
 </tr>
 <tr>
 <td>order_by</td>
@@ -607,7 +610,7 @@ Requires <code>Offers:Api:MemberOffers:Get</code> permit
 <tr>
 <td>pagination_info</td>
 <td>PaginationInfo</td>
-<td>no</td>
+<td>yes</td>
 <td>See <a href="#pagination-json-model">Pagination info model</a></td>
 </tr>
 </tbody></table>
