@@ -567,9 +567,11 @@ curl -X POST \
 
 **POST** `v3/:loyalty_club_slug/members/validate`
 
-Validates if given data is valid for new member registration.
+Checks if given data is valid for new member registration. Returns successful response (200), regardless of data validity.
 
-Only properties which keys are present in given payload, will be validated against presence validation.
+### About partial validation mechanism
+
+Only properties which keys are present in given payload will be checked against presence validation.
 
 For example, let's say that Loyalty Club configuration requires member to have `msisdn` property set.
 
