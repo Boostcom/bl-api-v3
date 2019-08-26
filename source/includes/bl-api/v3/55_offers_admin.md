@@ -237,33 +237,19 @@ curl -X POST \
     '
 ```
 
-> When successful (200), returns IDs of offers that have been created 
+> Returns object structured like this: 
 
 ```json
 {
-    "ids": [1000284, 1000285]
-}
-```
-
-> When payload is invalid (422), returns validation errors
-
-```json
-{
-    "error": "Invalid parameters",
-    "details": {
-        "offers": {
-            "0": {
-                "status": [
-                    "must be one of: draft, published"
-                ]
-            },
-            "1": {
-                "stock": [
-                    "must be an integer"
-                ]
-            }
+    "success": true,
+    "errors": {
+        "1": {
+            "collection_ids": [
+                "list must contain unique values"
+            ]
         }
-    }
+    },
+    "ids": [1000284]
 }
 ```
 
@@ -281,13 +267,9 @@ offers | OfferPayload[] | List of offers to create. See [Offer payload](#v3-admi
 
 Key | Type  | Description
 ---------- | -------- | ---------
+success | boolean | True if any offer has been created
 ids | integer[] | IDs of offers that have been created 
-
-### Error responses
-
-Status | Description
---------- | ----------- 
-`422` | Invalid payload (see example on the right)
+errors | Object | Errors of offers that couldn't be created 
 
 <aside class="notice">
 Requires <code>Offers:Api:Offers:Create</code> permit
@@ -320,31 +302,16 @@ curl -X PUT \
     '
 ```
 
-> When successful (200), returns an empty object
+> Returns object structured like this: 
 
 ```json
 {
-  // Empty object
-}
-```
-
-> When payload is invalid (422), returns validation errors
-
-```json
-{
-    "error": "Invalid parameters",
-    "details": {
-        "offers": {
-            "0": {
-                "status": [
-                    "must be one of: draft, published"
-                ]
-            },
-            "1": {
-                "stock": [
-                    "must be an integer"
-                ]
-            }
+    "success": true,
+    "errors": {
+        "1": {
+            "collection_ids": [
+                "list must contain unique values"
+            ]
         }
     }
 }
@@ -361,11 +328,13 @@ Key | Type | Description
 ----- | ---- | ---
 offers | OfferPayload[] | List of offers to update. See [Offer payload](#v3-admin-offer-payload).
 
-### Error responses
+### Response (JSON object)
 
-Status | Description
---------- | ----------- 
-`422` | Invalid payload (see example on the right)
+Key | Type  | Description
+---------- | -------- | ---------
+success | boolean | True if any offer has been created
+ids | integer[] | IDs of offers that have been created 
+errors | Object | Errors of offers that couldn't be created 
 
 <aside class="notice">
 Requires <code>Offers:Api:Offers:Update</code> permit
@@ -389,7 +358,7 @@ curl -X DELETE \
     '
 ```
 
-> When successful (200), returns IDs of offers that have been cloned 
+> When successful (200), returns IDs of offers that were created by cloning 
 
 ```json
 {
