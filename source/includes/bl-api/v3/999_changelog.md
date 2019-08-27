@@ -1,5 +1,8 @@
 # Changelog
 
+### 27.08.2019 | Piotr Świtlicki
+* Add [Offers Events](#v3-offers-events) section
+
 ### 23.08.2019 | Piotr Świtlicki
 * Add [Members &bull; Validate](#v3-members-validate) endpoint
 * Change [Offers &bull; List](#v3-offers-list) to accept `include_pagination_info` instead of `include_total` param
