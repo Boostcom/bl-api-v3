@@ -5199,6 +5199,206 @@ Requires <code>Offers:Api:MemberOffers:Like</code> permit
 Requires <code>Offers:Api:MemberOffers:Like</code> permit
 </aside>
 
+          <h1 id="endpoints-offers-events-wip"><a name="v3-offers-events"></a>  Endpoints &bull; Offers Events (WIP)</h1>
+
+<h2 id="offerevent-model"><a name="v3-offer-event-model"></a> OfferEvent model</h2>
+
+<blockquote>
+<p>Offer Event example:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"offer_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-27T10:20:11.810Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"collections_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"t1"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"shops"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"a"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"search_string"</span><span class="p">:</span><span class="w"> </span><span class="s2">"foo"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"utm"</span><span class="p">:</span><span class="w"> </span><span class="s2">"campaign-2018-05-01"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Required?</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>offer_id</td>
+<td>integer</td>
+<td>yes</td>
+<td></td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>Date</td>
+<td>yes</td>
+<td>Date of the event occurrence</td>
+</tr>
+<tr>
+<td>context</td>
+<td>Object</td>
+<td>no</td>
+<td>Context of the event occurrence.</td>
+</tr>
+<tr>
+<td>context.collections_ids</td>
+<td>Array<ID></td>
+<td>no</td>
+<td></td>
+</tr>
+<tr>
+<td>context.tags</td>
+<td>Array<string></td>
+<td>no</td>
+<td></td>
+</tr>
+<tr>
+<td>context.shops</td>
+<td>Array<string></td>
+<td>no</td>
+<td></td>
+</tr>
+<tr>
+<td>context.search_string</td>
+<td>string</td>
+<td>no</td>
+<td></td>
+</tr>
+<tr>
+<td>context.utm</td>
+<td>string</td>
+<td>no</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p>Context describes in what circumstances the event has occurred. 
+For example, member clicked on a coupon that was displayed inside collection, the context should include this collection_id. </p>
+
+<h2 id="clicked"><a name="v3-offers-clicked"></a> Clicked</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
+<span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/offers/events/offers_clicked"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+    -H <span class="s1">'X-User-Agent: CURL manual test'</span> <span class="se">\</span>
+    -H <span class="s1">'Authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522'</span> <span class="se">\</span>
+    -d <span class="s1">'
+    {
+        "events": [
+            {
+                "offer_id": "14",
+                "created_at": "2019-08-27T10:20:11.810Z",
+                "context": {
+                    "collections_ids": [1, 2],
+                    "tags": ["t1"],
+                    "shops": ["a"],
+                    "search_string": "foo",
+                    "utm": "campaign-2018-05-01"
+                }
+            }
+        ]
+
+    }
+    '</span>
+</code></pre>
+<blockquote>
+<p>When successful (200), returns an empty object.</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{}</span><span class="w">
+</span></code></pre>
+<p><strong>POST</strong> <code class="prettyprint">v3/infinity-mall/offers/events/offers_clicked</code> [<a href="#v3-oauth2">OAuth</a>]</p>
+
+<p>Registers that OAuth member clicked on given offers.</p>
+
+<h3 id="post-parameters">Post Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>events</td>
+<td>Array<OfferEvent></td>
+<td>See <a href="#v3-offer-event-model">Offer Event</a></td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Offers:Api:Events:Clicked</code> permit
+</aside>
+
+<h2 id="seen"><a name="v3-offers-seen"></a> Seen</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
+<span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/offers/events/offers_seen"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+    -H <span class="s1">'X-User-Agent: CURL manual test'</span> <span class="se">\</span>
+    -H <span class="s1">'Authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522'</span> <span class="se">\</span>
+    -d <span class="s1">'
+    {
+        "events": [
+            {
+                "offer_id": "14",
+                "created_at": "2019-08-27T10:20:11.810Z",
+                "context": {
+                    "collections_ids": [1, 2],
+                    "tags": ["t1"],
+                    "shops": ["a"],
+                    "search_string": "foo",
+                    "utm": "campaign-2018-05-01"
+                }
+            }
+        ]
+
+    }
+    '</span>
+</code></pre>
+<blockquote>
+<p>When successful (200), returns an empty object.</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{}</span><span class="w">
+</span></code></pre>
+<p><strong>POST</strong> <code class="prettyprint">v3/infinity-mall/offers/events/offers_seen</code> [<a href="#v3-oauth2">OAuth</a>]</p>
+
+<p>Registers that OAuth member saw given offers.</p>
+
+<h3 id="post-parameters">Post Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>events</td>
+<td>Array <OfferEvent></td>
+<td>See <a href="#v3-offer-event-model">Offer Event</a></td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Offers:Api:Events:Seen</code> permit
+</aside>
+
           <h1 id="endpoints-offers-admin-wip"><a name="v3-offers-admin"></a> Endpoints &bull; Offers Admin (WIP)</h1>
 
 <p>This section describes endpoints destined for offers management. 
@@ -5726,31 +5926,18 @@ Requires <code>Offers:Api:Offers:List</code> permit
     '</span>
 </code></pre>
 <blockquote>
-<p>When successful (200), returns IDs of offers that have been created </p>
+<p>Returns object structured like this: </p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1000284</span><span class="p">,</span><span class="w"> </span><span class="mi">1000285</span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<blockquote>
-<p>When payload is invalid (422), returns validation errors</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid parameters"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"offers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"0"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                    </span><span class="s2">"must be one of: draft, published"</span><span class="w">
-                </span><span class="p">]</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="s2">"1"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"stock"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                    </span><span class="s2">"must be an integer"</span><span class="w">
-                </span><span class="p">]</span><span class="w">
-            </span><span class="p">}</span><span class="w">
+    </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"1"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"collection_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="s2">"list must contain unique values"</span><span class="w">
+            </span><span class="p">]</span><span class="w">
         </span><span class="p">}</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1000284</span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p><strong>POST</strong> <code class="prettyprint">v3/:loyalty_club_slug/offers</code></p>
@@ -5783,23 +5970,19 @@ Requires <code>Offers:Api:Offers:List</code> permit
 </tr>
 </thead><tbody>
 <tr>
+<td>success</td>
+<td>boolean</td>
+<td>True if any offer has been created</td>
+</tr>
+<tr>
 <td>ids</td>
 <td>integer[]</td>
 <td>IDs of offers that have been created</td>
 </tr>
-</tbody></table>
-
-<h3 id="error-responses">Error responses</h3>
-
-<table><thead>
 <tr>
-<th>Status</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code class="prettyprint">422</code></td>
-<td>Invalid payload (see example on the right)</td>
+<td>errors</td>
+<td>Object</td>
+<td>Errors of offers that couldn&rsquo;t be created</td>
 </tr>
 </tbody></table>
 
@@ -5834,29 +6017,15 @@ Requires <code>Offers:Api:Offers:Create</code> permit
     '</span>
 </code></pre>
 <blockquote>
-<p>When successful (200), returns an empty object</p>
+<p>Returns object structured like this: </p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="err">//</span><span class="w"> </span><span class="err">Empty</span><span class="w"> </span><span class="err">object</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<blockquote>
-<p>When payload is invalid (422), returns validation errors</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid parameters"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"offers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"0"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                    </span><span class="s2">"must be one of: draft, published"</span><span class="w">
-                </span><span class="p">]</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="s2">"1"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"stock"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                    </span><span class="s2">"must be an integer"</span><span class="w">
-                </span><span class="p">]</span><span class="w">
-            </span><span class="p">}</span><span class="w">
+    </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"1"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"collection_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="s2">"list must contain unique values"</span><span class="w">
+            </span><span class="p">]</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -5882,17 +6051,29 @@ Update is not partial, so all attributes that aren&rsquo;t present in the payloa
 </tr>
 </tbody></table>
 
-<h3 id="error-responses">Error responses</h3>
+<h3 id="response-json-object">Response (JSON object)</h3>
 
 <table><thead>
 <tr>
-<th>Status</th>
+<th>Key</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">422</code></td>
-<td>Invalid payload (see example on the right)</td>
+<td>success</td>
+<td>boolean</td>
+<td>True if any offer has been created</td>
+</tr>
+<tr>
+<td>ids</td>
+<td>integer[]</td>
+<td>IDs of offers that have been created</td>
+</tr>
+<tr>
+<td>errors</td>
+<td>Object</td>
+<td>Errors of offers that couldn&rsquo;t be created</td>
 </tr>
 </tbody></table>
 
@@ -5918,7 +6099,7 @@ Requires <code>Offers:Api:Offers:Update</code> permit
     '</span>
 </code></pre>
 <blockquote>
-<p>When successful (200), returns IDs of offers that have been cloned </p>
+<p>When successful (200), returns IDs of offers that were created by cloning </p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1000301</span><span class="p">,</span><span class="w"> </span><span class="mi">1000302</span><span class="p">]</span><span class="w">
@@ -8975,6 +9156,12 @@ Requires <code>Stores:Api:Malls:Get</code> permit
 </aside> 
 
           <h1 id="changelog">Changelog</h1>
+
+<h3 id="27-08-2019-piotr-witlicki">27.08.2019 | Piotr Świtlicki</h3>
+
+<ul>
+<li>Add <a href="#v3-offers-events">Offers Events</a> section</li>
+</ul>
 
 <h3 id="23-08-2019-piotr-witlicki">23.08.2019 | Piotr Świtlicki</h3>
 
