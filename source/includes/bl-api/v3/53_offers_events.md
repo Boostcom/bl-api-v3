@@ -124,6 +124,8 @@ curl -X POST \
 
 **POST** `v3/infinity-mall/offers/events/offers_seen` [[OAuth](#v3-oauth2)]
 
+**Warning!** Seen events are automatically tracked when displaying offer image/file within member context. Make sure you are not duplicating events!
+
 Registers that OAuth member saw given offers.
 
 ### Post Parameters
