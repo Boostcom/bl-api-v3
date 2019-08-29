@@ -294,6 +294,7 @@ Following offer attributes may be used for ordering:
 * usable_until
 * created_at
 * usable 
+* liked 
 
 ### Response (JSON object)
 
