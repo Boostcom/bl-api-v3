@@ -210,6 +210,66 @@ Requires <code>BL:Api:Members:OAuth:Update</code> permit.
 Requires <code>BL:Api:Members:OAuth:UpdatePassword</code> permit.
 </aside>
 
+<h2 id="update-app-token"><a name="v3-me-update-app-token"></a> Update app token</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>
+curl -X PUT <span class="se">\</span>
+  https://bpc-api.boostcom.no/v3/infinity-mall/members/me/update_app_token <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+  -H <span class="s1">'X-User-Agent: CURL manual test'</span> <span class="se">\</span>
+  -H <span class="s1">'Authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522'</span> <span class="se">\</span>
+  -d <span class="se">\</span>
+  <span class="s1">'{
+     "app_token": "tok3n",
+     "app_platform": "android"
+   }'</span>
+</code></pre>
+<blockquote>
+<p>When successful, returns an empty object</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="err">//</span><span class="w"> </span><span class="err">Empty</span><span class="w"> </span><span class="err">object</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>When payload is invalid, returns error response (422). See <a href="#v3-members-update-app-token">Members &bull; Update app token</a></p>
+</blockquote>
+
+<p><strong>PUT</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/me/update_app_token</code></p>
+
+<p>Behaves like <a href="#v3-members-update-app-token">Members &bull; Update app token</a></p>
+
+<p>As a member-related action, it requires member authorization. See <a href="#v3-oauth2">OAuth</a>.</p>
+
+<h3 id="put-parameters-json">PUT Parameters (JSON)</h3>
+
+<p>See <a href="#v3-members-update-app-token">Members &bull; Update app token</a></p>
+
+<h3 id="error-responses">Error responses</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">422</code></td>
+<td>Invalid parameters</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>BL:Api:Members:OAuth:UpdateAppToken</code> permit
+</aside>
+
+<!--- ############################################################################################################# --->
+
 <h2 id="destroy"><a name="v3-me-destroy"></a> Destroy</h2>
 
 <blockquote>

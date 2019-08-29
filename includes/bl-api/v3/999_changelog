@@ -1,5 +1,12 @@
 <h1 id="changelog">Changelog</h1>
 
+<h3 id="29-08-2019-piotr-witlicki">29.08.2019 | Piotr Świtlicki</h3>
+
+<ul>
+<li>Add <a href="#v3-members-update-app-token">Members &bull; Update app token</a> endpoint</li>
+<li>Add <a href="#v3-me-update-app-token">OAuth &bull; Update app token</a> endpoint</li>
+</ul>
+
 <h3 id="27-08-2019-piotr-witlicki">27.08.2019 | Piotr Świtlicki</h3>
 
 <ul>

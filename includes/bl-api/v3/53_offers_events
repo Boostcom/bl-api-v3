@@ -176,9 +176,11 @@ Requires <code>Offers:Api:Events:Clicked</code> permit
 </span></code></pre>
 <p><strong>POST</strong> <code class="prettyprint">v3/infinity-mall/offers/events/offers_seen</code> [<a href="#v3-oauth2">OAuth</a>]</p>
 
-<p><strong>Warning!</strong> Seen events are automatically tracked when displaying offer image/file within member context. Make sure you are not duplicating events!</p>
-
 <p>Registers that OAuth member saw given offers.</p>
+
+<aside class="warning">
+Seen events are automatically tracked when displaying offer image/file within member context. Make sure you are not duplicating events!
+</aside>
 
 <h3 id="post-parameters">Post Parameters</h3>
 

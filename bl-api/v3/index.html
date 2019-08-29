@@ -2027,6 +2027,98 @@ Requires <code>BL:Api:Members:Update</code> permit
 
 <!--- ############################################################################################################# --->
 
+<h2 id="update-app-token"><a name="v3-members-update-app-token"></a> Update app token</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>
+curl -X PUT <span class="se">\</span>
+  https://bpc-api.boostcom.no/v3/infinity-mall/members/:id/update_app_token <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+  -H <span class="s1">'X-User-Agent: CURL manual test'</span> <span class="se">\</span>
+  -d <span class="se">\</span>
+  <span class="s1">'{
+     "app_token": "tok3n",
+     "app_platform": "android"
+   }'</span>
+</code></pre>
+<blockquote>
+<p>When successful, returns an empty object</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="err">//</span><span class="w"> </span><span class="err">Empty</span><span class="w"> </span><span class="err">object</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>When payload is invalid, returns error response (422)</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid parameters"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"app_token"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"must be a string"</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"app_platform"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"must be one of: android, ios"</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>PUT</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/:id/update_app_token</code></p>
+
+<p>Updates member&rsquo;s Firebase token, along with platform it&rsquo;s that it&rsquo;s associated with. </p>
+
+<p>Token may be removed by sending it as empty string or null, empty payload will also be treated as token removal.
+Platform is automatically removed when token is empty.</p>
+
+<h3 id="put-parameters-json">PUT Parameters (JSON)</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>app_token</td>
+<td>string</td>
+<td>Firebase push token</td>
+</tr>
+<tr>
+<td>app_platform</td>
+<td>string</td>
+<td>One of: <code class="prettyprint">[&#39;android&#39;, &#39;ios&#39;]</code></td>
+</tr>
+</tbody></table>
+
+<h3 id="error-responses">Error responses</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">404</code></td>
+<td>Member could not be found</td>
+</tr>
+<tr>
+<td><code class="prettyprint">422</code></td>
+<td>Invalid parameters</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>BL:Api:Members:UpdateAppToken</code> permit
+</aside>
+
+<!--- ############################################################################################################# --->
+
 <h2 id="destroy"><a name="v3-members-destroy"></a> Destroy</h2>
 
 <p><strong>DELETE</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/:id</code></p>
@@ -2959,6 +3051,66 @@ Requires <code>BL:Api:Members:OAuth:Update</code> permit.
 <aside class="notice">
 Requires <code>BL:Api:Members:OAuth:UpdatePassword</code> permit.
 </aside>
+
+<h2 id="update-app-token"><a name="v3-me-update-app-token"></a> Update app token</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>
+curl -X PUT <span class="se">\</span>
+  https://bpc-api.boostcom.no/v3/infinity-mall/members/me/update_app_token <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+  -H <span class="s1">'X-User-Agent: CURL manual test'</span> <span class="se">\</span>
+  -H <span class="s1">'Authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522'</span> <span class="se">\</span>
+  -d <span class="se">\</span>
+  <span class="s1">'{
+     "app_token": "tok3n",
+     "app_platform": "android"
+   }'</span>
+</code></pre>
+<blockquote>
+<p>When successful, returns an empty object</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="err">//</span><span class="w"> </span><span class="err">Empty</span><span class="w"> </span><span class="err">object</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>When payload is invalid, returns error response (422). See <a href="#v3-members-update-app-token">Members &bull; Update app token</a></p>
+</blockquote>
+
+<p><strong>PUT</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/me/update_app_token</code></p>
+
+<p>Behaves like <a href="#v3-members-update-app-token">Members &bull; Update app token</a></p>
+
+<p>As a member-related action, it requires member authorization. See <a href="#v3-oauth2">OAuth</a>.</p>
+
+<h3 id="put-parameters-json">PUT Parameters (JSON)</h3>
+
+<p>See <a href="#v3-members-update-app-token">Members &bull; Update app token</a></p>
+
+<h3 id="error-responses">Error responses</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">422</code></td>
+<td>Invalid parameters</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>BL:Api:Members:OAuth:UpdateAppToken</code> permit
+</aside>
+
+<!--- ############################################################################################################# --->
 
 <h2 id="destroy"><a name="v3-me-destroy"></a> Destroy</h2>
 
@@ -5377,9 +5529,11 @@ Requires <code>Offers:Api:Events:Clicked</code> permit
 </span></code></pre>
 <p><strong>POST</strong> <code class="prettyprint">v3/infinity-mall/offers/events/offers_seen</code> [<a href="#v3-oauth2">OAuth</a>]</p>
 
-<p><strong>Warning!</strong> Seen events are automatically tracked when displaying offer image/file within member context. Make sure you are not duplicating events!</p>
-
 <p>Registers that OAuth member saw given offers.</p>
+
+<aside class="warning">
+Seen events are automatically tracked when displaying offer image/file within member context. Make sure you are not duplicating events!
+</aside>
 
 <h3 id="post-parameters">Post Parameters</h3>
 
@@ -9158,6 +9312,13 @@ Requires <code>Stores:Api:Malls:Get</code> permit
 </aside> 
 
           <h1 id="changelog">Changelog</h1>
+
+<h3 id="29-08-2019-piotr-witlicki">29.08.2019 | Piotr Świtlicki</h3>
+
+<ul>
+<li>Add <a href="#v3-members-update-app-token">Members &bull; Update app token</a> endpoint</li>
+<li>Add <a href="#v3-me-update-app-token">OAuth &bull; Update app token</a> endpoint</li>
+</ul>
 
 <h3 id="27-08-2019-piotr-witlicki">27.08.2019 | Piotr Świtlicki</h3>
 
