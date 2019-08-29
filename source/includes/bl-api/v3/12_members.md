@@ -454,6 +454,76 @@ Requires <code>BL:Api:Members:Update</code> permit
 
 <!--- ############################################################################################################# --->
 
+## <a name="v3-members-update-app-token"></a> Update app token
+
+> Example:
+
+```shell
+
+curl -X PUT \
+  https://bpc-api.boostcom.no/v3/infinity-mall/members/:id/update_app_token \
+  -H 'Content-Type: application/json' \
+  -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+  -H 'X-Product-Name: default' \
+  -H 'X-User-Agent: CURL manual test' \
+  -d \
+  '{
+     "app_token": "tok3n",
+     "app_platform": "android"
+   }'
+```
+
+> When successful, returns an empty object
+
+```json
+{
+  // Empty object
+}
+```
+
+> When payload is invalid, returns error response (422)
+
+```json
+{
+    "error": "Invalid parameters",
+    "details": {
+        "app_token": [
+            "must be a string"
+        ],
+        "app_platform": [
+            "must be one of: android, ios"
+        ]
+    }
+}
+```
+
+**PUT** `v3/:loyalty_club_slug/members/:id/update_app_token`
+
+Updates member's Firebase token, along with platform it's that it's associated with. 
+
+Token may be removed by sending it as empty string or null, empty payload will also be treated as token removal.
+Platform is automatically removed when token is empty.
+
+### PUT Parameters (JSON)
+
+Parameter | Type | Description
+--------- | ----------- | ------
+app_token | string | Firebase push token
+app_platform | string | One of: `['android', 'ios']` 
+
+### Error responses
+
+Status | Description
+--------- | ----------- 
+`404` | Member could not be found
+`422` | Invalid parameters
+
+<aside class="notice">
+Requires <code>BL:Api:Members:UpdateAppToken</code> permit
+</aside>
+
+<!--- ############################################################################################################# --->
+
 ## <a name="v3-members-destroy"></a> Destroy
 
 **DELETE** `v3/:loyalty_club_slug/members/:id`

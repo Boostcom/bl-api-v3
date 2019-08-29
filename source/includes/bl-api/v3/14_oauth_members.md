@@ -152,6 +152,58 @@ Status | Reason
 Requires <code>BL:Api:Members:OAuth:UpdatePassword</code> permit.
 </aside>
 
+## <a name="v3-me-update-app-token"></a> Update app token
+
+> Example:
+
+```shell
+
+curl -X PUT \
+  https://bpc-api.boostcom.no/v3/infinity-mall/members/me/update_app_token \
+  -H 'Content-Type: application/json' \
+  -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+  -H 'X-Product-Name: default' \
+  -H 'X-User-Agent: CURL manual test' \
+  -H 'Authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522' \
+  -d \
+  '{
+     "app_token": "tok3n",
+     "app_platform": "android"
+   }'
+```
+
+> When successful, returns an empty object
+
+```json
+{
+  // Empty object
+}
+```
+
+> When payload is invalid, returns error response (422). See [Members &bull; Update app token](#v3-members-update-app-token)
+
+**PUT** `v3/:loyalty_club_slug/members/me/update_app_token`
+
+Behaves like [Members &bull; Update app token](#v3-members-update-app-token)
+
+As a member-related action, it requires member authorization. See [OAuth](#v3-oauth2).
+
+### PUT Parameters (JSON)
+
+See [Members &bull; Update app token](#v3-members-update-app-token)
+
+### Error responses
+
+Status | Description
+--------- | ----------- 
+`422` | Invalid parameters
+
+<aside class="notice">
+Requires <code>BL:Api:Members:OAuth:UpdateAppToken</code> permit
+</aside>
+
+<!--- ############################################################################################################# --->
+
 ## <a name="v3-me-destroy"></a> Destroy
 
 > Example:

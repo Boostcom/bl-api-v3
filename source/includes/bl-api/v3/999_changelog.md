@@ -1,5 +1,9 @@
 # Changelog
 
+### 29.08.2019 | Piotr Świtlicki
+* Add [Members &bull; Update app token](#v3-members-update-app-token) endpoint
+* Add [OAuth &bull; Update app token](#v3-me-update-app-token) endpoint
+
 ### 27.08.2019 | Piotr Świtlicki
 * Add [Offers Events](#v3-offers-events) section
 
