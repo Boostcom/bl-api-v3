@@ -589,6 +589,7 @@ Requires <code>Offers:Api:MemberOffers:Get</code> permit
 <li>usable_until</li>
 <li>created_at</li>
 <li>usable </li>
+<li>liked </li>
 </ul>
 
 <h3 id="response-json-object">Response (JSON object)</h3>
