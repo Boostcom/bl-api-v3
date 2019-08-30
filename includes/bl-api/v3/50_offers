@@ -566,10 +566,16 @@ Requires <code>Offers:Api:MemberOffers:Get</code> permit
 <td>When present, only offers that match the query string will be returned</td>
 </tr>
 <tr>
-<td>only_usable</td>
+<td>usable</td>
 <td>boolean</td>
 <td>false</td>
 <td>When true, only offers that are usable will be returned</td>
+</tr>
+<tr>
+<td>liked</td>
+<td>boolean</td>
+<td>false</td>
+<td>When true, only offers that have been liked by member</td>
 </tr>
 </tbody></table>
 
