@@ -277,7 +277,8 @@ tags | string[] | null |  When present, only offers having at least one of given
 shops | string[] | null | When present, only offers having at least one of given shops will be returned
 campaign_id | integer[] | null | When present, only offers with this campaign_id will be returned
 search | string | null | When present, only offers that match the query string will be returned
-only_usable | boolean | false | When true, only offers that are usable will be returned
+usable | boolean | false | When true, only offers that are usable will be returned
+liked | boolean | false | When true, only offers that have been liked by member
 
 All parameters are optional.
 
