@@ -6,24 +6,24 @@
 <p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
-<span class="s2">"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/stores?mall_id=123&amp;parent_id=456&amp;limit=100&amp;sort=name&amp;order=asc"</span> <span class="se">\</span>
+<span class="s2">"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/stores?department_id=123&amp;limit=100&amp;sort=name&amp;order=asc"</span> <span class="se">\</span>
     -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
     -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
     -H <span class="s1">'X-User-Agent: CURL manual test'</span>
 </code></pre>
 <blockquote>
-<p>When successful (200), returns an array of mall objects structured like below. Some values may be omitted if were not provided:</p>
+<p>When successful (200), returns an array of store objects structured like below. Some values may be omitted if were not provided:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="p">,</span><span class="w">
         </span><span class="s2">"parent_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="p">,</span><span class="w">
         </span><span class="s2">"store_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"mall_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"department_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="p">,</span><span class="w">
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Store name"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"category"</span><span class="p">],</span><span class="w">
-        </span><span class="s2">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"location"</span><span class="w">
+        </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"location"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
@@ -41,19 +41,14 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>parent_id</td>
-<td>internal mall id</td>
+<td>department_id</td>
+<td>department id</td>
 <td>integer</td>
-</tr>
-<tr>
-<td>mall_id</td>
-<td>mall id</td>
-<td>string</td>
 </tr>
 <tr>
 <td>limit</td>
 <td>max number of results</td>
-<td>string</td>
+<td>integer</td>
 </tr>
 <tr>
 <td>sort</td>
@@ -86,16 +81,16 @@ Requires <code>Stores:Api:Stores:Get</code> permit
     -H <span class="s1">'X-User-Agent: CURL manual test'</span>
 </code></pre>
 <blockquote>
-<p>When successful (200), returns mall object structured like below. Some values may be omitted if were not provided:</p>
+<p>When successful (200), returns department object structured like below. Some values may be omitted if were not provided:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="p">,</span><span class="w">
     </span><span class="s2">"parent_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="p">,</span><span class="w">
     </span><span class="s2">"store_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"mall_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"department_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="p">,</span><span class="w">
     </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Store name"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"category"</span><span class="p">],</span><span class="w">
-    </span><span class="s2">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"location"</span><span class="w">
+    </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"location"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
@@ -165,10 +160,9 @@ Requires <code>Stores:Api:Stores:Get</code> permit
     <span class="s1">'{
         "name": "store name",
         "store_id": "6789",
-        "mall_id": 12345,
-        "parent_id": 12345,
+        "department_id": 12345,
         "categories": ["category"],
-        "unit": "location"
+        "location": "location"
     }'</span>
 </code></pre>
 <blockquote>
@@ -216,13 +210,8 @@ Requires <code>Stores:Api:Stores:Get</code> permit
 <td>string</td>
 </tr>
 <tr>
-<td>mall_id</td>
-<td>mall id</td>
-<td>string</td>
-</tr>
-<tr>
-<td>parent_id</td>
-<td>internal mall id</td>
+<td>department_id</td>
+<td>department/mall id</td>
 <td>string</td>
 </tr>
 <tr>
@@ -231,8 +220,8 @@ Requires <code>Stores:Api:Stores:Get</code> permit
 <td>array</td>
 </tr>
 <tr>
-<td>unit</td>
-<td>unit</td>
+<td>location</td>
+<td>location</td>
 <td>string</td>
 </tr>
 </tbody></table>
@@ -249,14 +238,10 @@ Requires <code>Stores:Api:Stores:Get</code> permit
 </thead><tbody>
 <tr>
 <td>ok</td>
-<td>Message has been accepted for sending</td>
+<td>Store was created</td>
 </tr>
 <tr>
 <td>Store with this id already exists.</td>
-<td></td>
-</tr>
-<tr>
-<td>Mall with this id does not exist.</td>
 <td></td>
 </tr>
 </tbody></table>
@@ -293,10 +278,9 @@ Requires <code>Stores:Api:Stores:Create</code>
     -d <span class="se">\</span>
     <span class="s1">'{
         "name": "store name",
-        "mall_id": 12345,
-        "parent_id": 6789,
+        "department_id": 12345,
         "categories": ["category"],
-        "unit": "location"
+        "location": "location"
     }'</span>
 </code></pre>
 <blockquote>
@@ -367,13 +351,8 @@ Requires <code>Stores:Api:Stores:Create</code>
 <td>string</td>
 </tr>
 <tr>
-<td>mall_id</td>
-<td>mall id</td>
-<td>string</td>
-</tr>
-<tr>
-<td>parent_id</td>
-<td>internal mall id</td>
+<td>department_id</td>
+<td>department/mall id</td>
 <td>string</td>
 </tr>
 <tr>
@@ -382,8 +361,8 @@ Requires <code>Stores:Api:Stores:Create</code>
 <td>array</td>
 </tr>
 <tr>
-<td>unit</td>
-<td>unit</td>
+<td>location</td>
+<td>location</td>
 <td>string</td>
 </tr>
 </tbody></table>
@@ -400,10 +379,10 @@ Requires <code>Stores:Api:Stores:Create</code>
 </thead><tbody>
 <tr>
 <td>ok</td>
-<td>Message has been accepted for sending</td>
+<td>Store updated</td>
 </tr>
 <tr>
-<td>Mall with this id does not exist.</td>
+<td>Store with this id does not exist.</td>
 <td></td>
 </tr>
 </tbody></table>
@@ -492,6 +471,10 @@ Requires <code>Stores:Api:Stores:Update</code>
 <tr>
 <td>ok</td>
 <td>Store was deleted</td>
+</tr>
+<tr>
+<td>Store with this id does not exist.</td>
+<td></td>
 </tr>
 </tbody></table>
 
