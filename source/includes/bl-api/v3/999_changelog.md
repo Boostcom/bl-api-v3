@@ -1,5 +1,13 @@
 # Changelog
 
+### 02.09.2019 | Natalia Styrska
+* Change ([Stores &bull; List](#v3-store-list)) rename malls to departments
+* Change ([Stores &bull; Get](#v3-store-get)) rename malls to departments
+* Change ([Stores &bull; Create](#v3-store-create)) rename malls to departments
+* Change ([Stores &bull; Update](#v3-store-update)) rename malls to departments
+* Add ([Departments &bull; List](#v3-department-list)) rename malls to departments
+* Add ([Departments &bull; Get](#v3-department-get)) rename malls to departments
+
 ### 29.08.2019 | Piotr Świtlicki
 * Add [Members &bull; Update app token](#v3-members-update-app-token) endpoint
 * Add [OAuth &bull; Update app token](#v3-me-update-app-token) endpoint

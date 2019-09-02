@@ -6,14 +6,14 @@
 
 ```shell
 curl -X GET \
-"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/stores?mall_id=123&parent_id=456&limit=100&sort=name&order=asc" \
+"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/stores?department_id=123&limit=100&sort=name&order=asc" \
     -H 'Content-Type: application/json' \
     -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
     -H 'X-Product-Name: default' \
     -H 'X-User-Agent: CURL manual test'
 ```
 
-> When successful (200), returns an array of mall objects structured like below. Some values may be omitted if were not provided:
+> When successful (200), returns an array of store objects structured like below. Some values may be omitted if were not provided:
 
 ```json
 [
@@ -21,10 +21,10 @@ curl -X GET \
         "id": 1234,
         "parent_id": 1234,
         "store_id": "1234",
-        "mall_id": 1234,
+        "department_id": 1234,
         "name": "Store name",
         "categories": ["category"],
-        "unit": "location"
+        "location": "location"
     }
 ]
 ``` 
@@ -35,13 +35,12 @@ List of all active stores
 
 ### URL Parameters
 
-Parameter | Description                  | Type
---------- | ---------------------------- | ------
-parent_id | internal mall id             | integer
-mall_id   | mall id                      | string
-limit     | max number of results        | string
-sort      | field to sort by (name,id,store_id) | string
-order     | order (asc,desc)             | string
+Parameter     | Description                         | Type
+------------- | ----------------------------------- | ------
+department_id | department id                       | integer
+limit         | max number of results               | integer
+sort          | field to sort by (name,id,store_id) | string
+order         | order (asc,desc)                    | string
 
 All parameters are optional
 
@@ -62,17 +61,17 @@ curl -X GET \
     -H 'X-User-Agent: CURL manual test'
 ```
 
-> When successful (200), returns mall object structured like below. Some values may be omitted if were not provided:
+> When successful (200), returns department object structured like below. Some values may be omitted if were not provided:
 
 ```json
 {
     "id": 1234,
     "parent_id": 1234,
     "store_id": "1234",
-    "mall_id": 1234,
+    "department_id": 1234,
     "name": "Store name",
     "categories": ["category"],
-    "unit": "location"
+    "location": "location"
 }
 ``` 
 
@@ -95,14 +94,14 @@ Return store by one of two identifiers: `id` or `store_id`
 
 Parameter | Description | Type
 --------- | ----------- | ------
-id | ID internal | integer
-store_id | Store id from customer system | string
+id        | ID internal | integer
+store_id  | Store id from customer system | string
 
 ### Error responses
 
-Status | Description
+Status    | Description
 --------- | ----------- 
-`422` | Invalid parameters (see example on the right)
+`422`     | Invalid parameters (see example on the right)
 
 <aside class="notice">
 Requires <code>Stores:Api:Stores:Get</code> permit
@@ -123,10 +122,9 @@ curl -X POST \
     '{
         "name": "store name",
         "store_id": "6789",
-        "mall_id": 12345,
-        "parent_id": 12345,
+        "department_id": 12345,
         "categories": ["category"],
-        "unit": "location"
+        "location": "location"
     }'
 ```
 
@@ -159,14 +157,13 @@ Create store
 
 ### POST Parameters (JSON)
 
-Parameter | Description       | Type
----------- | ---------------- | ------
-store_id*  | store id         | string
-name*      | store name       | string
-mall_id    | mall id          | string
-parent_id  | internal mall id | string
-category   | categories       | array
-unit       | unit             | string
+Parameter     | Description            | Type
+------------- | ---------------------- | ------
+store_id*     | store id               | string
+name*         | store name             | string
+department_id | department/mall id          | string
+category      | categories             | array
+location      | location               | string
 
 Parameters with `*` are required
 
@@ -174,9 +171,8 @@ Parameters with `*` are required
 
 Status | Description
 ---- | ----
-ok   | Message has been accepted for sending
+ok   | Store was created
 Store with this id already exists. | 
-Mall with this id does not exist. | 
 
 ### Error responses
 
@@ -202,10 +198,9 @@ curl -X PUT \
     -d \
     '{
         "name": "store name",
-        "mall_id": 12345,
-        "parent_id": 6789,
+        "department_id": 12345,
         "categories": ["category"],
-        "unit": "location"
+        "location": "location"
     }'
 ```
 
@@ -253,22 +248,21 @@ store_id   | store id    | string
 
 ### PUT Parameters (JSON)
 
-Parameter | Description       | Type
----------- | ---------------- | ------
-name*      | store name       | string
-mall_id    | mall id          | string
-parent_id  | internal mall id | string
-category   | categories       | array
-unit       | unit             | string
+Parameter     | Description            | Type
+------------- | ---------------------- | ------
+name*         | store name             | string
+department_id | department/mall id     | string
+category      | categories             | array
+location      | location               | string
 
 Parameters with `*` are required
 
 ### Feedback statuses
 
 Status | Description
----- | ----
-ok   | Message has been accepted for sending
-Mall with this id does not exist. | 
+------ | ----
+ok     | Store updated
+Store with this id does not exist. | 
 
 ### Error responses
 
@@ -329,6 +323,7 @@ store_id   | store id    | string
 Status | Description
 ------ | ----
 ok     | Store was deleted
+Store with this id does not exist. | 
 
 
 ### Error responses
