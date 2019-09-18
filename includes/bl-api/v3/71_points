@@ -1,0 +1,272 @@
+<h1 id="endpoints-points">Endpoints &bull; Points</h1>
+
+<h2 id="create"><a name="v3-points-create"></a> Create</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
+<span class="s2">"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/points"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+    -H <span class="s1">'X-User-Agent: CURL manual test'</span>
+    -d <span class="se">\</span>
+    <span class="s1">'[
+        {
+            "amount": 10,
+            "event_type": "purchase",
+            "event": "used coupon",
+            "message": "Black Friday",
+            "store_id": "12345",
+            "transaction_id": "f4c2b7a6-e0fb-47a3-9b5a-02d3854fcea3",
+            "wallet": "default",
+            "expiry_date": "f4c2b7a6-e0fb-47a3-9b5a-02d3854fcea3"
+        }
+    ]'</span>
+</code></pre>
+<blockquote>
+<p>When successful (200), returns a feedback object structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"event_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"purchase"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>When request is invalid (422), returns:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid format"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"[1].property"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The property {property} is required"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>POST</strong> <code class="prettyprint">v3/:loyalty_club_slug/points</code></p>
+
+<p>Add or remove points from member wallets. All unasigned points belongs to default wallet</p>
+
+<h3 id="post-parameters-json">POST Parameters (JSON)</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>identifier_type*</td>
+<td>Type of identifier</td>
+<td>string (id, msisdn, email)</td>
+</tr>
+<tr>
+<td>identifier*</td>
+<td>Identifier</td>
+<td>msisdn (string), email (string), member_id (int)</td>
+</tr>
+<tr>
+<td>event_type*</td>
+<td>Type of event</td>
+<td>string (purchase, issue, campaign, use, revoke, expire, custom)</td>
+</tr>
+<tr>
+<td>amount*</td>
+<td>store name</td>
+<td>int (not 0)</td>
+</tr>
+<tr>
+<td>event</td>
+<td>description of event</td>
+<td>string</td>
+</tr>
+<tr>
+<td>message</td>
+<td>additional remarks</td>
+<td>string</td>
+</tr>
+<tr>
+<td>store_id</td>
+<td>store id</td>
+<td>string</td>
+</tr>
+<tr>
+<td>transaction_id</td>
+<td>DMP transaction id</td>
+<td>string</td>
+</tr>
+<tr>
+<td>wallet</td>
+<td>wallet</td>
+<td>string</td>
+</tr>
+<tr>
+<td>expiry_date</td>
+<td>Points expiry date</td>
+<td>datetime</td>
+</tr>
+</tbody></table>
+
+<p>Parameters with <code class="prettyprint">*</code> are required</p>
+
+<h3 id="type-of-events">Type of events</h3>
+
+<table><thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>purchase</td>
+<td>points added by making a purchase (positive amount required)</td>
+</tr>
+<tr>
+<td>campaign</td>
+<td>points added due to campaign event (positive amount required)</td>
+</tr>
+<tr>
+<td>issue</td>
+<td>points added (positive amount required)</td>
+</tr>
+<tr>
+<td>use</td>
+<td>points used by a member (reward, discount, etc) (negative amount required)</td>
+</tr>
+<tr>
+<td>revoke</td>
+<td>points removed from member account due to refund etc. (negative amount required)</td>
+</tr>
+<tr>
+<td>expire</td>
+<td>points removed due to expiration (negative amount required)</td>
+</tr>
+<tr>
+<td>custom</td>
+<td>custom event</td>
+</tr>
+</tbody></table>
+
+<h3 id="feedback-statuses">Feedback statuses</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ok</td>
+<td>Points saved</td>
+</tr>
+<tr>
+<td>Member does not exist</td>
+<td></td>
+</tr>
+<tr>
+<td>Store does not exists</td>
+<td></td>
+</tr>
+<tr>
+<td>Incorrect amount</td>
+<td>Positive amount when using points, negative amount when issuing points etc</td>
+</tr>
+<tr>
+<td>Not enough points in the wallet</td>
+<td>Not enough points when using a points</td>
+</tr>
+</tbody></table>
+
+<h3 id="error-responses">Error responses</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">422</code></td>
+<td>Invalid parameters (see example on the right)</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Transactions:Api:Points:Create</code>
+</aside>
+
+<h2 id="member-points"><a name="v3-member-points"></a> Member points</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
+<span class="s2">"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/points/by_member_id/12345"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+    -H <span class="s1">'X-User-Agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>When successful (200), returns a feedback object structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"default_wallet"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"other_wallet"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>POST</strong> <code class="prettyprint">v3/:loyalty_club_slug/points/by_member_id/:member_id</code></p>
+
+<p><strong>POST</strong> <code class="prettyprint">v3/:loyalty_club_slug/points/by_msisdn/:msisdn</code></p>
+
+<p><strong>POST</strong> <code class="prettyprint">v3/:loyalty_club_slug/points/by_email/:email</code></p>
+
+<p>Return number of points that member has filtered by different wallets</p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>member_id</td>
+<td>Member id</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>msisdn</td>
+<td>Member msisdn</td>
+<td>string</td>
+</tr>
+<tr>
+<td>email</td>
+<td>Member email</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<h3 id="error-responses">Error responses</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">422</code></td>
+<td>Invalid parameters (see example on the right)</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Transactions:Api:Points:Get</code> permit
+</aside>
