@@ -1,5 +1,12 @@
 <h1 id="changelog">Changelog</h1>
 
+<h3 id="19-09-2019-natalia-styrska">19.09.2019 | Natalia Styrska</h3>
+
+<ul>
+<li>Add (<a href="#v3-member-points">Points &bull; Member points</a>) endpoint</li>
+<li>Add (<a href="#v3-points-create">Points &bull; Create</a>) endpoint</li>
+</ul>
+
 <h3 id="02-09-2019-natalia-styrska">02.09.2019 | Natalia Styrska</h3>
 
 <ul>
