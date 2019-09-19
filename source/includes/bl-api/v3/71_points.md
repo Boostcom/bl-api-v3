@@ -107,7 +107,7 @@ Requires <code>Transactions:Api:Points:Create</code>
 > Example:
 
 ```shell
-curl -X POST \
+curl -X GET \
 "https://bpc-api.boostcom.no/v3/:loyalty_club_slug/points/by_member_id/12345" \
     -H 'Content-Type: application/json' \
     -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
@@ -124,11 +124,11 @@ curl -X POST \
     }
 ```  
 
-**POST** `v3/:loyalty_club_slug/points/by_member_id/:member_id`
+**GET** `v3/:loyalty_club_slug/points/by_member_id/:member_id`
 
-**POST** `v3/:loyalty_club_slug/points/by_msisdn/:msisdn`
+**GET** `v3/:loyalty_club_slug/points/by_msisdn/:msisdn`
 
-**POST** `v3/:loyalty_club_slug/points/by_email/:email`
+**GET** `v3/:loyalty_club_slug/points/by_email/:email`
 
 Return number of points that member has filtered by different wallets
 

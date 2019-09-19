@@ -1,5 +1,10 @@
 # Changelog
 
+### 19.09.2019 | Natalia Styrska
+
+* Add ([Points &bull; Member points](#v3-member-points)) endpoint
+* Add ([Points &bull; Create](#v3-points-create)) endpoint
+
 ### 02.09.2019 | Natalia Styrska
 * Change ([Stores &bull; List](#v3-store-list)) rename malls to departments
 * Change ([Stores &bull; Get](#v3-store-get)) rename malls to departments
