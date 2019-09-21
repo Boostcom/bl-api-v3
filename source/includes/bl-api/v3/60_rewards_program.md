@@ -255,6 +255,7 @@ curl \
 ```json
 {
   "membership": true,
+  "membership_started_at": "2019-05-15T12:43:22:41063Z",
   "balance": 180,
   "transactions": [
     {
@@ -333,6 +334,7 @@ page | integer | no | 1 | Number of transactions page
 Key | Type | Description
 --------- | --------- | ---------
 membership | boolean | Does member participate the Rewards Program?
+membership_started_at | Date | When the member joined the Rewards Program
 balance | integer | Member's current points number
 transactions | Array| List of Transactions objects, ordered by date descending. See below
 pagination_info | Object | [Pagination](#v3-pagination-model) object describing transactions list

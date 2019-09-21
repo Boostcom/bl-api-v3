@@ -1,5 +1,9 @@
 # Changelog
 
+### 21.09.2019 | Piotr Świtlicki
+
+* Add `membership_started_at` to [Rewards Program &bull; Get Status](#v3-rewards-program-status) 
+
 ### 19.09.2019 | Natalia Styrska
 
 * Add ([Points &bull; Member points](#v3-member-points)) endpoint
