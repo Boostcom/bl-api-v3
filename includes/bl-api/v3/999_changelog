@@ -1,5 +1,11 @@
 <h1 id="changelog">Changelog</h1>
 
+<h3 id="21-09-2019-piotr-witlicki">21.09.2019 | Piotr Świtlicki</h3>
+
+<ul>
+<li>Add <code class="prettyprint">membership_started_at</code> to <a href="#v3-rewards-program-status">Rewards Program &bull; Get Status</a> </li>
+</ul>
+
 <h3 id="19-09-2019-natalia-styrska">19.09.2019 | Natalia Styrska</h3>
 
 <ul>
