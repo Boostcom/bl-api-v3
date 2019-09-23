@@ -1,5 +1,9 @@
 # Changelog
 
+### 23.09.2019 | Piotr Świtlicki
+
+* Add `event_occurred_at` param to [Members &bull; Update](#v3-member-event-occured-at-param) 
+
 ### 21.09.2019 | Piotr Świtlicki
 
 * Add `membership_started_at` to [Rewards Program &bull; Get Status](#v3-rewards-program-status) 
