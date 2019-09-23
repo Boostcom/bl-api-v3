@@ -1,5 +1,11 @@
 <h1 id="changelog">Changelog</h1>
 
+<h3 id="23-09-2019-piotr-witlicki">23.09.2019 | Piotr Świtlicki</h3>
+
+<ul>
+<li>Add <code class="prettyprint">event_occurred_at</code> param to <a href="#v3-member-event-occured-at-param">Members &bull; Update</a> </li>
+</ul>
+
 <h3 id="21-09-2019-piotr-witlicki">21.09.2019 | Piotr Świtlicki</h3>
 
 <ul>
