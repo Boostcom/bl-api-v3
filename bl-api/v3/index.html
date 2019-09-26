@@ -5241,10 +5241,9 @@ Requires <code>Offers:Api:MemberOffers:ListVisibleByMemberId</code> permit
     '</span>
 </code></pre>
 <blockquote>
-<p>When successful (200), returns a object structured like this</p>
+<p>When successful (200), returns a Offer usage object - See <a href="#v3-offer-usage-model">Offer usage model</a></p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"authorized"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="s2">"usage"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"usable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
         </span><span class="s2">"max_uses"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
@@ -5277,12 +5276,11 @@ Requires <code>Offers:Api:MemberOffers:ListVisibleByMemberId</code> permit
 
 <h4 id="offer-use-authorization"><a name="v3-offer-use-authorization"></a> Offer use authorization</h4>
 
-<p>Some features (like Rewards Program) may require user to provide some code (scanned QR code, for example), so we can register
-physical member presence in the store.</p>
+<p>Some features (like Rewards Program) may require from member to provide some code (scanned QR code, for example), so we can register
+his physical presence in the store.</p>
 
 <p>When token is not provided, the offer use is processed as usual, except that some benefits (like Rewards points)
-may not be granted to the member.
-Additionally, the response returns information that the use has not been registered as &ldquo;authorized&rdquo;.</p>
+tied to it may not be granted to the member.</p>
 
 <p>However, when token is provided and happens to be invalid, the offer use is not registered, and 422 error (see below) is returned.  </p>
 
@@ -5295,11 +5293,6 @@ Additionally, the response returns information that the use has not been registe
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>authorized</td>
-<td>Bool</td>
-<td>Has the use been recognized as authorized? See <a href="#v3-offer-use-authorization">above</a></td>
-</tr>
 <tr>
 <td>usage</td>
 <td>OfferUsage</td>
