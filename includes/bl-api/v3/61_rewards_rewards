@@ -298,10 +298,6 @@ Requires <code>Rewards:Api:OAuth:Rewards:Purchase</code> permit
 
 <p>As a member-related action, it requires member authorization. See <a href="#v3-oauth2">OAuth</a>.</p>
 
-<h3 id="x-usage-token-header"><code class="prettyprint">X-Usage-Token</code> header</h3>
-
-<p>It is possible to require user to provide a token before he is able to use the reward. See <a href="#v3-usage-token"><code class="prettyprint">X-Usage-Token</code> header</a></p>
-
 <h3 id="response-json-object">Response (JSON object)</h3>
 
 <table><thead>
@@ -341,11 +337,6 @@ Requires <code>Rewards:Api:OAuth:Rewards:Purchase</code> permit
 <td><code class="prettyprint">422</code></td>
 <td><code class="prettyprint">{&quot;error&quot;: &quot;Not granted&quot;}</code></td>
 <td>The reward has not been purchased by member</td>
-</tr>
-<tr>
-<td><code class="prettyprint">422</code></td>
-<td><code class="prettyprint">{&quot;error&quot;: &quot;Usage authorization token invalid&quot;}</code></td>
-<td>Provided usage token is invalid</td>
 </tr>
 <tr>
 <td><code class="prettyprint">422</code></td>

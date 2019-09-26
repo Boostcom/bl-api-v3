@@ -1997,7 +1997,20 @@ attributes that were provided in payload. </p>
 <td>Boolean</td>
 <td>false</td>
 </tr>
+<tr>
+<td>event_occurred_at</td>
+<td>See: <a href="#v3-member-event-occured-at-param"><code class="prettyprint">event_occurred_at</code> param</a></td>
+<td>Date</td>
+<td>(current time)</td>
+</tr>
 </tbody></table>
+
+<h4 id="event_occurred_at-param"><a name="v3-member-event-occured-at-param"></a> <code class="prettyprint">event_occurred_at</code> param</h4>
+
+<p>When actual member data change occurred at the time different than request&rsquo;s time, you can utilize the `event_occurred_at&rsquo; param to pass
+the actual update time.</p>
+
+<p>This may be relevant when you want this to be reflected in the member&rsquo;s changes history.</p>
 
 <h3 id="response-json-object">Response (JSON object)</h3>
 
@@ -4591,7 +4604,7 @@ Messages are being sent asynchronously. Also, it cannot be guaranteed that the m
 Requires <code>BL:Api:Emails:Send</code> permit
 </aside>
 
-          <h1 id="endpoints-offers-wip"><a name="v3-offers"></a>  Endpoints &bull; Offers (WIP)</h1>
+          <h1 id="endpoints-offers"><a name="v3-offers"></a>  Endpoints &bull; Offers</h1>
 
 <p>This section describes endpoints destined for end user (e.g. for mobile apps) and work mostly in member context. 
 Navigate to <a href="#v3-offers-admin">Offers Admin</a> section to see docs for offers management endpoints.</p>
@@ -4913,8 +4926,7 @@ response will be user-agnostic.</p>
             </span><span class="p">]</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
-    </span><span class="s2">"activated_seconds_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">35</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"usage_authorization_tokens"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"secret"</span><span class="p">,</span><span class="w"> </span><span class="s2">"another-secret"</span><span class="p">,</span><span class="w"> </span><span class="s2">"06edd7397efa83b1e4d07a195324b8a5a"</span><span class="p">]</span><span class="w">
+    </span><span class="s2">"activated_seconds_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">35</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p><strong>GET</strong> <code class="prettyprint">v3/infinity-mall/members/me/offers/meta</code> [<a href="#v3-oauth2">OAuth</a>]</p>
@@ -4977,12 +4989,6 @@ response will be user-agnostic.</p>
 <td>integer</td>
 <td>no</td>
 <td>Number of seconds the offers stays active after member uses it</td>
-</tr>
-<tr>
-<td>usage_authorization_tokens</td>
-<td>string[]</td>
-<td>no (may be empty)</td>
-<td>List of tokens permitted to use the offers. See <a href="#v3-usage-token"><code class="prettyprint">X-Usage-Token</code> header</a></td>
 </tr>
 </tbody></table>
 
@@ -5188,6 +5194,7 @@ Requires <code>Offers:Api:MemberOffers:Get</code> permit
 <li>usable_until</li>
 <li>created_at</li>
 <li>usable </li>
+<li>uses_left</li>
 <li>liked </li>
 </ul>
 
@@ -5226,12 +5233,18 @@ Requires <code>Offers:Api:MemberOffers:ListVisibleByMemberId</code> permit
     -H <span class="s1">'Authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522'</span> <span class="se">\</span>
     -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
     -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
-    -H <span class="s1">'X-User-Agent: CURL manual test'</span>
+    -H <span class="s1">'X-User-Agent: CURL manual test'</span> <span class="se">\</span>
+    -d <span class="s1">'
+    {
+      "authorization_token": "a1cc4e0b3ab54b7d8"
+    }
+    '</span>
 </code></pre>
 <blockquote>
-<p>When successful (200), returns a Offer usage object - See <a href="#v3-offer-usage-model">Offer usage model</a></p>
+<p>When successful (200), returns a object structured like this</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"authorized"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="s2">"usage"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"usable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
         </span><span class="s2">"max_uses"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
@@ -5244,13 +5257,55 @@ Requires <code>Offers:Api:MemberOffers:ListVisibleByMemberId</code> permit
 
 <p>Uses (activates) the offer by member.</p>
 
-<h3 id="x-usage-token-header"><a name="v3-usage-token"></a> <code class="prettyprint">X-Usage-Token</code> header</h3>
+<h3 id="post-parameters-json">POST Parameters (JSON)</h3>
 
-<p>It is possible to require user to provide a token (for example, encoded as a QR code) before he is able to use the offer.</p>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Optional?</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>authorization_token</td>
+<td>string</td>
+<td>yes</td>
+<td>See <a href="#v3-offer-use-authorization">below</a></td>
+</tr>
+</tbody></table>
 
-<p>In such case, the token should be sent as a <code class="prettyprint">X-Usage-Token</code> header. When such header is present, it&rsquo;s value 
-is validated against the list of tokens configured for Loyalty Club. 
-A corresponding error message will be returned when token happens to be invalid.</p>
+<h4 id="offer-use-authorization"><a name="v3-offer-use-authorization"></a> Offer use authorization</h4>
+
+<p>Some features (like Rewards Program) may require user to provide some code (scanned QR code, for example), so we can register
+physical member presence in the store.</p>
+
+<p>When token is not provided, the offer use is processed as usual, except that some benefits (like Rewards points)
+may not be granted to the member.
+Additionally, the response returns information that the use has not been registered as &ldquo;authorized&rdquo;.</p>
+
+<p>However, when token is provided and happens to be invalid, the offer use is not registered, and 422 error (see below) is returned.  </p>
+
+<h3 id="response-json-object">Response (JSON object)</h3>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>authorized</td>
+<td>Bool</td>
+<td>Has the use been recognized as authorized? See <a href="#v3-offer-use-authorization">above</a></td>
+</tr>
+<tr>
+<td>usage</td>
+<td>OfferUsage</td>
+<td>See <a href="#v3-offer-usage-model">Offer usage model</a></td>
+</tr>
+</tbody></table>
 
 <h3 id="error-responses">Error responses</h3>
 
@@ -5358,7 +5413,7 @@ Requires <code>Offers:Api:MemberOffers:Like</code> permit
 Requires <code>Offers:Api:MemberOffers:Like</code> permit
 </aside>
 
-          <h1 id="endpoints-offers-events-wip"><a name="v3-offers-events"></a>  Endpoints &bull; Offers Events (WIP)</h1>
+          <h1 id="endpoints-offers-events"><a name="v3-offers-events"></a>  Endpoints &bull; Offers Events</h1>
 
 <h2 id="offerevent-model"><a name="v3-offer-event-model"></a> OfferEvent model</h2>
 
@@ -6695,6 +6750,7 @@ Requires <code>Rewards:Api:OAuth:Memberships:Delete</code> permit
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"membership"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"membership_started_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-15T12:43:22:41063Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"balance"</span><span class="p">:</span><span class="w"> </span><span class="mi">180</span><span class="p">,</span><span class="w">
   </span><span class="s2">"transactions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
@@ -6799,6 +6855,11 @@ Requires <code>Rewards:Api:OAuth:Memberships:Delete</code> permit
 <td>membership</td>
 <td>boolean</td>
 <td>Does member participate the Rewards Program?</td>
+</tr>
+<tr>
+<td>membership_started_at</td>
+<td>Date</td>
+<td>When the member joined the Rewards Program</td>
 </tr>
 <tr>
 <td>balance</td>
@@ -7380,10 +7441,6 @@ Requires <code>Rewards:Api:OAuth:Rewards:Purchase</code> permit
 
 <p>As a member-related action, it requires member authorization. See <a href="#v3-oauth2">OAuth</a>.</p>
 
-<h3 id="x-usage-token-header"><code class="prettyprint">X-Usage-Token</code> header</h3>
-
-<p>It is possible to require user to provide a token before he is able to use the reward. See <a href="#v3-usage-token"><code class="prettyprint">X-Usage-Token</code> header</a></p>
-
 <h3 id="response-json-object">Response (JSON object)</h3>
 
 <table><thead>
@@ -7423,11 +7480,6 @@ Requires <code>Rewards:Api:OAuth:Rewards:Purchase</code> permit
 <td><code class="prettyprint">422</code></td>
 <td><code class="prettyprint">{&quot;error&quot;: &quot;Not granted&quot;}</code></td>
 <td>The reward has not been purchased by member</td>
-</tr>
-<tr>
-<td><code class="prettyprint">422</code></td>
-<td><code class="prettyprint">{&quot;error&quot;: &quot;Usage authorization token invalid&quot;}</code></td>
-<td>Provided usage token is invalid</td>
 </tr>
 <tr>
 <td><code class="prettyprint">422</code></td>
@@ -8148,7 +8200,7 @@ Requires <code>Transaction:Api:Transactions:Read</code> permit
 Requires <code>Transaction:Api:Transactions:Read</code> permit
 </aside> 
 
-          <h1 id="endpoints-points-wip">Endpoints &bull; Points (WIP)</h1>
+          <h1 id="endpoints-points">Endpoints &bull; Points</h1>
 
 <h2 id="create"><a name="v3-points-create"></a> Create</h2>
 
@@ -9575,6 +9627,18 @@ Requires <code>Stores:Api:Departments:Get</code> permit
 </aside> 
 
           <h1 id="changelog">Changelog</h1>
+
+<h3 id="23-09-2019-piotr-witlicki">23.09.2019 | Piotr Świtlicki</h3>
+
+<ul>
+<li>Add <code class="prettyprint">event_occurred_at</code> param to <a href="#v3-member-event-occured-at-param">Members &bull; Update</a> </li>
+</ul>
+
+<h3 id="21-09-2019-piotr-witlicki">21.09.2019 | Piotr Świtlicki</h3>
+
+<ul>
+<li>Add <code class="prettyprint">membership_started_at</code> to <a href="#v3-rewards-program-status">Rewards Program &bull; Get Status</a> </li>
+</ul>
 
 <h3 id="19-09-2019-natalia-styrska">19.09.2019 | Natalia Styrska</h3>
 
