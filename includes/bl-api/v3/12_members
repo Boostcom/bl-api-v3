@@ -748,20 +748,7 @@ attributes that were provided in payload. </p>
 <td>Boolean</td>
 <td>false</td>
 </tr>
-<tr>
-<td>event_occurred_at</td>
-<td>See: <a href="#v3-member-event-occured-at-param"><code class="prettyprint">event_occurred_at</code> param</a></td>
-<td>Date</td>
-<td>(current time)</td>
-</tr>
 </tbody></table>
-
-<h4 id="event_occurred_at-param"><a name="v3-member-event-occured-at-param"></a> <code class="prettyprint">event_occurred_at</code> param</h4>
-
-<p>When actual member data change occurred at the time different than request&rsquo;s time, you can utilize the `event_occurred_at&rsquo; param to pass
-the actual update time.</p>
-
-<p>This may be relevant when you want this to be reflected in the member&rsquo;s changes history.</p>
 
 <h3 id="response-json-object">Response (JSON object)</h3>
 
