@@ -227,10 +227,6 @@ Uses (activates) one of usable rewards purchased by member.
 
 As a member-related action, it requires member authorization. See [OAuth](#v3-oauth2).
 
-### `X-Usage-Token` header
-
-It is possible to require user to provide a token before he is able to use the reward. See [`X-Usage-Token` header](#v3-usage-token)
-
 ### Response (JSON object)
 
 Key | Type | Description
@@ -244,7 +240,6 @@ Status | Response body | Description
 `404` | `{"error": "Reward#10000951 not found"}`| -
 `422` | `{"error": "Already active"}` | The reward has been just used
 `422` | `{"error": "Not granted"}` | The reward has not been purchased by member
-`422` | `{"error": "Usage authorization token invalid"}` | Provided usage token is invalid
 `422` | `{"error": "User limit exceeded"}` | There are no more rewards available to purchase for the member
 
 <aside class="notice">
