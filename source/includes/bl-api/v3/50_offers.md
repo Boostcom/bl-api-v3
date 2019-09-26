@@ -324,11 +324,10 @@ curl -X POST \
     '
 ```
 
-> When successful (200), returns a object structured like this
+> When successful (200), returns a Offer usage object - See [Offer usage model](#v3-offer-usage-model)
 
 ```json
 {
-    "authorized": true,
     "usage": {
         "usable": true,
         "max_uses": 100,
@@ -350,12 +349,11 @@ authorization_token | string | yes | See [below](#v3-offer-use-authorization)
 
 #### <a name="v3-offer-use-authorization"></a> Offer use authorization
 
-Some features (like Rewards Program) may require user to provide some code (scanned QR code, for example), so we can register
-physical member presence in the store.
+Some features (like Rewards Program) may require from member to provide some code (scanned QR code, for example), so we can register
+his physical presence in the store.
 
 When token is not provided, the offer use is processed as usual, except that some benefits (like Rewards points)
-may not be granted to the member.
-Additionally, the response returns information that the use has not been registered as "authorized".
+tied to it may not be granted to the member.
 
 However, when token is provided and happens to be invalid, the offer use is not registered, and 422 error (see below) is returned.  
 
@@ -363,7 +361,6 @@ However, when token is provided and happens to be invalid, the offer use is not 
 
 Key | Type  | Description
 --------- | -------- | ---------
-authorized | Bool | Has the use been recognized as authorized? See [above](#v3-offer-use-authorization)
 usage | OfferUsage | See [Offer usage model](#v3-offer-usage-model)
 
 ### Error responses
