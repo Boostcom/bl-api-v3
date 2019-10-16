@@ -1,4 +1,4 @@
-# <a name="v3-offers"></a>  Endpoints &bull; Offers (WIP)
+# <a name="v3-offers"></a>  Endpoints &bull; Offers
 
 This section describes endpoints destined for end user (e.g. for mobile apps) and work mostly in member context. 
 Navigate to [Offers Admin](#v3-offers-admin) section to see docs for offers management endpoints.
@@ -153,8 +153,7 @@ curl \
             ]
         }
     ],
-    "activated_seconds_time": 35,
-    "usage_authorization_tokens": ["secret", "another-secret", "06edd7397efa83b1e4d07a195324b8a5a"]
+    "activated_seconds_time": 35
 }
 ```
 
@@ -179,7 +178,6 @@ tags | string[] | no (may be empty) | List of unique tags assigned to offers
 shops | string[] | no (may be empty) | List of unique shops assigned to offers
 collections | Collection[] |  no (may be empty) | List of unique collections assigned to offers - see [Collection model](#v3-offers-collection-model)
 activated_seconds_time | integer | no | Number of seconds the offers stays active after member uses it 
-usage_authorization_tokens | string[] | no (may be empty) | List of tokens permitted to use the offers. See [`X-Usage-Token` header](#v3-usage-token)
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:GetMeta</code> permit
@@ -295,6 +293,7 @@ Following offer attributes may be used for ordering:
 * usable_until
 * created_at
 * usable 
+* uses_left
 * liked 
 
 ### Response (JSON object)
@@ -317,7 +316,12 @@ curl -X POST \
     -H 'Authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522' \
     -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
     -H 'X-Product-Name: default' \
-    -H 'X-User-Agent: CURL manual test'
+    -H 'X-User-Agent: CURL manual test' \
+    -d '
+    {
+      "authorization_token": "a1cc4e0b3ab54b7d8"
+    }
+    '
 ```
 
 > When successful (200), returns a Offer usage object - See [Offer usage model](#v3-offer-usage-model)
@@ -337,13 +341,27 @@ curl -X POST \
 
 Uses (activates) the offer by member.
 
-### <a name="v3-usage-token"></a> `X-Usage-Token` header
+### POST Parameters (JSON)
 
-It is possible to require user to provide a token (for example, encoded as a QR code) before he is able to use the offer.
+Key | Type | Optional? | Description
+--- | ---- | --------- | -----------
+authorization_token | string | yes | See [below](#v3-offer-use-authorization)
 
-In such case, the token should be sent as a `X-Usage-Token` header. When such header is present, it's value 
-is validated against the list of tokens configured for Loyalty Club. 
-A corresponding error message will be returned when token happens to be invalid.
+#### <a name="v3-offer-use-authorization"></a> Offer use authorization
+
+Some features (like Rewards Program) may require from member to provide some code (scanned QR code, for example), so we can register
+his physical presence in the store.
+
+When token is not provided, the offer use is processed as usual, except that some benefits (like Rewards points)
+tied to it may not be granted to the member.
+
+However, when token is provided and happens to be invalid, the offer use is not registered, and 422 error (see below) is returned.  
+
+### Response (JSON object)
+
+Key | Type  | Description
+--------- | -------- | ---------
+usage | OfferUsage | See [Offer usage model](#v3-offer-usage-model)
 
 ### Error responses
 

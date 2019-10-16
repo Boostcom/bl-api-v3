@@ -436,6 +436,14 @@ sms_enabled | Should SMS channel be enabled for member? | Boolean | null
 email_enabled | Should email channel be enabled for member? | Boolean | null
 push_enabled | Should push channel will be enabled for member? | Boolean | null
 validate_partially | Should only provided data be validated? | Boolean | false
+event_occurred_at | See: [`event_occurred_at` param](#v3-member-event-occured-at-param) | Date | (current time)
+
+#### <a name="v3-member-event-occured-at-param"></a> `event_occurred_at` param
+
+When actual member data change occurred at the time different than request's time, you can utilize the `event_occurred_at' param to pass
+the actual update time.
+
+This may be relevant when you want this to be reflected in the member's changes history.
 
 ### Response (JSON object)
 

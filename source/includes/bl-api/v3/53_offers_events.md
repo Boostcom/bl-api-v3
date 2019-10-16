@@ -1,4 +1,4 @@
-# <a name="v3-offers-events"></a>  Endpoints &bull; Offers Events (WIP)
+# <a name="v3-offers-events"></a>  Endpoints &bull; Offers Events
 
 ## <a name="v3-offer-event-model"></a> OfferEvent model
 
