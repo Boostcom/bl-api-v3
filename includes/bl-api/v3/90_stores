@@ -6,7 +6,7 @@
 <p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
-<span class="s2">"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/stores?department_id=123&amp;limit=100&amp;sort=name&amp;order=asc"</span> <span class="se">\</span>
+<span class="s2">"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/stores?department_id=123&amp;category=cat&amp;limit=100&amp;sort=name&amp;order=asc"</span> <span class="se">\</span>
     -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
     -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
@@ -44,6 +44,11 @@
 <td>department_id</td>
 <td>department id</td>
 <td>integer</td>
+</tr>
+<tr>
+<td>category</td>
+<td>category</td>
+<td>string</td>
 </tr>
 <tr>
 <td>limit</td>
@@ -495,3 +500,32 @@ Requires <code>Stores:Api:Stores:Update</code>
 <aside class="notice">
 Requires <code>Stores:Api:Stores:Delete</code>
 </aside>
+
+<h2 id="categories"><a name="v3-store-categories-list"></a> Categories</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+<span class="s2">"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/stores/categories"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+    -H <span class="s1">'X-User-Agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>When successful (200), returns an array of store objects structured like below. Some values may be omitted if were not provided:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="s2">"category A"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"category B"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"category C"</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/stores/categories</code></p>
+
+<p>List of all store categories</p>
+
+<aside class="notice">
+Requires <code>Stores:Api:Categories:Get</code> permit
+</aside> 

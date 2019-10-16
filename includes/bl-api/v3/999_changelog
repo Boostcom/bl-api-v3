@@ -1,5 +1,13 @@
 <h1 id="changelog">Changelog</h1>
 
+<h3 id="16-10-2019-natalia-styrska">16.10.2019 | Natalia Styrska</h3>
+
+<ul>
+<li>Add (<a href="#v3-store-categories-list">Stores &bull; Categories</a>) endpoint</li>
+<li>Add (<a href="#v3-department-create">Departments &bull; Create</a>) endpoint</li>
+<li>Add (<a href="#v3-department-update">Departments &bull; Update</a>) endpoint</li>
+</ul>
+
 <h3 id="23-09-2019-piotr-witlicki">23.09.2019 | Piotr Świtlicki</h3>
 
 <ul>

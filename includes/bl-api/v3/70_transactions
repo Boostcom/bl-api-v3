@@ -249,10 +249,10 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>item_id *</td>
+<td>id *</td>
 <td>string</td>
 <td>n/a</td>
-<td></td>
+<td>item id</td>
 </tr>
 <tr>
 <td>price *</td>

@@ -7736,10 +7736,10 @@ Requires <code>Rewards:Api:OAuth:Rewards:Use</code> permit
 </tr>
 </thead><tbody>
 <tr>
-<td>item_id *</td>
+<td>id *</td>
 <td>string</td>
 <td>n/a</td>
-<td></td>
+<td>item id</td>
 </tr>
 <tr>
 <td>price *</td>
@@ -8193,7 +8193,7 @@ Requires <code>Transaction:Api:Transactions:Read</code> permit
 Requires <code>Transaction:Api:Transactions:Read</code> permit
 </aside> 
 
-          <h1 id="endpoints-points">Endpoints &bull; Points</h1>
+          <h1 id="endpoints-points-wip">Endpoints &bull; Points (WIP)</h1>
 
 <h2 id="create"><a name="v3-points-create"></a> Create</h2>
 
@@ -9023,7 +9023,7 @@ Requires <code>Translations:Api:Index</code> permit
 <p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
-<span class="s2">"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/stores?department_id=123&amp;limit=100&amp;sort=name&amp;order=asc"</span> <span class="se">\</span>
+<span class="s2">"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/stores?department_id=123&amp;category=cat&amp;limit=100&amp;sort=name&amp;order=asc"</span> <span class="se">\</span>
     -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
     -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
@@ -9061,6 +9061,11 @@ Requires <code>Translations:Api:Index</code> permit
 <td>department_id</td>
 <td>department id</td>
 <td>integer</td>
+</tr>
+<tr>
+<td>category</td>
+<td>category</td>
+<td>string</td>
 </tr>
 <tr>
 <td>limit</td>
@@ -9513,6 +9518,35 @@ Requires <code>Stores:Api:Stores:Update</code>
 Requires <code>Stores:Api:Stores:Delete</code>
 </aside>
 
+<h2 id="categories"><a name="v3-store-categories-list"></a> Categories</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+<span class="s2">"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/stores/categories"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+    -H <span class="s1">'X-User-Agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>When successful (200), returns an array of store objects structured like below. Some values may be omitted if were not provided:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="s2">"category A"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"category B"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"category C"</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/stores/categories</code></p>
+
+<p>List of all store categories</p>
+
+<aside class="notice">
+Requires <code>Stores:Api:Categories:Get</code> permit
+</aside> 
+
           <h1 id="endpoints-departments">Endpoints &bull; Departments</h1>
 
 <h2 id="list"><a name="v3-department-list"></a> List</h2>
@@ -9617,9 +9651,241 @@ Requires <code>Stores:Api:Departments:Get</code> permit
 
 <aside class="notice">
 Requires <code>Stores:Api:Departments:Get</code> permit
+</aside>
+
+<h2 id="create"><a name="v3-department-create"></a> Create</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
+<span class="s2">"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/stores/departments"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+    -H <span class="s1">'X-User-Agent: CURL manual test'</span>
+    -d <span class="se">\</span>
+    <span class="s1">'{
+        "name": "department name",
+        "department_id": 12345
+    }'</span>
+</code></pre>
+<blockquote>
+<p>When successful (200), returns a feedback object structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12345</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"department_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6789"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>When request is invalid (422), returns:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid format"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The property {property} is required"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Create store</p>
+
+<p><strong>POST</strong> <code class="prettyprint">v3/:loyalty_club_slug/stores/departments</code></p>
+
+<p>Create store</p>
+
+<h3 id="post-parameters-json">POST Parameters (JSON)</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name*</td>
+<td>department name</td>
+<td>string</td>
+</tr>
+<tr>
+<td>department_id*</td>
+<td>department/mall id</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p>Parameters with <code class="prettyprint">*</code> are required</p>
+
+<h3 id="feedback-statuses">Feedback statuses</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ok</td>
+<td>Department was created</td>
+</tr>
+<tr>
+<td>Department with this id already exists.</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h3 id="error-responses">Error responses</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">422</code></td>
+<td>Invalid parameters (see example on the right)</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Stores:Api:Departments:Create</code>
+</aside>
+
+<h2 id="update"><a name="v3-department-update"></a> Update</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X PUT <span class="se">\</span>
+<span class="s2">"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/stores/departments/12345"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+    -H <span class="s1">'X-User-Agent: CURL manual test'</span>
+    -d <span class="se">\</span>
+    <span class="s1">'{
+        "name": "department name"
+    }'</span>
+</code></pre>
+<blockquote>
+<p>When successful (200), returns a feedback object structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12345</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"department_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6789"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>When request is invalid (422), returns:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid format"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The property {property} is required"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>When <code class="prettyprint">id</code> or <code class="prettyprint">department_id</code> is invalid (422), returns:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Department not found"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Update department</p>
+
+<p><strong>PUT</strong> <code class="prettyprint">v3/:loyalty_club_slug/stores/departments/:id</code></p>
+
+<p><strong>PUT</strong> <code class="prettyprint">v3/:loyalty_club_slug/stores/departments/by_department_id/:department_id</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>ID</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>department_id</td>
+<td>department id</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<h3 id="put-parameters-json">PUT Parameters (JSON)</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name*</td>
+<td>department name</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p>Parameters with <code class="prettyprint">*</code> are required</p>
+
+<h3 id="feedback-statuses">Feedback statuses</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ok</td>
+<td>Department updated</td>
+</tr>
+<tr>
+<td>Department with this id does not exist.</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h3 id="error-responses">Error responses</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">422</code></td>
+<td>Invalid parameters (see example on the right)</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Stores:Api:Departments:Update</code>
 </aside> 
 
           <h1 id="changelog">Changelog</h1>
+
+<h3 id="16-10-2019-natalia-styrska">16.10.2019 | Natalia Styrska</h3>
+
+<ul>
+<li>Add (<a href="#v3-store-categories-list">Stores &bull; Categories</a>) endpoint</li>
+<li>Add (<a href="#v3-department-create">Departments &bull; Create</a>) endpoint</li>
+<li>Add (<a href="#v3-department-update">Departments &bull; Update</a>) endpoint</li>
+</ul>
 
 <h3 id="23-09-2019-piotr-witlicki">23.09.2019 | Piotr Świtlicki</h3>
 
