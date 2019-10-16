@@ -6,7 +6,7 @@
 
 ```shell
 curl -X POST \
-"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/points" \
+"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/transactions/points" \
     -H 'Content-Type: application/json' \
     -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
     -H 'X-Product-Name: default' \
@@ -49,7 +49,7 @@ curl -X POST \
 }
 ``` 
 
-**POST** `v3/:loyalty_club_slug/points`
+**POST** `v3/:loyalty_club_slug/transactions/points`
 
 Add or remove points from member wallets. All unasigned points belongs to default wallet
 
@@ -108,7 +108,7 @@ Requires <code>Transactions:Api:Points:Create</code>
 
 ```shell
 curl -X GET \
-"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/points/by_member_id/12345" \
+"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/transactions/points/by_member_id/12345" \
     -H 'Content-Type: application/json' \
     -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
     -H 'X-Product-Name: default' \
@@ -124,11 +124,11 @@ curl -X GET \
     }
 ```  
 
-**GET** `v3/:loyalty_club_slug/points/by_member_id/:member_id`
+**GET** `v3/:loyalty_club_slug/transactions/points/by_member_id/:member_id`
 
-**GET** `v3/:loyalty_club_slug/points/by_msisdn/:msisdn`
+**GET** `v3/:loyalty_club_slug/transactions/points/by_msisdn/:msisdn`
 
-**GET** `v3/:loyalty_club_slug/points/by_email/:email`
+**GET** `v3/:loyalty_club_slug/transactions/points/by_email/:email`
 
 Return number of points that member has filtered by different wallets
 
