@@ -1,5 +1,11 @@
 # Changelog
 
+### 16.10.2019 | Natalia Styrska
+
+* Add ([Stores &bull; Categories](#v3-store-categories-list)) endpoint
+* Add ([Departments &bull; Create](#v3-department-create)) endpoint
+* Add ([Departments &bull; Update](#v3-department-update)) endpoint
+
 ### 23.09.2019 | Piotr Świtlicki
 
 * Add `event_occurred_at` param to [Members &bull; Update](#v3-member-event-occured-at-param) 

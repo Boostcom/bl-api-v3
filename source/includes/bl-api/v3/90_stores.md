@@ -6,7 +6,7 @@
 
 ```shell
 curl -X GET \
-"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/stores?department_id=123&limit=100&sort=name&order=asc" \
+"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/stores?department_id=123&category=cat&limit=100&sort=name&order=asc" \
     -H 'Content-Type: application/json' \
     -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
     -H 'X-Product-Name: default' \
@@ -38,6 +38,7 @@ List of all active stores
 Parameter     | Description                         | Type
 ------------- | ----------------------------------- | ------
 department_id | department id                       | integer
+category      | category                            | string
 limit         | max number of results               | integer
 sort          | field to sort by (name,id,store_id) | string
 order         | order (asc,desc)                    | string
@@ -335,3 +336,35 @@ Status | Description
 <aside class="notice">
 Requires <code>Stores:Api:Stores:Delete</code>
 </aside>
+
+## <a name="v3-store-categories-list"></a> Categories
+
+> Example:
+
+```shell
+curl -X GET \
+"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/stores/categories" \
+    -H 'Content-Type: application/json' \
+    -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+    -H 'X-Product-Name: default' \
+    -H 'X-User-Agent: CURL manual test'
+```
+
+> When successful (200), returns an array of store objects structured like below. Some values may be omitted if were not provided:
+
+```json
+[
+    "category A",
+    "category B",
+    "category C"
+]
+``` 
+
+**GET** `v3/:loyalty_club_slug/stores/categories`
+
+List of all store categories
+
+
+<aside class="notice">
+Requires <code>Stores:Api:Categories:Get</code> permit
+</aside> 

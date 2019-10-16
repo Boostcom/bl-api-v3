@@ -154,7 +154,7 @@ loyalty_points | integer | n/a
 
 Key | Type | Default | Description
 --------- | --------- | --------- | --------- 
-item_id * | string | n/a | 
+id * | string | n/a | item id
 price * | float | n/a | negative values will be treated as discounts |
 amount * | integer | n/a | negative values will be treated as refunds |
 discount * | float | n/a |
