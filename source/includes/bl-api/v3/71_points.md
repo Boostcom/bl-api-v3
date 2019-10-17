@@ -21,7 +21,7 @@ curl -X POST \
             "store_id": "12345",
             "transaction_id": "f4c2b7a6-e0fb-47a3-9b5a-02d3854fcea3",
             "wallet": "default",
-            "expiry_date": "f4c2b7a6-e0fb-47a3-9b5a-02d3854fcea3"
+            "expiry_date": "2020-02-12T15:19:21Z"
         }
     ]'
 ```
@@ -59,7 +59,7 @@ Parameter        | Description            | Type
 ---------------- | ---------------------- | ------
 identifier_type* | Type of identifier     | string (id, msisdn, email)
 identifier*      | Identifier             | msisdn (string), email (string), member_id (int)
-event_type*      | Type of event          | string (purchase, issue, campaign, use, revoke, expire, custom)
+event_type*      | Type of event          | string (purchase, issue, campaign, use, revoke, expire, other)
 amount*          | store name             | int (not 0)
 event            | description of event   | string
 message          | additional remarks     | string
@@ -80,7 +80,7 @@ issue | points added (positive amount required)
 use | points used by a member (reward, discount, etc) (negative amount required)
 revoke | points removed from member account due to refund etc. (negative amount required)
 expire | points removed due to expiration (negative amount required)
-custom | custom event
+other  | 
 
 ### Feedback statuses
 
