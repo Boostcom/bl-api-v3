@@ -21,7 +21,7 @@
             "store_id": "12345",
             "transaction_id": "f4c2b7a6-e0fb-47a3-9b5a-02d3854fcea3",
             "wallet": "default",
-            "expiry_date": "f4c2b7a6-e0fb-47a3-9b5a-02d3854fcea3"
+            "expiry_date": "2020-02-12T15:19:21Z"
         }
     ]'</span>
 </code></pre>
@@ -72,7 +72,7 @@
 <tr>
 <td>event_type*</td>
 <td>Type of event</td>
-<td>string (purchase, issue, campaign, use, revoke, expire, custom)</td>
+<td>string (purchase, issue, campaign, use, revoke, expire, other)</td>
 </tr>
 <tr>
 <td>amount*</td>
@@ -146,8 +146,8 @@
 <td>points removed due to expiration (negative amount required)</td>
 </tr>
 <tr>
-<td>custom</td>
-<td>custom event</td>
+<td>other</td>
+<td></td>
 </tr>
 </tbody></table>
 
