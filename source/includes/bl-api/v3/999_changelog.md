@@ -2,7 +2,7 @@
 
 ### 18.10.2019 | Piotr Świtlicki
 
-* Add [Offer display schemas](#v3-offer-display-schemas)
+* Add [Offer display schemas](#v3-offers-display-schemas)
 
 ### 16.10.2019 | Natalia Styrska
 

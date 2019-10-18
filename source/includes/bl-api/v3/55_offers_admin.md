@@ -74,7 +74,7 @@ audience_id | Integer | yes | DMP's audience ID. If it is set, the offer is avai
 campaign_id | Integer | yes | MPC's campaign ID
 files | File[] | no | A list of offer files - see [File model](#v3-file-model)
 extras | Object | no (may be empty) | Extendable container for any potential extra data
-display_schemas | Object | no | Offer displays schemas - see [Offer display schemas](#v3-offer-display-schemas)
+display_schemas | Object | no | Offer displays schemas - see [Offer display schemas](#v3-offers-display-schemas)
 maximum_uses_per_user | Integer | yes | Limit of of uses individual member may perform. When empty, there's no limit.
 stock | Integer | yes | Global limit of member uses. When empty, there's no limit.
 created_at | Date | no | When the offer has been created 

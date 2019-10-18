@@ -80,7 +80,7 @@ files | File[] | no | A list of offer files - see [File model](#v3-file-model)
 liked | Boolean | no | Has offer been liked by user?
 usage | Usage | no | Usage information object - see [Offer usage model](#v3-offer-usage-model)
 extras | Object | no (may be empty) | Extendable container for any potential extra data 
-display_schemas | Object | no | Offer displays schemas - see [Offer display schemas](#v3-offer-display-schemas)
+display_schemas | Object | no | Offer displays schemas - see [Offer display schemas](#v3-offers-display-schemas)
 
 ### <a name="v3-offer-usage-model"></a> Offer usage
 
