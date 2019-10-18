@@ -203,6 +203,12 @@ Navigate to <a href="#v3-offers">Offers</a> section to see docs for member-relat
 <td>Extendable container for any potential extra data</td>
 </tr>
 <tr>
+<td>display_schemas</td>
+<td>Object</td>
+<td>no</td>
+<td>Offer displays schemas - see <a href="#v3-offer-display-schemas">Offer display schemas</a></td>
+</tr>
+<tr>
 <td>maximum_uses_per_user</td>
 <td>Integer</td>
 <td>yes</td>
@@ -262,6 +268,7 @@ Navigate to <a href="#v3-offers">Offers</a> section to see docs for member-relat
 <li>audience_id</li>
 <li>campaign_id</li>
 <li>extras</li>
+<li>display_schemas</li>
 <li>maximum_uses_per_user</li>
 <li>stock</li>
 </ul>

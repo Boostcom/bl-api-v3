@@ -4789,6 +4789,12 @@ response will be user-agnostic.</p>
 <td>no (may be empty)</td>
 <td>Extendable container for any potential extra data</td>
 </tr>
+<tr>
+<td>display_schemas</td>
+<td>Object</td>
+<td>no</td>
+<td>Offer displays schemas - see <a href="#v3-offer-display-schemas">Offer display schemas</a></td>
+</tr>
 </tbody></table>
 
 <h3 id="offer-usage"><a name="v3-offer-usage-model"></a> Offer usage</h3>
@@ -4874,6 +4880,78 @@ response will be user-agnostic.</p>
 <td>A list of Offer Files - see <a href="#v3-file-model">File model</a></td>
 </tr>
 </tbody></table>
+
+<h3 id="display-schemas"><a name="v3-offers-display-schemas"></a> Display schemas</h3>
+
+<blockquote>
+<p>Example schemas:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="err">//</span><span class="w"> </span><span class="err">(...)</span><span class="w">
+</span><span class="s2">"display_schemas"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"list"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"header"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"reference"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"name"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"reference"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"description"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"caption"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"reference"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"stores"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"header"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"reference"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"description"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"empty"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"caption"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"inline"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Some great offer we have here!"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="err">//</span><span class="w"> </span><span class="err">(...)</span><span class="w">
+</span></code></pre>
+<p>Display schemas are the offer attributes that describe how offer is meant to be displayed inside specific 
+context - and there are two types of schemas:</p>
+
+<ul>
+<li><code class="prettyprint">list</code> - describes how offer should look in an offers list view</li>
+<li><code class="prettyprint">details</code> - describes how offer should look in an offer detail view</li>
+</ul>
+
+<p>Each schema consists of fields with definitions of content that should be put inside the field - there are three of them:</p>
+
+<ul>
+<li><code class="prettyprint">caption</code></li>
+<li><code class="prettyprint">header</code></li>
+<li><code class="prettyprint">body</code></li>
+</ul>
+
+<p>The fields interpretation (how they are utilized by view) is up to API client design and/or specific Loyalty Club standard.</p>
+
+<p>Fields are described by two attributes: <code class="prettyprint">type</code> and <code class="prettyprint">value</code>. 
+There are three types of fields:</p>
+
+<ul>
+<li><code class="prettyprint">&quot;reference&quot;</code> - some of offer attribute should be used for the field content, it&rsquo;s <code class="prettyprint">value</code> contains the attribute name, e.g. <code class="prettyprint">name</code>  or <code class="prettyprint">usable_since</code><br></li>
+<li><code class="prettyprint">&quot;inline&quot;</code> - the field itself contains content that should be placed inside the field, which is stored in the <code class="prettyprint">value</code> attribute</li>
+<li><code class="prettyprint">&quot;empty&quot;</code> - the field should not be displayed at all, and therefore it&rsquo;s <code class="prettyprint">value</code> is always <code class="prettyprint">null</code>.</li>
+</ul>
+
+<p>By default (when no schema is defined on offer by it&rsquo;s creator), all of the schema fields are references to:</p>
+
+<ul>
+<li><code class="prettyprint">caption</code> =&gt; <code class="prettyprint">stores</code></li>
+<li><code class="prettyprint">header</code> =&gt; <code class="prettyprint">name</code></li>
+<li><code class="prettyprint">body</code> =&gt; <code class="prettyprint">description</code></li>
+</ul>
 
 <h2 id="get-offers-meta"><a name="v3-offers-meta"></a> Get offers meta</h2>
 
@@ -5815,6 +5893,12 @@ Navigate to <a href="#v3-offers">Offers</a> section to see docs for member-relat
 <td>Extendable container for any potential extra data</td>
 </tr>
 <tr>
+<td>display_schemas</td>
+<td>Object</td>
+<td>no</td>
+<td>Offer displays schemas - see <a href="#v3-offer-display-schemas">Offer display schemas</a></td>
+</tr>
+<tr>
 <td>maximum_uses_per_user</td>
 <td>Integer</td>
 <td>yes</td>
@@ -5874,6 +5958,7 @@ Navigate to <a href="#v3-offers">Offers</a> section to see docs for member-relat
 <li>audience_id</li>
 <li>campaign_id</li>
 <li>extras</li>
+<li>display_schemas</li>
 <li>maximum_uses_per_user</li>
 <li>stock</li>
 </ul>
@@ -9878,6 +9963,12 @@ Requires <code>Stores:Api:Departments:Update</code>
 </aside> 
 
           <h1 id="changelog">Changelog</h1>
+
+<h3 id="18-10-2019-piotr-witlicki">18.10.2019 | Piotr Świtlicki</h3>
+
+<ul>
+<li>Add <a href="#v3-offer-display-schemas">Offer display schemas</a></li>
+</ul>
 
 <h3 id="16-10-2019-natalia-styrska">16.10.2019 | Natalia Styrska</h3>
 
