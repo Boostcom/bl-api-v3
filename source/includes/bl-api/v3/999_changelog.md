@@ -1,5 +1,9 @@
 # Changelog
 
+### 18.10.2019 | Piotr Świtlicki
+
+* Add [Offer display schemas](#v3-offer-display-schemas)
+
 ### 16.10.2019 | Natalia Styrska
 
 * Add ([Stores &bull; Categories](#v3-store-categories-list)) endpoint
