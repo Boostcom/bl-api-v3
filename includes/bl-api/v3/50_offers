@@ -658,16 +658,27 @@ Requires <code>Offers:Api:MemberOffers:Get</code> permit
 
 <p>For example <code class="prettyprint">order_by=usable ASC, created_at DESC</code> will return offers sorted by their usability, then by their creation date.</p>
 
-<p>Following offer attributes may be used for ordering:</p>
+<p>Following offer attributes may be used for sorting  in general:</p>
 
 <ul>
 <li>name</li>
 <li>usable_since</li>
 <li>usable_until</li>
 <li>created_at</li>
+</ul>
+
+<p>In member context (without <code class="prettyprint">preview=true</code> param): </p>
+
+<ul>
 <li>usable </li>
 <li>uses_left</li>
 <li>liked </li>
+</ul>
+
+<p>Also, when querying offers by <em>single</em> collection_id, the list may also be sorted by:</p>
+
+<ul>
+<li>collection_position</li>
 </ul>
 
 <h3 id="response-json-object">Response (JSON object)</h3>
