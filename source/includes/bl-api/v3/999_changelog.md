@@ -1,5 +1,9 @@
 # Changelog
 
+### 22.10.2019 | Piotr Świtlicki
+
+* Add `collection_position` order_by key to [Offers &bull; List offers](#v3-list-offers)
+
 ### 18.10.2019 | Piotr Świtlicki
 
 * Add [Offer display schemas](#v3-offers-display-schemas)

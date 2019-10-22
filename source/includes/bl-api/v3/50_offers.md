@@ -352,15 +352,22 @@ Offers list may be sorted by `order_by` param, which has similar syntax as ORDER
 
 For example `order_by=usable ASC, created_at DESC` will return offers sorted by their usability, then by their creation date.
 
-Following offer attributes may be used for ordering:
+Following offer attributes may be used for sorting  in general:
 
 * name
 * usable_since
 * usable_until
 * created_at
+
+In member context (without `preview=true` param): 
+
 * usable 
 * uses_left
 * liked 
+
+Also, when querying offers by *single* collection_id, the list may also be sorted by:
+
+* collection_position
 
 ### Response (JSON object)
 
