@@ -446,7 +446,7 @@ curl -X POST <span class="se">\</span>
   -H <span class="s1">'X-User-Agent: CURL manual test'</span> <span class="se">\</span>
   -d <span class="s1">'{
     "properties": {
-        "email": "dev+6@test.com",
+        "email": "dev+6@example.com",
         "msisdn": "4740485124",
         "first_name": "The",
         "last_name": "Doge"
