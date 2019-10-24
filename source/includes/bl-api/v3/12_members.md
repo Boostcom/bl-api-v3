@@ -288,7 +288,7 @@ curl -X POST \
   -H 'X-User-Agent: CURL manual test' \
   -d '{
 	"properties": {
-		"email": "dev+6@test.com",
+		"email": "dev+6@example.com",
 		"msisdn": "4740485124",
 		"first_name": "The",
 		"last_name": "Doge"
