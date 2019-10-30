@@ -5,6 +5,8 @@
 
 Production: [https://bpc-api.boostcom.no](https://bpc-api.boostcom.no)
 
+Production (APAC region): [https://bpc-api.apac.boostcom.com](https://bpc-api.apac.boostcom.com)
+
 Staging: [https://bpc-api.dev.boostcom.no](https://bpc-api.dev.boostcom.no)
 
 ## Common HTTP error codes
