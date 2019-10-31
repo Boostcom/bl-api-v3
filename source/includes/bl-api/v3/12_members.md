@@ -32,7 +32,7 @@ curl "https://bpc-api.boostcom.no/v3/infinity-mall/members?per_page=100&page=1&i
 
 ```
 
-**GET** `v3/:loyalty_club_slug/members?per_page=:per_page&page=:page&ids[]=1&ids[]=2`
+**GET** `v3/:loyalty_club_slug/members?per_page=:per_page&page=:page`
 
 Returns paginated list of all Loyalty Club members, sorted by `created_at ASC`.
 
@@ -44,7 +44,8 @@ Parameter | Type | Required? | Default | Description
 --------- | ----------- | ----------- | --------- | -----------
 per_page | integer | no | 1000 | Number of results to be returned per request (1000 is the maximum)
 page_no | integer | no | 1 | Number of results page
-ids | Array<integer> | no | null | IDs of members to return 
+ids | Array<integer> | no | null | IDs of members that will be returned
+properties[:property_name] | Array<any> | no | null | Properties of members that will be returned. A property must be enabled for querying in the Loyalty Club configuration before it can be used here. Please contact us if you need this feature.
 
 ### Response (JSON object)
 
@@ -53,15 +54,20 @@ Key | Type | Description
 members | Array<Member> | Array of [Members](#v3-member-model)
 pagination_info | Object | [Pagination](#v3-pagination-model) object
 
-<aside class="notice">
-Requires <code>BL:Api:Members:Index</code> permit
-</aside>
-
 ### Error responses
 
 Status | Reason
 --------- | ----------- 
-`400` | :per_page param exceeds the limit
+`422` | :per_page param exceeds the limit
+
+### Example queries
+
+* `/members?properties[gender]=man&properties[language][]=en&properties[language][]=pl` - returns members with `gender="man" AND language IN ("en", "pl")`
+* `/members?ids[]=1&ids[]=2` - returns members with `id IN (1, 2)`
+
+<aside class="notice">
+Requires <code>BL:Api:Members:Index</code> permit
+</aside>
 
 <!--- ############################################################################################################# --->
 
