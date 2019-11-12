@@ -1281,7 +1281,7 @@ Requires <code>BL:Api:Products:Index</code> permit
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
-<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members?per_page=:per_page&amp;page=:page&amp;ids[]=1&amp;ids[]=2</code></p>
+<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members?per_page=:per_page&amp;page=:page</code></p>
 
 <p>Returns paginated list of all Loyalty Club members, sorted by <code class="prettyprint">created_at ASC</code>.</p>
 
@@ -1317,7 +1317,14 @@ Requires <code>BL:Api:Products:Index</code> permit
 <td>Array<integer></td>
 <td>no</td>
 <td>null</td>
-<td>IDs of members to return</td>
+<td>IDs of members that will be returned</td>
+</tr>
+<tr>
+<td>properties[:property_name]</td>
+<td>Array<any></td>
+<td>no</td>
+<td>null</td>
+<td>Properties of members that will be returned. A property must be enabled for querying in the Loyalty Club configuration before it can be used here. Please contact us if you need this feature.</td>
 </tr>
 </tbody></table>
 
@@ -1342,10 +1349,6 @@ Requires <code>BL:Api:Products:Index</code> permit
 </tr>
 </tbody></table>
 
-<aside class="notice">
-Requires <code>BL:Api:Members:Index</code> permit
-</aside>
-
 <h3 id="error-responses">Error responses</h3>
 
 <table><thead>
@@ -1355,10 +1358,21 @@ Requires <code>BL:Api:Members:Index</code> permit
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">400</code></td>
+<td><code class="prettyprint">422</code></td>
 <td>:per_page param exceeds the limit</td>
 </tr>
 </tbody></table>
+
+<h3 id="example-queries">Example queries</h3>
+
+<ul>
+<li><code class="prettyprint">/members?properties[gender]=man&amp;properties[language][]=en&amp;properties[language][]=pl</code> - returns members with <code class="prettyprint">gender=&quot;man&quot; AND language IN (&quot;en&quot;, &quot;pl&quot;)</code></li>
+<li><code class="prettyprint">/members?ids[]=1&amp;ids[]=2</code> - returns members with <code class="prettyprint">id IN (1, 2)</code></li>
+</ul>
+
+<aside class="notice">
+Requires <code>BL:Api:Members:Index</code> permit
+</aside>
 
 <!--- ############################################################################################################# --->
 
@@ -5314,7 +5328,7 @@ Requires <code>Offers:Api:MemberOffers:Get</code> permit
 </tbody></table>
 
 <aside class="notice">
-Requires <code>Offers:Api:MemberOffers:ListVisibleByMemberId</code> permit
+Requires <code>Offers:Api:MemberOffers:ListVisible</code> permit
 </aside>
 
 <h2 id="use-offer"><a name="v3-use-offer"></a> Use offer</h2>

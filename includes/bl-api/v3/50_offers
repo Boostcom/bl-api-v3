@@ -706,7 +706,7 @@ Requires <code>Offers:Api:MemberOffers:Get</code> permit
 </tbody></table>
 
 <aside class="notice">
-Requires <code>Offers:Api:MemberOffers:ListVisibleByMemberId</code> permit
+Requires <code>Offers:Api:MemberOffers:ListVisible</code> permit
 </aside>
 
 <h2 id="use-offer"><a name="v3-use-offer"></a> Use offer</h2>
