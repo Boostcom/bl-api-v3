@@ -377,7 +377,7 @@ offers | Offer[] | no (may be empty)| See [Offer model](#v3-offer-model)
 pagination_info | PaginationInfo | yes| See [Pagination info model](#pagination-json-model)
 
 <aside class="notice">
-Requires <code>Offers:Api:MemberOffers:ListVisibleByMemberId</code> permit
+Requires <code>Offers:Api:MemberOffers:ListVisible</code> permit
 </aside>
 
 ## <a name="v3-use-offer"></a> Use offer
