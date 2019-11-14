@@ -111,7 +111,7 @@ curl -X POST \
 ```json
 {
     "id": 12345,
-    "department_id": "6789",
+    "department_id": 6789,
     "status": "ok"
 }
 ```  
@@ -138,7 +138,7 @@ Create store
 Parameter      | Description            | Type
 -------------  | ---------------------- | ------
 name*          | department name             | string
-department_id* | department/mall id          | string
+department_id* | department/mall id          | integer
 
 Parameters with `*` are required
 
@@ -181,7 +181,7 @@ curl -X PUT \
 ```json
 {
     "id": 12345,
-    "department_id": "6789",
+    "department_id": 6789,
     "status": "ok"
 }
 ```  
@@ -216,7 +216,7 @@ Update department
 Parameter  | Description | Type
 ---------- | ----------- | ------
 id         | ID          | integer
-department_id   | department id    | string
+department_id   | department id    | integer
 
 ### PUT Parameters (JSON)
 
