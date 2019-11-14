@@ -80,6 +80,7 @@ files | File[] | no | A list of offer files - see [File model](#v3-file-model)
 liked | Boolean | no | Has offer been liked by user?
 usage | Usage | no | Usage information object - see [Offer usage model](#v3-offer-usage-model)
 extras | Object | no (may be empty) | Extendable container for any potential extra data 
+display_schemas | Object | no | Offer displays schemas - see [Offer display schemas](#v3-offers-display-schemas)
 
 ### <a name="v3-offer-usage-model"></a> Offer usage
 
@@ -101,6 +102,71 @@ short_description | string | yes |
 offers_order | integer[] | no (may be empty) | Describes order in which offers should be displayed inside this collection 
 files | File[] | no | A list of Offer Files - see [File model](#v3-file-model)
 
+### <a name="v3-offers-display-schemas"></a> Display schemas
+
+> Example schemas:
+
+```json
+// (...)
+"display_schemas": {
+    "list": {
+        "header": {
+            "type": "reference",
+            "value": "name"
+        },
+        "body": {
+            "type": "reference",
+            "value": "description"
+        },
+        "caption": {
+            "type": "reference",
+            "value": "stores"
+        }
+    },
+    "details": {
+        "header": {
+            "type": "reference",
+            "value": "description"
+        },
+        "body": {
+            "type": "empty"
+        },
+        "caption": {
+            "type": "inline",
+            "value": "Some great offer we have here!"
+        }
+    }
+}
+// (...)
+```
+
+Display schemas are the offer attributes that describe how offer is meant to be displayed inside specific 
+context - and there are two types of schemas:
+
+  * `list` - describes how offer should look in an offers list view
+  * `details` - describes how offer should look in an offer detail view
+
+Each schema consists of fields with definitions of content that should be put inside the field - there are three of them:
+
+  * `caption`
+  * `header`
+  * `body`
+
+The fields interpretation (how they are utilized by view) is up to API client design and/or specific Loyalty Club standard.
+
+Fields are described by two attributes: `type` and `value`. 
+There are three types of fields:
+
+  * `"reference"` - some of offer attribute should be used for the field content, it's `value` contains the attribute name, e.g. `name`  or `usable_since`  
+  * `"inline"` - the field itself contains content that should be placed inside the field, which is stored in the `value` attribute
+  * `"empty"` - the field should not be displayed at all, and therefore it's `value` is always `null`.
+
+By default (when no schema is defined on offer by it's creator), all of the schema fields are references to:
+
+  * `caption` => `stores`
+  * `header` => `name`
+  * `body` => `description`
+ 
 ## <a name="v3-offers-meta"></a> Get offers meta
 
 > Example:
@@ -286,15 +352,22 @@ Offers list may be sorted by `order_by` param, which has similar syntax as ORDER
 
 For example `order_by=usable ASC, created_at DESC` will return offers sorted by their usability, then by their creation date.
 
-Following offer attributes may be used for ordering:
+Following offer attributes may be used for sorting  in general:
 
 * name
 * usable_since
 * usable_until
 * created_at
+
+In member context (without `preview=true` param): 
+
 * usable 
 * uses_left
 * liked 
+
+Also, when querying offers by *single* collection_id, the list may also be sorted by:
+
+* collection_position
 
 ### Response (JSON object)
 
@@ -304,7 +377,7 @@ offers | Offer[] | no (may be empty)| See [Offer model](#v3-offer-model)
 pagination_info | PaginationInfo | yes| See [Pagination info model](#pagination-json-model)
 
 <aside class="notice">
-Requires <code>Offers:Api:MemberOffers:ListVisibleByMemberId</code> permit
+Requires <code>Offers:Api:MemberOffers:ListVisible</code> permit
 </aside>
 
 ## <a name="v3-use-offer"></a> Use offer

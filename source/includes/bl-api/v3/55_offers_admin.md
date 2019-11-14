@@ -73,7 +73,8 @@ stores | string[] | no (may be empty) | List of stores names associated with the
 audience_id | Integer | yes | DMP's audience ID. If it is set, the offer is available only to members belonging to this audience
 campaign_id | Integer | yes | MPC's campaign ID
 files | File[] | no | A list of offer files - see [File model](#v3-file-model)
-extras | Object | no (may be empty) | Extendable container for any potential extra data 
+extras | Object | no (may be empty) | Extendable container for any potential extra data
+display_schemas | Object | no | Offer displays schemas - see [Offer display schemas](#v3-offers-display-schemas)
 maximum_uses_per_user | Integer | yes | Limit of of uses individual member may perform. When empty, there's no limit.
 stock | Integer | yes | Global limit of member uses. When empty, there's no limit.
 created_at | Date | no | When the offer has been created 
@@ -102,6 +103,7 @@ Following Offer attributes (described above) are available to set when creating 
 * audience_id
 * campaign_id
 * extras
+* display_schemas
 * maximum_uses_per_user
 * stock
 
