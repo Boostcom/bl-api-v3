@@ -1,4 +1,4 @@
-# Endpoints &bull; Points (WIP)
+# Endpoints &bull; Points
 
 ## <a name="v3-points-create"></a> Create
 
@@ -66,6 +66,7 @@ message          | additional remarks     | string
 store_id         | store id               | string
 transaction_id   | DMP transaction id     | string
 wallet           | wallet                 | string 
+event_date       | date of event allow adding past events   | datetime 
 expiry_date      | Points expiry date     | datetime
 
 Parameters with `*` are required
