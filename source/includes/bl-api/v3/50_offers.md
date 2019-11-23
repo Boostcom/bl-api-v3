@@ -121,6 +121,10 @@ files | File[] | no | A list of Offer Files - see [File model](#v3-file-model)
         "caption": {
             "type": "reference",
             "value": "stores"
+        },
+        "use_description": {
+            "type": "client",
+            "value": null
         }
     },
     "details": {
@@ -129,7 +133,8 @@ files | File[] | no | A list of Offer Files - see [File model](#v3-file-model)
             "value": "description"
         },
         "body": {
-            "type": "empty"
+            "type": "empty",
+            "value": null
         },
         "caption": {
             "type": "inline",
@@ -159,7 +164,8 @@ There are three types of fields:
 
   * `"reference"` - some of offer attribute should be used for the field content, it's `value` contains the attribute name, e.g. `name`  or `usable_since`  
   * `"inline"` - the field itself contains content that should be placed inside the field, which is stored in the `value` attribute
-  * `"empty"` - the field should not be displayed at all, and therefore it's `value` is always `null`.
+  * `"client"` - the field content implementation is up to API client
+  * `"empty"` - the field should not be displayed at all
 
 By default (when no schema is defined on offer by it's creator), all of the schema fields are references to:
 
