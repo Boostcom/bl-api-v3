@@ -331,7 +331,6 @@ The schema may get retrieved with [Files&bull; Get schema](#v3-get-file-schema) 
       ]
     },
     {
-      // Hypothetical. Represents an image rescaled (up or down) to width: 600
       "identifier": "example_without_ratio",
       "type": "IMAGE",
       "ratio": null,
@@ -339,21 +338,21 @@ The schema may get retrieved with [Files&bull; Get schema](#v3-get-file-schema) 
         {
           "identifier": "base",
           "min_width": 600,
-          "min_height": null,
-          "max_width": 600,
+          "min_height": 600,
+          "max_width": null,
           "max_height": null
         },
         {
           "identifier": "thumbnail",
-          "min_width": 300,
+          "min_width": null,
           "min_height": null,
           "max_width": 300,
           "max_height": 300
         },
         {
           "identifier": "original",
-          "min_width": null,
-          "min_height": null,
+          "min_width": 600,
+          "min_height": 600,
           "max_width": null,
           "max_height": null
         }
@@ -389,9 +388,7 @@ Identifier | Description
 
 ### <a name="v3-file-kind-ratio"></a> Ratio
 
-Currently, all images have fixed proportions ratio which is represented as a string: `"<width>:<height>"`
-
-In future, there may be file kinds without fixed ratio defined. They may look like `"example_without_ratio"` on the right.
+Images may have fixed proportions ratio which is represented as a string: `"<width>:<height>"`
 
 ### <a name="v3-file-sizes"></a> File sizes
 
