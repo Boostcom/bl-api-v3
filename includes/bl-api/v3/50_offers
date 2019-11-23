@@ -294,6 +294,10 @@ response will be user-agnostic.</p>
         </span><span class="s2">"caption"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"reference"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"stores"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"use_description"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"client"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -302,7 +306,8 @@ response will be user-agnostic.</p>
             </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"description"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"empty"</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"empty"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"caption"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"inline"</span><span class="p">,</span><span class="w">
@@ -336,7 +341,8 @@ There are three types of fields:</p>
 <ul>
 <li><code class="prettyprint">&quot;reference&quot;</code> - some of offer attribute should be used for the field content, it&rsquo;s <code class="prettyprint">value</code> contains the attribute name, e.g. <code class="prettyprint">name</code>  or <code class="prettyprint">usable_since</code><br></li>
 <li><code class="prettyprint">&quot;inline&quot;</code> - the field itself contains content that should be placed inside the field, which is stored in the <code class="prettyprint">value</code> attribute</li>
-<li><code class="prettyprint">&quot;empty&quot;</code> - the field should not be displayed at all, and therefore it&rsquo;s <code class="prettyprint">value</code> is always <code class="prettyprint">null</code>.</li>
+<li><code class="prettyprint">&quot;client&quot;</code> - the field content implementation is up to API client</li>
+<li><code class="prettyprint">&quot;empty&quot;</code> - the field should not be displayed at all</li>
 </ul>
 
 <p>By default (when no schema is defined on offer by it&rsquo;s creator), all of the schema fields are references to:</p>

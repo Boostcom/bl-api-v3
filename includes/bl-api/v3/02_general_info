@@ -587,7 +587,6 @@ Each file kind is also available in multiple sizes. </p>
       </span><span class="p">]</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="err">//</span><span class="w"> </span><span class="err">Hypothetical.</span><span class="w"> </span><span class="err">Represents</span><span class="w"> </span><span class="err">an</span><span class="w"> </span><span class="err">image</span><span class="w"> </span><span class="err">rescaled</span><span class="w"> </span><span class="err">(up</span><span class="w"> </span><span class="err">or</span><span class="w"> </span><span class="err">down)</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">width</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="w">
       </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example_without_ratio"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IMAGE"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"ratio"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -595,21 +594,21 @@ Each file kind is also available in multiple sizes. </p>
         </span><span class="p">{</span><span class="w">
           </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"base"</span><span class="p">,</span><span class="w">
           </span><span class="s2">"min_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"min_height"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"max_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"min_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"max_width"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
           </span><span class="s2">"max_height"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
           </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"thumbnail"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"min_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"min_width"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
           </span><span class="s2">"min_height"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
           </span><span class="s2">"max_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
           </span><span class="s2">"max_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
           </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"original"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"min_width"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"min_height"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"min_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"min_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
           </span><span class="s2">"max_width"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
           </span><span class="s2">"max_height"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
         </span><span class="p">}</span><span class="w">
@@ -700,9 +699,7 @@ Each file kind is also available in multiple sizes. </p>
 
 <h3 id="ratio"><a name="v3-file-kind-ratio"></a> Ratio</h3>
 
-<p>Currently, all images have fixed proportions ratio which is represented as a string: <code class="prettyprint">&quot;&lt;width&gt;:&lt;height&gt;&quot;</code></p>
-
-<p>In future, there may be file kinds without fixed ratio defined. They may look like <code class="prettyprint">&quot;example_without_ratio&quot;</code> on the right.</p>
+<p>Images may have fixed proportions ratio which is represented as a string: <code class="prettyprint">&quot;&lt;width&gt;:&lt;height&gt;&quot;</code></p>
 
 <h3 id="file-sizes"><a name="v3-file-sizes"></a> File sizes</h3>
 
