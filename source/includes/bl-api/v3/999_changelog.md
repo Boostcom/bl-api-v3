@@ -1,5 +1,10 @@
 # Changelog
 
+### 22.11.2019 | Piotr Świtlicki
+
+* Add [Loyalty Clubs &bull; Get](#v3-loyalty-clubs-get)
+* Add info about new `client` [display schema](#v3-offers-display-schemas) item type 
+
 ### 22.10.2019 | Piotr Świtlicki
 
 * Add `collection_position` order_by key to [Offers &bull; List offers](#v3-list-offers)
