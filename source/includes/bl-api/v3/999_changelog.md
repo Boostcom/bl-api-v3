@@ -1,5 +1,9 @@
 # Changelog
 
+### 05.12.2019 | Piotr Świtlicki
+
+* Add [Links &bull; Generate](#v3-links-generate) 
+
 ### 22.11.2019 | Piotr Świtlicki
 
 * Add [Loyalty Clubs &bull; Get](#v3-loyalty-clubs-get)
