@@ -1,0 +1,106 @@
+<h1 id="endpoints-links">Endpoints &bull; Links</h1>
+
+<h2 id="generate-link"><a name="v3-links-generate"></a> Generate link</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
+<span class="s2">"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/links/offer_page/generate"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+    -H <span class="s1">'X-User-Agent: CURL manual test'</span>
+    -d <span class="se">\</span>
+    <span class="s1">'{
+        "link_params": {
+            "offer_id": 1000487
+        }
+    }'</span>
+</code></pre>
+<blockquote>
+<p>When successful (200), returns a generated link</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://member.dev.bstcm.no/infinity-mall/offers/1000487"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>POST</strong> <code class="prettyprint">v3/:loyalty_club_slug/links/(:link_slug)/generate</code></p>
+
+<p>Returns a link to given functionality in MPC, so it may be reached by member.</p>
+
+<p>The returned link is generated in a &ldquo;universal&rdquo; form: it points to our Webforms, but it will be captured by mobile app if 
+it&rsquo;s installed on member system.</p>
+
+<p>A list of possible links depends on Loyalty Club configuration. 
+An MPC API endpoint for returning it may be implemented in future.     </p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>link_slug</td>
+<td>string</td>
+<td>A slug that identifies the link to generate</td>
+</tr>
+</tbody></table>
+
+<h3 id="post-parameters-json-object">POST Parameters (JSON object)</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>link_params</td>
+<td>Object</td>
+<td>Params for link generation dependent on specific link definition</td>
+</tr>
+</tbody></table>
+
+<h3 id="response-json-object">Response (JSON object)</h3>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>url</td>
+<td>String</td>
+<td>The generated link</td>
+</tr>
+</tbody></table>
+
+<h3 id="error-responses">Error responses</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">404</code></td>
+<td>Link could not be found</td>
+</tr>
+<tr>
+<td><code class="prettyprint">422</code></td>
+<td>Invalid parameters</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+    Requires <code>BL:Api:Links:Generate</code> permit
+</aside> 
