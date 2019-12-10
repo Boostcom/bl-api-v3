@@ -71,6 +71,8 @@ read_more.button_title | string | yes |
 read_more.url | string | yes |  
 read_more.title | string | yes |
 read_more.text | string | yes |
+activation_modal_text | string | yes | Custom text for offer activation modal
+activation_button_text | string | yes | Custom text for offer activation button
 usable_since | Date | yes | Time since the offer may be used. If null, there is no restriction. 
 usable_until | Date | yes | Time until the offer may be used. If null, there is no restriction.
 collection_ids | integer[] | no (may be empty) | List of collections ids the offer belongs to
