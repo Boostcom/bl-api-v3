@@ -18,7 +18,7 @@ curl -X POST \
                  "identifier_type": "id",
                  "identifier": 123456,
                  "store_id": "store_id",
-                 "event_date": "2019-02-02 02:02:02",
+                 "event_date": "2019-02-02T18:48:47+08:00",
                  "total": 10.0,
                  "receipt_id": "receipt id",
                  "tax": 1.0,
@@ -135,7 +135,7 @@ identifier_type * | string (id, msisdn, email) | n/a |
 identifier * | msisdn (string), email (string), member_id (int) | n/a |
 store_id * | string | n/a |
 receipt_id | string | n/a |
-event_date * | string | n/a |
+event_date * | string | please use format with timezone |
 total * | float | n/a |
 tax * | float | n/a |
 items * | array | n/a | array of `item` objects
