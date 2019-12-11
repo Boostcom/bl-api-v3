@@ -135,7 +135,7 @@ identifier_type * | string (id, msisdn, email) | n/a |
 identifier * | msisdn (string), email (string), member_id (int) | n/a |
 store_id * | string | n/a |
 receipt_id | string | n/a |
-event_date * | string | please use format with timezone |
+event_date * | string | use format with timezone |
 total * | float | n/a |
 tax * | float | n/a |
 items * | array | n/a | array of `item` objects
