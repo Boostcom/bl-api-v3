@@ -1,5 +1,10 @@
 # Changelog
 
+### 11.12.2019 | Piotr Świtlicki
+
+* Update [Offers &bull; Display schemas](#v3-offers-display-schemas) to have [JSONPath](https://support.smartbear.com/readyapi/docs/testing/jsonpath-reference.html) references
+
+
 ### 05.12.2019 | Piotr Świtlicki
 
 * Add [Links &bull; Generate](#v3-links-generate) 

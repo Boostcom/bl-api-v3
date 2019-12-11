@@ -114,15 +114,15 @@ files | File[] | no | A list of Offer Files - see [File model](#v3-file-model)
     "list": {
         "header": {
             "type": "reference",
-            "value": "name"
+            "value": "$.name"
         },
         "body": {
             "type": "reference",
-            "value": "description"
+            "value": "$.description"
         },
         "caption": {
             "type": "reference",
-            "value": "stores"
+            "value": "$.stores"
         },
         "use_description": {
             "type": "client",
@@ -132,7 +132,7 @@ files | File[] | no | A list of Offer Files - see [File model](#v3-file-model)
     "details": {
         "header": {
             "type": "reference",
-            "value": "description"
+            "value": "$.description"
         },
         "body": {
             "type": "empty",
@@ -141,7 +141,11 @@ files | File[] | no | A list of Offer Files - see [File model](#v3-file-model)
         "caption": {
             "type": "inline",
             "value": "Some great offer we have here!"
-        }
+        },
+         "use_description": {
+             "type": "client",
+             "value": null
+         }
     }
 }
 // (...)
@@ -155,16 +159,17 @@ context - and there are two types of schemas:
 
 Each schema consists of fields with definitions of content that should be put inside the field - there are three of them:
 
-  * `caption`
   * `header`
   * `body`
+  * `caption`
+  * `use_description`
 
 The fields interpretation (how they are utilized by view) is up to API client design and/or specific Loyalty Club standard.
 
 Fields are described by two attributes: `type` and `value`. 
 There are three types of fields:
 
-  * `"reference"` - some of offer attribute should be used for the field content, it's `value` contains the attribute name, e.g. `name`  or `usable_since`  
+  * `"reference"` - some offer attribute should be used for the field content, `value` contains [JSONPath](https://support.smartbear.com/readyapi/docs/testing/jsonpath-reference.html) reference to element, e.g. `$.name`  
   * `"inline"` - the field itself contains content that should be placed inside the field, which is stored in the `value` attribute
   * `"client"` - the field content implementation is up to API client
   * `"empty"` - the field should not be displayed at all
