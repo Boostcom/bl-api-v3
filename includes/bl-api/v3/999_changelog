@@ -1,5 +1,11 @@
 <h1 id="changelog">Changelog</h1>
 
+<h3 id="11-12-2019-piotr-witlicki">11.12.2019 | Piotr Świtlicki</h3>
+
+<ul>
+<li>Update <a href="#v3-offers-display-schemas">Offers &bull; Display schemas</a> to have <a href="https://support.smartbear.com/readyapi/docs/testing/jsonpath-reference.html">JSONPath</a> references</li>
+</ul>
+
 <h3 id="05-12-2019-piotr-witlicki">05.12.2019 | Piotr Świtlicki</h3>
 
 <ul>

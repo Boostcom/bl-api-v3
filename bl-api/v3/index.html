@@ -5022,15 +5022,15 @@ response will be user-agnostic.</p>
     </span><span class="s2">"list"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"header"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"reference"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"name"</span><span class="w">
+            </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$.name"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"reference"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"description"</span><span class="w">
+            </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$.description"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"caption"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"reference"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"stores"</span><span class="w">
+            </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$.stores"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"use_description"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"client"</span><span class="p">,</span><span class="w">
@@ -5040,7 +5040,7 @@ response will be user-agnostic.</p>
     </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"header"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"reference"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"description"</span><span class="w">
+            </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$.description"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"empty"</span><span class="p">,</span><span class="w">
@@ -5049,7 +5049,11 @@ response will be user-agnostic.</p>
         </span><span class="s2">"caption"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"inline"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Some great offer we have here!"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+         </span><span class="s2">"use_description"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+             </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"client"</span><span class="p">,</span><span class="w">
+             </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+         </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span><span class="err">//</span><span class="w"> </span><span class="err">(...)</span><span class="w">
@@ -5065,9 +5069,10 @@ context - and there are two types of schemas:</p>
 <p>Each schema consists of fields with definitions of content that should be put inside the field - there are three of them:</p>
 
 <ul>
-<li><code class="prettyprint">caption</code></li>
 <li><code class="prettyprint">header</code></li>
 <li><code class="prettyprint">body</code></li>
+<li><code class="prettyprint">caption</code></li>
+<li><code class="prettyprint">use_description</code></li>
 </ul>
 
 <p>The fields interpretation (how they are utilized by view) is up to API client design and/or specific Loyalty Club standard.</p>
@@ -5076,7 +5081,7 @@ context - and there are two types of schemas:</p>
 There are three types of fields:</p>
 
 <ul>
-<li><code class="prettyprint">&quot;reference&quot;</code> - some of offer attribute should be used for the field content, it&rsquo;s <code class="prettyprint">value</code> contains the attribute name, e.g. <code class="prettyprint">name</code>  or <code class="prettyprint">usable_since</code><br></li>
+<li><code class="prettyprint">&quot;reference&quot;</code> - some offer attribute should be used for the field content, <code class="prettyprint">value</code> contains <a href="https://support.smartbear.com/readyapi/docs/testing/jsonpath-reference.html">JSONPath</a> reference to element, e.g. <code class="prettyprint">$.name</code><br></li>
 <li><code class="prettyprint">&quot;inline&quot;</code> - the field itself contains content that should be placed inside the field, which is stored in the <code class="prettyprint">value</code> attribute</li>
 <li><code class="prettyprint">&quot;client&quot;</code> - the field content implementation is up to API client</li>
 <li><code class="prettyprint">&quot;empty&quot;</code> - the field should not be displayed at all</li>
@@ -10224,6 +10229,12 @@ Requires <code>Stores:Api:Departments:Update</code>
 </aside> 
 
           <h1 id="changelog">Changelog</h1>
+
+<h3 id="11-12-2019-piotr-witlicki">11.12.2019 | Piotr Świtlicki</h3>
+
+<ul>
+<li>Update <a href="#v3-offers-display-schemas">Offers &bull; Display schemas</a> to have <a href="https://support.smartbear.com/readyapi/docs/testing/jsonpath-reference.html">JSONPath</a> references</li>
+</ul>
 
 <h3 id="05-12-2019-piotr-witlicki">05.12.2019 | Piotr Świtlicki</h3>
 
