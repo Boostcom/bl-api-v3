@@ -66,13 +66,6 @@ id | integer | no |
 name | string| yes | 
 description | string| yes | 
 external_url | string| yes | The URL the offer may be linked with 
-read_more | Object | no | Additional offer display data
-read_more.button_title | string | yes |  
-read_more.url | string | yes |  
-read_more.title | string | yes |
-read_more.text | string | yes |
-activation_modal_text | string | yes | Custom text for offer activation modal
-activation_button_text | string | yes | Custom text for offer activation button
 usable_since | Date | yes | Time since the offer may be used. If null, there is no restriction. 
 usable_until | Date | yes | Time until the offer may be used. If null, there is no restriction.
 collection_ids | integer[] | no (may be empty) | List of collections ids the offer belongs to
@@ -81,8 +74,18 @@ shops | string[] | no (may be empty) | List of shop names associated with the of
 files | File[] | no | A list of offer files - see [File model](#v3-file-model)
 liked | Boolean | no | Has offer been liked by user?
 usage | Usage | no | Usage information object - see [Offer usage model](#v3-offer-usage-model)
-extras | Object | no (may be empty) | Extendable container for any potential extra data 
-display_schemas | Object | no | Offer displays schemas - see [Offer display schemas](#v3-offers-display-schemas)
+extras | Object | no (may be empty) | Extendable container for any potential extra data
+displays | Object | no | Stores display information
+display.schemas | Object | no | Offer displays schemas - see [Offer display schemas](#v3-offers-display-schemas)
+display.read_more | Object | yes |
+display.read_more.button_title | string | yes |  
+display.read_more.url | string | yes |  
+display.read_more.title | string | yes |
+display.read_more.text | string | yes |
+display.read_more | Object | yes |
+activation_texts.modal | string | yes |
+activation_texts.button | string | yes |
+activation_texts.description | string | yes |
 
 ### <a name="v3-offer-usage-model"></a> Offer usage
 
@@ -123,10 +126,6 @@ files | File[] | no | A list of Offer Files - see [File model](#v3-file-model)
         "caption": {
             "type": "reference",
             "value": "$.stores"
-        },
-        "use_description": {
-            "type": "client",
-            "value": null
         }
     },
     "details": {
@@ -141,11 +140,7 @@ files | File[] | no | A list of Offer Files - see [File model](#v3-file-model)
         "caption": {
             "type": "inline",
             "value": "Some great offer we have here!"
-        },
-         "use_description": {
-             "type": "client",
-             "value": null
-         }
+        }
     }
 }
 // (...)
@@ -162,7 +157,6 @@ Each schema consists of fields with definitions of content that should be put in
   * `header`
   * `body`
   * `caption`
-  * `use_description`
 
 The fields interpretation (how they are utilized by view) is up to API client design and/or specific Loyalty Club standard.
 
@@ -171,7 +165,6 @@ There are three types of fields:
 
   * `"reference"` - some offer attribute should be used for the field content, `value` contains [JSONPath](https://support.smartbear.com/readyapi/docs/testing/jsonpath-reference.html) reference to element, e.g. `$.name`  
   * `"inline"` - the field itself contains content that should be placed inside the field, which is stored in the `value` attribute
-  * `"client"` - the field content implementation is up to API client
   * `"empty"` - the field should not be displayed at all
 
 By default (when no schema is defined on offer by it's creator), all of the schema fields are references to:
