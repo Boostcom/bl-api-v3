@@ -69,7 +69,7 @@ visible_since | Date | yes | Time since the offer is visible to members. If null
 visible_until | Date | yes | Time until the offer is visible to members. If null, there is no restriction.
 collection_ids | integer[] | no (may be empty) | List of collections ids the offer belongs to
 tags | string[] | no (may be empty) | List of tags identifiers associated with the offer. Information from [Translations &bull; List](#v3-list-translations) should be used to display the tags. 
-stores | string[] | no (may be empty) | List of stores names associated with the offer. See [Stores &bull; List](#v3-store-list). NOTE: this attribute is called "shops" in member-facing API
+stores | string[] | no (may be empty) | List of stores names associated with the offer. See [Stores &bull; List](#v3-store-list).
 audience_id | Integer | yes | DMP's audience ID. If it is set, the offer is available only to members belonging to this audience
 campaign_id | Integer | yes | MPC's campaign ID
 files | File[] | no | A list of offer files - see [File model](#v3-file-model)

@@ -11,7 +11,7 @@
     "context": {
         "collections_ids": [1, 2],
         "tags": ["t1"],
-        "shops": ["a"],
+        "stores": ["a"],
         "search_string": "foo",
         "utm": "campaign-2018-05-01"
     }
@@ -25,7 +25,7 @@ created_at | Date| yes | Date of the event occurrence
 context | Object| no | Context of the event occurrence.   
 context.collections_ids | Array<ID> | no |  
 context.tags | Array<string> | no |  
-context.shops | Array<string> | no |
+context.stores | Array<string> | no |
 context.search_string | string | no |
 context.utm | string | no |
 
@@ -53,7 +53,7 @@ curl -X POST \
                 "context": {
                     "collections_ids": [1, 2],
                     "tags": ["t1"],
-                    "shops": ["a"],
+                    "stores": ["a"],
                     "search_string": "foo",
                     "utm": "campaign-2018-05-01"
                 }
@@ -105,7 +105,7 @@ curl -X POST \
                 "context": {
                     "collections_ids": [1, 2],
                     "tags": ["t1"],
-                    "shops": ["a"],
+                    "stores": ["a"],
                     "search_string": "foo",
                     "utm": "campaign-2018-05-01"
                 }

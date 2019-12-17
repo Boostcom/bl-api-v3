@@ -34,12 +34,11 @@ Status | Response body
   "name": "Buy two shoes, get one jacket",
   "description": null,
   "external_url": "https://example.com/foo",
-  "read_more": { "button_title": "Button title", "url": null, "title": "Title", "text": "Text" },
   "usable_since": "2019-03-13T17:32:00.000Z",
   "usable_until": null,
   "collection_ids": [1000016, 1000017],
   "tags": ["2 + 1"],
-  "shops": ["M&H"],
+  "stores": ["M&H"],
   "files": [
     {
       "url": "https://offers-api.s3.eu-central-1.amazonaws.com/offer-1000115-offer_default-original.jpg",
@@ -49,6 +48,40 @@ Status | Response body
       "size_type": "base"
     }
   ],
+  "display": {
+    "read_more": { "button_title": "Button title", "url": null, "title": "Title", "text": "Text" },
+    "activation_texts": { "modal": "Modal", "button": "Button", "description": null },
+    "schemas": {
+        "list": {
+            "header": {
+                "type": "reference",
+                "value": "$.name"
+            },
+            "body": {
+                "type": "reference",
+                "value": "$.description"
+            },
+            "caption": {
+                "type": "reference",
+                "value": "$.stores"
+            }
+        },
+        "details": {
+            "header": {
+                "type": "reference",
+                "value": "$.description"
+            },
+            "body": {
+                "type": "empty",
+                "value": null
+            },
+            "caption": {
+                "type": "inline",
+                "value": "Some great offer we have here!"
+            }
+        }
+    }
+  },
   "liked": false,
   "usage": {
     "usable": true,
@@ -62,24 +95,24 @@ Status | Response body
 
 Key | Type | Optional? | Description
 --------- | --------- | -------- | ---------
-id | integer | no |  
-name | string| yes | 
-description | string| yes | 
+id | integer | no |
+name | string| yes |
+description | string| yes |
 external_url | string| yes | The URL the offer may be linked with 
 usable_since | Date | yes | Time since the offer may be used. If null, there is no restriction. 
 usable_until | Date | yes | Time until the offer may be used. If null, there is no restriction.
 collection_ids | integer[] | no (may be empty) | List of collections ids the offer belongs to
 tags | string[] | no (may be empty) | List of tags identifiers associated with the offer. Information from [Translations &bull; List](#v3-list-translations) should be used to display the tags. 
-shops | string[] | no (may be empty) | List of shop names associated with the offer
+stores | string[] | no (may be empty) | List of shop names associated with the offer
 files | File[] | no | A list of offer files - see [File model](#v3-file-model)
 liked | Boolean | no | Has offer been liked by user?
 usage | Usage | no | Usage information object - see [Offer usage model](#v3-offer-usage-model)
 extras | Object | no (may be empty) | Extendable container for any potential extra data
-displays | Object | no | Stores display information
+display | Object | no | Stores display information
 display.schemas | Object | no | Offer displays schemas - see [Offer display schemas](#v3-offers-display-schemas)
 display.read_more | Object | yes |
-display.read_more.button_title | string | yes |  
-display.read_more.url | string | yes |  
+display.read_more.button_title | string | yes |
+display.read_more.url | string | yes |
 display.read_more.title | string | yes |
 display.read_more.text | string | yes |
 display.read_more | Object | yes |
@@ -113,7 +146,7 @@ files | File[] | no | A list of Offer Files - see [File model](#v3-file-model)
 
 ```json
 // (...)
-"display_schemas": {
+"display": {
     "list": {
         "header": {
             "type": "reference",
@@ -192,7 +225,7 @@ curl \
 ```json
 {
     "tags": ["-50%", "great deal", "2 + 1"],
-    "shops": ["M&H", "Doo Doo"],
+    "stores": ["M&H", "Doo Doo"],
     "collections": [
         {
             "id": 1000016,
@@ -233,7 +266,7 @@ curl \
 
 Returns offers metadata which consists of:
 
-* aggregated lists of records currently associated with offers (shops, tags, collections)
+* aggregated lists of records currently associated with offers (stores, tags, collections)
 * Loyalty Club configuration
 
 ### Query Parameters
@@ -247,7 +280,7 @@ preview | Boolean | false | See [`preview` param](#v3-offers-preview)
 Key | Type | Optional? | Description 
 --------- | --------- | ---------- | ---------
 tags | string[] | no (may be empty) | List of unique tags assigned to offers 
-shops | string[] | no (may be empty) | List of unique shops assigned to offers
+stores | string[] | no (may be empty) | List of unique stores assigned to offers
 collections | Collection[] |  no (may be empty) | List of unique collections assigned to offers - see [Collection model](#v3-offers-collection-model)
 activated_seconds_time | integer | no | Number of seconds the offers stays active after member uses it 
 
@@ -344,7 +377,7 @@ include_pagination_info | boolean | false | When true, pagination info (containi
 order_by | string | "name" | See [`order_by` param](#v3-offers-list-order-by)
 collection_ids | integer[] | null |  When present, only offers belonging to least one of given collections will be returned
 tags | string[] | null |  When present, only offers having at least one of given tags will be returned
-shops | string[] | null | When present, only offers having at least one of given shops will be returned
+stores | string[] | null | When present, only offers having at least one of given stores will be returned
 campaign_id | integer[] | null | When present, only offers with this campaign_id will be returned
 search | string | null | When present, only offers that match the query string will be returned
 usable | boolean | false | When true, only offers that are usable will be returned
