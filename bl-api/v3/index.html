@@ -4825,48 +4825,6 @@ response will be user-agnostic.</p>
 <td>The URL the offer may be linked with</td>
 </tr>
 <tr>
-<td>read_more</td>
-<td>Object</td>
-<td>no</td>
-<td>Additional offer display data</td>
-</tr>
-<tr>
-<td>read_more.button_title</td>
-<td>string</td>
-<td>yes</td>
-<td></td>
-</tr>
-<tr>
-<td>read_more.url</td>
-<td>string</td>
-<td>yes</td>
-<td></td>
-</tr>
-<tr>
-<td>read_more.title</td>
-<td>string</td>
-<td>yes</td>
-<td></td>
-</tr>
-<tr>
-<td>read_more.text</td>
-<td>string</td>
-<td>yes</td>
-<td></td>
-</tr>
-<tr>
-<td>activation_modal_text</td>
-<td>string</td>
-<td>yes</td>
-<td>Custom text for offer activation modal</td>
-</tr>
-<tr>
-<td>activation_button_text</td>
-<td>string</td>
-<td>yes</td>
-<td>Custom text for offer activation button</td>
-</tr>
-<tr>
 <td>usable_since</td>
 <td>Date</td>
 <td>yes</td>
@@ -4921,10 +4879,70 @@ response will be user-agnostic.</p>
 <td>Extendable container for any potential extra data</td>
 </tr>
 <tr>
-<td>display_schemas</td>
+<td>displays</td>
+<td>Object</td>
+<td>no</td>
+<td>Stores display information</td>
+</tr>
+<tr>
+<td>display.schemas</td>
 <td>Object</td>
 <td>no</td>
 <td>Offer displays schemas - see <a href="#v3-offers-display-schemas">Offer display schemas</a></td>
+</tr>
+<tr>
+<td>display.read_more</td>
+<td>Object</td>
+<td>yes</td>
+<td></td>
+</tr>
+<tr>
+<td>display.read_more.button_title</td>
+<td>string</td>
+<td>yes</td>
+<td></td>
+</tr>
+<tr>
+<td>display.read_more.url</td>
+<td>string</td>
+<td>yes</td>
+<td></td>
+</tr>
+<tr>
+<td>display.read_more.title</td>
+<td>string</td>
+<td>yes</td>
+<td></td>
+</tr>
+<tr>
+<td>display.read_more.text</td>
+<td>string</td>
+<td>yes</td>
+<td></td>
+</tr>
+<tr>
+<td>display.read_more</td>
+<td>Object</td>
+<td>yes</td>
+<td></td>
+</tr>
+<tr>
+<td>activation_texts.modal</td>
+<td>string</td>
+<td>yes</td>
+<td></td>
+</tr>
+<tr>
+<td>activation_texts.button</td>
+<td>string</td>
+<td>yes</td>
+<td></td>
+</tr>
+<tr>
+<td>activation_texts.description</td>
+<td>string</td>
+<td>yes</td>
+<td></td>
 </tr>
 </tbody></table>
 
@@ -5031,10 +5049,6 @@ response will be user-agnostic.</p>
         </span><span class="s2">"caption"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"reference"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$.stores"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"use_description"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"client"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -5049,11 +5063,7 @@ response will be user-agnostic.</p>
         </span><span class="s2">"caption"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"inline"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Some great offer we have here!"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-         </span><span class="s2">"use_description"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-             </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"client"</span><span class="p">,</span><span class="w">
-             </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-         </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span><span class="err">//</span><span class="w"> </span><span class="err">(...)</span><span class="w">
@@ -5072,7 +5082,6 @@ context - and there are two types of schemas:</p>
 <li><code class="prettyprint">header</code></li>
 <li><code class="prettyprint">body</code></li>
 <li><code class="prettyprint">caption</code></li>
-<li><code class="prettyprint">use_description</code></li>
 </ul>
 
 <p>The fields interpretation (how they are utilized by view) is up to API client design and/or specific Loyalty Club standard.</p>
@@ -5083,7 +5092,6 @@ There are three types of fields:</p>
 <ul>
 <li><code class="prettyprint">&quot;reference&quot;</code> - some offer attribute should be used for the field content, <code class="prettyprint">value</code> contains <a href="https://support.smartbear.com/readyapi/docs/testing/jsonpath-reference.html">JSONPath</a> reference to element, e.g. <code class="prettyprint">$.name</code><br></li>
 <li><code class="prettyprint">&quot;inline&quot;</code> - the field itself contains content that should be placed inside the field, which is stored in the <code class="prettyprint">value</code> attribute</li>
-<li><code class="prettyprint">&quot;client&quot;</code> - the field content implementation is up to API client</li>
 <li><code class="prettyprint">&quot;empty&quot;</code> - the field should not be displayed at all</li>
 </ul>
 
