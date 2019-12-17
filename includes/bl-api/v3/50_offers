@@ -42,12 +42,11 @@ response will be user-agnostic.</p>
   </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Buy two shoes, get one jacket"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="s2">"external_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/foo"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"read_more"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"button_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Button title"</span><span class="p">,</span><span class="w"> </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Title"</span><span class="p">,</span><span class="w"> </span><span class="s2">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Text"</span><span class="w"> </span><span class="p">},</span><span class="w">
   </span><span class="s2">"usable_since"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-13T17:32:00.000Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"usable_until"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="s2">"collection_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1000016</span><span class="p">,</span><span class="w"> </span><span class="mi">1000017</span><span class="p">],</span><span class="w">
   </span><span class="s2">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"2 + 1"</span><span class="p">],</span><span class="w">
-  </span><span class="s2">"shops"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"M&amp;H"</span><span class="p">],</span><span class="w">
+  </span><span class="s2">"stores"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"M&amp;H"</span><span class="p">],</span><span class="w">
   </span><span class="s2">"files"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://offers-api.s3.eu-central-1.amazonaws.com/offer-1000115-offer_default-original.jpg"</span><span class="p">,</span><span class="w">
@@ -57,6 +56,40 @@ response will be user-agnostic.</p>
       </span><span class="s2">"size_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"base"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"display"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"read_more"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"button_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Button title"</span><span class="p">,</span><span class="w"> </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Title"</span><span class="p">,</span><span class="w"> </span><span class="s2">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Text"</span><span class="w"> </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"activation_texts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"modal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Modal"</span><span class="p">,</span><span class="w"> </span><span class="s2">"button"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Button"</span><span class="p">,</span><span class="w"> </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"schemas"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"list"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"header"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"reference"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$.name"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"reference"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$.description"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"caption"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"reference"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$.stores"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"header"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"reference"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$.description"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"empty"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"caption"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"inline"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Some great offer we have here!"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
   </span><span class="s2">"liked"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="s2">"usage"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"usable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -124,7 +157,7 @@ response will be user-agnostic.</p>
 <td>List of tags identifiers associated with the offer. Information from <a href="#v3-list-translations">Translations &bull; List</a> should be used to display the tags.</td>
 </tr>
 <tr>
-<td>shops</td>
+<td>stores</td>
 <td>string[]</td>
 <td>no (may be empty)</td>
 <td>List of shop names associated with the offer</td>
@@ -154,7 +187,7 @@ response will be user-agnostic.</p>
 <td>Extendable container for any potential extra data</td>
 </tr>
 <tr>
-<td>displays</td>
+<td>display</td>
 <td>Object</td>
 <td>no</td>
 <td>Stores display information</td>
@@ -311,7 +344,7 @@ response will be user-agnostic.</p>
 <p>Example schemas:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="err">//</span><span class="w"> </span><span class="err">(...)</span><span class="w">
-</span><span class="s2">"display_schemas"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="s2">"display"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"list"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"header"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"reference"</span><span class="p">,</span><span class="w">
@@ -396,7 +429,7 @@ There are three types of fields:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"-50%"</span><span class="p">,</span><span class="w"> </span><span class="s2">"great deal"</span><span class="p">,</span><span class="w"> </span><span class="s2">"2 + 1"</span><span class="p">],</span><span class="w">
-    </span><span class="s2">"shops"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"M&amp;H"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Doo Doo"</span><span class="p">],</span><span class="w">
+    </span><span class="s2">"stores"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"M&amp;H"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Doo Doo"</span><span class="p">],</span><span class="w">
     </span><span class="s2">"collections"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000016</span><span class="p">,</span><span class="w">
@@ -437,7 +470,7 @@ There are three types of fields:</p>
 <p>Returns offers metadata which consists of:</p>
 
 <ul>
-<li>aggregated lists of records currently associated with offers (shops, tags, collections)</li>
+<li>aggregated lists of records currently associated with offers (stores, tags, collections)</li>
 <li>Loyalty Club configuration</li>
 </ul>
 
@@ -476,10 +509,10 @@ There are three types of fields:</p>
 <td>List of unique tags assigned to offers</td>
 </tr>
 <tr>
-<td>shops</td>
+<td>stores</td>
 <td>string[]</td>
 <td>no (may be empty)</td>
-<td>List of unique shops assigned to offers</td>
+<td>List of unique stores assigned to offers</td>
 </tr>
 <tr>
 <td>collections</td>
@@ -650,10 +683,10 @@ Requires <code>Offers:Api:MemberOffers:Get</code> permit
 <td>When present, only offers having at least one of given tags will be returned</td>
 </tr>
 <tr>
-<td>shops</td>
+<td>stores</td>
 <td>string[]</td>
 <td>null</td>
-<td>When present, only offers having at least one of given shops will be returned</td>
+<td>When present, only offers having at least one of given stores will be returned</td>
 </tr>
 <tr>
 <td>campaign_id</td>

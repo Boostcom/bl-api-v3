@@ -176,7 +176,7 @@ Navigate to <a href="#v3-offers">Offers</a> section to see docs for member-relat
 <td>stores</td>
 <td>string[]</td>
 <td>no (may be empty)</td>
-<td>List of stores names associated with the offer. See <a href="#v3-store-list">Stores &bull; List</a>. NOTE: this attribute is called &ldquo;shops&rdquo; in member-facing API</td>
+<td>List of stores names associated with the offer. See <a href="#v3-store-list">Stores &bull; List</a>.</td>
 </tr>
 <tr>
 <td>audience_id</td>
