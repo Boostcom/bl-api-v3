@@ -61,11 +61,13 @@ curl -X POST \
   {
       "receipt_id": "id",
       "transaction_id": "43cb7852-5190-4d1d-9b1f-6d6cf552424b",
+      "items": ["91cd14a0-b9b5-4e21-950c-a10b16934a91", "1ad96fb7-fb77-4981-b2a6-89549a6f5ed6"],
       "result": "ok"
   },
   {
       "receipt_id": "id",
       "transaction_id": "f4c2b7a6-e0fb-47a3-9b5a-02d3854fcea3",
+      "items": ["5a8fd797-ba18-4c9c-9d70-c7acdd7805b6", "bc20e6a6-4792-4c94-8c30-4198bf8247c5"],
       "result": "Member doesn't exist"
   }
 ]
@@ -178,6 +180,7 @@ You can provide `callback_url` in the root object. If it's available after proce
 {
     "transaction_id": "UUID",
     "receipt_id": "id",
+    "items": ["UUID", "UUID"],
     "result" => "OK|error message"
 }
 ```
@@ -423,4 +426,192 @@ Status | Description
 
 <aside class="notice">
 Requires <code>Transaction:Api:Transactions:Read</code> permit
+</aside> 
+
+## <a name="v3-transactions-events-create"></a> Create events 
+
+> Example:
+
+> e-Vouchers
+
+```shell
+curl -X GET \
+"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/transactions/categories" \
+    -H 'Content-Type: application/json' \
+    -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+    -H 'X-Product-Name: default' \
+    -H 'X-User-Agent: CURL manual test' 
+    -d \
+    '{
+        { 
+          "type": "use_evoucher",
+          "bulk":
+        	[
+                {
+                    "identifier": 1,
+                    "identifier_type": "id",
+                    "event_date": "2019-09-11T12:00:00+01:00",
+                    "voucher_id": 1,
+                    "store_id": "8",
+                    "voucher_name": "name",
+                    "serial_number": "serial_number"
+                },
+                {
+                    "identifier": 2,
+                    "identifier_type": "id",
+                    "event_date": "2019-09-11T12:00:00+01:00",
+                    "voucher_id": 2,
+                    "store_id": "8",
+                    "voucher_name": "name",
+                    "serial_number": "serial_number"
+                },
+                {
+                    "identifier": 3,
+                    "identifier_type": "id",
+                    "event_date": "2019-09-11T12:00:00+01:00",
+                    "voucher_id": 3,
+                    "store_id": "8",
+                    "voucher_name": "name",
+                    "serial_number": "serial_number"
+                }
+        	]
+        }
+    }'
+```
+
+> GWP
+
+```shell
+curl -X GET \
+"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/transactions/categories" \
+    -H 'Content-Type: application/json' \
+    -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+    -H 'X-Product-Name: default' \
+    -H 'X-User-Agent: CURL manual test' 
+    -d \
+    '{
+        { 
+          "type": "redeem_gwp",
+          "bulk":
+        	[
+                {
+                    "identifier": 44837522,
+                    "identifier_type": "id",
+                    "event_date": "2019-09-11T12:00:00+01:00",
+                    "campaign_id": 1,
+                    "item_id": "8",
+                    "campaign_name": "campaign_name",
+                    "item_name": "item_name",
+                    "serial_number": "serial_number"
+                },
+                {
+                    "identifier": 44837522,
+                    "identifier_type": "id",
+                    "event_date": "2019-09-11T12:00:00+01:00",
+                    "campaign_id": 1,
+                    "item_id": "8",
+                    "campaign_name": "campaign_name",
+                    "item_name": "item_name",
+                    "serial_number": "serial_number"
+                },
+                {
+                    "identifier": 44837522,
+                    "identifier_type": "id",
+                    "event_date": "2019-09-11T12:00:00+01:00",
+                    "campaign_id": 1,
+                    "item_id": "8",
+                    "campaign_name": "campaign_name",
+                    "item_name": "item_name",
+                    "serial_number": "serial_number"
+                }
+        	]
+        }
+    }'
+```
+
+> When successful (200), result is ok for every event:
+
+```json
+[
+    {
+        "id": 1,
+        "event_id": "4cca1661-7647-4a48-9664-a68b2075451d",
+        "result": "ok"
+    },
+    {
+        "id": 2,
+        "event_id": "c3506406-b89e-4aef-8b33-c19aceb8ad6c",
+        "result": "ok"
+    },
+    {
+        "id": 3,
+        "event_id": "eed0173c-a51d-4afb-a819-0320fabf77e9",
+        "result": "ok"
+    }
+]
+``` 
+
+> When payload is invalid (422), returns an object structured like this:
+
+```json
+{
+    "error": "Invalid format",
+    "details": {
+        "[0].store_id": "The property store_id is required",
+        "[0].voucher_id": "The property voucher_id is required",
+        "[1].voucher_name": "The property voucher_name is required",
+        "[1].serial_number": "The property serial_number is required"
+    }
+}
+``` 
+
+
+**POST** `v3/:loyalty_club_slug/transactions/events`
+
+Send different bonus events events
+
+### Request Parameters
+
+Key | Type | Description
+--------- | --------- | ---------
+type | string | type of events (redeem_gwp, use_evoucher)
+bulk | array | array of event objects
+
+Bulk contains many events of specified type.
+
+e-Vouchers event
+
+Key | Type | Description
+--------- | --------- | ---------
+identifier | string | Member identifier
+identifier_type | string | Member identifier type (id, msisdn, email)
+event_date | string | datetime formatted according to ISO 8601, **use timezone**
+voucher_id | integer | 
+store_id | string | 
+voucher_name | string | 
+serial_number | string | 
+
+
+GWP event
+
+Key | Type | Description
+--------- | --------- | ---------
+identifier | string,integer | Member identifier
+identifier_type | string | Member identifier type (id, msisdn, email)
+event_date | string | datetime formatted according to ISO 8601, **use timezone**
+campaign_id | integer | 
+campaign_name | string | 
+item_id | integer | 
+item_name | string | 
+serial_number | string | 
+
+
+### Error responses
+
+Status | Description
+--------- | ----------- 
+`422` | Invalid parameters (see example on the right)
+
+<aside class="notice">
+Requires <code>Transaction:Api:Events:Create</code> permit
 </aside> 

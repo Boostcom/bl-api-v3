@@ -1,5 +1,9 @@
 # Changelog
 
+### 03.02.2019 | Natalia Styrska
+
+* Add ([Transactions &bull; Events](#v3-transactions-events-create)) endpoint
+
 ### 11.12.2019 | Piotr Świtlicki
 
 * Update [Offers &bull; Display schemas](#v3-offers-display-schemas) to have [JSONPath](https://support.smartbear.com/readyapi/docs/testing/jsonpath-reference.html) references
