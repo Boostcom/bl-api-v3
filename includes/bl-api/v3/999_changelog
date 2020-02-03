@@ -1,5 +1,11 @@
 <h1 id="changelog">Changelog</h1>
 
+<h3 id="03-02-2019-natalia-styrska">03.02.2019 | Natalia Styrska</h3>
+
+<ul>
+<li>Add (<a href="#v3-transactions-events-create">Transactions &bull; Events</a>) endpoint</li>
+</ul>
+
 <h3 id="11-12-2019-piotr-witlicki">11.12.2019 | Piotr Świtlicki</h3>
 
 <ul>

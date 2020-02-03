@@ -7826,11 +7826,13 @@ Requires <code>Rewards:Api:OAuth:Rewards:Use</code> permit
   </span><span class="p">{</span><span class="w">
       </span><span class="s2">"receipt_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"id"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"43cb7852-5190-4d1d-9b1f-6d6cf552424b"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"91cd14a0-b9b5-4e21-950c-a10b16934a91"</span><span class="p">,</span><span class="w"> </span><span class="s2">"1ad96fb7-fb77-4981-b2a6-89549a6f5ed6"</span><span class="p">],</span><span class="w">
       </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
       </span><span class="s2">"receipt_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"id"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f4c2b7a6-e0fb-47a3-9b5a-02d3854fcea3"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"5a8fd797-ba18-4c9c-9d70-c7acdd7805b6"</span><span class="p">,</span><span class="w"> </span><span class="s2">"bc20e6a6-4792-4c94-8c30-4198bf8247c5"</span><span class="p">],</span><span class="w">
       </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Member doesn't exist"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
@@ -8115,6 +8117,7 @@ Requires <code>Rewards:Api:OAuth:Rewards:Use</code> permit
 {
     &quot;transaction_id&quot;: &quot;UUID&quot;,
     &quot;receipt_id&quot;: &quot;id&quot;,
+    &quot;items&quot;: [&quot;UUID&quot;, &quot;UUID&quot;],
     &quot;result&quot; =&gt; &quot;OK|error message&quot;
 }
 </code></p>
@@ -8470,6 +8473,281 @@ Requires <code>Transaction:Api:Transactions:Read</code> permit
 
 <aside class="notice">
 Requires <code>Transaction:Api:Transactions:Read</code> permit
+</aside> 
+
+<h2 id="create-events"><a name="v3-transactions-events-create"></a> Create events</h2>
+
+<blockquote>
+<p>Example:</p>
+
+<p>e-Vouchers</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+<span class="s2">"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/transactions/categories"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+    -H <span class="s1">'X-User-Agent: CURL manual test'</span> 
+    -d <span class="se">\</span>
+    <span class="s1">'{
+        { 
+          "type": "use_evoucher",
+          "bulk":
+            [
+                {
+                    "identifier": 1,
+                    "identifier_type": "id",
+                    "event_date": "2019-09-11T12:00:00+01:00",
+                    "voucher_id": 1,
+                    "store_id": "8",
+                    "voucher_name": "name",
+                    "serial_number": "serial_number"
+                },
+                {
+                    "identifier": 2,
+                    "identifier_type": "id",
+                    "event_date": "2019-09-11T12:00:00+01:00",
+                    "voucher_id": 2,
+                    "store_id": "8",
+                    "voucher_name": "name",
+                    "serial_number": "serial_number"
+                },
+                {
+                    "identifier": 3,
+                    "identifier_type": "id",
+                    "event_date": "2019-09-11T12:00:00+01:00",
+                    "voucher_id": 3,
+                    "store_id": "8",
+                    "voucher_name": "name",
+                    "serial_number": "serial_number"
+                }
+            ]
+        }
+    }'</span>
+</code></pre>
+<blockquote>
+<p>GWP</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+<span class="s2">"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/transactions/categories"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+    -H <span class="s1">'X-User-Agent: CURL manual test'</span> 
+    -d <span class="se">\</span>
+    <span class="s1">'{
+        { 
+          "type": "redeem_gwp",
+          "bulk":
+            [
+                {
+                    "identifier": 44837522,
+                    "identifier_type": "id",
+                    "event_date": "2019-09-11T12:00:00+01:00",
+                    "campaign_id": 1,
+                    "item_id": "8",
+                    "campaign_name": "campaign_name",
+                    "item_name": "item_name",
+                    "serial_number": "serial_number"
+                },
+                {
+                    "identifier": 44837522,
+                    "identifier_type": "id",
+                    "event_date": "2019-09-11T12:00:00+01:00",
+                    "campaign_id": 1,
+                    "item_id": "8",
+                    "campaign_name": "campaign_name",
+                    "item_name": "item_name",
+                    "serial_number": "serial_number"
+                },
+                {
+                    "identifier": 44837522,
+                    "identifier_type": "id",
+                    "event_date": "2019-09-11T12:00:00+01:00",
+                    "campaign_id": 1,
+                    "item_id": "8",
+                    "campaign_name": "campaign_name",
+                    "item_name": "item_name",
+                    "serial_number": "serial_number"
+                }
+            ]
+        }
+    }'</span>
+</code></pre>
+<blockquote>
+<p>When successful (200), result is ok for every event:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"event_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4cca1661-7647-4a48-9664-a68b2075451d"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"event_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c3506406-b89e-4aef-8b33-c19aceb8ad6c"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"event_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eed0173c-a51d-4afb-a819-0320fabf77e9"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>When payload is invalid (422), returns an object structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid format"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"[0].store_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The property store_id is required"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"[0].voucher_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The property voucher_id is required"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"[1].voucher_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The property voucher_name is required"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"[1].serial_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The property serial_number is required"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>POST</strong> <code class="prettyprint">v3/:loyalty_club_slug/transactions/events</code></p>
+
+<p>Send different bonus events events</p>
+
+<h3 id="request-parameters">Request Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>type of events (redeem_gwp, use_evoucher)</td>
+</tr>
+<tr>
+<td>bulk</td>
+<td>array</td>
+<td>array of event objects</td>
+</tr>
+</tbody></table>
+
+<p>Bulk contains many events of specified type.</p>
+
+<p>e-Vouchers event</p>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>identifier</td>
+<td>string</td>
+<td>Member identifier</td>
+</tr>
+<tr>
+<td>identifier_type</td>
+<td>string</td>
+<td>Member identifier type (id, msisdn, email)</td>
+</tr>
+<tr>
+<td>event_date</td>
+<td>string</td>
+<td>datetime formatted according to ISO 8601, <strong>use timezone</strong></td>
+</tr>
+<tr>
+<td>voucher_id</td>
+<td>integer</td>
+<td></td>
+</tr>
+<tr>
+<td>store_id</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>voucher_name</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>serial_number</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p>GWP event</p>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>identifier</td>
+<td>string,integer</td>
+<td>Member identifier</td>
+</tr>
+<tr>
+<td>identifier_type</td>
+<td>string</td>
+<td>Member identifier type (id, msisdn, email)</td>
+</tr>
+<tr>
+<td>event_date</td>
+<td>string</td>
+<td>datetime formatted according to ISO 8601, <strong>use timezone</strong></td>
+</tr>
+<tr>
+<td>campaign_id</td>
+<td>integer</td>
+<td></td>
+</tr>
+<tr>
+<td>campaign_name</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>item_id</td>
+<td>integer</td>
+<td></td>
+</tr>
+<tr>
+<td>item_name</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>serial_number</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h3 id="error-responses">Error responses</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">422</code></td>
+<td>Invalid parameters (see example on the right)</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Transaction:Api:Events:Create</code> permit
 </aside> 
 
           <h1 id="endpoints-points">Endpoints &bull; Points</h1>
@@ -10270,6 +10548,12 @@ Requires <code>Stores:Api:Departments:Update</code>
 </aside> 
 
           <h1 id="changelog">Changelog</h1>
+
+<h3 id="03-02-2019-natalia-styrska">03.02.2019 | Natalia Styrska</h3>
+
+<ul>
+<li>Add (<a href="#v3-transactions-events-create">Transactions &bull; Events</a>) endpoint</li>
+</ul>
 
 <h3 id="11-12-2019-piotr-witlicki">11.12.2019 | Piotr Świtlicki</h3>
 
