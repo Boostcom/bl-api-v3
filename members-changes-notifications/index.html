@@ -250,48 +250,192 @@ the Secret Token that you received from us when the subscription has been set up
 
 <h2 id="notifications-format">Notifications format</h2>
 
-<blockquote>
-<p>Example</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="w">    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"bulk"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"customer_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Infinity Mall"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">447</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"event_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"update"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">44882174</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"birthday"</span><span class="p">:{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"string"</span><span class="p">,</span><span class="s2">"value"</span><span class="p">:</span><span class="s2">"1990-01-01"</span><span class="w"> </span><span class="p">},</span><span class="w">
-            </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"woman"</span><span class="w"> </span><span class="p">},</span><span class="w">
-            </span><span class="s2">"language"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"en"</span><span class="w"> </span><span class="p">},</span><span class="w">
-            </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="w"> </span><span class="p">},</span><span class="w">
-            </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Doe"</span><span class="w"> </span><span class="p">},</span><span class="w">
-            </span><span class="s2">"optin_channel"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"webforms"</span><span class="w"> </span><span class="p">},</span><span class="w">
-            </span><span class="s2">"msisdn"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4740769126"</span><span class="w"> </span><span class="p">},</span><span class="w">
-            </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"j.doe@example.com"</span><span class="w"> </span><span class="p">},</span><span class="w">
-            </span><span class="s2">"sms_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"verified"</span><span class="w"> </span><span class="p">},</span><span class="w">
-            </span><span class="s2">"email_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unsubscribed"</span><span class="w"> </span><span class="p">},</span><span class="w">
-            </span><span class="s2">"push_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"enabled"</span><span class="w"> </span><span class="p">}</span><span class="w">
-          </span><span class="p">},</span><span class="w">
-          </span><span class="s2">"consents"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"dmp_profiling"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">},</span><span class="w">
-            </span><span class="s2">"sms_marketing"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">},</span><span class="w">
-            </span><span class="s2">"email_marketing"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">},</span><span class="w">
-            </span><span class="s2">"custom_consent"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span><span class="w">
-          </span><span class="p">},</span><span class="w">
-          </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-28T08:34:59.231Z"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"optin_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-24T11:23:41.231Z"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">]</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>Changes are always sent in bulks (however, in most cases the <code class="prettyprint">bulk</code> array will consist of only one element).</p>
+<p>Currently, notifications are generated in two versions. 
+Version 1 is deprecated and new subscriptions are going to be configured to receive v2 notifications.</p>
 
+<h3 id="notifications-v2">Notifications v2</h3>
+
+<blockquote>
+<p>Example for v2</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"events"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"event"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"update"</span><span class="p">,</span><span class="w"> </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-05T14:31:15.520Z"</span><span class="w"> </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"loyalty_club"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">32</span><span class="p">,</span><span class="w"> </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"infinity-mall"</span><span class="w"> </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"member"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11256</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"person_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">89103</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"msisdn"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john@example.com"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span><span class="w"> </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Doe"</span><span class="p">,</span><span class="w"> </span><span class="s2">"zip_code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"consents"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"sms_marketing"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-21T10:23:34.982Z"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">},</span><span class="w">
+          </span><span class="s2">"email_marketing"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-05T14:31:15.520Z"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"sms_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"verified"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"email_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"enabled"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"push_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"disabled"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"optin_channel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ios"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-21T10:23:34.982Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-05T14:31:15.520Z"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"member_changes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"msisdn"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-"</span><span class="p">,</span><span class="w"> </span><span class="s2">"was"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4740769126"</span><span class="p">,</span><span class="w"> </span><span class="s2">"is"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+"</span><span class="p">,</span><span class="w"> </span><span class="s2">"was"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="s2">"is"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john@example.com"</span><span class="w"> </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"sms_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"~"</span><span class="p">,</span><span class="w"> </span><span class="s2">"was"</span><span class="p">:</span><span class="w"> </span><span class="s2">"enabled"</span><span class="p">,</span><span class="w"> </span><span class="s2">"is"</span><span class="p">:</span><span class="w"> </span><span class="s2">"verified"</span><span class="w"> </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"push_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"~"</span><span class="p">,</span><span class="w"> </span><span class="s2">"was"</span><span class="p">:</span><span class="w"> </span><span class="s2">"enabled"</span><span class="p">,</span><span class="w"> </span><span class="s2">"is"</span><span class="p">:</span><span class="w"> </span><span class="s2">"disabled"</span><span class="w"> </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"~"</span><span class="p">,</span><span class="w"> </span><span class="s2">"was"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mark"</span><span class="p">,</span><span class="w"> </span><span class="s2">"is"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="w"> </span><span class="p">},</span><span class="w">
+          </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+"</span><span class="p">,</span><span class="w"> </span><span class="s2">"was"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">  </span><span class="s2">"is"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Doe"</span><span class="w"> </span><span class="p">},</span><span class="w">
+          </span><span class="s2">"zip_code"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-"</span><span class="p">,</span><span class="w"> </span><span class="s2">"was"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3300"</span><span class="p">,</span><span class="w"> </span><span class="s2">"is"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"consents"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"sms_marketing"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"~"</span><span class="p">,</span><span class="w"> </span><span class="s2">"was"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="s2">"is"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Each change in the <code class="prettyprint">events</code> array consists of following objects:</p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>event</td>
+<td>See <a href="#v2-event">Event model</a></td>
+</tr>
+<tr>
+<td>loyalty_club</td>
+<td>Information about member&rsquo;s Loyalty Club - it&rsquo;s ID and slug</td>
+</tr>
+<tr>
+<td>member</td>
+<td>Member attributes after the event - See <a href="https://docs.loyalty.boostcom.no/bl-api/v3/#member-json-model">Member JSON model</a></td>
+</tr>
+<tr>
+<td>member_changes</td>
+<td>See <a href="#v2-event">Event model</a></td>
+</tr>
+</tbody></table>
+
+<h4 id="event-model"><a name="v2-event"></a> Event model</h4>
+
+<p>Contains meta information about the change event. </p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>type</td>
+<td><code class="prettyprint">import</code>, <code class="prettyprint">update</code>, or <code class="prettyprint">delete</code></td>
+<td>A type of the change event</td>
+</tr>
+<tr>
+<td>date</td>
+<td>Date</td>
+<td>When the event occurred</td>
+</tr>
+</tbody></table>
+
+<h4 id="changes-object"><a name="v2-changes"></a> Changes object</h4>
+
+<p>Represents changes that happened to member within the event. Includes only properties that have been actually changed
+within the event.</p>
+
+<p>Changes object may contain following fields:</p>
+
+<ul>
+<li><code class="prettyprint">msisdn</code></li>
+<li><code class="prettyprint">email</code></li>
+<li><code class="prettyprint">sms_status</code></li>
+<li><code class="prettyprint">email_status</code></li>
+<li><code class="prettyprint">push_status</code></li>
+<li><code class="prettyprint">optin_channel</code></li>
+<li><code class="prettyprint">optin_subchannel</code></li>
+<li><code class="prettyprint">consents</code>, which contains changes for consents </li>
+<li><code class="prettyprint">properties</code>, which contains changes for properties</li>
+</ul>
+
+<p>Each change consists of three fields:</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>change</td>
+<td><code class="prettyprint">~</code>, <code class="prettyprint">+</code> or <code class="prettyprint">-</code></td>
+<td>Whether the property has been changed (<code class="prettyprint">~</code>), added (<code class="prettyprint">+</code>) or removed (<code class="prettyprint">-</code>)</td>
+</tr>
+<tr>
+<td>before</td>
+<td>mixed</td>
+<td>The value of property before the change</td>
+</tr>
+<tr>
+<td>after</td>
+<td>mixed</td>
+<td>The value of property after the change</td>
+</tr>
+</tbody></table>
+
+<h3 id="notifications-v1-deprecated">Notifications v1 (deprecated)</h3>
+
+<blockquote>
+<p>Example for v1</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"bulk"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"customer_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Infinity Mall"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">447</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"event_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"update"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">44882174</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"birthday"</span><span class="p">:{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"string"</span><span class="p">,</span><span class="s2">"value"</span><span class="p">:</span><span class="s2">"1990-01-01"</span><span class="w"> </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"woman"</span><span class="w"> </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"language"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"en"</span><span class="w"> </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="w"> </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Doe"</span><span class="w"> </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"optin_channel"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"webforms"</span><span class="w"> </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"msisdn"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4740769126"</span><span class="w"> </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"j.doe@example.com"</span><span class="w"> </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"sms_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"verified"</span><span class="w"> </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"email_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unsubscribed"</span><span class="w"> </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"push_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"enabled"</span><span class="w"> </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"consents"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"dmp_profiling"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"sms_marketing"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"email_marketing"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"custom_consent"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-28T08:34:59.231Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"optin_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-24T11:23:41.231Z"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <p>Each change in the <code class="prettyprint">bulk</code> is identified by following attributes:</p>
 
 <table><thead>
 <tr>
-<th>Parameter</th>
+<th>Attribute</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
