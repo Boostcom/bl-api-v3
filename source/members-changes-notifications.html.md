@@ -65,6 +65,7 @@ Version 1 is deprecated and new subscriptions are going to be configured to rece
         "email_status": "enabled",
         "push_status": "disabled",
         "optin_channel": "ios",
+        "optin_subchannel": null,
         "created_at": "2020-01-21T10:23:34.982Z",
         "updated_at": "2020-02-05T14:31:15.520Z"
       },
@@ -92,9 +93,9 @@ Each change in the `events` array consists of following objects:
 Name | Description
 ---------  | -----------
 event | See [Event model](#v2-event)
-loyalty_club | Information about member's Loyalty Club - it's ID and slug
-member  | Member attributes after the event - See [Member JSON model](https://docs.loyalty.boostcom.no/bl-api/v3/#member-json-model)
-member_changes | See [Event model](#v2-event)
+loyalty_club | Information about member's Loyalty Club - it's ID and slug. 
+member  | Member attributes after the event - See [Member JSON model](https://docs.loyalty.boostcom.no/bl-api/v3/#member-json-model). For `delete` events it contains only `id` and `person_id`
+member_changes | See [Event model](#v2-event). It's empty for `delete` events
 
 #### <a name="v2-event"></a> Event model
 
