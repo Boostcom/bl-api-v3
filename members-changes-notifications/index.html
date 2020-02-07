@@ -278,6 +278,7 @@ Version 1 is deprecated and new subscriptions are going to be configured to rece
         </span><span class="s2">"email_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"enabled"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"push_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"disabled"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"optin_channel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ios"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"optin_subchannel"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
         </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-21T10:23:34.982Z"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-05T14:31:15.520Z"</span><span class="w">
       </span><span class="p">},</span><span class="w">
@@ -313,15 +314,15 @@ Version 1 is deprecated and new subscriptions are going to be configured to rece
 </tr>
 <tr>
 <td>loyalty_club</td>
-<td>Information about member&rsquo;s Loyalty Club - it&rsquo;s ID and slug</td>
+<td>Information about member&rsquo;s Loyalty Club - it&rsquo;s ID and slug.</td>
 </tr>
 <tr>
 <td>member</td>
-<td>Member attributes after the event - See <a href="https://docs.loyalty.boostcom.no/bl-api/v3/#member-json-model">Member JSON model</a></td>
+<td>Member attributes after the event - See <a href="https://docs.loyalty.boostcom.no/bl-api/v3/#member-json-model">Member JSON model</a>. For <code class="prettyprint">delete</code> events it contains only <code class="prettyprint">id</code> and <code class="prettyprint">person_id</code></td>
 </tr>
 <tr>
 <td>member_changes</td>
-<td>See <a href="#v2-event">Event model</a></td>
+<td>See <a href="#v2-event">Event model</a>. It&rsquo;s empty for <code class="prettyprint">delete</code> events</td>
 </tr>
 </tbody></table>
 
