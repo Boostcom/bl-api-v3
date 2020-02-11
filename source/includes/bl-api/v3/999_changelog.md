@@ -1,5 +1,9 @@
 # Changelog
 
+### 11.02.2019 | Piotr Świtlicki
+
+* Add [Offers &bull; Grant offer](#v3-grant-offer)
+
 ### 03.02.2019 | Natalia Styrska
 
 * Add ([Transactions &bull; Events](#v3-transactions-events-create)) endpoint
