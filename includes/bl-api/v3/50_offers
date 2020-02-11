@@ -952,3 +952,64 @@ Requires <code>Offers:Api:MemberOffers:Like</code> permit
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:Like</code> permit
 </aside>
+
+<h2 id="grant-offer"><a name="v3-grant-offer"></a> Grant offer</h2>
+
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
+<span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/members/7371713/offers/10000951/unlike"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+    -H <span class="s1">'X-User-Agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>When successful (200), returns an empty object:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="err">//</span><span class="w"> </span><span class="err">Empty</span><span class="w"> </span><span class="err">object</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>POST</strong> <code class="prettyprint">v3/infinity-mall/members/:member_id/members/:id/offers/:offer_id/grant</code></p>
+
+<p>Some types of offers are not available to members until they are granted to them - this endpoint allows to do this. </p>
+
+<p>It may make sense to grant a same offer to one member multiple times when offer has limited number of uses. 
+In such case, each consecutive grant will increase the number of uses for this member.</p>
+
+<aside class="notice">
+Requires <code>Offers:Api:MemberOffers:GrantByMemberId</code> permit
+</aside>
+
+<h3 id="error-responses">Error responses</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Response body</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">404</code></td>
+<td><code class="prettyprint">{&quot;error&quot;: &quot;Offer#10000951 not found&quot;}</code></td>
+<td>-</td>
+</tr>
+<tr>
+<td><code class="prettyprint">404</code></td>
+<td><code class="prettyprint">{&quot;error&quot;: &quot;Member#7371713 not found&quot;}</code></td>
+<td>-</td>
+</tr>
+<tr>
+<td><code class="prettyprint">422</code></td>
+<td><code class="prettyprint">{&quot;error&quot;: &quot;Not grantable&quot;}</code></td>
+<td>The offer has type not eligible for granting</td>
+</tr>
+<tr>
+<td><code class="prettyprint">422</code></td>
+<td><code class="prettyprint">{&quot;error&quot;: &quot;Global limit exceeded&quot;}</code></td>
+<td>The offer has no more uses available</td>
+</tr>
+</tbody></table>
