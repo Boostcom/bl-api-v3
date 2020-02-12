@@ -591,3 +591,4 @@ Status | Response body | Description
 `404` | `{"error": "Member#7371713 not found"}`| -
 `422` | `{"error": "Not grantable"}` | The offer has type not eligible for granting
 `422` | `{"error": "Global limit exceeded"}` | The offer has no more uses available 
+`422` | `{"error": "Member not in audience"}` | The offer has been specify to only be available to members in specific audience and the member does not belong to it
