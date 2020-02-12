@@ -1012,4 +1012,9 @@ Requires <code>Offers:Api:MemberOffers:GrantByMemberId</code> permit
 <td><code class="prettyprint">{&quot;error&quot;: &quot;Global limit exceeded&quot;}</code></td>
 <td>The offer has no more uses available</td>
 </tr>
+<tr>
+<td><code class="prettyprint">422</code></td>
+<td><code class="prettyprint">{&quot;error&quot;: &quot;Member not in audience&quot;}</code></td>
+<td>The offer has been specify to only be available to members in specific audience and the member does not belong to it</td>
+</tr>
 </tbody></table>
