@@ -550,3 +550,45 @@ Marks offer as "unliked" by user.
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:Like</code> permit
 </aside>
+
+## <a name="v3-grant-offer"></a> Grant offer
+
+> Example
+
+```shell
+curl -X POST \
+"https://bpc-api.boostcom.no/v3/infinity-mall/members/7371713/offers/10000951/unlike" \
+    -H 'Content-Type: application/json' \
+    -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+    -H 'X-Product-Name: default' \
+    -H 'X-User-Agent: CURL manual test'
+```
+
+> When successful (200), returns an empty object:
+
+```json
+{
+  // Empty object
+}
+```
+
+**POST** `v3/infinity-mall/members/:member_id/members/:id/offers/:offer_id/grant`
+
+Some types of offers are not available to members until they are granted to them - this endpoint allows to do this. 
+
+It may make sense to grant a same offer to one member multiple times when offer has limited number of uses. 
+In such case, each consecutive grant will increase the number of uses for this member.
+
+<aside class="notice">
+Requires <code>Offers:Api:MemberOffers:GrantByMemberId</code> permit
+</aside>
+
+### Error responses
+
+Status | Response body | Description
+--------- | ----------- | -------- 
+`404` | `{"error": "Offer#10000951 not found"}`| -
+`404` | `{"error": "Member#7371713 not found"}`| -
+`422` | `{"error": "Not grantable"}` | The offer has type not eligible for granting
+`422` | `{"error": "Global limit exceeded"}` | The offer has no more uses available 
+`422` | `{"error": "Member not in audience"}` | The offer has been specify to only be available to members in specific audience and the member does not belong to it
