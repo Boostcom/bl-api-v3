@@ -101,7 +101,7 @@ Status | Description
 `422` | Invalid parameters (see example on the right)
 
 <aside class="notice">
-Requires <code>Transactions:Api:Points:Create</code>
+Requires <code>Transaction:Api:Points:Create</code>
 </aside>
 
 ## <a name="v3-member-points"></a> Member points
@@ -149,5 +149,5 @@ Status    | Description
 `422`     | Invalid parameters (see example on the right)
 
 <aside class="notice">
-Requires <code>Transactions:Api:Points:Get</code> permit
+Requires <code>Transaction:Api:Points:Get</code> permit
 </aside>
