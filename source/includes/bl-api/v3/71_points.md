@@ -14,6 +14,8 @@ curl -X POST \
     -d \
     '[
         {
+            "identifier_type": "id",
+            "identifier": 3456,
             "amount": 10,
             "event_type": "purchase",
             "event": "used coupon",
