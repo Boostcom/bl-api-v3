@@ -1,5 +1,10 @@
 # Changelog
 
+### 01.03.2019 | Piotr Świtlicki
+
+* Extend [Offers](#v3-offers) API to work within [Member context](v3-offers-oauth-context)
+* Rework [Offers](#v3-offers) API to work within [Guest context](v3-offers-guest-access) 
+
 ### 11.02.2019 | Piotr Świtlicki
 
 * Add [Offers &bull; Grant offer](#v3-grant-offer)

@@ -1,26 +1,43 @@
-# <a name="v3-offers"></a>  Endpoints &bull; Offers
+# <a name="v3-offers"></a> Endpoints &bull; Offers
 
-This section describes endpoints destined for end user (e.g. for mobile apps) and work mostly in member context. 
+This section describes endpoints destined for end user (e.g. for mobile apps) and work within context of (signed in) member.
 Navigate to [Offers Admin](#v3-offers-admin) section to see docs for offers management endpoints.
 
-NOTE: The Offers API is in development state. Changes (rather small) may occur during our mobile apps development & testing process.
+## Member context
 
-## Common params
+Offers API supports two distinct approaches to work with context of member.
 
-### <a name="v3-offers-preview"></a> `preview` query param
+#### <a name="v3-offers-oauth-context"></a> Member ID OAuth (recommended)
 
-It is possible to use some endpoints without authenticated user by adding `preview=true` query param.
+In the first one member context is resolved from MPC [OAuth](#v3-oauth2) member session.
 
-This allows to preview the endpoint's content without requiring the user to be signed-in.
+This setup requires use of endpoints that have `/me/` URL segment and requires token provided with `Authorization` header.
 
-With this param given, authentication will not be required (`Authorization` header may be skipped) and therefore, 
-response will be user-agnostic.
+#### <a name="v3-offers-member-id-context"></a> Member ID
+ 
+In this approach member context is resolved from Member's ID provided within URL.
+
+This setup requires use of endpoints that have `/:member_id/` URL segment and requires no authentication.
+
+This approach is designed for implementations in which member is authenticated by your system and 
+**should not be used on front-end implementations**, where API token is exposed to an end user. 
+
+### <a name="v3-offers-guest-access"> Guest access
+
+Some API client implementations may need to present content to a non-authenticated user.
+ 
+In order to allow this, static endpoints (like offers list) may work without member context.
+
+They exist in versions which use `/guest/` URL segment instead of `/me/` or `/member_id/` and may be used by both
+aforementioned approaches.
 
 ## Common error responses
 
 Status | Response body
 --------- | ----------- 
 `485` | `{"error": "Offers API is not enabled for the Loyalty Club"}` |
+`404` | `{"error": "Offer not found"}`| -
+`404` | `{"error": "Member not found"}`| -
 
 ## Common models
 
@@ -264,16 +281,26 @@ curl \
 
 **GET** `v3/infinity-mall/members/me/offers/meta` [[OAuth](#v3-oauth2)]
 
+<aside class="notice">
+Requires <code>Offers:Api:MemberOffers:GetMeta</code> permit
+</aside>
+
+**GET** `v3/infinity-mall/members/:member_id/offers/meta`
+
+<aside class="notice">
+Requires <code>Offers:Api:MemberOffers:GetMetaByMemberId</code> permit
+</aside>
+
+**GET** `v3/infinity-mall/members/guest/offers/meta`
+
+<aside class="notice">
+Requires <code>Offers:Api:MemberOffers:GetMetaPreview</code> permit
+</aside>
+
 Returns offers metadata which consists of:
 
 * aggregated lists of records currently associated with offers (stores, tags, collections)
 * Loyalty Club configuration
-
-### Query Parameters
-
-Parameter | Type | Default | Type
---------- | ----------- | --------- | ------
-preview | Boolean | false | See [`preview` param](#v3-offers-preview)
 
 ### Response (JSON object)
 
@@ -284,13 +311,26 @@ stores | string[] | no (may be empty) | List of unique stores assigned to offers
 collections | Collection[] |  no (may be empty) | List of unique collections assigned to offers - see [Collection model](#v3-offers-collection-model)
 activated_seconds_time | integer | no | Number of seconds the offers stays active after member uses it 
 
-<aside class="notice">
-Requires <code>Offers:Api:MemberOffers:GetMeta</code> permit
-</aside>
-
 ## <a name="v3-get-offer"></a> Get offer
 
 **GET** `v3/infinity-mall/members/me/offers/:id` [[OAuth](#v3-oauth2)]
+
+<aside class="notice">
+Requires <code>Offers:Api:MemberOffers:Get</code> permit
+</aside>
+
+**GET** `v3/infinity-mall/members/:member_id/offers/:id`
+
+<aside class="notice">
+Requires <code>Offers:Api:MemberOffers:GetByMemberId</code> permit
+</aside>
+
+**GET** `v3/infinity-mall/members/guest/offers/:id`
+
+<aside class="notice">
+Requires <code>Offers:Api:MemberOffers:GetPreview</code> permit
+</aside>
+
 
 > Example:
 
@@ -316,21 +356,11 @@ curl \
 
 Returns details of the specified offer.
 
-### Query Parameters
-
-Parameter | Type | Default | Type
---------- | ----------- | --------- | ------
-preview | Boolean | false | See [`preview` param](#v3-offers-preview)
-
 ### Response (JSON object)
 
 Key | Type | Optional? | Description
 --------- | --------- | -------- | ---------
 offer | Offer | no | See [Offer model](#v3-offer-model) 
-
-<aside class="notice">
-Requires <code>Offers:Api:MemberOffers:Get</code> permit
-</aside>
 
 ## <a name="v3-list-offers"></a> List offers
 
@@ -364,6 +394,22 @@ curl \
 
 **GET** `v3/infinity-mall/members/me/offers` [[OAuth](#v3-oauth2)]
 
+<aside class="notice">
+Requires <code>Offers:Api:MemberOffers:ListVisible</code> permit
+</aside>
+
+**GET** `v3/infinity-mall/members/:member_id/offers`
+
+<aside class="notice">
+Requires <code>Offers:Api:MemberOffers:ListVisibleByMemberId</code> permit
+</aside>
+
+**GET** `v3/infinity-mall/members/guest/offers`
+
+<aside class="notice">
+Requires <code>Offers:Api:MemberOffers:ListVisiblePreview</code> permit
+</aside>
+
 Returns offers list.
 
 ### Query Parameters
@@ -372,7 +418,6 @@ Parameter | Type | Default | Description
 --------- | ----------- | --------- | -----------
 per_page | integer | 100 | Number of results to be returned per request (100 is the maximum)
 page_no | integer | 1 | Number of results page
-preview | boolean | false | See [`preview` param](#v3-offers-preview)
 include_pagination_info | boolean | false | When true, pagination info (containing info like total records count, next page) will be returned
 order_by | string | "name" | See [`order_by` param](#v3-offers-list-order-by)
 collection_ids | integer[] | null |  When present, only offers belonging to least one of given collections will be returned
@@ -398,7 +443,7 @@ Following offer attributes may be used for sorting  in general:
 * usable_until
 * created_at
 
-In member context (without `preview=true` param): 
+Only in member context (does not work with `/guest/` context: 
 
 * usable 
 * uses_left
@@ -414,10 +459,6 @@ Key | Type | Optional? | Description
 --------- | --------- | -------- | ---------
 offers | Offer[] | no (may be empty)| See [Offer model](#v3-offer-model) 
 pagination_info | PaginationInfo | yes| See [Pagination info model](#pagination-json-model)
-
-<aside class="notice">
-Requires <code>Offers:Api:MemberOffers:ListVisible</code> permit
-</aside>
 
 ## <a name="v3-use-offer"></a> Use offer
 
@@ -450,6 +491,16 @@ curl -X POST \
 ```
 
 **POST** `v3/infinity-mall/members/me/offers/:id/use` [[OAuth](#v3-oauth2)]
+
+<aside class="notice">
+Requires <code>Offers:Api:MemberOffers:Use</code> permit
+</aside>
+
+**POST** `v3/infinity-mall/members/:member_id/offers/:id/use`
+
+<aside class="notice">
+Requires <code>Offers:Api:MemberOffers:UseByMemberId</code> permit
+</aside>
 
 Uses (activates) the offer by member.
 
@@ -487,10 +538,6 @@ Status | Response body | Description
 `422` | `{"error": "Global limit exceeded"}` | There are no more offers available globally (stock is empty)
 `422` | `{"error": "Not in usable timeframes"}` | Offer is not usable yet or anymore
 
-<aside class="notice">
-Requires <code>Offers:Api:MemberOffers:Use</code> permit
-</aside>
-
 ## <a name="v3-like-offer"></a> Like offer
 
 > Example
@@ -515,11 +562,17 @@ curl -X PUT \
 
 **PUT** `v3/infinity-mall/members/me/offers/:id/like` [[OAuth](#v3-oauth2)]
 
-Marks offer as "liked" by user.
-
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:Like</code> permit
 </aside>
+
+**PUT** `v3/infinity-mall/members/:member_id/offers/:id/like`
+
+<aside class="notice">
+Requires <code>Offers:Api:MemberOffers:LikeByMemberId</code> permit
+</aside>
+
+Marks offer as "liked" by user.
 
 ## <a name="v3-unlike-offer"></a> Unlike offer
 
@@ -545,11 +598,17 @@ curl -X PUT \
 
 **PUT** `v3/infinity-mall/members/me/offers/:id/unlike` [[OAuth](#v3-oauth2)]
 
-Marks offer as "unliked" by user.
-
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:Like</code> permit
 </aside>
+
+**PUT** `v3/infinity-mall/members/:member_id/offers/:id/unlike`
+
+<aside class="notice">
+Requires <code>Offers:Api:MemberOffers:LikeByMemberId</code> permit
+</aside>
+
+Revers marking offer as "liked" by user.
 
 ## <a name="v3-grant-offer"></a> Grant offer
 
@@ -572,12 +631,14 @@ curl -X POST \
 }
 ```
 
-**POST** `v3/infinity-mall/members/:member_id/members/:id/offers/:offer_id/grant`
+**POST** `v3/infinity-mall/members/:member_id/members/:member_id/offers/:id/grant`
 
 Some types of offers are not available to members until they are granted to them - this endpoint allows to do this. 
 
 It may make sense to grant a same offer to one member multiple times when offer has limited number of uses. 
 In such case, each consecutive grant will increase the number of uses for this member.
+
+NOTE: This endpoint does not have [OAuth](#v3-oauth2) version 
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:GrantByMemberId</code> permit
@@ -587,8 +648,6 @@ Requires <code>Offers:Api:MemberOffers:GrantByMemberId</code> permit
 
 Status | Response body | Description
 --------- | ----------- | -------- 
-`404` | `{"error": "Offer#10000951 not found"}`| -
-`404` | `{"error": "Member#7371713 not found"}`| -
 `422` | `{"error": "Not grantable"}` | The offer has type not eligible for granting
 `422` | `{"error": "Global limit exceeded"}` | The offer has no more uses available 
 `422` | `{"error": "Member not in audience"}` | The offer has been specify to only be available to members in specific audience and the member does not belong to it
