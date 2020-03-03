@@ -1,20 +1,35 @@
-<h1 id="endpoints-offers"><a name="v3-offers"></a>  Endpoints &bull; Offers</h1>
+<h1 id="endpoints-offers"><a name="v3-offers"></a> Endpoints &bull; Offers</h1>
 
-<p>This section describes endpoints destined for end user (e.g. for mobile apps) and work mostly in member context. 
+<p>This section describes endpoints destined for end user (e.g. for mobile apps) and work within context of (signed in) member.
 Navigate to <a href="#v3-offers-admin">Offers Admin</a> section to see docs for offers management endpoints.</p>
 
-<p>NOTE: The Offers API is in development state. Changes (rather small) may occur during our mobile apps development &amp; testing process.</p>
+<h2 id="member-context">Member context</h2>
 
-<h2 id="common-params">Common params</h2>
+<p>Offers API supports two distinct approaches to work with context of member.</p>
 
-<h3 id="preview-query-param"><a name="v3-offers-preview"></a> <code class="prettyprint">preview</code> query param</h3>
+<h4 id="member-id-oauth-recommended"><a name="v3-offers-oauth-context"></a> Member ID OAuth (recommended)</h4>
 
-<p>It is possible to use some endpoints without authenticated user by adding <code class="prettyprint">preview=true</code> query param.</p>
+<p>In the first one member context is resolved from MPC <a href="#v3-oauth2">OAuth</a> member session.</p>
 
-<p>This allows to preview the endpoint&rsquo;s content without requiring the user to be signed-in.</p>
+<p>This setup requires use of endpoints that have <code class="prettyprint">/me/</code> URL segment and requires token provided with <code class="prettyprint">Authorization</code> header.</p>
 
-<p>With this param given, authentication will not be required (<code class="prettyprint">Authorization</code> header may be skipped) and therefore, 
-response will be user-agnostic.</p>
+<h4 id="member-id"><a name="v3-offers-member-id-context"></a> Member ID</h4>
+
+<p>In this approach member context is resolved from Member&rsquo;s ID provided within URL.</p>
+
+<p>This setup requires use of endpoints that have <code class="prettyprint">/:member_id/</code> URL segment and requires no authentication.</p>
+
+<p>This approach is designed for implementations in which member is authenticated by your system and 
+<strong>should not be used on front-end implementations</strong>, where API token is exposed to an end user. </p>
+
+<h3 id="guest-access"><a name="v3-offers-guest-access"> Guest access</h3>
+
+<p>Some API client implementations may need to present content to a non-authenticated user.</p>
+
+<p>In order to allow this, static endpoints (like offers list) may work without member context.</p>
+
+<p>They exist in versions which use <code class="prettyprint">/guest/</code> URL segment instead of <code class="prettyprint">/me/</code> or <code class="prettyprint">/member_id/</code> and may be used by both
+aforementioned approaches.</p>
 
 <h2 id="common-error-responses">Common error responses</h2>
 
@@ -27,6 +42,14 @@ response will be user-agnostic.</p>
 <tr>
 <td><code class="prettyprint">485</code></td>
 <td><code class="prettyprint">{&quot;error&quot;: &quot;Offers API is not enabled for the Loyalty Club&quot;}</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">404</code></td>
+<td><code class="prettyprint">{&quot;error&quot;: &quot;Offer not found&quot;}</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">404</code></td>
+<td><code class="prettyprint">{&quot;error&quot;: &quot;Member not found&quot;}</code></td>
 </tr>
 </tbody></table>
 
@@ -467,30 +490,28 @@ There are three types of fields:</p>
 </span></code></pre>
 <p><strong>GET</strong> <code class="prettyprint">v3/infinity-mall/members/me/offers/meta</code> [<a href="#v3-oauth2">OAuth</a>]</p>
 
+<aside class="notice">
+Requires <code>Offers:Api:MemberOffers:GetMeta</code> permit
+</aside>
+
+<p><strong>GET</strong> <code class="prettyprint">v3/infinity-mall/members/:member_id/offers/meta</code></p>
+
+<aside class="notice">
+Requires <code>Offers:Api:MemberOffers:GetMetaByMemberId</code> permit
+</aside>
+
+<p><strong>GET</strong> <code class="prettyprint">v3/infinity-mall/members/guest/offers/meta</code></p>
+
+<aside class="notice">
+Requires <code>Offers:Api:MemberOffers:GetMetaPreview</code> permit
+</aside>
+
 <p>Returns offers metadata which consists of:</p>
 
 <ul>
 <li>aggregated lists of records currently associated with offers (stores, tags, collections)</li>
 <li>Loyalty Club configuration</li>
 </ul>
-
-<h3 id="query-parameters">Query Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Default</th>
-<th>Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>preview</td>
-<td>Boolean</td>
-<td>false</td>
-<td>See <a href="#v3-offers-preview"><code class="prettyprint">preview</code> param</a></td>
-</tr>
-</tbody></table>
 
 <h3 id="response-json-object">Response (JSON object)</h3>
 
@@ -528,13 +549,25 @@ There are three types of fields:</p>
 </tr>
 </tbody></table>
 
-<aside class="notice">
-Requires <code>Offers:Api:MemberOffers:GetMeta</code> permit
-</aside>
-
 <h2 id="get-offer"><a name="v3-get-offer"></a> Get offer</h2>
 
 <p><strong>GET</strong> <code class="prettyprint">v3/infinity-mall/members/me/offers/:id</code> [<a href="#v3-oauth2">OAuth</a>]</p>
+
+<aside class="notice">
+Requires <code>Offers:Api:MemberOffers:Get</code> permit
+</aside>
+
+<p><strong>GET</strong> <code class="prettyprint">v3/infinity-mall/members/:member_id/offers/:id</code></p>
+
+<aside class="notice">
+Requires <code>Offers:Api:MemberOffers:GetByMemberId</code> permit
+</aside>
+
+<p><strong>GET</strong> <code class="prettyprint">v3/infinity-mall/members/guest/offers/:id</code></p>
+
+<aside class="notice">
+Requires <code>Offers:Api:MemberOffers:GetPreview</code> permit
+</aside>
 
 <blockquote>
 <p>Example:</p>
@@ -558,24 +591,6 @@ Requires <code>Offers:Api:MemberOffers:GetMeta</code> permit
 </span></code></pre>
 <p>Returns details of the specified offer.</p>
 
-<h3 id="query-parameters">Query Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Default</th>
-<th>Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>preview</td>
-<td>Boolean</td>
-<td>false</td>
-<td>See <a href="#v3-offers-preview"><code class="prettyprint">preview</code> param</a></td>
-</tr>
-</tbody></table>
-
 <h3 id="response-json-object">Response (JSON object)</h3>
 
 <table><thead>
@@ -593,10 +608,6 @@ Requires <code>Offers:Api:MemberOffers:GetMeta</code> permit
 <td>See <a href="#v3-offer-model">Offer model</a></td>
 </tr>
 </tbody></table>
-
-<aside class="notice">
-Requires <code>Offers:Api:MemberOffers:Get</code> permit
-</aside>
 
 <h2 id="list-offers"><a name="v3-list-offers"></a> List offers</h2>
 
@@ -628,6 +639,22 @@ Requires <code>Offers:Api:MemberOffers:Get</code> permit
 </span></code></pre>
 <p><strong>GET</strong> <code class="prettyprint">v3/infinity-mall/members/me/offers</code> [<a href="#v3-oauth2">OAuth</a>]</p>
 
+<aside class="notice">
+Requires <code>Offers:Api:MemberOffers:ListVisible</code> permit
+</aside>
+
+<p><strong>GET</strong> <code class="prettyprint">v3/infinity-mall/members/:member_id/offers</code></p>
+
+<aside class="notice">
+Requires <code>Offers:Api:MemberOffers:ListVisibleByMemberId</code> permit
+</aside>
+
+<p><strong>GET</strong> <code class="prettyprint">v3/infinity-mall/members/guest/offers</code></p>
+
+<aside class="notice">
+Requires <code>Offers:Api:MemberOffers:ListVisiblePreview</code> permit
+</aside>
+
 <p>Returns offers list.</p>
 
 <h3 id="query-parameters">Query Parameters</h3>
@@ -651,12 +678,6 @@ Requires <code>Offers:Api:MemberOffers:Get</code> permit
 <td>integer</td>
 <td>1</td>
 <td>Number of results page</td>
-</tr>
-<tr>
-<td>preview</td>
-<td>boolean</td>
-<td>false</td>
-<td>See <a href="#v3-offers-preview"><code class="prettyprint">preview</code> param</a></td>
 </tr>
 <tr>
 <td>include_pagination_info</td>
@@ -731,7 +752,7 @@ Requires <code>Offers:Api:MemberOffers:Get</code> permit
 <li>created_at</li>
 </ul>
 
-<p>In member context (without <code class="prettyprint">preview=true</code> param): </p>
+<p>Only in member context (does not work with <code class="prettyprint">/guest/</code> context: </p>
 
 <ul>
 <li>usable </li>
@@ -769,10 +790,6 @@ Requires <code>Offers:Api:MemberOffers:Get</code> permit
 </tr>
 </tbody></table>
 
-<aside class="notice">
-Requires <code>Offers:Api:MemberOffers:ListVisible</code> permit
-</aside>
-
 <h2 id="use-offer"><a name="v3-use-offer"></a> Use offer</h2>
 <pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
 <span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/members/me/offers/1000016"</span> <span class="se">\</span>
@@ -800,6 +817,16 @@ Requires <code>Offers:Api:MemberOffers:ListVisible</code> permit
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p><strong>POST</strong> <code class="prettyprint">v3/infinity-mall/members/me/offers/:id/use</code> [<a href="#v3-oauth2">OAuth</a>]</p>
+
+<aside class="notice">
+Requires <code>Offers:Api:MemberOffers:Use</code> permit
+</aside>
+
+<p><strong>POST</strong> <code class="prettyprint">v3/infinity-mall/members/:member_id/offers/:id/use</code></p>
+
+<aside class="notice">
+Requires <code>Offers:Api:MemberOffers:UseByMemberId</code> permit
+</aside>
 
 <p>Uses (activates) the offer by member.</p>
 
@@ -893,10 +920,6 @@ tied to it may not be granted to the member.</p>
 </tr>
 </tbody></table>
 
-<aside class="notice">
-Requires <code>Offers:Api:MemberOffers:Use</code> permit
-</aside>
-
 <h2 id="like-offer"><a name="v3-like-offer"></a> Like offer</h2>
 
 <blockquote>
@@ -919,11 +942,17 @@ Requires <code>Offers:Api:MemberOffers:Use</code> permit
 </span></code></pre>
 <p><strong>PUT</strong> <code class="prettyprint">v3/infinity-mall/members/me/offers/:id/like</code> [<a href="#v3-oauth2">OAuth</a>]</p>
 
-<p>Marks offer as &ldquo;liked&rdquo; by user.</p>
-
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:Like</code> permit
 </aside>
+
+<p><strong>PUT</strong> <code class="prettyprint">v3/infinity-mall/members/:member_id/offers/:id/like</code></p>
+
+<aside class="notice">
+Requires <code>Offers:Api:MemberOffers:LikeByMemberId</code> permit
+</aside>
+
+<p>Marks offer as &ldquo;liked&rdquo; by user.</p>
 
 <h2 id="unlike-offer"><a name="v3-unlike-offer"></a> Unlike offer</h2>
 
@@ -947,11 +976,17 @@ Requires <code>Offers:Api:MemberOffers:Like</code> permit
 </span></code></pre>
 <p><strong>PUT</strong> <code class="prettyprint">v3/infinity-mall/members/me/offers/:id/unlike</code> [<a href="#v3-oauth2">OAuth</a>]</p>
 
-<p>Marks offer as &ldquo;unliked&rdquo; by user.</p>
-
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:Like</code> permit
 </aside>
+
+<p><strong>PUT</strong> <code class="prettyprint">v3/infinity-mall/members/:member_id/offers/:id/unlike</code></p>
+
+<aside class="notice">
+Requires <code>Offers:Api:MemberOffers:LikeByMemberId</code> permit
+</aside>
+
+<p>Revers marking offer as &ldquo;liked&rdquo; by user.</p>
 
 <h2 id="grant-offer"><a name="v3-grant-offer"></a> Grant offer</h2>
 
@@ -972,12 +1007,14 @@ Requires <code>Offers:Api:MemberOffers:Like</code> permit
   </span><span class="err">//</span><span class="w"> </span><span class="err">Empty</span><span class="w"> </span><span class="err">object</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>POST</strong> <code class="prettyprint">v3/infinity-mall/members/:member_id/members/:id/offers/:offer_id/grant</code></p>
+<p><strong>POST</strong> <code class="prettyprint">v3/infinity-mall/members/:member_id/members/:member_id/offers/:id/grant</code></p>
 
 <p>Some types of offers are not available to members until they are granted to them - this endpoint allows to do this. </p>
 
 <p>It may make sense to grant a same offer to one member multiple times when offer has limited number of uses. 
 In such case, each consecutive grant will increase the number of uses for this member.</p>
+
+<p>NOTE: This endpoint does not have <a href="#v3-oauth2">OAuth</a> version </p>
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:GrantByMemberId</code> permit
@@ -992,16 +1029,6 @@ Requires <code>Offers:Api:MemberOffers:GrantByMemberId</code> permit
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td><code class="prettyprint">404</code></td>
-<td><code class="prettyprint">{&quot;error&quot;: &quot;Offer#10000951 not found&quot;}</code></td>
-<td>-</td>
-</tr>
-<tr>
-<td><code class="prettyprint">404</code></td>
-<td><code class="prettyprint">{&quot;error&quot;: &quot;Member#7371713 not found&quot;}</code></td>
-<td>-</td>
-</tr>
 <tr>
 <td><code class="prettyprint">422</code></td>
 <td><code class="prettyprint">{&quot;error&quot;: &quot;Not grantable&quot;}</code></td>

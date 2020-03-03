@@ -14,6 +14,8 @@
     -d <span class="se">\</span>
     <span class="s1">'[
         {
+            "identifier_type": "id",
+            "identifier": 3456,
             "amount": 10,
             "event_type": "purchase",
             "event": "used coupon",
@@ -202,7 +204,7 @@
 </tbody></table>
 
 <aside class="notice">
-Requires <code>Transactions:Api:Points:Create</code>
+Requires <code>Transaction:Api:Points:Create</code>
 </aside>
 
 <h2 id="member-points"><a name="v3-member-points"></a> Member points</h2>
@@ -274,5 +276,5 @@ Requires <code>Transactions:Api:Points:Create</code>
 </tbody></table>
 
 <aside class="notice">
-Requires <code>Transactions:Api:Points:Get</code> permit
+Requires <code>Transaction:Api:Points:Get</code> permit
 </aside>
