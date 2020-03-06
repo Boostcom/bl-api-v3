@@ -70,7 +70,7 @@ curl -X POST \
 {}
 ```
 
-**POST** `v3/infinity-mall/offers/events/offers_clicked` [[OAuth](#v3-oauth2)]
+**POST** `v3/:loyalty_club_slug/members/me/events/offers_clicked` [[OAuth](#v3-oauth2)]
 
 Registers that OAuth member clicked on given offers.
 
@@ -122,12 +122,12 @@ curl -X POST \
 {}
 ```
 
-**POST** `v3/infinity-mall/offers/events/offers_seen` [[OAuth](#v3-oauth2)]
+**POST** `v3/:loyalty_club_slug/members/me/events/offers_seen` [[OAuth](#v3-oauth2)]
 
 Registers that OAuth member saw given offers.
 
 <aside class="warning">
-Seen events are automatically tracked when displaying offer image/file within member context. Make sure you are not duplicating events!
+Seen events are automatically tracked when retrieving offer image/file within member context. Make sure you are not duplicating events!
 </aside>
 
 ### Post Parameters
