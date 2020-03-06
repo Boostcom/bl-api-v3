@@ -1,18 +1,9 @@
 <h1 id="endpoints-loyalty-clubs">Endpoints &bull; Loyalty Clubs</h1>
 
-<h2 id="get"><a name="v3-loyalty-clubs-get"></a> Get</h2>
+<h2 id="loyalty-club-model"><a name="v3-loyalty-club-model"></a> Loyalty Club model</h2>
 
 <blockquote>
-<p>Example</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://bpc-api.boostcom.no/v3/loyalty_clubs/infinity-mall/"</span> <span class="se">\</span>
-  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
-  -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
-  -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
-  -H <span class="s1">'X-User-Agent: CURL manual test'</span>
-</code></pre>
-<blockquote>
-<p>When successful, the above command returns JSON structured like this:</p>
+<p>Loyalty Club example:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">235</span><span class="p">,</span><span class="w">
@@ -30,14 +21,6 @@
     </span><span class="s2">"new_offers_api_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>GET</strong> <code class="prettyprint">v3/loyalty_clubs/:loyalty_club_slug</code></p>
-
-<p><strong>GET</strong> <code class="prettyprint">v3/loyalty_clubs/by_community_id/:community_id</code></p>
-
-<p>Returns basic information about the Loyalty Club, by one of it&rsquo;s slugs or by it&rsquo;s <code class="prettyprint">community_id</code>.</p>
-
-<h3 id="response-json-object">Response (JSON object)</h3>
-
 <table><thead>
 <tr>
 <th>Key</th>
@@ -101,6 +84,108 @@
 <td>Is <a href="#endpoints-offers">New Offers API</a> enabled for this Loyalty Club?</td>
 </tr>
 </tbody></table>
+
+<h2 id="list"><a name="v3-loyalty-clubs-list"></a> List</h2>
+
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://bpc-api.boostcom.no/v3/loyalty_clubs"</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+  -H <span class="s1">'X-User-Agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>When successful, the above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"loyalty_clubs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="err">//</span><span class="w"> </span><span class="err">(...)</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">Loyalty</span><span class="w"> </span><span class="err">Club</span><span class="w"> </span><span class="err">model</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"pagination_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="err">//</span><span class="w"> </span><span class="err">(...)</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">Pagination</span><span class="w"> </span><span class="err">info</span><span class="w"> </span><span class="err">model</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>GET</strong> <code class="prettyprint">v3/loyalty_clubs/</code></p>
+
+<p>Returns <a href="#v3-loyalty-club-model">Loyalty Clubs</a> accessible by API client.</p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>per_page</td>
+<td>integer</td>
+<td>1000</td>
+<td>Number of results to be returned per request (1000 is the maximum)</td>
+</tr>
+<tr>
+<td>page_no</td>
+<td>integer</td>
+<td>1</td>
+<td>Number of results page</td>
+</tr>
+</tbody></table>
+
+<h3 id="response-json-object">Response (JSON object)</h3>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Loyalty Club</td>
+<td>Array<Loyalty Club></td>
+<td>Array of <a href="#v3-loyalty-club-model">Loyalty Clubs</a></td>
+</tr>
+<tr>
+<td>pagination_info</td>
+<td>Object</td>
+<td><a href="#v3-pagination-model">Pagination</a> object</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>BL:Api:LoyaltyClubs:ListMine</code> permit
+</aside>
+
+<h2 id="get"><a name="v3-loyalty-clubs-get"></a> Get</h2>
+
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://bpc-api.boostcom.no/v3/loyalty_clubs/infinity-mall/"</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+  -H <span class="s1">'X-User-Agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>When successful, the above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="err">//</span><span class="w"> </span><span class="err">(...)</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">Loyalty</span><span class="w"> </span><span class="err">Club</span><span class="w"> </span><span class="err">model</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>GET</strong> <code class="prettyprint">v3/loyalty_clubs/:loyalty_club_slug</code></p>
+
+<p><strong>GET</strong> <code class="prettyprint">v3/loyalty_clubs/by_community_id/:community_id</code></p>
+
+<p>Returns basic information about the <a href="#v3-loyalty-club-model">Loyalty Clubs</a>, by one of it&rsquo;s slugs or by it&rsquo;s <code class="prettyprint">community_id</code>.</p>
 
 <aside class="notice">
 Requires <code>BL:Api:LoyaltyClubs:Get</code> permit

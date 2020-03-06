@@ -22,7 +22,7 @@ Navigate to <a href="#v3-offers-admin">Offers Admin</a> section to see docs for 
 <p>This approach is designed for implementations in which member is authenticated by your system and 
 <strong>should not be used on front-end implementations</strong>, where API token is exposed to an end user. </p>
 
-<h3 id="guest-access"><a name="v3-offers-guest-access"> Guest access</h3>
+<h3 id="guest-access"><a name="v3-offers-guest-access"></a> Guest access</h3>
 
 <p>Some API client implementations may need to present content to a non-authenticated user.</p>
 
