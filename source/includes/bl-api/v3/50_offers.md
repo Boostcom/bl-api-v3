@@ -22,7 +22,7 @@ This setup requires use of endpoints that have `/:member_id/` URL segment and re
 This approach is designed for implementations in which member is authenticated by your system and 
 **should not be used on front-end implementations**, where API token is exposed to an end user. 
 
-### <a name="v3-offers-guest-access"> Guest access
+### <a name="v3-offers-guest-access"></a> Guest access
 
 Some API client implementations may need to present content to a non-authenticated user.
  

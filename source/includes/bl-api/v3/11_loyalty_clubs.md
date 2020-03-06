@@ -1,18 +1,8 @@
 # Endpoints &bull; Loyalty Clubs
 
-## <a name="v3-loyalty-clubs-get"></a> Get
+## <a name="v3-loyalty-club-model"></a> Loyalty Club model
 
-> Example
-
-```shell
-curl "https://bpc-api.boostcom.no/v3/loyalty_clubs/infinity-mall/" \
-  -H 'Content-Type: application/json' \
-  -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-  -H 'X-Product-Name: default' \
-  -H 'X-User-Agent: CURL manual test'
-```
-
-> When successful, the above command returns JSON structured like this:
+> Loyalty Club example:
 
 ```json
 {
@@ -32,14 +22,6 @@ curl "https://bpc-api.boostcom.no/v3/loyalty_clubs/infinity-mall/" \
 }
 ```
 
-**GET** `v3/loyalty_clubs/:loyalty_club_slug`
-
-**GET** `v3/loyalty_clubs/by_community_id/:community_id`
- 
-Returns basic information about the Loyalty Club, by one of it's slugs or by it's `community_id`.
-
-### Response (JSON object)
-
 Key | Type | Description
 --------- | ----------- | ---------
 id | integer |
@@ -53,6 +35,81 @@ country | string | [ISO 3166-1 alpha-2 code](https://en.wikipedia.org/wiki/ISO_3
 timezone | string | [TZ database name](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
 member_identifiers | array<string> | May consist of following values: `msisdn` and `email`
 new_offers_api_enabled | bool | Is [New Offers API](#endpoints-offers) enabled for this Loyalty Club?
+
+## <a name="v3-loyalty-clubs-list"></a> List
+
+> Example
+
+```shell
+curl "https://bpc-api.boostcom.no/v3/loyalty_clubs" \
+  -H 'Content-Type: application/json' \
+  -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+  -H 'X-Product-Name: default' \
+  -H 'X-User-Agent: CURL manual test'
+```
+
+> When successful, the above command returns JSON structured like this:
+
+```json
+{
+  "loyalty_clubs": [
+    {
+      // (...) - see Loyalty Club model
+    }
+  ],
+  "pagination_info": {
+      // (...) - see Pagination info model
+  }
+}
+```
+
+**GET** `v3/loyalty_clubs/`
+ 
+Returns [Loyalty Clubs](#v3-loyalty-club-model) accessible by API client.
+
+### Query Parameters
+
+Parameter | Type | Default | Description
+--------- | ----------- | --------- | -----------
+per_page | integer | 1000 | Number of results to be returned per request (1000 is the maximum)
+page_no | integer | 1 | Number of results page
+
+### Response (JSON object)
+
+Key | Type | Description
+--------- | --------- | ---------
+Loyalty Club | Array<Loyalty Club> | Array of [Loyalty Clubs](#v3-loyalty-club-model)
+pagination_info | Object | [Pagination](#v3-pagination-model) object
+
+<aside class="notice">
+Requires <code>BL:Api:LoyaltyClubs:ListMine</code> permit
+</aside>
+
+## <a name="v3-loyalty-clubs-get"></a> Get
+
+> Example
+
+```shell
+curl "https://bpc-api.boostcom.no/v3/loyalty_clubs/infinity-mall/" \
+  -H 'Content-Type: application/json' \
+  -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+  -H 'X-Product-Name: default' \
+  -H 'X-User-Agent: CURL manual test'
+```
+
+> When successful, the above command returns JSON structured like this:
+
+```json
+{
+  // (...) - see Loyalty Club model
+}
+```
+
+**GET** `v3/loyalty_clubs/:loyalty_club_slug`
+
+**GET** `v3/loyalty_clubs/by_community_id/:community_id`
+ 
+Returns basic information about the [Loyalty Clubs](#v3-loyalty-club-model), by one of it's slugs or by it's `community_id`.
 
 <aside class="notice">
 Requires <code>BL:Api:LoyaltyClubs:Get</code> permit

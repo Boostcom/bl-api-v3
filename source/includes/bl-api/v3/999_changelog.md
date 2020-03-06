@@ -1,5 +1,9 @@
 # Changelog
 
+### 05.03.2019 | Piotr Świtlicki
+
+* Extend [Loyalty Clubs &bull; List](#v3-loyalty-clubs-list) endpoint 
+
 ### 01.03.2019 | Piotr Świtlicki
 
 * Extend [Offers](#v3-offers) API to work within [Member context](v3-offers-oauth-context)
