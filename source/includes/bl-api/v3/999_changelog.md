@@ -1,5 +1,9 @@
 # Changelog
 
+### 12.03.2019 | Natalia Styrska
+
+* Extend [Points &bull; Create](#v3-points-create) endpoint 
+
 ### 05.03.2019 | Piotr Świtlicki
 
 * Extend [Loyalty Clubs &bull; List](#v3-loyalty-clubs-list) endpoint 

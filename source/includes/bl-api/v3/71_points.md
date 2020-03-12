@@ -24,7 +24,9 @@ curl -X POST \
             "store_id": "12345",
             "transaction_id": "f4c2b7a6-e0fb-47a3-9b5a-02d3854fcea3",
             "wallet": "default",
-            "expiry_date": "2020-02-12T15:19:21Z"
+            "wallet_new_balance": 10,
+            "expiry_points_date": "2020-02-12",
+            "expiry_points_balance": 10
         }
     ]'
 ```
@@ -68,9 +70,11 @@ event            | description of event   | string
 message          | additional remarks     | string
 store_id         | store id               | string
 transaction_id   | DMP transaction id     | string
-wallet           | wallet                 | string 
 event_date       | date of event allow adding past events   | datetime 
-expiry_date      | Points expiry date     | datetime
+wallet           | wallet                 | string 
+wallet_new_balance | Current points balance in the wallet (used only by integration without loyalty logic) | integer
+expiry_points_date | Points expiry date  (used only by integration without loyalty logic)   | date
+expiry_points_balance | Present point balance in the wallet for specific expiry date (used only by integration without loyalty logic) | integer
 
 Parameters with `*` are required
 
