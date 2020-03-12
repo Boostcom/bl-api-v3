@@ -24,7 +24,9 @@
             "store_id": "12345",
             "transaction_id": "f4c2b7a6-e0fb-47a3-9b5a-02d3854fcea3",
             "wallet": "default",
-            "expiry_date": "2020-02-12T15:19:21Z"
+            "wallet_new_balance": 10,
+            "expiry_points_date": "2020-02-12",
+            "expiry_points_balance": 10
         }
     ]'</span>
 </code></pre>
@@ -103,19 +105,29 @@
 <td>string</td>
 </tr>
 <tr>
-<td>wallet</td>
-<td>wallet</td>
-<td>string</td>
-</tr>
-<tr>
 <td>event_date</td>
 <td>date of event allow adding past events</td>
 <td>datetime</td>
 </tr>
 <tr>
-<td>expiry_date</td>
-<td>Points expiry date</td>
-<td>datetime</td>
+<td>wallet</td>
+<td>wallet</td>
+<td>string</td>
+</tr>
+<tr>
+<td>wallet_new_balance</td>
+<td>Current points balance in the wallet (used only by integration without loyalty logic)</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>expiry_points_date</td>
+<td>Points expiry date  (used only by integration without loyalty logic)</td>
+<td>date</td>
+</tr>
+<tr>
+<td>expiry_points_balance</td>
+<td>Present point balance in the wallet for specific expiry date (used only by integration without loyalty logic)</td>
+<td>integer</td>
 </tr>
 </tbody></table>
 
