@@ -782,7 +782,9 @@ Requires <code>Transaction:Api:Transactions:Read</code> permit
                     "item_id": "8",
                     "campaign_name": "campaign_name",
                     "item_name": "item_name",
-                    "serial_number": "serial_number"
+                    "serial_number": "serial_number",
+                    "detail_id": "detail_id",
+                    "quantity": 1
                 },
                 {
                     "identifier": 44837522,
@@ -792,7 +794,9 @@ Requires <code>Transaction:Api:Transactions:Read</code> permit
                     "item_id": "8",
                     "campaign_name": "campaign_name",
                     "item_name": "item_name",
-                    "serial_number": "serial_number"
+                    "serial_number": "serial_number",
+                    "detail_id": "detail_id",
+                    "quantity": 1
                 },
                 {
                     "identifier": 44837522,
@@ -802,7 +806,9 @@ Requires <code>Transaction:Api:Transactions:Read</code> permit
                     "item_id": "8",
                     "campaign_name": "campaign_name",
                     "item_name": "item_name",
-                    "serial_number": "serial_number"
+                    "serial_number": "serial_number",
+                    "detail_id": "detail_id",
+                    "quantity": 1                    
                 }
             ]
         }
@@ -962,6 +968,16 @@ Requires <code>Transaction:Api:Transactions:Read</code> permit
 <tr>
 <td>serial_number</td>
 <td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>detail_id</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>quantity</td>
+<td>integer</td>
 <td></td>
 </tr>
 </tbody></table>
