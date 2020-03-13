@@ -1,5 +1,9 @@
 # Changelog
 
+### 13.03.2019 | Natalia Styrska
+
+* Extend [Transaction Events &bull; Create](#v3-transactions-events-create) endpoint 
+
 ### 12.03.2019 | Natalia Styrska
 
 * Extend [Points &bull; Create](#v3-points-create) endpoint 

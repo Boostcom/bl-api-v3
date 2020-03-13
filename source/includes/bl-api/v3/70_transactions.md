@@ -502,7 +502,9 @@ curl -X GET \
                     "item_id": "8",
                     "campaign_name": "campaign_name",
                     "item_name": "item_name",
-                    "serial_number": "serial_number"
+                    "serial_number": "serial_number",
+                    "detail_id": "detail_id",
+                    "quantity": 1
                 },
                 {
                     "identifier": 44837522,
@@ -512,7 +514,9 @@ curl -X GET \
                     "item_id": "8",
                     "campaign_name": "campaign_name",
                     "item_name": "item_name",
-                    "serial_number": "serial_number"
+                    "serial_number": "serial_number",
+                    "detail_id": "detail_id",
+                    "quantity": 1
                 },
                 {
                     "identifier": 44837522,
@@ -522,7 +526,9 @@ curl -X GET \
                     "item_id": "8",
                     "campaign_name": "campaign_name",
                     "item_name": "item_name",
-                    "serial_number": "serial_number"
+                    "serial_number": "serial_number",
+                    "detail_id": "detail_id",
+                    "quantity": 1                    
                 }
         	]
         }
@@ -604,6 +610,8 @@ campaign_name | string |
 item_id | integer | 
 item_name | string | 
 serial_number | string | 
+detail_id | string |
+quantity | integer |
 
 
 ### Error responses
