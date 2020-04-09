@@ -174,12 +174,12 @@ curl "https://bpc-api.boostcom.no/v3/infinity-mall/members?per_page=100&page=1&i
   -H 'X-User-Agent: CURL manual test'
 ```
 
-> Returns hash structured like this, containing [members](#v3-member-model) and [pagination_info](#v3-pagination-model)
+> Returns object containing [members](#v3-member-model) and [pagination_info](#v3-pagination-model)
 
 ```json
 {
   "members": [], // List of members - See: "Member model"
-  "pagination_info": {} // Pagination info - see "Pagination info
+  "pagination_info": {} // Pagination info - see "Pagination info"
 }
 
 ```

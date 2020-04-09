@@ -1,27 +1,33 @@
 # Changelog
 
-### 13.03.2019 | Natalia Styrska
+### 09.04.2020 | Piotr Świtlicki
+
+* Restructure members docs
+* Add [Invalid parameters errors](#v3-invalid-parameters-errors-model)
+* Add [Members Groups](#v3-members-groups)
+
+### 13.03.2020 | Natalia Styrska
 
 * Extend [Transaction Events &bull; Create](#v3-transactions-events-create) endpoint 
 
-### 12.03.2019 | Natalia Styrska
+### 12.03.2020 | Natalia Styrska
 
 * Extend [Points &bull; Create](#v3-points-create) endpoint 
 
-### 05.03.2019 | Piotr Świtlicki
+### 05.03.2020 | Piotr Świtlicki
 
 * Extend [Loyalty Clubs &bull; List](#v3-loyalty-clubs-list) endpoint 
 
-### 01.03.2019 | Piotr Świtlicki
+### 01.03.2020 | Piotr Świtlicki
 
 * Extend [Offers](#v3-offers) API to work within [Member context](v3-offers-oauth-context)
 * Rework [Offers](#v3-offers) API to work within [Guest context](v3-offers-guest-access) 
 
-### 11.02.2019 | Piotr Świtlicki
+### 11.02.2020 | Piotr Świtlicki
 
 * Add [Offers &bull; Grant offer](#v3-grant-offer)
 
-### 03.02.2019 | Natalia Styrska
+### 03.02.2020 | Natalia Styrska
 
 * Add ([Transactions &bull; Events](#v3-transactions-events-create)) endpoint
 

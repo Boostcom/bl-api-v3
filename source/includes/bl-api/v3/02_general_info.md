@@ -256,3 +256,99 @@ Original file that that has been uploaded and used for generating other file siz
 Currently, we require all original files to have proper ratios and minimum sizes of at least the `base` size.
 Because of that, you can expect them to have `min_height` and `min_width` that match the `base` size, 
 but they never have `max_width` or `max_height` defined.
+
+## <a name="v3-invalid-parameters-errors-model"></a> Invalid parameters errors (422)
+
+> Example:
+
+```js
+// Considering that request with following payload has been sent:
+{
+  "member": {
+    "first_name": "s",
+    "msisdns": [
+      "123",
+      "4740769126",
+      ""
+    ]
+  }
+}
+
+// Following response is returned: 
+{
+  "error": "Invalid parameters",
+  "details": {
+    "member": {
+      "name": [
+        {
+          "value": "s",
+          "error": "too_short",
+          "options": {
+            "min_length": 0
+          },
+          "message": "is too short"
+        },
+        {
+          "value": "s",
+          "error": "invalid_format",
+          "options": {
+            "format": "/[A-Z][a-z]+/"
+          },
+          "message": "has invalid format"
+        }
+      ],
+      "msisdns": {
+        "0": [
+          {
+            "value": "32",
+            "error": "invalid_msisdn",
+            "options": {},
+            "message": "is not a valid MSISDN"
+          }
+        ],
+        "2": [
+          {
+            "value": "",
+            "error": "blank",
+            "options": {},
+            "message": "cannot be blank"
+          }
+        ]
+      }
+    }
+  }
+}
+
+// It means that in given payload:
+// * member.name is too short 
+// * member.name has invalid format
+// * member.msisdns[0] is not a valid MSISDN
+// * member.msisdns[2] is blank
+```
+
+Some of the endpoints (it's noted on specific request's description) return invalid parameters errors in the standardized way.
+
+For them, when some of parameter (either JSON body or URL/Query) is invalid, server responds with 422 with a following 
+object:  
+
+key | Type | Description
+--- | ---- | -----------
+error | String | Always "Invalid parameters"
+details | Errors object | See [Errors](#v3-errors-object) below
+details.(path.0.to.)parameter_name | Array<ParameterError> | See [ParameterError](#v3-parameter-error-object) below
+
+### <a name="v3-errors-object"></a> Errors object
+
+It's a recursive tree structure, corresponding to the structure original payload.
+Objects being parts of arrays are represented by their array indexes.
+
+Each leaf node is an array of [ParameterError](#v3-parameter-error-object) objects for given parameter.
+
+### <a name="v3-parameter-error-object""></a> ParameterError object
+
+key | Type | Description
+--- | ---- | -----------
+value | Mixed | Value of given parameter
+error | String | Symbol of error that relates to this parameter
+options | Object| Contains options of specific validation rule. For example `{"max": 15}`.
+message | String | Human-readable error message
