@@ -1,0 +1,795 @@
+<h1 id="endpoints-members-groups"><a name="v3-members-groups"> Endpoints &bull; Members Groups</h1>
+
+<p>Members may be grouped into groups. It&rsquo;s up to API client / customer how they are utilized. </p>
+
+<h2 id="membersgroup-model"><a name="v3-members-group-model"></a> MembersGroup model</h2>
+
+<blockquote>
+<p>JSON example:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">6813</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Red"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Color"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lorem ipsum dolor est"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"members_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Optional?</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>no</td>
+<td></td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>yes</td>
+<td></td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>yes</td>
+<td>Types are not predefined. It&rsquo;s up to API client to define them.</td>
+</tr>
+<tr>
+<td>description</td>
+<td>string</td>
+<td>yes</td>
+<td></td>
+</tr>
+<tr>
+<td>members_count</td>
+<td>integer</td>
+<td>yes</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="membersgroup-payload-model"><a name="v3-members-group-payload-model"></a> MembersGroup payload model</h2>
+
+<p>Used for as an input of creations and updates.</p>
+
+<blockquote>
+<p>JSON example:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Red"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Color"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lorem ipsum dolor est"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Optional?</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>yes</td>
+<td></td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>yes</td>
+<td>Types are not predefined. It&rsquo;s up to API client to define them.</td>
+</tr>
+<tr>
+<td>description</td>
+<td>string</td>
+<td>yes</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="list"><a name="v3-members-groups-list"></a> List</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl --request GET <span class="s1">'https://bpc-api.boostcom.no/v3/infinity-mall/members_groups'</span> <span class="se">\</span>
+--header <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+--header <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+--header <span class="s1">'X-User-Agent: cURL Manual Testing'</span>
+</code></pre>
+<blockquote>
+<p>Returns object containing <a href="#v3-members-group-model">members groups</a> and <a href="#v3-pagination-model">pagination_info</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"members_groups"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">List</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">members</span><span class="w"> </span><span class="err">groups</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"MemberGroup model"</span><span class="w">
+  </span><span class="s2">"pagination_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Pagination</span><span class="w"> </span><span class="err">info</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="s2">"Pagination info"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members_groups</code></p>
+
+<p>Returns groups defined within Loyalty Club.</p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>per_page</td>
+<td>integer</td>
+<td>1000</td>
+<td>Number of results to be returned per request (1000 is the maximum)</td>
+</tr>
+<tr>
+<td>page_no</td>
+<td>integer</td>
+<td>1</td>
+<td>Number of results page</td>
+</tr>
+</tbody></table>
+
+<h3 id="response-json-object">Response (JSON object)</h3>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>members_groups</td>
+<td>Array<MembersGroup></td>
+<td>Array of <a href="#v3-members-group-model">MembersGroup</a></td>
+</tr>
+<tr>
+<td>pagination_info</td>
+<td>Object</td>
+<td><a href="#v3-pagination-model">Pagination</a> object</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>BL:Api:MembersGroups:Index</code> permit
+</aside>
+
+<h2 id="get"><a name="v3-members-groups-get"></a> Get</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl --request GET <span class="s1">'https://bpc-api.boostcom.no/v3/infinity-mall/members_groups'</span> <span class="se">\</span>
+--header <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+--header <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+--header <span class="s1">'X-User-Agent: cURL Manual Testing'</span>
+</code></pre>
+<blockquote>
+<p>Returns object containing <a href="#v3-members-group-model">members group</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"members_group"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Members</span><span class="w"> </span><span class="err">groups</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"MemberGroup model"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members_groups/:members_group_id</code></p>
+
+<p>Returns group identified by id.</p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>members_group_id</td>
+<td>Integer</td>
+</tr>
+</tbody></table>
+
+<h3 id="response-json-object">Response (JSON object)</h3>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>members_group</td>
+<td>MembersGroup</td>
+<td><a href="#v3-members-group-model">MembersGroup</a></td>
+</tr>
+</tbody></table>
+
+<h3 id="error-responses">Error responses</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">404</code></td>
+<td>MembersGroup does not exist</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>BL:Api:MembersGroups:Get</code> permit
+</aside>
+
+<h2 id="create"><a name="v3-members-groups-create"></a> Create</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl --request POST <span class="s1">'https://bpc-api.boostcom.no/v3/infinity-mall/members_groups'</span> <span class="se">\</span>
+--header <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+--header <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+--header <span class="s1">'X-User-Agent: cURL Manual Testing'</span> <span class="se">\</span>
+--header <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+--data-raw <span class="s1">'{
+    "members_group": {
+        "name": "My Group 1",
+        "type": "Store",
+        "description": "Oh long johnson"
+    }
+}'</span>
+</code></pre>
+<blockquote>
+<p>Returns object containing created <a href="#v3-members-group-model">members group</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"members_group"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Members</span><span class="w"> </span><span class="err">groups</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"MemberGroup model"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>POST</strong> <code class="prettyprint">v3/:loyalty_club_slug/members_groups</code></p>
+
+<p>Creates a new group.</p>
+
+<h3 id="post-parameters-json-object">POST Parameters (JSON object)</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>members_group</td>
+<td><a href="#v3-members-group-payload-model">MembersGroup Payload</a></td>
+</tr>
+</tbody></table>
+
+<h3 id="response-json-object">Response (JSON object)</h3>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>members_group</td>
+<td>MembersGroup</td>
+<td>Created <a href="#v3-members-group-model">MembersGroup</a></td>
+</tr>
+</tbody></table>
+
+<h3 id="error-responses">Error responses</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">422</code></td>
+<td>Invalid parameters - see <a href="#v3-invalid-parameters-errors-model">Invalid parameters errors model</a></td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>BL:Api:MembersGroups:Create</code> permit
+</aside>
+
+<h2 id="update"><a name="v3-members-groups-update"></a> Update</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl --request PUT <span class="s1">'https://bpc-api.boostcom.no/v3/infinity-mall/members_groups/4321'</span> <span class="se">\</span>
+--header <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+--header <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+--header <span class="s1">'X-User-Agent: cURL Manual Testing'</span> <span class="se">\</span>
+--header <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+--data-raw <span class="s1">'{
+    "members_group": {
+        "name": "My Group 1",
+        "type": "Store",
+        "description": "Oh long johnson"
+    }
+}'</span>
+</code></pre>
+<blockquote>
+<p>Returns object containing updated <a href="#v3-members-group-model">members group</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"members_group"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Members</span><span class="w"> </span><span class="err">groups</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"MemberGroup model"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>PUT</strong> <code class="prettyprint">v3/:loyalty_club_slug/members_groups/:members_group_id</code></p>
+
+<p>Updates given group.</p>
+
+<h3 id="post-parameters-json-object">POST Parameters (JSON object)</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>members_group</td>
+<td><a href="#v3-members-group-payload-model">MembersGroup Payload</a></td>
+</tr>
+</tbody></table>
+
+<h3 id="response-json-object">Response (JSON object)</h3>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>members_group</td>
+<td>MembersGroup</td>
+<td>Created <a href="#v3-members-group-model">MembersGroup</a></td>
+</tr>
+</tbody></table>
+
+<h3 id="error-responses">Error responses</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">404</code></td>
+<td>MembersGroup does not exist</td>
+</tr>
+<tr>
+<td><code class="prettyprint">422</code></td>
+<td>Invalid parameters - see <a href="#v3-invalid-parameters-errors-model">Invalid parameters errors model</a></td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>BL:Api:MembersGroups:Update</code> permit
+</aside>
+
+<h2 id="destroy"><a name="v3-members-groups-destroy"></a> Destroy</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl --request DELETE <span class="s1">'https://bpc-api.boostcom.no/v3/infinity-mall/members_groups/4321'</span> <span class="se">\</span>
+--header <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+--header <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+--header <span class="s1">'X-User-Agent: cURL Manual Testing'</span> <span class="se">\</span>
+--header <span class="s1">'Content-Type: application/json'</span>
+</code></pre>
+<blockquote>
+<p>Returns object containing deleted <a href="#v3-members-group-model">members group</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"members_group"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Members</span><span class="w"> </span><span class="err">groups</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"MemberGroup model"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>DELETE</strong> <code class="prettyprint">v3/:loyalty_club_slug/members_groups/:members_group_id</code></p>
+
+<p>Deletes given group.</p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>members_group_id</td>
+<td>Integer</td>
+</tr>
+</tbody></table>
+
+<h3 id="response-json-object">Response (JSON object)</h3>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>members_group</td>
+<td>MembersGroup</td>
+<td>The deleted <a href="#v3-members-group-model">MembersGroup</a></td>
+</tr>
+</tbody></table>
+
+<h3 id="error-responses">Error responses</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">404</code></td>
+<td>MembersGroup does not exist</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>BL:Api:MembersGroups:Destroy</code> permit
+</aside>
+
+<h2 id="add-member"><a name="v3-members-groups-add-member"></a> Add member</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl --request POST <span class="s1">'https://bpc-api.boostcom.no/v3/infinity-mall/members_groups/512/members/123'</span> <span class="se">\</span>
+--header <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+--header <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+--header <span class="s1">'X-User-Agent: cURL Manual Testing'</span> <span class="se">\</span>
+--data-raw <span class="s1">''</span>
+</code></pre>
+<p><strong>POST</strong> <code class="prettyprint">v3/:loyalty_club_slug/members_groups/:members_group_id/members/:member_id</code></p>
+
+<p>Adds member to the group.</p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>members_group_id</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>member_id</td>
+<td>Integer</td>
+</tr>
+</tbody></table>
+
+<h3 id="response-json-object">Response (JSON object)</h3>
+
+<p>Returns empty object.</p>
+
+<h3 id="error-responses">Error responses</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">404</code></td>
+<td>MembersGroup does not exist</td>
+</tr>
+<tr>
+<td><code class="prettyprint">404</code></td>
+<td>Member does not exist</td>
+</tr>
+<tr>
+<td><code class="prettyprint">422</code></td>
+<td>Invalid parameters - see <a href="#v3-invalid-parameters-errors-model">Invalid parameters errors model</a></td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>BL:Api:MembersGroups:Members:Add</code> permit
+</aside>
+
+<h2 id="remove-member"><a name="v3-members-groups-remove-member"></a> Remove member</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl --request DELETE <span class="s1">'https://bpc-api.boostcom.no/v3/infinity-mall/members_groups/512/members/123'</span> <span class="se">\</span>
+--header <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+--header <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+--header <span class="s1">'X-User-Agent: cURL Manual Testing'</span> <span class="se">\</span>
+--data-raw <span class="s1">''</span>
+</code></pre>
+<p><strong>DELETE</strong> <code class="prettyprint">v3/:loyalty_club_slug/members_groups/:members_group_id/members/:member_id</code></p>
+
+<p>Removes member from the group.</p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>members_group_id</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>member_id</td>
+<td>Integer</td>
+</tr>
+</tbody></table>
+
+<h3 id="response-json-object">Response (JSON object)</h3>
+
+<p>Returns empty object.</p>
+
+<h3 id="error-responses">Error responses</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">404</code></td>
+<td>MembersGroup does not exist</td>
+</tr>
+<tr>
+<td><code class="prettyprint">404</code></td>
+<td>Member does not exist</td>
+</tr>
+<tr>
+<td><code class="prettyprint">422</code></td>
+<td>Invalid parameters - see <a href="#v3-invalid-parameters-errors-model">Invalid parameters errors model</a></td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>BL:Api:MembersGroups:Members:Remove</code> permit
+</aside>
+
+<h2 id="list-members-of-a-group"><a name="v3-members-groups-list-group-members"></a> List members of a group</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl --request GET <span class="s1">'https://bpc-api.boostcom.no/v3/infinity-mall/members_groups/1/members'</span> <span class="se">\</span>
+--header <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+--header <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+--header <span class="s1">'X-User-Agent: cURL Manual Testing'</span> <span class="se">\</span>
+--data-raw <span class="s1">''</span>
+</code></pre>
+<blockquote>
+<p>Returns object containing <a href="#v3-member-model">members</a> and <a href="#v3-pagination-model">pagination_info</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"members"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">List</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">members</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Member model"</span><span class="w">
+  </span><span class="s2">"pagination_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Pagination</span><span class="w"> </span><span class="err">info</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="s2">"Pagination info"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members_groups/:members_group_id/members</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>per_page</td>
+<td>integer</td>
+<td>1000</td>
+<td>Number of results to be returned per request (1000 is the maximum)</td>
+</tr>
+<tr>
+<td>page_no</td>
+<td>integer</td>
+<td>1</td>
+<td>Number of results page</td>
+</tr>
+</tbody></table>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>members_group_id</td>
+<td>MembersGroup ID</td>
+<td>integer</td>
+</tr>
+</tbody></table>
+
+<h3 id="response-json-object">Response (JSON object)</h3>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>members</td>
+<td>Array<Member></td>
+<td>Array of <a href="#v3-member-model">Members</a></td>
+</tr>
+<tr>
+<td>pagination_info</td>
+<td>Object</td>
+<td><a href="#v3-pagination-model">Pagination</a> object</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>BL:Api:MembersGroups:Members:List</code> permit
+</aside>
+
+<h2 id="list-groups-of-a-member"><a name="v3-members-groups-list-member-groups"></a> List groups of a member</h2>
+
+<blockquote>
+<p>Example: </p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl --request GET <span class="s1">'https://bpc-api.boostcom.no/v3/infinity-mall/members/549123/groups'</span> <span class="se">\</span>
+--header <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+--header <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+--header <span class="s1">'X-User-Agent: cURL Manual Testing'</span>
+</code></pre>
+<blockquote>
+<p>Returns object containing <a href="#v3-members-group-model">members groups</a> and <a href="#v3-pagination-model">pagination_info</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"members_groups"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">List</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">members</span><span class="w"> </span><span class="err">groups</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"MemberGroup model"</span><span class="w">
+  </span><span class="s2">"pagination_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Pagination</span><span class="w"> </span><span class="err">info</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="s2">"Pagination info"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/:member_id/groups</code></p>
+
+<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/by_email/:member_email/groups</code></p>
+
+<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/by_msisdn/:member_msisdn/groups</code></p>
+
+<p>Returns groups of given member.</p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>per_page</td>
+<td>integer</td>
+<td>1000</td>
+<td>Number of results to be returned per request (1000 is the maximum)</td>
+</tr>
+<tr>
+<td>page_no</td>
+<td>integer</td>
+<td>1</td>
+<td>Number of results page</td>
+</tr>
+</tbody></table>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>member_id</td>
+<td>Member&rsquo;s ID</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>member_msisdn</td>
+<td>Member&rsquo;s msisdn</td>
+<td>string (format as defined <a href="#msisdn-member-identifier">here</a> - example: <code class="prettyprint">4740485124</code>)</td>
+</tr>
+<tr>
+<td>member_email</td>
+<td>Member&rsquo;s email</td>
+<td>string (email)</td>
+</tr>
+</tbody></table>
+
+<h3 id="response-json-object">Response (JSON object)</h3>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>members_groups</td>
+<td>Array<MembersGroup></td>
+<td>Array of <a href="#v3-members-group-model">MembersGroup</a></td>
+</tr>
+<tr>
+<td>pagination_info</td>
+<td>Object</td>
+<td><a href="#v3-pagination-model">Pagination</a> object</td>
+</tr>
+</tbody></table>
+
+<h3 id="error-responses">Error responses</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">404</code></td>
+<td>Member does not exist</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>BL:Api:Members:Groups</code> permit
+</aside>

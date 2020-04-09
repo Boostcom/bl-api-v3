@@ -1,37 +1,45 @@
 <h1 id="changelog">Changelog</h1>
 
-<h3 id="13-03-2019-natalia-styrska">13.03.2019 | Natalia Styrska</h3>
+<h3 id="09-04-2020-piotr-witlicki">09.04.2020 | Piotr Świtlicki</h3>
+
+<ul>
+<li>Restructure members docs</li>
+<li>Add <a href="#v3-invalid-parameters-errors-model">Invalid parameters errors</a></li>
+<li>Add <a href="#v3-members-groups">Members Groups</a></li>
+</ul>
+
+<h3 id="13-03-2020-natalia-styrska">13.03.2020 | Natalia Styrska</h3>
 
 <ul>
 <li>Extend <a href="#v3-transactions-events-create">Transaction Events &bull; Create</a> endpoint </li>
 </ul>
 
-<h3 id="12-03-2019-natalia-styrska">12.03.2019 | Natalia Styrska</h3>
+<h3 id="12-03-2020-natalia-styrska">12.03.2020 | Natalia Styrska</h3>
 
 <ul>
 <li>Extend <a href="#v3-points-create">Points &bull; Create</a> endpoint </li>
 </ul>
 
-<h3 id="05-03-2019-piotr-witlicki">05.03.2019 | Piotr Świtlicki</h3>
+<h3 id="05-03-2020-piotr-witlicki">05.03.2020 | Piotr Świtlicki</h3>
 
 <ul>
 <li>Extend <a href="#v3-loyalty-clubs-list">Loyalty Clubs &bull; List</a> endpoint </li>
 </ul>
 
-<h3 id="01-03-2019-piotr-witlicki">01.03.2019 | Piotr Świtlicki</h3>
+<h3 id="01-03-2020-piotr-witlicki">01.03.2020 | Piotr Świtlicki</h3>
 
 <ul>
 <li>Extend <a href="#v3-offers">Offers</a> API to work within <a href="v3-offers-oauth-context">Member context</a></li>
 <li>Rework <a href="#v3-offers">Offers</a> API to work within <a href="v3-offers-guest-access">Guest context</a> </li>
 </ul>
 
-<h3 id="11-02-2019-piotr-witlicki">11.02.2019 | Piotr Świtlicki</h3>
+<h3 id="11-02-2020-piotr-witlicki">11.02.2020 | Piotr Świtlicki</h3>
 
 <ul>
 <li>Add <a href="#v3-grant-offer">Offers &bull; Grant offer</a></li>
 </ul>
 
-<h3 id="03-02-2019-natalia-styrska">03.02.2019 | Natalia Styrska</h3>
+<h3 id="03-02-2020-natalia-styrska">03.02.2020 | Natalia Styrska</h3>
 
 <ul>
 <li>Add (<a href="#v3-transactions-events-create">Transactions &bull; Events</a>) endpoint</li>
