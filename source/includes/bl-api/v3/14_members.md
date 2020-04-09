@@ -1,5 +1,167 @@
 # Endpoints &bull; Members
 
+## <a name="v3-member-model"></a> Member model
+
+> Example:
+
+```json
+{
+  "id": 42,
+  "properties": {
+    "first_name": "Ola",
+    "last_name": "Nordmann",
+    "birthday": "1990-10-23",
+    "interests": [
+      "bikes_and_cars",
+      "sportwear"
+    ],
+    "child_birth_years": [
+      2010,
+      2011,
+      2011
+    ],
+    "language": "no"
+  },
+  "consents": {
+    "consent1": { "status": true, "updated_at": "2018-12-14T21:57:20.063Z" },
+    "consent2": { "status": false, "updated_at": "2018-10-25T21:57:43.738Z" }
+  },
+  "sms_status": "enabled",
+  "email_status": "hard_bounced",
+  "push_status": "disabled",
+  "optin_channel": "webforms",
+  "optin_subchannel": "campaign-10-2017",
+  "created_at": "2017-01-19T10:07:08.336+01:00",
+  "updated_at": "2017-04-03T09:35:19.313+02:00",
+  "person_id": 99
+}
+```
+
+Standard member JSON model returned from many API endpoints.
+
+Key | Description | Type
+--------- | ----------- | ---------
+id | Member ID | integer
+properties | Object with member's properties | JSON Object
+properties\['language'\] | Language used by user | string
+consents | Member's consents JSON model (see below) | JSON Object
+sms_status | Status of sms channel | string
+email_status | Status of email channel | string
+push_status | Status of push channel | string
+optin_channel | Channel (`X-Product-Name` header) which had been used to register member | string
+optin_subchannel | Subchannel (`X-Subproduct-Name` header) which had been used to register member | string
+created_at | Time when the user was firstly created | string
+updated_at | Time when the user was last updated | string
+person_id | Unique Member's identifier (set internally) | string
+
+## <a name="v3-member-consents-model"></a> Member's consents JSON model
+
+JSON model for consents. Keys can be dynamically created based on customer's need.
+
+It consists of: `'consent-slug': { "status": <boolean_value>, "updated_at": <time> }`
+
+* If status is `true` - Member approved consent.
+* If status is `false` - Member disapproved consent.
+* If you can't find slug on Member: he/she haven't disapproved or approved consent.
+
+`updated_at` is the time of last consent update. It can be also not provided or null.
+
+Available consents for Loyalty Club are described in [schema](#v3-loyalty-clubs-schema).
+
+## Validation on members
+
+All members' endpoints have properties validation. Properties are validated to conform loyalty club's schema.
+
+If something is wrong, you will receive explanation of errors in response.
+
+### Schema validation errors
+
+```shell
+curl -X PUT -H "X-Product-Name: custom-product-name" \
+    -H "X-Customer-Private-Token: token" \
+    -H "Content-Type: application/json" -d '{
+	"properties": {
+		"first_name": "",
+		"last_name": "err",
+		"gender": "man",
+		"birthday": "201X-01-01"
+	}
+}' "https://tbp.bstcm.no/api/v2/loyalty_clubs/:loyalty_club_slug/members/:msisdn"
+```
+
+> Example response (with code 400):
+
+```json
+{
+  "email": [
+    {
+      "error": "invalid",
+      "property": "email"
+    }
+  ],
+  "properties": [
+    {
+      "error": {
+        "language": [
+          {
+            "error": "value_not_match",
+            "value": "een",
+            "values": "en, no",
+            "property": "language"
+          }
+        ],
+        "optin_channel": [
+          {
+            "error": "not_contain_required_property",
+            "property": "optin_channel"
+          }
+        ]
+      }
+    }
+  ]
+}
+```
+
+Error | Description
+-------|------------
+invalid_date_format | Invalid date format
+invalid_time_format | Invalid time format
+invalid_date_time_format | Invalid date with time format
+must_be_valid_RFC3339_date_time_string | Format beyond the RFC3339 standard
+invalid_URI | Invalid URI
+additional_array_elements | Additional elements in the array
+additional_properties | Additional properties
+property_not_match_all_of | The property did not match all of the required schemas
+property_not_match_any_of | The property did not match any of the required schema
+property_matched_more_than_one | The property matched more than one of the required schemas
+depends_on_a_missing_property | The validated property has a property that depends on the other missing property
+value_not_match | The property value did not match one of the given values.
+schema_cannot_be_found | The extended schema cannot be found
+not_a_valid_schema | The property was not a valid schema
+minimum_string_length | The property was not of a minimum string length of minimum limit.
+maximum_string_length | The property was not of a maximum string length of maximum limit.
+less_item_than_minimum | The property did not contain a minimum number of minimum items limit 
+more_item_than_maximum | The property had more items than the allowed items limit
+less_properties_than_minimum | The property did not contain a minimum number of properties
+more_properties_than_maximum | The property had more properties than allowed
+not_have_value_of_exclusively | The property did not have value of exclusively
+not_have_value_of_inclusively | The property did not have value of inclusively
+more_decimal_places_than_maximum | The property had more decimal places than the allowed maximum
+matched_the_disallowed_schema | The property matched the disallowed schema
+the_regex_not_match | The property did not match the regex 
+not_contain_required_property | The validated property did not contain a required property
+contained_undefined_properties | The validated property contained undefined properties
+referenced_schema_cannot_be_found | The referenced schema cannot be found
+invalid_schema | The property was not a valid schema
+matched_one_or_more_types | The property matched one or more of the given types
+one_or_more_types_not_match | The property did not match one or more of the given types
+type_not_match | The property did not match the given type
+contained_duplicated_array_values | The property contained duplicated array values
+invalid_email | Invalid email format
+invalid_mx | Invalid (inaccessible) email domain
+disposable_email | The email was [disposable](https://github.com/lisinge/valid_email2/blob/master/vendor/disposable_emails.yml)
+duplicated_email | The email was duplicated in community
+
 ## <a name="v3-members-index"></a> List
 
 > Example:
@@ -12,22 +174,12 @@ curl "https://bpc-api.boostcom.no/v3/infinity-mall/members?per_page=100&page=1&i
   -H 'X-User-Agent: CURL manual test'
 ```
 
-> Returns hash structured like this:
+> Returns hash structured like this, containing [members](#v3-member-model) and [pagination_info](#v3-pagination-model)
 
 ```json
 {
-  "members": [], // List of members - See: "General Info -> Member JSON model"
-  "pagination_info": {
-    "total_count": 2050,
-    "per_page": 1000,
-    "total_pages": 3,
-    "current_page": 1,
-    "next_page": 2,
-    "prev_page": null,
-    "is_first_page": true,
-    "is_last_page": false,
-    "is_out_of_range": false
-  }  
+  "members": [], // List of members - See: "Member model"
+  "pagination_info": {} // Pagination info - see "Pagination info
 }
 
 ```
@@ -69,7 +221,62 @@ Status | Reason
 Requires <code>BL:Api:Members:Index</code> permit
 </aside>
 
-<!--- ############################################################################################################# --->
+## <a name="v3-members-get"></a> Get
+
+> Example:
+
+```shell
+curl "https://bpc-api.boostcom.no/v3/infinity-mall/members/:id" \
+  -H 'Content-Type: application/json' \
+  -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+  -H 'X-Product-Name: default' \
+  -H 'X-User-Agent: CURL manual test'
+```
+
+> When successful, returns member object as depicted [here](#v3-member-model)
+
+**GET** `v3/:loyalty_club_slug/members/:id`
+
+<aside class="notice">
+Requires <code>BL:Api:Members:Get</code> permit
+</aside>
+
+**GET** `v3/:loyalty_club_slug/members/by_msisdn/:msisdn`
+
+<aside class="notice">
+Requires <code>BL:Api:Members:Get</code> permit
+</aside>
+
+**GET** `v3/:loyalty_club_slug/members/by_email/:email`
+
+<aside class="notice">
+Requires <code>BL:Api:Members:Get</code> permit
+</aside>
+
+**GET** `v3/:loyalty_club_slug/members/me`
+
+<aside class="notice">
+Requires <code>BL:Api:Members:OAuth:Get</code> permit
+</aside>
+
+### URL Parameters
+
+Parameter | Description | Type
+--------- | ----------- | ------
+id | Member's ID | integer
+msisdn | Member's msisdn | string (format as defined [here](#msisdn-member-identifier) - example: `4740485124`)
+email | Member's email | string (email)
+
+### Response (JSON object)
+
+See: [Member model](#v3-member-model)
+
+#### Error responses
+
+Status | Reason
+--------- | ----------- 
+`404` | Member with given identifier could not found 
+`422` | Invalid MSISDN param
 
 ## <a name="v3-members-public-info"></a> Get public info
 
@@ -229,53 +436,6 @@ Status | Reason
 --------- | ----------- 
 `422` | Invalid MSISDN param
 
-<!--- ############################################################################################################# --->
-
-
-## <a name="v3-members-get"></a> Get
-
-> Example:
-
-```shell
-curl "https://bpc-api.boostcom.no/v3/infinity-mall/members/:id" \
-  -H 'Content-Type: application/json' \
-  -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-  -H 'X-Product-Name: default' \
-  -H 'X-User-Agent: CURL manual test'
-```
-
-> When successful, the above command returns member object as depicted [here](#v3-member-model)
-
-**GET** `v3/:loyalty_club_slug/members/:id`
-
-**GET** `v3/:loyalty_club_slug/members/by_msisdn/:msisdn`
-
-**GET** `v3/:loyalty_club_slug/members/by_email/:email`
-
-Returns member by one of three identifier types: `id`, `member` or `email`
-
-### URL Parameters
-
-Parameter | Description | Type
---------- | ----------- | ------
-id | Member's ID | integer
-msisdn | Member's msisdn | string (format as defined [here](#msisdn-member-identifier) - example: `4740485124`)
-email | Member's email | string (email)
-
-### Response (JSON object)
-
-See: [Member model](#v3-member-model)
-
-### Error responses
-
-Status | Reason
---------- | ----------- 
-`404` | Member with given identifier could not found 
-`422` | Invalid MSISDN param
-
-<aside class="notice">
-Requires <code>BL:Api:Members:Get</code> permit
-</aside>
 
 <!--- ############################################################################################################# --->
 
@@ -411,6 +571,16 @@ curl -X PUT \
 
 **PUT** `v3/:loyalty_club_slug/members/:id`
 
+<aside class="notice">
+Requires <code>BL:Api:Members:Update</code> permit
+</aside>
+
+**PUT** `v3/:loyalty_club_slug/members/me` [OAuth](#v3-oauth2)
+
+<aside class="notice">
+Requires <code>BL:Api:Members:OAuth:Update</code> permit.
+</aside>
+
 Update member's properties, consents and other with given ones.
 
 It is intended for partial updates:
@@ -462,11 +632,59 @@ Status | Description
 `404` | Member could not be found
 `422` | [validation errors](#validation-on-members) JSON object.
 
-<aside class="notice">
-Requires <code>BL:Api:Members:Update</code> permit
-</aside>
 
 <!--- ############################################################################################################# --->
+
+## <a name="v3-me-update-password"></a> Update password
+
+> Example:
+
+```shell
+curl -X PUT \
+  https://bpc-api.boostcom.no/v3/infinity-mall/members/me/update_password \
+  -H 'Content-Type: application/json' \
+  -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+  -H 'X-Product-Name: default' \
+  -H 'X-User-Agent: CURL manual test' \
+  -H 'Authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522' \
+  -d \
+  '{
+	  "current_password": "123"
+	  "password": "SuperStrongP4ssw0rd"
+  }'
+```
+
+> Always returns an empty object
+
+```json
+{
+  // Empty object
+}
+```
+
+**PUT** `v3/:loyalty_club_slug/members/update_password` [OAuth](#v3-oauth2)
+
+Updates members's password.
+
+### URL Parameters
+
+Parameter | Description | Type
+--------- | ----------- | ------
+password | Member's new password | string
+current_password | Member's current password | string
+
+### Error responses
+
+Status | Reason
+--------- | -----------
+`404` | Member associated with given Authorization token does not exist
+`422` | Invalid password - returns [validation errors](#validation-on-members) JSON object.
+`460` | Member not authorized (Invalid or expired OAuth token)
+`464` | Invalid current_password
+
+<aside class="notice">
+Requires <code>BL:Api:Members:OAuth:UpdatePassword</code> permit.
+</aside>
 
 ## <a name="v3-members-update-app-token"></a> Update app token
 
@@ -513,6 +731,16 @@ curl -X PUT \
 
 **PUT** `v3/:loyalty_club_slug/members/:id/update_app_token`
 
+<aside class="notice">
+Requires <code>BL:Api:Members:UpdateAppToken</code> permit
+</aside>
+
+**PUT** `v3/:loyalty_club_slug/members/me/update_app_token` [OAuth](#v3-oauth2)
+
+<aside class="notice">
+Requires <code>BL:Api:Members:OAuth:UpdateAppToken</code> permit
+</aside>
+
 Updates member's Firebase token, along with platform it's that it's associated with. 
 
 Token may be removed by sending it as empty string or null, empty payload will also be treated as token removal.
@@ -532,15 +760,21 @@ Status | Description
 `404` | Member could not be found
 `422` | Invalid parameters
 
-<aside class="notice">
-Requires <code>BL:Api:Members:UpdateAppToken</code> permit
-</aside>
-
 <!--- ############################################################################################################# --->
 
 ## <a name="v3-members-destroy"></a> Destroy
 
 **DELETE** `v3/:loyalty_club_slug/members/:id`
+
+<aside class="notice">
+Requires <code>BL:Api:Members:Destroy</code> permit
+</aside>
+
+**DELETE** `v3/:loyalty_club_slug/members/me` [OAuth](#v3-oauth2)
+
+<aside class="notice">
+Requires <code>BL:Api:Members:OAuth:Destroy</code> permit.
+</aside>
 
 Permanently removes member.
 
@@ -582,11 +816,6 @@ Status | Reason
 --------- | ----------- 
 `404` | Member could not be found
 `422` | [validation errors](#validation-on-members) JSON object.
-
-<aside class="notice">
-Requires <code>BL:Api:Members:Destroy</code> permit
-</aside>
-
 
 <!--- ############################################################################################################# --->
 

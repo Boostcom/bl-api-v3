@@ -1,4 +1,13 @@
-# Endpoints &bull; OAuth
+# <a name="v3-oauth2"></a> Endpoints &bull; Members Authentication
+
+> Example header: `Authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522`
+
+Actions related to specific member (the one that is using your application) require to have member authenticated and we implement
+OAuth2 flow for this.
+
+To authorize those actions, we **require** `Authorization` header that should contain: `Bearer :access_token`. 
+
+Look at [OAuth Token &bull; Create](#v3-token-create) to see how to obtain the :access_token.
 
 ## <a name="v3-token-create"></a> Create token
 
