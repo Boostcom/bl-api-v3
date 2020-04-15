@@ -1,4 +1,4 @@
-# <a name="v3-members-groups"> Endpoints &bull; Members Groups
+# <a name="v3-members-groups"></a> Endpoints &bull; Members Groups
 
 Members may be grouped into groups. It's up to API client / customer how they are utilized. 
 
