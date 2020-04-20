@@ -1020,6 +1020,24 @@ In such case, each consecutive grant will increase the number of uses for this m
 Requires <code>Offers:Api:MemberOffers:GrantByMemberId</code> permit
 </aside>
 
+<h3 id="post-parameters-json">POST Parameters (JSON)</h3>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Optional?</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>usable_for_seconds</td>
+<td>integer</td>
+<td>yes</td>
+<td>When present, the granted offer will be available for use by member only for the defined time</td>
+</tr>
+</tbody></table>
+
 <h3 id="error-responses">Error responses</h3>
 
 <table><thead>

@@ -6539,6 +6539,24 @@ In such case, each consecutive grant will increase the number of uses for this m
 Requires <code>Offers:Api:MemberOffers:GrantByMemberId</code> permit
 </aside>
 
+<h3 id="post-parameters-json">POST Parameters (JSON)</h3>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Optional?</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>usable_for_seconds</td>
+<td>integer</td>
+<td>yes</td>
+<td>When present, the granted offer will be available for use by member only for the defined time</td>
+</tr>
+</tbody></table>
+
 <h3 id="error-responses">Error responses</h3>
 
 <table><thead>
@@ -11465,6 +11483,12 @@ Requires <code>Stores:Api:Departments:Update</code>
 </aside> 
 
           <h1 id="changelog">Changelog</h1>
+
+<h3 id="20-04-2020-piotr-witlicki">20.04.2020 | Piotr Świtlicki</h3>
+
+<ul>
+<li>Add <code class="prettyprint">usable_for_seconds</code> param to <a href="#v3-grant-offer">Grant offer</a> </li>
+</ul>
 
 <h3 id="09-04-2020-piotr-witlicki">09.04.2020 | Piotr Świtlicki</h3>
 
