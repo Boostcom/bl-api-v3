@@ -4,6 +4,7 @@
 
 <ul>
 <li>Add <code class="prettyprint">usable_for_seconds</code> param to <a href="#v3-grant-offer">Grant offer</a> </li>
+<li>Add <code class="prettyprint">type</code> to <a href="#v3-offer-model">Offer</a> </li>
 </ul>
 
 <h3 id="09-04-2020-piotr-witlicki">09.04.2020 | Piotr Świtlicki</h3>
