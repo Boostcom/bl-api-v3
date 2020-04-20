@@ -644,6 +644,12 @@ NOTE: This endpoint does not have [OAuth](#v3-oauth2) version
 Requires <code>Offers:Api:MemberOffers:GrantByMemberId</code> permit
 </aside>
 
+### POST Parameters (JSON)
+
+Key | Type | Optional? | Description
+--- | ---- | --------- | -----------
+usable_for_seconds | integer | yes | When present, the granted offer will be available for use by member only for the defined time
+
 ### Error responses
 
 Status | Response body | Description

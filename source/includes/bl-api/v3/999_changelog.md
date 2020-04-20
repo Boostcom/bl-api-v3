@@ -1,5 +1,9 @@
 # Changelog
 
+### 20.04.2020 | Piotr Świtlicki
+
+* Add `usable_for_seconds` param to [Grant offer](#v3-grant-offer) 
+
 ### 09.04.2020 | Piotr Świtlicki
 
 * Restructure members docs
