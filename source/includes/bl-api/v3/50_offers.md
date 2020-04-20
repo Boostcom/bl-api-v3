@@ -49,6 +49,7 @@ Status | Response body
 {
   "id": 1000115,
   "name": "Buy two shoes, get one jacket",
+  "type": "REGULAR",
   "description": null,
   "external_url": "https://example.com/foo",
   "usable_since": "2019-03-13T17:32:00.000Z",
@@ -114,6 +115,7 @@ Key | Type | Optional? | Description
 --------- | --------- | -------- | ---------
 id | integer | no |
 name | string| yes |
+type | enum: ['REGULAR', 'EXCLUSIVE', 'BIRTHDAY', 'WELCOME'] | no |
 description | string| yes |
 external_url | string| yes | The URL the offer may be linked with 
 usable_since | Date | yes | Time since the offer may be used. If null, there is no restriction. 

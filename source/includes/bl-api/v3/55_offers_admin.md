@@ -21,6 +21,7 @@ Status | Response body
 {
   "id": 1000115,
   "name": "Buy two shoes, get one jacket",
+  "type": "REGULAR",
   "description": null,
   "external_url": "https://example.com/foo",
   "read_more": { "button_title": "Button title", "url": null, "title": "Title", "text": "Text" },
@@ -52,7 +53,8 @@ Status | Response body
 Key | Type | Optional? | Description
 --------- | --------- | -------- | ---------
 id | integer | no |  
-name | string| yes | 
+name | string | yes |
+type | enum: ['REGULAR', 'EXCLUSIVE', 'BIRTHDAY', 'WELCOME'] | no |
 description | string| yes | 
 internal_name | string| yes | 
 internal_description | string| yes | 

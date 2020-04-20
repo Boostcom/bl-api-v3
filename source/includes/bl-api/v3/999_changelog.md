@@ -3,6 +3,7 @@
 ### 20.04.2020 | Piotr Świtlicki
 
 * Add `usable_for_seconds` param to [Grant offer](#v3-grant-offer) 
+* Add `type` to [Offer](#v3-offer-model) 
 
 ### 09.04.2020 | Piotr Świtlicki
 
