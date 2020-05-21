@@ -2,6 +2,23 @@
 
 <p>Members may be grouped into groups. It&rsquo;s up to API client / customer how they are utilized. </p>
 
+<h2 id="automatic-groups"><a name="v3-automatic-members-groups"></a> Automatic groups</h2>
+
+<p>Group is automatic (and has <code class="prettyprint">&quot;automatic&quot;: true</code> attribute ) when it has been created with <code class="prettyprint">audience_id</code> or 
+<code class="prettyprint">audience_conditions</code> param.</p>
+
+<p>Automatic group doesn&rsquo;t allow API client to manually manage its members - instead, those are fetched from the given audience.</p>
+
+<p>See more <a href="#v3-members-groups-create">here</a></p>
+
+<h2 id="system-groups">System groups</h2>
+
+<p>System groups (with <code class="prettyprint">&quot;system&quot;: true</code> attribute) are created automatically by system and are not editable
+by API client - only MPC system can create, edit and destroy system groups.</p>
+
+<p>The set of system groups present in given Loyalty Club depends on its configuration. An example of system group could be
+&ldquo;All members&rdquo; group that would contain all Loyalty Club members.</p>
+
 <h2 id="membersgroup-model"><a name="v3-members-group-model"></a> MembersGroup model</h2>
 
 <blockquote>
@@ -12,6 +29,18 @@
     </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Red"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Color"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lorem ipsum dolor est"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"automatic"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"system"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"audience_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">351</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"audience_conditions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"array"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"members_group_ids"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">6813</span><span class="p">],</span><span class="w">
+            </span><span class="s2">"operator"</span><span class="p">:</span><span class="w"> </span><span class="s2">"any"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"condition_group"</span><span class="p">:</span><span class="w"> </span><span class="s2">"member_properties"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
     </span><span class="s2">"members_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
@@ -43,6 +72,18 @@
 <td>Types are not predefined. It&rsquo;s up to API client to define them.</td>
 </tr>
 <tr>
+<td>automatic</td>
+<td>boolean</td>
+<td>no</td>
+<td>Is the group automatic?</td>
+</tr>
+<tr>
+<td>system</td>
+<td>boolean</td>
+<td>no</td>
+<td>Is the group system group?</td>
+</tr>
+<tr>
 <td>description</td>
 <td>string</td>
 <td>yes</td>
@@ -53,6 +94,18 @@
 <td>integer</td>
 <td>yes</td>
 <td></td>
+</tr>
+<tr>
+<td>audience_id</td>
+<td>integer</td>
+<td>no</td>
+<td>ID of related audience</td>
+</tr>
+<tr>
+<td>audience_conditions</td>
+<td>Object</td>
+<td>no</td>
+<td>Conditions of related audience - See <a href="https://dmp.boostcom.no/docs/#conditions">DMP docs</a></td>
 </tr>
 </tbody></table>
 
@@ -66,7 +119,18 @@
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Red"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Color"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lorem ipsum dolor est"</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lorem ipsum dolor est"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"system"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"audience_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">351</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"audience_conditions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"array"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"members_group_ids"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">6813</span><span class="p">],</span><span class="w">
+            </span><span class="s2">"operator"</span><span class="p">:</span><span class="w"> </span><span class="s2">"any"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"condition_group"</span><span class="p">:</span><span class="w"> </span><span class="s2">"member_properties"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
@@ -91,10 +155,28 @@
 <td>Types are not predefined. It&rsquo;s up to API client to define them.</td>
 </tr>
 <tr>
+<td>system</td>
+<td>boolean</td>
+<td>no</td>
+<td>Is the group system group?</td>
+</tr>
+<tr>
 <td>description</td>
 <td>string</td>
 <td>yes</td>
 <td></td>
+</tr>
+<tr>
+<td>audience_id</td>
+<td>integer</td>
+<td>no</td>
+<td>ID of related audience</td>
+</tr>
+<tr>
+<td>audience_conditions</td>
+<td>Object</td>
+<td>no</td>
+<td>Conditions of related audience</td>
 </tr>
 </tbody></table>
 
@@ -267,6 +349,18 @@ Requires <code>BL:Api:MembersGroups:Get</code> permit
 
 <p>Creates a new group.</p>
 
+<p>When <code class="prettyprint">audience_id</code> or <code class="prettyprint">audience_conditions</code> param is provided, the group is treated 
+as <a href="#v3-automatic-members-groups">automatic</a>.</p>
+
+<p>Specifically:</p>
+
+<ul>
+<li>when <code class="prettyprint">audience_id</code> is given, the group relates to existing audience</li>
+<li>when <code class="prettyprint">audience_conditions</code> is given, a new audience is created with specified conditions </li>
+<li>when none of those parameters is given, a new audience is created with conditions that will return only members 
+manually assigned to the group by API client</li>
+</ul>
+
 <h3 id="post-parameters-json-object">POST Parameters (JSON object)</h3>
 
 <table><thead>
@@ -278,6 +372,14 @@ Requires <code>BL:Api:MembersGroups:Get</code> permit
 <tr>
 <td>members_group</td>
 <td><a href="#v3-members-group-payload-model">MembersGroup Payload</a></td>
+</tr>
+<tr>
+<td>members_group.audience_id</td>
+<td>ID of audience that the group should relate to</td>
+</tr>
+<tr>
+<td>members_group.audience_conditions</td>
+<td>Conditions of audience that the group should relate to</td>
 </tr>
 </tbody></table>
 
