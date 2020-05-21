@@ -1,5 +1,8 @@
 # Changelog
 
+### 21.05.2020 | Piotr Świtlicki
+* Extend [Members Groups](#v3-members-groups) to work with audiences (automatic groups)
+
 ### 20.04.2020 | Piotr Świtlicki
 
 * Add `usable_for_seconds` param to [Grant offer](#v3-grant-offer) 
