@@ -1,5 +1,12 @@
 <h1 id="changelog">Changelog</h1>
 
+<h3 id="28-05-2020-natalia-styrska">28.05.2020 | Natalia Styrska</h3>
+
+<ul>
+<li>Extend (<a href="#v3-store-list"># Endpoints &bull; Stores</a>) all endpoints with new properties</li>
+<li>Add (<a href="#v3-store-zones-list">Stores &bull; Zones</a>) endpoint </li>
+</ul>
+
 <h3 id="21-05-2020-piotr-witlicki">21.05.2020 | Piotr Świtlicki</h3>
 
 <ul>
