@@ -23,8 +23,49 @@ curl -X GET \
         "store_id": "1234",
         "department_id": 1234,
         "name": "Store name",
-        "categories": ["category"],
-        "location": "location"
+        "department": "Departament name",
+        "categories": [
+          "category 1",
+          "category 2"
+          ],
+        "floor": "floor",
+        "location": "location",
+        "area": 1000,
+        "zones": [
+          "zone"
+        ],
+        "opening_hours": [
+            {
+                "name": "monday",
+                "hours": "10:00-20:00"
+            },
+            {
+                "name": "tuesday",
+                "hours": "10:00-20:00"
+            },
+            {
+                "name": "wednesday",
+                "hours": "10:00-20:00"
+            },
+            {
+                "name": "thursday",
+                "hours": "10:00-20:00"
+            },
+            {
+                "name": "friday",
+                "hours": "10:00-20:00"
+            },
+            {
+                "name": "saturday",
+                "hours": "10:00-18:00"
+            },
+            {
+                "name": "sunday",
+                "hours": "closed"
+            }
+        ],
+        "logo_url": "http://foo.foo/foo.png",
+        "description": "Description"
     }
 ]
 ``` 
@@ -38,7 +79,9 @@ List of all active stores
 Parameter     | Description                         | Type
 ------------- | ----------------------------------- | ------
 department_id | department id                       | integer
-category      | category                            | string
+category      | filter by single category           | string
+zone          | filter by single zone               | string
+name          | filter by part of store name        | string
 limit         | max number of results               | integer
 sort          | field to sort by (name,id,store_id) | string
 order         | order (asc,desc)                    | string
@@ -66,13 +109,55 @@ curl -X GET \
 
 ```json
 {
-    "id": 1234,
-    "parent_id": 1234,
-    "store_id": "1234",
-    "department_id": 1234,
-    "name": "Store name",
-    "categories": ["category"],
-    "location": "location"
+        "id": 1234,
+        "parent_id": 1234,
+        "store_id": "1234",
+        "department_id": 1234,
+        "name": "Store name",
+        "department": "Departament name",
+        "categories": [
+          "category 1",
+          "category 2"
+          ],
+        "floor": "floor",
+        "location": "location",
+        "area": 1000,
+        "zones": [
+          "zone"
+        ],
+        "opening_hours": [
+            {
+                "name": "monday",
+                "hours": "10:00-20:00"
+            },
+            {
+                "name": "tuesday",
+                "hours": "10:00-20:00"
+            },
+            {
+                "name": "wednesday",
+                "hours": "10:00-20:00"
+            },
+            {
+                "name": "thursday",
+                "hours": "10:00-20:00"
+            },
+            {
+                "name": "friday",
+                "hours": "10:00-20:00"
+            },
+            {
+                "name": "saturday",
+                "hours": "10:00-18:00"
+            },
+            {
+                "name": "sunday",
+                "hours": "closed"
+            }
+        ],
+        "logo_url": "http://foo.foo/foo.png",
+        "description": "Description"
+    }
 }
 ``` 
 
@@ -124,8 +209,46 @@ curl -X POST \
         "name": "store name",
         "store_id": "6789",
         "department_id": 12345,
-        "categories": ["category"],
-        "location": "location"
+        "categories": [
+            "category"
+        ],
+        "floor": "2nd Floor",
+        "location": "12a",
+        "area": 50,
+        "zones": [
+            "zone"
+        ],
+        "opening_hours": [
+			{
+			    "name":"monday",
+			    "hours":"10:00-20:00"
+			},
+			{
+			    "name":"tuesday",
+			    "hours":"10:00-20:00"
+			},
+			{
+			    "name":"wednesday",
+			    "hours":"10:00-20:00"
+			},
+			{
+			    "name":"thursday",
+			    "hours":"10:00-20:00"
+			},
+			{
+			    "name":"friday",
+			    "hours":"10:00-20:00"
+			},
+			{
+			    "name":"saturday",
+			    "hours":"10:00-18:00"
+			},
+			{
+			    "name":"sunday",
+			    "hours":"closed"
+			}
+        	],
+        "description": "Description"
     }'
 ```
 
@@ -160,11 +283,23 @@ Create store
 
 Parameter     | Description            | Type
 ------------- | ---------------------- | ------
-store_id*     | store id               | string
+store_id     | store id               | string
 name*         | store name             | string
 department_id | department/mall id          | string
-category      | categories             | array
+categories    | categories             | array
+zones         | zones                  | array
+floor         | foor                   | string
 location      | location               | string
+area          | area                   | int
+opening_hours | opening hours          | array of day objects
+description   | description            | string
+
+Day object for opening hours
+
+Parameter     | Description            | Type
+------------- | ---------------------- | ------
+name*         | day of the week        | string
+hours*        | opening hours          | string
 
 Parameters with `*` are required
 
@@ -173,7 +308,7 @@ Parameters with `*` are required
 Status | Description
 ---- | ----
 ok   | Store was created
-Store with this id already exists. | 
+This store already exists. | 
 
 ### Error responses
 
@@ -200,8 +335,46 @@ curl -X PUT \
     '{
         "name": "store name",
         "department_id": 12345,
-        "categories": ["category"],
-        "location": "location"
+        "categories": [
+            "category"
+        ],
+        "floor": "2nd Floor",
+        "location": "12a",
+        "area": 50,
+        "zones": [
+            "zone"
+        ],
+        "opening_hours": [
+			{
+			    "name":"monday",
+			    "hours":"10:00-20:00"
+			},
+			{
+			    "name":"tuesday",
+			    "hours":"10:00-20:00"
+			},
+			{
+			    "name":"wednesday",
+			    "hours":"10:00-20:00"
+			},
+			{
+			    "name":"thursday",
+			    "hours":"10:00-20:00"
+			},
+			{
+			    "name":"friday",
+			    "hours":"10:00-20:00"
+			},
+			{
+			    "name":"saturday",
+			    "hours":"10:00-18:00"
+			},
+			{
+			    "name":"sunday",
+			    "hours":"closed"
+			}
+        	],
+        "description": "Description"
     }'
 ```
 
@@ -253,8 +426,20 @@ Parameter     | Description            | Type
 ------------- | ---------------------- | ------
 name*         | store name             | string
 department_id | department/mall id     | string
-category      | categories             | array
+categories    | categories             | array
+zones         | zones                  | array
+floor         | foor                   | string
 location      | location               | string
+area          | area                   | int
+opening_hours | opening hours          | array of day objects
+description   | description            | string
+
+Day object for opening hours
+
+Parameter     | Description            | Type
+------------- | ---------------------- | ------
+name*         | day of the week        | string
+hours*        | opening hours          | string
 
 Parameters with `*` are required
 
@@ -366,5 +551,37 @@ List of all store categories
 
 
 <aside class="notice">
-Requires <code>Stores:Api:Categories:Get</code> permit
+Requires <code>Stores:Api:Zones:Get</code> permit
 </aside> 
+
+## <a name="v3-store-zones-list"></a> Zones
+
+> Example:
+
+```shell
+curl -X GET \
+"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/stores/zones" \
+    -H 'Content-Type: application/json' \
+    -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+    -H 'X-Product-Name: default' \
+    -H 'X-User-Agent: CURL manual test'
+```
+
+> When successful (200), returns an array of store objects structured like below. Some values may be omitted if were not provided:
+
+```json
+[
+    "zone A",
+    "zone B",
+    "zone C"
+]
+``` 
+
+**GET** `v3/:loyalty_club_slug/stores/zones`
+
+List of all zones
+
+
+<aside class="notice">
+Requires <code>Stores:Api:Zones:Get</code> permit
+</aside>
