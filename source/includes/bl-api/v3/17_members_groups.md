@@ -1,5 +1,9 @@
 # <a name="v3-members-groups"></a> Endpoints &bull; Members Groups
 
+<aside class="warning">
+This feature is in development. Therefore, it may not be ready for use and is a subject to change at any time.
+</aside>
+
 Members may be grouped into groups. It's up to API client / customer how they are utilized. 
 
 ## <a name="v3-automatic-members-groups"></a> Automatic groups
@@ -59,7 +63,7 @@ audience_conditions | Object | no| Conditions of related audience - See [DMP doc
 
 ## <a name="v3-members-group-payload-model"></a> MembersGroup payload model
 
-Used for as an input of creations and updates.
+Used as an input of creations and updates.
 
 > JSON example:
 
@@ -91,6 +95,51 @@ description | string| yes |
 audience_id | integer | no| ID of related audience
 audience_conditions | Object | no| Conditions of related audience
 
+## <a name="v3-members-groups-types"></a> Types
+
+> Example:
+
+```shell
+curl --request GET 'https://bpc-api.boostcom.no/v3/infinity-mall/members_groups/types' \
+--header 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+--header 'X-Product-Name: default' \
+--header 'X-User-Agent: cURL Manual Testing'
+```
+
+> Returns object containing [members groups](#v3-members-group-model) and [pagination_info](#v3-pagination-model)
+
+```json
+{
+  "members_group_types": [
+    {
+      "name": "My Type",
+      "system": false    
+    },
+    {
+      "name": "Store",
+      "system": true      
+    }
+  ]
+}
+```
+
+**GET** `v3/:loyalty_club_slug/members_groups/types`
+
+Returns all group types defined for groups in the Loyalty Club. 
+It may (depends on Loyalty Club setup) include special system types.
+
+### Response (JSON object)
+
+Key | Type | Description
+--------- | --------- | ---------
+members_group_types | Array | 
+members_group_types[].name | String 
+members_group_types[].system | Bool | Is a system type? 
+
+<aside class="notice">
+Requires <code>BL:Api:MembersGroups:Types:Index</code> permit
+</aside>
+
 ## <a name="v3-members-groups-list"></a> List
 
 > Example:
@@ -121,6 +170,11 @@ Parameter | Type | Default | Description
 --------- | ----------- | --------- | -----------
 per_page | integer | 1000 | Number of results to be returned per request (1000 is the maximum)
 page_no | integer | 1 | Number of results page
+name | string | null | When given, returns only group of given name
+type | string | null | When given, returns only group of given type
+automatic | boolean | null | When true - only automatic groups are returned, when false - only manual
+system | boolean | null | When true - only system groups are returned, when false - only non-system
+search | string | null | When given, returns groups that have name, type or description matching the query string
 
 ### Response (JSON object)
 

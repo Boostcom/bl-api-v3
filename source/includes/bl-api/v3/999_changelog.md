@@ -1,5 +1,10 @@
 # Changelog
 
+### 02.06.2020 | Piotr Świtlicki
+
+* Extend [Members Groups &bull; Index](#v3-members-groups-list) with filtering parameters
+* Add [Members Groups &bull; Types](#v3-members-groups-types)
+
 ### 28.05.2020 | Natalia Styrska
 
 * Extend ([# Endpoints &bull; Stores](#v3-store-list)) all endpoints with new properties
