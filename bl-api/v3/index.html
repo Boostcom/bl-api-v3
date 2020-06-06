@@ -252,12 +252,12 @@ It can be accessed from both Boostcom&rsquo;s internal server applications, from
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">400</code></td>
-<td>Some of required header is missing</td>
-</tr>
-<tr>
 <td><code class="prettyprint">401</code></td>
 <td><code class="prettyprint">X-Client-Authorization</code> is invalid (or doesn&rsquo;t match provided loyalty club or product)</td>
+</tr>
+<tr>
+<td><code class="prettyprint">402</code></td>
+<td>Feature is not enabled for the Loyalty Club</td>
 </tr>
 <tr>
 <td><code class="prettyprint">403</code></td>
@@ -274,6 +274,10 @@ It can be accessed from both Boostcom&rsquo;s internal server applications, from
 <tr>
 <td><code class="prettyprint">460</code></td>
 <td>OAuth token required for the action is invalid (applies only to OAuth-related actions - see <a href="#v3-oauth2">OAuth2</a>)</td>
+</tr>
+<tr>
+<td><code class="prettyprint">470</code></td>
+<td>Some of required header is missing</td>
 </tr>
 </tbody></table>
 
