@@ -98,7 +98,6 @@ It defines `maximum_points` value, that is meant to be compared with member's **
 Status | Response body
 --------- | ----------- 
 `480` | `{"error": "Member is not participating in Rewards Program"}` | -
-`481` | `{"error": "Rewards Program is not enabled for the Loyalty Club"}` |
 
 ## <a name="v3-rewards-program-info"></a> Get info
 

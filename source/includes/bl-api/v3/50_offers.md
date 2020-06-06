@@ -35,7 +35,6 @@ aforementioned approaches.
 
 Status | Response body
 --------- | ----------- 
-`485` | `{"error": "Offers API is not enabled for the Loyalty Club"}` |
 `404` | `{"error": "Offer not found"}`| -
 `404` | `{"error": "Member not found"}`| -
 

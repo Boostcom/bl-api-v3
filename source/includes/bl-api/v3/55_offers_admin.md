@@ -5,12 +5,6 @@ Navigate to [Offers](#v3-offers) section to see docs for member-related endpoint
 
 NOTE: The Offers Admin API is in development state. Changes (rather small) may occur during our mobile apps development & testing process.
 
-## Common error responses
-
-Status | Response body
---------- | ----------- 
-`485` | `{"error": "Offers API is not enabled for the Loyalty Club"}` |
-
 ## Common models
 
 ### <a name="v3-admin-offer-model"></a> Offer
