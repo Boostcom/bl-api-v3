@@ -13,12 +13,13 @@ Staging: [https://bpc-api.dev.boostcom.no](https://bpc-api.dev.boostcom.no)
 
 Status | Reason
 -------|-----|-------
-`400` | Some of required header is missing
 `401` | `X-Client-Authorization` is invalid (or doesn't match provided loyalty club or product)
+`402` | Feature is not enabled for the Loyalty Club
 `403` | Not authorized to perform this action (provided `X-Authorization-Token` doesn't have required permit)
 `404` | The requested resource doesn't exist
 `422` | Invalid parameters are provided (e.g. incorrect properties on member creation)
 `460` | OAuth token required for the action is invalid (applies only to OAuth-related actions - see [OAuth2](#v3-oauth2))
+`470` | Some of required header is missing
 
 Also, most of handled errors have JSON response body like this:
 
