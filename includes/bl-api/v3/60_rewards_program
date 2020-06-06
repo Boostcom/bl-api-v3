@@ -165,10 +165,6 @@ Levels are returned in ascending order, sorted by the <code class="prettyprint">
 <td><code class="prettyprint">480</code></td>
 <td><code class="prettyprint">{&quot;error&quot;: &quot;Member is not participating in Rewards Program&quot;}</code></td>
 </tr>
-<tr>
-<td><code class="prettyprint">481</code></td>
-<td><code class="prettyprint">{&quot;error&quot;: &quot;Rewards Program is not enabled for the Loyalty Club&quot;}</code></td>
-</tr>
 </tbody></table>
 
 <h2 id="get-info"><a name="v3-rewards-program-info"></a> Get info</h2>

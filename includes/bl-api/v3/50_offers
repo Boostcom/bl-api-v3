@@ -40,10 +40,6 @@ aforementioned approaches.</p>
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">485</code></td>
-<td><code class="prettyprint">{&quot;error&quot;: &quot;Offers API is not enabled for the Loyalty Club&quot;}</code></td>
-</tr>
-<tr>
 <td><code class="prettyprint">404</code></td>
 <td><code class="prettyprint">{&quot;error&quot;: &quot;Offer not found&quot;}</code></td>
 </tr>
