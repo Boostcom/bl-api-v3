@@ -6,7 +6,7 @@
 
 ```shell
 curl -X GET \
-"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/stores?department_id=123&category=cat&limit=100&sort=name&order=asc" \
+"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/stores?department_id=123&search=test&category=cat&limit=100&sort=name&order=asc" \
     -H 'Content-Type: application/json' \
     -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
     -H 'X-Product-Name: default' \
@@ -82,6 +82,7 @@ department_id | department id                       | integer
 category      | filter by single category           | string
 zone          | filter by single zone               | string
 name          | filter by part of store name        | string
+search        | filter by all searchable fields     | string
 limit         | max number of results               | integer
 sort          | field to sort by (name,id,store_id) | string
 order         | order (asc,desc)                    | string
