@@ -1,5 +1,12 @@
 # Changelog
 
+### 02.07.2020 | Natalia Styrska
+* Add [Events &bull; Index](#v3-events-list)
+* Add [Events &bull; Get](#v3-event-get)
+* Add [Events &bull; Validate](#v3-events-validate-member)
+* Add [Events &bull; Checkin](#v3-events-checkin-member)
+* Add [Events &bull; Invitation](#v3-events-invitation)
+
 ### 02.06.2020 | Piotr Świtlicki
 
 * Extend [Members Groups &bull; Index](#v3-members-groups-list) with filtering parameters
