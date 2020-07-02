@@ -28,14 +28,15 @@ curl -X GET \
       "registered_members": 0,
       "spots": 0,
       "checkin_members": 10,
-      "checkin_time_limit": 15
+      "checkin_time_limit": 15,
+      "status": "active"
   }
 ]
 ``` 
 
 **GET** `v3/:loyalty_club_slug/events`
 
-List of active events
+List of events
 
 <aside class="notice">
 Requires <code>?</code> permit
@@ -68,7 +69,8 @@ curl -X GET \
       "registered_members": 0,
       "spots": 0,
       "checkin_members": 10,
-      "checkin_time_limit": 15
+      "checkin_time_limit": 15,
+      "status": "active"
   }
 ``` 
 
