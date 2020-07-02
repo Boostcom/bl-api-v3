@@ -1,5 +1,15 @@
 <h1 id="changelog">Changelog</h1>
 
+<h3 id="02-07-2020-natalia-styrska">02.07.2020 | Natalia Styrska</h3>
+
+<ul>
+<li>Add <a href="#v3-events-list">Events &bull; Index</a></li>
+<li>Add <a href="#v3-event-get">Events &bull; Get</a></li>
+<li>Add <a href="#v3-events-validate-member">Events &bull; Validate</a></li>
+<li>Add <a href="#v3-events-checkin-member">Events &bull; Checkin</a></li>
+<li>Add <a href="#v3-events-invitation">Events &bull; Invitation</a></li>
+</ul>
+
 <h3 id="02-06-2020-piotr-witlicki">02.06.2020 | Piotr Świtlicki</h3>
 
 <ul>
