@@ -39,7 +39,7 @@ curl -X GET \
 List of events
 
 <aside class="notice">
-Requires <code>?</code> permit
+Requires <code>Events:Api:Events:Get</code> permit
 </aside>
 
 ## <a name="v3-event-get"></a> Get
@@ -79,7 +79,7 @@ curl -X GET \
 Single event information
 
 <aside class="notice">
-Requires <code>?</code> permit
+Requires <code>Events:Api:Events:Get</code> permit
 </aside>
 
 ## <a name="v3-events-validate-member"></a> Member validation
@@ -123,7 +123,7 @@ curl -X POST \
 Check if member is registered to the event, should be uses only for closed events
 
 <aside class="notice">
-Requires <code>?</code> permit
+Requires <code>Events:Api:Validation:Create</code> permit
 </aside>
 
 ### Parameters
@@ -184,7 +184,7 @@ curl -X POST \
 Checkin/scan member to the event
 
 <aside class="notice">
-Requires <code>?</code> permit
+Requires <code>Events:Api:Checkin:Create</code> permit
 </aside> 
 
 ### Parameters
@@ -235,7 +235,7 @@ curl -X GET \
 List scanned/checked in events
 
 <aside class="notice">
-Requires <code>?</code> permit
+Requires <code>Events:Api:Checkin:Get</code> permit
 </aside>
 
 ## <a name="v3-events-invitation"></a> Invitation
@@ -277,7 +277,7 @@ curl -X POST \
 Send email invitation to loyalty club
 
 <aside class="notice">
-Requires <code>?</code> permit
+Requires <code>Events:Api:Invitation:Create</code> permit
 </aside>
 
 ### Payload Parameters
