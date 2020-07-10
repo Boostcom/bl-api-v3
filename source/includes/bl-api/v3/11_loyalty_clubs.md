@@ -73,6 +73,8 @@ Parameter | Type | Default | Description
 --------- | ----------- | --------- | -----------
 per_page | integer | 1000 | Number of results to be returned per request (1000 is the maximum)
 page_no | integer | 1 | Number of results page
+type | enum: ['REGULAR', 'TENANTS', 'ICOM'] | null | When present, filters results by this type
+customer_id | integer | null | When present, filters results by this customer
 
 ### Response (JSON object)
 
