@@ -136,6 +136,18 @@
 <td>1</td>
 <td>Number of results page</td>
 </tr>
+<tr>
+<td>type</td>
+<td>enum: [&lsquo;REGULAR&rsquo;, &lsquo;TENANTS&rsquo;, &lsquo;ICOM&rsquo;]</td>
+<td>null</td>
+<td>When present, filters results by this type</td>
+</tr>
+<tr>
+<td>customer_id</td>
+<td>integer</td>
+<td>null</td>
+<td>When present, filters results by this customer</td>
+</tr>
 </tbody></table>
 
 <h3 id="response-json-object">Response (JSON object)</h3>
