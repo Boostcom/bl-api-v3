@@ -1,4 +1,4 @@
-<h1 id="endpoints-offers"><a name="v3-offers"></a> Endpoints &bull; Offers</h1>
+<h1 id="offers"><a name="v3-offers"></a>  Offers</h1>
 
 <p>This section describes endpoints destined for end user (e.g. for mobile apps) and work within context of (signed in) member.
 Navigate to <a href="#v3-offers-admin">Offers Admin</a> section to see docs for offers management endpoints.</p>

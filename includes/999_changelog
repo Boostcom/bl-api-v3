@@ -20,7 +20,7 @@
 <h3 id="28-05-2020-natalia-styrska">28.05.2020 | Natalia Styrska</h3>
 
 <ul>
-<li>Extend (<a href="#v3-store-list"># Endpoints &bull; Stores</a>) all endpoints with new properties</li>
+<li>Extend (<a href="#v3-store-list">#  Stores</a>) all endpoints with new properties</li>
 <li>Add (<a href="#v3-store-zones-list">Stores &bull; Zones</a>) endpoint </li>
 </ul>
 
