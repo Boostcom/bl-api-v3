@@ -1,4 +1,4 @@
-# Endpoints &bull; Events (WIP)
+#  Events (WIP)
 
 ## <a name="v3-events-list"></a> List
 

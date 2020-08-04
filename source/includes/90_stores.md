@@ -1,4 +1,4 @@
-# Endpoints &bull; Stores
+#  Stores
 
 ## <a name="v3-store-list"></a> List
 

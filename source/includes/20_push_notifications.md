@@ -1,4 +1,4 @@
-# Endpoints &bull; Push Notifications
+#  Push Notifications
 
 ## <a name="v3-push-notification-create"></a> Create
 

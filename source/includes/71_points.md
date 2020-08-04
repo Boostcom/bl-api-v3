@@ -1,4 +1,4 @@
-# Endpoints &bull; Points
+#  Points
 
 ## <a name="v3-points-create"></a> Create
 

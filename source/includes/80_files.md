@@ -1,4 +1,4 @@
-# Endpoints &bull; Files
+#  Files
 
 ## General info
 

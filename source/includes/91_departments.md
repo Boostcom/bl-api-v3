@@ -1,4 +1,4 @@
-# Endpoints &bull; Departments
+#  Departments
 
 ## <a name="v3-department-list"></a> List
 

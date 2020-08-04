@@ -1,4 +1,4 @@
-# Endpoints &bull; Rewards Program
+#  Rewards Program
 
 ## Introduction
 

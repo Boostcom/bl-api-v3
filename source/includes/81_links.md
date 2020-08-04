@@ -1,4 +1,4 @@
-# Endpoints &bull; Links
+#  Links
 
 ## <a name="v3-links-generate"></a> Generate link
 

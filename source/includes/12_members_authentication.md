@@ -1,4 +1,4 @@
-# <a name="v3-oauth2"></a> Endpoints &bull; Members Authentication
+# <a name="v3-oauth2"></a>  Members Authentication
 
 > Example header: `Authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522`
 

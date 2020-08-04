@@ -14,7 +14,7 @@
 
 ### 28.05.2020 | Natalia Styrska
 
-* Extend ([# Endpoints &bull; Stores](#v3-store-list)) all endpoints with new properties
+* Extend ([#  Stores](#v3-store-list)) all endpoints with new properties
 * Add ([Stores &bull; Zones](#v3-store-zones-list)) endpoint 
 
 ### 21.05.2020 | Piotr Świtlicki

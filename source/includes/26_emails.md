@@ -1,4 +1,4 @@
-# Endpoints &bull; Emails
+#  Emails
 
 ## <a name="v3-emails-create"></a> Create
 

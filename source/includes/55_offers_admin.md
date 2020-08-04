@@ -1,4 +1,4 @@
-# <a name="v3-offers-admin"></a> Endpoints &bull; Offers Admin (WIP)
+# <a name="v3-offers-admin"></a>  Offers Admin (WIP)
 
 This section describes endpoints destined for offers management. 
 Navigate to [Offers](#v3-offers) section to see docs for member-related endpoints.

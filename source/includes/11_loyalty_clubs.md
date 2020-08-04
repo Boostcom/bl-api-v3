@@ -1,4 +1,4 @@
-# Endpoints &bull; Loyalty Clubs
+#  Loyalty Clubs
 
 ### <a name="v3-loyalty-club-model"></a> Loyalty Club model
 

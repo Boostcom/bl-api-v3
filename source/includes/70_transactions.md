@@ -1,4 +1,4 @@
-# Endpoints &bull; Transactions
+#  Transactions
 
 ## <a name="v3-transactions-create"></a> Create
 

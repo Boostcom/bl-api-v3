@@ -1,4 +1,4 @@
-# Endpoints &bull; Members
+#  Members
 
 ## <a name="v3-member-model"></a> Member model
 

@@ -1,4 +1,4 @@
-# <a name="v3-members-groups"></a> Endpoints &bull; Members Groups
+# <a name="v3-members-groups"></a>  Members Groups
 
 <aside class="warning">
 This feature is in development. Therefore, it may not be ready for use and is a subject to change at any time.

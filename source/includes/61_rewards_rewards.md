@@ -1,4 +1,4 @@
-# Endpoints &bull; Rewards
+#  Rewards
 ## <a name="v3-rewards-list"></a> List
 
 > Example:

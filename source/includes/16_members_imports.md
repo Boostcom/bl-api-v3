@@ -1,4 +1,4 @@
-# Endpoints &bull; Members Imports
+#  Members Imports
 
 ## <a name="v3-members-imports-import-flow"></a> Import flow
 

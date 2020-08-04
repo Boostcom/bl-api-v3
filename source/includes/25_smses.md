@@ -1,4 +1,4 @@
-# Endpoints &bull; SMSes
+#  SMSes
 
 ## <a name="v3-smses-create"></a> Create
 

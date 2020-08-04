@@ -1,4 +1,4 @@
-# <a name="v3-offers"></a> Endpoints &bull; Offers
+# <a name="v3-offers"></a>  Offers
 
 This section describes endpoints destined for end user (e.g. for mobile apps) and work within context of (signed in) member.
 Navigate to [Offers Admin](#v3-offers-admin) section to see docs for offers management endpoints.
