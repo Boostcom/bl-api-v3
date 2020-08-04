@@ -1,16 +1,4 @@
----
-title: Member Changes Notifications
-layout: slate
-
-toc_footers:
-  - <a href='https://loyalty.boostcom.no'>Performance Cloud</a>
-  - <a href='http://boostcom.com/'>Boostcom</a>
-  - <hr/>
-  - <a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a>
-
----
-
-# Members Changes Notifications
+# Members Webhooks
 
 A Loyalty Club may be configured to send notifications (as HTTP POST requests) when a change occurs within its member 
 database (e.g. when member registers).

@@ -1,6 +1,6 @@
 ---
-title: Boostcom Performance Cloud Documentation
-layout: index
+title: Boostcom Performance Cloud API V3 Reference
+layout: slate
 
 toc_footers:
   - <a href='https://loyalty.boostcom.no'>Performance Cloud</a>
@@ -8,9 +8,32 @@ toc_footers:
   - <hr/>
   - <a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a>
 
+includes:
+  - 00_introduction
+  - 02_general_info
+  - 11_loyalty_clubs
+  - 12_members_authentication
+  - 14_members
+  - 16_members_imports
+  - 17_members_groups
+  - 20_push_notifications
+  - 25_smses
+  - 26_emails
+  - 50_offers
+  - 53_offers_events
+  - 55_offers_admin
+  - 60_rewards_program
+  - 61_rewards_rewards
+  - 70_transactions
+  - 71_points
+  - 80_files
+  - 81_links
+  - 81_translations
+  - 90_stores
+  - 91_departments
+  - 100_events
+  - 200_members_webhooks
+  - 999_changelog
+
+search: true
 ---
-
-# Boostcom Performance Cloud Documentation
-
-* <a href='/members-changes-notifications/'>Members Changes Notifications</a>
-* <a href='/bl-api/v3/'>Boostcom Performance Cloud API v3</a>
