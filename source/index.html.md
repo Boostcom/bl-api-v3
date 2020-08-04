@@ -9,7 +9,6 @@ toc_footers:
   - <a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a>
 
 includes:
-  - 00_introduction
   - 02_general_info
   - 11_loyalty_clubs
   - 12_members_authentication
@@ -28,7 +27,6 @@ includes:
   - 71_points
   - 80_files
   - 81_links
-  - 81_translations
   - 90_stores
   - 91_departments
   - 100_events
