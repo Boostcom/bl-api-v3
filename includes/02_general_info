@@ -8,6 +8,77 @@
 
 <p>Staging: <a href="https://bpc-api.dev.boostcom.no">https://bpc-api.dev.boostcom.no</a></p>
 
+<h2 id="common-params-and-headers">Common params and headers</h2>
+
+<h3 id="content-type-header">Content-Type header</h3>
+
+<p>This API supports <code class="prettyprint">application/json</code> only. </p>
+
+<p>Both payload and response body are supposed to be a valid JSON so when making a request send a <code class="prettyprint">Content-Type: application/json</code> header.</p>
+
+<p>If payload is not a valid JSON, then <code class="prettyprint">406 Not Acceptable</code> HTTP code and empty response body are returned.</p>
+
+<h3 id="x-client-authorization-header">X-Client-Authorization header</h3>
+
+<blockquote>
+<p>Example header: <code class="prettyprint">X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM</code></p>
+</blockquote>
+
+<p>All of the endpoints <strong>require</strong> a client authorization header - <code class="prettyprint">X-Client-Authorization</code>.</p>
+
+<p>It should be used only on backend and never exposed in frontend code.</p>
+
+<p>Each token has are permits assigned to it. Depending what permits are assigned, access to some of the endpoints
+may be restricted.</p>
+
+<p>If you miss your authentication token, please <a href="http://boostcom.no">let us know</a>.</p>
+
+<h3 id="x-user-agent-header">X-User-Agent header</h3>
+
+<blockquote>
+<p>Example header: <code class="prettyprint">X-User-Agent: Infinity Mall Android App</code></p>
+</blockquote>
+
+<p><code class="prettyprint">X-User-Agent</code> is <strong>required</strong> to distinguish specific client for information and debugging purposes so we better know who uses the service.</p>
+
+<p>It should be arbitrarily chosen to represent client specifics (e.g. &lsquo;Infinity Mall Android App v1.2&rsquo; or &lsquo;Infinity Mall Backend Service&rsquo;)</p>
+
+<h3 id="x-product-name-header">X-Product-Name header</h3>
+
+<blockquote>
+<p>Example header: <code class="prettyprint">X-Product-Name: android-app</code></p>
+</blockquote>
+
+<p>Each system that is communicating with us should uniquely identify itself so it is possible to distinguish optin/update channels.
+That will allow further targeting members by communication channel.</p>
+
+<p>For that we use product name. It should be passed as <strong>required</strong> header <code class="prettyprint">X-Product-Name</code> that is intended to provide the necessary granularity.</p>
+
+<p>If you miss your product name, please <a href="http://boostcom.no">let us know</a>.</p>
+
+<h3 id="authorization-header">Authorization header</h3>
+
+<blockquote>
+<p>Example header: <code class="prettyprint">Authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522</code></p>
+</blockquote>
+
+<p>See: <a href="#v3-oauth2">OAuth2</a></p>
+
+<h3 id="loyalty-club-slug-param">Loyalty club slug param</h3>
+
+<blockquote>
+<p>Example slug: &lsquo;infinity-mall&rsquo;</p>
+</blockquote>
+
+<p>As all of the API endpoints work in the context of specific Loyalty Club, they&rsquo;re scoped within it&rsquo;s identifier - <code class="prettyprint">:loyalty_club_slug</code></p>
+
+<p>It&rsquo;s an unique slugified name of the Loyalty Club.</p>
+
+<h3 id="msisdn-param">Msisdn param</h3>
+
+<p>Members in our systems may be identified with their phone numbers (msisdns) according to <a href="https://en.wikipedia.org/wiki/E.164">E.164</a>
+We use format without leading <code class="prettyprint">00</code> or <code class="prettyprint">+</code> and without spaces, so that it contains only digits, i.e. <code class="prettyprint">4740485124</code>.</p>
+
 <h2 id="common-http-error-codes">Common HTTP error codes</h2>
 
 <table><thead>
