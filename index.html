@@ -1086,333 +1086,6 @@ Requires <code>BL:Api:Products:Index</code> permit
 Requires <code>Translations:Api:Index</code> permit
 </aside>
 
-          <h1 id="members-authentication"><a name="v3-oauth2"></a>  Members Authentication</h1>
-
-<blockquote>
-<p>Example header: <code class="prettyprint">Authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522</code></p>
-</blockquote>
-
-<p>Actions related to specific member (the one that is using your application) require to have member authenticated and we implement
-OAuth2 flow for this.</p>
-
-<p>To authorize those actions, we <strong>require</strong> <code class="prettyprint">Authorization</code> header that should contain: <code class="prettyprint">Bearer :access_token</code>. </p>
-
-<p>Look at <a href="#v3-token-create">OAuth Token &bull; Create</a> to see how to obtain the :access_token.</p>
-
-<h2 id="create-token"><a name="v3-token-create"></a> Create token</h2>
-
-<blockquote>
-<p>Create token example:</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/members/oauth/token"</span> <span class="se">\</span>
-  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
-  -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
-  -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
-  -H <span class="s1">'X-User-Agent: CURL manual test'</span> <span class="se">\</span>
-  -d <span class="s1">'{
-      "grant_type": "password",
-      "identifier_type": "id",
-      "identifier": 42,
-      "password": "123"
-    }'</span>
-</code></pre>
-<blockquote>
-<p>Refresh token example:</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/members/oauth/token"</span> <span class="se">\</span>
-  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
-  -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
-  -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
-  -H <span class="s1">'X-User-Agent: CURL manual test'</span> <span class="se">\</span>
-  -d <span class="s1">'{
-      "grant_type": "refresh_token",
-      "refresh_token": "36c636e4290d28488a13691afce351397bec21b1246c2c7896a8262d9bfbc4c4"
-    }'</span>
-</code></pre>
-<blockquote>
-<p>When successful, both commands return JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"af9e5361cd7e083dfa4132df3ea7ab82fac21496991632a9994a8c2a9f33884f"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bearer"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="mi">86400</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"refresh_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"36c636e4290d28488a13691afce351397bec21b1246c2c7896a8262d9bfbc4c4"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1506523094</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"resource_owner_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p><strong>POST</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/oauth/token</code></p>
-
-<p>Creates a new access token by one of two methods (grant types):</p>
-
-<ul>
-<li><code class="prettyprint">password</code> - token is issued by providing user credentials</li>
-<li><code class="prettyprint">refresh_token</code> - token is issued by providing refresh token obtained from <code class="prettyprint">password</code> grant type </li>
-</ul>
-
-<h3 id="creating-token-password-grant">Creating token (<code class="prettyprint">password</code> grant)</h3>
-
-<p>When creating new access token, <code class="prettyprint">&quot;grant_type&quot;: &quot;password&quot;</code> should be given along with member credentials (see example on the right).</p>
-
-<p>In response, two tokens are returned:</p>
-
-<ul>
-<li><code class="prettyprint">access_token</code> that is valid for <strong>24 hours</strong> - may be used to authenticate member in member-related actions (see: <a href="#v3-oauth2">OAuth2</a>).</li>
-<li><code class="prettyprint">refresh_token</code> which is valid for <strong>1 year</strong> - may be used to get a new access token (with <code class="prettyprint">refresh_token</code> grant)</li>
-</ul>
-
-<p>Also, <code class="prettyprint">resource_owner_id</code> is returned, is an ID of member that the token has been issued for. </p>
-
-<h3 id="refreshing-token-refresh_token-grant">Refreshing token (<code class="prettyprint">refresh_token</code> grant)</h3>
-
-<p>You can obtain a new token after (or before) it&rsquo;s expiration time, by using <code class="prettyprint">refresh_token</code> grant.</p>
-
-<p>Param <code class="prettyprint">grant_type: &quot;refresh_token&quot;</code> must be provided along with <code class="prettyprint">refresh_token: &quot;:refresh_token&quot;</code>  (see example on the right).</p>
-
-<p>It returns a token response, same as for <code class="prettyprint">password</code> grant, but with new tokens.</p>
-
-<h3 id="post-parameters-json-object">POST Parameters (JSON object)</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-<th>Type</th>
-<th>For grant type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>grant_type</td>
-<td>type of grant</td>
-<td>enum: <code class="prettyprint">password</code>, <code class="prettyprint">refresh_token</code></td>
-<td>-</td>
-</tr>
-<tr>
-<td>identifier_type</td>
-<td>identifier type that user should be retrieved by</td>
-<td>enum: <code class="prettyprint">id</code>, <code class="prettyprint">email</code>, <code class="prettyprint">msisdn</code></td>
-<td><code class="prettyprint">password</code></td>
-</tr>
-<tr>
-<td>identifier</td>
-<td>value of member identifier</td>
-<td>mixed (e.g. <code class="prettyprint">134123123</code>, <code class="prettyprint">+47123456789</code> or <code class="prettyprint">alice@example.com</code>)</td>
-<td><code class="prettyprint">password</code></td>
-</tr>
-<tr>
-<td>password</td>
-<td>member password, One-Time-Password or Registration Password</td>
-<td>string</td>
-<td><code class="prettyprint">password</code></td>
-</tr>
-<tr>
-<td>refresh_token</td>
-<td>refresh token</td>
-<td>string</td>
-<td><code class="prettyprint">access_token</code></td>
-</tr>
-</tbody></table>
-
-<h3 id="response-json-object">Response (JSON object)</h3>
-
-<table><thead>
-<tr>
-<th>Key</th>
-<th>Description</th>
-<th>Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>access_token</td>
-<td>Token that member can be authenticated with</td>
-<td>string</td>
-</tr>
-<tr>
-<td>token_type</td>
-<td>Always &ldquo;bearer&rdquo;</td>
-<td>string</td>
-</tr>
-<tr>
-<td>expires_in</td>
-<td>Seconds for how long token will be valid</td>
-<td>integer (seconds)</td>
-</tr>
-<tr>
-<td>refresh_token</td>
-<td>Token that may be used to issue a new :access_token</td>
-<td>string</td>
-</tr>
-<tr>
-<td>created_at</td>
-<td>When the token has been created</td>
-<td>integer (timestamp)</td>
-</tr>
-<tr>
-<td>resource_owner_id</td>
-<td>ID of member that the token has been for</td>
-<td>integer</td>
-</tr>
-</tbody></table>
-
-<h3 id="error-responses">Error responses</h3>
-
-<table><thead>
-<tr>
-<th>Status</th>
-<th>Reason</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code class="prettyprint">461</code></td>
-<td>Invalid member credentials provided for <code class="prettyprint">password</code> grant. Either member could not be found or password is wrong</td>
-</tr>
-<tr>
-<td><code class="prettyprint">462</code></td>
-<td>Invalid refresh_token provided for <code class="prettyprint">refresh_token</code> grant (may be expired)</td>
-</tr>
-</tbody></table>
-
-<aside class="notice">
-Requires <code>BL:Api:Members:OAuth</code> permit
-</aside>
-
-<!--- ############################################################################################################# --->
-
-<h2 id="revoke-token"><a name="v3-token-revoke"></a> Revoke token</h2>
-
-<blockquote>
-<p>Example:</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/members/oauth/revoke"</span> <span class="se">\</span>
-  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
-  -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
-  -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
-  -H <span class="s1">'X-User-Agent: CURL manual test'</span> <span class="se">\</span>
-  -d <span class="s1">'{
-      "token": "36c636e4290d28488a13691afce351397bec21b1246c2c7896a8262d9bfbc4c4" 
-    }'</span>
-</code></pre>
-<blockquote>
-<p>Always returns an empty JSON object</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="err">//</span><span class="w"> </span><span class="err">Empty</span><span class="w"> </span><span class="err">object</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p><strong>POST</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/oauth/revoke</code></p>
-
-<p>Revokes a token (access or refresh). </p>
-
-<p>Always returns an empty JSON object (even if given token is invalid).</p>
-
-<h3 id="post-parameters-json">POST Parameters (JSON)</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-<th>Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>token</td>
-<td>access or refresh token obtained from <a href="#v3-token-create">OAuth Token &bull; Create</a></td>
-<td>string</td>
-</tr>
-</tbody></table>
-
-<aside class="notice">
-Requires <code>BL:Api:Members:OAuth</code> permit
-</aside>
-
-<!--- ############################################################################################################# --->
-
-<h2 id="get-token-info"><a name="v3-token-info"></a> Get token info</h2>
-
-<blockquote>
-<p>Example:</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/members/oauth/token/info"</span> <span class="se">\</span>
-  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
-  -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
-  -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
-  -H <span class="s1">'X-User-Agent: CURL manual test'</span> <span class="se">\</span>
-  -H <span class="s1">'Authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522'</span>
-
-</code></pre>
-<blockquote>
-<p>When successful, return JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"resource_owner_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">ID</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">member</span><span class="w"> </span><span class="err">that</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">token</span><span class="w"> </span><span class="err">has</span><span class="w"> </span><span class="err">been</span><span class="w"> </span><span class="err">issued</span><span class="w"> </span><span class="err">for</span><span class="w">
-    </span><span class="s2">"scopes"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-    </span><span class="s2">"expires_in_seconds"</span><span class="p">:</span><span class="w"> </span><span class="mi">73614</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Seconds</span><span class="w"> </span><span class="err">until</span><span class="w"> </span><span class="err">expiration</span><span class="w">
-    </span><span class="s2">"application"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"uid"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1506516784</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/oauth/token/info</code></p>
-
-<p>Returns info of given token (not refresh token) from <code class="prettyprint">Authorization</code> header.</p>
-
-<h3 id="response-json-object">Response (JSON object)</h3>
-
-<table><thead>
-<tr>
-<th>Key</th>
-<th>Description</th>
-<th>Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>resource_owner_id</td>
-<td>ID of member that the token has been for</td>
-<td>integer</td>
-</tr>
-<tr>
-<td>scopes</td>
-<td>Not implemented</td>
-<td>Array<string></td>
-</tr>
-<tr>
-<td>expires_in_seconds</td>
-<td>Seconds for how long token will be valid</td>
-<td>integer (seconds)</td>
-</tr>
-<tr>
-<td>application</td>
-<td>Not implemented</td>
-<td>Object</td>
-</tr>
-<tr>
-<td>created_at</td>
-<td>When the token has been created</td>
-<td>integer (timestamp)</td>
-</tr>
-</tbody></table>
-
-<h3 id="error-responses">Error responses</h3>
-
-<table><thead>
-<tr>
-<th>Status</th>
-<th>Reason</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code class="prettyprint">460</code></td>
-<td>Token from <code class="prettyprint">Authorization</code> is invalid (or expired)</td>
-</tr>
-</tbody></table>
-
-<aside class="notice">
-Requires <code>BL:Api:Members:OAuth</code> permit
-</aside>
-
-<!--- ############################################################################################################# --->
-
           <h1 id="members">Members</h1>
 
 <h2 id="member-model"><a name="v3-member-model"></a> Member model</h2>
@@ -3458,6 +3131,333 @@ user identified with given MSISDN.</p>
 Requires <code>BL:Api:Members:Msisdns:Verify</code> permit
 </aside>
 
+          <h1 id="members-authentication"><a name="v3-oauth2"></a>  Members Authentication</h1>
+
+<blockquote>
+<p>Example header: <code class="prettyprint">Authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522</code></p>
+</blockquote>
+
+<p>Actions related to specific member (the one that is using your application) require to have member authenticated and we implement
+OAuth2 flow for this.</p>
+
+<p>To authorize those actions, we <strong>require</strong> <code class="prettyprint">Authorization</code> header that should contain: <code class="prettyprint">Bearer :access_token</code>. </p>
+
+<p>Look at <a href="#v3-token-create">OAuth Token &bull; Create</a> to see how to obtain the :access_token.</p>
+
+<h2 id="create-token"><a name="v3-token-create"></a> Create token</h2>
+
+<blockquote>
+<p>Create token example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/members/oauth/token"</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+  -H <span class="s1">'X-User-Agent: CURL manual test'</span> <span class="se">\</span>
+  -d <span class="s1">'{
+      "grant_type": "password",
+      "identifier_type": "id",
+      "identifier": 42,
+      "password": "123"
+    }'</span>
+</code></pre>
+<blockquote>
+<p>Refresh token example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/members/oauth/token"</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+  -H <span class="s1">'X-User-Agent: CURL manual test'</span> <span class="se">\</span>
+  -d <span class="s1">'{
+      "grant_type": "refresh_token",
+      "refresh_token": "36c636e4290d28488a13691afce351397bec21b1246c2c7896a8262d9bfbc4c4"
+    }'</span>
+</code></pre>
+<blockquote>
+<p>When successful, both commands return JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"af9e5361cd7e083dfa4132df3ea7ab82fac21496991632a9994a8c2a9f33884f"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bearer"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="mi">86400</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"refresh_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"36c636e4290d28488a13691afce351397bec21b1246c2c7896a8262d9bfbc4c4"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1506523094</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"resource_owner_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>POST</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/oauth/token</code></p>
+
+<p>Creates a new access token by one of two methods (grant types):</p>
+
+<ul>
+<li><code class="prettyprint">password</code> - token is issued by providing user credentials</li>
+<li><code class="prettyprint">refresh_token</code> - token is issued by providing refresh token obtained from <code class="prettyprint">password</code> grant type </li>
+</ul>
+
+<h3 id="creating-token-password-grant">Creating token (<code class="prettyprint">password</code> grant)</h3>
+
+<p>When creating new access token, <code class="prettyprint">&quot;grant_type&quot;: &quot;password&quot;</code> should be given along with member credentials (see example on the right).</p>
+
+<p>In response, two tokens are returned:</p>
+
+<ul>
+<li><code class="prettyprint">access_token</code> that is valid for <strong>24 hours</strong> - may be used to authenticate member in member-related actions (see: <a href="#v3-oauth2">OAuth2</a>).</li>
+<li><code class="prettyprint">refresh_token</code> which is valid for <strong>1 year</strong> - may be used to get a new access token (with <code class="prettyprint">refresh_token</code> grant)</li>
+</ul>
+
+<p>Also, <code class="prettyprint">resource_owner_id</code> is returned, is an ID of member that the token has been issued for. </p>
+
+<h3 id="refreshing-token-refresh_token-grant">Refreshing token (<code class="prettyprint">refresh_token</code> grant)</h3>
+
+<p>You can obtain a new token after (or before) it&rsquo;s expiration time, by using <code class="prettyprint">refresh_token</code> grant.</p>
+
+<p>Param <code class="prettyprint">grant_type: &quot;refresh_token&quot;</code> must be provided along with <code class="prettyprint">refresh_token: &quot;:refresh_token&quot;</code>  (see example on the right).</p>
+
+<p>It returns a token response, same as for <code class="prettyprint">password</code> grant, but with new tokens.</p>
+
+<h3 id="post-parameters-json-object">POST Parameters (JSON object)</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+<th>For grant type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>grant_type</td>
+<td>type of grant</td>
+<td>enum: <code class="prettyprint">password</code>, <code class="prettyprint">refresh_token</code></td>
+<td>-</td>
+</tr>
+<tr>
+<td>identifier_type</td>
+<td>identifier type that user should be retrieved by</td>
+<td>enum: <code class="prettyprint">id</code>, <code class="prettyprint">email</code>, <code class="prettyprint">msisdn</code></td>
+<td><code class="prettyprint">password</code></td>
+</tr>
+<tr>
+<td>identifier</td>
+<td>value of member identifier</td>
+<td>mixed (e.g. <code class="prettyprint">134123123</code>, <code class="prettyprint">+47123456789</code> or <code class="prettyprint">alice@example.com</code>)</td>
+<td><code class="prettyprint">password</code></td>
+</tr>
+<tr>
+<td>password</td>
+<td>member password, One-Time-Password or Registration Password</td>
+<td>string</td>
+<td><code class="prettyprint">password</code></td>
+</tr>
+<tr>
+<td>refresh_token</td>
+<td>refresh token</td>
+<td>string</td>
+<td><code class="prettyprint">access_token</code></td>
+</tr>
+</tbody></table>
+
+<h3 id="response-json-object">Response (JSON object)</h3>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>access_token</td>
+<td>Token that member can be authenticated with</td>
+<td>string</td>
+</tr>
+<tr>
+<td>token_type</td>
+<td>Always &ldquo;bearer&rdquo;</td>
+<td>string</td>
+</tr>
+<tr>
+<td>expires_in</td>
+<td>Seconds for how long token will be valid</td>
+<td>integer (seconds)</td>
+</tr>
+<tr>
+<td>refresh_token</td>
+<td>Token that may be used to issue a new :access_token</td>
+<td>string</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>When the token has been created</td>
+<td>integer (timestamp)</td>
+</tr>
+<tr>
+<td>resource_owner_id</td>
+<td>ID of member that the token has been for</td>
+<td>integer</td>
+</tr>
+</tbody></table>
+
+<h3 id="error-responses">Error responses</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">461</code></td>
+<td>Invalid member credentials provided for <code class="prettyprint">password</code> grant. Either member could not be found or password is wrong</td>
+</tr>
+<tr>
+<td><code class="prettyprint">462</code></td>
+<td>Invalid refresh_token provided for <code class="prettyprint">refresh_token</code> grant (may be expired)</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>BL:Api:Members:OAuth</code> permit
+</aside>
+
+<!--- ############################################################################################################# --->
+
+<h2 id="revoke-token"><a name="v3-token-revoke"></a> Revoke token</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/members/oauth/revoke"</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+  -H <span class="s1">'X-User-Agent: CURL manual test'</span> <span class="se">\</span>
+  -d <span class="s1">'{
+      "token": "36c636e4290d28488a13691afce351397bec21b1246c2c7896a8262d9bfbc4c4" 
+    }'</span>
+</code></pre>
+<blockquote>
+<p>Always returns an empty JSON object</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="err">//</span><span class="w"> </span><span class="err">Empty</span><span class="w"> </span><span class="err">object</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>POST</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/oauth/revoke</code></p>
+
+<p>Revokes a token (access or refresh). </p>
+
+<p>Always returns an empty JSON object (even if given token is invalid).</p>
+
+<h3 id="post-parameters-json">POST Parameters (JSON)</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>token</td>
+<td>access or refresh token obtained from <a href="#v3-token-create">OAuth Token &bull; Create</a></td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>BL:Api:Members:OAuth</code> permit
+</aside>
+
+<!--- ############################################################################################################# --->
+
+<h2 id="get-token-info"><a name="v3-token-info"></a> Get token info</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/members/oauth/token/info"</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+  -H <span class="s1">'X-User-Agent: CURL manual test'</span> <span class="se">\</span>
+  -H <span class="s1">'Authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522'</span>
+
+</code></pre>
+<blockquote>
+<p>When successful, return JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"resource_owner_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">ID</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">member</span><span class="w"> </span><span class="err">that</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">token</span><span class="w"> </span><span class="err">has</span><span class="w"> </span><span class="err">been</span><span class="w"> </span><span class="err">issued</span><span class="w"> </span><span class="err">for</span><span class="w">
+    </span><span class="s2">"scopes"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"expires_in_seconds"</span><span class="p">:</span><span class="w"> </span><span class="mi">73614</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Seconds</span><span class="w"> </span><span class="err">until</span><span class="w"> </span><span class="err">expiration</span><span class="w">
+    </span><span class="s2">"application"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"uid"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1506516784</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/oauth/token/info</code></p>
+
+<p>Returns info of given token (not refresh token) from <code class="prettyprint">Authorization</code> header.</p>
+
+<h3 id="response-json-object">Response (JSON object)</h3>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>resource_owner_id</td>
+<td>ID of member that the token has been for</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>scopes</td>
+<td>Not implemented</td>
+<td>Array<string></td>
+</tr>
+<tr>
+<td>expires_in_seconds</td>
+<td>Seconds for how long token will be valid</td>
+<td>integer (seconds)</td>
+</tr>
+<tr>
+<td>application</td>
+<td>Not implemented</td>
+<td>Object</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>When the token has been created</td>
+<td>integer (timestamp)</td>
+</tr>
+</tbody></table>
+
+<h3 id="error-responses">Error responses</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">460</code></td>
+<td>Token from <code class="prettyprint">Authorization</code> is invalid (or expired)</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>BL:Api:Members:OAuth</code> permit
+</aside>
+
+<!--- ############################################################################################################# --->
+
           <h1 id="members-imports">Members Imports</h1>
 
 <h2 id="import-flow"><a name="v3-members-imports-import-flow"></a> Import flow</h2>
@@ -5025,6 +5025,276 @@ Requires <code>BL:Api:MembersGroups:Members:List</code> permit
 <aside class="notice">
 Requires <code>BL:Api:Members:Groups</code> permit
 </aside>
+
+          <h1 id="members-webhooks">Members Webhooks</h1>
+
+<p>A Loyalty Club may be configured to send notifications (as HTTP POST requests) when a change occurs within its member 
+database (e.g. when member registers).</p>
+
+<p>If you wish to configure a Loyalty Club to have such notifications enabled, please contact us us.
+You will need to provide us a HTTPS (for security reasons, we don&rsquo;t support HTTP) URL that notifications will
+be sent to.</p>
+
+<h2 id="subscription">Subscription</h2>
+
+<p>As it is possible to have multiple endpoints configured for receiving notifications in one Loyalty Club, for each 
+endpoint we setup a Subscription.</p>
+
+<p>Each Subscription has its own Secret Token (see below) and may be configured to send notifications only on specific 
+changes (<code class="prettyprint">import</code>, <code class="prettyprint">update</code>, <code class="prettyprint">delete</code>).</p>
+
+<h2 id="authentication-token">Authentication token</h2>
+
+<p>Each notification request is signed with <code class="prettyprint">X-Secret-Token</code> header that contains Secret Token configured for given 
+Subscription.</p>
+
+<p>In order to assure that notifications you receive are sent from us, you should check if its value matches 
+the Secret Token that you received from us when the subscription has been set up.</p>
+
+<h2 id="notifications-format">Notifications format</h2>
+
+<p>Currently, notifications are generated in two versions. 
+Version 1 is deprecated and new subscriptions are going to be configured to receive v2 notifications.</p>
+
+<h3 id="notifications-v2">Notifications v2</h3>
+
+<blockquote>
+<p>Example for v2</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"events"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"event"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"update"</span><span class="p">,</span><span class="w"> </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-05T14:31:15.520Z"</span><span class="w"> </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"loyalty_club"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">32</span><span class="p">,</span><span class="w"> </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"infinity-mall"</span><span class="w"> </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"member"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11256</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"person_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">89103</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"msisdn"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john@example.com"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span><span class="w"> </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Doe"</span><span class="p">,</span><span class="w"> </span><span class="s2">"zip_code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"consents"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"sms_marketing"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-21T10:23:34.982Z"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">},</span><span class="w">
+          </span><span class="s2">"email_marketing"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-05T14:31:15.520Z"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"sms_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"verified"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"email_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"enabled"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"push_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"disabled"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"optin_channel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ios"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"optin_subchannel"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-21T10:23:34.982Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-05T14:31:15.520Z"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"member_changes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"msisdn"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-"</span><span class="p">,</span><span class="w"> </span><span class="s2">"was"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4740769126"</span><span class="p">,</span><span class="w"> </span><span class="s2">"is"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+"</span><span class="p">,</span><span class="w"> </span><span class="s2">"was"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="s2">"is"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john@example.com"</span><span class="w"> </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"sms_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"~"</span><span class="p">,</span><span class="w"> </span><span class="s2">"was"</span><span class="p">:</span><span class="w"> </span><span class="s2">"enabled"</span><span class="p">,</span><span class="w"> </span><span class="s2">"is"</span><span class="p">:</span><span class="w"> </span><span class="s2">"verified"</span><span class="w"> </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"push_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"~"</span><span class="p">,</span><span class="w"> </span><span class="s2">"was"</span><span class="p">:</span><span class="w"> </span><span class="s2">"enabled"</span><span class="p">,</span><span class="w"> </span><span class="s2">"is"</span><span class="p">:</span><span class="w"> </span><span class="s2">"disabled"</span><span class="w"> </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"~"</span><span class="p">,</span><span class="w"> </span><span class="s2">"was"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mark"</span><span class="p">,</span><span class="w"> </span><span class="s2">"is"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="w"> </span><span class="p">},</span><span class="w">
+          </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+"</span><span class="p">,</span><span class="w"> </span><span class="s2">"was"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">  </span><span class="s2">"is"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Doe"</span><span class="w"> </span><span class="p">},</span><span class="w">
+          </span><span class="s2">"zip_code"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-"</span><span class="p">,</span><span class="w"> </span><span class="s2">"was"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3300"</span><span class="p">,</span><span class="w"> </span><span class="s2">"is"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"consents"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"sms_marketing"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"~"</span><span class="p">,</span><span class="w"> </span><span class="s2">"was"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="s2">"is"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Each change in the <code class="prettyprint">events</code> array consists of following objects:</p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>event</td>
+<td>See <a href="#v2-event">Event model</a></td>
+</tr>
+<tr>
+<td>loyalty_club</td>
+<td>Information about member&rsquo;s Loyalty Club - it&rsquo;s ID and slug.</td>
+</tr>
+<tr>
+<td>member</td>
+<td>Member attributes after the event - See <a href="https://docs.loyalty.boostcom.no/bl-api/v3/#member-json-model">Member JSON model</a>. For <code class="prettyprint">delete</code> events it contains only <code class="prettyprint">id</code> and <code class="prettyprint">person_id</code></td>
+</tr>
+<tr>
+<td>member_changes</td>
+<td>See <a href="#v2-event">Event model</a>. It&rsquo;s empty for <code class="prettyprint">delete</code> events</td>
+</tr>
+</tbody></table>
+
+<h4 id="event-model"><a name="v2-event"></a> Event model</h4>
+
+<p>Contains meta information about the change event. </p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>type</td>
+<td><code class="prettyprint">import</code>, <code class="prettyprint">update</code>, or <code class="prettyprint">delete</code></td>
+<td>A type of the change event</td>
+</tr>
+<tr>
+<td>date</td>
+<td>Date</td>
+<td>When the event occurred</td>
+</tr>
+</tbody></table>
+
+<h4 id="changes-object"><a name="v2-changes"></a> Changes object</h4>
+
+<p>Represents changes that happened to member within the event. Includes only properties that have been actually changed
+within the event.</p>
+
+<p>Changes object may contain following fields:</p>
+
+<ul>
+<li><code class="prettyprint">msisdn</code></li>
+<li><code class="prettyprint">email</code></li>
+<li><code class="prettyprint">sms_status</code></li>
+<li><code class="prettyprint">email_status</code></li>
+<li><code class="prettyprint">push_status</code></li>
+<li><code class="prettyprint">optin_channel</code></li>
+<li><code class="prettyprint">optin_subchannel</code></li>
+<li><code class="prettyprint">consents</code>, which contains changes for consents </li>
+<li><code class="prettyprint">properties</code>, which contains changes for properties</li>
+</ul>
+
+<p>Each change consists of three fields:</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>change</td>
+<td><code class="prettyprint">~</code>, <code class="prettyprint">+</code> or <code class="prettyprint">-</code></td>
+<td>Whether the property has been changed (<code class="prettyprint">~</code>), added (<code class="prettyprint">+</code>) or removed (<code class="prettyprint">-</code>)</td>
+</tr>
+<tr>
+<td>before</td>
+<td>mixed</td>
+<td>The value of property before the change</td>
+</tr>
+<tr>
+<td>after</td>
+<td>mixed</td>
+<td>The value of property after the change</td>
+</tr>
+</tbody></table>
+
+<h3 id="notifications-v1-deprecated">Notifications v1 (deprecated)</h3>
+
+<blockquote>
+<p>Example for v1</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"bulk"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"customer_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Infinity Mall"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">447</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"event_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"update"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">44882174</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"birthday"</span><span class="p">:{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"string"</span><span class="p">,</span><span class="s2">"value"</span><span class="p">:</span><span class="s2">"1990-01-01"</span><span class="w"> </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"woman"</span><span class="w"> </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"language"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"en"</span><span class="w"> </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="w"> </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Doe"</span><span class="w"> </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"optin_channel"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"webforms"</span><span class="w"> </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"msisdn"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4740769126"</span><span class="w"> </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"j.doe@example.com"</span><span class="w"> </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"sms_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"verified"</span><span class="w"> </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"email_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unsubscribed"</span><span class="w"> </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"push_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"enabled"</span><span class="w"> </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"consents"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"dmp_profiling"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"sms_marketing"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"email_marketing"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"custom_consent"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-28T08:34:59.231Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"optin_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-24T11:23:41.231Z"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Each change in the <code class="prettyprint">bulk</code> is identified by following attributes:</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>customer_name</td>
+<td>String</td>
+<td>Name of Loyalty Club</td>
+</tr>
+<tr>
+<td>customer_id</td>
+<td>Integer</td>
+<td>ID of Loyalty Club</td>
+</tr>
+<tr>
+<td>event_type</td>
+<td><code class="prettyprint">import</code>, <code class="prettyprint">update</code>, or <code class="prettyprint">delete</code></td>
+<td>A type of the change</td>
+</tr>
+<tr>
+<td>external_id</td>
+<td>Integer</td>
+<td>ID of member</td>
+</tr>
+<tr>
+<td>properties</td>
+<td>Object</td>
+<td>Member properties. Each of them has a <code class="prettyprint">type &lt;String&gt;</code> and <code class="prettyprint">value &lt;String&gt;</code>. When <code class="prettyprint">event_type</code> is <code class="prettyprint">delete</code>, contains only member identifiers (<code class="prettyprint">msisdn</code>, <code class="prettyprint">email</code>)</td>
+</tr>
+<tr>
+<td>consents</td>
+<td>Object</td>
+<td>Member consents and their values. Empty when <code class="prettyprint">event_type</code> is <code class="prettyprint">delete</code>.</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>Date</td>
+<td>When the change occurred</td>
+</tr>
+<tr>
+<td>optin_date</td>
+<td>Date</td>
+<td>When the member has been created</td>
+</tr>
+</tbody></table>
+
+<h2 id="notifications-delivery">Notifications delivery</h2>
+
+<p>Your endpoint must return a <code class="prettyprint">2xx</code> (<code class="prettyprint">200</code> or <code class="prettyprint">201</code> preferably) HTTP status code. Only then the notification 
+will be treated as delivered.</p>
+
+<p>If your server returns <code class="prettyprint">5xx</code> code, the delivery will be treated as failed, and our system will make another attempt later.
+On consequent failures, deliveries will be attempted up to 20 days.</p>
+
+<p>If your server returns a <code class="prettyprint">4xx</code> code, the delivery will be ignored.</p>
 
           <h1 id="push-notifications">Push Notifications</h1>
 
@@ -9736,6 +10006,10 @@ Requires <code>Transaction:Api:Events:Create</code> permit
             "wallet_new_balance": 10,
             "expiry_points_date": "2020-02-12",
             "expiry_points_balance": 10
+            "additional_properties" : 
+                {
+                    "property_name": "property_value"
+                }
         }
     ]'</span>
 </code></pre>
@@ -9837,6 +10111,11 @@ Requires <code>Transaction:Api:Events:Create</code> permit
 <td>expiry_points_balance</td>
 <td>Present point balance in the wallet for specific expiry date (used only by integration without loyalty logic)</td>
 <td>integer</td>
+</tr>
+<tr>
+<td>additional_properties</td>
+<td>Any optional properties</td>
+<td>object</td>
 </tr>
 </tbody></table>
 
@@ -9999,826 +10278,6 @@ Requires <code>Transaction:Api:Points:Create</code>
 <aside class="notice">
 Requires <code>Transaction:Api:Points:Get</code> permit
 </aside>
-
-          <h1 id="files">Files</h1>
-
-<h2 id="general-info">General info</h2>
-
-<h3 id="file-model"><a name="v3-file-model"></a> File model</h3>
-
-<p>Every file attached to some entity (Offer, Reward, Offer Collection) follows the file schema and is defined like this:</p>
-
-<table><thead>
-<tr>
-<th>Key</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>url</td>
-<td>URL</td>
-<td>Link to the file</td>
-</tr>
-<tr>
-<td>width</td>
-<td>integer</td>
-<td>Image width</td>
-</tr>
-<tr>
-<td>height</td>
-<td>integer</td>
-<td>Image height</td>
-</tr>
-<tr>
-<td>kind</td>
-<td>string</td>
-<td>File kind identifier (e.x. <code class="prettyprint">offer_default</code>), see <a href="#v3-file-kinds">Standard file kinds</a></td>
-</tr>
-<tr>
-<td>size_type</td>
-<td>string</td>
-<td>e.x. <code class="prettyprint">base</code>, see: <a href="#v3-file-sizes">File sizes</a></td>
-</tr>
-</tbody></table>
-
-<h3 id="file-schema"><a name="v3-file-schema"></a> File schema</h3>
-
-<p>File schema defines a list of files kinds available in the Loyalty club. 
-Each file kind is also available in multiple sizes. </p>
-
-<p>The schema may get retrieved with <a href="#v3-get-file-schema">Files&bull; Get schema</a> endpoint.</p>
-
-<blockquote>
-<p>Example loyalty club file schema</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"files_kinds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"collection_cover_default"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IMAGE"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"ratio"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2:1"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"sizes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"base"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"min_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"min_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"max_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"max_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"thumbnail"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"min_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"min_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">150</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"max_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"max_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">150</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"original"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"min_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"min_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"max_width"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"max_height"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">]</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"offer_default"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IMAGE"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"ratio"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3:4"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"sizes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"base"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"min_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"min_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">800</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"max_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"max_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">800</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"thumbnail"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"min_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">225</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"min_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"max_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">225</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"max_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"original"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"min_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"min_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">800</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"max_width"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"max_height"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">]</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"reward_default"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IMAGE"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"ratio"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3:4"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"sizes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"base"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"min_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"min_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">800</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"max_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"max_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">800</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"thumbnail"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"min_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">225</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"min_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"max_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">225</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"max_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"original"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"min_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"min_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">800</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"max_width"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"max_height"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">]</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example_without_ratio"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IMAGE"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"ratio"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"sizes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"base"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"min_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"min_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"max_width"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"max_height"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"thumbnail"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"min_width"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"min_height"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"max_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"max_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"original"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"min_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"min_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"max_width"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"max_height"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">]</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<h3 id="file-kind-model"><a name="v3-file-kind-model"></a> File kind model</h3>
-
-<table><thead>
-<tr>
-<th>Key</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>identifier</td>
-<td>string</td>
-<td>See: <a href="#v3-file-kinds">Standard file kinds</a></td>
-</tr>
-<tr>
-<td>type</td>
-<td>string</td>
-<td>Currently, only <code class="prettyprint">IMAGE</code> (MIME: <code class="prettyprint">image/gif</code>, <code class="prettyprint">image/jpeg</code>, <code class="prettyprint">image/png</code>) is supported</td>
-</tr>
-<tr>
-<td>ratio</td>
-<td>string</td>
-<td>Describes ratio of an image. See: <a href="#v3-file-kind-ratio">Ratio</a> (optional)</td>
-</tr>
-<tr>
-<td>sizes</td>
-<td>Array<Object></td>
-<td>See: <a href="#v3-file-sizes">File sizes</a></td>
-</tr>
-<tr>
-<td>sizes[][&lsquo;identifier&rsquo;]</td>
-<td>string</td>
-<td></td>
-</tr>
-<tr>
-<td>sizes[][&lsquo;min_width&rsquo;]</td>
-<td>integer</td>
-<td>(optional)</td>
-</tr>
-<tr>
-<td>sizes[][&lsquo;min_height&rsquo;]</td>
-<td>integer</td>
-<td>(optional)</td>
-</tr>
-<tr>
-<td>sizes[][&lsquo;max_width&rsquo;]</td>
-<td>integer</td>
-<td>(optional)</td>
-</tr>
-<tr>
-<td>sizes[][&lsquo;max_height&rsquo;]</td>
-<td>integer</td>
-<td>(optional)</td>
-</tr>
-</tbody></table>
-
-<h3 id="standard-file-kinds"><a name="v3-file-kinds"></a> Standard file kinds</h3>
-
-<p>There are some standard file kinds, their size definitions differ among Loyalty Clubs.</p>
-
-<table><thead>
-<tr>
-<th>Identifier</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code class="prettyprint">collection_cover_default</code></td>
-<td>Cover for Offer collections</td>
-</tr>
-<tr>
-<td><code class="prettyprint">offer_default</code></td>
-<td>Default Offer image</td>
-</tr>
-<tr>
-<td><code class="prettyprint">reward_default</code></td>
-<td>Default Reward image</td>
-</tr>
-</tbody></table>
-
-<h3 id="ratio"><a name="v3-file-kind-ratio"></a> Ratio</h3>
-
-<p>Images may have fixed proportions ratio which is represented as a string: <code class="prettyprint">&quot;&lt;width&gt;:&lt;height&gt;&quot;</code></p>
-
-<h3 id="file-sizes"><a name="v3-file-sizes"></a> File sizes</h3>
-
-<p>Every file has at least three file sizes available: </p>
-
-<h4 id="base"><code class="prettyprint">base</code></h4>
-
-<p>Actual file size. Currently all file kinds have this size with fixed proportions (so <code class="prettyprint">min_*</code> == <code class="prettyprint">max_*</code>) that match the ratio.</p>
-
-<h4 id="thumbnail"><code class="prettyprint">thumbnail</code></h4>
-
-<p>Rescaled version of <code class="prettyprint">base</code> size. Currently, rescaling always works this way:</p>
-
-<ul>
-<li>pick the higher dimension of file</li>
-<li>shrink the image so:
-
-<ul>
-<li>the higher dimension gets shrunk to <code class="prettyprint">300px</code></li>
-<li>the lower dimensions gets shrunk so the image keeps the original ratio</li>
-</ul></li>
-</ul>
-
-<p>Examples:</p>
-
-<ul>
-<li>File with resolution <code class="prettyprint">600x800</code> gets shrunk down to <code class="prettyprint">225x300</code></li>
-<li>File with resolution <code class="prettyprint">800x600</code> gets shrunk down to <code class="prettyprint">300x225</code></li>
-<li>File with resolution <code class="prettyprint">400x300</code> gets shrunk down to <code class="prettyprint">300x225</code></li>
-<li>File with resolution <code class="prettyprint">400x200</code> gets shrunk down to <code class="prettyprint">300x150</code></li>
-<li>File with resolution <code class="prettyprint">300x250</code> is not shrunk down</li>
-</ul>
-
-<h4 id="original"><code class="prettyprint">original</code></h4>
-
-<p>Original file that that has been uploaded and used for generating other file sizes.</p>
-
-<p>Currently, we require all original files to have proper ratios and minimum sizes of at least the <code class="prettyprint">base</code> size.
-Because of that, you can expect them to have <code class="prettyprint">min_height</code> and <code class="prettyprint">min_width</code> that match the <code class="prettyprint">base</code> size, 
-but they never have <code class="prettyprint">max_width</code> or <code class="prettyprint">max_height</code> defined.</p>
-
-<h3 id="file-cropping"><a name="v3-file-cropping"></a> File cropping</h3>
-
-<blockquote>
-<p><code class="prettyprint">crop_to</code> param interpretation may be visualized like this:</p>
-</blockquote>
-<pre class="highlight plaintext"><code>
-                           x_top_left     x_bottom_right
-                    |-------------------------------------
-                    | ..........................
-                    | ..........................
-     y_top_left     | .....*---------------.....
-                    | .....|..............|.....
-                    | .....|..............|.....
-                    | .....|..............|....
-     y_bottom_right | .....---------------*.....
-                    | ..........................
-                    |
-
-</code></pre>
-<p>When file is uploaded and it&rsquo;s too large to match the required base size, it may get cropped.
-This can be achieved by providing cropping param (<code class="prettyprint">crop_to</code>).</p>
-
-<p>The param has following syntax: <code class="prettyprint">x_top_left,y_top_left,x_bottom_right,y_bottom_right</code> and represents boundaries of a cropping area. </p>
-
-<p>When uploaded file is too large and <code class="prettyprint">crop_to</code> param is not provided, the file will be automatically cropped with gravity set in center of image.</p>
-
-<h4 id="example">Example</h4>
-
-<p>The kind&rsquo;s base size is 400x200px and the uploaded file is 1000x1000px. </p>
-
-<p>With crop_to=&ldquo;0,250,1000,750&rdquo;, a rectangle of &ldquo;1000x500&rdquo; size will be cropped, with 250px left offset.
-The file will be then also resized to 400x200.</p>
-
-<h3 id="uploaded-instances-projections"><a name="v3-projected-file-versions"></a> Uploaded instances projections</h3>
-
-<p>When file is uploaded, only original file is physically processed and stored. <code class="prettyprint">base</code> and other versions are processed asynchronously. 
-So, the responses returned on upload contains only &ldquo;projected&rdquo; info about files.</p>
-
-<table><thead>
-<tr>
-<th>Key</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>size_type</td>
-<td>string</td>
-<td></td>
-</tr>
-<tr>
-<td>url</td>
-<td>string</td>
-<td>An URL the file be available on <strong>after</strong> it gets processed.</td>
-</tr>
-<tr>
-<td>min_width</td>
-<td>integer</td>
-<td></td>
-</tr>
-<tr>
-<td>max_width</td>
-<td>integer</td>
-<td></td>
-</tr>
-<tr>
-<td>min_height</td>
-<td>integer</td>
-<td></td>
-</tr>
-<tr>
-<td>max_height</td>
-<td>integer</td>
-<td></td>
-</tr>
-</tbody></table>
-
-<h2 id="get-file-schema"><a name="v3-get-file-schema"></a> Get file schema</h2>
-
-<blockquote>
-<p>Example request</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/files/schema"</span> <span class="se">\</span>
-  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
-  -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
-  -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
-  -H <span class="s1">'X-User-Agent: CURL manual test'</span>
-</code></pre>
-<blockquote>
-<p>Returns the schema as described <a href="#v3-file-schema">here</a></p>
-</blockquote>
-
-<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/files/schema</code></p>
-
-<p>Returns the Loyalty Club file schema. See: <a href="#v3-file-schema">Files &bull; Schema</a></p>
-
-<aside class="notice">
-Requires <code>Files:Api:GetSchema</code> permit
-</aside>
-
-<h2 id="create-file"><a name="v3-create-file"></a> Create file</h2>
-
-<blockquote>
-<p>Example request</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
-  https://bpc-api.boostcom.no/v3/infinity-mall/files/offers/1000289/offer_default <span class="se">\</span>
-  -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
-  -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
-  -H <span class="s1">'X-User-Agent: CURL manual test'</span> <span class="se">\</span>
-  -H <span class="s1">'Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW'</span> <span class="se">\</span>
-  -F <span class="nv">file</span><span class="o">=</span>@some_file.png <span class="se">\</span>
-  -F <span class="s1">'crop_to=256,256,856,1056'</span>
-
-</code></pre>
-<blockquote>
-<p>Returns info about uploaded file and it&rsquo;s projected versions</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"original"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"size_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"original"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://offers-api.s3.eu-central-1.amazonaws.com/offer-1000289-offer_default-original.png"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"file_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IMAGE"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">1024</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">1024</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"offer_default"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"projected_versions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"size_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"base"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://offers-api.s3.eu-central-1.amazonaws.com/offer-1000289-offer_default-base.png"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"min_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"min_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">800</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"max_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"max_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">800</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"size_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"thumbnail"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://offers-api.s3.eu-central-1.amazonaws.com/offer-1000289-offer_default-thumbnail.png"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"min_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">225</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"min_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"max_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">225</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"max_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p><strong>POST</strong> <code class="prettyprint">v3/:loyalty_club_slug/files/:fileable_type/:fileable_id/kind</code></p>
-
-<p>Creates new file for given Fileable (e.g. Offer).</p>
-
-<h3 id="url-parameters"><a name="v3-create-file-url-parameters"></a> URL Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>fileable_type</td>
-<td>enum: <code class="prettyprint">[&#39;offers&#39;, &#39;collections&#39;]</code></td>
-<td></td>
-</tr>
-<tr>
-<td>fileable_id</td>
-<td>integer</td>
-<td></td>
-</tr>
-<tr>
-<td>kind</td>
-<td>enum</td>
-<td>see <a href="#v3-file-kinds">Standard file kinds</a></td>
-</tr>
-</tbody></table>
-
-<h3 id="post-parameters"><a name="v3-create-file-post-parameters"></a> POST Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Required?</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>file</td>
-<td>binary</td>
-<td>yes</td>
-<td>File to upload</td>
-</tr>
-<tr>
-<td>crop_to</td>
-<td>string</td>
-<td>no</td>
-<td>See: <a href="#v3-file-cropping">cropping</a></td>
-</tr>
-</tbody></table>
-
-<h3 id="response-json-object"><a name="v3-create-file-response"></a> Response (JSON object)</h3>
-
-<table><thead>
-<tr>
-<th>Key</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>original</td>
-<td>File</td>
-<td>See <a href="#v3-file-model">File model</a></td>
-</tr>
-<tr>
-<td>projected_versions</td>
-<td>ProjectedVersion[]</td>
-<td>See <a href="#v3-projected-file-versions">Projected file versions</a></td>
-</tr>
-</tbody></table>
-
-<h3 id="error-responses">Error responses</h3>
-
-<table><thead>
-<tr>
-<th>Status</th>
-<th>Reason</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code class="prettyprint">404</code></td>
-<td>The Fileable does not exist</td>
-</tr>
-<tr>
-<td><code class="prettyprint">422</code></td>
-<td>Invalid parameters</td>
-</tr>
-</tbody></table>
-
-<aside class="notice">
-Requires <code>Files:Api:Create</code> permit
-</aside>
-
-<h2 id="update-file"><a name="v3-update-file"></a> Update file</h2>
-
-<blockquote>
-<p>Example request</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X PUT <span class="se">\</span>
-  https://bpc-api.boostcom.no/v3/infinity-mall/files/offers/1000289/offer_default <span class="se">\</span>
-  -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
-  -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
-  -H <span class="s1">'X-User-Agent: CURL manual test'</span> <span class="se">\</span>
-  -H <span class="s1">'Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW'</span> <span class="se">\</span>
-  -F <span class="nv">file</span><span class="o">=</span>@some_file.png <span class="se">\</span>
-  -F <span class="s1">'crop_to=256,256,856,1056'</span>
-
-</code></pre>
-<blockquote>
-<p>When successful (200), Returns info about uploaded file. Same as <a href="#v3-create-file">Create file</a> example response</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="err">//</span><span class="w"> </span><span class="err">(...)</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="s2">"Create file"</span><span class="w"> </span><span class="err">example</span><span class="w"> </span><span class="err">response</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p><strong>PUT</strong> <code class="prettyprint">v3/:loyalty_club_slug/files/:fileable_type/:fileable_id/kind</code></p>
-
-<p>Updates file for given Fileable (e.g. Offer).</p>
-
-<h3 id="url-parameters">URL Parameters</h3>
-
-<p>See: <a href="#v3-create-file-url-parameters">Create File URL Parameters</a></p>
-
-<h3 id="post-parameters">POST Parameters</h3>
-
-<p>See: <a href="#v3-create-file-post-parameters">Create File POST Parameters</a></p>
-
-<h3 id="response-json-object">Response (JSON object)</h3>
-
-<p>See: <a href="#v3-create-file-response">Create File Response</a></p>
-
-<h3 id="error-responses">Error responses</h3>
-
-<table><thead>
-<tr>
-<th>Status</th>
-<th>Reason</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code class="prettyprint">404</code></td>
-<td>Fileable not found</td>
-</tr>
-<tr>
-<td><code class="prettyprint">404</code></td>
-<td>File not found</td>
-</tr>
-<tr>
-<td><code class="prettyprint">422</code></td>
-<td>Invalid parameters</td>
-</tr>
-</tbody></table>
-
-<aside class="notice">
-Requires <code>Files:Api:Update</code> permit
-</aside>
-
-<h2 id="reprocess-file"><a name="v3-reprocess-file"></a> Reprocess file</h2>
-
-<blockquote>
-<p>Example request</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X PUT <span class="se">\</span>
-  https://bpc-api.boostcom.no/v3/infinity-mall/files/offers/1000289/offer_default/reprocess <span class="se">\</span>
-  -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
-  -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
-  -H <span class="s1">'X-User-Agent: CURL manual test'</span> <span class="se">\</span>
-  -H <span class="s1">'Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW'</span> <span class="se">\</span>
-  -F <span class="s1">'crop_to=256,256,856,1056'</span>
-
-</code></pre>
-<blockquote>
-<p>When successful (200), Returns info about uploaded file. Same as <a href="#v3-create-file">Create file</a> example response</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="err">//</span><span class="w"> </span><span class="err">(...)</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="s2">"Create file"</span><span class="w"> </span><span class="err">example</span><span class="w"> </span><span class="err">response</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p><strong>PUT</strong> <code class="prettyprint">v3/:loyalty_club_slug/files/:fileable_type/:fileable_id/kind/reprocess</code></p>
-
-<p>Reprocesses file for given Fileable (e.g. Offer).
-It means that no file needs to be uploaded, instead the original file will be reprocessed according to given parameters. </p>
-
-<h3 id="url-parameters">URL Parameters</h3>
-
-<p>See: <a href="#v3-create-file-url-parameters">Create File URL Parameters</a></p>
-
-<h3 id="post-parameters">POST Parameters</h3>
-
-<p>See: <a href="#v3-create-file-post-parameters">Create File POST Parameters</a> - except no <code class="prettyprint">file</code> param is accepted here</p>
-
-<h3 id="response-json-object">Response (JSON object)</h3>
-
-<p>See: <a href="#v3-create-file-response">Create File Response</a></p>
-
-<h3 id="error-responses">Error responses</h3>
-
-<table><thead>
-<tr>
-<th>Status</th>
-<th>Reason</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code class="prettyprint">404</code></td>
-<td>Fileable not found</td>
-</tr>
-<tr>
-<td><code class="prettyprint">404</code></td>
-<td>File not found</td>
-</tr>
-<tr>
-<td><code class="prettyprint">422</code></td>
-<td>Invalid parameters</td>
-</tr>
-</tbody></table>
-
-<aside class="notice">
-Requires <code>Files:Api:Reprocess</code> permit
-</aside>
-
-<h2 id="delete-file"><a name="v3-delete-file"></a> Delete file</h2>
-
-<blockquote>
-<p>Example request</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X DELETE <span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/files/offers/1000289/offer_default </span><span class="se">\</span><span class="s2">
-  -H 'Content-Type: application/json' </span><span class="se">\</span><span class="s2">
-  -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' </span><span class="se">\</span><span class="s2">
-  -H 'X-Product-Name: default' </span><span class="se">\</span><span class="s2">
-  -H 'X-User-Agent: CURL manual test'
-</span></code></pre>
-<blockquote>
-<p>When successful (200), returns an empty object</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="err">//</span><span class="w"> </span><span class="err">Empty</span><span class="w"> </span><span class="err">object</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p><strong>DELETE</strong> <code class="prettyprint">v3/:loyalty_club_slug/files/:fileable_type/:fileable_id/kind</code></p>
-
-<p>Deletes file of given Fileable (e.g. Offer).</p>
-
-<h3 id="url-parameters">URL Parameters</h3>
-
-<p>See: <a href="#v3-create-file-url-parameters">Create File URL Parameters</a></p>
-
-<h3 id="error-responses">Error responses</h3>
-
-<table><thead>
-<tr>
-<th>Status</th>
-<th>Reason</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code class="prettyprint">404</code></td>
-<td>Fileable not found</td>
-</tr>
-<tr>
-<td><code class="prettyprint">404</code></td>
-<td>File not found</td>
-</tr>
-</tbody></table>
-
-<aside class="notice">
-Requires <code>Files:Api:Delete</code> permit
-</aside>
-
-          <h1 id="links">Links</h1>
-
-<h2 id="generate-link"><a name="v3-links-generate"></a> Generate link</h2>
-
-<blockquote>
-<p>Example:</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
-<span class="s2">"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/links/offer_page/generate"</span> <span class="se">\</span>
-    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
-    -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
-    -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
-    -H <span class="s1">'X-User-Agent: CURL manual test'</span>
-    -d <span class="se">\</span>
-    <span class="s1">'{
-        "link_params": {
-            "offer_id": 1000487
-        }
-    }'</span>
-</code></pre>
-<blockquote>
-<p>When successful (200), returns a generated link</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://member.dev.bstcm.no/infinity-mall/offers/1000487"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p><strong>POST</strong> <code class="prettyprint">v3/:loyalty_club_slug/links/(:link_slug)/generate</code></p>
-
-<p>Returns a link to given functionality in MPC, so it may be reached by member.</p>
-
-<p>The returned link is generated in a &ldquo;universal&rdquo; form: it points to our Webforms, but it will be captured by mobile app if 
-it&rsquo;s installed on member system.</p>
-
-<p>A list of possible links depends on Loyalty Club configuration. 
-An MPC API endpoint for returning it may be implemented in future.     </p>
-
-<h3 id="url-parameters">URL Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>link_slug</td>
-<td>string</td>
-<td>A slug that identifies the link to generate</td>
-</tr>
-</tbody></table>
-
-<h3 id="post-parameters-json-object">POST Parameters (JSON object)</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>link_params</td>
-<td>Object</td>
-<td>Params for link generation dependent on specific link definition</td>
-</tr>
-</tbody></table>
-
-<h3 id="response-json-object">Response (JSON object)</h3>
-
-<table><thead>
-<tr>
-<th>Key</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>url</td>
-<td>String</td>
-<td>The generated link</td>
-</tr>
-</tbody></table>
-
-<h3 id="error-responses">Error responses</h3>
-
-<table><thead>
-<tr>
-<th>Status</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code class="prettyprint">404</code></td>
-<td>Link could not be found</td>
-</tr>
-<tr>
-<td><code class="prettyprint">422</code></td>
-<td>Invalid parameters</td>
-</tr>
-</tbody></table>
-
-<aside class="notice">
-    Requires <code>BL:Api:Links:Generate</code> permit
-</aside> 
 
           <h1 id="stores">Stores</h1>
 
@@ -12328,275 +11787,825 @@ Requires <code>Events:Api:Invitation:Create</code> permit
 </tr>
 </tbody></table>
 
-          <h1 id="members-webhooks">Members Webhooks</h1>
+          <h1 id="files">Files</h1>
 
-<p>A Loyalty Club may be configured to send notifications (as HTTP POST requests) when a change occurs within its member 
-database (e.g. when member registers).</p>
+<h2 id="general-info">General info</h2>
 
-<p>If you wish to configure a Loyalty Club to have such notifications enabled, please contact us us.
-You will need to provide us a HTTPS (for security reasons, we don&rsquo;t support HTTP) URL that notifications will
-be sent to.</p>
+<h3 id="file-model"><a name="v3-file-model"></a> File model</h3>
 
-<h2 id="subscription">Subscription</h2>
-
-<p>As it is possible to have multiple endpoints configured for receiving notifications in one Loyalty Club, for each 
-endpoint we setup a Subscription.</p>
-
-<p>Each Subscription has its own Secret Token (see below) and may be configured to send notifications only on specific 
-changes (<code class="prettyprint">import</code>, <code class="prettyprint">update</code>, <code class="prettyprint">delete</code>).</p>
-
-<h2 id="authentication-token">Authentication token</h2>
-
-<p>Each notification request is signed with <code class="prettyprint">X-Secret-Token</code> header that contains Secret Token configured for given 
-Subscription.</p>
-
-<p>In order to assure that notifications you receive are sent from us, you should check if its value matches 
-the Secret Token that you received from us when the subscription has been set up.</p>
-
-<h2 id="notifications-format">Notifications format</h2>
-
-<p>Currently, notifications are generated in two versions. 
-Version 1 is deprecated and new subscriptions are going to be configured to receive v2 notifications.</p>
-
-<h3 id="notifications-v2">Notifications v2</h3>
-
-<blockquote>
-<p>Example for v2</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"events"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"event"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"update"</span><span class="p">,</span><span class="w"> </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-05T14:31:15.520Z"</span><span class="w"> </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"loyalty_club"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">32</span><span class="p">,</span><span class="w"> </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"infinity-mall"</span><span class="w"> </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"member"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11256</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"person_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">89103</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"msisdn"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john@example.com"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span><span class="w"> </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Doe"</span><span class="p">,</span><span class="w"> </span><span class="s2">"zip_code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"consents"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"sms_marketing"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-21T10:23:34.982Z"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">},</span><span class="w">
-          </span><span class="s2">"email_marketing"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-05T14:31:15.520Z"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">}</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"sms_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"verified"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"email_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"enabled"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"push_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"disabled"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"optin_channel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ios"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"optin_subchannel"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-21T10:23:34.982Z"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-05T14:31:15.520Z"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"member_changes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"msisdn"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-"</span><span class="p">,</span><span class="w"> </span><span class="s2">"was"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4740769126"</span><span class="p">,</span><span class="w"> </span><span class="s2">"is"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+"</span><span class="p">,</span><span class="w"> </span><span class="s2">"was"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="s2">"is"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john@example.com"</span><span class="w"> </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"sms_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"~"</span><span class="p">,</span><span class="w"> </span><span class="s2">"was"</span><span class="p">:</span><span class="w"> </span><span class="s2">"enabled"</span><span class="p">,</span><span class="w"> </span><span class="s2">"is"</span><span class="p">:</span><span class="w"> </span><span class="s2">"verified"</span><span class="w"> </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"push_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"~"</span><span class="p">,</span><span class="w"> </span><span class="s2">"was"</span><span class="p">:</span><span class="w"> </span><span class="s2">"enabled"</span><span class="p">,</span><span class="w"> </span><span class="s2">"is"</span><span class="p">:</span><span class="w"> </span><span class="s2">"disabled"</span><span class="w"> </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"~"</span><span class="p">,</span><span class="w"> </span><span class="s2">"was"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mark"</span><span class="p">,</span><span class="w"> </span><span class="s2">"is"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="w"> </span><span class="p">},</span><span class="w">
-          </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+"</span><span class="p">,</span><span class="w"> </span><span class="s2">"was"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">  </span><span class="s2">"is"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Doe"</span><span class="w"> </span><span class="p">},</span><span class="w">
-          </span><span class="s2">"zip_code"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-"</span><span class="p">,</span><span class="w"> </span><span class="s2">"was"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3300"</span><span class="p">,</span><span class="w"> </span><span class="s2">"is"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="p">}</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"consents"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"sms_marketing"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"~"</span><span class="p">,</span><span class="w"> </span><span class="s2">"was"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="s2">"is"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>Each change in the <code class="prettyprint">events</code> array consists of following objects:</p>
+<p>Every file attached to some entity (Offer, Reward, Offer Collection) follows the file schema and is defined like this:</p>
 
 <table><thead>
 <tr>
-<th>Name</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>event</td>
-<td>See <a href="#v2-event">Event model</a></td>
-</tr>
-<tr>
-<td>loyalty_club</td>
-<td>Information about member&rsquo;s Loyalty Club - it&rsquo;s ID and slug.</td>
-</tr>
-<tr>
-<td>member</td>
-<td>Member attributes after the event - See <a href="https://docs.loyalty.boostcom.no/bl-api/v3/#member-json-model">Member JSON model</a>. For <code class="prettyprint">delete</code> events it contains only <code class="prettyprint">id</code> and <code class="prettyprint">person_id</code></td>
-</tr>
-<tr>
-<td>member_changes</td>
-<td>See <a href="#v2-event">Event model</a>. It&rsquo;s empty for <code class="prettyprint">delete</code> events</td>
-</tr>
-</tbody></table>
-
-<h4 id="event-model"><a name="v2-event"></a> Event model</h4>
-
-<p>Contains meta information about the change event. </p>
-
-<table><thead>
-<tr>
-<th>Attribute</th>
+<th>Key</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>url</td>
+<td>URL</td>
+<td>Link to the file</td>
+</tr>
+<tr>
+<td>width</td>
+<td>integer</td>
+<td>Image width</td>
+</tr>
+<tr>
+<td>height</td>
+<td>integer</td>
+<td>Image height</td>
+</tr>
+<tr>
+<td>kind</td>
+<td>string</td>
+<td>File kind identifier (e.x. <code class="prettyprint">offer_default</code>), see <a href="#v3-file-kinds">Standard file kinds</a></td>
+</tr>
+<tr>
+<td>size_type</td>
+<td>string</td>
+<td>e.x. <code class="prettyprint">base</code>, see: <a href="#v3-file-sizes">File sizes</a></td>
+</tr>
+</tbody></table>
+
+<h3 id="file-schema"><a name="v3-file-schema"></a> File schema</h3>
+
+<p>File schema defines a list of files kinds available in the Loyalty club. 
+Each file kind is also available in multiple sizes. </p>
+
+<p>The schema may get retrieved with <a href="#v3-get-file-schema">Files&bull; Get schema</a> endpoint.</p>
+
+<blockquote>
+<p>Example loyalty club file schema</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"files_kinds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"collection_cover_default"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IMAGE"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ratio"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2:1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"sizes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"base"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"min_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"min_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"max_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"max_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"thumbnail"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"min_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"min_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">150</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"max_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"max_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">150</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"original"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"min_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"min_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"max_width"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"max_height"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"offer_default"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IMAGE"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ratio"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3:4"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"sizes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"base"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"min_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"min_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">800</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"max_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"max_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">800</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"thumbnail"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"min_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">225</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"min_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"max_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">225</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"max_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"original"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"min_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"min_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">800</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"max_width"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"max_height"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"reward_default"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IMAGE"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ratio"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3:4"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"sizes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"base"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"min_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"min_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">800</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"max_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"max_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">800</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"thumbnail"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"min_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">225</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"min_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"max_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">225</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"max_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"original"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"min_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"min_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">800</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"max_width"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"max_height"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example_without_ratio"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IMAGE"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ratio"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"sizes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"base"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"min_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"min_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"max_width"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"max_height"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"thumbnail"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"min_width"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"min_height"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"max_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"max_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"original"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"min_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"min_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"max_width"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"max_height"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h3 id="file-kind-model"><a name="v3-file-kind-model"></a> File kind model</h3>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>identifier</td>
+<td>string</td>
+<td>See: <a href="#v3-file-kinds">Standard file kinds</a></td>
+</tr>
 <tr>
 <td>type</td>
-<td><code class="prettyprint">import</code>, <code class="prettyprint">update</code>, or <code class="prettyprint">delete</code></td>
-<td>A type of the change event</td>
+<td>string</td>
+<td>Currently, only <code class="prettyprint">IMAGE</code> (MIME: <code class="prettyprint">image/gif</code>, <code class="prettyprint">image/jpeg</code>, <code class="prettyprint">image/png</code>) is supported</td>
 </tr>
 <tr>
-<td>date</td>
-<td>Date</td>
-<td>When the event occurred</td>
+<td>ratio</td>
+<td>string</td>
+<td>Describes ratio of an image. See: <a href="#v3-file-kind-ratio">Ratio</a> (optional)</td>
+</tr>
+<tr>
+<td>sizes</td>
+<td>Array<Object></td>
+<td>See: <a href="#v3-file-sizes">File sizes</a></td>
+</tr>
+<tr>
+<td>sizes[][&lsquo;identifier&rsquo;]</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>sizes[][&lsquo;min_width&rsquo;]</td>
+<td>integer</td>
+<td>(optional)</td>
+</tr>
+<tr>
+<td>sizes[][&lsquo;min_height&rsquo;]</td>
+<td>integer</td>
+<td>(optional)</td>
+</tr>
+<tr>
+<td>sizes[][&lsquo;max_width&rsquo;]</td>
+<td>integer</td>
+<td>(optional)</td>
+</tr>
+<tr>
+<td>sizes[][&lsquo;max_height&rsquo;]</td>
+<td>integer</td>
+<td>(optional)</td>
 </tr>
 </tbody></table>
 
-<h4 id="changes-object"><a name="v2-changes"></a> Changes object</h4>
+<h3 id="standard-file-kinds"><a name="v3-file-kinds"></a> Standard file kinds</h3>
 
-<p>Represents changes that happened to member within the event. Includes only properties that have been actually changed
-within the event.</p>
+<p>There are some standard file kinds, their size definitions differ among Loyalty Clubs.</p>
 
-<p>Changes object may contain following fields:</p>
+<table><thead>
+<tr>
+<th>Identifier</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">collection_cover_default</code></td>
+<td>Cover for Offer collections</td>
+</tr>
+<tr>
+<td><code class="prettyprint">offer_default</code></td>
+<td>Default Offer image</td>
+</tr>
+<tr>
+<td><code class="prettyprint">reward_default</code></td>
+<td>Default Reward image</td>
+</tr>
+</tbody></table>
+
+<h3 id="ratio"><a name="v3-file-kind-ratio"></a> Ratio</h3>
+
+<p>Images may have fixed proportions ratio which is represented as a string: <code class="prettyprint">&quot;&lt;width&gt;:&lt;height&gt;&quot;</code></p>
+
+<h3 id="file-sizes"><a name="v3-file-sizes"></a> File sizes</h3>
+
+<p>Every file has at least three file sizes available: </p>
+
+<h4 id="base"><code class="prettyprint">base</code></h4>
+
+<p>Actual file size. Currently all file kinds have this size with fixed proportions (so <code class="prettyprint">min_*</code> == <code class="prettyprint">max_*</code>) that match the ratio.</p>
+
+<h4 id="thumbnail"><code class="prettyprint">thumbnail</code></h4>
+
+<p>Rescaled version of <code class="prettyprint">base</code> size. Currently, rescaling always works this way:</p>
 
 <ul>
-<li><code class="prettyprint">msisdn</code></li>
-<li><code class="prettyprint">email</code></li>
-<li><code class="prettyprint">sms_status</code></li>
-<li><code class="prettyprint">email_status</code></li>
-<li><code class="prettyprint">push_status</code></li>
-<li><code class="prettyprint">optin_channel</code></li>
-<li><code class="prettyprint">optin_subchannel</code></li>
-<li><code class="prettyprint">consents</code>, which contains changes for consents </li>
-<li><code class="prettyprint">properties</code>, which contains changes for properties</li>
+<li>pick the higher dimension of file</li>
+<li>shrink the image so:
+
+<ul>
+<li>the higher dimension gets shrunk to <code class="prettyprint">300px</code></li>
+<li>the lower dimensions gets shrunk so the image keeps the original ratio</li>
+</ul></li>
 </ul>
 
-<p>Each change consists of three fields:</p>
+<p>Examples:</p>
 
-<table><thead>
-<tr>
-<th>Attribute</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>change</td>
-<td><code class="prettyprint">~</code>, <code class="prettyprint">+</code> or <code class="prettyprint">-</code></td>
-<td>Whether the property has been changed (<code class="prettyprint">~</code>), added (<code class="prettyprint">+</code>) or removed (<code class="prettyprint">-</code>)</td>
-</tr>
-<tr>
-<td>before</td>
-<td>mixed</td>
-<td>The value of property before the change</td>
-</tr>
-<tr>
-<td>after</td>
-<td>mixed</td>
-<td>The value of property after the change</td>
-</tr>
-</tbody></table>
+<ul>
+<li>File with resolution <code class="prettyprint">600x800</code> gets shrunk down to <code class="prettyprint">225x300</code></li>
+<li>File with resolution <code class="prettyprint">800x600</code> gets shrunk down to <code class="prettyprint">300x225</code></li>
+<li>File with resolution <code class="prettyprint">400x300</code> gets shrunk down to <code class="prettyprint">300x225</code></li>
+<li>File with resolution <code class="prettyprint">400x200</code> gets shrunk down to <code class="prettyprint">300x150</code></li>
+<li>File with resolution <code class="prettyprint">300x250</code> is not shrunk down</li>
+</ul>
 
-<h3 id="notifications-v1-deprecated">Notifications v1 (deprecated)</h3>
+<h4 id="original"><code class="prettyprint">original</code></h4>
+
+<p>Original file that that has been uploaded and used for generating other file sizes.</p>
+
+<p>Currently, we require all original files to have proper ratios and minimum sizes of at least the <code class="prettyprint">base</code> size.
+Because of that, you can expect them to have <code class="prettyprint">min_height</code> and <code class="prettyprint">min_width</code> that match the <code class="prettyprint">base</code> size, 
+but they never have <code class="prettyprint">max_width</code> or <code class="prettyprint">max_height</code> defined.</p>
+
+<h3 id="file-cropping"><a name="v3-file-cropping"></a> File cropping</h3>
 
 <blockquote>
-<p>Example for v1</p>
+<p><code class="prettyprint">crop_to</code> param interpretation may be visualized like this:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"bulk"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"customer_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Infinity Mall"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">447</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"event_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"update"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">44882174</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"birthday"</span><span class="p">:{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"string"</span><span class="p">,</span><span class="s2">"value"</span><span class="p">:</span><span class="s2">"1990-01-01"</span><span class="w"> </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"woman"</span><span class="w"> </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"language"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"en"</span><span class="w"> </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="w"> </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Doe"</span><span class="w"> </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"optin_channel"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"webforms"</span><span class="w"> </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"msisdn"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4740769126"</span><span class="w"> </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"j.doe@example.com"</span><span class="w"> </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"sms_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"verified"</span><span class="w"> </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"email_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unsubscribed"</span><span class="w"> </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"push_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"enabled"</span><span class="w"> </span><span class="p">}</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"consents"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"dmp_profiling"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"sms_marketing"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"email_marketing"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"custom_consent"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-28T08:34:59.231Z"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"optin_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-24T11:23:41.231Z"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>Each change in the <code class="prettyprint">bulk</code> is identified by following attributes:</p>
+<pre class="highlight plaintext"><code>
+                           x_top_left     x_bottom_right
+                    |-------------------------------------
+                    | ..........................
+                    | ..........................
+     y_top_left     | .....*---------------.....
+                    | .....|..............|.....
+                    | .....|..............|.....
+                    | .....|..............|....
+     y_bottom_right | .....---------------*.....
+                    | ..........................
+                    |
+
+</code></pre>
+<p>When file is uploaded and it&rsquo;s too large to match the required base size, it may get cropped.
+This can be achieved by providing cropping param (<code class="prettyprint">crop_to</code>).</p>
+
+<p>The param has following syntax: <code class="prettyprint">x_top_left,y_top_left,x_bottom_right,y_bottom_right</code> and represents boundaries of a cropping area. </p>
+
+<p>When uploaded file is too large and <code class="prettyprint">crop_to</code> param is not provided, the file will be automatically cropped with gravity set in center of image.</p>
+
+<h4 id="example">Example</h4>
+
+<p>The kind&rsquo;s base size is 400x200px and the uploaded file is 1000x1000px. </p>
+
+<p>With crop_to=&ldquo;0,250,1000,750&rdquo;, a rectangle of &ldquo;1000x500&rdquo; size will be cropped, with 250px left offset.
+The file will be then also resized to 400x200.</p>
+
+<h3 id="uploaded-instances-projections"><a name="v3-projected-file-versions"></a> Uploaded instances projections</h3>
+
+<p>When file is uploaded, only original file is physically processed and stored. <code class="prettyprint">base</code> and other versions are processed asynchronously. 
+So, the responses returned on upload contains only &ldquo;projected&rdquo; info about files.</p>
 
 <table><thead>
 <tr>
-<th>Attribute</th>
+<th>Key</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>customer_name</td>
-<td>String</td>
-<td>Name of Loyalty Club</td>
+<td>size_type</td>
+<td>string</td>
+<td></td>
 </tr>
 <tr>
-<td>customer_id</td>
-<td>Integer</td>
-<td>ID of Loyalty Club</td>
+<td>url</td>
+<td>string</td>
+<td>An URL the file be available on <strong>after</strong> it gets processed.</td>
 </tr>
 <tr>
-<td>event_type</td>
-<td><code class="prettyprint">import</code>, <code class="prettyprint">update</code>, or <code class="prettyprint">delete</code></td>
-<td>A type of the change</td>
+<td>min_width</td>
+<td>integer</td>
+<td></td>
 </tr>
 <tr>
-<td>external_id</td>
-<td>Integer</td>
-<td>ID of member</td>
+<td>max_width</td>
+<td>integer</td>
+<td></td>
 </tr>
 <tr>
-<td>properties</td>
-<td>Object</td>
-<td>Member properties. Each of them has a <code class="prettyprint">type &lt;String&gt;</code> and <code class="prettyprint">value &lt;String&gt;</code>. When <code class="prettyprint">event_type</code> is <code class="prettyprint">delete</code>, contains only member identifiers (<code class="prettyprint">msisdn</code>, <code class="prettyprint">email</code>)</td>
+<td>min_height</td>
+<td>integer</td>
+<td></td>
 </tr>
 <tr>
-<td>consents</td>
-<td>Object</td>
-<td>Member consents and their values. Empty when <code class="prettyprint">event_type</code> is <code class="prettyprint">delete</code>.</td>
-</tr>
-<tr>
-<td>created_at</td>
-<td>Date</td>
-<td>When the change occurred</td>
-</tr>
-<tr>
-<td>optin_date</td>
-<td>Date</td>
-<td>When the member has been created</td>
+<td>max_height</td>
+<td>integer</td>
+<td></td>
 </tr>
 </tbody></table>
 
-<h2 id="notifications-delivery">Notifications delivery</h2>
+<h2 id="get-file-schema"><a name="v3-get-file-schema"></a> Get file schema</h2>
 
-<p>Your endpoint must return a <code class="prettyprint">2xx</code> (<code class="prettyprint">200</code> or <code class="prettyprint">201</code> preferably) HTTP status code. Only then the notification 
-will be treated as delivered.</p>
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/files/schema"</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+  -H <span class="s1">'X-User-Agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>Returns the schema as described <a href="#v3-file-schema">here</a></p>
+</blockquote>
 
-<p>If your server returns <code class="prettyprint">5xx</code> code, the delivery will be treated as failed, and our system will make another attempt later.
-On consequent failures, deliveries will be attempted up to 20 days.</p>
+<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/files/schema</code></p>
 
-<p>If your server returns a <code class="prettyprint">4xx</code> code, the delivery will be ignored.</p>
+<p>Returns the Loyalty Club file schema. See: <a href="#v3-file-schema">Files &bull; Schema</a></p>
+
+<aside class="notice">
+Requires <code>Files:Api:GetSchema</code> permit
+</aside>
+
+<h2 id="create-file"><a name="v3-create-file"></a> Create file</h2>
+
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
+  https://bpc-api.boostcom.no/v3/infinity-mall/files/offers/1000289/offer_default <span class="se">\</span>
+  -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+  -H <span class="s1">'X-User-Agent: CURL manual test'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW'</span> <span class="se">\</span>
+  -F <span class="nv">file</span><span class="o">=</span>@some_file.png <span class="se">\</span>
+  -F <span class="s1">'crop_to=256,256,856,1056'</span>
+
+</code></pre>
+<blockquote>
+<p>Returns info about uploaded file and it&rsquo;s projected versions</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"original"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"size_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"original"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://offers-api.s3.eu-central-1.amazonaws.com/offer-1000289-offer_default-original.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"file_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IMAGE"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">1024</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">1024</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"offer_default"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"projected_versions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"size_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"base"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://offers-api.s3.eu-central-1.amazonaws.com/offer-1000289-offer_default-base.png"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"min_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"min_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">800</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"max_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"max_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">800</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"size_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"thumbnail"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://offers-api.s3.eu-central-1.amazonaws.com/offer-1000289-offer_default-thumbnail.png"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"min_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">225</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"min_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"max_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">225</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"max_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>POST</strong> <code class="prettyprint">v3/:loyalty_club_slug/files/:fileable_type/:fileable_id/kind</code></p>
+
+<p>Creates new file for given Fileable (e.g. Offer).</p>
+
+<h3 id="url-parameters"><a name="v3-create-file-url-parameters"></a> URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>fileable_type</td>
+<td>enum: <code class="prettyprint">[&#39;offers&#39;, &#39;collections&#39;]</code></td>
+<td></td>
+</tr>
+<tr>
+<td>fileable_id</td>
+<td>integer</td>
+<td></td>
+</tr>
+<tr>
+<td>kind</td>
+<td>enum</td>
+<td>see <a href="#v3-file-kinds">Standard file kinds</a></td>
+</tr>
+</tbody></table>
+
+<h3 id="post-parameters"><a name="v3-create-file-post-parameters"></a> POST Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required?</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>file</td>
+<td>binary</td>
+<td>yes</td>
+<td>File to upload</td>
+</tr>
+<tr>
+<td>crop_to</td>
+<td>string</td>
+<td>no</td>
+<td>See: <a href="#v3-file-cropping">cropping</a></td>
+</tr>
+</tbody></table>
+
+<h3 id="response-json-object"><a name="v3-create-file-response"></a> Response (JSON object)</h3>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>original</td>
+<td>File</td>
+<td>See <a href="#v3-file-model">File model</a></td>
+</tr>
+<tr>
+<td>projected_versions</td>
+<td>ProjectedVersion[]</td>
+<td>See <a href="#v3-projected-file-versions">Projected file versions</a></td>
+</tr>
+</tbody></table>
+
+<h3 id="error-responses">Error responses</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">404</code></td>
+<td>The Fileable does not exist</td>
+</tr>
+<tr>
+<td><code class="prettyprint">422</code></td>
+<td>Invalid parameters</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Files:Api:Create</code> permit
+</aside>
+
+<h2 id="update-file"><a name="v3-update-file"></a> Update file</h2>
+
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X PUT <span class="se">\</span>
+  https://bpc-api.boostcom.no/v3/infinity-mall/files/offers/1000289/offer_default <span class="se">\</span>
+  -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+  -H <span class="s1">'X-User-Agent: CURL manual test'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW'</span> <span class="se">\</span>
+  -F <span class="nv">file</span><span class="o">=</span>@some_file.png <span class="se">\</span>
+  -F <span class="s1">'crop_to=256,256,856,1056'</span>
+
+</code></pre>
+<blockquote>
+<p>When successful (200), Returns info about uploaded file. Same as <a href="#v3-create-file">Create file</a> example response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="err">//</span><span class="w"> </span><span class="err">(...)</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="s2">"Create file"</span><span class="w"> </span><span class="err">example</span><span class="w"> </span><span class="err">response</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>PUT</strong> <code class="prettyprint">v3/:loyalty_club_slug/files/:fileable_type/:fileable_id/kind</code></p>
+
+<p>Updates file for given Fileable (e.g. Offer).</p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<p>See: <a href="#v3-create-file-url-parameters">Create File URL Parameters</a></p>
+
+<h3 id="post-parameters">POST Parameters</h3>
+
+<p>See: <a href="#v3-create-file-post-parameters">Create File POST Parameters</a></p>
+
+<h3 id="response-json-object">Response (JSON object)</h3>
+
+<p>See: <a href="#v3-create-file-response">Create File Response</a></p>
+
+<h3 id="error-responses">Error responses</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">404</code></td>
+<td>Fileable not found</td>
+</tr>
+<tr>
+<td><code class="prettyprint">404</code></td>
+<td>File not found</td>
+</tr>
+<tr>
+<td><code class="prettyprint">422</code></td>
+<td>Invalid parameters</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Files:Api:Update</code> permit
+</aside>
+
+<h2 id="reprocess-file"><a name="v3-reprocess-file"></a> Reprocess file</h2>
+
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X PUT <span class="se">\</span>
+  https://bpc-api.boostcom.no/v3/infinity-mall/files/offers/1000289/offer_default/reprocess <span class="se">\</span>
+  -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+  -H <span class="s1">'X-User-Agent: CURL manual test'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW'</span> <span class="se">\</span>
+  -F <span class="s1">'crop_to=256,256,856,1056'</span>
+
+</code></pre>
+<blockquote>
+<p>When successful (200), Returns info about uploaded file. Same as <a href="#v3-create-file">Create file</a> example response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="err">//</span><span class="w"> </span><span class="err">(...)</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="s2">"Create file"</span><span class="w"> </span><span class="err">example</span><span class="w"> </span><span class="err">response</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>PUT</strong> <code class="prettyprint">v3/:loyalty_club_slug/files/:fileable_type/:fileable_id/kind/reprocess</code></p>
+
+<p>Reprocesses file for given Fileable (e.g. Offer).
+It means that no file needs to be uploaded, instead the original file will be reprocessed according to given parameters. </p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<p>See: <a href="#v3-create-file-url-parameters">Create File URL Parameters</a></p>
+
+<h3 id="post-parameters">POST Parameters</h3>
+
+<p>See: <a href="#v3-create-file-post-parameters">Create File POST Parameters</a> - except no <code class="prettyprint">file</code> param is accepted here</p>
+
+<h3 id="response-json-object">Response (JSON object)</h3>
+
+<p>See: <a href="#v3-create-file-response">Create File Response</a></p>
+
+<h3 id="error-responses">Error responses</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">404</code></td>
+<td>Fileable not found</td>
+</tr>
+<tr>
+<td><code class="prettyprint">404</code></td>
+<td>File not found</td>
+</tr>
+<tr>
+<td><code class="prettyprint">422</code></td>
+<td>Invalid parameters</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Files:Api:Reprocess</code> permit
+</aside>
+
+<h2 id="delete-file"><a name="v3-delete-file"></a> Delete file</h2>
+
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X DELETE <span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/files/offers/1000289/offer_default </span><span class="se">\</span><span class="s2">
+  -H 'Content-Type: application/json' </span><span class="se">\</span><span class="s2">
+  -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' </span><span class="se">\</span><span class="s2">
+  -H 'X-Product-Name: default' </span><span class="se">\</span><span class="s2">
+  -H 'X-User-Agent: CURL manual test'
+</span></code></pre>
+<blockquote>
+<p>When successful (200), returns an empty object</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="err">//</span><span class="w"> </span><span class="err">Empty</span><span class="w"> </span><span class="err">object</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>DELETE</strong> <code class="prettyprint">v3/:loyalty_club_slug/files/:fileable_type/:fileable_id/kind</code></p>
+
+<p>Deletes file of given Fileable (e.g. Offer).</p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<p>See: <a href="#v3-create-file-url-parameters">Create File URL Parameters</a></p>
+
+<h3 id="error-responses">Error responses</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">404</code></td>
+<td>Fileable not found</td>
+</tr>
+<tr>
+<td><code class="prettyprint">404</code></td>
+<td>File not found</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Files:Api:Delete</code> permit
+</aside>
+
+          <h1 id="links">Links</h1>
+
+<h2 id="generate-link"><a name="v3-links-generate"></a> Generate link</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
+<span class="s2">"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/links/offer_page/generate"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+    -H <span class="s1">'X-User-Agent: CURL manual test'</span>
+    -d <span class="se">\</span>
+    <span class="s1">'{
+        "link_params": {
+            "offer_id": 1000487
+        }
+    }'</span>
+</code></pre>
+<blockquote>
+<p>When successful (200), returns a generated link</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://member.dev.bstcm.no/infinity-mall/offers/1000487"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>POST</strong> <code class="prettyprint">v3/:loyalty_club_slug/links/(:link_slug)/generate</code></p>
+
+<p>Returns a link to given functionality in MPC, so it may be reached by member.</p>
+
+<p>The returned link is generated in a &ldquo;universal&rdquo; form: it points to our Webforms, but it will be captured by mobile app if 
+it&rsquo;s installed on member system.</p>
+
+<p>A list of possible links depends on Loyalty Club configuration. 
+An MPC API endpoint for returning it may be implemented in future.     </p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>link_slug</td>
+<td>string</td>
+<td>A slug that identifies the link to generate</td>
+</tr>
+</tbody></table>
+
+<h3 id="post-parameters-json-object">POST Parameters (JSON object)</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>link_params</td>
+<td>Object</td>
+<td>Params for link generation dependent on specific link definition</td>
+</tr>
+</tbody></table>
+
+<h3 id="response-json-object">Response (JSON object)</h3>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>url</td>
+<td>String</td>
+<td>The generated link</td>
+</tr>
+</tbody></table>
+
+<h3 id="error-responses">Error responses</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">404</code></td>
+<td>Link could not be found</td>
+</tr>
+<tr>
+<td><code class="prettyprint">422</code></td>
+<td>Invalid parameters</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+    Requires <code>BL:Api:Links:Generate</code> permit
+</aside> 
 
           <h1 id="changelog">Changelog</h1>
 

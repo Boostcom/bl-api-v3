@@ -27,6 +27,10 @@
             "wallet_new_balance": 10,
             "expiry_points_date": "2020-02-12",
             "expiry_points_balance": 10
+            "additional_properties" : 
+                {
+                    "property_name": "property_value"
+                }
         }
     ]'</span>
 </code></pre>
@@ -128,6 +132,11 @@
 <td>expiry_points_balance</td>
 <td>Present point balance in the wallet for specific expiry date (used only by integration without loyalty logic)</td>
 <td>integer</td>
+</tr>
+<tr>
+<td>additional_properties</td>
+<td>Any optional properties</td>
+<td>object</td>
 </tr>
 </tbody></table>
 
