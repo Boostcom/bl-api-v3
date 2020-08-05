@@ -27,6 +27,10 @@ curl -X POST \
             "wallet_new_balance": 10,
             "expiry_points_date": "2020-02-12",
             "expiry_points_balance": 10
+            "additional_properties" : 
+                {
+                    "property_name": "property_value"
+                }
         }
     ]'
 ```
@@ -75,6 +79,7 @@ wallet           | wallet                 | string
 wallet_new_balance | Current points balance in the wallet (used only by integration without loyalty logic) | integer
 expiry_points_date | Points expiry date  (used only by integration without loyalty logic)   | date
 expiry_points_balance | Present point balance in the wallet for specific expiry date (used only by integration without loyalty logic) | integer
+additional_properties | Any optional properties | object
 
 Parameters with `*` are required
 
