@@ -1860,6 +1860,141 @@ Requires <code>BL:Api:Members:Check</code> permit
 
 <!--- ############################################################################################################# --->
 
+<h2 id="get-messages-history"><a name="v3-members-messages-history"></a> Get messages history</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/members/:id/messages_history"</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+  -H <span class="s1">'X-User-Agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>Returns hash structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w"> 
+  </span><span class="s2">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                        </span><span class="p">{</span><span class="w"> </span><span class="s2">"content"</span><span class="p">:</span><span class="w">  </span><span class="s2">"Hello Jane this is link: https://bts.tc/inf/fck33dd"</span><span class="p">,</span><span class="w">
+                          </span><span class="s2">"loyalty_club_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span><span class="w">
+                          </span><span class="s2">"member_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">45858261</span><span class="p">,</span><span class="w">
+                          </span><span class="s2">"msisdn"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                          </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jane.doe@boostcom.no"</span><span class="p">,</span><span class="w">
+                          </span><span class="s2">"bulk_message_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">6926</span><span class="p">,</span><span class="w">
+                          </span><span class="s2">"external_service_message_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d2e1752fcb574f6fbe11c5039db9ac29"</span><span class="p">,</span><span class="w">
+                          </span><span class="s2">"fcm_token"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                          </span><span class="s2">"external_service_message_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mandrill_sent"</span><span class="p">,</span><span class="w">
+                          </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-07-27T14:08:12"</span><span class="p">,</span><span class="w">
+                          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"email"</span><span class="p">,</span><span class="w">
+                          </span><span class="s2">"object_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">96142</span><span class="w"> </span><span class="p">}</span><span class="w">
+                      </span><span class="p">],</span><span class="w">
+             </span><span class="s2">"pagination_info"</span><span class="p">:</span><span class="w"> 
+                        </span><span class="p">{</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                          </span><span class="s2">"relation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eq"</span><span class="w"> </span><span class="p">}</span><span class="w">
+          </span><span class="p">}</span><span class="w">      
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/:id/messages_history</code></p>
+
+<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/by_msisdn/:msisdn/messages_history</code></p>
+
+<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/by_email/:email/messages_history</code></p>
+
+<p>Returns messages sent to given Member from our system, after merging properties and shortening urls so this is the content Member received. 
+Does not translate id to other identifiers and vice versa. If no messages are found returns an empty result array. 
+<strong>Messages are removed when Member is deleted.</strong></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Required?</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Member&rsquo;s ID</td>
+<td>oneof(id, msisdn, email)</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>msisdn</td>
+<td>Member&rsquo;s msisdn</td>
+<td>oneof(id, msisdn, email)</td>
+<td>string (format as defined <a href="#msisdn-member-identifier">here</a> - example: <code class="prettyprint">4740485124</code>)</td>
+</tr>
+<tr>
+<td>email</td>
+<td>Member&rsquo;s email</td>
+<td>oneof(id, msisdn, email)</td>
+<td>string (email)</td>
+</tr>
+<tr>
+<td>per_page</td>
+<td>Number of results to be returned per request</td>
+<td>no</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>page_no</td>
+<td>Number of results page</td>
+<td>no</td>
+<td>integer</td>
+</tr>
+</tbody></table>
+
+<h3 id="response-json-object">Response (JSON object)</h3>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>success</td>
+<td>boolean</td>
+<td>If query was successful?</td>
+</tr>
+<tr>
+<td>status</td>
+<td>integer</td>
+<td>Response status code</td>
+</tr>
+<tr>
+<td>body</td>
+<td>Array<Hash></td>
+<td>actual response</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>BL:Api:Members:Get</code> permit
+</aside>
+
+<h3 id="error-responses">Error responses</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">422</code></td>
+<td>Invalid MSISDN param</td>
+</tr>
+</tbody></table>
+
+<!--- ############################################################################################################# --->
+
 <h2 id="create"><a name="v3-members-create"></a> Create</h2>
 
 <blockquote>
