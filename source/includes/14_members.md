@@ -439,6 +439,88 @@ Status | Reason
 
 <!--- ############################################################################################################# --->
 
+
+## <a name="v3-members-messages-history"></a> Get messages history
+> Example:
+
+```shell
+curl "https://bpc-api.boostcom.no/v3/infinity-mall/members/:id/messages_history" \
+  -H 'Content-Type: application/json' \
+  -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+  -H 'X-Product-Name: default' \
+  -H 'X-User-Agent: CURL manual test'
+```
+
+> Returns hash structured like this:
+
+```json
+{
+  "success": true,
+  "status": 200, 
+  "body": { "result": [
+                        { "content":  "Hello Jane this is link: https://bts.tc/inf/fck33dd",
+                          "loyalty_club_id": 42,
+                          "member_id": 45858261,
+                          "msisdn": null,
+                          "email": "jane.doe@boostcom.no",
+                          "bulk_message_id": 6926,
+                          "external_service_message_id": "d2e1752fcb574f6fbe11c5039db9ac29",
+                          "fcm_token": null,
+                          "external_service_message_status": "mandrill_sent",
+                          "created_at": "2020-07-27T14:08:12",
+                          "type": "email",
+                          "object_id": 96142 }
+                      ],
+             "pagination_info": 
+                        { "value": 1,
+                          "relation": "eq" }
+          }      
+}
+```
+
+**GET** `v3/:loyalty_club_slug/members/:id/messages_history`
+
+**GET** `v3/:loyalty_club_slug/members/by_msisdn/:msisdn/messages_history`
+
+**GET** `v3/:loyalty_club_slug/members/by_email/:email/messages_history`
+
+Returns messages sent to given Member from our system, after merging properties and shortening urls so this is the content Member received. 
+Does not translate id to other identifiers and vice versa. If no messages are found returns an empty result array. 
+**Messages are removed when Member is deleted.**
+
+### URL Parameters
+
+
+Parameter | Description | Required? | Type
+--------- | ----------- | -------- | ------
+id | Member's ID | oneof(id, msisdn, email) | integer
+msisdn | Member's msisdn | oneof(id, msisdn, email) | string (format as defined [here](#msisdn-member-identifier) - example: `4740485124`)
+email | Member's email | oneof(id, msisdn, email) | string (email)
+per_page | Number of results to be returned per request | no | integer 
+page_no | Number of results page | no | integer
+
+### Response (JSON object)
+
+Key | Type | Description
+--------- | --------- | ---------
+success | boolean | If query was successful?
+status | integer | Response status code
+body | Array<Hash> | actual response
+
+
+<aside class="notice">
+Requires <code>BL:Api:Members:Get</code> permit
+</aside>
+
+### Error responses
+
+Status | Reason
+--------- | ----------- 
+`422` | Invalid MSISDN param
+
+<!--- ############################################################################################################# --->
+
+
 ## <a name="v3-members-create"></a> Create
 
 > Example:
