@@ -299,3 +299,115 @@ Requires <code>Transaction:Api:Points:Create</code>
 <aside class="notice">
 Requires <code>Transaction:Api:Points:Get</code> permit
 </aside>
+
+<h2 id="member-points-list"><a name="v3-member-points-list"></a> Member points list</h2>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+<span class="s2">"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/transactions/points/events/12345?type=issue_points"</span> <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+    -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+    -H <span class="s1">'X-User-Agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>When successful (200), returns a feedback object structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"member_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12345</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-09-11T12:00:00+0100"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"issue_points"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"wallet"</span><span class="p">:</span><span class="w"> </span><span class="s2">"default_wallet"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">55</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"wallet_new_balance"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"store_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"receipt_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"receipt"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"event"</span><span class="p">:</span><span class="w"> </span><span class="s2">"used coupon"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Black Friday"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/transactions/points/events/:member_id</code></p>
+
+<p>Return number list of point events that member has filtered by event type, wallet, store id</p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required/Optional</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>member_id</td>
+<td>Member id</td>
+<td>integer</td>
+<td>required</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Type (issue_points, use_points, revoke_points, expire_points)</td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td>event</td>
+<td>Event name</td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td>message</td>
+<td>Message</td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td>wallet</td>
+<td>Wallet</td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>Amount of points</td>
+<td>integer</td>
+<td>optional</td>
+</tr>
+<tr>
+<td>receipt_id</td>
+<td>Receipt</td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td>store_id</td>
+<td>Store id</td>
+<td>string</td>
+<td>optional</td>
+</tr>
+</tbody></table>
+
+<h3 id="error-responses">Error responses</h3>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">422</code></td>
+<td>Invalid parameters (see example on the right)</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Transaction:Api:Points:List</code> permit
+</aside>
