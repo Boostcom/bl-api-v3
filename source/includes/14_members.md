@@ -509,7 +509,7 @@ body | Array<Hash> | actual response
 
 
 <aside class="notice">
-Requires <code>BL:Api:Members:Get</code> permit
+Requires <code>BL:Api:Members:GetMessagesHistory</code> permit
 </aside>
 
 ### Error responses
