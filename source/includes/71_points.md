@@ -198,7 +198,7 @@ curl -X GET \
 **GET** `v3/:loyalty_club_slug/transactions/points/events/:member_id`
 
 
-Return number list of point events that member has filtered by event type, wallet, store id
+Return list of point events that member has, filtered by event type
 
 ### URL Parameters
 
