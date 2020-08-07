@@ -888,7 +888,7 @@ Does not translate id to other identifiers and vice versa. If no messages are fo
 </tbody></table>
 
 <aside class="notice">
-Requires <code>BL:Api:Members:Get</code> permit
+Requires <code>BL:Api:Members:GetMessagesHistory</code> permit
 </aside>
 
 <h3 id="error-responses">Error responses</h3>
