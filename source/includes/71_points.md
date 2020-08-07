@@ -162,3 +162,63 @@ Status    | Description
 <aside class="notice">
 Requires <code>Transaction:Api:Points:Get</code> permit
 </aside>
+
+## <a name="v3-member-points-list"></a> Member points list
+
+> Example:
+
+```shell
+curl -X GET \
+"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/transactions/points/events/12345?type=issue_points" \
+    -H 'Content-Type: application/json' \
+    -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+    -H 'X-Product-Name: default' \
+    -H 'X-User-Agent: CURL manual test'
+```
+
+> When successful (200), returns a feedback object structured like this:
+
+```json
+[
+    {
+        "member_id": 12345,
+        "date": "2019-09-11T12:00:00+0100",
+        "type": "issue_points",
+        "wallet": "default_wallet",
+        "amount": 55,
+        "wallet_new_balance": 100,
+        "store_id": "123",
+        "receipt_id": "receipt",
+        "event": "used coupon",
+        "message": "Black Friday"
+    }
+]
+```  
+
+**GET** `v3/:loyalty_club_slug/transactions/points/events/:member_id`
+
+
+Return number list of point events that member has filtered by event type, wallet, store id
+
+### URL Parameters
+
+Parameter  | Description   | Type       | Required/Optional
+---------- | ------------- | ---------- | ------------------
+member_id  | Member id     | integer    | required
+type       | Type (issue_points, use_points, revoke_points, expire_points) | string | required
+event      | Event name    | string     | optional
+message    | Message       | string     | optional
+wallet     | Wallet        | string     | optional
+amount     | Amount of points  | integer | optional
+receipt_id | Receipt       | string     | optional
+store_id   | Store id      | string     | optional
+
+### Error responses
+
+Status    | Description
+--------- | ----------- 
+`422`     | Invalid parameters (see example on the right)
+
+<aside class="notice">
+Requires <code>Transaction:Api:Points:List</code> permit
+</aside>

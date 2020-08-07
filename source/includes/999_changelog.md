@@ -1,5 +1,8 @@
 # Changelog
 
+### 07.08.2020 | Natalia Styrska
+* Add [Points &bull; List](#v3-member-points-list)
+
 ### 02.07.2020 | Natalia Styrska
 * Add [Events &bull; Index](#v3-events-list)
 * Add [Events &bull; Get](#v3-event-get)
