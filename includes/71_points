@@ -332,7 +332,7 @@ Requires <code>Transaction:Api:Points:Get</code> permit
 </span></code></pre>
 <p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/transactions/points/events/:member_id</code></p>
 
-<p>Return number list of point events that member has filtered by event type, wallet, store id</p>
+<p>Return list of point events that member has, filtered by event type</p>
 
 <h3 id="url-parameters">URL Parameters</h3>
 
