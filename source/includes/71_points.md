@@ -169,7 +169,7 @@ Requires <code>Transaction:Api:Points:Get</code> permit
 
 ```shell
 curl -X GET \
-"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/transactions/points/events/12345?type=issue_points" \
+"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/transactions/points/events/12345?type=issue_points&event=Event1" \
     -H 'Content-Type: application/json' \
     -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
     -H 'X-Product-Name: default' \
@@ -205,7 +205,7 @@ Return list of point events that member has, filtered by event type
 Parameter  | Description   | Type       | Required/Optional
 ---------- | ------------- | ---------- | ------------------
 member_id  | Member id     | integer    | required
-type       | Type (issue_points, use_points, revoke_points, expire_points) | string | required
+type       | Type (issue_points, use_points, revoke_points, expire_points) | string | optional
 event      | Event name    | string     | optional
 message    | Message       | string     | optional
 wallet     | Wallet        | string     | optional
