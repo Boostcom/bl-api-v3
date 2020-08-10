@@ -10420,7 +10420,7 @@ Requires <code>Transaction:Api:Points:Get</code> permit
 <p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
-<span class="s2">"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/transactions/points/events/12345?type=issue_points"</span> <span class="se">\</span>
+<span class="s2">"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/transactions/points/events/12345?type=issue_points&amp;event=Event1"</span> <span class="se">\</span>
     -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
     -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
@@ -10468,7 +10468,7 @@ Requires <code>Transaction:Api:Points:Get</code> permit
 <td>type</td>
 <td>Type (issue_points, use_points, revoke_points, expire_points)</td>
 <td>string</td>
-<td>required</td>
+<td>optional</td>
 </tr>
 <tr>
 <td>event</td>
