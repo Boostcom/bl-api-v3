@@ -1,6 +1,6 @@
-<h1 id="offers-events"><a name="v3-offers-events"></a>   Offers Events</h1>
+<h2 id="offers-events"><a name="v3-offers-events"></a> Offers Events</h2>
 
-<h2 id="offerevent-model"><a name="v3-offer-event-model"></a> OfferEvent model</h2>
+<h3 id="offerevent-model"><a name="v3-offer-event-model"></a> OfferEvent model</h3>
 
 <blockquote>
 <p>Offer Event example:</p>
@@ -78,7 +78,7 @@
 <p>Context describes in what circumstances the event has occurred. 
 For example, member clicked on a coupon that was displayed inside collection, the context should include this collection_id. </p>
 
-<h2 id="clicked"><a name="v3-offers-clicked"></a> Clicked</h2>
+<h3 id="register-clicked-event"><a name="v3-offers-clicked"></a> Register &ldquo;clicked&rdquo; event</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -118,7 +118,7 @@ For example, member clicked on a coupon that was displayed inside collection, th
 
 <p>Registers that OAuth member clicked on given offers.</p>
 
-<h3 id="post-parameters">Post Parameters</h3>
+<h4 id="post-parameters">Post Parameters</h4>
 
 <table><thead>
 <tr>
@@ -138,7 +138,7 @@ For example, member clicked on a coupon that was displayed inside collection, th
 Requires <code>Offers:Api:Events:Clicked</code> permit
 </aside>
 
-<h2 id="seen"><a name="v3-offers-seen"></a> Seen</h2>
+<h3 id="register-seen-event"><a name="v3-offers-seen"></a> Register &ldquo;seen&rdquo; event</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -182,7 +182,7 @@ Requires <code>Offers:Api:Events:Clicked</code> permit
 Seen events are automatically tracked when retrieving offer image/file within member context. Make sure you are not duplicating events!
 </aside>
 
-<h3 id="post-parameters">Post Parameters</h3>
+<h4 id="post-parameters">Post Parameters</h4>
 
 <table><thead>
 <tr>

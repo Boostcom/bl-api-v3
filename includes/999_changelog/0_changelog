@@ -1,12 +1,12 @@
 <h1 id="changelog">Changelog</h1>
 
-<h3 id="07-08-2020-natalia-styrska">07.08.2020 | Natalia Styrska</h3>
+<h4 id="07-08-2020-natalia-styrska">07.08.2020 | Natalia Styrska</h4>
 
 <ul>
 <li>Add <a href="#v3-member-points-list">Points &bull; List</a></li>
 </ul>
 
-<h3 id="02-07-2020-natalia-styrska">02.07.2020 | Natalia Styrska</h3>
+<h4 id="02-07-2020-natalia-styrska">02.07.2020 | Natalia Styrska</h4>
 
 <ul>
 <li>Add <a href="#v3-events-list">Events &bull; Index</a></li>
@@ -16,34 +16,34 @@
 <li>Add <a href="#v3-events-invitation">Events &bull; Invitation</a></li>
 </ul>
 
-<h3 id="02-06-2020-piotr-witlicki">02.06.2020 | Piotr Świtlicki</h3>
+<h4 id="02-06-2020-piotr-witlicki">02.06.2020 | Piotr Świtlicki</h4>
 
 <ul>
 <li>Extend <a href="#v3-members-groups-list">Members Groups &bull; Index</a> with filtering parameters</li>
 <li>Add <a href="#v3-members-groups-types">Members Groups &bull; Types</a></li>
 </ul>
 
-<h3 id="28-05-2020-natalia-styrska">28.05.2020 | Natalia Styrska</h3>
+<h4 id="28-05-2020-natalia-styrska">28.05.2020 | Natalia Styrska</h4>
 
 <ul>
 <li>Extend (<a href="#v3-store-list">#  Stores</a>) all endpoints with new properties</li>
 <li>Add (<a href="#v3-store-zones-list">Stores &bull; Zones</a>) endpoint </li>
 </ul>
 
-<h3 id="21-05-2020-piotr-witlicki">21.05.2020 | Piotr Świtlicki</h3>
+<h4 id="21-05-2020-piotr-witlicki">21.05.2020 | Piotr Świtlicki</h4>
 
 <ul>
 <li>Extend <a href="#v3-members-groups">Members Groups</a> to work with audiences (automatic groups)</li>
 </ul>
 
-<h3 id="20-04-2020-piotr-witlicki">20.04.2020 | Piotr Świtlicki</h3>
+<h4 id="20-04-2020-piotr-witlicki">20.04.2020 | Piotr Świtlicki</h4>
 
 <ul>
 <li>Add <code class="prettyprint">usable_for_seconds</code> param to <a href="#v3-grant-offer">Grant offer</a> </li>
 <li>Add <code class="prettyprint">type</code> to <a href="#v3-offer-model">Offer</a> </li>
 </ul>
 
-<h3 id="09-04-2020-piotr-witlicki">09.04.2020 | Piotr Świtlicki</h3>
+<h4 id="09-04-2020-piotr-witlicki">09.04.2020 | Piotr Świtlicki</h4>
 
 <ul>
 <li>Restructure members docs</li>
@@ -51,75 +51,75 @@
 <li>Add <a href="#v3-members-groups">Members Groups</a></li>
 </ul>
 
-<h3 id="13-03-2020-natalia-styrska">13.03.2020 | Natalia Styrska</h3>
+<h4 id="13-03-2020-natalia-styrska">13.03.2020 | Natalia Styrska</h4>
 
 <ul>
 <li>Extend <a href="#v3-transactions-events-create">Transaction Events &bull; Create</a> endpoint </li>
 </ul>
 
-<h3 id="12-03-2020-natalia-styrska">12.03.2020 | Natalia Styrska</h3>
+<h4 id="12-03-2020-natalia-styrska">12.03.2020 | Natalia Styrska</h4>
 
 <ul>
 <li>Extend <a href="#v3-points-create">Points &bull; Create</a> endpoint </li>
 </ul>
 
-<h3 id="05-03-2020-piotr-witlicki">05.03.2020 | Piotr Świtlicki</h3>
+<h4 id="05-03-2020-piotr-witlicki">05.03.2020 | Piotr Świtlicki</h4>
 
 <ul>
 <li>Extend <a href="#v3-loyalty-clubs-list">Loyalty Clubs &bull; List</a> endpoint </li>
 </ul>
 
-<h3 id="01-03-2020-piotr-witlicki">01.03.2020 | Piotr Świtlicki</h3>
+<h4 id="01-03-2020-piotr-witlicki">01.03.2020 | Piotr Świtlicki</h4>
 
 <ul>
 <li>Extend <a href="#v3-offers">Offers</a> API to work within <a href="v3-offers-oauth-context">Member context</a></li>
 <li>Rework <a href="#v3-offers">Offers</a> API to work within <a href="v3-offers-guest-access">Guest context</a> </li>
 </ul>
 
-<h3 id="11-02-2020-piotr-witlicki">11.02.2020 | Piotr Świtlicki</h3>
+<h4 id="11-02-2020-piotr-witlicki">11.02.2020 | Piotr Świtlicki</h4>
 
 <ul>
 <li>Add <a href="#v3-grant-offer">Offers &bull; Grant offer</a></li>
 </ul>
 
-<h3 id="03-02-2020-natalia-styrska">03.02.2020 | Natalia Styrska</h3>
+<h4 id="03-02-2020-natalia-styrska">03.02.2020 | Natalia Styrska</h4>
 
 <ul>
 <li>Add (<a href="#v3-transactions-events-create">Transactions &bull; Events</a>) endpoint</li>
 </ul>
 
-<h3 id="11-12-2019-piotr-witlicki">11.12.2019 | Piotr Świtlicki</h3>
+<h4 id="11-12-2019-piotr-witlicki">11.12.2019 | Piotr Świtlicki</h4>
 
 <ul>
 <li>Update <a href="#v3-offers-display-schemas">Offers &bull; Display schemas</a> to have <a href="https://support.smartbear.com/readyapi/docs/testing/jsonpath-reference.html">JSONPath</a> references</li>
 </ul>
 
-<h3 id="05-12-2019-piotr-witlicki">05.12.2019 | Piotr Świtlicki</h3>
+<h4 id="05-12-2019-piotr-witlicki">05.12.2019 | Piotr Świtlicki</h4>
 
 <ul>
 <li>Add <a href="#v3-links-generate">Links &bull; Generate</a> </li>
 </ul>
 
-<h3 id="22-11-2019-piotr-witlicki">22.11.2019 | Piotr Świtlicki</h3>
+<h4 id="22-11-2019-piotr-witlicki">22.11.2019 | Piotr Świtlicki</h4>
 
 <ul>
 <li>Add <a href="#v3-loyalty-clubs-get">Loyalty Clubs &bull; Get</a></li>
 <li>Add info about new <code class="prettyprint">client</code> <a href="#v3-offers-display-schemas">display schema</a> item type </li>
 </ul>
 
-<h3 id="22-10-2019-piotr-witlicki">22.10.2019 | Piotr Świtlicki</h3>
+<h4 id="22-10-2019-piotr-witlicki">22.10.2019 | Piotr Świtlicki</h4>
 
 <ul>
 <li>Add <code class="prettyprint">collection_position</code> order_by key to <a href="#v3-list-offers">Offers &bull; List offers</a></li>
 </ul>
 
-<h3 id="18-10-2019-piotr-witlicki">18.10.2019 | Piotr Świtlicki</h3>
+<h4 id="18-10-2019-piotr-witlicki">18.10.2019 | Piotr Świtlicki</h4>
 
 <ul>
 <li>Add <a href="#v3-offers-display-schemas">Offer display schemas</a></li>
 </ul>
 
-<h3 id="16-10-2019-natalia-styrska">16.10.2019 | Natalia Styrska</h3>
+<h4 id="16-10-2019-natalia-styrska">16.10.2019 | Natalia Styrska</h4>
 
 <ul>
 <li>Add (<a href="#v3-store-categories-list">Stores &bull; Categories</a>) endpoint</li>
@@ -127,26 +127,26 @@
 <li>Add (<a href="#v3-department-update">Departments &bull; Update</a>) endpoint</li>
 </ul>
 
-<h3 id="23-09-2019-piotr-witlicki">23.09.2019 | Piotr Świtlicki</h3>
+<h4 id="23-09-2019-piotr-witlicki">23.09.2019 | Piotr Świtlicki</h4>
 
 <ul>
 <li>Add <code class="prettyprint">event_occurred_at</code> param to <a href="#v3-member-event-occured-at-param">Members &bull; Update</a> </li>
 </ul>
 
-<h3 id="21-09-2019-piotr-witlicki">21.09.2019 | Piotr Świtlicki</h3>
+<h4 id="21-09-2019-piotr-witlicki">21.09.2019 | Piotr Świtlicki</h4>
 
 <ul>
 <li>Add <code class="prettyprint">membership_started_at</code> to <a href="#v3-rewards-program-status">Rewards Program &bull; Get Status</a> </li>
 </ul>
 
-<h3 id="19-09-2019-natalia-styrska">19.09.2019 | Natalia Styrska</h3>
+<h4 id="19-09-2019-natalia-styrska">19.09.2019 | Natalia Styrska</h4>
 
 <ul>
 <li>Add (<a href="#v3-member-points">Points &bull; Member points</a>) endpoint</li>
 <li>Add (<a href="#v3-points-create">Points &bull; Create</a>) endpoint</li>
 </ul>
 
-<h3 id="02-09-2019-natalia-styrska">02.09.2019 | Natalia Styrska</h3>
+<h4 id="02-09-2019-natalia-styrska">02.09.2019 | Natalia Styrska</h4>
 
 <ul>
 <li>Change (<a href="#v3-store-list">Stores &bull; List</a>) rename malls to departments</li>
@@ -157,34 +157,34 @@
 <li>Add (<a href="#v3-department-get">Departments &bull; Get</a>) rename malls to departments</li>
 </ul>
 
-<h3 id="29-08-2019-piotr-witlicki">29.08.2019 | Piotr Świtlicki</h3>
+<h4 id="29-08-2019-piotr-witlicki">29.08.2019 | Piotr Świtlicki</h4>
 
 <ul>
 <li>Add <a href="#v3-members-update-app-token">Members &bull; Update app token</a> endpoint</li>
 <li>Add <a href="#v3-me-update-app-token">OAuth &bull; Update app token</a> endpoint</li>
 </ul>
 
-<h3 id="27-08-2019-piotr-witlicki">27.08.2019 | Piotr Świtlicki</h3>
+<h4 id="27-08-2019-piotr-witlicki">27.08.2019 | Piotr Świtlicki</h4>
 
 <ul>
 <li>Add <a href="#v3-offers-events">Offers Events</a> section</li>
 </ul>
 
-<h3 id="23-08-2019-piotr-witlicki">23.08.2019 | Piotr Świtlicki</h3>
+<h4 id="23-08-2019-piotr-witlicki">23.08.2019 | Piotr Świtlicki</h4>
 
 <ul>
 <li>Add <a href="#v3-members-validate">Members &bull; Validate</a> endpoint</li>
 <li>Change <a href="#v3-offers-list">Offers &bull; List</a> to accept <code class="prettyprint">include_pagination_info</code> instead of <code class="prettyprint">include_total</code> param</li>
 </ul>
 
-<h3 id="19-08-2019-piotr-witlicki">19.08.2019 | Piotr Świtlicki</h3>
+<h4 id="19-08-2019-piotr-witlicki">19.08.2019 | Piotr Świtlicki</h4>
 
 <ul>
 <li>Add <a href="#v3-reprocess-file">Offers &bull; Reprocess</a></li>
 <li>Add <a href="#v3-offers-list-order-by"><code class="prettyprint">order_by</code> param</a> to Offers List</li>
 </ul>
 
-<h3 id="09-08-2019-piotr-witlicki">09.08.2019 | Piotr Świtlicki</h3>
+<h4 id="09-08-2019-piotr-witlicki">09.08.2019 | Piotr Świtlicki</h4>
 
 <ul>
 <li>Add <a href="#v3-offers-admin">Offers Admin</a> section</li>
@@ -193,7 +193,7 @@
 <li>Add <a href="#v3-delete-file">Files &bull; Delete</a></li>
 </ul>
 
-<h3 id="08-08-2019-natalia-styrska">08.08.2019 | Natalia Styrska</h3>
+<h4 id="08-08-2019-natalia-styrska">08.08.2019 | Natalia Styrska</h4>
 
 <p>Stores</p>
 
@@ -207,19 +207,19 @@
 <li>Add <code class="prettyprint">GET /v3/:loyalty_club_slug/stores/malls/:id</code> (<a href="#v3-mall-get">Malls &bull; Get</a>)</li>
 </ul>
 
-<h3 id="27-06-2019-piotr-witlicki">27.06.2019 | Piotr Świtlicki</h3>
+<h4 id="27-06-2019-piotr-witlicki">27.06.2019 | Piotr Świtlicki</h4>
 
 <ul>
 <li>Introduce <a href="#v3-rewards-program-levels-program">Levels</a> </li>
 </ul>
 
-<h3 id="13-05-2019-piotr-witlicki">13.05.2019 | Piotr Świtlicki:</h3>
+<h4 id="13-05-2019-piotr-witlicki">13.05.2019 | Piotr Świtlicki:</h4>
 
 <ul>
 <li>Add <code class="prettyprint">GET /v3/:loyalty_club_slug/translations</code> (<a href="#v3-list-translations">Translations &bull; List</a>)</li>
 </ul>
 
-<h3 id="06-05-2019-piotr-witlicki">06.05.2019 | Piotr Świtlicki:</h3>
+<h4 id="06-05-2019-piotr-witlicki">06.05.2019 | Piotr Świtlicki:</h4>
 
 <p>Offers</p>
 
@@ -232,32 +232,32 @@
 <li>Add <code class="prettyprint">PUT /v3/:loyalty_club_slug/members/me/offers/:id/unlike</code> (<a href="#v3-unlike-offer">Offers &bull; Unlike offer</a>)</li>
 </ul>
 
-<h3 id="16-04-2019-piotr-witlicki">16.04.2019 | Piotr Świtlicki:</h3>
+<h4 id="16-04-2019-piotr-witlicki">16.04.2019 | Piotr Świtlicki:</h4>
 
 <ul>
 <li>Add <code class="prettyprint">X-Usage-Token</code> header to <a href="#v3-rewards-use">Rewards &bull; Use</a></li>
 </ul>
 
-<h3 id="07-03-2019-piotr-witlicki">07.03.2019 | Piotr Świtlicki:</h3>
+<h4 id="07-03-2019-piotr-witlicki">07.03.2019 | Piotr Świtlicki:</h4>
 
 <ul>
 <li>Add <code class="prettyprint">GET /v3/:loyalty_club_slug/rewards-program/status/achievements_summary</code> (<a href="#v3-rewards-program-achievements-summary">Rewards Program &bull; Achievements summary</a>)</li>
 </ul>
 
-<h3 id="06-03-2019-piotr-witlicki">06.03.2019 | Piotr Świtlicki:</h3>
+<h4 id="06-03-2019-piotr-witlicki">06.03.2019 | Piotr Świtlicki:</h4>
 
 <ul>
 <li>Add file schema info (<a href="#v3-file-schema">General info&bull; Files schema</a>)</li>
 <li>Add <code class="prettyprint">GET /v3/:loyalty_club_slug/files/schema</code> (<a href="#v3-get-file-schema">Files&bull; Get schema</a>)</li>
 </ul>
 
-<h3 id="27-02-2019-jakub-kruczek">27.02.2019 | Jakub Kruczek:</h3>
+<h4 id="27-02-2019-jakub-kruczek">27.02.2019 | Jakub Kruczek:</h4>
 
 <ul>
 <li>Extend consent definitions example (<a href="#v3-loyalty-clubs-schema">Loyalty Clubs &bull; Get schema</a>)</li>
 </ul>
 
-<h3 id="27-02-2019-adam-ku">27.02.2019 | Adam Kuś:</h3>
+<h4 id="27-02-2019-adam-ku">27.02.2019 | Adam Kuś:</h4>
 
 <ul>
 <li>Add <code class="prettyprint">POST /v3/:loyalty_club_slug/transactions</code> (<a href="#v3-transactions-create">Transactions &bull; Create</a>)</li>
@@ -265,13 +265,13 @@
 <li>Add <code class="prettyprint">GET /v3/:loyalty_club_slug/transactions/:id</code> (<a href="#v3-transactions-get">Transactions &bull; Get</a>)</li>
 </ul>
 
-<h3 id="19-02-2019-piotr-witlicki">19.02.2019 | Piotr Świtlicki:</h3>
+<h4 id="19-02-2019-piotr-witlicki">19.02.2019 | Piotr Świtlicki:</h4>
 
 <ul>
 <li>Add <code class="prettyprint">GET /v3/:loyalty_club_slug/members/:id/rewards-program/status</code> (<a href="#v3-rewards-program-status-by-member-id">Rewards Program &bull; Get status by member ID</a>)</li>
 </ul>
 
-<h3 id="08-02-2019-piotr-witlicki">08.02.2019 | Piotr Świtlicki:</h3>
+<h4 id="08-02-2019-piotr-witlicki">08.02.2019 | Piotr Świtlicki:</h4>
 
 <p>Boostcom Rewards draft</p>
 
@@ -286,69 +286,69 @@
 <li>Add <code class="prettyprint">POST /v3/:loyalty_club_slug/members/me/rewards-program/rewards/:id/use</code> (<a href="#v3-rewards-use">Rewards &bull; Use</a>)</li>
 </ul>
 
-<h3 id="07-02-2019-dominik-halat">07.02.2019 | Dominik Halat:</h3>
+<h4 id="07-02-2019-dominik-halat">07.02.2019 | Dominik Halat:</h4>
 
 <ul>
 <li>Remove <code class="prettyprint">shortening_enabled</code> param from Emails API (<a href="#v3-emails-create">Emails &bull; Create</a>)</li>
 </ul>
 
-<h3 id="07-02-2019-piotr-witlicki">07.02.2019 | Piotr Świtlicki:</h3>
+<h4 id="07-02-2019-piotr-witlicki">07.02.2019 | Piotr Świtlicki:</h4>
 
 <ul>
 <li>Replace paths: <code class="prettyprint">/v3/loyalty_clubs/:loyalty_club_slug/</code> with <code class="prettyprint">/v3/:loyalty_clubs/</code> (old ones will still work)</li>
 </ul>
 
-<h3 id="25-01-2019-dominik-halat">25.01.2019 | Dominik Halat:</h3>
+<h4 id="25-01-2019-dominik-halat">25.01.2019 | Dominik Halat:</h4>
 
 <ul>
 <li>Add <code class="prettyprint">POST /v3/:loyalty_club_slug/emails</code> (<a href="#v3-emails-create">Emails &bull; Create</a>)</li>
 <li>Add <code class="prettyprint">db_and_cache</code> response type for Member#person_id (<a href="#v3-members-person-id">Get person id</a>)</li>
 </ul>
 
-<h3 id="14-12-2018-jakub-kruczek">14.12.2018 | Jakub Kruczek:</h3>
+<h4 id="14-12-2018-jakub-kruczek">14.12.2018 | Jakub Kruczek:</h4>
 
 <ul>
 <li>Add <code class="prettyprint">updated_at</code> to consents value on member</li>
 </ul>
 
-<h3 id="04-12-2018-piotr-witlicki">04.12.2018 | Piotr Świtlicki:</h3>
+<h4 id="04-12-2018-piotr-witlicki">04.12.2018 | Piotr Świtlicki:</h4>
 
 <ul>
 <li>Add <code class="prettyprint">language</code> param to <code class="prettyprint">/v3/:loyalty_club_slug/members/by_msisdn/:msisdn/send_registration_password</code></li>
 </ul>
 
-<h3 id="13-11-2018-piotr-witlicki">13.11.2018 | Piotr Świtlicki:</h3>
+<h4 id="13-11-2018-piotr-witlicki">13.11.2018 | Piotr Świtlicki:</h4>
 
 <ul>
 <li>Add <code class="prettyprint">PUT /v3/:loyalty_club_slug/members/channels/msisdn/:msisdn/send_verification</code>(<a href="#v3-members-send-verification-sms">Members &bull; Send MSISDN verification SMS</a>)</li>
 <li>Add <code class="prettyprint">PUT /v3/:loyalty_club_slug/members/channels/msisdn/:msisdn/verify</code> (<a href="#v3-members-verify-msisdn">Members &bull; Verify MSISDN</a>)</li>
 </ul>
 
-<h3 id="08-11-2018-piotr-witlicki">08.11.2018 | Piotr Świtlicki:</h3>
+<h4 id="08-11-2018-piotr-witlicki">08.11.2018 | Piotr Świtlicki:</h4>
 
 <ul>
 <li>Add <code class="prettyprint">POST /v3/:loyalty_club_slug/smses</code> (<a href="#v3-smses-create">SMSes &bull; Create</a>)</li>
 </ul>
 
-<h3 id="12-10-2018-piotr-witlicki">12.10.2018 | Piotr Świtlicki:</h3>
+<h4 id="12-10-2018-piotr-witlicki">12.10.2018 | Piotr Świtlicki:</h4>
 
 <ul>
 <li>Add <code class="prettyprint">GET /v3/:loyalty_club_slug/members/imports/:import_id/bulks//by_request_number/:request_number</code></li>
 </ul>
 
-<h3 id="03-08-2018-piotr-witlicki">03.08.2018 | Piotr Świtlicki:</h3>
+<h4 id="03-08-2018-piotr-witlicki">03.08.2018 | Piotr Świtlicki:</h4>
 
 <ul>
 <li>Add <a href="#v3-members-imports-import-flow">Members Import</a></li>
 </ul>
 
-<h3 id="27-04-2018-piotr-witlicki">27.04.2018 | Piotr Świtlicki:</h3>
+<h4 id="27-04-2018-piotr-witlicki">27.04.2018 | Piotr Świtlicki:</h4>
 
 <ul>
 <li>Add <code class="prettyprint">POST /v3/:loyalty_club_slug/members/by_email/:email/send_one_time_password</code> (<a href="#v3-members-send-one-time-password-email">Members &bull; Send one time password E-mail</a>)</li>
 </ul>
 
-<h3 id="27-04-2018-piotr-witlicki">27.04.2018 | Piotr Świtlicki:</h3>
+<h4 id="27-04-2018-piotr-witlicki">27.04.2018 | Piotr Świtlicki:</h4>
 
 <ul>
 <li>Add <code class="prettyprint">channel</code> and <code class="prettyprint">subchannel</code> attributes to <code class="prettyprint">Member</code></li>
@@ -357,44 +357,44 @@
 <li>Add <code class="prettyprint">POST /v3/:loyalty_club_slug/push_notifications</code> (<a href="#v3-push-notification-create">Push Notifications &bull; Create</a>)</li>
 </ul>
 
-<h3 id="11-04-2018-dominik-halat">11.04.2018 | Dominik Halat</h3>
+<h4 id="11-04-2018-dominik-halat">11.04.2018 | Dominik Halat</h4>
 
 <ul>
 <li>Add <code class="prettyprint">person_id</code> to <code class="prettyprint">Member</code></li>
 <li>Add new endpoint <code class="prettyprint">GET /v3/:loyalty_club_slug/members/person_id</code> (<a href="#v3-members-index">Members &bull; List</a>)</li>
 </ul>
 
-<h3 id="01-02-2017-piotr-witlicki">01.02.2017 | Piotr Świtlicki:</h3>
+<h4 id="01-02-2017-piotr-witlicki">01.02.2017 | Piotr Świtlicki:</h4>
 
 <ul>
 <li>Add <code class="prettyprint">ids</code> query param to <code class="prettyprint">GET /v3/:loyalty_club_slug/members</code> (<a href="#v3-members-index">Members &bull; List</a>)</li>
 </ul>
 
-<h3 id="29-01-2017-piotr-witlicki">29.01.2017 | Piotr Świtlicki:</h3>
+<h4 id="29-01-2017-piotr-witlicki">29.01.2017 | Piotr Świtlicki:</h4>
 
 <ul>
 <li>Add <code class="prettyprint">GET /v3/:loyalty_club_slug/members</code> (<a href="#v3-members-index">Members &bull; List</a>)</li>
 </ul>
 
-<h3 id="22-01-2017-jakub-kruczek">22.01.2017 | Jakub Kruczek:</h3>
+<h4 id="22-01-2017-jakub-kruczek">22.01.2017 | Jakub Kruczek:</h4>
 
 <ul>
 <li>Update staging domain to: <code class="prettyprint">https://bpc-api.dev.boostcom.no/</code></li>
 </ul>
 
-<h3 id="9-01-2017-piotr-witlicki">9.01.2017 | Piotr Świtlicki:</h3>
+<h4 id="9-01-2017-piotr-witlicki">9.01.2017 | Piotr Świtlicki:</h4>
 
 <ul>
 <li>Update staging domain to: <code class="prettyprint">https://bl-api.bl-stg.boostcom.cc/</code></li>
 </ul>
 
-<h3 id="4-01-2017-jakub-kruczek">4.01.2017 | Jakub Kruczek:</h3>
+<h4 id="4-01-2017-jakub-kruczek">4.01.2017 | Jakub Kruczek:</h4>
 
 <ul>
 <li>Add <code class="prettyprint">consents</code> fields to schema and Member payload</li>
 </ul>
 
-<h3 id="15-12-2017-piotr-witlicki">15.12.2017 | Piotr Świtlicki:</h3>
+<h4 id="15-12-2017-piotr-witlicki">15.12.2017 | Piotr Świtlicki:</h4>
 
 <ul>
 <li>Add <code class="prettyprint">POST /v3/:loyalty_club_slug/members/by_msisdn/:msisdn/send_registration_password</code></li>
@@ -402,14 +402,14 @@
 <li>Add some other minor fixes</li>
 </ul>
 
-<h3 id="10-11-2017-piotr-witlicki">10.11.2017 | Piotr Świtlicki:</h3>
+<h4 id="10-11-2017-piotr-witlicki">10.11.2017 | Piotr Świtlicki:</h4>
 
 <ul>
 <li>Restructurize the docs</li>
 <li>Add <code class="prettyprint">POST /v3/:loyalty_club_slug/members/by_msisdn/:msisdn/send_one_time_password</code></li>
 </ul>
 
-<h3 id="27-10-2017-piotr-witlicki">27.10.2017 | Piotr Świtlicki:</h3>
+<h4 id="27-10-2017-piotr-witlicki">27.10.2017 | Piotr Świtlicki:</h4>
 
 <ul>
 <li>Rename <code class="prettyprint">/check_existance</code> endpoints to <code class="prettyprint">/public_info</code></li>

@@ -1,6 +1,6 @@
-<h1 id="smses">SMSes</h1>
+<h1 id="messaging-api">Messaging API</h1>
 
-<h2 id="create"><a name="v3-smses-create"></a> Create</h2>
+<h2 id="send-smses"><a name="v3-smses-create"></a> Send SMSes</h2>
 
 <blockquote>
 <p>Example:</p>
@@ -71,7 +71,7 @@ Messages are being sent asynchronously. Also, it cannot be guaranteed that the m
 
 <p>In future, a feature for checking messages delivery statuses will be added.</p>
 
-<h3 id="messages-post-parameters-json-array">Messages POST Parameters (JSON array)</h3>
+<h4 id="messages-post-parameters-json-array">Messages POST Parameters (JSON array)</h4>
 
 <p>The expected payload consists of <code class="prettyprint">messages</code> object which has array of objects with following attributes:</p>
 
@@ -135,7 +135,7 @@ Messages are being sent asynchronously. Also, it cannot be guaranteed that the m
 
 <p>* required</p>
 
-<h3 id="feedback-statuses">Feedback statuses</h3>
+<h4 id="feedback-statuses">Feedback statuses</h4>
 
 <table><thead>
 <tr>
@@ -173,7 +173,7 @@ Messages are being sent asynchronously. Also, it cannot be guaranteed that the m
 </tr>
 </tbody></table>
 
-<h3 id="error-responses">Error responses</h3>
+<h4 id="error-responses">Error responses</h4>
 
 <table><thead>
 <tr>

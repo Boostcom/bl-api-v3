@@ -1,6 +1,4 @@
-<h1 id="push-notifications">Push Notifications</h1>
-
-<h2 id="create"><a name="v3-push-notification-create"></a> Create</h2>
+<h2 id="send-push-notifications"><a name="v3-push-notification-create"></a> Send push notifications</h2>
 
 <blockquote>
 <p>Example:</p>
@@ -79,7 +77,7 @@
 <p>Not all target members may be eligible for receiving a push notification (or may not actually exist), so for every recipient 
 in every notification a result (<code class="prettyprint">sent|no_device</code>) is returned - see an example on the right</p>
 
-<h3 id="post-parameters-json-array">POST Parameters (JSON array)</h3>
+<h4 id="post-parameters-json-array">POST Parameters (JSON array)</h4>
 
 <p>The expected payload consists of <code class="prettyprint">messages</code> object which has array of objects with following attributes:</p>
 
@@ -129,7 +127,7 @@ in every notification a result (<code class="prettyprint">sent|no_device</code>)
 
 <p>* required</p>
 
-<h3 id="error-responses">Error responses</h3>
+<h4 id="error-responses">Error responses</h4>
 
 <table><thead>
 <tr>

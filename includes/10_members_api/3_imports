@@ -1,8 +1,8 @@
-<h1 id="members-imports">Members Imports</h1>
+<h2 id="members-imports">Members Imports</h2>
 
-<h2 id="import-flow"><a name="v3-members-imports-import-flow"></a> Import flow</h2>
+<h3 id="introduction"><a name="v3-members-imports-import-flow"></a> Introduction</h3>
 
-<h4 id="import-bulks">Import bulks</h4>
+<h5 id="import-bulks">Import bulks</h5>
 
 <p>At most 1000 member records may be sent in one request.</p>
 
@@ -10,7 +10,7 @@
 
 <p>Nevertheless, keep in mind, that import always consists of at least one bulk.</p>
 
-<h4 id="import-statuses">Import statuses</h4>
+<h5 id="import-statuses">Import statuses</h5>
 
 <p>Each bulk is processed by an asynchronous job, so you need to check it&rsquo;s status some time after sending a request.</p>
 
@@ -25,7 +25,7 @@ check bulks details for each bulk <a href="#v3-members-imports-bulk-status">here
 <li>24 hours after import request any potential personal data (contained in <code class="prettyprint">member_payloads</code> and <code class="prettyprint">errors</code>) is permanently removed from server</li>
 </ul>
 
-<h4 id="bulk-statuses">Bulk statuses</h4>
+<h5 id="bulk-statuses">Bulk statuses</h5>
 
 <p>When bulk is created, it gets <code class="prettyprint">waiting</code> status.</p>
 
@@ -39,7 +39,7 @@ for errors.</p>
 <p>When job failed for some internal reason, it will have either <code class="prettyprint">failed</code> or <code class="prettyprint">waiting_for_retry</code> status. See below
 for more details.  </p>
 
-<h4 id="asynchronous-job-failures">Asynchronous job failures</h4>
+<h5 id="asynchronous-job-failures">Asynchronous job failures</h5>
 
 <p>Jobs that couldn&rsquo;t be processed because of some internal reasons will be retried up to 5 times.</p>
 
@@ -48,7 +48,7 @@ for more details.  </p>
 <p>After 5th failure, the bulk will have <code class="prettyprint">failed</code> status assigned. In such case, please contact us, so we may identify 
 and resolve the problem.</p>
 
-<h2 id="send-import-request"><a name="v3-members-imports"></a> Send import request</h2>
+<h3 id="send-import-request"><a name="v3-members-imports"></a> Send import request</h3>
 
 <p><strong>POST</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/imports</code></p>
 
@@ -101,7 +101,7 @@ that, you may want to identify all bulks with the same <code class="prettyprint"
   </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"duplicated_msisdns"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<h3 id="post-parameters-json">POST Parameters (JSON)</h3>
+<h4 id="post-parameters-json">POST Parameters (JSON)</h4>
 
 <table><thead>
 <tr>
@@ -142,7 +142,7 @@ that, you may want to identify all bulks with the same <code class="prettyprint"
 </tr>
 </tbody></table>
 
-<h4 id="members-array">Members Array</h4>
+<h5 id="members-array">Members Array</h5>
 
 <p>General requirements:</p>
 
@@ -236,7 +236,7 @@ that, you may want to identify all bulks with the same <code class="prettyprint"
 
 <p>&ast;&ast; When those member attributes are missing on creation, defaults will be used. When on update, they won&rsquo;t be overwritten.</p>
 
-<h3 id="response-json-object">Response (JSON object)</h3>
+<h4 id="response-json-object">Response (JSON object)</h4>
 
 <table><thead>
 <tr>
@@ -252,7 +252,7 @@ that, you may want to identify all bulks with the same <code class="prettyprint"
 </tr>
 </tbody></table>
 
-<h3 id="error-responses">Error responses</h3>
+<h4 id="error-responses">Error responses</h4>
 
 <table><thead>
 <tr>
@@ -268,7 +268,7 @@ that, you may want to identify all bulks with the same <code class="prettyprint"
 </tr>
 </tbody></table>
 
-<h4 id="invalid-payload-error-json-object">Invalid Payload Error (JSON object)</h4>
+<h5 id="invalid-payload-error-json-object">Invalid Payload Error (JSON object)</h5>
 
 <p>When payload is invalid, an object is returned: <code class="prettyprint">{&quot;error&quot; =&gt; &lt;reason&gt;}</code></p>
 
@@ -306,7 +306,7 @@ that, you may want to identify all bulks with the same <code class="prettyprint"
 Requires <code>BL:Api:Members:Imports:Create</code> permit
 </aside>
 
-<h2 id="get-import-status"><a name="v3-members-imports-status"></a> Get import status</h2>
+<h3 id="get-import-status"><a name="v3-members-imports-status"></a> Get import status</h3>
 
 <p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/imports/:import_id</code></p>
 
@@ -341,7 +341,7 @@ Requires <code>BL:Api:Members:Imports:Create</code> permit
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<h3 id="url-parameters">URL Parameters</h3>
+<h4 id="url-parameters">URL Parameters</h4>
 
 <table><thead>
 <tr>
@@ -355,7 +355,7 @@ Requires <code>BL:Api:Members:Imports:Create</code> permit
 </tr>
 </tbody></table>
 
-<h3 id="response-json-object">Response (JSON object)</h3>
+<h4 id="response-json-object">Response (JSON object)</h4>
 
 <table><thead>
 <tr>
@@ -396,7 +396,7 @@ Requires <code>BL:Api:Members:Imports:Create</code> permit
 </tr>
 </tbody></table>
 
-<h3 id="error-responses">Error responses</h3>
+<h4 id="error-responses">Error responses</h4>
 
 <table><thead>
 <tr>
@@ -414,7 +414,7 @@ Requires <code>BL:Api:Members:Imports:Create</code> permit
 Requires <code>BL:Api:Members:Imports:Get</code> permit
 </aside>
 
-<h2 id="get-bulk-status"><a name="v3-members-imports-bulk-status"></a> Get bulk status</h2>
+<h3 id="get-bulk-status"><a name="v3-members-imports-bulk-status"></a> Get bulk status</h3>
 
 <p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/imports/:import_id/bulks/:bulk_id</code></p>
 
@@ -467,7 +467,7 @@ Requires <code>BL:Api:Members:Imports:Get</code> permit
     </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-30T17:14:03.738Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<h3 id="url-parameters">URL Parameters</h3>
+<h4 id="url-parameters">URL Parameters</h4>
 
 <table><thead>
 <tr>
@@ -489,7 +489,7 @@ Requires <code>BL:Api:Members:Imports:Get</code> permit
 </tr>
 </tbody></table>
 
-<h3 id="response-json-object">Response (JSON object)</h3>
+<h4 id="response-json-object">Response (JSON object)</h4>
 
 <table><thead>
 <tr>
@@ -555,7 +555,7 @@ Requires <code>BL:Api:Members:Imports:Get</code> permit
 </tr>
 </tbody></table>
 
-<h3 id="error-responses">Error responses</h3>
+<h4 id="error-responses">Error responses</h4>
 
 <table><thead>
 <tr>

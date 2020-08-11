@@ -1,4 +1,4 @@
-<h1 id="rewards-program">Rewards Program</h1>
+<h1 id="rewards-api">Rewards API</h1>
 
 <h2 id="introduction">Introduction</h2>
 
@@ -14,7 +14,7 @@ Points may expire after some time.</p>
 <p>Every Loyalty Club that has Boostcom Rewards enabled, has defined list of achievements that have rules attached to them.
 The rules are described below.</p>
 
-<h3 id="achievements"><a name="v3-rewards-program-achievements"></a> Achievements</h3>
+<h3 id="achievement-model"><a name="v3-rewards-program-achievements"></a> Achievement model</h3>
 
 <table><thead>
 <tr>
@@ -55,7 +55,7 @@ The rules are described below.</p>
 </tr>
 </tbody></table>
 
-<h3 id="achievement-types"><a name="v3-rewards-program-achievement-types"></a> Achievement types</h3>
+<h4 id="achievement-types"><a name="v3-rewards-program-achievement-types"></a> Achievement types</h4>
 
 <table><thead>
 <tr>
@@ -153,7 +153,7 @@ Levels are returned in ascending order, sorted by the <code class="prettyprint">
 
 <p>It defines <code class="prettyprint">maximum_points</code> value, that is meant to be compared with member&rsquo;s <strong>current</strong> points balance.</p>
 
-<h2 id="common-error-responses">Common error responses</h2>
+<h4 id="common-error-responses">Common error responses</h4>
 
 <table><thead>
 <tr>
@@ -167,7 +167,9 @@ Levels are returned in ascending order, sorted by the <code class="prettyprint">
 </tr>
 </tbody></table>
 
-<h2 id="get-info"><a name="v3-rewards-program-info"></a> Get info</h2>
+<h2 id="rewards-program">Rewards Program</h2>
+
+<h3 id="get-info"><a name="v3-rewards-program-info"></a> Get info</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -224,7 +226,7 @@ Levels are returned in ascending order, sorted by the <code class="prettyprint">
 
 <p>Returns information about Rewards Program in Loyalty Club. </p>
 
-<h3 id="response-json-object">Response (JSON object)</h3>
+<h4 id="response-json-object">Response (JSON object)</h4>
 
 <table><thead>
 <tr>
@@ -254,7 +256,7 @@ Levels are returned in ascending order, sorted by the <code class="prettyprint">
 Requires <code>Rewards:Api:Program:GetInfo</code> permit
 </aside>
 
-<h2 id="join"><a name="v3-rewards-program-join"></a> Join</h2>
+<h3 id="join"><a name="v3-rewards-program-join"></a> Join</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -284,7 +286,7 @@ Requires <code>Rewards:Api:Program:GetInfo</code> permit
 Requires <code>Rewards:Api:OAuth:Memberships:Create</code> permit
 </aside>
 
-<h2 id="leave"><a name="v3-rewards-program-leave"></a> Leave</h2>
+<h3 id="leave"><a name="v3-rewards-program-leave"></a> Leave</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -315,7 +317,7 @@ and <strong>deletion of all points and transaction from Rewards Program.</strong
 Requires <code>Rewards:Api:OAuth:Memberships:Delete</code> permit
 </aside>
 
-<h2 id="get-status"><a name="v3-rewards-program-status"></a> Get status</h2>
+<h3 id="get-status"><a name="v3-rewards-program-status"></a> Get status</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -398,7 +400,7 @@ Requires <code>Rewards:Api:OAuth:Memberships:Delete</code> permit
 
 <p>As a member-related action, it requires member authorization. See <a href="#v3-oauth2">OAuth</a>.</p>
 
-<h3 id="query-parameters">Query Parameters</h3>
+<h4 id="query-parameters">Query Parameters</h4>
 
 <table><thead>
 <tr>
@@ -425,7 +427,7 @@ Requires <code>Rewards:Api:OAuth:Memberships:Delete</code> permit
 </tr>
 </tbody></table>
 
-<h3 id="response-json-object">Response (JSON object)</h3>
+<h4 id="response-json-object">Response (JSON object)</h4>
 
 <table><thead>
 <tr>
@@ -461,7 +463,7 @@ Requires <code>Rewards:Api:OAuth:Memberships:Delete</code> permit
 </tr>
 </tbody></table>
 
-<h3 id="transaction-object">Transaction object</h3>
+<h4 id="transaction-object">Transaction object</h4>
 
 <table><thead>
 <tr>
@@ -497,7 +499,7 @@ Requires <code>Rewards:Api:OAuth:Memberships:Delete</code> permit
 </tr>
 </tbody></table>
 
-<h3 id="transaction-types">Transaction types</h3>
+<h4 id="transaction-types">Transaction types</h4>
 
 <table><thead>
 <tr>
@@ -523,7 +525,7 @@ Requires <code>Rewards:Api:OAuth:Memberships:Delete</code> permit
 </tr>
 </tbody></table>
 
-<h3 id="transaction-details">Transaction details</h3>
+<h4 id="transaction-details">Transaction details</h4>
 
 <p>Depending on transaction type, the details contain different kind of data.</p>
 
@@ -555,7 +557,7 @@ Requires <code>Rewards:Api:OAuth:Memberships:Delete</code> permit
 Requires <code>Rewards:Api:OAuth:Memberships:CheckStatus</code> permit
 </aside>
 
-<h2 id="get-status-by-member-id"><a name="v3-rewards-program-status-by-member-id"></a> Get status by member ID</h2>
+<h3 id="get-status-by-member-id"><a name="v3-rewards-program-status-by-member-id"></a> Get status by member ID</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -580,7 +582,7 @@ Works just the same as <a href="#v3-rewards-program-status">Rewards Program &bul
 Requires <code>Rewards:Api:Memberships:CheckStatus</code> permit
 </aside>
 
-<h2 id="achievements-summary"><a name="v3-rewards-program-achievements-summary"></a> Achievements summary</h2>
+<h3 id="achievements-summary"><a name="v3-rewards-program-achievements-summary"></a> Achievements summary</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -643,7 +645,7 @@ Requires <code>Rewards:Api:Memberships:CheckStatus</code> permit
 
 <p>As a member-related action, it requires member authorization. See <a href="#v3-oauth2">OAuth</a>.</p>
 
-<h3 id="query-parameters">Query Parameters</h3>
+<h4 id="query-parameters">Query Parameters</h4>
 
 <table><thead>
 <tr>
@@ -663,7 +665,7 @@ Requires <code>Rewards:Api:Memberships:CheckStatus</code> permit
 </tr>
 </tbody></table>
 
-<h3 id="achievement-by-type-json-object">Achievement by type JSON object</h3>
+<h4 id="achievement-by-type-json-object">Achievement by type JSON object</h4>
 
 <table><thead>
 <tr>
@@ -689,7 +691,7 @@ Requires <code>Rewards:Api:Memberships:CheckStatus</code> permit
 </tr>
 </tbody></table>
 
-<h3 id="achievement-by-month-json-object">Achievement by month JSON object</h3>
+<h4 id="achievement-by-month-json-object">Achievement by month JSON object</h4>
 
 <table><thead>
 <tr>

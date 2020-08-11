@@ -1,6 +1,6 @@
-<h1 id="files">Files</h1>
+<h1 id="files-api">Files API</h1>
 
-<h2 id="general-info">General info</h2>
+<h2 id="introduction">Introduction</h2>
 
 <h3 id="file-model"><a name="v3-file-model"></a> File model</h3>
 
@@ -291,7 +291,7 @@ Each file kind is also available in multiple sizes. </p>
 Because of that, you can expect them to have <code class="prettyprint">min_height</code> and <code class="prettyprint">min_width</code> that match the <code class="prettyprint">base</code> size, 
 but they never have <code class="prettyprint">max_width</code> or <code class="prettyprint">max_height</code> defined.</p>
 
-<h3 id="file-cropping"><a name="v3-file-cropping"></a> File cropping</h3>
+<h4 id="file-cropping"><a name="v3-file-cropping"></a> File cropping</h4>
 
 <blockquote>
 <p><code class="prettyprint">crop_to</code> param interpretation may be visualized like this:</p>
@@ -317,14 +317,14 @@ This can be achieved by providing cropping param (<code class="prettyprint">crop
 
 <p>When uploaded file is too large and <code class="prettyprint">crop_to</code> param is not provided, the file will be automatically cropped with gravity set in center of image.</p>
 
-<h4 id="example">Example</h4>
+<h5 id="example">Example</h5>
 
 <p>The kind&rsquo;s base size is 400x200px and the uploaded file is 1000x1000px. </p>
 
 <p>With crop_to=&ldquo;0,250,1000,750&rdquo;, a rectangle of &ldquo;1000x500&rdquo; size will be cropped, with 250px left offset.
 The file will be then also resized to 400x200.</p>
 
-<h3 id="uploaded-instances-projections"><a name="v3-projected-file-versions"></a> Uploaded instances projections</h3>
+<h4 id="uploaded-instances-projections"><a name="v3-projected-file-versions"></a> Uploaded instances projections</h4>
 
 <p>When file is uploaded, only original file is physically processed and stored. <code class="prettyprint">base</code> and other versions are processed asynchronously. 
 So, the responses returned on upload contains only &ldquo;projected&rdquo; info about files.</p>
@@ -368,7 +368,9 @@ So, the responses returned on upload contains only &ldquo;projected&rdquo; info 
 </tr>
 </tbody></table>
 
-<h2 id="get-file-schema"><a name="v3-get-file-schema"></a> Get file schema</h2>
+<h2 id="files">Files</h2>
+
+<h3 id="get-file-schema"><a name="v3-get-file-schema"></a> Get file schema</h3>
 
 <blockquote>
 <p>Example request</p>
@@ -391,7 +393,7 @@ So, the responses returned on upload contains only &ldquo;projected&rdquo; info 
 Requires <code>Files:Api:GetSchema</code> permit
 </aside>
 
-<h2 id="create-file"><a name="v3-create-file"></a> Create file</h2>
+<h3 id="create-file"><a name="v3-create-file"></a> Create file</h3>
 
 <blockquote>
 <p>Example request</p>
@@ -442,7 +444,7 @@ Requires <code>Files:Api:GetSchema</code> permit
 
 <p>Creates new file for given Fileable (e.g. Offer).</p>
 
-<h3 id="url-parameters"><a name="v3-create-file-url-parameters"></a> URL Parameters</h3>
+<h4 id="url-parameters"><a name="v3-create-file-url-parameters"></a> URL Parameters</h4>
 
 <table><thead>
 <tr>
@@ -468,7 +470,7 @@ Requires <code>Files:Api:GetSchema</code> permit
 </tr>
 </tbody></table>
 
-<h3 id="post-parameters"><a name="v3-create-file-post-parameters"></a> POST Parameters</h3>
+<h4 id="post-parameters"><a name="v3-create-file-post-parameters"></a> POST Parameters</h4>
 
 <table><thead>
 <tr>
@@ -492,7 +494,7 @@ Requires <code>Files:Api:GetSchema</code> permit
 </tr>
 </tbody></table>
 
-<h3 id="response-json-object"><a name="v3-create-file-response"></a> Response (JSON object)</h3>
+<h4 id="response-json-object"><a name="v3-create-file-response"></a> Response (JSON object)</h4>
 
 <table><thead>
 <tr>
@@ -513,7 +515,7 @@ Requires <code>Files:Api:GetSchema</code> permit
 </tr>
 </tbody></table>
 
-<h3 id="error-responses">Error responses</h3>
+<h4 id="error-responses">Error responses</h4>
 
 <table><thead>
 <tr>
@@ -535,7 +537,7 @@ Requires <code>Files:Api:GetSchema</code> permit
 Requires <code>Files:Api:Create</code> permit
 </aside>
 
-<h2 id="update-file"><a name="v3-update-file"></a> Update file</h2>
+<h3 id="update-file"><a name="v3-update-file"></a> Update file</h3>
 
 <blockquote>
 <p>Example request</p>
@@ -561,19 +563,19 @@ Requires <code>Files:Api:Create</code> permit
 
 <p>Updates file for given Fileable (e.g. Offer).</p>
 
-<h3 id="url-parameters">URL Parameters</h3>
+<h4 id="url-parameters">URL Parameters</h4>
 
 <p>See: <a href="#v3-create-file-url-parameters">Create File URL Parameters</a></p>
 
-<h3 id="post-parameters">POST Parameters</h3>
+<h4 id="post-parameters">POST Parameters</h4>
 
 <p>See: <a href="#v3-create-file-post-parameters">Create File POST Parameters</a></p>
 
-<h3 id="response-json-object">Response (JSON object)</h3>
+<h4 id="response-json-object">Response (JSON object)</h4>
 
 <p>See: <a href="#v3-create-file-response">Create File Response</a></p>
 
-<h3 id="error-responses">Error responses</h3>
+<h4 id="error-responses">Error responses</h4>
 
 <table><thead>
 <tr>
@@ -599,7 +601,7 @@ Requires <code>Files:Api:Create</code> permit
 Requires <code>Files:Api:Update</code> permit
 </aside>
 
-<h2 id="reprocess-file"><a name="v3-reprocess-file"></a> Reprocess file</h2>
+<h3 id="reprocess-file"><a name="v3-reprocess-file"></a> Reprocess file</h3>
 
 <blockquote>
 <p>Example request</p>
@@ -625,19 +627,19 @@ Requires <code>Files:Api:Update</code> permit
 <p>Reprocesses file for given Fileable (e.g. Offer).
 It means that no file needs to be uploaded, instead the original file will be reprocessed according to given parameters. </p>
 
-<h3 id="url-parameters">URL Parameters</h3>
+<h4 id="url-parameters">URL Parameters</h4>
 
 <p>See: <a href="#v3-create-file-url-parameters">Create File URL Parameters</a></p>
 
-<h3 id="post-parameters">POST Parameters</h3>
+<h4 id="post-parameters">POST Parameters</h4>
 
 <p>See: <a href="#v3-create-file-post-parameters">Create File POST Parameters</a> - except no <code class="prettyprint">file</code> param is accepted here</p>
 
-<h3 id="response-json-object">Response (JSON object)</h3>
+<h4 id="response-json-object">Response (JSON object)</h4>
 
 <p>See: <a href="#v3-create-file-response">Create File Response</a></p>
 
-<h3 id="error-responses">Error responses</h3>
+<h4 id="error-responses">Error responses</h4>
 
 <table><thead>
 <tr>
@@ -663,7 +665,7 @@ It means that no file needs to be uploaded, instead the original file will be re
 Requires <code>Files:Api:Reprocess</code> permit
 </aside>
 
-<h2 id="delete-file"><a name="v3-delete-file"></a> Delete file</h2>
+<h3 id="delete-file"><a name="v3-delete-file"></a> Delete file</h3>
 
 <blockquote>
 <p>Example request</p>
@@ -685,11 +687,11 @@ Requires <code>Files:Api:Reprocess</code> permit
 
 <p>Deletes file of given Fileable (e.g. Offer).</p>
 
-<h3 id="url-parameters">URL Parameters</h3>
+<h4 id="url-parameters">URL Parameters</h4>
 
 <p>See: <a href="#v3-create-file-url-parameters">Create File URL Parameters</a></p>
 
-<h3 id="error-responses">Error responses</h3>
+<h4 id="error-responses">Error responses</h4>
 
 <table><thead>
 <tr>

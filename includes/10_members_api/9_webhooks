@@ -1,4 +1,4 @@
-<h1 id="members-webhooks">Members Webhooks</h1>
+<h2 id="members-webhooks">Members Webhooks</h2>
 
 <p>A Loyalty Club may be configured to send notifications (as HTTP POST requests) when a change occurs within its member 
 database (e.g. when member registers).</p>
@@ -7,7 +7,7 @@ database (e.g. when member registers).</p>
 You will need to provide us a HTTPS (for security reasons, we don&rsquo;t support HTTP) URL that notifications will
 be sent to.</p>
 
-<h2 id="subscription">Subscription</h2>
+<h3 id="subscription">Subscription</h3>
 
 <p>As it is possible to have multiple endpoints configured for receiving notifications in one Loyalty Club, for each 
 endpoint we setup a Subscription.</p>
@@ -15,7 +15,7 @@ endpoint we setup a Subscription.</p>
 <p>Each Subscription has its own Secret Token (see below) and may be configured to send notifications only on specific 
 changes (<code class="prettyprint">import</code>, <code class="prettyprint">update</code>, <code class="prettyprint">delete</code>).</p>
 
-<h2 id="authentication-token">Authentication token</h2>
+<h3 id="authentication-token">Authentication token</h3>
 
 <p>Each notification request is signed with <code class="prettyprint">X-Secret-Token</code> header that contains Secret Token configured for given 
 Subscription.</p>
@@ -23,12 +23,12 @@ Subscription.</p>
 <p>In order to assure that notifications you receive are sent from us, you should check if its value matches 
 the Secret Token that you received from us when the subscription has been set up.</p>
 
-<h2 id="notifications-format">Notifications format</h2>
+<h3 id="notifications-format">Notifications format</h3>
 
 <p>Currently, notifications are generated in two versions. 
 Version 1 is deprecated and new subscriptions are going to be configured to receive v2 notifications.</p>
 
-<h3 id="notifications-v2">Notifications v2</h3>
+<h4 id="notifications-v2">Notifications v2</h4>
 
 <blockquote>
 <p>Example for v2</p>
@@ -101,7 +101,7 @@ Version 1 is deprecated and new subscriptions are going to be configured to rece
 </tr>
 </tbody></table>
 
-<h4 id="event-model"><a name="v2-event"></a> Event model</h4>
+<h5 id="event-model"><a name="v2-event"></a> Event model</h5>
 
 <p>Contains meta information about the change event. </p>
 
@@ -124,7 +124,7 @@ Version 1 is deprecated and new subscriptions are going to be configured to rece
 </tr>
 </tbody></table>
 
-<h4 id="changes-object"><a name="v2-changes"></a> Changes object</h4>
+<h5 id="changes-object"><a name="v2-changes"></a> Changes object</h5>
 
 <p>Represents changes that happened to member within the event. Includes only properties that have been actually changed
 within the event.</p>
@@ -169,7 +169,7 @@ within the event.</p>
 </tr>
 </tbody></table>
 
-<h3 id="notifications-v1-deprecated">Notifications v1 (deprecated)</h3>
+<h4 id="notifications-v1-deprecated">Notifications v1 (deprecated)</h4>
 
 <blockquote>
 <p>Example for v1</p>
@@ -258,7 +258,7 @@ within the event.</p>
 </tr>
 </tbody></table>
 
-<h2 id="notifications-delivery">Notifications delivery</h2>
+<h3 id="notifications-delivery">Notifications delivery</h3>
 
 <p>Your endpoint must return a <code class="prettyprint">2xx</code> (<code class="prettyprint">200</code> or <code class="prettyprint">201</code> preferably) HTTP status code. Only then the notification 
 will be treated as delivered.</p>

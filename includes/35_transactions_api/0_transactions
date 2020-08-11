@@ -1,6 +1,8 @@
-<h1 id="transactions">Transactions</h1>
+<h1 id="transactions-api">Transactions API</h1>
 
-<h2 id="create"><a name="v3-transactions-create"></a> Create</h2>
+<h2 id="transactions">Transactions</h2>
+
+<h3 id="create"><a name="v3-transactions-create"></a> Create</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -122,7 +124,7 @@
 
 <p>Register transactions, stamps or bonus points will be calculated based on the configured loyalty program.</p>
 
-<h3 id="messages-post-parameters-json-array">Messages POST Parameters (JSON array)</h3>
+<h4 id="messages-post-parameters-json-array">Messages POST Parameters (JSON array)</h4>
 
 <p>Expected payload is either object with <code class="prettyprint">transactions</code> attribute containing array of <code class="prettyprint">transaction</code> objects with attributes as described below or single <code class="prettyprint">transaction</code> object:</p>
 
@@ -356,7 +358,7 @@
 }
 </code></p>
 
-<h3 id="feedback-statuses">Feedback statuses</h3>
+<h4 id="feedback-statuses">Feedback statuses</h4>
 
 <table><thead>
 <tr>
@@ -374,7 +376,7 @@
 </tr>
 </tbody></table>
 
-<h3 id="error-responses">Error responses</h3>
+<h4 id="error-responses">Error responses</h4>
 
 <table><thead>
 <tr>
@@ -392,7 +394,7 @@
 Requires <code>Transaction:Api:Transactions:Create</code> and <code>BL:Api:Members:Get</code> permits
 </aside>
 
-<h2 id="list"><a name="v3-transactions-list"></a> List</h2>
+<h3 id="list"><a name="v3-transactions-list"></a> List</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -439,7 +441,7 @@ Requires <code>Transaction:Api:Transactions:Create</code> and <code>BL:Api:Membe
 
 <p>List registered transactions</p>
 
-<h3 id="request-parameters">Request Parameters</h3>
+<h4 id="request-parameters">Request Parameters</h4>
 
 <table><thead>
 <tr>
@@ -507,7 +509,7 @@ Requires <code>Transaction:Api:Transactions:Create</code> and <code>BL:Api:Membe
 
 <p>* required at least one of starred parameters </p>
 
-<h3 id="error-responses">Error responses</h3>
+<h4 id="error-responses">Error responses</h4>
 
 <table><thead>
 <tr>
@@ -525,7 +527,7 @@ Requires <code>Transaction:Api:Transactions:Create</code> and <code>BL:Api:Membe
 Requires <code>Transaction:Api:Transactions:Read</code> permit
 </aside> 
 
-<h2 id="get"><a name="v3-transactions-get"></a> Get</h2>
+<h3 id="get"><a name="v3-transactions-get"></a> Get</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -580,7 +582,7 @@ Requires <code>Transaction:Api:Transactions:Read</code> permit
 
 <p>Get transaction with items</p>
 
-<h3 id="error-responses">Error responses</h3>
+<h4 id="error-responses">Error responses</h4>
 
 <table><thead>
 <tr>
@@ -598,7 +600,9 @@ Requires <code>Transaction:Api:Transactions:Read</code> permit
 Requires <code>Transaction:Api:Transactions:Read</code> permit
 </aside> 
 
-<h2 id="get-categories"><a name="v3-transactions-categories-get"></a> Get categories</h2>
+<h2 id="categories">Categories</h2>
+
+<h3 id="list"><a name="v3-transactions-categories-get"></a> List</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -655,7 +659,7 @@ Requires <code>Transaction:Api:Transactions:Read</code> permit
 
 <p>Get categories</p>
 
-<h3 id="request-parameters">Request Parameters</h3>
+<h4 id="request-parameters">Request Parameters</h4>
 
 <table><thead>
 <tr>
@@ -691,7 +695,7 @@ Requires <code>Transaction:Api:Transactions:Read</code> permit
 </tr>
 </tbody></table>
 
-<h3 id="error-responses">Error responses</h3>
+<h4 id="error-responses">Error responses</h4>
 
 <table><thead>
 <tr>
@@ -709,15 +713,17 @@ Requires <code>Transaction:Api:Transactions:Read</code> permit
 Requires <code>Transaction:Api:Transactions:Read</code> permit
 </aside> 
 
-<h2 id="create-events"><a name="v3-transactions-events-create"></a> Create events</h2>
+<h2 id="events">Events</h2>
+
+<h3 id="create-events"><a name="v3-transactions-events-create"></a> Create events</h3>
 
 <blockquote>
 <p>Example:</p>
 
 <p>e-Vouchers</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
-<span class="s2">"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/transactions/categories"</span> <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
+<span class="s2">"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/transactions/events"</span> <span class="se">\</span>
     -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
     -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
@@ -852,7 +858,7 @@ Requires <code>Transaction:Api:Transactions:Read</code> permit
 
 <p>Send different bonus events events</p>
 
-<h3 id="request-parameters">Request Parameters</h3>
+<h4 id="request-parameters">Request Parameters</h4>
 
 <table><thead>
 <tr>
@@ -982,7 +988,7 @@ Requires <code>Transaction:Api:Transactions:Read</code> permit
 </tr>
 </tbody></table>
 
-<h3 id="error-responses">Error responses</h3>
+<h4 id="error-responses">Error responses</h4>
 
 <table><thead>
 <tr>

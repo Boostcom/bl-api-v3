@@ -1,6 +1,8 @@
-<h1 id="stores">Stores</h1>
+<h1 id="stores-api">Stores API</h1>
 
-<h2 id="list"><a name="v3-store-list"></a> List</h2>
+<h2 id="stores">Stores</h2>
+
+<h3 id="list"><a name="v3-store-list"></a> List</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -72,7 +74,7 @@
 
 <p>List of all active stores</p>
 
-<h3 id="url-parameters">URL Parameters</h3>
+<h4 id="url-parameters">URL Parameters</h4>
 
 <table><thead>
 <tr>
@@ -129,7 +131,7 @@
 Requires <code>Stores:Api:Stores:Get</code> permit
 </aside> 
 
-<h2 id="get"><a name="v3-store-get"></a> Get</h2>
+<h3 id="get"><a name="v3-store-get"></a> Get</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -209,7 +211,7 @@ Requires <code>Stores:Api:Stores:Get</code> permit
 
 <p>Return store by one of two identifiers: <code class="prettyprint">id</code> or <code class="prettyprint">store_id</code></p>
 
-<h3 id="url-parameters">URL Parameters</h3>
+<h4 id="url-parameters">URL Parameters</h4>
 
 <table><thead>
 <tr>
@@ -230,7 +232,7 @@ Requires <code>Stores:Api:Stores:Get</code> permit
 </tr>
 </tbody></table>
 
-<h3 id="error-responses">Error responses</h3>
+<h4 id="error-responses">Error responses</h4>
 
 <table><thead>
 <tr>
@@ -248,7 +250,7 @@ Requires <code>Stores:Api:Stores:Get</code> permit
 Requires <code>Stores:Api:Stores:Get</code> permit
 </aside>
 
-<h2 id="create"><a name="v3-store-create"></a> Create</h2>
+<h3 id="create"><a name="v3-store-create"></a> Create</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -331,7 +333,7 @@ Requires <code>Stores:Api:Stores:Get</code> permit
 
 <p>Create store</p>
 
-<h3 id="post-parameters-json">POST Parameters (JSON)</h3>
+<h4 id="post-parameters-json">POST Parameters (JSON)</h4>
 
 <table><thead>
 <tr>
@@ -415,7 +417,7 @@ Requires <code>Stores:Api:Stores:Get</code> permit
 
 <p>Parameters with <code class="prettyprint">*</code> are required</p>
 
-<h3 id="feedback-statuses">Feedback statuses</h3>
+<h4 id="feedback-statuses">Feedback statuses</h4>
 
 <table><thead>
 <tr>
@@ -433,7 +435,7 @@ Requires <code>Stores:Api:Stores:Get</code> permit
 </tr>
 </tbody></table>
 
-<h3 id="error-responses">Error responses</h3>
+<h4 id="error-responses">Error responses</h4>
 
 <table><thead>
 <tr>
@@ -451,7 +453,7 @@ Requires <code>Stores:Api:Stores:Get</code> permit
 Requires <code>Stores:Api:Stores:Create</code>
 </aside>
 
-<h2 id="update"><a name="v3-store-update"></a> Update</h2>
+<h3 id="update"><a name="v3-store-update"></a> Update</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -540,7 +542,7 @@ Requires <code>Stores:Api:Stores:Create</code>
 
 <p><strong>PUT</strong> <code class="prettyprint">v3/:loyalty_club_slug/stores/by_store_id/:store_id</code></p>
 
-<h3 id="url-parameters">URL Parameters</h3>
+<h4 id="url-parameters">URL Parameters</h4>
 
 <table><thead>
 <tr>
@@ -561,7 +563,7 @@ Requires <code>Stores:Api:Stores:Create</code>
 </tr>
 </tbody></table>
 
-<h3 id="put-parameters-json">PUT Parameters (JSON)</h3>
+<h4 id="put-parameters-json">PUT Parameters (JSON)</h4>
 
 <table><thead>
 <tr>
@@ -640,7 +642,7 @@ Requires <code>Stores:Api:Stores:Create</code>
 
 <p>Parameters with <code class="prettyprint">*</code> are required</p>
 
-<h3 id="feedback-statuses">Feedback statuses</h3>
+<h4 id="feedback-statuses">Feedback statuses</h4>
 
 <table><thead>
 <tr>
@@ -658,7 +660,7 @@ Requires <code>Stores:Api:Stores:Create</code>
 </tr>
 </tbody></table>
 
-<h3 id="error-responses">Error responses</h3>
+<h4 id="error-responses">Error responses</h4>
 
 <table><thead>
 <tr>
@@ -676,7 +678,7 @@ Requires <code>Stores:Api:Stores:Create</code>
 Requires <code>Stores:Api:Stores:Update</code>
 </aside>
 
-<h2 id="delete"><a name="v3-store-delete"></a> Delete</h2>
+<h3 id="delete"><a name="v3-store-delete"></a> Delete</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -710,7 +712,7 @@ Requires <code>Stores:Api:Stores:Update</code>
 
 <p><strong>DELETE</strong> <code class="prettyprint">v3/:loyalty_club_slug/stores/by_store_id/:store_id</code></p>
 
-<h3 id="url-parameters">URL Parameters</h3>
+<h4 id="url-parameters">URL Parameters</h4>
 
 <table><thead>
 <tr>
@@ -731,7 +733,7 @@ Requires <code>Stores:Api:Stores:Update</code>
 </tr>
 </tbody></table>
 
-<h3 id="feedback-statuses">Feedback statuses</h3>
+<h4 id="feedback-statuses">Feedback statuses</h4>
 
 <table><thead>
 <tr>
@@ -749,7 +751,7 @@ Requires <code>Stores:Api:Stores:Update</code>
 </tr>
 </tbody></table>
 
-<h3 id="error-responses">Error responses</h3>
+<h4 id="error-responses">Error responses</h4>
 
 <table><thead>
 <tr>
@@ -767,7 +769,9 @@ Requires <code>Stores:Api:Stores:Update</code>
 Requires <code>Stores:Api:Stores:Delete</code>
 </aside>
 
-<h2 id="categories"><a name="v3-store-categories-list"></a> Categories</h2>
+<h2 id="categories"><a name="v3-stores-categories"></a> Categories</h2>
+
+<h3 id="list"><a name="v3-store-categories-list"></a> List</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -796,7 +800,9 @@ Requires <code>Stores:Api:Stores:Delete</code>
 Requires <code>Stores:Api:Zones:Get</code> permit
 </aside> 
 
-<h2 id="zones"><a name="v3-store-zones-list"></a> Zones</h2>
+<h2 id="zones">Zones</h2>
+
+<h3 id="list"><a name="v3-store-zones-list"></a> List</h3>
 
 <blockquote>
 <p>Example:</p>

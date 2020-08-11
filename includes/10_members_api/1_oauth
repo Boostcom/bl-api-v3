@@ -1,4 +1,4 @@
-<h1 id="members-authentication"><a name="v3-oauth2"></a>  Members Authentication</h1>
+<h2 id="members-oauth"><a name="v3-oauth2"></a> Members OAuth</h2>
 
 <blockquote>
 <p>Example header: <code class="prettyprint">Authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522</code></p>
@@ -11,7 +11,7 @@ OAuth2 flow for this.</p>
 
 <p>Look at <a href="#v3-token-create">OAuth Token &bull; Create</a> to see how to obtain the :access_token.</p>
 
-<h2 id="create-token"><a name="v3-token-create"></a> Create token</h2>
+<h3 id="create-token"><a name="v3-token-create"></a> Create token</h3>
 
 <blockquote>
 <p>Create token example:</p>
@@ -62,7 +62,7 @@ OAuth2 flow for this.</p>
 <li><code class="prettyprint">refresh_token</code> - token is issued by providing refresh token obtained from <code class="prettyprint">password</code> grant type </li>
 </ul>
 
-<h3 id="creating-token-password-grant">Creating token (<code class="prettyprint">password</code> grant)</h3>
+<h4 id="creating-token-password-grant">Creating token (<code class="prettyprint">password</code> grant)</h4>
 
 <p>When creating new access token, <code class="prettyprint">&quot;grant_type&quot;: &quot;password&quot;</code> should be given along with member credentials (see example on the right).</p>
 
@@ -75,7 +75,7 @@ OAuth2 flow for this.</p>
 
 <p>Also, <code class="prettyprint">resource_owner_id</code> is returned, is an ID of member that the token has been issued for. </p>
 
-<h3 id="refreshing-token-refresh_token-grant">Refreshing token (<code class="prettyprint">refresh_token</code> grant)</h3>
+<h4 id="refreshing-token-refresh_token-grant">Refreshing token (<code class="prettyprint">refresh_token</code> grant)</h4>
 
 <p>You can obtain a new token after (or before) it&rsquo;s expiration time, by using <code class="prettyprint">refresh_token</code> grant.</p>
 
@@ -83,7 +83,7 @@ OAuth2 flow for this.</p>
 
 <p>It returns a token response, same as for <code class="prettyprint">password</code> grant, but with new tokens.</p>
 
-<h3 id="post-parameters-json-object">POST Parameters (JSON object)</h3>
+<h4 id="post-parameters-json-object">POST Parameters (JSON object)</h4>
 
 <table><thead>
 <tr>
@@ -125,7 +125,7 @@ OAuth2 flow for this.</p>
 </tr>
 </tbody></table>
 
-<h3 id="response-json-object">Response (JSON object)</h3>
+<h4 id="response-json-object">Response (JSON object)</h4>
 
 <table><thead>
 <tr>
@@ -166,7 +166,7 @@ OAuth2 flow for this.</p>
 </tr>
 </tbody></table>
 
-<h3 id="error-responses">Error responses</h3>
+<h4 id="error-responses">Error responses</h4>
 
 <table><thead>
 <tr>
@@ -190,7 +190,7 @@ Requires <code>BL:Api:Members:OAuth</code> permit
 
 <!--- ############################################################################################################# --->
 
-<h2 id="revoke-token"><a name="v3-token-revoke"></a> Revoke token</h2>
+<h3 id="revoke-token"><a name="v3-token-revoke"></a> Revoke token</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -217,7 +217,7 @@ Requires <code>BL:Api:Members:OAuth</code> permit
 
 <p>Always returns an empty JSON object (even if given token is invalid).</p>
 
-<h3 id="post-parameters-json">POST Parameters (JSON)</h3>
+<h4 id="post-parameters-json">POST Parameters (JSON)</h4>
 
 <table><thead>
 <tr>
@@ -239,7 +239,7 @@ Requires <code>BL:Api:Members:OAuth</code> permit
 
 <!--- ############################################################################################################# --->
 
-<h2 id="get-token-info"><a name="v3-token-info"></a> Get token info</h2>
+<h3 id="get-token-info"><a name="v3-token-info"></a> Get token info</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -269,7 +269,7 @@ Requires <code>BL:Api:Members:OAuth</code> permit
 
 <p>Returns info of given token (not refresh token) from <code class="prettyprint">Authorization</code> header.</p>
 
-<h3 id="response-json-object">Response (JSON object)</h3>
+<h4 id="response-json-object">Response (JSON object)</h4>
 
 <table><thead>
 <tr>
@@ -305,7 +305,7 @@ Requires <code>BL:Api:Members:OAuth</code> permit
 </tr>
 </tbody></table>
 
-<h3 id="error-responses">Error responses</h3>
+<h4 id="error-responses">Error responses</h4>
 
 <table><thead>
 <tr>

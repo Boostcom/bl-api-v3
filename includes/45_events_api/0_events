@@ -1,6 +1,12 @@
-<h1 id="events-wip">Events (WIP)</h1>
+<h1 id="events-api">Events API</h1>
 
-<h2 id="list"><a name="v3-events-list"></a> List</h2>
+<aside class="warning">
+This API is in development. Therefore, it may not be ready for use and is a subject to change at any time.
+</aside>
+
+<h2 id="events">Events</h2>
+
+<h3 id="list"><a name="v3-events-list"></a> List</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -40,7 +46,7 @@
 Requires <code>Events:Api:Events:Get</code> permit
 </aside>
 
-<h2 id="get"><a name="v3-event-get"></a> Get</h2>
+<h3 id="get"><a name="v3-event-get"></a> Get</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -78,7 +84,7 @@ Requires <code>Events:Api:Events:Get</code> permit
 Requires <code>Events:Api:Events:Get</code> permit
 </aside>
 
-<h2 id="member-validation"><a name="v3-events-validate-member"></a> Member validation</h2>
+<h3 id="member-validation"><a name="v3-events-validate-member"></a> Member validation</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -119,7 +125,7 @@ Requires <code>Events:Api:Events:Get</code> permit
 Requires <code>Events:Api:Validation:Create</code> permit
 </aside>
 
-<h3 id="parameters">Parameters</h3>
+<h4 id="parameters">Parameters</h4>
 
 <table><thead>
 <tr>
@@ -140,7 +146,7 @@ Requires <code>Events:Api:Validation:Create</code> permit
 </tr>
 </tbody></table>
 
-<h3 id="error-responses">Error responses</h3>
+<h4 id="error-responses">Error responses</h4>
 
 <table><thead>
 <tr>
@@ -154,7 +160,9 @@ Requires <code>Events:Api:Validation:Create</code> permit
 </tr>
 </tbody></table>
 
-<h2 id="checkin"><a name="v3-events-checkin-member"></a> Checkin</h2>
+<h2 id="checkins">Checkins</h2>
+
+<h3 id="create"><a name="v3-events-checkin-member"></a> Create</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -198,7 +206,7 @@ Requires <code>Events:Api:Validation:Create</code> permit
 Requires <code>Events:Api:Checkin:Create</code> permit
 </aside> 
 
-<h3 id="parameters">Parameters</h3>
+<h4 id="parameters">Parameters</h4>
 
 <table><thead>
 <tr>
@@ -228,7 +236,7 @@ Requires <code>Events:Api:Checkin:Create</code> permit
 </tr>
 </tbody></table>
 
-<h3 id="error-responses">Error responses</h3>
+<h4 id="error-responses">Error responses</h4>
 
 <table><thead>
 <tr>
@@ -244,7 +252,7 @@ Requires <code>Events:Api:Checkin:Create</code> permit
 
 <p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/events/checkin</code></p>
 
-<h2 id="checkin-list"><a name="v3-events-checkin-list"></a> Checkin list</h2>
+<h3 id="list"><a name="v3-events-checkin-list"></a> List</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -275,7 +283,9 @@ Requires <code>Events:Api:Checkin:Create</code> permit
 Requires <code>Events:Api:Checkin:Get</code> permit
 </aside>
 
-<h2 id="invitation"><a name="v3-events-invitation"></a> Invitation</h2>
+<h2 id="invitations">Invitations</h2>
+
+<h3 id="send-invitation"><a name="v3-events-invitation"></a> Send invitation</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -314,7 +324,7 @@ Requires <code>Events:Api:Checkin:Get</code> permit
 Requires <code>Events:Api:Invitation:Create</code> permit
 </aside>
 
-<h3 id="payload-parameters">Payload Parameters</h3>
+<h4 id="payload-parameters">Payload Parameters</h4>
 
 <table><thead>
 <tr>
@@ -335,7 +345,7 @@ Requires <code>Events:Api:Invitation:Create</code> permit
 </tr>
 </tbody></table>
 
-<h3 id="error-responses">Error responses</h3>
+<h4 id="error-responses">Error responses</h4>
 
 <table><thead>
 <tr>

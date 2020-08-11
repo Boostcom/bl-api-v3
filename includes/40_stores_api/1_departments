@@ -1,6 +1,6 @@
-<h1 id="departments">Departments</h1>
+<h2 id="departments">Departments</h2>
 
-<h2 id="list"><a name="v3-department-list"></a> List</h2>
+<h3 id="list"><a name="v3-department-list"></a> List</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -31,7 +31,7 @@
 Requires <code>Stores:Api:Departments:Get</code> permit
 </aside> 
 
-<h2 id="get"><a name="v3-department-get"></a> Get</h2>
+<h3 id="get"><a name="v3-department-get"></a> Get</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -65,7 +65,7 @@ Requires <code>Stores:Api:Departments:Get</code> permit
 
 <p>Return department by one of two identifiers: <code class="prettyprint">id</code> or <code class="prettyprint">department_id</code></p>
 
-<h3 id="url-parameters">URL Parameters</h3>
+<h4 id="url-parameters">URL Parameters</h4>
 
 <table><thead>
 <tr>
@@ -86,7 +86,7 @@ Requires <code>Stores:Api:Departments:Get</code> permit
 </tr>
 </tbody></table>
 
-<h3 id="error-responses">Error responses</h3>
+<h4 id="error-responses">Error responses</h4>
 
 <table><thead>
 <tr>
@@ -104,7 +104,7 @@ Requires <code>Stores:Api:Departments:Get</code> permit
 Requires <code>Stores:Api:Departments:Get</code> permit
 </aside>
 
-<h2 id="create"><a name="v3-department-create"></a> Create</h2>
+<h3 id="create"><a name="v3-department-create"></a> Create</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -146,7 +146,7 @@ Requires <code>Stores:Api:Departments:Get</code> permit
 
 <p>Create store</p>
 
-<h3 id="post-parameters-json">POST Parameters (JSON)</h3>
+<h4 id="post-parameters-json">POST Parameters (JSON)</h4>
 
 <table><thead>
 <tr>
@@ -169,7 +169,7 @@ Requires <code>Stores:Api:Departments:Get</code> permit
 
 <p>Parameters with <code class="prettyprint">*</code> are required</p>
 
-<h3 id="feedback-statuses">Feedback statuses</h3>
+<h4 id="feedback-statuses">Feedback statuses</h4>
 
 <table><thead>
 <tr>
@@ -187,7 +187,7 @@ Requires <code>Stores:Api:Departments:Get</code> permit
 </tr>
 </tbody></table>
 
-<h3 id="error-responses">Error responses</h3>
+<h4 id="error-responses">Error responses</h4>
 
 <table><thead>
 <tr>
@@ -205,7 +205,7 @@ Requires <code>Stores:Api:Departments:Get</code> permit
 Requires <code>Stores:Api:Departments:Create</code>
 </aside>
 
-<h2 id="update"><a name="v3-department-update"></a> Update</h2>
+<h3 id="update"><a name="v3-department-update"></a> Update</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -253,7 +253,7 @@ Requires <code>Stores:Api:Departments:Create</code>
 
 <p><strong>PUT</strong> <code class="prettyprint">v3/:loyalty_club_slug/stores/departments/by_department_id/:department_id</code></p>
 
-<h3 id="url-parameters">URL Parameters</h3>
+<h4 id="url-parameters">URL Parameters</h4>
 
 <table><thead>
 <tr>
@@ -274,7 +274,7 @@ Requires <code>Stores:Api:Departments:Create</code>
 </tr>
 </tbody></table>
 
-<h3 id="put-parameters-json">PUT Parameters (JSON)</h3>
+<h4 id="put-parameters-json">PUT Parameters (JSON)</h4>
 
 <table><thead>
 <tr>
@@ -292,7 +292,7 @@ Requires <code>Stores:Api:Departments:Create</code>
 
 <p>Parameters with <code class="prettyprint">*</code> are required</p>
 
-<h3 id="feedback-statuses">Feedback statuses</h3>
+<h4 id="feedback-statuses">Feedback statuses</h4>
 
 <table><thead>
 <tr>
@@ -310,7 +310,7 @@ Requires <code>Stores:Api:Departments:Create</code>
 </tr>
 </tbody></table>
 
-<h3 id="error-responses">Error responses</h3>
+<h4 id="error-responses">Error responses</h4>
 
 <table><thead>
 <tr>

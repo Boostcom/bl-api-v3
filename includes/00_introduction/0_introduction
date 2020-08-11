@@ -1,6 +1,6 @@
-<h1 id="general-info">General info</h1>
+<h1 id="introduction">Introduction</h1>
 
-<p>MPC API allows to manage Loyalty Club, its members and content.</p>
+<p>This documentation describes Boostcom&rsquo;s MPC APIs that allow to manage Loyalty Club, its members and content.</p>
 
 <h2 id="hosts">Hosts</h2>
 

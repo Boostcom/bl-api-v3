@@ -1,6 +1,6 @@
-<h1 id="rewards">Rewards</h1>
+<h2 id="rewards">Rewards</h2>
 
-<h2 id="list"><a name="v3-rewards-list"></a> List</h2>
+<h3 id="list"><a name="v3-rewards-list"></a> List</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -59,7 +59,7 @@
 
 <p>As a member-related action, it requires member authorization. See <a href="#v3-oauth2">OAuth</a>.</p>
 
-<h3 id="response-json-object">Response (JSON object)</h3>
+<h4 id="response-json-object">Response (JSON object)</h4>
 
 <table><thead>
 <tr>
@@ -75,7 +75,7 @@
 </tr>
 </tbody></table>
 
-<h3 id="reward"><a name="v3-reward-model"></a> Reward</h3>
+<h4 id="reward"><a name="v3-reward-model"></a> Reward</h4>
 
 <table><thead>
 <tr>
@@ -125,7 +125,7 @@
 Requires <code>Rewards:Api:OAuth:Rewards:List</code> permit
 </aside>
 
-<h2 id="list-purchased"><a name="v3-rewards-list-purchased"></a> List purchased</h2>
+<h3 id="list-purchased"><a name="v3-rewards-list-purchased"></a> List purchased</h3>
 <pre class="highlight shell tab-shell"><code>curl <span class="se">\</span>
 <span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/members/me/rewards-program/rewards/purchased"</span> <span class="se">\</span>
     -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
@@ -181,11 +181,11 @@ Requires <code>Rewards:Api:OAuth:Rewards:List</code> permit
 
 <p>As a member-related action, it requires member authorization. See <a href="#v3-oauth2">OAuth</a>.</p>
 
-<h3 id="response-json-object">Response (JSON object)</h3>
+<h4 id="response-json-object">Response (JSON object)</h4>
 
 <p>Response looks as in <a href="#v3-rewards-list">Reward list</a>, but with reward usage instead of purchasing info</p>
 
-<h3 id="usage"><a name="v3-rewards-usage"></a> Usage</h3>
+<h4 id="usage"><a name="v3-rewards-usage"></a> Usage</h4>
 
 <table><thead>
 <tr>
@@ -215,7 +215,7 @@ Requires <code>Rewards:Api:OAuth:Rewards:List</code> permit
 Requires <code>Rewards:Api:OAuth:Rewards:ListPurchased</code> permit
 </aside>
 
-<h2 id="purchase"><a name="v3-rewards-purchase"></a> Purchase</h2>
+<h3 id="purchase"><a name="v3-rewards-purchase"></a> Purchase</h3>
 <pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
 <span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/members/me/rewards-program/rewards/153/purchase"</span> <span class="se">\</span>
     -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
@@ -237,7 +237,7 @@ Requires <code>Rewards:Api:OAuth:Rewards:ListPurchased</code> permit
 
 <p>As a member-related action, it requires member authorization. See <a href="#v3-oauth2">OAuth</a>.</p>
 
-<h3 id="error-responses">Error responses</h3>
+<h4 id="error-responses">Error responses</h4>
 
 <table><thead>
 <tr>
@@ -272,7 +272,7 @@ Requires <code>Rewards:Api:OAuth:Rewards:ListPurchased</code> permit
 Requires <code>Rewards:Api:OAuth:Rewards:Purchase</code> permit
 </aside>
 
-<h2 id="use"><a name="v3-rewards-use"></a> Use</h2>
+<h3 id="use"><a name="v3-rewards-use"></a> Use</h3>
 <pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
 <span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/members/me/rewards-program/rewards/153/use"</span> <span class="se">\</span>
     -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
@@ -298,7 +298,7 @@ Requires <code>Rewards:Api:OAuth:Rewards:Purchase</code> permit
 
 <p>As a member-related action, it requires member authorization. See <a href="#v3-oauth2">OAuth</a>.</p>
 
-<h3 id="response-json-object">Response (JSON object)</h3>
+<h4 id="response-json-object">Response (JSON object)</h4>
 
 <table><thead>
 <tr>
@@ -314,7 +314,7 @@ Requires <code>Rewards:Api:OAuth:Rewards:Purchase</code> permit
 </tr>
 </tbody></table>
 
-<h3 id="error-responses">Error responses</h3>
+<h4 id="error-responses">Error responses</h4>
 
 <table><thead>
 <tr>
