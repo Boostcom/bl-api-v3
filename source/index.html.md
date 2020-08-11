@@ -31,7 +31,6 @@ includes:
   - 91_departments
   - 100_events
   - 80_files
-  - 81_links  
   - 999_changelog
 
 search: true
