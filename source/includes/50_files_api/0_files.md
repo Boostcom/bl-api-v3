@@ -1,6 +1,6 @@
-#  Files
+# Files API
 
-## General info
+## Introduction
 
 ### <a name="v3-file-model"></a> File model
 
@@ -203,7 +203,7 @@ Currently, we require all original files to have proper ratios and minimum sizes
 Because of that, you can expect them to have `min_height` and `min_width` that match the `base` size, 
 but they never have `max_width` or `max_height` defined.
 
-### <a name="v3-file-cropping"></a> File cropping
+#### <a name="v3-file-cropping"></a> File cropping
 
 > `crop_to` param interpretation may be visualized like this:
 
@@ -230,14 +230,14 @@ The param has following syntax: `x_top_left,y_top_left,x_bottom_right,y_bottom_r
 
 When uploaded file is too large and `crop_to` param is not provided, the file will be automatically cropped with gravity set in center of image.
 
-#### Example
+##### Example
 
 The kind's base size is 400x200px and the uploaded file is 1000x1000px. 
 
 With crop_to="0,250,1000,750", a rectangle of "1000x500" size will be cropped, with 250px left offset.
 The file will be then also resized to 400x200.
 
-### <a name="v3-projected-file-versions"></a> Uploaded instances projections
+#### <a name="v3-projected-file-versions"></a> Uploaded instances projections
 
 When file is uploaded, only original file is physically processed and stored. `base` and other versions are processed asynchronously. 
 So, the responses returned on upload contains only "projected" info about files.
@@ -251,7 +251,9 @@ max_width | integer |
 min_height | integer |
 max_height | integer |
 
-## <a name="v3-get-file-schema"></a> Get file schema
+##  Files
+
+### <a name="v3-get-file-schema"></a> Get file schema
 
 > Example request
 
@@ -273,7 +275,7 @@ Returns the Loyalty Club file schema. See: [Files &bull; Schema](#v3-file-schema
 Requires <code>Files:Api:GetSchema</code> permit
 </aside>
 
-## <a name="v3-create-file"></a> Create file
+### <a name="v3-create-file"></a> Create file
 
 > Example request
 
@@ -326,7 +328,7 @@ curl -X POST \
 
 Creates new file for given Fileable (e.g. Offer).
 
-### <a name="v3-create-file-url-parameters"></a> URL Parameters
+#### <a name="v3-create-file-url-parameters"></a> URL Parameters
 
 Parameter | Type | Description
 --------- | ----------- | -----------
@@ -334,21 +336,21 @@ fileable_type | enum: `['offers', 'collections']` |
 fileable_id | integer 
 kind | enum | see [Standard file kinds](#v3-file-kinds)  
 
-### <a name="v3-create-file-post-parameters"></a> POST Parameters
+#### <a name="v3-create-file-post-parameters"></a> POST Parameters
 
 Parameter | Type | Required? | Description
 --------- | ----------- | ------- | -----------
 file | binary | yes | File to upload
 crop_to | string | no | See: [cropping](#v3-file-cropping)
 
-### <a name="v3-create-file-response"></a> Response (JSON object)
+#### <a name="v3-create-file-response"></a> Response (JSON object)
 
 Key | Type | Description
 --------- | --------- | ---------
 original | File | See [File model](#v3-file-model) 
 projected_versions | ProjectedVersion[] | See [Projected file versions](#v3-projected-file-versions)
 
-### Error responses
+#### Error responses
 
 Status | Reason
 --------- | ----------- 
@@ -359,7 +361,7 @@ Status | Reason
 Requires <code>Files:Api:Create</code> permit
 </aside>
 
-## <a name="v3-update-file"></a> Update file
+### <a name="v3-update-file"></a> Update file
 
 > Example request
 
@@ -387,19 +389,19 @@ curl -X PUT \
 
 Updates file for given Fileable (e.g. Offer).
 
-### URL Parameters
+#### URL Parameters
 
 See: [Create File URL Parameters](#v3-create-file-url-parameters)
 
-### POST Parameters
+#### POST Parameters
 
 See: [Create File POST Parameters](#v3-create-file-post-parameters)
 
-### Response (JSON object)
+#### Response (JSON object)
 
 See: [Create File Response](#v3-create-file-response)
 
-### Error responses
+#### Error responses
 
 Status | Reason
 --------- | ----------- 
@@ -411,7 +413,7 @@ Status | Reason
 Requires <code>Files:Api:Update</code> permit
 </aside>
 
-## <a name="v3-reprocess-file"></a> Reprocess file
+### <a name="v3-reprocess-file"></a> Reprocess file
 
 > Example request
 
@@ -439,19 +441,19 @@ curl -X PUT \
 Reprocesses file for given Fileable (e.g. Offer).
 It means that no file needs to be uploaded, instead the original file will be reprocessed according to given parameters. 
 
-### URL Parameters
+#### URL Parameters
 
 See: [Create File URL Parameters](#v3-create-file-url-parameters)
 
-### POST Parameters
+#### POST Parameters
 
 See: [Create File POST Parameters](#v3-create-file-post-parameters) - except no `file` param is accepted here
 
-### Response (JSON object)
+#### Response (JSON object)
 
 See: [Create File Response](#v3-create-file-response)
 
-### Error responses
+#### Error responses
 
 Status | Reason
 --------- | ----------- 
@@ -463,7 +465,7 @@ Status | Reason
 Requires <code>Files:Api:Reprocess</code> permit
 </aside>
 
-## <a name="v3-delete-file"></a> Delete file
+### <a name="v3-delete-file"></a> Delete file
 
 > Example request
 
@@ -487,11 +489,11 @@ curl -X DELETE "https://bpc-api.boostcom.no/v3/infinity-mall/files/offers/100028
 
 Deletes file of given Fileable (e.g. Offer).
 
-### URL Parameters
+#### URL Parameters
 
 See: [Create File URL Parameters](#v3-create-file-url-parameters)
 
-### Error responses
+#### Error responses
 
 Status | Reason
 --------- | ----------- 

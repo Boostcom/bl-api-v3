@@ -1,6 +1,8 @@
-#  Transactions
+# Transactions API
 
-## <a name="v3-transactions-create"></a> Create
+##  Transactions
+
+### <a name="v3-transactions-create"></a> Create
 
 > Example:
 
@@ -127,7 +129,7 @@ curl -X GET \
 
 Register transactions, stamps or bonus points will be calculated based on the configured loyalty program.
 
-### Messages POST Parameters (JSON array)
+#### Messages POST Parameters (JSON array)
 
 Expected payload is either object with `transactions` attribute containing array of `transaction` objects with attributes as described below or single `transaction` object:
 
@@ -185,14 +187,14 @@ You can provide `callback_url` in the root object. If it's available after proce
 }
 ```
 
-### Feedback statuses
+#### Feedback statuses
 
 Status | Description
 ---- | ----
 ok | Message has been accepted for sending
 Member doesn't exist | 
 
-### Error responses
+#### Error responses
 
 Status | Description
 --------- | ----------- 
@@ -203,7 +205,7 @@ Requires <code>Transaction:Api:Transactions:Create</code> and <code>BL:Api:Membe
 </aside>
 
 
-## <a name="v3-transactions-list"></a> List
+### <a name="v3-transactions-list"></a> List
 
 > Example:
 
@@ -252,7 +254,7 @@ curl -X GET \
 
 List registered transactions
 
-### Request Parameters
+#### Request Parameters
 
 Key | Type | Description
 --------- | --------- | ---------
@@ -269,7 +271,7 @@ sort | string | field to sort by
 order | string (ASC, DESC)
 \* required at least one of starred parameters 
 
-### Error responses
+#### Error responses
 
 Status | Description
 --------- | ----------- 
@@ -279,7 +281,7 @@ Status | Description
 Requires <code>Transaction:Api:Transactions:Read</code> permit
 </aside> 
 
-## <a name="v3-transactions-get"></a> Get
+### <a name="v3-transactions-get"></a> Get
 
 > Example:
 
@@ -337,7 +339,7 @@ curl -X GET \
 
 Get transaction with items
 
-### Error responses
+#### Error responses
 
 Status | Description
 --------- | ----------- 
@@ -347,8 +349,9 @@ Status | Description
 Requires <code>Transaction:Api:Transactions:Read</code> permit
 </aside> 
 
+## Categories
 
-## <a name="v3-transactions-categories-get"></a> Get categories
+### <a name="v3-transactions-categories-get"></a> List
 
 > Example:
 
@@ -408,7 +411,7 @@ curl -X GET \
 
 Get categories
 
-### Request Parameters
+#### Request Parameters
 
 Key | Type | Default
 --------- | --------- | ---------
@@ -418,7 +421,7 @@ name | string |
 limit | int | 100
 id | array | 
 
-### Error responses
+#### Error responses
 
 Status | Description
 --------- | ----------- 
@@ -428,15 +431,17 @@ Status | Description
 Requires <code>Transaction:Api:Transactions:Read</code> permit
 </aside> 
 
-## <a name="v3-transactions-events-create"></a> Create events 
+## Events
+
+### <a name="v3-transactions-events-create"></a> Create events 
 
 > Example:
 
 > e-Vouchers
 
 ```shell
-curl -X GET \
-"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/transactions/categories" \
+curl -X POST \
+"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/transactions/events" \
     -H 'Content-Type: application/json' \
     -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
     -H 'X-Product-Name: default' \
@@ -576,7 +581,7 @@ curl -X GET \
 
 Send different bonus events events
 
-### Request Parameters
+#### Request Parameters
 
 Key | Type | Description
 --------- | --------- | ---------
@@ -614,7 +619,7 @@ detail_id | string |
 quantity | integer |
 
 
-### Error responses
+#### Error responses
 
 Status | Description
 --------- | ----------- 

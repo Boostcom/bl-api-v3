@@ -1,5 +1,5 @@
-#  Rewards
-## <a name="v3-rewards-list"></a> List
+##  Rewards
+### <a name="v3-rewards-list"></a> List
 
 > Example:
 
@@ -60,13 +60,13 @@ Returns list of rewards available to purchase by member.
 
 As a member-related action, it requires member authorization. See [OAuth](#v3-oauth2).
 
-### Response (JSON object)
+#### Response (JSON object)
 
 Key | Type | Description
 --------- | --------- | ---------
 rewards | Array | List of Rewards - see below
 
-### <a name="v3-reward-model"></a> Reward
+#### <a name="v3-reward-model"></a> Reward
 
 Key | Type | Description
 --------- | --------- | ---------
@@ -82,7 +82,7 @@ files | Array | A list of Reward Files - see [File model](#v3-file-model)
 Requires <code>Rewards:Api:OAuth:Rewards:List</code> permit
 </aside>
 
-## <a name="v3-rewards-list-purchased"></a> List purchased
+### <a name="v3-rewards-list-purchased"></a> List purchased
 
 ```shell
 curl \
@@ -142,11 +142,11 @@ Returns list of rewards purchased by member.
 
 As a member-related action, it requires member authorization. See [OAuth](#v3-oauth2).
 
-### Response (JSON object)
+#### Response (JSON object)
 
 Response looks as in [Reward list](#v3-rewards-list), but with reward usage instead of purchasing info
 
-### <a name="v3-rewards-usage"></a> Usage
+#### <a name="v3-rewards-usage"></a> Usage
 
 Key | Type | Description
 --------- | --------- | ---------
@@ -158,7 +158,7 @@ usable | boolean | Will the reward be still usable after activation time passes?
 Requires <code>Rewards:Api:OAuth:Rewards:ListPurchased</code> permit
 </aside>
 
-## <a name="v3-rewards-purchase"></a> Purchase
+### <a name="v3-rewards-purchase"></a> Purchase
 
 ```shell
 curl -X POST \
@@ -184,7 +184,7 @@ Adds one of available rewards to member's purchased list and reduces member's ba
 
 As a member-related action, it requires member authorization. See [OAuth](#v3-oauth2).
 
-### Error responses
+#### Error responses
 
 Status | Response body | Description
 --------- | ----------- | -------- 
@@ -197,7 +197,7 @@ Status | Response body | Description
 Requires <code>Rewards:Api:OAuth:Rewards:Purchase</code> permit
 </aside>
 
-## <a name="v3-rewards-use"></a> Use
+### <a name="v3-rewards-use"></a> Use
 
 ```shell
 curl -X POST \
@@ -227,13 +227,13 @@ Uses (activates) one of usable rewards purchased by member.
 
 As a member-related action, it requires member authorization. See [OAuth](#v3-oauth2).
 
-### Response (JSON object)
+#### Response (JSON object)
 
 Key | Type | Description
 --------- | --------- | ---------
 usage | Object| See [Reward Usage](#v3-rewards-usage)
 
-### Error responses
+#### Error responses
 
 Status | Response body | Description
 --------- | ----------- | -------- 

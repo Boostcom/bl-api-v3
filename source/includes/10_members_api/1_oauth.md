@@ -1,4 +1,4 @@
-# <a name="v3-oauth2"></a>  Members Authentication
+## <a name="v3-oauth2"></a> Members OAuth
 
 > Example header: `Authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522`
 
@@ -9,7 +9,7 @@ To authorize those actions, we **require** `Authorization` header that should co
 
 Look at [OAuth Token &bull; Create](#v3-token-create) to see how to obtain the :access_token.
 
-## <a name="v3-token-create"></a> Create token
+### <a name="v3-token-create"></a> Create token
 
 > Create token example:
 
@@ -61,7 +61,7 @@ Creates a new access token by one of two methods (grant types):
 * `password` - token is issued by providing user credentials
 * `refresh_token` - token is issued by providing refresh token obtained from `password` grant type 
 
-### Creating token (`password` grant)
+#### Creating token (`password` grant)
 
 When creating new access token, `"grant_type": "password"` should be given along with member credentials (see example on the right).
 
@@ -72,7 +72,7 @@ In response, two tokens are returned:
 
 Also, `resource_owner_id` is returned, is an ID of member that the token has been issued for. 
 
-### Refreshing token (`refresh_token` grant)
+#### Refreshing token (`refresh_token` grant)
 
 You can obtain a new token after (or before) it's expiration time, by using `refresh_token` grant.
 
@@ -80,7 +80,7 @@ Param `grant_type: "refresh_token"` must be provided along with `refresh_token: 
 
 It returns a token response, same as for `password` grant, but with new tokens.
 
-### POST Parameters (JSON object)
+#### POST Parameters (JSON object)
 
 Parameter | Description | Type | For grant type
 --------- | ------- | ----- | ----- 
@@ -90,7 +90,7 @@ identifier | value of member identifier | mixed (e.g. `134123123`, `+47123456789
 password | member password, One-Time-Password or Registration Password | string | `password`
 refresh_token | refresh token | string | `access_token`
 
-### Response (JSON object)
+#### Response (JSON object)
 
 Key | Description | Type
 --------- | ----------- | ---------
@@ -101,7 +101,7 @@ refresh_token | Token that may be used to issue a new :access_token | string
 created_at | When the token has been created | integer (timestamp)
 resource_owner_id | ID of member that the token has been for | integer
 
-### Error responses
+#### Error responses
 
 Status | Reason
 --------- | ----------- 
@@ -114,7 +114,7 @@ Requires <code>BL:Api:Members:OAuth</code> permit
 
 <!--- ############################################################################################################# --->
 
-## <a name="v3-token-revoke"></a> Revoke token
+### <a name="v3-token-revoke"></a> Revoke token
 
 > Example:
 
@@ -143,7 +143,7 @@ Revokes a token (access or refresh).
 
 Always returns an empty JSON object (even if given token is invalid).
 
-### POST Parameters (JSON)
+#### POST Parameters (JSON)
 
 Parameter | Description | Type
 --------- | ------- | -------
@@ -155,7 +155,7 @@ Requires <code>BL:Api:Members:OAuth</code> permit
 
 <!--- ############################################################################################################# --->
 
-## <a name="v3-token-info"></a> Get token info
+### <a name="v3-token-info"></a> Get token info
 
 > Example:
 
@@ -187,7 +187,7 @@ curl "https://bpc-api.boostcom.no/v3/infinity-mall/members/oauth/token/info" \
 
 Returns info of given token (not refresh token) from `Authorization` header.
 
-### Response (JSON object)
+#### Response (JSON object)
 
 Key | Description | Type
 --------- | ----------- | ---------
@@ -197,7 +197,7 @@ expires_in_seconds | Seconds for how long token will be valid | integer (seconds
 application | Not implemented | Object
 created_at | When the token has been created | integer (timestamp)
 
-### Error responses
+#### Error responses
 
 Status | Reason
 --------- | ----------- 

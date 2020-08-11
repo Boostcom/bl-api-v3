@@ -1,6 +1,4 @@
-#  Push Notifications
-
-## <a name="v3-push-notification-create"></a> Create
+## <a name="v3-push-notification-create"></a> Send push notifications
 
 > Example:
 
@@ -82,7 +80,7 @@ The notifications are sent from our systems with Firebase API, so for more infor
 Not all target members may be eligible for receiving a push notification (or may not actually exist), so for every recipient 
 in every notification a result (`sent|no_device`) is returned - see an example on the right
 
-### POST Parameters (JSON array)
+#### POST Parameters (JSON array)
 
 The expected payload consists of `messages` object which has array of objects with following attributes:
 
@@ -98,7 +96,7 @@ data | object | Custom key-value pairs of the message's payload. <br /> For more
 
 \* required
 
-### Error responses
+#### Error responses
 
 Status | Description
 --------- | ----------- 

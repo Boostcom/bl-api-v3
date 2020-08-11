@@ -1,6 +1,6 @@
-#  SMSes
+# Messaging API
 
-## <a name="v3-smses-create"></a> Create
+## <a name="v3-smses-create"></a> Send SMSes
 
 > Example:
 
@@ -74,7 +74,7 @@ Messages are being sent asynchronously. Also, it cannot be guaranteed that the m
 
 In future, a feature for checking messages delivery statuses will be added.
 
-### Messages POST Parameters (JSON array)
+#### Messages POST Parameters (JSON array)
 
 The expected payload consists of `messages` object which has array of objects with following attributes:
 
@@ -91,7 +91,7 @@ shortening_enabled | bool | true | Should links in payload get shortened with Bo
 
 \* required
 
-### Feedback statuses
+#### Feedback statuses
 
 Key | Description
 ---- | ----
@@ -103,7 +103,7 @@ msisdn_barred | Member's MSISDN is barred
 msisdn_unverified | Member's MSISDN is not verified - this may be ignored by enabling `ignore_msisdn_verification_status` option
 channel_disabled | Member has SMS channel disabled
 
-### Error responses
+#### Error responses
 
 Status | Description
 --------- | ----------- 

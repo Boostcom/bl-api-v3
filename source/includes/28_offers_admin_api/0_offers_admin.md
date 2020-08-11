@@ -1,13 +1,15 @@
-# <a name="v3-offers-admin"></a>  Offers Admin (WIP)
+# <a name="v3-offers-admin"></a>  Offers Admin API
+
+<aside class="warning">
+This API is in development. Therefore, it may not be ready for use and is a subject to change at any time.
+</aside>
 
 This section describes endpoints destined for offers management. 
 Navigate to [Offers](#v3-offers) section to see docs for member-related endpoints.
 
-NOTE: The Offers Admin API is in development state. Changes (rather small) may occur during our mobile apps development & testing process.
+### Common models
 
-## Common models
-
-### <a name="v3-admin-offer-model"></a> Offer
+#### <a name="v3-admin-offer-model"></a> Offer
 
 > Offer example:
 
@@ -78,7 +80,7 @@ updated_at | Date | no | Last time when the offer has been updated
 archived_at | Date | yes | Time when the offer has been archived
 uses_count | Date | no | Total number of times the offer has been used by members   
 
-### <a name="v3-admin-offer-payload"></a> OfferPayload
+#### <a name="v3-admin-offer-payload"></a> OfferPayload
 
 Following Offer attributes (described above) are available to set when creating or updating offers.
      
@@ -103,7 +105,7 @@ Following Offer attributes (described above) are available to set when creating 
 * maximum_uses_per_user
 * stock
 
-## <a name="v3-get-offer"></a> Get offer
+### <a name="v3-get-offer"></a> Get offer
 
 **GET** `v3/:loyalty_club_slug/offers/:id`
 
@@ -130,7 +132,7 @@ curl \
 
 Returns details of the specified offer.
 
-### Response (JSON object)
+#### Response (JSON object)
 
 Key | Type | Optional? | Description
 --------- | --------- | -------- | ---------
@@ -140,7 +142,7 @@ offer | Offer | no | See [Offer model](#v3-admin-offer-model)
 Requires <code>Offers:Api:Offers:Get</code> permit
 </aside>
 
-## <a name="v3-list-offers"></a> List offers
+### <a name="v3-list-offers"></a> List offers
 
 > Example:
 
@@ -173,7 +175,7 @@ curl \
 
 Returns offers list.
 
-### Query Parameters
+#### Query Parameters
 
 Parameter | Type | Default | Description
 --------- | ----------- | --------- | -----------
@@ -199,7 +201,7 @@ only_archived | boolean | false | When present, only archived offers will be ret
 
 All parameters are optional.
 
-### Response (JSON object)
+#### Response (JSON object)
 
 Key | Type | Optional? | Description
 --------- | --------- | -------- | ---------
@@ -210,7 +212,7 @@ pagination_info | PaginationInfo | no| See [Pagination info model](#pagination-j
 Requires <code>Offers:Api:Offers:List</code> permit
 </aside>
 
-## <a name="v3-create-offers"></a> Create offers
+### <a name="v3-create-offers"></a> Create offers
 
 > Example:
 
@@ -255,13 +257,13 @@ curl -X POST \
 
 Creates offer(s) with given lists of attributes (OfferPayloads). 
 
-### POST Parameters (JSON)
+#### POST Parameters (JSON)
 
 Key | Type | Description
 ----- | ---- | ---
 offers | OfferPayload[] | List of offers to create. See [Offer payload](#v3-admin-offer-payload)
 
-### Response (JSON object)
+#### Response (JSON object)
 
 Key | Type  | Description
 ---------- | -------- | ---------
@@ -273,7 +275,7 @@ errors | Object | Errors of offers that couldn't be created
 Requires <code>Offers:Api:Offers:Create</code> permit
 </aside>
 
-## <a name="v3-update-offers"></a> Update offers
+### <a name="v3-update-offers"></a> Update offers
 
 > Example:
 
@@ -320,13 +322,13 @@ curl -X PUT \
 Updates offer(s) with given lists of attributes (OfferPayloads). Also, each payload record must contain offer ID that is meant to be updated.
 Update is not partial, so all attributes that aren't present in the payload will be nullified. 
 
-### POST Parameters (JSON)
+#### POST Parameters (JSON)
 
 Key | Type | Description
 ----- | ---- | ---
 offers | OfferPayload[] | List of offers to update. See [Offer payload](#v3-admin-offer-payload).
 
-### Response (JSON object)
+#### Response (JSON object)
 
 Key | Type  | Description
 ---------- | -------- | ---------
@@ -338,7 +340,7 @@ errors | Object | Errors of offers that couldn't be created
 Requires <code>Offers:Api:Offers:Update</code> permit
 </aside>
 
-## <a name="v3-clone-offers"></a> Clone offers
+### <a name="v3-clone-offers"></a> Clone offers
 
 > Example:
 
@@ -368,13 +370,13 @@ curl -X DELETE \
 
 Clones given offers (by their IDs)
 
-### POST Parameters (JSON)
+#### POST Parameters (JSON)
 
 Key | Type | Description
 ----- | ---- | ---
 ids | integer[] | List of offers ids to clone
 
-### Response (JSON object)
+#### Response (JSON object)
 
 Key | Type  | Description
 ---------- | -------- | ---------
@@ -384,7 +386,7 @@ ids | integer[] | IDs of offers that have been cloned
 Requires <code>Offers:Api:Offers:Clone</code> permit
 </aside>
 
-## <a name="v3-update-offers"></a> Delete offers
+### <a name="v3-update-offers"></a> Delete offers
 
 > Example:
 
@@ -414,7 +416,7 @@ curl -X DELETE \
 
 Deletes given offers (by their IDs).
 
-### POST Parameters (JSON)
+#### POST Parameters (JSON)
 
 Key | Type | Description
 ----- | ---- | ---

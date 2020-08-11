@@ -1,9 +1,11 @@
-# <a name="v3-offers"></a>  Offers
+# Offers API
 
 This section describes endpoints destined for end user (e.g. for mobile apps) and work within context of (signed in) member.
 Navigate to [Offers Admin](#v3-offers-admin) section to see docs for offers management endpoints.
 
-## Member context
+## Introduction
+
+### Member context
 
 Offers API supports two distinct approaches to work with context of member.
 
@@ -22,7 +24,7 @@ This setup requires use of endpoints that have `/:member_id/` URL segment and re
 This approach is designed for implementations in which member is authenticated by your system and 
 **should not be used on front-end implementations**, where API token is exposed to an end user. 
 
-### <a name="v3-offers-guest-access"></a> Guest access
+#### <a name="v3-offers-guest-access"></a> Guest access
 
 Some API client implementations may need to present content to a non-authenticated user.
  
@@ -31,16 +33,7 @@ In order to allow this, static endpoints (like offers list) may work without mem
 They exist in versions which use `/guest/` URL segment instead of `/me/` or `/member_id/` and may be used by both
 aforementioned approaches.
 
-## Common error responses
-
-Status | Response body
---------- | ----------- 
-`404` | `{"error": "Offer not found"}`| -
-`404` | `{"error": "Member not found"}`| -
-
-## Common models
-
-### <a name="v3-offer-model"></a> Offer
+### <a name="v3-offer-model"></a> Offer model
 
 > Offer example:
 
@@ -138,7 +131,7 @@ activation_texts.modal | string | yes |
 activation_texts.button | string | yes |
 activation_texts.description | string | yes |
 
-### <a name="v3-offer-usage-model"></a> Offer usage
+### <a name="v3-offer-usage-model"></a> Offer usage model
 
 Key | Type | Optional? | Description
 --------- | --------- | -------- | ---------
@@ -147,7 +140,7 @@ max_uses | integer | yes | Maximum number of times the specific member can use t
 uses_left | integer | yes| How many more times the specific member can use the offer - this number can be also affected by global offer limit. When null, there's no limit.
 active_until | Date | yes | The last time time the offer has been used at+ activation time (configurable per Loyalty Club, e.x. 30s). When null, the offer has not been activated (used) yet
 
-### <a name="v3-offers-collection-model"></a> Collection
+### <a name="v3-offers-collection-model"></a> Collection model
 
 Key | Type | Optional? | Description
 --------- | --------- | -------- | ---------
@@ -224,7 +217,10 @@ By default (when no schema is defined on offer by it's creator), all of the sche
   * `header` => `name`
   * `body` => `description`
  
-## <a name="v3-offers-meta"></a> Get offers meta
+
+## <a name="v3-offers"></a> Offers
+
+### <a name="v3-offers-meta"></a> Get offers meta
 
 > Example:
 
@@ -303,7 +299,7 @@ Returns offers metadata which consists of:
 * aggregated lists of records currently associated with offers (stores, tags, collections)
 * Loyalty Club configuration
 
-### Response (JSON object)
+#### Response (JSON object)
 
 Key | Type | Optional? | Description 
 --------- | --------- | ---------- | ---------
@@ -312,7 +308,7 @@ stores | string[] | no (may be empty) | List of unique stores assigned to offers
 collections | Collection[] |  no (may be empty) | List of unique collections assigned to offers - see [Collection model](#v3-offers-collection-model)
 activated_seconds_time | integer | no | Number of seconds the offers stays active after member uses it 
 
-## <a name="v3-get-offer"></a> Get offer
+### <a name="v3-get-offer"></a> Get offer
 
 **GET** `v3/infinity-mall/members/me/offers/:id` [[OAuth](#v3-oauth2)]
 
@@ -357,13 +353,13 @@ curl \
 
 Returns details of the specified offer.
 
-### Response (JSON object)
+#### Response (JSON object)
 
 Key | Type | Optional? | Description
 --------- | --------- | -------- | ---------
 offer | Offer | no | See [Offer model](#v3-offer-model) 
 
-## <a name="v3-list-offers"></a> List offers
+### <a name="v3-list-offers"></a> List offers
 
 > Example:
 
@@ -413,7 +409,7 @@ Requires <code>Offers:Api:MemberOffers:ListVisiblePreview</code> permit
 
 Returns offers list.
 
-### Query Parameters
+#### Query Parameters
 
 Parameter | Type | Default | Description
 --------- | ----------- | --------- | -----------
@@ -431,7 +427,7 @@ liked | boolean | false | When true, only offers that have been liked by member
 
 All parameters are optional.
 
-#### <a name="v3-offers-list-order-by"></a> `order_by` param
+##### <a name="v3-offers-list-order-by"></a> `order_by` param
 
 Offers list may be sorted by `order_by` param, which has similar syntax as ORDER BY keyword in SQL statements.
 
@@ -454,14 +450,14 @@ Also, when querying offers by *single* collection_id, the list may also be sorte
 
 * collection_position
 
-### Response (JSON object)
+#### Response (JSON object)
 
 Key | Type | Optional? | Description
 --------- | --------- | -------- | ---------
 offers | Offer[] | no (may be empty)| See [Offer model](#v3-offer-model) 
 pagination_info | PaginationInfo | yes| See [Pagination info model](#pagination-json-model)
 
-## <a name="v3-use-offer"></a> Use offer
+### <a name="v3-use-offer"></a> Use offer
 
 ```shell
 curl -X POST \
@@ -505,13 +501,13 @@ Requires <code>Offers:Api:MemberOffers:UseByMemberId</code> permit
 
 Uses (activates) the offer by member.
 
-### POST Parameters (JSON)
+#### POST Parameters (JSON)
 
 Key | Type | Optional? | Description
 --- | ---- | --------- | -----------
 authorization_token | string | yes | See [below](#v3-offer-use-authorization)
 
-#### <a name="v3-offer-use-authorization"></a> Offer use authorization
+##### <a name="v3-offer-use-authorization"></a> Offer use authorization
 
 Some features (like Rewards Program) may require from member to provide some code (scanned QR code, for example), so we can register
 his physical presence in the store.
@@ -521,13 +517,13 @@ tied to it may not be granted to the member.
 
 However, when token is provided and happens to be invalid, the offer use is not registered, and 422 error (see below) is returned.  
 
-### Response (JSON object)
+#### Response (JSON object)
 
 Key | Type  | Description
 --------- | -------- | ---------
 usage | OfferUsage | See [Offer usage model](#v3-offer-usage-model)
 
-### Error responses
+#### Error responses
 
 Status | Response body | Description
 --------- | ----------- | -------- 
@@ -539,7 +535,7 @@ Status | Response body | Description
 `422` | `{"error": "Global limit exceeded"}` | There are no more offers available globally (stock is empty)
 `422` | `{"error": "Not in usable timeframes"}` | Offer is not usable yet or anymore
 
-## <a name="v3-like-offer"></a> Like offer
+### <a name="v3-like-offer"></a> Like offer
 
 > Example
 
@@ -575,7 +571,7 @@ Requires <code>Offers:Api:MemberOffers:LikeByMemberId</code> permit
 
 Marks offer as "liked" by user.
 
-## <a name="v3-unlike-offer"></a> Unlike offer
+### <a name="v3-unlike-offer"></a> Unlike offer
 
 > Example
 
@@ -611,7 +607,7 @@ Requires <code>Offers:Api:MemberOffers:LikeByMemberId</code> permit
 
 Revers marking offer as "liked" by user.
 
-## <a name="v3-grant-offer"></a> Grant offer
+### <a name="v3-grant-offer"></a> Grant offer
 
 > Example
 
@@ -645,13 +641,13 @@ NOTE: This endpoint does not have [OAuth](#v3-oauth2) version
 Requires <code>Offers:Api:MemberOffers:GrantByMemberId</code> permit
 </aside>
 
-### POST Parameters (JSON)
+#### POST Parameters (JSON)
 
 Key | Type | Optional? | Description
 --- | ---- | --------- | -----------
 usable_for_seconds | integer | yes | When present, the granted offer will be available for use by member only for the defined time
 
-### Error responses
+#### Error responses
 
 Status | Response body | Description
 --------- | ----------- | -------- 

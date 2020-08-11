@@ -1,6 +1,6 @@
-# <a name="v3-offers-events"></a>   Offers Events
+## <a name="v3-offers-events"></a> Offers Events
 
-## <a name="v3-offer-event-model"></a> OfferEvent model
+### <a name="v3-offer-event-model"></a> OfferEvent model
 
 > Offer Event example:
 
@@ -32,7 +32,7 @@ context.utm | string | no |
 Context describes in what circumstances the event has occurred. 
 For example, member clicked on a coupon that was displayed inside collection, the context should include this collection_id. 
 
-## <a name="v3-offers-clicked"></a> Clicked
+### <a name="v3-offers-clicked"></a> Register "clicked" event
 
 > Example:
 
@@ -74,7 +74,7 @@ curl -X POST \
 
 Registers that OAuth member clicked on given offers.
 
-### Post Parameters
+#### Post Parameters
 
 Parameter | Type | Description
 --------- | --------- | ------
@@ -84,7 +84,7 @@ events | Array<OfferEvent> | See [Offer Event](#v3-offer-event-model)
 Requires <code>Offers:Api:Events:Clicked</code> permit
 </aside>
 
-## <a name="v3-offers-seen"></a> Seen
+### <a name="v3-offers-seen"></a> Register "seen" event
 
 > Example:
 
@@ -130,7 +130,7 @@ Registers that OAuth member saw given offers.
 Seen events are automatically tracked when retrieving offer image/file within member context. Make sure you are not duplicating events!
 </aside>
 
-### Post Parameters
+#### Post Parameters
 
 Parameter | Type | Description
 --------- | --------- | ------

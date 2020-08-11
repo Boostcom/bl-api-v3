@@ -1,4 +1,4 @@
-#  Rewards Program
+# Rewards API
 
 ## Introduction
 
@@ -14,7 +14,7 @@ Participation in program is optional, so member can enroll (join) to it and leav
 Every Loyalty Club that has Boostcom Rewards enabled, has defined list of achievements that have rules attached to them.
 The rules are described below.
 
-### <a name="v3-rewards-program-achievements"></a> Achievements
+### <a name="v3-rewards-program-achievements"></a> Achievement model
 
 Key | Type | Description
 --------- | --------- | ---------
@@ -25,7 +25,7 @@ frequency | Object | How often the achievement may be granted to member (when nu
 frequency['timespan'] | string | One of: `['hour', 'day', 'week', 'month', 'year']`
 frequency['limit'] | integer |
 
-### <a name="v3-rewards-program-achievement-types"></a> Achievement types
+#### <a name="v3-rewards-program-achievement-types"></a> Achievement types
 
 type | Event
 ---- | -----------
@@ -93,13 +93,15 @@ When single virtual level is enabled, it is just used to show member how he perf
 
 It defines `maximum_points` value, that is meant to be compared with member's **current** points balance.
 
-## Common error responses
+#### Common error responses
 
 Status | Response body
 --------- | ----------- 
 `480` | `{"error": "Member is not participating in Rewards Program"}` | -
 
-## <a name="v3-rewards-program-info"></a> Get info
+##  Rewards Program
+
+### <a name="v3-rewards-program-info"></a> Get info
 
 > Example:
 
@@ -158,7 +160,7 @@ curl \
 
 Returns information about Rewards Program in Loyalty Club. 
 
-### Response (JSON object)
+#### Response (JSON object)
 
 Key | Type | Description
 --------- | --------- | ---------
@@ -170,7 +172,7 @@ levels_program | object |  Definition of member levels - see [Levels](#v3-reward
 Requires <code>Rewards:Api:Program:GetInfo</code> permit
 </aside>
 
-## <a name="v3-rewards-program-join"></a> Join
+### <a name="v3-rewards-program-join"></a> Join
 
 > Example:
 
@@ -202,7 +204,7 @@ As a member-related action, it requires member authorization. See [OAuth](#v3-oa
 Requires <code>Rewards:Api:OAuth:Memberships:Create</code> permit
 </aside>
 
-## <a name="v3-rewards-program-leave"></a> Leave
+### <a name="v3-rewards-program-leave"></a> Leave
 
 > Example:
 
@@ -235,7 +237,7 @@ As a member-related action, it requires member authorization. See [OAuth](#v3-oa
 Requires <code>Rewards:Api:OAuth:Memberships:Delete</code> permit
 </aside>
 
-## <a name="v3-rewards-program-status"></a> Get status
+### <a name="v3-rewards-program-status"></a> Get status
 
 > Example:
 
@@ -321,14 +323,14 @@ Returns Rewards Program status for current member.
 
 As a member-related action, it requires member authorization. See [OAuth](#v3-oauth2).
 
-### Query Parameters
+#### Query Parameters
 
 Parameter | Type | Required? | Default | Description
 --------- | ----------- | ----------- | --------- | -----------
 per_page | integer | no | 1000 | Number of transactions to be returned per request (1000 is the maximum)
 page | integer | no | 1 | Number of transactions page
 
-### Response (JSON object)
+#### Response (JSON object)
 
 Key | Type | Description
 --------- | --------- | ---------
@@ -338,7 +340,7 @@ balance | integer | Member's current points number
 transactions | Array| List of Transactions objects, ordered by date descending. See below
 pagination_info | Object | [Pagination](#v3-pagination-model) object describing transactions list
 
-### Transaction object
+#### Transaction object
 
 Key | Type | Description
 --------- | --------- | ---------
@@ -348,7 +350,7 @@ amount | integer | How many points the transaction added or subtracted
 expired_at | Date | (optional) When the points granted by the transaction expired. When null, they're not expired
 details | Object | Transaction-specific details - see "Transaction details" below
 
-### Transaction types
+#### Transaction types
 
 Type | Description |
 ----- | ----------- 
@@ -357,7 +359,7 @@ reward_purchase | Reduction of points caused by purchasing a reward by member
 expiration | Reduction of points caused by automatic expiration of old transactions
 correction | Change of points caused by admin's manual correction
 
-### Transaction details
+#### Transaction details
 
 Depending on transaction type, the details contain different kind of data.
 
@@ -371,7 +373,7 @@ correction | comment | (optional) Admin's notes
 Requires <code>Rewards:Api:OAuth:Memberships:CheckStatus</code> permit
 </aside>
 
-## <a name="v3-rewards-program-status-by-member-id"></a> Get status by member ID
+### <a name="v3-rewards-program-status-by-member-id"></a> Get status by member ID
 
 > Example:
 
@@ -395,7 +397,7 @@ Works just the same as [Rewards Program &bull; Get Status](#v3-rewards-program-s
 Requires <code>Rewards:Api:Memberships:CheckStatus</code> permit
 </aside>
 
-## <a name="v3-rewards-program-achievements-summary"></a> Achievements summary
+### <a name="v3-rewards-program-achievements-summary"></a> Achievements summary
 
 > Example:
 
@@ -460,13 +462,13 @@ Returns a summary for achievements made by member, grouped by type and month.
 
 As a member-related action, it requires member authorization. See [OAuth](#v3-oauth2).
 
-### Query Parameters
+#### Query Parameters
 
 Parameter | Type | Required? | Default | Description
 --------- | ----------- | ----------- | --------- | -----------
 months_no | integer | no | 12 | Number of last months to fetch. Must be in (0..999) range
 
-### Achievement by type JSON object
+#### Achievement by type JSON object
 
 Key | Type | Description
 --------- | --------- | ---------
@@ -474,7 +476,7 @@ type | string | See: [Achievement types](#v3-rewards-program-achievement-types)
 times_achieved | integer | Number of times member made the achievements of this type
 total_amount_earned | integer | Sum of points member get with this achievement type 
 
-### Achievement by month JSON object
+#### Achievement by month JSON object
 
 Key | Type | Description
 --------- | --------- | ---------

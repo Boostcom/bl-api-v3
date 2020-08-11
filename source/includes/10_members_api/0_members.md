@@ -1,6 +1,17 @@
-#  Members
+# Members API
 
-## <a name="v3-member-model"></a> Member model
+##  Members
+
+### Introduction
+
+#### Authentication
+
+Actions related to specific member (the one that is using your application) require to have member authenticated and we implement
+OAuth2 flow for this.
+
+See [Members OAuth](#v3-oauth2) to see how to authenticate the member with OAuth2.
+
+#### <a name="v3-member-model"></a> Member model
 
 > Example:
 
@@ -54,7 +65,7 @@ created_at | Time when the user was firstly created | string
 updated_at | Time when the user was last updated | string
 person_id | Unique Member's identifier (set internally) | string
 
-## <a name="v3-member-consents-model"></a> Member's consents JSON model
+#### <a name="v3-member-consents-model"></a> Member's consents JSON model
 
 JSON model for consents. Keys can be dynamically created based on customer's need.
 
@@ -68,13 +79,13 @@ It consists of: `'consent-slug': { "status": <boolean_value>, "updated_at": <tim
 
 Available consents for Loyalty Club are described in [schema](#v3-loyalty-clubs-schema).
 
-## Validation on members
+#### Validation on members
 
 All members' endpoints have properties validation. Properties are validated to conform loyalty club's schema.
 
 If something is wrong, you will receive explanation of errors in response.
 
-### Schema validation errors
+##### Schema validation errors
 
 ```shell
 curl -X PUT -H "X-Product-Name: custom-product-name" \
@@ -162,7 +173,7 @@ invalid_mx | Invalid (inaccessible) email domain
 disposable_email | The email was [disposable](https://github.com/lisinge/valid_email2/blob/master/vendor/disposable_emails.yml)
 duplicated_email | The email was duplicated in community
 
-## <a name="v3-members-index"></a> List
+### <a name="v3-members-index"></a> List
 
 > Example:
 
@@ -190,7 +201,7 @@ Returns paginated list of all Loyalty Club members, sorted by `created_at ASC`.
 
 Every returned member is represented by [Member model](#v3-member-model).
 
-### Query Parameters
+#### Query Parameters
 
 Parameter | Type | Required? | Default | Description
 --------- | ----------- | ----------- | --------- | -----------
@@ -199,20 +210,20 @@ page_no | integer | no | 1 | Number of results page
 ids | Array<integer> | no | null | IDs of members that will be returned
 properties[:property_name] | Array<any> | no | null | Properties of members that will be returned. A property must be enabled for querying in the Loyalty Club configuration before it can be used here. Please contact us if you need this feature.
 
-### Response (JSON object)
+#### Response (JSON object)
 
 Key | Type | Description
 --------- | --------- | ---------
 members | Array<Member> | Array of [Members](#v3-member-model)
 pagination_info | Object | [Pagination](#v3-pagination-model) object
 
-### Error responses
+#### Error responses
 
 Status | Reason
 --------- | ----------- 
 `422` | :per_page param exceeds the limit
 
-### Example queries
+#### Example queries
 
 * `/members?properties[gender]=man&properties[language][]=en&properties[language][]=pl` - returns members with `gender="man" AND language IN ("en", "pl")`
 * `/members?ids[]=1&ids[]=2` - returns members with `id IN (1, 2)`
@@ -221,7 +232,7 @@ Status | Reason
 Requires <code>BL:Api:Members:Index</code> permit
 </aside>
 
-## <a name="v3-members-get"></a> Get
+### <a name="v3-members-get"></a> Get
 
 > Example:
 
@@ -259,7 +270,7 @@ Requires <code>BL:Api:Members:Get</code> permit
 Requires <code>BL:Api:Members:OAuth:Get</code> permit
 </aside>
 
-### URL Parameters
+#### URL Parameters
 
 Parameter | Description | Type
 --------- | ----------- | ------
@@ -267,18 +278,18 @@ id | Member's ID | integer
 msisdn | Member's msisdn | string (format as defined [here](#msisdn-member-identifier) - example: `4740485124`)
 email | Member's email | string (email)
 
-### Response (JSON object)
+#### Response (JSON object)
 
 See: [Member model](#v3-member-model)
 
-#### Error responses
+##### Error responses
 
 Status | Reason
 --------- | ----------- 
 `404` | Member with given identifier could not found 
 `422` | Invalid MSISDN param
 
-## <a name="v3-members-public-info"></a> Get public info
+### <a name="v3-members-public-info"></a> Get public info
 
 > Example:
 
@@ -310,7 +321,7 @@ curl "https://bpc-api.boostcom.no/v3/infinity-mall/members/:id/public_info" \
 Returns basic info for given member. If member does not exist, returns `null'.
 
 
-### URL Parameters
+#### URL Parameters
 
 Parameter | Description | Type
 --------- | ----------- | ------
@@ -318,7 +329,7 @@ id | Member's ID | integer
 msisdn | Member's msisdn | string (format as defined [here](#msisdn-member-identifier) - example: `4740485124`)
 email | Member's email | string (email)
 
-### Response (JSON object)
+#### Response (JSON object)
 
 Key | Type | Description
 --------- | --------- | ---------
@@ -331,7 +342,7 @@ has_password | boolean | Was password set by member?
 Requires <code>BL:Api:Members:Check</code> permit
 </aside>
 
-### Error responses
+#### Error responses
 
 Status | Reason
 --------- | ----------- 
@@ -339,7 +350,7 @@ Status | Reason
 
 <!--- ############################################################################################################# --->
 
-## <a name="v3-members-person-id"></a> Get person id
+### <a name="v3-members-person-id"></a> Get person id
 
 > Example:
 
@@ -410,7 +421,7 @@ Returns `person_id` for given member. Please note that `person_id` cannot be pre
 }
 ```
 
-### URL Parameters
+#### URL Parameters
 
 Parameter | Description | Type
 --------- | ----------- | ------
@@ -418,7 +429,7 @@ id | Member's ID | integer
 msisdn | Member's msisdn | string (format as defined [here](#msisdn-member-identifier) - example: `4740485124`)
 email | Member's email | string (email)
 
-### Response (JSON object)
+#### Response (JSON object)
 
 Key | Type | Description
 --------- | --------- | ---------
@@ -430,7 +441,7 @@ person_id | integer | Member's `person_id`
 Requires <code>BL:Api:Members:Check</code> permit
 </aside>
 
-### Error responses
+#### Error responses
 
 Status | Reason
 --------- | ----------- 
@@ -439,7 +450,7 @@ Status | Reason
 
 <!--- ############################################################################################################# --->
 
-## <a name="v3-members-create"></a> Create
+### <a name="v3-members-create"></a> Create
 
 > Example:
 
@@ -496,18 +507,18 @@ or Loyalty has disabled welcome messages or Loyalty Club has no e-mails configur
 
 There is also a possibility to have multiple SMS welcome messages sent. The one that matches Product or default one will be sent.
 
-### <a name="v3-members-create-registration-password"></a> Registration Password
+#### <a name="v3-members-create-registration-password"></a> Registration Password
 
 Some API clients (depends on Permit assigned to given `X-Client-Authorization` token) may be required to provide 
 valid `registration_password` param that is sent to user with [Members &bull; Send registration password](#v3-members-send-registration-password) 
 
-### Headers
+#### Headers
 
 Header name | Required? | Description
 ------ | --------- | -----------
 X-Subproduct-Name | no | Additional source/optin channel information
 
-### <a name="v3-members-create-post-parameters"></a> POST Parameters (JSON)
+#### <a name="v3-members-create-post-parameters"></a> POST Parameters (JSON)
 
 Parameter | Required? | Default | Description | Type
 --------- | ----------- | ----------- | --------- | -----------
@@ -526,11 +537,11 @@ registration_password | depends | none | Password for registration for member MS
 
 &ast; At least one of those properties must be provided
  
-### Response (JSON object)
+#### Response (JSON object)
 
 Created member properties - see: [Member model](#v3-member-model)
 
-### Error responses
+#### Error responses
 
 Status | Description
 --------- | ----------- 
@@ -544,7 +555,7 @@ Requires <code>BL:Api:Members:Create</code> or <code>BL:Api:Members:CreateWithVe
 
 <!--- ############################################################################################################# --->
 
-## <a name="v3-members-update"></a> Update
+### <a name="v3-members-update"></a> Update
 
 > Example:
 
@@ -595,13 +606,13 @@ That's because loyalty club schema may get changed over time which results in in
 To bypass such validation errors, you may provide `validate_partially: true` param which will validate and update only 
 attributes that were provided in payload. 
 
-### URL Parameters
+#### URL Parameters
 
 Parameter | Description | Type
 --------- | ----------- | ------
 id | Member's ID | integer
 
-### PUT Parameters (JSON)
+#### PUT Parameters (JSON)
 
 Parameter | Description | Type | Default
 --------- | --------- | ----------- | -----------
@@ -614,18 +625,18 @@ push_enabled | Should push channel will be enabled for member? | Boolean | null
 validate_partially | Should only provided data be validated? | Boolean | false
 event_occurred_at | See: [`event_occurred_at` param](#v3-member-event-occured-at-param) | Date | (current time)
 
-#### <a name="v3-member-event-occured-at-param"></a> `event_occurred_at` param
+##### <a name="v3-member-event-occured-at-param"></a> `event_occurred_at` param
 
 When actual member data change occurred at the time different than request's time, you can utilize the `event_occurred_at' param to pass
 the actual update time.
 
 This may be relevant when you want this to be reflected in the member's changes history.
 
-### Response (JSON object)
+#### Response (JSON object)
 
 Member properties after update - see: [Member model](#v3-member-model)
 
-### Error responses
+#### Error responses
 
 Status | Description
 --------- | ----------- 
@@ -635,7 +646,7 @@ Status | Description
 
 <!--- ############################################################################################################# --->
 
-## <a name="v3-me-update-password"></a> Update password
+### <a name="v3-me-update-password"></a> Update password
 
 > Example:
 
@@ -666,14 +677,14 @@ curl -X PUT \
 
 Updates members's password.
 
-### URL Parameters
+#### URL Parameters
 
 Parameter | Description | Type
 --------- | ----------- | ------
 password | Member's new password | string
 current_password | Member's current password | string
 
-### Error responses
+#### Error responses
 
 Status | Reason
 --------- | -----------
@@ -686,7 +697,7 @@ Status | Reason
 Requires <code>BL:Api:Members:OAuth:UpdatePassword</code> permit.
 </aside>
 
-## <a name="v3-members-update-app-token"></a> Update app token
+### <a name="v3-members-update-app-token"></a> Update app token
 
 > Example:
 
@@ -746,14 +757,14 @@ Updates member's Firebase token, along with platform it's that it's associated w
 Token may be removed by sending it as empty string or null, empty payload will also be treated as token removal.
 Platform is automatically removed when token is empty.
 
-### PUT Parameters (JSON)
+#### PUT Parameters (JSON)
 
 Parameter | Type | Description
 --------- | ----------- | ------
 app_token | string | Firebase push token
 app_platform | string | One of: `['android', 'ios']` 
 
-### Error responses
+#### Error responses
 
 Status | Description
 --------- | ----------- 
@@ -762,7 +773,7 @@ Status | Description
 
 <!--- ############################################################################################################# --->
 
-## <a name="v3-members-destroy"></a> Destroy
+### <a name="v3-members-destroy"></a> Destroy
 
 **DELETE** `v3/:loyalty_club_slug/members/:id`
 
@@ -794,23 +805,23 @@ curl -X DELETE \
 
 > When successful, the above command returns destroyed member object as depicted [here](#v3-member-model)
 
-### URL Parameters
+#### URL Parameters
 
 Parameter | Description | Type
 --------- | ----------- | ------
 id | Member's ID | integer
 
-### Query Parameters
+#### Query Parameters
 
 Parameter | Required? | Default | Description | Type
 --------- | ----------- | ----------- | --------- | -----------
 send_email_unsubscribe_message | no | true | Should optout email be sent to member? | Boolean
 
-### Response (JSON object)
+#### Response (JSON object)
 
 Properties of member that has been destroyed - see: [Member model](#v3-member-model)
 
-### Error responses
+#### Error responses
 
 Status | Reason
 --------- | ----------- 
@@ -820,7 +831,7 @@ Status | Reason
 <!--- ############################################################################################################# --->
 
 
-## <a name="v3-members-validate"></a> Validate
+### <a name="v3-members-validate"></a> Validate
 
 > Example:
 
@@ -882,7 +893,7 @@ curl -X POST \
 
 Checks if given data is valid for new member registration. Returns successful response (200), regardless of data validity.
 
-### About partial validation mechanism
+#### About partial validation mechanism
 
 Only properties which keys are present in given payload will be checked against presence validation.
 
@@ -894,7 +905,7 @@ For example, let's say that Loyalty Club configuration requires member to have `
 This behaviour has been designed to allow validate member partially, property by property. This way you can choose 
 what values should be validated at specific point of registration.
 
-### <a name="v3-members-validate-post-parameters"></a> POST Parameters (JSON)
+#### <a name="v3-members-validate-post-parameters"></a> POST Parameters (JSON)
 
 Following keys of [Members &bull; Create](#v3-members-create-post-parameters) payload are supported when validating:
 
@@ -902,7 +913,7 @@ Following keys of [Members &bull; Create](#v3-members-create-post-parameters) pa
 * consents
 * registration_password
 
-### Response (JSON object)
+#### Response (JSON object)
 
 Key | Type | Description
 --------- | --------- | ---------
@@ -913,7 +924,7 @@ errors | object | [validation errors](#validation-on-members) JSON object, `null
 Requires <code>BL:Api:Members:Validate</code> permit
 </aside>
 
-## <a name="v3-members-reset-password"></a> Reset password
+### <a name="v3-members-reset-password"></a> Reset password
 
 > Example:
 
@@ -943,14 +954,14 @@ curl -X PUT \
 
 Updates given member password if token is valid.
 
-### URL Parameters
+#### URL Parameters
 
 Parameter | Description | Type
 --------- | ----------- | ------
 password | Member's new password | string
 token | Confirmation token generated and sent with [Members &bull; Send password reset token](#v3-members-send-password-reset-token) | string
 
-### Error responses
+#### Error responses
 
 Status | Reason
 --------- | ----------- 
@@ -965,7 +976,7 @@ Requires <code>BL:Api:Members:ResetPassword</code> permit
 
 <!--- ############################################################################################################# --->
 
-## <a name="v3-members-send-password-reset-token"></a> Send password reset token
+### <a name="v3-members-send-password-reset-token"></a> Send password reset token
 
 > Example:
 
@@ -994,7 +1005,7 @@ The e-mail contains a token generated for member, valid for 24 hours.
 The token can be then used to reset password with [Members &bull; Reset password](#v3-members-reset-password).
 It also may be verified with [Members &bull; Verify token](#v3-members-verify-token)
 
-### URL Parameters
+#### URL Parameters
 
 Parameter | Description | Type
 --------- | ----------- | ------
@@ -1006,7 +1017,7 @@ Requires <code>BL:Api:Members:Tokens:Create</code> permit
 
 <!--- ############################################################################################################# --->
 
-## <a name="v3-members-send-one-time-password"></a> Send one time password SMS
+### <a name="v3-members-send-one-time-password"></a> Send one time password SMS
 
 > Example:
 
@@ -1034,7 +1045,7 @@ The SMS contains 4-digit One-Time-Password generated for member, valid for 1 hou
 
 This password then can be used to sign in, just as "regular" member password - see:  [OAuth Token &bull; Create](#v3-token-create).
 
-### URL Parameters
+#### URL Parameters
 
 Parameter | Description | Type
 --------- | ----------- | ------
@@ -1046,7 +1057,7 @@ Requires <code>BL:Api:Members:CreateOneTimePassword</code> permit
 
 <!--- ############################################################################################################# --->
 
-## <a name="v3-members-send-one-time-password-email"></a> Send one time password E-mail
+### <a name="v3-members-send-one-time-password-email"></a> Send one time password E-mail
 
 > Example:
 
@@ -1074,13 +1085,13 @@ The link scheme is: `https://<app_scheme>.al.bstcm.no/lgn?member_id=<member_id>&
 
 Those params then can be used to sign in the user, just as "regular" member password - see:  [OAuth Token &bull; Create](#v3-token-create).
 
-### URL Parameters
+#### URL Parameters
 
 Parameter | Description | Type
 --------- | ----------- | ------
 email | Member's email | e-mail
 
-### Error responses
+#### Error responses
 
 Status | Reason
 --------- | ----------- 
@@ -1092,7 +1103,7 @@ Requires <code>BL:Api:Members:CreateOneTimePassword</code> permit
 
 <!--- ############################################################################################################# --->
 
-## <a name="v3-members-send-registration-password"></a> Send registration password
+### <a name="v3-members-send-registration-password"></a> Send registration password
 
 > Example:
 
@@ -1124,19 +1135,19 @@ The sent message contains 4-digit registration password, valid for 10 minutes.
 
 This password may be required for member registration - see: [Registration password](#v3-members-create-registration-password)
 
-### URL Parameters
+#### URL Parameters
 
 Parameter | Description | Type
 --------- | ----------- | ------
 msisdn | MSISDN | string (format as defined [here](#msisdn-member-identifier) - example: `4740485124`)
 
-### POST Parameters
+#### POST Parameters
 
 Parameter | Description | Type
 --------- | ----------- | ------
 language | Language of the registration password message. When not provided, default LC language will be used | string
 
-### Error responses
+#### Error responses
 
 Status | Reason
 --------- | ----------- 
@@ -1148,7 +1159,7 @@ Requires <code>BL:Api:Members:CreateRegistrationPassword</code> permit
 
 <!--- ############################################################################################################# --->
 
-## <a name="v3-members-verify-token"></a> Verify token
+### <a name="v3-members-verify-token"></a> Verify token
 
 > Example:
 
@@ -1172,7 +1183,7 @@ curl "https://bpc-api.boostcom.no/v3/infinity-mall/members/by_email/joe@example.
 
 Verifies given member token. Returns response indicating if given token is (still) valid.
 
-### URL Parameters
+#### URL Parameters
 
 Parameter | Description | Type
 --------- | ----------- | ------
@@ -1180,13 +1191,13 @@ email | Member's email | string (email)
 type | Token type | `password_reset` (more types in future) 
 token | Token | string
 
-### Response (JSON object)
+#### Response (JSON object)
 
 Key | Type
 --------- | ---------
 valid | boolean
 
-### Error responses
+#### Error responses
 
 Status | Reason
 --------- | ----------- 
@@ -1198,7 +1209,7 @@ Requires <code>BL:Api:Members:Tokens:Verify</code> permit
 
 <!--- ############################################################################################################# --->
 
-## <a name="v3-members-send-verification-sms"></a> Send MSISDN verification SMS
+### <a name="v3-members-send-verification-sms"></a> Send MSISDN verification SMS
 
 > Example:
 
@@ -1223,13 +1234,13 @@ The token is valid for 30 days.
 By default, a link to Webforms is sent.
 When `for_mobile_app = true` param is provided, a deep link to mobile app is generated instead.
 
-### PUT body parameters
+#### PUT body parameters
 
 Parameter | Type | Required? | Default | Description
 --------- | ----------- | ------ | ------ | ------
 for_mobile_app | boolean | no | false | Should a deep-link to mobile app be generated?
 
-### Response
+#### Response
 
 Always returns `204 (No content)`
 
@@ -1239,7 +1250,7 @@ Requires <code>BL:Api:Members:Msisdns:Verify</code> permit
 
 <!--- ############################################################################################################# --->
 
-## <a name="v3-members-verify-msisdn"></a> Verify MSISDN
+### <a name="v3-members-verify-msisdn"></a> Verify MSISDN
 
 > Example:
 
@@ -1269,13 +1280,13 @@ curl -X PUT \
 Uses given token (sent with [Members &bull; Send MSISDN verification SMS](#v3-members-send-verification-sms)) to verify
 user identified with given MSISDN.
 
-### PUT body parameters
+#### PUT body parameters
 
 Parameter | Type | Required? | Description
 --------- | ----------- | ------ | ------
 token | string | yes | Token generated and sent with [Members &bull; Send MSISDN verification SMS](#v3-members-send-verification-sms)
 
-### Error responses
+#### Error responses
 
 Status | Reason
 --------- | ----------- 

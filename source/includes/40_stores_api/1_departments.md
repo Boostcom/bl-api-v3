@@ -1,6 +1,6 @@
-#  Departments
+##  Departments
 
-## <a name="v3-department-list"></a> List
+### <a name="v3-department-list"></a> List
 
 > Example:
 
@@ -33,7 +33,7 @@ List customer departments
 Requires <code>Stores:Api:Departments:Get</code> permit
 </aside> 
 
-## <a name="v3-department-get"></a> Get
+### <a name="v3-department-get"></a> Get
 
 > Example:
 
@@ -71,14 +71,14 @@ curl -X GET \
 Return department by one of two identifiers: `id` or `department_id`
 
 
-### URL Parameters
+#### URL Parameters
 
 Parameter | Description | Type
 --------- | ----------- | ------
 id | ID internal | integer
 department_id | Department id from customer system | integer
 
-### Error responses
+#### Error responses
 
 Status | Description
 --------- | ----------- 
@@ -88,7 +88,7 @@ Status | Description
 Requires <code>Stores:Api:Departments:Get</code> permit
 </aside>
 
-## <a name="v3-department-create"></a> Create
+### <a name="v3-department-create"></a> Create
 
 > Example:
 
@@ -133,7 +133,7 @@ Create store
 
 Create store
 
-### POST Parameters (JSON)
+#### POST Parameters (JSON)
 
 Parameter      | Description            | Type
 -------------  | ---------------------- | ------
@@ -142,14 +142,14 @@ department_id* | department/mall id          | integer
 
 Parameters with `*` are required
 
-### Feedback statuses
+#### Feedback statuses
 
 Status | Description
 ---- | ----
 ok   | Department was created
 Department with this id already exists. | 
 
-### Error responses
+#### Error responses
 
 Status | Description
 --------- | ----------- 
@@ -159,7 +159,7 @@ Status | Description
 Requires <code>Stores:Api:Departments:Create</code>
 </aside>
 
-## <a name="v3-department-update"></a> Update
+### <a name="v3-department-update"></a> Update
 
 > Example:
 
@@ -211,14 +211,14 @@ Update department
 
 **PUT** `v3/:loyalty_club_slug/stores/departments/by_department_id/:department_id`
 
-### URL Parameters
+#### URL Parameters
 
 Parameter  | Description | Type
 ---------- | ----------- | ------
 id         | ID          | integer
 department_id   | department id    | integer
 
-### PUT Parameters (JSON)
+#### PUT Parameters (JSON)
 
 Parameter     | Description            | Type
 ------------- | ---------------------- | ------
@@ -226,14 +226,14 @@ name*         | department name             | string
 
 Parameters with `*` are required
 
-### Feedback statuses
+#### Feedback statuses
 
 Status | Description
 ------ | ----
 ok     | Department updated
 Department with this id does not exist. | 
 
-### Error responses
+#### Error responses
 
 Status | Description
 --------- | ----------- 

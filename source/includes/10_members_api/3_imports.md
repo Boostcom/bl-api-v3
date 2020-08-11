@@ -1,8 +1,8 @@
-#  Members Imports
+##  Members Imports
 
-## <a name="v3-members-imports-import-flow"></a> Import flow
+### <a name="v3-members-imports-import-flow"></a> Introduction
 
-#### Import bulks
+##### Import bulks
 
 At most 1000 member records may be sent in one request.
 
@@ -10,7 +10,7 @@ If you intend to import more than that, you may group them by `import_id`, so mu
 
 Nevertheless, keep in mind, that import always consists of at least one bulk.
 
-#### Import statuses
+##### Import statuses
 
 Each bulk is processed by an asynchronous job, so you need to check it's status some time after sending a request.
 
@@ -23,7 +23,7 @@ Please note that:
 * In extreme cases, it make take even few hours for bulk to be fully processed
 * 24 hours after import request any potential personal data (contained in `member_payloads` and `errors`) is permanently removed from server
 
-#### Bulk statuses
+##### Bulk statuses
 
 When bulk is created, it gets `waiting` status.
 
@@ -37,7 +37,7 @@ for errors.
 When job failed for some internal reason, it will have either `failed` or `waiting_for_retry` status. See below
 for more details.  
 
-#### Asynchronous job failures
+##### Asynchronous job failures
 
 Jobs that couldn't be processed because of some internal reasons will be retried up to 5 times.
 
@@ -46,7 +46,7 @@ After each failure, the bulk will have `waiting_for_retry` status assigned and i
 After 5th failure, the bulk will have `failed` status assigned. In such case, please contact us, so we may identify 
 and resolve the problem.
 
-## <a name="v3-members-imports"></a> Send import request
+### <a name="v3-members-imports"></a> Send import request
 
 **POST** `v3/:loyalty_club_slug/members/imports`
 
@@ -102,7 +102,7 @@ curl -X POST \
 }
 ```
 
-### POST Parameters (JSON)
+#### POST Parameters (JSON)
 
 Parameter | Required? | Default | Description | Type
 --------- | ----------- | ----------- | --------- | -----------
@@ -111,7 +111,7 @@ request_number | no | - | A number that you can use for bulk identification in "
 members | yes | - | Array with members payloads - See below | Array <JSON Object>
 only_create | no | false | When true, it does not update members | Boolean
 
-#### Members Array 
+##### Members Array 
 
 General requirements:
 
@@ -135,19 +135,19 @@ consents | no | {} | Members consents | See [Member's consents JSON model](#v3-m
 
 &ast;&ast; When those member attributes are missing on creation, defaults will be used. When on update, they won't be overwritten.
 
-### Response (JSON object)
+#### Response (JSON object)
 
 Key | Description | Type
 --- | --- | ---
 import_id | Identifier for import status checking (either provided by you or auto-generated) | String
 
-### Error responses
+#### Error responses
 
 Status | Reason | Description
 --------- | ----------- | -----------
 `422` | Invalid payload | Returns error object - see below
 
-#### Invalid Payload Error (JSON object)
+##### Invalid Payload Error (JSON object)
 
 When payload is invalid, an object is returned: `{"error" => <reason>}`
 
@@ -165,7 +165,7 @@ Code | Description
 Requires <code>BL:Api:Members:Imports:Create</code> permit
 </aside>
 
-## <a name="v3-members-imports-status"></a> Get import status
+### <a name="v3-members-imports-status"></a> Get import status
 
 **GET** `v3/:loyalty_club_slug/members/imports/:import_id`
 
@@ -203,13 +203,13 @@ curl -X GET \
 }
 ```
 
-### URL Parameters
+#### URL Parameters
 
 Parameter | Description
 --------- | ----------- |
 import_id | Import identifier |
 
-### Response (JSON object)
+#### Response (JSON object)
 
 Key | Description | Type
 --- | --- | ---
@@ -220,7 +220,7 @@ members_with_validation_errors_number | A total number of members that had valid
 created_at | The date of import creation | Date
 bulks | A list of bulks in the import | Array<Object>, where Object consists: of `id`, `request_number` and `status` attributes
 
-### Error responses
+#### Error responses
 
 Status | Reason
 --------- | ----------- 
@@ -230,7 +230,7 @@ Status | Reason
 Requires <code>BL:Api:Members:Imports:Get</code> permit
 </aside>
 
-## <a name="v3-members-imports-bulk-status"></a> Get bulk status
+### <a name="v3-members-imports-bulk-status"></a> Get bulk status
 
 **GET** `v3/:loyalty_club_slug/members/imports/:import_id/bulks/:bulk_id`
 
@@ -286,7 +286,7 @@ curl -X GET \
 }
 ```
 
-### URL Parameters
+#### URL Parameters
 
 Parameter | Description
 --------- | ----------- |
@@ -294,7 +294,7 @@ import_id | Import identifier |
 bulk_id | ID of the bulk |
 request_number | Request number of the bulk |
 
-### Response (JSON object)
+#### Response (JSON object)
 
 Key | Description | Type
 --- | --- | ---
@@ -310,7 +310,7 @@ retries | A number of background job retries (max 5) | Integer
 members_errors | Members errors. Each invalid member will be returned in this object, where key is his identifier (`email` or `msisdn`) and the value is a list of it's [validation errors](#validation-on-members) | Object
 created_at | The date of bulk creation | Date
 
-### Error responses
+#### Error responses
 
 Status | Reason
 --------- | ----------- 

@@ -1,6 +1,6 @@
-# General info
+# Introduction
 
-MPC API allows to manage Loyalty Club, its members and content.
+This documentation describes Boostcom's MPC APIs that allow to manage Loyalty Club, its members and content.
 
 ## Hosts
 

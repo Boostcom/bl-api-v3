@@ -1,4 +1,6 @@
-#  Loyalty Clubs
+# Loyalty Clubs API
+
+##  Loyalty Clubs
 
 ### <a name="v3-loyalty-club-model"></a> Loyalty Club model
 
@@ -36,7 +38,7 @@ timezone | string | [TZ database name](https://en.wikipedia.org/wiki/List_of_tz_
 member_identifiers | array<string> | May consist of following values: `msisdn` and `email`
 new_offers_api_enabled | bool | Is [New Offers API](#endpoints-offers) enabled for this Loyalty Club?
 
-## <a name="v3-loyalty-clubs-list"></a> List
+### <a name="v3-loyalty-clubs-list"></a> List
 
 > Example
 
@@ -67,7 +69,7 @@ curl "https://bpc-api.boostcom.no/v3/loyalty_clubs" \
  
 Returns [Loyalty Clubs](#v3-loyalty-club-model) accessible by API client.
 
-### Query Parameters
+#### Query Parameters
 
 Parameter | Type | Default | Description
 --------- | ----------- | --------- | -----------
@@ -76,7 +78,7 @@ page_no | integer | 1 | Number of results page
 type | enum: ['REGULAR', 'TENANTS', 'ICOM'] | null | When present, filters results by this type
 customer_id | integer | null | When present, filters results by this customer
 
-### Response (JSON object)
+#### Response (JSON object)
 
 Key | Type | Description
 --------- | --------- | ---------
@@ -87,7 +89,7 @@ pagination_info | Object | [Pagination](#v3-pagination-model) object
 Requires <code>BL:Api:LoyaltyClubs:ListMine</code> permit
 </aside>
 
-## <a name="v3-loyalty-clubs-get"></a> Get
+### <a name="v3-loyalty-clubs-get"></a> Get
 
 > Example
 
@@ -117,7 +119,9 @@ Returns basic information about the [Loyalty Clubs](#v3-loyalty-club-model), by 
 Requires <code>BL:Api:LoyaltyClubs:Get</code> permit
 </aside>
 
-## <a name="v3-loyalty-clubs-schema"></a> Get schema
+## Schema
+
+### <a name="v3-loyalty-clubs-schema"></a> Get
 
 > Example
 
@@ -186,7 +190,7 @@ Properties of each member must conform to the defined schema.
 
 We support **JSON schema Draft V4** with format extension for `date` (YYYY-MM-DD).
 
-### Response (JSON object)
+#### Response (JSON object)
 
 Key | Description | Type
 --------- | ----------- | ---------
@@ -203,7 +207,9 @@ properties | Properties describing member | object
 Requires <code>BL:Api:Schema:Get</code> permit
 </aside>
 
-## <a name="v3-loyalty-clubs-products"></a> List products
+## Products
+
+### <a name="v3-loyalty-clubs-products"></a> List
 
 > Example
 
@@ -240,7 +246,7 @@ curl "https://bpc-api.boostcom.no/v3/infinity-mall/products" \
 
 Returns list of Products (AKA Channels, AKA Sources) defined for Loyalty Club.
 
-### Product response model (in JSON array)
+#### Product response model (in JSON array)
 
 Key | Description | Type
 --------- | ----------- | ---------
@@ -254,7 +260,9 @@ is_webform | Is the product also a webform? | boolean
 Requires <code>BL:Api:Products:Index</code> permit
 </aside>
 
-## <a name="v3-list-translations"></a> List translations
+## Translations
+
+### <a name="v3-list-translations"></a> List
 
 > Example request
 
@@ -321,13 +329,13 @@ curl "https://bpc-api.boostcom.no/v3/infinity-mall/translations?language=en" \
 
 Returns translations for the Loyalty Club.
 
-### Query Parameters
+#### Query Parameters
 
 Parameter | Type | Default | Type
 --------- | ----------- | --------- | ------
 language | String | (default language configured for Loyalty Club) | Desired language of translations 
 
-### Response (JSON object)
+#### Response (JSON object)
 
 Key | Type | Optional? | Description 
 --------- | --------- | ---------- | ---------
@@ -340,7 +348,9 @@ terms | string | yes | Translation of Loyalty Club terms
 Requires <code>Translations:Api:Index</code> permit
 </aside>
 
-## <a name="v3-links-generate"></a> Generate link
+## Links
+
+### <a name="v3-links-generate"></a> Generate
 
 > Example:
 
@@ -377,25 +387,25 @@ it's installed on member system.
 A list of possible links depends on Loyalty Club configuration. 
 An MPC API endpoint for returning it may be implemented in future.     
 
-### URL Parameters
+#### URL Parameters
 
 Parameter | Type | Description
 --------- | ----------- | ------
 link_slug | string | A slug that identifies the link to generate
 
-### POST Parameters (JSON object)
+#### POST Parameters (JSON object)
 
 Parameter | Type | Description
 --------- | ----------- | ------
 link_params | Object | Params for link generation dependent on specific link definition
 
-### Response (JSON object)
+#### Response (JSON object)
 
 Key | Type | Description
 --------- | --------- | ---------
 url | String | The generated link
 
-### Error responses
+#### Error responses
 
 Status | Description
 --------- | ----------- 

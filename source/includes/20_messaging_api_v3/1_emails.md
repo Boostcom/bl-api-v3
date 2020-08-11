@@ -1,6 +1,4 @@
-#  Emails
-
-## <a name="v3-emails-create"></a> Create
+## <a name="v3-emails-create"></a> Send e-mails
 
 > Example:
 
@@ -70,7 +68,7 @@ Messages are being sent asynchronously. Also, it cannot be guaranteed that the m
 
 In future, a feature for checking messages delivery statuses will be added.
 
-### Messages POST Parameters (JSON array)
+#### Messages POST Parameters (JSON array)
 
 The expected payload consists of `emails` object which has an hash of objects with following attributes:
 
@@ -87,7 +85,7 @@ ignore_email_verification_status | bool | false | Should member Email verificati
 
 \* required
 
-### Feedback statuses
+#### Feedback statuses
 
 Key | Description
 ---- | ----
@@ -100,7 +98,7 @@ email_hard_bounced | Member's Email is marked as a hard bounced
 email_unverified | Member's Email is not verified - this may be ignored by enabling `ignore_email_verification_status` option
 channel_disabled | Member has Email channel disabled
 
-### Error responses
+#### Error responses
 
 Status | Description
 --------- | ----------- 

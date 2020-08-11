@@ -1,6 +1,8 @@
-# <a name="v3-members-messages"></a> Members Messages
+## <a name="v3-members-messages"></a> Members Messages
 
-### <a name="v3-member-message-model"></a> MemberMessage model
+### <a name="v3-member-messages-introduction"> Introduction
+
+#### <a name="v3-member-message-model"></a> MemberMessage model
 
 > Example:
 
@@ -20,7 +22,7 @@ type       | Object with member's properties     | yes       | enum: ["sms", "em
 created_at | Time when the message has been sent | yes       | string
 content    |                                     | yes       | string
 
-## <a name="v3-members-messages-list"></a> List messages
+### <a name="v3-members-messages-list"></a> List messages
 
 > Example:
 
@@ -48,7 +50,7 @@ Does not translate id to other identifiers and vice versa. If no messages are fo
 
 **Messages are removed when Member is deleted.**
 
-### URL Parameters
+#### URL Parameters
 
 Parameter | Description                                  | Required? | Type
 --------- | -------------------------------------------- | ----------| ------
@@ -56,7 +58,7 @@ member_id | Member ID                                    | yes       | integer
 per_page  | Number of results to be returned per request | no        | integer 
 page_no   | Number of results page                       | no        | integer
 
-### Response (JSON object)
+#### Response (JSON object)
 
 Key             | Type                 | Description
 --------------- | -------------------- | ---------------------------------------------------
@@ -69,7 +71,7 @@ Requires <code>BL:Api:Members:MessagesHistory:List</code> permit
 
 <!--- ############################################################################################################# --->
 
-## <a name="v3-members-message-get"></a> Get message
+### <a name="v3-members-message-get"></a> Get message
 
 > Example:
 
@@ -93,20 +95,20 @@ curl "https://bpc-api.boostcom.no/v3/infinity-mall/members/509134/messages/MTE0N
 
 Returns specific message sent to member.
 
-### URL Parameters
+#### URL Parameters
 
 Parameter | Description | Required? | Type
 --------- | ----------- | --------  | ------
 member_id | Member ID   | yes       | integer
 id        | Message ID  | yes       | string
 
-### Response (JSON object)
+#### Response (JSON object)
 
 Key     | Type          | Description
 ------- | ------------- | ---------
 message | MemberMessage | [MemberMessage](#v3-member-message-model)
 
-### Error responses
+#### Error responses
 
 Status    | Reason
 --------- | ----------- 

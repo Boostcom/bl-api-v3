@@ -1,4 +1,4 @@
-# Members Webhooks
+## Members Webhooks
 
 A Loyalty Club may be configured to send notifications (as HTTP POST requests) when a change occurs within its member 
 database (e.g. when member registers).
@@ -7,7 +7,7 @@ If you wish to configure a Loyalty Club to have such notifications enabled, plea
 You will need to provide us a HTTPS (for security reasons, we don't support HTTP) URL that notifications will
 be sent to.
 
-## Subscription
+### Subscription
 
 As it is possible to have multiple endpoints configured for receiving notifications in one Loyalty Club, for each 
 endpoint we setup a Subscription.
@@ -15,7 +15,7 @@ endpoint we setup a Subscription.
 Each Subscription has its own Secret Token (see below) and may be configured to send notifications only on specific 
 changes (`import`, `update`, `delete`).
 
-## Authentication token
+### Authentication token
 
 Each notification request is signed with `X-Secret-Token` header that contains Secret Token configured for given 
 Subscription.
@@ -23,12 +23,12 @@ Subscription.
 In order to assure that notifications you receive are sent from us, you should check if its value matches 
 the Secret Token that you received from us when the subscription has been set up.
 
-## Notifications format
+### Notifications format
 
 Currently, notifications are generated in two versions. 
 Version 1 is deprecated and new subscriptions are going to be configured to receive v2 notifications.
 
-### Notifications v2
+#### Notifications v2
 
 > Example for v2
 
@@ -85,7 +85,7 @@ loyalty_club | Information about member's Loyalty Club - it's ID and slug.
 member  | Member attributes after the event - See [Member JSON model](https://docs.loyalty.boostcom.no/bl-api/v3/#member-json-model). For `delete` events it contains only `id` and `person_id`
 member_changes | See [Event model](#v2-event). It's empty for `delete` events
 
-#### <a name="v2-event"></a> Event model
+##### <a name="v2-event"></a> Event model
 
 Contains meta information about the change event. 
 
@@ -94,7 +94,7 @@ Attribute | Type | Description
 type | `import`, `update`, or `delete` | A type of the change event
 date | Date | When the event occurred
 
-#### <a name="v2-changes"></a> Changes object
+##### <a name="v2-changes"></a> Changes object
 
 Represents changes that happened to member within the event. Includes only properties that have been actually changed
 within the event.
@@ -119,7 +119,7 @@ change | `~`, `+` or `-` | Whether the property has been changed (`~`), added (`
 before | mixed | The value of property before the change
 after | mixed | The value of property after the change
 
-### Notifications v1 (deprecated)
+#### Notifications v1 (deprecated)
 
 > Example for v1
 
@@ -171,7 +171,7 @@ consents | Object | Member consents and their values. Empty when `event_type` is
 created_at | Date | When the change occurred
 optin_date | Date | When the member has been created
 
-## Notifications delivery
+### Notifications delivery
 
 Your endpoint must return a `2xx` (`200` or `201` preferably) HTTP status code. Only then the notification 
 will be treated as delivered.

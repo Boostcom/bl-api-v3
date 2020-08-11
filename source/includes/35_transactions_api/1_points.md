@@ -1,6 +1,6 @@
-#  Points
+##  Points
 
-## <a name="v3-points-create"></a> Create
+### <a name="v3-points-create"></a> Create
 
 > Example:
 
@@ -62,7 +62,7 @@ curl -X POST \
 
 Add or remove points from member wallets. All unasigned points belongs to default wallet
 
-### POST Parameters (JSON)
+#### POST Parameters (JSON)
 
 Parameter        | Description            | Type
 ---------------- | ---------------------- | ------
@@ -84,7 +84,7 @@ additional_properties | Any optional properties | object
 Parameters with `*` are required
 
 
-### Type of events
+#### Type of events
 Type | Description
 ---- | -----------
 purchase | points added by making a purchase (positive amount required)
@@ -95,7 +95,7 @@ revoke | points removed from member account due to refund etc. (negative amount 
 expire | points removed due to expiration (negative amount required)
 other  | 
 
-### Feedback statuses
+#### Feedback statuses
 
 Status | Description
 ---- | ----
@@ -105,7 +105,7 @@ Store does not exists |
 Incorrect amount | Positive amount when using points, negative amount when issuing points etc
 Not enough points in the wallet | Not enough points when using a points
 
-### Error responses
+#### Error responses
 
 Status | Description
 --------- | ----------- 
@@ -115,7 +115,7 @@ Status | Description
 Requires <code>Transaction:Api:Points:Create</code>
 </aside>
 
-## <a name="v3-member-points"></a> Member points
+### <a name="v3-member-points"></a> Member points
 
 > Example:
 
@@ -145,7 +145,7 @@ curl -X GET \
 
 Return number of points that member has filtered by different wallets
 
-### URL Parameters
+#### URL Parameters
 
 Parameter | Description   | Type
 --------- | ------------- | ------
@@ -153,7 +153,7 @@ member_id | Member id     | integer
 msisdn    | Member msisdn | string
 email     | Member email  | string
 
-### Error responses
+#### Error responses
 
 Status    | Description
 --------- | ----------- 
@@ -163,7 +163,7 @@ Status    | Description
 Requires <code>Transaction:Api:Points:Get</code> permit
 </aside>
 
-## <a name="v3-member-points-list"></a> Member points list
+### <a name="v3-member-points-list"></a> Member points list
 
 > Example:
 
@@ -200,7 +200,7 @@ curl -X GET \
 
 Return list of point events that member has, filtered by event type
 
-### URL Parameters
+#### URL Parameters
 
 Parameter  | Description   | Type       | Required/Optional
 ---------- | ------------- | ---------- | ------------------
@@ -213,7 +213,7 @@ amount     | Amount of points  | integer | optional
 receipt_id | Receipt       | string     | optional
 store_id   | Store id      | string     | optional
 
-### Error responses
+#### Error responses
 
 Status    | Description
 --------- | ----------- 

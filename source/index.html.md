@@ -1,5 +1,5 @@
 ---
-title: Boostcom Performance Cloud API V3 Reference
+title: Boostcom Performance Cloud APIs Reference
 layout: slate
 
 toc_footers:
@@ -9,29 +9,29 @@ toc_footers:
   - <a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a>
 
 includes:
-  - 02_general_info
-  - 11_loyalty_clubs
-  - 14_members
-  - 15_members_authentication
-  - 16_members_imports
-  - 17_members_messages
-  - 18_members_groups
-  - 19_members_webhooks
-  - 20_push_notifications
-  - 25_smses
-  - 26_emails
-  - 50_offers
-  - 53_offers_events
-  - 55_offers_admin
-  - 60_rewards_program
-  - 61_rewards_rewards
-  - 70_transactions
-  - 71_points
-  - 90_stores
-  - 91_departments
-  - 100_events
-  - 80_files
-  - 999_changelog
+  - 00_introduction/0_introduction
+  - 05_loyalty_clubs_api/0_loyalty_clubs
+  - 10_members_api/0_members
+  - 10_members_api/1_oauth
+  - 10_members_api/2_messages
+  - 10_members_api/3_imports
+  - 10_members_api/9_webhooks
+  - 15_members_groups_api/0_members_groups
+  - 20_messaging_api_v3/0_smses
+  - 20_messaging_api_v3/1_emails
+  - 20_messaging_api_v3/2_push_notifications
+  - 25_offers_api/0_offers
+  - 25_offers_api/1_offers_events
+  - 28_offers_admin_api/0_offers_admin
+  - 30_rewards_api/0_rewards_program
+  - 30_rewards_api/1_rewards_rewards
+  - 35_transactions_api/0_transactions
+  - 35_transactions_api/1_points
+  - 40_stores_api/0_stores
+  - 40_stores_api/1_departments
+  - 45_events_api/0_events
+  - 50_files_api/0_files
+  - 999_changelog/0_changelog
 
 search: true
 ---

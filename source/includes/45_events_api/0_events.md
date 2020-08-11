@@ -1,6 +1,12 @@
-#  Events (WIP)
+# Events API
 
-## <a name="v3-events-list"></a> List
+<aside class="warning">
+This API is in development. Therefore, it may not be ready for use and is a subject to change at any time.
+</aside>
+
+##  Events
+
+### <a name="v3-events-list"></a> List
 
 > Example:
 
@@ -42,7 +48,7 @@ List of events
 Requires <code>Events:Api:Events:Get</code> permit
 </aside>
 
-## <a name="v3-event-get"></a> Get
+### <a name="v3-event-get"></a> Get
 
 > Example:
 
@@ -82,7 +88,7 @@ Single event information
 Requires <code>Events:Api:Events:Get</code> permit
 </aside>
 
-## <a name="v3-events-validate-member"></a> Member validation
+### <a name="v3-events-validate-member"></a> Member validation
 
 > Example:
 
@@ -126,20 +132,22 @@ Check if member is registered to the event, should be uses only for closed event
 Requires <code>Events:Api:Validation:Create</code> permit
 </aside>
 
-### Parameters
+#### Parameters
 
 Parameter | Description | Type
 --------- | ----------- | ------
 event_id  | Event id    | integer
 member_id | Member id   | integer
 
-### Error responses
+#### Error responses
 
 Status    | Description
 --------- | ----------- 
 `422`     | Invalid parameters (see example on the right)
 
-## <a name="v3-events-checkin-member"></a> Checkin
+## Checkins
+
+### <a name="v3-events-checkin-member"></a> Create
 
 > Example:
 
@@ -187,7 +195,7 @@ Checkin/scan member to the event
 Requires <code>Events:Api:Checkin:Create</code> permit
 </aside> 
 
-### Parameters
+#### Parameters
 
 Parameter | Description | Type         | Comments
 --------- | ----------- | -------      | ---------
@@ -195,7 +203,7 @@ event_id  | Event id    | integer      |
 member_id | Member id   | integer      |
 error     | Error code  | integer/null | 1 - not a member, 2 - member not registered to the event, 3 - member scanned in the time limit 
 
-### Error responses
+#### Error responses
 
 Status    | Description
 --------- | ----------- 
@@ -204,7 +212,7 @@ Status    | Description
 
 **GET** `v3/:loyalty_club_slug/events/checkin`
 
-## <a name="v3-events-checkin-list"></a> Checkin list
+### <a name="v3-events-checkin-list"></a> List
 
 > Example:
 
@@ -238,7 +246,9 @@ List scanned/checked in events
 Requires <code>Events:Api:Checkin:Get</code> permit
 </aside>
 
-## <a name="v3-events-invitation"></a> Invitation
+## Invitations
+
+### <a name="v3-events-invitation"></a> Send invitation
 
 > Example:
 
@@ -280,7 +290,7 @@ Send email invitation to loyalty club
 Requires <code>Events:Api:Invitation:Create</code> permit
 </aside>
 
-### Payload Parameters
+#### Payload Parameters
 
 Parameter | Description | Type
 --------- | ----------- | ------
@@ -288,7 +298,7 @@ event_id  | Event id    | integer
 email     | Non-member email   | string
 
 
-### Error responses
+#### Error responses
 
 Status    | Description
 --------- | ----------- 

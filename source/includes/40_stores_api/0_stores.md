@@ -1,6 +1,8 @@
-#  Stores
+# Stores API
 
-## <a name="v3-store-list"></a> List
+##  Stores
+
+### <a name="v3-store-list"></a> List
 
 > Example:
 
@@ -74,7 +76,7 @@ curl -X GET \
 
 List of all active stores
 
-### URL Parameters
+#### URL Parameters
 
 Parameter     | Description                         | Type
 ------------- | ----------------------------------- | ------
@@ -93,7 +95,7 @@ All parameters are optional
 Requires <code>Stores:Api:Stores:Get</code> permit
 </aside> 
 
-## <a name="v3-store-get"></a> Get
+### <a name="v3-store-get"></a> Get
 
 > Example:
 
@@ -177,14 +179,14 @@ curl -X GET \
 Return store by one of two identifiers: `id` or `store_id`
 
 
-### URL Parameters
+#### URL Parameters
 
 Parameter | Description | Type
 --------- | ----------- | ------
 id        | ID internal | integer
 store_id  | Store id from customer system | string
 
-### Error responses
+#### Error responses
 
 Status    | Description
 --------- | ----------- 
@@ -194,7 +196,7 @@ Status    | Description
 Requires <code>Stores:Api:Stores:Get</code> permit
 </aside>
 
-## <a name="v3-store-create"></a> Create
+### <a name="v3-store-create"></a> Create
 
 > Example:
 
@@ -280,7 +282,7 @@ Create store
 
 Create store
 
-### POST Parameters (JSON)
+#### POST Parameters (JSON)
 
 Parameter     | Description            | Type
 ------------- | ---------------------- | ------
@@ -304,14 +306,14 @@ hours*        | opening hours          | string
 
 Parameters with `*` are required
 
-### Feedback statuses
+#### Feedback statuses
 
 Status | Description
 ---- | ----
 ok   | Store was created
 This store already exists. | 
 
-### Error responses
+#### Error responses
 
 Status | Description
 --------- | ----------- 
@@ -321,7 +323,7 @@ Status | Description
 Requires <code>Stores:Api:Stores:Create</code>
 </aside>
 
-## <a name="v3-store-update"></a> Update
+### <a name="v3-store-update"></a> Update
 
 > Example:
 
@@ -414,14 +416,14 @@ Update store
 
 **PUT** `v3/:loyalty_club_slug/stores/by_store_id/:store_id`
 
-### URL Parameters
+#### URL Parameters
 
 Parameter  | Description | Type
 ---------- | ----------- | ------
 id         | ID          | integer
 store_id   | store id    | string
 
-### PUT Parameters (JSON)
+#### PUT Parameters (JSON)
 
 Parameter     | Description            | Type
 ------------- | ---------------------- | ------
@@ -444,14 +446,14 @@ hours*        | opening hours          | string
 
 Parameters with `*` are required
 
-### Feedback statuses
+#### Feedback statuses
 
 Status | Description
 ------ | ----
 ok     | Store updated
 Store with this id does not exist. | 
 
-### Error responses
+#### Error responses
 
 Status | Description
 --------- | ----------- 
@@ -461,7 +463,7 @@ Status | Description
 Requires <code>Stores:Api:Stores:Update</code>
 </aside>
 
-## <a name="v3-store-delete"></a> Delete
+### <a name="v3-store-delete"></a> Delete
 
 > Example:
 
@@ -498,14 +500,14 @@ Delete store
 
 **DELETE** `v3/:loyalty_club_slug/stores/by_store_id/:store_id`
 
-### URL Parameters
+#### URL Parameters
 
 Parameter  | Description | Type
 ---------- | ----------- | ------
 id         | ID          | integer
 store_id   | store id    | string
 
-### Feedback statuses
+#### Feedback statuses
 
 Status | Description
 ------ | ----
@@ -513,7 +515,7 @@ ok     | Store was deleted
 Store with this id does not exist. | 
 
 
-### Error responses
+#### Error responses
 
 Status | Description
 --------- | ----------- 
@@ -523,7 +525,9 @@ Status | Description
 Requires <code>Stores:Api:Stores:Delete</code>
 </aside>
 
-## <a name="v3-store-categories-list"></a> Categories
+## <a name="v3-stores-categories"></a> Categories
+
+### <a name="v3-store-categories-list"></a> List
 
 > Example:
 
@@ -555,7 +559,9 @@ List of all store categories
 Requires <code>Stores:Api:Zones:Get</code> permit
 </aside> 
 
-## <a name="v3-store-zones-list"></a> Zones
+## Zones
+
+### <a name="v3-store-zones-list"></a> List
 
 > Example:
 
