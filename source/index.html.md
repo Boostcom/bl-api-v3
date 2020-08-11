@@ -14,8 +14,9 @@ includes:
   - 14_members
   - 15_members_authentication
   - 16_members_imports
-  - 17_members_groups
-  - 18_members_webhooks
+  - 17_members_messages
+  - 18_members_groups
+  - 19_members_webhooks
   - 20_push_notifications
   - 25_smses
   - 26_emails
