@@ -10,6 +10,11 @@ Production (APAC region): [https://bpc-api.apac.boostcom.com](https://bpc-api.ap
 
 Staging: [https://bpc-api.dev.boostcom.no](https://bpc-api.dev.boostcom.no)
 
+### HTTPS (TLS) requirement
+
+To make connection to Boostcom's MPC APIs you have to use HTTPS with TLS encryption.
+Your client has to support TLS1.2+ with strong ciphers.
+
 ## Common params and headers
 
 ### "content-type" header

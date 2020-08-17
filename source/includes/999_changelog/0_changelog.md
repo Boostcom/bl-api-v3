@@ -2,6 +2,7 @@
 
 #### 17.08.2020 | Jakub Kruczek
 * Use lowercase header keys to match HTTP/2 standard
+* Add HTTPS (TLS) section
 
 #### 07.08.2020 | Natalia Styrska
 * Add [Points &bull; List](#v3-member-points-list)
