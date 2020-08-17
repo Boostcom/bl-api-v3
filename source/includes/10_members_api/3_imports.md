@@ -60,10 +60,10 @@ that, you may want to identify all bulks with the same `import_id` and pass cons
 ```shell
 curl -X POST \
     "https://bpc-api.boostcom.no/v3/infinity-mall/members/imports" \
-    -H 'Content-Type: application/json' \
-    -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-    -H 'X-Product-Name: default' \
-    -H 'X-User-Agent: CURL manual test'
+    -H 'content-type: application/json' \
+    -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+    -H 'x-product-name: default' \
+    -H 'x-user-agent: CURL manual test'
   -d \
     '{
       "import_id": "import_21",
@@ -178,10 +178,10 @@ You need to call [Members Imports &bull; Get bulk status](#v3-members-import-bul
 ```shell
 curl -X GET \
     "https://bpc-api.boostcom.no/v3/infinity-mall/members/imports/:import_id" \
-    -H 'Content-Type: application/json' \
-    -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-    -H 'X-Product-Name: default' \
-    -H 'X-User-Agent: CURL manual test'
+    -H 'content-type: application/json' \
+    -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+    -H 'x-product-name: default' \
+    -H 'x-user-agent: CURL manual test'
 ```
 
 
@@ -243,10 +243,10 @@ Returns status of import bulk.
 ```shell
 curl -X GET \
     "https://bpc-api.boostcom.no/v3/infinity-mall/members/imports/:import_id/bulks/:bulk_id" \
-    -H 'Content-Type: application/json' \
-    -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-    -H 'X-Product-Name: default' \
-    -H 'X-User-Agent: CURL manual test'
+    -H 'content-type: application/json' \
+    -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+    -H 'x-product-name: default' \
+    -H 'x-user-agent: CURL manual test'
 ```
 
 

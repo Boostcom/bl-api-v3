@@ -108,10 +108,10 @@ Status | Response body
 ```shell
 curl \
 "https://bpc-api.boostcom.no/v3/infinity-mall/rewards-program/info" \
-    -H 'Content-Type: application/json' \
-    -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-    -H 'X-Product-Name: default' \
-    -H 'X-User-Agent: CURL manual test'
+    -H 'content-type: application/json' \
+    -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+    -H 'x-product-name: default' \
+    -H 'x-user-agent: CURL manual test'
 ```
 
 > When successful (200), returns an object structured like this:
@@ -179,11 +179,11 @@ Requires <code>Rewards:Api:Program:GetInfo</code> permit
 ```shell
 curl -X POST \
 "https://bpc-api.boostcom.no/v3/infinity-mall/members/me/rewards-program/join" \
-    -H 'Content-Type: application/json' \
-    -H 'Authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522' \
-    -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-    -H 'X-Product-Name: default' \
-    -H 'X-User-Agent: CURL manual test'
+    -H 'content-type: application/json' \
+    -H 'authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522' \
+    -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+    -H 'x-product-name: default' \
+    -H 'x-user-agent: CURL manual test'
 ```
 
 > When successful (200), returns an empty object:
@@ -211,11 +211,11 @@ Requires <code>Rewards:Api:OAuth:Memberships:Create</code> permit
 ```shell
 curl -X DELETE \
 "https://bpc-api.boostcom.no/v3/infinity-mall/members/me/rewards-program/leave" \
-    -H 'Content-Type: application/json' \
-    -H 'Authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522' \
-    -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-    -H 'X-Product-Name: default' \
-    -H 'X-User-Agent: CURL manual test'
+    -H 'content-type: application/json' \
+    -H 'authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522' \
+    -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+    -H 'x-product-name: default' \
+    -H 'x-user-agent: CURL manual test'
 ```
 
 > When successful (200), returns an empty object:
@@ -244,11 +244,11 @@ Requires <code>Rewards:Api:OAuth:Memberships:Delete</code> permit
 ```shell
 curl \
 "https://bpc-api.boostcom.no/v3/infinity-mall/members/me/rewards-program/status" \
-    -H 'Content-Type: application/json' \
-    -H 'Authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522' \
-    -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-    -H 'X-Product-Name: default' \
-    -H 'X-User-Agent: CURL manual test'
+    -H 'content-type: application/json' \
+    -H 'authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522' \
+    -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+    -H 'x-product-name: default' \
+    -H 'x-user-agent: CURL manual test'
 ```
 
 > When successful (200), returns an object structured like this:
@@ -380,10 +380,10 @@ Requires <code>Rewards:Api:OAuth:Memberships:CheckStatus</code> permit
 ```shell
 curl \
 "https://bpc-api.boostcom.no/v3/infinity-mall/members/837182/rewards-program/status" \
-    -H 'Content-Type: application/json' \
-    -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-    -H 'X-Product-Name: default' \
-    -H 'X-User-Agent: CURL manual test'
+    -H 'content-type: application/json' \
+    -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+    -H 'x-product-name: default' \
+    -H 'x-user-agent: CURL manual test'
 ```
 
 > Returns response as in [Rewards Program &bull; Get Status]($v3-rewards-program-status)
@@ -404,11 +404,11 @@ Requires <code>Rewards:Api:Memberships:CheckStatus</code> permit
 ```shell
 curl \
 "https://bpc-api.boostcom.no/v3/infinity-mall/members/me/rewards-program/status/achievements_summary" \
-    -H 'Content-Type: application/json' \
-    -H 'Authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522' \
-    -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-    -H 'X-Product-Name: default' \
-    -H 'X-User-Agent: CURL manual test'
+    -H 'content-type: application/json' \
+    -H 'authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522' \
+    -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+    -H 'x-product-name: default' \
+    -H 'x-user-agent: CURL manual test'
 ```
 
 > When successful (200), returns an object structured like this:

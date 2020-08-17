@@ -28,10 +28,10 @@ content    |                                     | yes       | string
 
 ```shell
 curl "https://bpc-api.boostcom.no/v3/infinity-mall/members/509134/messages" \
-  -H 'Content-Type: application/json' \
-  -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-  -H 'X-Product-Name: default' \
-  -H 'X-User-Agent: CURL manual test'
+  -H 'content-type: application/json' \
+  -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+  -H 'x-product-name: default' \
+  -H 'x-user-agent: CURL manual test'
 ```
 
 > Returns object containing [member messages](#v3-member-message-model) and [pagination_info](#v3-pagination-model)
@@ -77,10 +77,10 @@ Requires <code>BL:Api:Members:MessagesHistory:List</code> permit
 
 ```shell
 curl "https://bpc-api.boostcom.no/v3/infinity-mall/members/509134/messages/MTE0NTc1Mg" \
-  -H 'Content-Type: application/json' \
-  -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-  -H 'X-Product-Name: default' \
-  -H 'X-User-Agent: CURL manual test'
+  -H 'content-type: application/json' \
+  -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+  -H 'x-product-name: default' \
+  -H 'x-user-agent: CURL manual test'
 ```
 
 > Returns [member message](#v3-member-message-model)

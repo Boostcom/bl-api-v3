@@ -6,11 +6,11 @@
 ```shell
 curl \
 "https://bpc-api.boostcom.no/v3/infinity-mall/members/me/rewards-program/rewards" \
-    -H 'Content-Type: application/json' \
-    -H 'Authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522' \
-    -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-    -H 'X-Product-Name: default' \
-    -H 'X-User-Agent: CURL manual test'
+    -H 'content-type: application/json' \
+    -H 'authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522' \
+    -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+    -H 'x-product-name: default' \
+    -H 'x-user-agent: CURL manual test'
 ```
 
 > When successful (200), returns an object structured like this:
@@ -87,11 +87,11 @@ Requires <code>Rewards:Api:OAuth:Rewards:List</code> permit
 ```shell
 curl \
 "https://bpc-api.boostcom.no/v3/infinity-mall/members/me/rewards-program/rewards/purchased" \
-    -H 'Content-Type: application/json' \
-    -H 'Authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522' \
-    -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-    -H 'X-Product-Name: default' \
-    -H 'X-User-Agent: CURL manual test'
+    -H 'content-type: application/json' \
+    -H 'authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522' \
+    -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+    -H 'x-product-name: default' \
+    -H 'x-user-agent: CURL manual test'
 ```
 
 > When successful (200), returns an object structured like this:
@@ -163,11 +163,11 @@ Requires <code>Rewards:Api:OAuth:Rewards:ListPurchased</code> permit
 ```shell
 curl -X POST \
 "https://bpc-api.boostcom.no/v3/infinity-mall/members/me/rewards-program/rewards/153/purchase" \
-    -H 'Content-Type: application/json' \
-    -H 'Authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522' \
-    -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-    -H 'X-Product-Name: default' \
-    -H 'X-User-Agent: CURL manual test'
+    -H 'content-type: application/json' \
+    -H 'authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522' \
+    -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+    -H 'x-product-name: default' \
+    -H 'x-user-agent: CURL manual test'
 ```
 
 > When successful (200), returns an empty object:
@@ -202,11 +202,11 @@ Requires <code>Rewards:Api:OAuth:Rewards:Purchase</code> permit
 ```shell
 curl -X POST \
 "https://bpc-api.boostcom.no/v3/infinity-mall/members/me/rewards-program/rewards/153/use" \
-    -H 'Content-Type: application/json' \
-    -H 'Authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522' \
-    -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-    -H 'X-Product-Name: default' \
-    -H 'X-User-Agent: CURL manual test'
+    -H 'content-type: application/json' \
+    -H 'authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522' \
+    -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+    -H 'x-product-name: default' \
+    -H 'x-user-agent: CURL manual test'
 ```
 
 > When successful (200), returns an empty object:

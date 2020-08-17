@@ -44,10 +44,10 @@ new_offers_api_enabled | bool | Is [New Offers API](#endpoints-offers) enabled f
 
 ```shell
 curl "https://bpc-api.boostcom.no/v3/loyalty_clubs" \
-  -H 'Content-Type: application/json' \
-  -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-  -H 'X-Product-Name: default' \
-  -H 'X-User-Agent: CURL manual test'
+  -H 'content-type: application/json' \
+  -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+  -H 'x-product-name: default' \
+  -H 'x-user-agent: CURL manual test'
 ```
 
 > When successful, the above command returns JSON structured like this:
@@ -95,10 +95,10 @@ Requires <code>BL:Api:LoyaltyClubs:ListMine</code> permit
 
 ```shell
 curl "https://bpc-api.boostcom.no/v3/loyalty_clubs/infinity-mall/" \
-  -H 'Content-Type: application/json' \
-  -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-  -H 'X-Product-Name: default' \
-  -H 'X-User-Agent: CURL manual test'
+  -H 'content-type: application/json' \
+  -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+  -H 'x-product-name: default' \
+  -H 'x-user-agent: CURL manual test'
 ```
 
 > When successful, the above command returns JSON structured like this:
@@ -127,10 +127,10 @@ Requires <code>BL:Api:LoyaltyClubs:Get</code> permit
 
 ```shell
 curl "https://bpc-api.boostcom.no/v3/infinity-mall/member_schema" \
-  -H 'Content-Type: application/json' \
-  -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-  -H 'X-Product-Name: default' \
-  -H 'X-User-Agent: CURL manual test'
+  -H 'content-type: application/json' \
+  -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+  -H 'x-product-name: default' \
+  -H 'x-user-agent: CURL manual test'
 ```
 
 > When successful, the above command returns JSON structured like this:
@@ -215,10 +215,10 @@ Requires <code>BL:Api:Schema:Get</code> permit
 
 ```shell
 curl "https://bpc-api.boostcom.no/v3/infinity-mall/products" \
-  -H 'Content-Type: application/json' \
-  -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-  -H 'X-Product-Name: default' \
-  -H 'X-User-Agent: CURL manual test'
+  -H 'content-type: application/json' \
+  -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+  -H 'x-product-name: default' \
+  -H 'x-user-agent: CURL manual test'
 ```
 
 > When successful, the above command returns JSON structured like this:
@@ -268,10 +268,10 @@ Requires <code>BL:Api:Products:Index</code> permit
 
 ```shell
 curl "https://bpc-api.boostcom.no/v3/infinity-mall/translations?language=en" \
-  -H 'Content-Type: application/json' \
-  -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-  -H 'X-Product-Name: default' \
-  -H 'X-User-Agent: CURL manual test'
+  -H 'content-type: application/json' \
+  -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+  -H 'x-product-name: default' \
+  -H 'x-user-agent: CURL manual test'
 ```
 
 > Returns a response structured like this:
@@ -357,10 +357,10 @@ Requires <code>Translations:Api:Index</code> permit
 ```shell
 curl -X POST \
 "https://bpc-api.boostcom.no/v3/:loyalty_club_slug/links/offer_page/generate" \
-    -H 'Content-Type: application/json' \
-    -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-    -H 'X-Product-Name: default' \
-    -H 'X-User-Agent: CURL manual test'
+    -H 'content-type: application/json' \
+    -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+    -H 'x-product-name: default' \
+    -H 'x-user-agent: CURL manual test'
     -d \
     '{
         "link_params": {

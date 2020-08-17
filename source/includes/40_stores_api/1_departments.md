@@ -7,10 +7,10 @@
 ```shell
 curl -X GET \
 "https://bpc-api.boostcom.no/v3/:loyalty_club_slug/stores/departments" \
-    -H 'Content-Type: application/json' \
-    -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-    -H 'X-Product-Name: default' \
-    -H 'X-User-Agent: CURL manual test'
+    -H 'content-type: application/json' \
+    -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+    -H 'x-product-name: default' \
+    -H 'x-user-agent: CURL manual test'
 ```
 
 > When successful (200), returns an array of department objects structured like below. Some values may be omitted if were not provided:
@@ -40,10 +40,10 @@ Requires <code>Stores:Api:Departments:Get</code> permit
 ```shell
 curl -X GET \
 "https://bpc-api.boostcom.no/v3/:loyalty_club_slug/stores/departments/123456" \
-    -H 'Content-Type: application/json' \
-    -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-    -H 'X-Product-Name: default' \
-    -H 'X-User-Agent: CURL manual test'
+    -H 'content-type: application/json' \
+    -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+    -H 'x-product-name: default' \
+    -H 'x-user-agent: CURL manual test'
 ```
 
 > When successful (200), returns department object structured like below. Some values may be omitted if were not provided:
@@ -95,10 +95,10 @@ Requires <code>Stores:Api:Departments:Get</code> permit
 ```shell
 curl -X POST \
 "https://bpc-api.boostcom.no/v3/:loyalty_club_slug/stores/departments" \
-    -H 'Content-Type: application/json' \
-    -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-    -H 'X-Product-Name: default' \
-    -H 'X-User-Agent: CURL manual test'
+    -H 'content-type: application/json' \
+    -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+    -H 'x-product-name: default' \
+    -H 'x-user-agent: CURL manual test'
     -d \
     '{
         "name": "department name",
@@ -166,10 +166,10 @@ Requires <code>Stores:Api:Departments:Create</code>
 ```shell
 curl -X PUT \
 "https://bpc-api.boostcom.no/v3/:loyalty_club_slug/stores/departments/12345" \
-    -H 'Content-Type: application/json' \
-    -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-    -H 'X-Product-Name: default' \
-    -H 'X-User-Agent: CURL manual test'
+    -H 'content-type: application/json' \
+    -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+    -H 'x-product-name: default' \
+    -H 'x-user-agent: CURL manual test'
     -d \
     '{
         "name": "department name"

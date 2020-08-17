@@ -259,10 +259,10 @@ max_height | integer |
 
 ```shell
 curl "https://bpc-api.boostcom.no/v3/infinity-mall/files/schema" \
-  -H 'Content-Type: application/json' \
-  -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-  -H 'X-Product-Name: default' \
-  -H 'X-User-Agent: CURL manual test'
+  -H 'content-type: application/json' \
+  -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+  -H 'x-product-name: default' \
+  -H 'x-user-agent: CURL manual test'
 ```
 
 > Returns the schema as described [here](#v3-file-schema)
@@ -282,10 +282,10 @@ Requires <code>Files:Api:GetSchema</code> permit
 ```shell
 curl -X POST \
   https://bpc-api.boostcom.no/v3/infinity-mall/files/offers/1000289/offer_default \
-  -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-  -H 'X-Product-Name: default' \
-  -H 'X-User-Agent: CURL manual test' \
-  -H 'Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW' \
+  -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+  -H 'x-product-name: default' \
+  -H 'x-user-agent: CURL manual test' \
+  -H 'content-type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW' \
   -F file=@some_file.png \
   -F 'crop_to=256,256,856,1056'
 
@@ -368,10 +368,10 @@ Requires <code>Files:Api:Create</code> permit
 ```shell
 curl -X PUT \
   https://bpc-api.boostcom.no/v3/infinity-mall/files/offers/1000289/offer_default \
-  -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-  -H 'X-Product-Name: default' \
-  -H 'X-User-Agent: CURL manual test' \
-  -H 'Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW' \
+  -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+  -H 'x-product-name: default' \
+  -H 'x-user-agent: CURL manual test' \
+  -H 'content-type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW' \
   -F file=@some_file.png \
   -F 'crop_to=256,256,856,1056'
 
@@ -420,10 +420,10 @@ Requires <code>Files:Api:Update</code> permit
 ```shell
 curl -X PUT \
   https://bpc-api.boostcom.no/v3/infinity-mall/files/offers/1000289/offer_default/reprocess \
-  -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-  -H 'X-Product-Name: default' \
-  -H 'X-User-Agent: CURL manual test' \
-  -H 'Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW' \
+  -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+  -H 'x-product-name: default' \
+  -H 'x-user-agent: CURL manual test' \
+  -H 'content-type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW' \
   -F 'crop_to=256,256,856,1056'
 
 ```
@@ -471,10 +471,10 @@ Requires <code>Files:Api:Reprocess</code> permit
 
 ```shell
 curl -X DELETE "https://bpc-api.boostcom.no/v3/infinity-mall/files/offers/1000289/offer_default \
-  -H 'Content-Type: application/json' \
-  -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-  -H 'X-Product-Name: default' \
-  -H 'X-User-Agent: CURL manual test'
+  -H 'content-type: application/json' \
+  -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+  -H 'x-product-name: default' \
+  -H 'x-user-agent: CURL manual test'
 ```
 
 > When successful (200), returns an empty object

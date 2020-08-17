@@ -13,7 +13,7 @@ Offers API supports two distinct approaches to work with context of member.
 
 In the first one member context is resolved from MPC [OAuth](#v3-oauth2) member session.
 
-This setup requires use of endpoints that have `/me/` URL segment and requires token provided with `Authorization` header.
+This setup requires use of endpoints that have `/me/` URL segment and requires token provided with `authorization` header.
 
 #### <a name="v3-offers-member-id-context"></a> Member ID
  
@@ -227,11 +227,11 @@ By default (when no schema is defined on offer by it's creator), all of the sche
 ```shell
 curl \
 "https://bpc-api.boostcom.no/v3/infinity-mall/members/me/offers/meta" \
-    -H 'Content-Type: application/json' \
-    -H 'Authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522' \
-    -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-    -H 'X-Product-Name: default' \
-    -H 'X-User-Agent: CURL manual test'
+    -H 'content-type: application/json' \
+    -H 'authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522' \
+    -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+    -H 'x-product-name: default' \
+    -H 'x-user-agent: CURL manual test'
 ```
 
 > When successful (200), returns an object structured like this:
@@ -334,11 +334,11 @@ Requires <code>Offers:Api:MemberOffers:GetPreview</code> permit
 ```shell
 curl \
 "https://bpc-api.boostcom.no/v3/infinity-mall/members/me/offers/1000016" \
-    -H 'Content-Type: application/json' \
-    -H 'Authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522' \
-    -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-    -H 'X-Product-Name: default' \
-    -H 'X-User-Agent: CURL manual test'
+    -H 'content-type: application/json' \
+    -H 'authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522' \
+    -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+    -H 'x-product-name: default' \
+    -H 'x-user-agent: CURL manual test'
 ```
 
 > When successful (200), returns an Offer object under "offer" key. See [Offer model](#v3-offer-model)
@@ -366,11 +366,11 @@ offer | Offer | no | See [Offer model](#v3-offer-model)
 ```shell
 curl \
 "https://bpc-api.boostcom.no/v3/infinity-mall/members/me/offers" \
-    -H 'Content-Type: application/json' \
-    -H 'Authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522' \
-    -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-    -H 'X-Product-Name: default' \
-    -H 'X-User-Agent: CURL manual test'
+    -H 'content-type: application/json' \
+    -H 'authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522' \
+    -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+    -H 'x-product-name: default' \
+    -H 'x-user-agent: CURL manual test'
 ```
 
 > When successful (200), returns a list of offers and pagination info. 
@@ -462,11 +462,11 @@ pagination_info | PaginationInfo | yes| See [Pagination info model](#pagination-
 ```shell
 curl -X POST \
 "https://bpc-api.boostcom.no/v3/infinity-mall/members/me/offers/1000016" \
-    -H 'Content-Type: application/json' \
-    -H 'Authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522' \
-    -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-    -H 'X-Product-Name: default' \
-    -H 'X-User-Agent: CURL manual test' \
+    -H 'content-type: application/json' \
+    -H 'authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522' \
+    -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+    -H 'x-product-name: default' \
+    -H 'x-user-agent: CURL manual test' \
     -d '
     {
       "authorization_token": "a1cc4e0b3ab54b7d8"
@@ -542,11 +542,11 @@ Status | Response body | Description
 ```shell
 curl -X PUT \
 "https://bpc-api.boostcom.no/v3/infinity-mall/members/me/offers/1000016/like" \
-    -H 'Content-Type: application/json' \
-    -H 'Authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522' \
-    -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-    -H 'X-Product-Name: default' \
-    -H 'X-User-Agent: CURL manual test'
+    -H 'content-type: application/json' \
+    -H 'authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522' \
+    -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+    -H 'x-product-name: default' \
+    -H 'x-user-agent: CURL manual test'
 ```
 
 > When successful (200), returns an empty object:
@@ -578,11 +578,11 @@ Marks offer as "liked" by user.
 ```shell
 curl -X PUT \
 "https://bpc-api.boostcom.no/v3/infinity-mall/members/me/offers/1000016/unlike" \
-    -H 'Content-Type: application/json' \
-    -H 'Authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522' \
-    -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-    -H 'X-Product-Name: default' \
-    -H 'X-User-Agent: CURL manual test'
+    -H 'content-type: application/json' \
+    -H 'authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522' \
+    -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+    -H 'x-product-name: default' \
+    -H 'x-user-agent: CURL manual test'
 ```
 
 > When successful (200), returns an empty object:
@@ -614,10 +614,10 @@ Revers marking offer as "liked" by user.
 ```shell
 curl -X POST \
 "https://bpc-api.boostcom.no/v3/infinity-mall/members/7371713/offers/10000951/unlike" \
-    -H 'Content-Type: application/json' \
-    -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-    -H 'X-Product-Name: default' \
-    -H 'X-User-Agent: CURL manual test'
+    -H 'content-type: application/json' \
+    -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+    -H 'x-product-name: default' \
+    -H 'x-user-agent: CURL manual test'
 ```
 
 > When successful (200), returns an empty object:

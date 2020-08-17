@@ -7,10 +7,10 @@
 ```shell
 curl -X POST \
 "https://bpc-api.boostcom.no/v3/:loyalty_club_slug/transactions/points" \
-    -H 'Content-Type: application/json' \
-    -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-    -H 'X-Product-Name: default' \
-    -H 'X-User-Agent: CURL manual test'
+    -H 'content-type: application/json' \
+    -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+    -H 'x-product-name: default' \
+    -H 'x-user-agent: CURL manual test'
     -d \
     '[
         {
@@ -122,10 +122,10 @@ Requires <code>Transaction:Api:Points:Create</code>
 ```shell
 curl -X GET \
 "https://bpc-api.boostcom.no/v3/:loyalty_club_slug/transactions/points/by_member_id/12345" \
-    -H 'Content-Type: application/json' \
-    -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-    -H 'X-Product-Name: default' \
-    -H 'X-User-Agent: CURL manual test'
+    -H 'content-type: application/json' \
+    -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+    -H 'x-product-name: default' \
+    -H 'x-user-agent: CURL manual test'
 ```
 
 > When successful (200), returns a feedback object structured like this:
@@ -170,10 +170,10 @@ Requires <code>Transaction:Api:Points:Get</code> permit
 ```shell
 curl -X GET \
 "https://bpc-api.boostcom.no/v3/:loyalty_club_slug/transactions/points/events/12345?type=issue_points&event=Event1" \
-    -H 'Content-Type: application/json' \
-    -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-    -H 'X-Product-Name: default' \
-    -H 'X-User-Agent: CURL manual test'
+    -H 'content-type: application/json' \
+    -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+    -H 'x-product-name: default' \
+    -H 'x-user-agent: CURL manual test'
 ```
 
 > When successful (200), returns a feedback object structured like this:

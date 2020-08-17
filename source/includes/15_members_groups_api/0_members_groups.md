@@ -105,9 +105,9 @@ audience_conditions | Object | no| Conditions of related audience
 
 ```shell
 curl --request GET 'https://bpc-api.boostcom.no/v3/infinity-mall/members_groups' \
---header 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
---header 'X-Product-Name: default' \
---header 'X-User-Agent: cURL Manual Testing'
+--header 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+--header 'x-product-name: default' \
+--header 'x-user-agent: cURL Manual Testing'
 ```
 
 > Returns object containing [members groups](#v3-members-group-model) and [pagination_info](#v3-pagination-model)
@@ -152,9 +152,9 @@ Requires <code>BL:Api:MembersGroups:Index</code> permit
 
 ```shell
 curl --request GET 'https://bpc-api.boostcom.no/v3/infinity-mall/members_groups' \
---header 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
---header 'X-Product-Name: default' \
---header 'X-User-Agent: cURL Manual Testing'
+--header 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+--header 'x-product-name: default' \
+--header 'x-user-agent: cURL Manual Testing'
 ```
 
 > Returns object containing [members group](#v3-members-group-model)
@@ -197,10 +197,10 @@ Requires <code>BL:Api:MembersGroups:Get</code> permit
 
 ```shell
 curl --request POST 'https://bpc-api.boostcom.no/v3/infinity-mall/members_groups' \
---header 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
---header 'X-Product-Name: default' \
---header 'X-User-Agent: cURL Manual Testing' \
---header 'Content-Type: application/json' \
+--header 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+--header 'x-product-name: default' \
+--header 'x-user-agent: cURL Manual Testing' \
+--header 'content-type: application/json' \
 --data-raw '{
 	"members_group": {
 		"name": "My Group 1",
@@ -262,10 +262,10 @@ Requires <code>BL:Api:MembersGroups:Create</code> permit
 
 ```shell
 curl --request PUT 'https://bpc-api.boostcom.no/v3/infinity-mall/members_groups/4321' \
---header 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
---header 'X-Product-Name: default' \
---header 'X-User-Agent: cURL Manual Testing' \
---header 'Content-Type: application/json' \
+--header 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+--header 'x-product-name: default' \
+--header 'x-user-agent: cURL Manual Testing' \
+--header 'content-type: application/json' \
 --data-raw '{
 	"members_group": {
 		"name": "My Group 1",
@@ -316,10 +316,10 @@ Requires <code>BL:Api:MembersGroups:Update</code> permit
 
 ```shell
 curl --request DELETE 'https://bpc-api.boostcom.no/v3/infinity-mall/members_groups/4321' \
---header 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
---header 'X-Product-Name: default' \
---header 'X-User-Agent: cURL Manual Testing' \
---header 'Content-Type: application/json'
+--header 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+--header 'x-product-name: default' \
+--header 'x-user-agent: cURL Manual Testing' \
+--header 'content-type: application/json'
 ```
 
 > Returns object containing deleted [members group](#v3-members-group-model)
@@ -364,9 +364,9 @@ Requires <code>BL:Api:MembersGroups:Destroy</code> permit
 
 ```shell
 curl --request GET 'https://bpc-api.boostcom.no/v3/infinity-mall/members_groups/types' \
---header 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
---header 'X-Product-Name: default' \
---header 'X-User-Agent: cURL Manual Testing'
+--header 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+--header 'x-product-name: default' \
+--header 'x-user-agent: cURL Manual Testing'
 ```
 
 > Returns object containing [members groups](#v3-members-group-model) and [pagination_info](#v3-pagination-model)
@@ -410,9 +410,9 @@ Requires <code>BL:Api:MembersGroups:Types:Index</code> permit
 
 ```shell
 curl --request POST 'https://bpc-api.boostcom.no/v3/infinity-mall/members_groups/512/members/123' \
---header 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
---header 'X-Product-Name: default' \
---header 'X-User-Agent: cURL Manual Testing' \
+--header 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+--header 'x-product-name: default' \
+--header 'x-user-agent: cURL Manual Testing' \
 --data-raw ''
 ```
 
@@ -449,9 +449,9 @@ Requires <code>BL:Api:MembersGroups:Members:Add</code> permit
 
 ```shell
 curl --request DELETE 'https://bpc-api.boostcom.no/v3/infinity-mall/members_groups/512/members/123' \
---header 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
---header 'X-Product-Name: default' \
---header 'X-User-Agent: cURL Manual Testing' \
+--header 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+--header 'x-product-name: default' \
+--header 'x-user-agent: cURL Manual Testing' \
 --data-raw ''
 ```
 
@@ -488,9 +488,9 @@ Requires <code>BL:Api:MembersGroups:Members:Remove</code> permit
 
 ```shell
 curl --request GET 'https://bpc-api.boostcom.no/v3/infinity-mall/members_groups/1/members' \
---header 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
---header 'X-Product-Name: default' \
---header 'X-User-Agent: cURL Manual Testing' \
+--header 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+--header 'x-product-name: default' \
+--header 'x-user-agent: cURL Manual Testing' \
 --data-raw ''
 ```
 
@@ -536,9 +536,9 @@ Requires <code>BL:Api:MembersGroups:Members:List</code> permit
 
 ```shell
 curl --request GET 'https://bpc-api.boostcom.no/v3/infinity-mall/members/549123/groups' \
---header 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
---header 'X-Product-Name: default' \
---header 'X-User-Agent: cURL Manual Testing'
+--header 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+--header 'x-product-name: default' \
+--header 'x-user-agent: cURL Manual Testing'
 ```
 
 > Returns object containing [members groups](#v3-members-group-model) and [pagination_info](#v3-pagination-model)

@@ -9,10 +9,10 @@
 ```shell
 curl -X POST \
 "https://bpc-api.boostcom.no/v3/:loyalty_club_slug/transactions" \
-    -H 'Content-Type: application/json' \
-    -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-    -H 'X-Product-Name: default' \
-    -H 'X-User-Agent: CURL manual test'
+    -H 'content-type: application/json' \
+    -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+    -H 'x-product-name: default' \
+    -H 'x-user-agent: CURL manual test'
     -d \
     '{
          "transactions": [
@@ -91,10 +91,10 @@ curl -X POST \
 ```shell
 curl -X GET \
 "https://bpc-api.boostcom.no/v3/:loyalty_club_slug/transactions?transaction_id=43cb7852-5190-4d1d-9b1f-6d6cf552424b" \
-    -H 'Content-Type: application/json' \
-    -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-    -H 'X-Product-Name: default' \
-    -H 'X-User-Agent: CURL manual test'
+    -H 'content-type: application/json' \
+    -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+    -H 'x-product-name: default' \
+    -H 'x-user-agent: CURL manual test'
 ```
 
 > When successful (200), returns an array of transactions objects structured like this:
@@ -212,10 +212,10 @@ Requires <code>Transaction:Api:Transactions:Create</code> and <code>BL:Api:Membe
 ```shell
 curl -X GET \
 "https://bpc-api.boostcom.no/v3/:loyalty_club_slug/transactions?transaction_id=43cb7852-5190-4d1d-9b1f-6d6cf552424b" \
-    -H 'Content-Type: application/json' \
-    -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-    -H 'X-Product-Name: default' \
-    -H 'X-User-Agent: CURL manual test'
+    -H 'content-type: application/json' \
+    -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+    -H 'x-product-name: default' \
+    -H 'x-user-agent: CURL manual test'
 ```
 
 > When successful (200), returns an array of transactions objects structured like below. Some values may be omitted if were not provided:
@@ -288,10 +288,10 @@ Requires <code>Transaction:Api:Transactions:Read</code> permit
 ```shell
 curl -X GET \
 "https://bpc-api.boostcom.no/v3/:loyalty_club_slug/transactions/43cb7852-5190-4d1d-9b1f-6d6cf552424b" \
-    -H 'Content-Type: application/json' \
-    -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-    -H 'X-Product-Name: default' \
-    -H 'X-User-Agent: CURL manual test'
+    -H 'content-type: application/json' \
+    -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+    -H 'x-product-name: default' \
+    -H 'x-user-agent: CURL manual test'
 ```
 
 > When successful (200), returns transactions object structured like below. Some values may be omitted if were not provided:
@@ -358,10 +358,10 @@ Requires <code>Transaction:Api:Transactions:Read</code> permit
 ```shell
 curl -X GET \
 "https://bpc-api.boostcom.no/v3/:loyalty_club_slug/transactions/categories" \
-    -H 'Content-Type: application/json' \
-    -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-    -H 'X-Product-Name: default' \
-    -H 'X-User-Agent: CURL manual test'
+    -H 'content-type: application/json' \
+    -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+    -H 'x-product-name: default' \
+    -H 'x-user-agent: CURL manual test'
 ```
 
 > When successful (200), returns categories objects structured like below:
@@ -442,10 +442,10 @@ Requires <code>Transaction:Api:Transactions:Read</code> permit
 ```shell
 curl -X POST \
 "https://bpc-api.boostcom.no/v3/:loyalty_club_slug/transactions/events" \
-    -H 'Content-Type: application/json' \
-    -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-    -H 'X-Product-Name: default' \
-    -H 'X-User-Agent: CURL manual test' 
+    -H 'content-type: application/json' \
+    -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+    -H 'x-product-name: default' \
+    -H 'x-user-agent: CURL manual test' 
     -d \
     '{
         { 
@@ -489,10 +489,10 @@ curl -X POST \
 ```shell
 curl -X GET \
 "https://bpc-api.boostcom.no/v3/:loyalty_club_slug/transactions/categories" \
-    -H 'Content-Type: application/json' \
-    -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-    -H 'X-Product-Name: default' \
-    -H 'X-User-Agent: CURL manual test' 
+    -H 'content-type: application/json' \
+    -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+    -H 'x-product-name: default' \
+    -H 'x-user-agent: CURL manual test' 
     -d \
     '{
         { 

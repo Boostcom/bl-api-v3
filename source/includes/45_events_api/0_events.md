@@ -13,10 +13,10 @@ This API is in development. Therefore, it may not be ready for use and is a subj
 ```shell
 curl -X GET \
 "https://bpc-api.boostcom.no/v3/:loyalty_club_slug/events" \
-    -H 'Content-Type: application/json' \
-    -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-    -H 'X-Product-Name: default' \
-    -H 'X-User-Agent: CURL manual test'
+    -H 'content-type: application/json' \
+    -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+    -H 'x-product-name: default' \
+    -H 'x-user-agent: CURL manual test'
 ```
 
 > When successful (200), returns an array of events objects structured like below:
@@ -55,10 +55,10 @@ Requires <code>Events:Api:Events:Get</code> permit
 ```shell
 curl -X GET \
 "https://bpc-api.boostcom.no/v3/:loyalty_club_slug/events/:event_id" \
-    -H 'Content-Type: application/json' \
-    -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-    -H 'X-Product-Name: default' \
-    -H 'X-User-Agent: CURL manual test'
+    -H 'content-type: application/json' \
+    -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+    -H 'x-product-name: default' \
+    -H 'x-user-agent: CURL manual test'
 ```
 
 > When successful (200), returns an event object structured like below. Some values may be omitted if were not provided:
@@ -95,10 +95,10 @@ Requires <code>Events:Api:Events:Get</code> permit
 ```shell
 curl -X POST \
 "https://bpc-api.boostcom.no/v3/:loyalty_club_slug/events/validation" \
-    -H 'Content-Type: application/json' \
-    -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-    -H 'X-Product-Name: default' \
-    -H 'X-User-Agent: CURL manual test'
+    -H 'content-type: application/json' \
+    -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+    -H 'x-product-name: default' \
+    -H 'x-user-agent: CURL manual test'
     -d \
     '{
         "member_id": 12345,
@@ -154,10 +154,10 @@ Status    | Description
 ```shell
 curl -X POST \
 "https://bpc-api.boostcom.no/v3/:loyalty_club_slug/events/checkin" \
-    -H 'Content-Type: application/json' \
-    -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-    -H 'X-Product-Name: default' \
-    -H 'X-User-Agent: CURL manual test'
+    -H 'content-type: application/json' \
+    -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+    -H 'x-product-name: default' \
+    -H 'x-user-agent: CURL manual test'
     -d \
     '{
         "member_id": 12345,
@@ -219,10 +219,10 @@ Status    | Description
 ```shell
 curl -X GET \
 "https://bpc-api.boostcom.no/v3/:loyalty_club_slug/events/checkin/:event_id" \
-    -H 'Content-Type: application/json' \
-    -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-    -H 'X-Product-Name: default' \
-    -H 'X-User-Agent: CURL manual test'
+    -H 'content-type: application/json' \
+    -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+    -H 'x-product-name: default' \
+    -H 'x-user-agent: CURL manual test'
 ```
 
 > When successful (200), When successful (200), returns an array of members objects structured as below.
@@ -255,10 +255,10 @@ Requires <code>Events:Api:Checkin:Get</code> permit
 ```shell
 curl -X POST \
 "https://bpc-api.boostcom.no/v3/:loyalty_club_slug/events/invitation" \
-    -H 'Content-Type: application/json' \
-    -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-    -H 'X-Product-Name: default' \
-    -H 'X-User-Agent: CURL manual test'
+    -H 'content-type: application/json' \
+    -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+    -H 'x-product-name: default' \
+    -H 'x-user-agent: CURL manual test'
     -d \
     '{
         "email": "email@example.com",

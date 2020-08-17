@@ -12,19 +12,19 @@ Staging: [https://bpc-api.dev.boostcom.no](https://bpc-api.dev.boostcom.no)
 
 ## Common params and headers
 
-### Content-Type header
+### "content-type" header
 
 This API supports `application/json` only. 
 
-Both payload and response body are supposed to be a valid JSON so when making a request send a `Content-Type: application/json` header.
+Both payload and response body are supposed to be a valid JSON so when making a request send a `content-type: application/json` header.
 
 If payload is not a valid JSON, then `406 Not Acceptable` HTTP code and empty response body are returned.
 
-### X-Client-Authorization header
+### "x-client-authorization" header
 
-> Example header: `X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM`
+> Example header: `x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM`
 
-All of the endpoints **require** a client authorization header - `X-Client-Authorization`.
+All of the endpoints **require** a client authorization header - `x-client-authorization`.
 
 It should be used only on backend and never exposed in frontend code.
 
@@ -33,28 +33,28 @@ may be restricted.
 
 If you miss your authentication token, please [let us know](http://boostcom.no).
 
-### X-User-Agent header
+### "x-user-agent" header
 
-> Example header: `X-User-Agent: Infinity Mall Android App `
+> Example header: `x-user-agent: Infinity Mall Android App `
   
-`X-User-Agent` is **required** to distinguish specific client for information and debugging purposes so we better know who uses the service.
+`x-user-agent` is **required** to distinguish specific client for information and debugging purposes so we better know who uses the service.
 
 It should be arbitrarily chosen to represent client specifics (e.g. 'Infinity Mall Android App v1.2' or 'Infinity Mall Backend Service')
 
-### X-Product-Name header
+### "x-product-name" header
 
-> Example header: `X-Product-Name: android-app`
+> Example header: `x-product-name: android-app`
 
 Each system that is communicating with us should uniquely identify itself so it is possible to distinguish optin/update channels.
 That will allow further targeting members by communication channel.
 
-For that we use product name. It should be passed as **required** header `X-Product-Name` that is intended to provide the necessary granularity.
+For that we use product name. It should be passed as **required** header `x-product-name` that is intended to provide the necessary granularity.
 
 If you miss your product name, please [let us know](http://boostcom.no).
 
-### Authorization header
+### "authorization" header
 
-> Example header: `Authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522`
+> Example header: `authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522`
 
 See: [OAuth2](#v3-oauth2)
 
@@ -75,9 +75,9 @@ We use format without leading `00` or `+` and without spaces, so that it contain
 
 Status | Reason
 -------|-----|-------
-`401` | `X-Client-Authorization` is invalid (or doesn't match provided loyalty club or product)
+`401` | `x-client-authorization` is invalid (or doesn't match provided loyalty club or product)
 `402` | Feature is not enabled for the Loyalty Club
-`403` | Not authorized to perform this action (provided `X-Authorization-Token` doesn't have required permit)
+`403` | Not authorized to perform this action (provided `x-client-authorization` doesn't have required permit)
 `404` | The requested resource doesn't exist
 `422` | Invalid parameters are provided (e.g. incorrect properties on member creation)
 `460` | OAuth token required for the action is invalid (applies only to OAuth-related actions - see [OAuth2](#v3-oauth2))

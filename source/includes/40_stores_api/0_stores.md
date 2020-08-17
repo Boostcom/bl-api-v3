@@ -9,10 +9,10 @@
 ```shell
 curl -X GET \
 "https://bpc-api.boostcom.no/v3/:loyalty_club_slug/stores?department_id=123&search=test&category=cat&limit=100&sort=name&order=asc" \
-    -H 'Content-Type: application/json' \
-    -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-    -H 'X-Product-Name: default' \
-    -H 'X-User-Agent: CURL manual test'
+    -H 'content-type: application/json' \
+    -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+    -H 'x-product-name: default' \
+    -H 'x-user-agent: CURL manual test'
 ```
 
 > When successful (200), returns an array of store objects structured like below. Some values may be omitted if were not provided:
@@ -102,10 +102,10 @@ Requires <code>Stores:Api:Stores:Get</code> permit
 ```shell
 curl -X GET \
 "https://bpc-api.boostcom.no/v3/:loyalty_club_slug/stores/123456" \
-    -H 'Content-Type: application/json' \
-    -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-    -H 'X-Product-Name: default' \
-    -H 'X-User-Agent: CURL manual test'
+    -H 'content-type: application/json' \
+    -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+    -H 'x-product-name: default' \
+    -H 'x-user-agent: CURL manual test'
 ```
 
 > When successful (200), returns department object structured like below. Some values may be omitted if were not provided:
@@ -203,10 +203,10 @@ Requires <code>Stores:Api:Stores:Get</code> permit
 ```shell
 curl -X POST \
 "https://bpc-api.boostcom.no/v3/:loyalty_club_slug/stores" \
-    -H 'Content-Type: application/json' \
-    -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-    -H 'X-Product-Name: default' \
-    -H 'X-User-Agent: CURL manual test'
+    -H 'content-type: application/json' \
+    -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+    -H 'x-product-name: default' \
+    -H 'x-user-agent: CURL manual test'
     -d \
     '{
         "name": "store name",
@@ -330,10 +330,10 @@ Requires <code>Stores:Api:Stores:Create</code>
 ```shell
 curl -X PUT \
 "https://bpc-api.boostcom.no/v3/:loyalty_club_slug/stores/12345" \
-    -H 'Content-Type: application/json' \
-    -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-    -H 'X-Product-Name: default' \
-    -H 'X-User-Agent: CURL manual test'
+    -H 'content-type: application/json' \
+    -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+    -H 'x-product-name: default' \
+    -H 'x-user-agent: CURL manual test'
     -d \
     '{
         "name": "store name",
@@ -470,10 +470,10 @@ Requires <code>Stores:Api:Stores:Update</code>
 ```shell
 curl -X POST \
 "https://bpc-api.boostcom.no/v3/:loyalty_club_slug/stores/12345" \
-    -H 'Content-Type: application/json' \
-    -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-    -H 'X-Product-Name: default' \
-    -H 'X-User-Agent: CURL manual test'
+    -H 'content-type: application/json' \
+    -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+    -H 'x-product-name: default' \
+    -H 'x-user-agent: CURL manual test'
 ```
 
 > When successful (200), returns a feedback object structured like this:
@@ -534,10 +534,10 @@ Requires <code>Stores:Api:Stores:Delete</code>
 ```shell
 curl -X GET \
 "https://bpc-api.boostcom.no/v3/:loyalty_club_slug/stores/categories" \
-    -H 'Content-Type: application/json' \
-    -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-    -H 'X-Product-Name: default' \
-    -H 'X-User-Agent: CURL manual test'
+    -H 'content-type: application/json' \
+    -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+    -H 'x-product-name: default' \
+    -H 'x-user-agent: CURL manual test'
 ```
 
 > When successful (200), returns an array of store objects structured like below. Some values may be omitted if were not provided:
@@ -568,10 +568,10 @@ Requires <code>Stores:Api:Zones:Get</code> permit
 ```shell
 curl -X GET \
 "https://bpc-api.boostcom.no/v3/:loyalty_club_slug/stores/zones" \
-    -H 'Content-Type: application/json' \
-    -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-    -H 'X-Product-Name: default' \
-    -H 'X-User-Agent: CURL manual test'
+    -H 'content-type: application/json' \
+    -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+    -H 'x-product-name: default' \
+    -H 'x-user-agent: CURL manual test'
 ```
 
 > When successful (200), returns an array of store objects structured like below. Some values may be omitted if were not provided:

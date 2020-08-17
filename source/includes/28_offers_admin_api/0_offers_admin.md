@@ -114,10 +114,10 @@ Following Offer attributes (described above) are available to set when creating 
 ```shell
 curl \
 "https://bpc-api.boostcom.no/v3/infinity-mall/offers/1000016" \
-    -H 'Content-Type: application/json' \
-    -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-    -H 'X-Product-Name: default' \
-    -H 'X-User-Agent: CURL manual test'
+    -H 'content-type: application/json' \
+    -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+    -H 'x-product-name: default' \
+    -H 'x-user-agent: CURL manual test'
 ```
 
 > When successful (200), returns an Offer object under "offer" key. See [Offer model](#v3-admin-offer-model)
@@ -149,10 +149,10 @@ Requires <code>Offers:Api:Offers:Get</code> permit
 ```shell
 curl \
 "https://bpc-api.boostcom.no/v3/infinity-mall/offers" \
-    -H 'Content-Type: application/json' \
-    -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-    -H 'X-Product-Name: default' \
-    -H 'X-User-Agent: CURL manual test'
+    -H 'content-type: application/json' \
+    -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+    -H 'x-product-name: default' \
+    -H 'x-user-agent: CURL manual test'
 ```
 
 > When successful (200), returns a list of offers and pagination info. 
@@ -219,10 +219,10 @@ Requires <code>Offers:Api:Offers:List</code> permit
 ```shell
 curl -X POST \
 "https://bpc-api.boostcom.no/v3/infinity-mall/offers" \
-    -H 'Content-Type: application/json' \
-    -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-    -H 'X-Product-Name: default' \
-    -H 'X-User-Agent: CURL manual test' \
+    -H 'content-type: application/json' \
+    -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+    -H 'x-product-name: default' \
+    -H 'x-user-agent: CURL manual test' \
     -d '
         {
             "offers":[
@@ -282,10 +282,10 @@ Requires <code>Offers:Api:Offers:Create</code> permit
 ```shell
 curl -X PUT \
 "https://bpc-api.boostcom.no/v3/infinity-mall/offers" \
-    -H 'Content-Type: application/json' \
-    -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-    -H 'X-Product-Name: default' \
-    -H 'X-User-Agent: CURL manual test' \
+    -H 'content-type: application/json' \
+    -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+    -H 'x-product-name: default' \
+    -H 'x-user-agent: CURL manual test' \
     -d '
         {
             "offers":[
@@ -347,10 +347,10 @@ Requires <code>Offers:Api:Offers:Update</code> permit
 ```shell
 curl -X DELETE \
 "https://bpc-api.boostcom.no/v3/infinity-mall/offers/clone" \
-    -H 'Content-Type: application/json' \
-    -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-    -H 'X-Product-Name: default' \
-    -H 'X-User-Agent: CURL manual test' \
+    -H 'content-type: application/json' \
+    -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+    -H 'x-product-name: default' \
+    -H 'x-user-agent: CURL manual test' \
     -d '
         {
             "ids":[1000284, 1000285]
@@ -393,10 +393,10 @@ Requires <code>Offers:Api:Offers:Clone</code> permit
 ```shell
 curl -X DELETE \
 "https://bpc-api.boostcom.no/v3/infinity-mall/offers" \
-    -H 'Content-Type: application/json' \
-    -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-    -H 'X-Product-Name: default' \
-    -H 'X-User-Agent: CURL manual test' \
+    -H 'content-type: application/json' \
+    -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+    -H 'x-product-name: default' \
+    -H 'x-user-agent: CURL manual test' \
     -d '
         {
             "ids":[1000284, 1000285]

@@ -59,7 +59,7 @@ consents | Member's consents JSON model (see below) | JSON Object
 sms_status | Status of sms channel | string
 email_status | Status of email channel | string
 push_status | Status of push channel | string
-optin_channel | Channel (`X-Product-Name` header) which had been used to register member | string
+optin_channel | Channel (`x-product-name` header) which had been used to register member | string
 optin_subchannel | Subchannel (`X-Subproduct-Name` header) which had been used to register member | string
 created_at | Time when the user was firstly created | string
 updated_at | Time when the user was last updated | string
@@ -88,9 +88,9 @@ If something is wrong, you will receive explanation of errors in response.
 ##### Schema validation errors
 
 ```shell
-curl -X PUT -H "X-Product-Name: custom-product-name" \
+curl -X PUT -H "x-product-name: custom-product-name" \
     -H "X-Customer-Private-Token: token" \
-    -H "Content-Type: application/json" -d '{
+    -H "content-type: application/json" -d '{
 	"properties": {
 		"first_name": "",
 		"last_name": "err",
@@ -179,10 +179,10 @@ duplicated_email | The email was duplicated in community
 
 ```shell
 curl "https://bpc-api.boostcom.no/v3/infinity-mall/members?per_page=100&page=1&ids[]=1&ids[]=2" \
-  -H 'Content-Type: application/json' \
-  -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-  -H 'X-Product-Name: default' \
-  -H 'X-User-Agent: CURL manual test'
+  -H 'content-type: application/json' \
+  -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+  -H 'x-product-name: default' \
+  -H 'x-user-agent: CURL manual test'
 ```
 
 > Returns object containing [members](#v3-member-model) and [pagination_info](#v3-pagination-model)
@@ -238,10 +238,10 @@ Requires <code>BL:Api:Members:Index</code> permit
 
 ```shell
 curl "https://bpc-api.boostcom.no/v3/infinity-mall/members/:id" \
-  -H 'Content-Type: application/json' \
-  -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-  -H 'X-Product-Name: default' \
-  -H 'X-User-Agent: CURL manual test'
+  -H 'content-type: application/json' \
+  -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+  -H 'x-product-name: default' \
+  -H 'x-user-agent: CURL manual test'
 ```
 
 > When successful, returns member object as depicted [here](#v3-member-model)
@@ -295,10 +295,10 @@ Status | Reason
 
 ```shell
 curl "https://bpc-api.boostcom.no/v3/infinity-mall/members/:id/public_info" \
-  -H 'Content-Type: application/json' \
-  -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-  -H 'X-Product-Name: default' \
-  -H 'X-User-Agent: CURL manual test'
+  -H 'content-type: application/json' \
+  -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+  -H 'x-product-name: default' \
+  -H 'x-user-agent: CURL manual test'
 ```
 
 > Returns hash structured like this:
@@ -356,10 +356,10 @@ Status | Reason
 
 ```shell
 curl "https://bpc-api.boostcom.no/v3/infinity-mall/members/:id/person_id" \
-  -H 'Content-Type: application/json' \
-  -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-  -H 'X-Product-Name: default' \
-  -H 'X-User-Agent: CURL manual test'
+  -H 'content-type: application/json' \
+  -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+  -H 'x-product-name: default' \
+  -H 'x-user-agent: CURL manual test'
 ```
 
 > Returns hash structured like this:
@@ -458,11 +458,11 @@ Status | Reason
 
 curl -X POST \
   https://bpc-api.boostcom.no/v3/infinity-mall/members \
-  -H 'Content-Type: application/json' \
-  -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-  -H 'X-Product-Name: facebook' \
+  -H 'content-type: application/json' \
+  -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+  -H 'x-product-name: facebook' \
   -H 'X-Subproduct-Name: campaign-10-2017' \
-  -H 'X-User-Agent: CURL manual test' \
+  -H 'x-user-agent: CURL manual test' \
   -d '{
 	"properties": {
 		"email": "dev+6@example.com",
@@ -509,7 +509,7 @@ There is also a possibility to have multiple SMS welcome messages sent. The one 
 
 #### <a name="v3-members-create-registration-password"></a> Registration Password
 
-Some API clients (depends on Permit assigned to given `X-Client-Authorization` token) may be required to provide 
+Some API clients (depends on Permit assigned to given `x-client-authorization` token) may be required to provide 
 valid `registration_password` param that is sent to user with [Members &bull; Send registration password](#v3-members-send-registration-password) 
 
 #### Headers
@@ -563,10 +563,10 @@ Requires <code>BL:Api:Members:Create</code> or <code>BL:Api:Members:CreateWithVe
 
 curl -X PUT \
   https://bpc-api.boostcom.no/v3/infinity-mall/members/:id \
-  -H 'Content-Type: application/json' \
-  -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-  -H 'X-Product-Name: default' \
-  -H 'X-User-Agent: CURL manual test' \
+  -H 'content-type: application/json' \
+  -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+  -H 'x-product-name: default' \
+  -H 'x-user-agent: CURL manual test' \
   -d \
   '{
     "properties": {
@@ -653,11 +653,11 @@ Status | Description
 ```shell
 curl -X PUT \
   https://bpc-api.boostcom.no/v3/infinity-mall/members/me/update_password \
-  -H 'Content-Type: application/json' \
-  -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-  -H 'X-Product-Name: default' \
-  -H 'X-User-Agent: CURL manual test' \
-  -H 'Authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522' \
+  -H 'content-type: application/json' \
+  -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+  -H 'x-product-name: default' \
+  -H 'x-user-agent: CURL manual test' \
+  -H 'authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522' \
   -d \
   '{
 	  "current_password": "123"
@@ -705,10 +705,10 @@ Requires <code>BL:Api:Members:OAuth:UpdatePassword</code> permit.
 
 curl -X PUT \
   https://bpc-api.boostcom.no/v3/infinity-mall/members/:id/update_app_token \
-  -H 'Content-Type: application/json' \
-  -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-  -H 'X-Product-Name: default' \
-  -H 'X-User-Agent: CURL manual test' \
+  -H 'content-type: application/json' \
+  -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+  -H 'x-product-name: default' \
+  -H 'x-user-agent: CURL manual test' \
   -d \
   '{
      "app_token": "tok3n",
@@ -797,10 +797,10 @@ Same as welcome messages, optout messages sending also depends on Loyalty Club a
 ```shell
 curl -X DELETE \
     "https://bpc-api.boostcom.no/v3/infinity-mall/members/:id" \
-    -H 'Content-Type: application/json' \
-    -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-    -H 'X-Product-Name: default' \
-    -H 'X-User-Agent: CURL manual test'
+    -H 'content-type: application/json' \
+    -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+    -H 'x-product-name: default' \
+    -H 'x-user-agent: CURL manual test'
 ```
 
 > When successful, the above command returns destroyed member object as depicted [here](#v3-member-model)
@@ -839,11 +839,11 @@ Status | Reason
 
 curl -X POST \
   https://bpc-api.boostcom.no/v3/infinity-mall/members/validate \
-  -H 'Content-Type: application/json' \
-  -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-  -H 'X-Product-Name: android-app' \
+  -H 'content-type: application/json' \
+  -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+  -H 'x-product-name: android-app' \
   -H 'X-Subproduct-Name: campaign-10-2017' \
-  -H 'X-User-Agent: CURL manual test' \
+  -H 'x-user-agent: CURL manual test' \
   -d '{
 	"properties": {
 		"gender": "wrong",
@@ -931,10 +931,10 @@ Requires <code>BL:Api:Members:Validate</code> permit
 ```shell
 curl -X PUT \
   "https://bpc-api.boostcom.no/v3/:loyalty_club_slug/members/by_email/:email/reset_password" \
-  -H 'Content-Type: application/json' \
-  -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-  -H 'X-Product-Name: default' \
-  -H 'X-User-Agent: CURL manual test' \
+  -H 'content-type: application/json' \
+  -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+  -H 'x-product-name: default' \
+  -H 'x-user-agent: CURL manual test' \
   -d \
     '{
       "password": "new_password",
@@ -982,10 +982,10 @@ Requires <code>BL:Api:Members:ResetPassword</code> permit
 
 ```shell
 curl "https://bpc-api.boostcom.no/v3/infinity-mall/members/by_email/joe@example.com/send_password_reset_token" \
-  -H 'Content-Type: application/json' \
-  -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-  -H 'X-Product-Name: default' \
-  -H 'X-User-Agent: CURL manual test'
+  -H 'content-type: application/json' \
+  -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+  -H 'x-product-name: default' \
+  -H 'x-user-agent: CURL manual test'
 ```
 
 > Always returns an empty JSON object
@@ -1023,10 +1023,10 @@ Requires <code>BL:Api:Members:Tokens:Create</code> permit
 
 ```shell
 curl "https://bpc-api.boostcom.no/v3/infinity-mall/members/by_msisdn/4740485124/send_one_time_password" \
-  -H 'Content-Type: application/json' \
-  -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-  -H 'X-Product-Name: default' \
-  -H 'X-User-Agent: CURL manual test'
+  -H 'content-type: application/json' \
+  -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+  -H 'x-product-name: default' \
+  -H 'x-user-agent: CURL manual test'
 ```
 
 > Always returns an empty JSON object
@@ -1063,10 +1063,10 @@ Requires <code>BL:Api:Members:CreateOneTimePassword</code> permit
 
 ```shell
 curl "https://bpc-api.boostcom.no/v3/infinity-mall/members/by_email/user@example.com/send_one_time_password" \
-  -H 'Content-Type: application/json' \
-  -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-  -H 'X-Product-Name: default' \
-  -H 'X-User-Agent: CURL manual test'
+  -H 'content-type: application/json' \
+  -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+  -H 'x-product-name: default' \
+  -H 'x-user-agent: CURL manual test'
 ```
 
 > Always returns an empty JSON object
@@ -1109,10 +1109,10 @@ Requires <code>BL:Api:Members:CreateOneTimePassword</code> permit
 
 ```shell
 curl "https://bpc-api.boostcom.no/v3/infinity-mall/members/by_msisdn/4740485124/send_registration_password" \
-  -H 'Content-Type: application/json' \
-  -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-  -H 'X-Product-Name: default' \
-  -H 'X-User-Agent: CURL manual test' \
+  -H 'content-type: application/json' \
+  -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+  -H 'x-product-name: default' \
+  -H 'x-user-agent: CURL manual test' \
   -d \
     '{
       "language": "en"
@@ -1165,10 +1165,10 @@ Requires <code>BL:Api:Members:CreateRegistrationPassword</code> permit
 
 ```shell
 curl "https://bpc-api.boostcom.no/v3/infinity-mall/members/by_email/joe@example.com/verify_token/password_reset/k4wort03j2" \
-  -H 'Content-Type: application/json' \
-  -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-  -H 'X-Product-Name: default' \
-  -H 'X-User-Agent: CURL manual test'
+  -H 'content-type: application/json' \
+  -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+  -H 'x-product-name: default' \
+  -H 'x-user-agent: CURL manual test'
 ```
 
 > Example response:
@@ -1216,10 +1216,10 @@ Requires <code>BL:Api:Members:Tokens:Verify</code> permit
 ```shell
 curl -X PUT \
   "https://bpc-api.boostcom.no/v3/infinity-mall/members/channels/msisdn/4740485124/send_verification" \
-  -H 'Content-Type: application/json' \
-  -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-  -H 'X-Product-Name: default' \
-  -H 'X-User-Agent: CURL manual test' \
+  -H 'content-type: application/json' \
+  -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+  -H 'x-product-name: default' \
+  -H 'x-user-agent: CURL manual test' \
   -d \
     '{
       "for_mobile_app": false
@@ -1257,10 +1257,10 @@ Requires <code>BL:Api:Members:Msisdns:Verify</code> permit
 ```shell
 curl -X PUT \
   "https://bpc-api.boostcom.no/v3/infinity-mall/members/channels/msisdn/4740485124/verify" \
-  -H 'Content-Type: application/json' \
-  -H 'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-  -H 'X-Product-Name: default' \
-  -H 'X-User-Agent: CURL manual test' \
+  -H 'content-type: application/json' \
+  -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+  -H 'x-product-name: default' \
+  -H 'x-user-agent: CURL manual test' \
   -d \
     '{
       "token": "shNWPezzYoIuJV2qDIcQrdFQqUdlVdquwUJrNb2Nuw"
