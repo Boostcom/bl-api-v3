@@ -7,10 +7,10 @@
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
 <span class="s2">"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/stores/departments"</span> <span class="se">\</span>
-    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
-    -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
-    -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
-    -H <span class="s1">'X-User-Agent: CURL manual test'</span>
+    -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+    -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
+    -H <span class="s1">'x-user-agent: CURL manual test'</span>
 </code></pre>
 <blockquote>
 <p>When successful (200), returns an array of department objects structured like below. Some values may be omitted if were not provided:</p>
@@ -38,10 +38,10 @@ Requires <code>Stores:Api:Departments:Get</code> permit
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
 <span class="s2">"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/stores/departments/123456"</span> <span class="se">\</span>
-    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
-    -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
-    -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
-    -H <span class="s1">'X-User-Agent: CURL manual test'</span>
+    -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+    -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
+    -H <span class="s1">'x-user-agent: CURL manual test'</span>
 </code></pre>
 <blockquote>
 <p>When successful (200), returns department object structured like below. Some values may be omitted if were not provided:</p>
@@ -111,10 +111,10 @@ Requires <code>Stores:Api:Departments:Get</code> permit
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
 <span class="s2">"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/stores/departments"</span> <span class="se">\</span>
-    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
-    -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
-    -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
-    -H <span class="s1">'X-User-Agent: CURL manual test'</span>
+    -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+    -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
+    -H <span class="s1">'x-user-agent: CURL manual test'</span>
     -d <span class="se">\</span>
     <span class="s1">'{
         "name": "department name",
@@ -212,10 +212,10 @@ Requires <code>Stores:Api:Departments:Create</code>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X PUT <span class="se">\</span>
 <span class="s2">"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/stores/departments/12345"</span> <span class="se">\</span>
-    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
-    -H <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
-    -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
-    -H <span class="s1">'X-User-Agent: CURL manual test'</span>
+    -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+    -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
+    -H <span class="s1">'x-user-agent: CURL manual test'</span>
     -d <span class="se">\</span>
     <span class="s1">'{
         "name": "department name"

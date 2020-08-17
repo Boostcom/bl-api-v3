@@ -194,9 +194,9 @@ by API client - only MPC system can create, edit and destroy system groups.</p>
 <p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl --request GET <span class="s1">'https://bpc-api.boostcom.no/v3/infinity-mall/members_groups'</span> <span class="se">\</span>
---header <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
---header <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
---header <span class="s1">'X-User-Agent: cURL Manual Testing'</span>
+--header <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+--header <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
+--header <span class="s1">'x-user-agent: cURL Manual Testing'</span>
 </code></pre>
 <blockquote>
 <p>Returns object containing <a href="#v3-members-group-model">members groups</a> and <a href="#v3-pagination-model">pagination_info</a></p>
@@ -295,9 +295,9 @@ Requires <code>BL:Api:MembersGroups:Index</code> permit
 <p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl --request GET <span class="s1">'https://bpc-api.boostcom.no/v3/infinity-mall/members_groups'</span> <span class="se">\</span>
---header <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
---header <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
---header <span class="s1">'X-User-Agent: cURL Manual Testing'</span>
+--header <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+--header <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
+--header <span class="s1">'x-user-agent: cURL Manual Testing'</span>
 </code></pre>
 <blockquote>
 <p>Returns object containing <a href="#v3-members-group-model">members group</a></p>
@@ -364,10 +364,10 @@ Requires <code>BL:Api:MembersGroups:Get</code> permit
 <p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl --request POST <span class="s1">'https://bpc-api.boostcom.no/v3/infinity-mall/members_groups'</span> <span class="se">\</span>
---header <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
---header <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
---header <span class="s1">'X-User-Agent: cURL Manual Testing'</span> <span class="se">\</span>
---header <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+--header <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+--header <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
+--header <span class="s1">'x-user-agent: cURL Manual Testing'</span> <span class="se">\</span>
+--header <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
 --data-raw <span class="s1">'{
     "members_group": {
         "name": "My Group 1",
@@ -461,10 +461,10 @@ Requires <code>BL:Api:MembersGroups:Create</code> permit
 <p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl --request PUT <span class="s1">'https://bpc-api.boostcom.no/v3/infinity-mall/members_groups/4321'</span> <span class="se">\</span>
---header <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
---header <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
---header <span class="s1">'X-User-Agent: cURL Manual Testing'</span> <span class="se">\</span>
---header <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+--header <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+--header <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
+--header <span class="s1">'x-user-agent: cURL Manual Testing'</span> <span class="se">\</span>
+--header <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
 --data-raw <span class="s1">'{
     "members_group": {
         "name": "My Group 1",
@@ -542,10 +542,10 @@ Requires <code>BL:Api:MembersGroups:Update</code> permit
 <p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl --request DELETE <span class="s1">'https://bpc-api.boostcom.no/v3/infinity-mall/members_groups/4321'</span> <span class="se">\</span>
---header <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
---header <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
---header <span class="s1">'X-User-Agent: cURL Manual Testing'</span> <span class="se">\</span>
---header <span class="s1">'Content-Type: application/json'</span>
+--header <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+--header <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
+--header <span class="s1">'x-user-agent: cURL Manual Testing'</span> <span class="se">\</span>
+--header <span class="s1">'content-type: application/json'</span>
 </code></pre>
 <blockquote>
 <p>Returns object containing deleted <a href="#v3-members-group-model">members group</a></p>
@@ -614,9 +614,9 @@ Requires <code>BL:Api:MembersGroups:Destroy</code> permit
 <p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl --request GET <span class="s1">'https://bpc-api.boostcom.no/v3/infinity-mall/members_groups/types'</span> <span class="se">\</span>
---header <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
---header <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
---header <span class="s1">'X-User-Agent: cURL Manual Testing'</span>
+--header <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+--header <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
+--header <span class="s1">'x-user-agent: cURL Manual Testing'</span>
 </code></pre>
 <blockquote>
 <p>Returns object containing <a href="#v3-members-group-model">members groups</a> and <a href="#v3-pagination-model">pagination_info</a></p>
@@ -677,9 +677,9 @@ Requires <code>BL:Api:MembersGroups:Types:Index</code> permit
 <p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl --request POST <span class="s1">'https://bpc-api.boostcom.no/v3/infinity-mall/members_groups/512/members/123'</span> <span class="se">\</span>
---header <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
---header <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
---header <span class="s1">'X-User-Agent: cURL Manual Testing'</span> <span class="se">\</span>
+--header <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+--header <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
+--header <span class="s1">'x-user-agent: cURL Manual Testing'</span> <span class="se">\</span>
 --data-raw <span class="s1">''</span>
 </code></pre>
 <p><strong>POST</strong> <code class="prettyprint">v3/:loyalty_club_slug/members_groups/:members_group_id/members/:member_id</code></p>
@@ -740,9 +740,9 @@ Requires <code>BL:Api:MembersGroups:Members:Add</code> permit
 <p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl --request DELETE <span class="s1">'https://bpc-api.boostcom.no/v3/infinity-mall/members_groups/512/members/123'</span> <span class="se">\</span>
---header <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
---header <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
---header <span class="s1">'X-User-Agent: cURL Manual Testing'</span> <span class="se">\</span>
+--header <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+--header <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
+--header <span class="s1">'x-user-agent: cURL Manual Testing'</span> <span class="se">\</span>
 --data-raw <span class="s1">''</span>
 </code></pre>
 <p><strong>DELETE</strong> <code class="prettyprint">v3/:loyalty_club_slug/members_groups/:members_group_id/members/:member_id</code></p>
@@ -803,9 +803,9 @@ Requires <code>BL:Api:MembersGroups:Members:Remove</code> permit
 <p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl --request GET <span class="s1">'https://bpc-api.boostcom.no/v3/infinity-mall/members_groups/1/members'</span> <span class="se">\</span>
---header <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
---header <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
---header <span class="s1">'X-User-Agent: cURL Manual Testing'</span> <span class="se">\</span>
+--header <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+--header <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
+--header <span class="s1">'x-user-agent: cURL Manual Testing'</span> <span class="se">\</span>
 --data-raw <span class="s1">''</span>
 </code></pre>
 <blockquote>
@@ -890,9 +890,9 @@ Requires <code>BL:Api:MembersGroups:Members:List</code> permit
 <p>Example: </p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl --request GET <span class="s1">'https://bpc-api.boostcom.no/v3/infinity-mall/members/549123/groups'</span> <span class="se">\</span>
---header <span class="s1">'X-Client-Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
---header <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
---header <span class="s1">'X-User-Agent: cURL Manual Testing'</span>
+--header <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+--header <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
+--header <span class="s1">'x-user-agent: cURL Manual Testing'</span>
 </code></pre>
 <blockquote>
 <p>Returns object containing <a href="#v3-members-group-model">members groups</a> and <a href="#v3-pagination-model">pagination_info</a></p>

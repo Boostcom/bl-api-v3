@@ -1,5 +1,12 @@
 <h1 id="changelog">Changelog</h1>
 
+<h4 id="17-08-2020-jakub-kruczek">17.08.2020 | Jakub Kruczek</h4>
+
+<ul>
+<li>Use lowercase header keys to match HTTP/2 standard</li>
+<li>Add HTTPS (TLS) section</li>
+</ul>
+
 <h4 id="07-08-2020-natalia-styrska">07.08.2020 | Natalia Styrska</h4>
 
 <ul>
