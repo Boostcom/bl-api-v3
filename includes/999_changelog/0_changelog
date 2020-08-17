@@ -4,7 +4,8 @@
 
 <ul>
 <li>Use lowercase header keys to match HTTP/2 standard</li>
-<li>Add HTTPS (TLS) section</li>
+<li>Add HTTPS (TLS) section <a href="#https-tls-requirement">Introduction &bull; Hosts &bull; HTTPS (TLS) requirement</a></li>
+<li>Add new common HTTP code for incorrect headers <a href="#common-http-error-codes">Introduction &bull; Common HTTP error codes</a></li>
 </ul>
 
 <h4 id="07-08-2020-natalia-styrska">07.08.2020 | Natalia Styrska</h4>
