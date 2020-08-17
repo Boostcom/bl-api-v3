@@ -11,6 +11,7 @@ toc_footers:
 includes:
   - 00_introduction/0_introduction
   - 05_loyalty_clubs_api/0_loyalty_clubs
+  - 05_loyalty_clubs_api/9_links
   - 10_members_api/0_members
   - 10_members_api/1_oauth
   - 10_members_api/2_messages
