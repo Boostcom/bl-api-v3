@@ -23,6 +23,7 @@ slug            | string        | no        | Identifier or Link. Generated from
 name            | string        | no        | Must be unique
 description     | string        | yes       |
 url             | string        | no        | Must be unique
+scheme          | string        | no        | When given, link will be generated with this scheme
 optional_params | array<string> | yes       | Contains information which link params are optional
 system          | boolean       | no        | Is this a system link?
 global          | boolean       | no        | Is this a global link?
@@ -223,8 +224,9 @@ curl -X POST \
     --data-raw '{
         "link": {
             "name": "My Link",
-            "url": "some-url",
-            "description": "Oh long johnson"
+            "url": "some/url",
+            "description": "Oh long johnson",
+            "scheme": "my-app"
         }
     }'
 ```
@@ -237,6 +239,12 @@ curl -X POST \
 }
 ```
 
+> This link [generated](#v3-links-generate) by MPC backend will then look like this:
+
+```text
+my-app://some/url
+```  
+
 **POST** `v3/infinity-mall/links`
 
 #### POST Parameters (JSON object)
@@ -245,6 +253,7 @@ Parameter        | Type   | Required?
 ---------------- | -----  | ----- 
 link.name        | string | yes
 link.url         | string | yes
+link.scheme      | string | no
 link.description | string | no
 
 #### Response (JSON object)
