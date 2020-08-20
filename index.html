@@ -1154,6 +1154,12 @@ Requires <code>Translations:Api:Index</code> permit
 <td>Must be unique</td>
 </tr>
 <tr>
+<td>scheme</td>
+<td>string</td>
+<td>no</td>
+<td>When given, link will be generated with this scheme</td>
+</tr>
+<tr>
 <td>optional_params</td>
 <td>array<string></td>
 <td>yes</td>
@@ -1420,8 +1426,9 @@ Requires <code>BL:Api:Links:Enable</code> permit
     --data-raw <span class="s1">'{
         "link": {
             "name": "My Link",
-            "url": "some-url",
-            "description": "Oh long johnson"
+            "url": "some/url",
+            "description": "Oh long johnson",
+            "scheme": "my-app"
         }
     }'</span>
 </code></pre>
@@ -1432,6 +1439,11 @@ Requires <code>BL:Api:Links:Enable</code> permit
   </span><span class="s2">"link"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Link</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Link model"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+<blockquote>
+<p>This link <a href="#v3-links-generate">generated</a> by MPC backend will then look like this:</p>
+</blockquote>
+<pre class="highlight plaintext"><code>my-app://some/url
+</code></pre>
 <p><strong>POST</strong> <code class="prettyprint">v3/infinity-mall/links</code></p>
 
 <h4 id="post-parameters-json-object">POST Parameters (JSON object)</h4>
@@ -1452,6 +1464,11 @@ Requires <code>BL:Api:Links:Enable</code> permit
 <td>link.url</td>
 <td>string</td>
 <td>yes</td>
+</tr>
+<tr>
+<td>link.scheme</td>
+<td>string</td>
+<td>no</td>
 </tr>
 <tr>
 <td>link.description</td>
