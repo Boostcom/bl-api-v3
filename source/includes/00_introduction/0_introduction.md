@@ -88,6 +88,7 @@ Status | Reason
 `460` | OAuth token required for the action is invalid (applies only to OAuth-related actions - see [OAuth2](#v3-oauth2))
 `470` | Some of required header is missing
 `471` | Some of headers is incorrect
+`503` | Server is down for maintenance
 
 Also, most of handled errors have JSON response body like this:
 
