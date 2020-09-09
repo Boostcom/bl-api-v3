@@ -1,4 +1,7 @@
 # Changelog
+#### 09.09.2020 | Natalia Styrska
+* Update [Transactions &bull; Create events](#v3-transactions-events-create)
+
 #### 17.08.2020 | Piotr Świtlicki
 * Add [Links](#v3-links)
 
