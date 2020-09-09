@@ -10598,7 +10598,11 @@ Requires <code>Transaction:Api:Transactions:Read</code> permit
                     "item_name": "item_name",
                     "serial_number": "serial_number",
                     "detail_id": "detail_id",
-                    "quantity": 1                    
+                    "quantity": 1,
+                    "additional_properties": 
+                    {
+                        "property_name": "property_value"
+                    }                    
                 }
             ]
         }
@@ -10768,6 +10772,11 @@ Requires <code>Transaction:Api:Transactions:Read</code> permit
 <tr>
 <td>quantity</td>
 <td>integer</td>
+<td></td>
+</tr>
+<tr>
+<td>additional_properties</td>
+<td>object</td>
 <td></td>
 </tr>
 </tbody></table>
@@ -13444,6 +13453,12 @@ Requires <code>Files:Api:Delete</code> permit
 </aside>
 
           <h1 id="changelog">Changelog</h1>
+
+<h4 id="09-09-2020-natalia-styrska">09.09.2020 | Natalia Styrska</h4>
+
+<ul>
+<li>Update <a href="#v3-transactions-events-create">Transactions &bull; Create events</a></li>
+</ul>
 
 <h4 id="17-08-2020-piotr-witlicki">17.08.2020 | Piotr Świtlicki</h4>
 
