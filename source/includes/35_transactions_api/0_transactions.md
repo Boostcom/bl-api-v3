@@ -533,7 +533,11 @@ curl -X GET \
                     "item_name": "item_name",
                     "serial_number": "serial_number",
                     "detail_id": "detail_id",
-                    "quantity": 1                    
+                    "quantity": 1,
+                    "additional_properties": 
+                    {
+                        "foo": "bar"
+                    }                    
                 }
         	]
         }
@@ -617,6 +621,7 @@ item_name | string |
 serial_number | string | 
 detail_id | string |
 quantity | integer |
+additional_properties | object |
 
 
 #### Error responses
