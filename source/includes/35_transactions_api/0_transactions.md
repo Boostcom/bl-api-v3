@@ -536,7 +536,7 @@ curl -X GET \
                     "quantity": 1,
                     "additional_properties": 
                     {
-                        "foo": "bar"
+                        "property_name": "property_value"
                     }                    
                 }
         	]
