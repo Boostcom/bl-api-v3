@@ -24,6 +24,8 @@ includes:
   - 25_offers_api/0_offers
   - 25_offers_api/1_offers_events
   - 28_offers_admin_api/0_offers_admin
+  - 28_offers_admin_api/1_offers_admin_offers
+  - 28_offers_admin_api/2_offers_admin_image_templates
   - 30_rewards_api/0_rewards_program
   - 30_rewards_api/1_rewards_rewards
   - 35_transactions_api/0_transactions

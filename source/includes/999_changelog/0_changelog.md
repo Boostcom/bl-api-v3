@@ -1,4 +1,9 @@
 # Changelog
+
+#### 09.09.2020 | Piotr Świtlicki
+* Add [Offers Admin API &bull; ImageTemplates API](#v3-image-templates)
+* Add [Offer ImageTemplate model](#v3-offer-image-template)
+
 #### 09.09.2020 | Natalia Styrska
 * Update [Transactions &bull; Create events](#v3-transactions-events-create)
 

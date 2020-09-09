@@ -7,9 +7,9 @@ This API is in development. Therefore, it may not be ready for use and is a subj
 This section describes endpoints destined for offers management. 
 Navigate to [Offers](#v3-offers) section to see docs for member-related endpoints.
 
-### Common models
+## Common models
 
-#### <a name="v3-admin-offer-model"></a> Offer
+### <a name="v3-admin-offer-model"></a> Offer
 
 > Offer example:
 
@@ -35,14 +35,10 @@ Navigate to [Offers](#v3-offers) section to see docs for member-related endpoint
       "size_type": "base"
     }
   ],
-  "liked": false,
-  "usage": {
-    "usable": true,
-    "max_uses": 10,
-    "uses_left": 3,
-    "active_until": "2019-03-13T18:41:00.000Z"
-  },
-  "extras": {}
+  "extras": {},
+  "image_template": {
+    "rectangles": [] // List of rectangles - see "ImageTemplate Rectangle"
+  } 
 }
 ```
 
@@ -79,8 +75,19 @@ created_at | Date | no | When the offer has been created
 updated_at | Date | no | Last time when the offer has been updated  
 archived_at | Date | yes | Time when the offer has been archived
 uses_count | Date | no | Total number of times the offer has been used by members   
+image_template | Object | yes | See [image_template](#v3-offer-image-template-attr) below
+image_template.rectangles | ImageTemplateRectangle[] | yes | See [ImageTemplate Rectangle](#v3-offer-image-template-rectangle)
 
-#### <a name="v3-admin-offer-payload"></a> OfferPayload
+#### <a name="v3-admin-offer-model-image-template"></a> `image_template` attribute
+
+With this object, you can determine that offer's image will be rendered according to the given definition.
+
+It reflects the [ImageTemplate model](#v3-offer-image-template-model). 
+However, it **is not** a reference to existing [ImageTemplate record](#v3-offer-image-template-record). 
+
+If you want to apply record's model to the offer, you must use some of its attributes (copy them) as the offer's `image_template` attribute.
+
+### <a name="v3-admin-offer-payload"></a> OfferPayload
 
 Following Offer attributes (described above) are available to set when creating or updating offers.
      
@@ -104,324 +111,132 @@ Following Offer attributes (described above) are available to set when creating 
 * display_schemas
 * maximum_uses_per_user
 * stock
+* image_template
 
-### <a name="v3-get-offer"></a> Get offer
+### <a name="v3-offer-image-template"></a> ImageTemplate
 
-**GET** `v3/:loyalty_club_slug/offers/:id`
 
-> Example:
+#### <a name="v3-offer-image-template-model"></a> ImageTemplate Model
 
-```shell
-curl \
-"https://bpc-api.boostcom.no/v3/infinity-mall/offers/1000016" \
-    -H 'content-type: application/json' \
-    -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-    -H 'x-product-name: default' \
-    -H 'x-user-agent: CURL manual test'
-```
-
-> When successful (200), returns an Offer object under "offer" key. See [Offer model](#v3-admin-offer-model)
+> ImageTemplate model:
 
 ```json
 {
-  "offer": {
-    // (...) - see Offer model
-  }
+    "rectangles": [], // List of rectangles - see "ImageTemplate Rectangle"
 }
 ```
 
-Returns details of the specified offer.
+Defines how offer image should be rendered. 
 
-#### Response (JSON object)
+It's an interface used both by [Offer's `image_template` attribute](#v3-admin-offer-model-image-template) and 
+[ImageTemplate record](#v3-offer-image-template-record).
 
-Key | Type | Optional? | Description
---------- | --------- | -------- | ---------
-offer | Offer | no | See [Offer model](#v3-admin-offer-model) 
 
-<aside class="notice">
-Requires <code>Offers:Api:Offers:Get</code> permit
-</aside>
+Attribute      | Type                | Description
+-------------- | ------------------- | ---------------------------------------------------
+rectangles     | TemplateRectangle[] | See [ImageTemplate Rectangle](#v3-offer-image-template-rectangle)
 
-### <a name="v3-list-offers"></a> List offers
+##### Rendering
 
-> Example:
+The output image is rendered from template after offer creation/update request, asynchronously. 
 
-```shell
-curl \
-"https://bpc-api.boostcom.no/v3/infinity-mall/offers" \
-    -H 'content-type: application/json' \
-    -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-    -H 'x-product-name: default' \
-    -H 'x-user-agent: CURL manual test'
-```
+Rendering process draws (up to 4) [rectangles](#v3-offer-image-template-rectangle) over a background image (not yet implemented).
 
-> When successful (200), returns a list of offers and pagination info. 
-  See [Offer model](#v3-admin-offer-model) and [Pagination info model](#pagination-json-model)
+When rendering is done, the image is stored as a regular file of the subject offer. 
+
+#### <a name="v3-offer-image-template-record"></a> ImageTemplate Record
+
+> ImageTemplate record example:
 
 ```json
 {
-  "offers": [
-    {
-      // (...) - see Offer model
-    }
-  ],
-  "pagination_info": {
-      // (...) - see Pagination info model
-  }
+    "id": 2,
+    "name": "Majadada3",
+    "default": false,
+    "rectangles": [], // List of rectangles - see "ImageTemplate Rectangle"
+    "created_at": "2020-09-04T14:55:44.385Z",
+    "updated_at": "2020-09-04T14:55:44.385Z"
 }
 ```
 
-**GET** `v3/:loyalty_club_slug/offers`
+Stores `ImageTemplate` model (see above) for re-usage. Managed with [ImageTemplates API](#v3-image-templates).
 
-Returns offers list.
+Attribute      | Type                | Description
+-------------- | ------------------- | ---------------------------------------------------
+id             | integer             | 
+name           | string              | 
+default        | boolean             | See below
+rectangles     | TemplateRectangle[] | See [ImageTemplate Rectangle](#v3-offer-image-template-rectangle)
+created_at     | Date                | When template has been created
+updated_at     | Date                | Last time the template has been updated
 
-#### Query Parameters
+##### `default` attribute
 
-Parameter | Type | Default | Description
---------- | ----------- | --------- | -----------
-per_page | integer | 100 | Number of results to be returned per request (100 is the maximum)
-page_no | integer | 1 | Number of results page
-include_total | boolean | false | When true, detailed pagination info (containing info like total records count, next page) will be returned
-sort_by | string | "name" | What attribute should results be sorted by? Supported attributes are: `["name", "usable_since", "usable_until", "visible_since", "visible_until", "created_at", "updated_at", "archived_at"]`
-sort_direction | string | "asc" | Direction of sorting: "asc" or "desc"
-collection_ids | integer[] | null |  When present, only offers belonging to least one of given collections will be returned
-tags | string[] | null |  When present, only offers having at least one of given tags will be returned
-stores | string[] | null | When present, only offers having at least one of given stores will be returned
-campaign_id | integer[] | null | When present, only offers with this campaign_id will be returned
-audience_id | integer[] | null | When present, only offers with this audience_id will be returned
-search | string | null | When present, only offers that match the query string will be returned
-ids | integer[] | null |  When present, only offers having one of provided IDs will be returned
-without_collection | boolean | false | When present, only offers without collections will be returned
-without_tag | boolean | false | When present, only offers without tags will be returned
-without_audience_id | boolean | false | When present, only offers without audiences will be returned
-without_campaign_id | boolean | false | When present, only offers without campaigns will be returned
-without_shop | boolean | false | When present, only offers without stores will be returned
-with_archived | boolean | false | When present, also archived offers will be returned
-only_archived | boolean | false | When present, only archived offers will be returned
+It's possible to mark template as default for LC (doing this will un-mark previous default offer, if such exists). 
 
-All parameters are optional.
+It's up to API client how to utilize this feature.
 
-#### Response (JSON object)
+#### <a name="v3-offer-image-template-record-payload"></a> ImageTemplate Record payload
 
-Key | Type | Optional? | Description
---------- | --------- | -------- | ---------
-offers | Offer[] | no (may be empty)| See [Offer model](#v3-admin-offer-model) 
-pagination_info | PaginationInfo | no| See [Pagination info model](#pagination-json-model)
-
-<aside class="notice">
-Requires <code>Offers:Api:Offers:List</code> permit
-</aside>
-
-### <a name="v3-create-offers"></a> Create offers
-
-> Example:
-
-```shell
-curl -X POST \
-"https://bpc-api.boostcom.no/v3/infinity-mall/offers" \
-    -H 'content-type: application/json' \
-    -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-    -H 'x-product-name: default' \
-    -H 'x-user-agent: CURL manual test' \
-    -d '
-        {
-            "offers":[
-                {
-                    "name": "Offer 1"
-                },
-                {
-                    "name": "Offer 2"
-                }
-            ]
-        }
-    '
-```
-
-> Returns object structured like this: 
+> ImageTemplate record payload example:
 
 ```json
 {
-    "success": true,
-    "errors": {
-        "1": {
-            "collection_ids": [
-                "list must contain unique values"
-            ]
-        }
-    },
-    "ids": [1000284]
+    "id": 2,
+    "name": "Majadada3",
+    "default": false,
+    "rectangles": [] // List of rectangles - see "ImageTemplate Rectangle"
 }
 ```
 
-**POST** `v3/:loyalty_club_slug/offers`
+Used for creating and updating ImageTemplate
 
-Creates offer(s) with given lists of attributes (OfferPayloads). 
+Attribute      | Type                | Required? | Description
+-------------- | ------------------- | --------- | ---------------------------------------------------
+name           | string              | yes       |
+default        | boolean             | no        | See below
+rectangles     | TemplateRectangle[] | yes       | See [ImageTemplate Rectangle](#v3-offer-image-template-rectangle)
 
-#### POST Parameters (JSON)
+### <a name="v3-offer-image-template-rectangle"></a> ImageTemplate Rectangle
 
-Key | Type | Description
------ | ---- | ---
-offers | OfferPayload[] | List of offers to create. See [Offer payload](#v3-admin-offer-payload)
-
-#### Response (JSON object)
-
-Key | Type  | Description
----------- | -------- | ---------
-success | boolean | True if any offer has been created
-ids | integer[] | IDs of offers that have been created 
-errors | Object | Errors of offers that couldn't be created 
-
-<aside class="notice">
-Requires <code>Offers:Api:Offers:Create</code> permit
-</aside>
-
-### <a name="v3-update-offers"></a> Update offers
-
-> Example:
-
-```shell
-curl -X PUT \
-"https://bpc-api.boostcom.no/v3/infinity-mall/offers" \
-    -H 'content-type: application/json' \
-    -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-    -H 'x-product-name: default' \
-    -H 'x-user-agent: CURL manual test' \
-    -d '
-        {
-            "offers":[
-                {
-                    "id": 1000284,
-                    "name": "Offer 1"
-                },
-                {
-                    "id": 1000285,
-                    "name": "Offer 2"
-                }
-            ]
-        }
-    '
-```
-
-> Returns object structured like this: 
+> ImageTemplateRectangle example:
 
 ```json
 {
-    "success": true,
-    "errors": {
-        "1": {
-            "collection_ids": [
-                "list must contain unique values"
-            ]
-        }
-    }
+    "name": "Title",
+    "width": 100,
+    "height": 200,
+    "offset_top": 5,
+    "offset_left": 15,
+    "text_align": "center",
+    "color": "#FF00FF",
+    "font_size": 15,
+    "font_family": "'Playfair Display', serif",
+    "font_url": "https://fonts.googleapis.com/css?family=Raleway:400,700&display=swap",
+    "content": "%(shop)"
 }
 ```
 
-**PUT** `v3/:loyalty_club_slug/offers`
+Key         | Type                                | Required? | Description
+----------- | ----------------------------------- | --------- | ---------------------------------------------------
+name        | string                              | yes       | Identifies rectangle in the template
+width       | integer                             | yes       | Width of rendered rectangle
+height      | integer                             | yes       | Height of rendered rectangle
+offset_left | integer                             | yes       | x position relative to the top left corner of image
+offset_top  | integer                             | yes       | y position relative to the top left corner of image
+text_align  | enum: `['left', 'center', 'right']` | yes       | Text alignment inside the rectangle
+color       | hex (e.g. `'#FF00EE'`)              | yes       | Color of the rectangle text 
+font_size   | integer                             | yes       | Font size of the rectangle text
+font_family | string                              | yes       | Family definition, related to included `font_url`
+font_url    | URL                                 | yes       | URL of font face
+content     | string                              | no        | Content to display, may contain [merge fields](#v3-image-template-mergefields)  
 
-Updates offer(s) with given lists of attributes (OfferPayloads). Also, each payload record must contain offer ID that is meant to be updated.
-Update is not partial, so all attributes that aren't present in the payload will be nullified. 
+### <a name="v3-image-template-mergefields"></a> ImageTemplate Merge-fields
 
-#### POST Parameters (JSON)
+It is possible to use following merge-fields in order to inject offer attributes into the image generated from template.
 
-Key | Type | Description
------ | ---- | ---
-offers | OfferPayload[] | List of offers to update. See [Offer payload](#v3-admin-offer-payload).
-
-#### Response (JSON object)
-
-Key | Type  | Description
----------- | -------- | ---------
-success | boolean | True if any offer has been created
-ids | integer[] | IDs of offers that have been created 
-errors | Object | Errors of offers that couldn't be created 
-
-<aside class="notice">
-Requires <code>Offers:Api:Offers:Update</code> permit
-</aside>
-
-### <a name="v3-clone-offers"></a> Clone offers
-
-> Example:
-
-```shell
-curl -X DELETE \
-"https://bpc-api.boostcom.no/v3/infinity-mall/offers/clone" \
-    -H 'content-type: application/json' \
-    -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-    -H 'x-product-name: default' \
-    -H 'x-user-agent: CURL manual test' \
-    -d '
-        {
-            "ids":[1000284, 1000285]
-        }
-    '
-```
-
-> When successful (200), returns IDs of offers that were created by cloning 
-
-```json
-{
-    "ids": [1000301, 1000302]
-}
-```
-
-**POST** `v3/:loyalty_club_slug/offers/clones`
-
-Clones given offers (by their IDs)
-
-#### POST Parameters (JSON)
-
-Key | Type | Description
------ | ---- | ---
-ids | integer[] | List of offers ids to clone
-
-#### Response (JSON object)
-
-Key | Type  | Description
----------- | -------- | ---------
-ids | integer[] | IDs of offers that have been cloned 
-
-<aside class="notice">
-Requires <code>Offers:Api:Offers:Clone</code> permit
-</aside>
-
-### <a name="v3-update-offers"></a> Delete offers
-
-> Example:
-
-```shell
-curl -X DELETE \
-"https://bpc-api.boostcom.no/v3/infinity-mall/offers" \
-    -H 'content-type: application/json' \
-    -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-    -H 'x-product-name: default' \
-    -H 'x-user-agent: CURL manual test' \
-    -d '
-        {
-            "ids":[1000284, 1000285]
-        }
-    '
-```
-
-> When successful (200), returns an empty object
-
-```json
-{
-  // Empty object
-}
-```
-
-**DELETE** `v3/:loyalty_club_slug/offers`
-
-Deletes given offers (by their IDs).
-
-#### POST Parameters (JSON)
-
-Key | Type | Description
------ | ---- | ---
-ids | integer[] | List of offers ids to delete
-
-<aside class="notice">
-Requires <code>Offers:Api:Offers:Destroy</code> permit
-</aside>
+Merge field     | Description 
+--------------- | ---------------------------------------------------
+`%(title)`      | Injects `name` of offer
+`%(stores)`     | When only one store is assigned to offer, injects it as it is. When more, it injects stores joined with comma
+`%(collection)` | Injects `name` of first collection assigned to offer
