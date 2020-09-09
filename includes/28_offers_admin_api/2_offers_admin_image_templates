@@ -1,0 +1,405 @@
+<h2 id="imagetemplates"><a name="v3-image-templates"></a> ImageTemplates</h2>
+
+<p>This API allows managing <a href="#v3-offer-image-template-record">ImageTemplates records</a>.</p>
+
+<h3 id="list"><a name="v3-offer-admin-image-templates-list"></a> List</h3>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl --request GET <span class="s1">'https://bpc-api.boostcom.no/v3/infinity-mall/offers/image_templates'</span> <span class="se">\</span>
+--header <span class="s1">'x-client-authorization: B7t``9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+--header <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
+--header <span class="s1">'x-user-agent: cURL Manual Testing'</span>
+</code></pre>
+<blockquote>
+<p>Returns object containing <a href="#v3-offer-image-template-record">image_templates</a> and <a href="#v3-pagination-model">pagination_info</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"image_templates"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="err">//</span><span class="w"> </span><span class="err">List</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">image_templates</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"ImageTemplate record"</span><span class="w">
+  </span><span class="s2">"pagination_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Pagination</span><span class="w"> </span><span class="err">info</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="s2">"Pagination info"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/offers/image_templates</code></p>
+
+<p>Returns templates defined within Loyalty Club.</p>
+
+<h4 id="query-parameters">Query Parameters</h4>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>per_page</td>
+<td>integer</td>
+<td>1000</td>
+<td>Number of results to be returned per request (1000 is the maximum)</td>
+</tr>
+<tr>
+<td>page_no</td>
+<td>integer</td>
+<td>1</td>
+<td>Number of results page</td>
+</tr>
+<tr>
+<td>default</td>
+<td>boolean</td>
+<td>null</td>
+<td>When true - returns only default template</td>
+</tr>
+</tbody></table>
+
+<h4 id="response-json-object">Response (JSON object)</h4>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>image_templates</td>
+<td>Array<ImageTemplate></td>
+<td>Array of <a href="#v3-offer-image-template-record">ImageTemplate</a></td>
+</tr>
+<tr>
+<td>pagination_info</td>
+<td>Object</td>
+<td><a href="#v3-pagination-model">Pagination</a> object</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Offers:Api:ImageTemplates:List</code> permit
+</aside>
+
+<h3 id="get"><a name="v3-offer-admin-image-templates-get"></a> Get</h3>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl --request GET <span class="s1">'https://bpc-api.boostcom.no/v3/infinity-mall/offers/image_templates'</span> <span class="se">\</span>
+--header <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+--header <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
+--header <span class="s1">'x-user-agent: cURL Manual Testing'</span>
+</code></pre>
+<blockquote>
+<p>Returns object containing <a href="#v3-offer-image-template-record">image template</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"image_template"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Image</span><span class="w"> </span><span class="err">template</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"ImageTemplate record"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/offers/image_templates/:image_template_id</code></p>
+
+<p>Returns template identified by id.</p>
+
+<h4 id="url-parameters">URL Parameters</h4>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>image_template_id</td>
+<td>Integer</td>
+</tr>
+</tbody></table>
+
+<h4 id="response-json-object">Response (JSON object)</h4>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>image_template</td>
+<td>ImageTemplate</td>
+<td><a href="#v3-offer-image-template-record">ImageTemplate</a></td>
+</tr>
+</tbody></table>
+
+<h4 id="error-responses">Error responses</h4>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">404</code></td>
+<td>ImageTemplate does not exist</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Offers:Api:ImageTemplates:Get</code> permit
+</aside>
+
+<h3 id="create"><a name="v3-offer-admin-image-templates-create"></a> Create</h3>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl --request POST <span class="s1">'https://bpc-api.boostcom.no/v3/infinity-mall/offers/image_templates'</span> <span class="se">\</span>
+--header <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+--header <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
+--header <span class="s1">'x-user-agent: cURL Manual Testing'</span> <span class="se">\</span>
+--header <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+--data-raw <span class="s1">'{
+    "image_template": {
+        "name": "My Group 1",
+        "rectangles": [
+            {
+                "number": 1,
+                "name": "Title",
+                "offset_top": 100,
+                "offset_left": 150,
+                "width": 300,
+                "height": 200,
+                "font_size": 40,
+                "font_family": "'</span>Playfair Display<span class="s1">', serif",
+                "font_url": "https://fonts.googleapis.com/css?family=Raleway:400,700&amp;display=swap",
+                "color": "#FFFFFF",
+                "text_align": "center",
+                "content": "Oh my %(title)!"
+            }
+        ]
+    }
+}'</span>
+</code></pre>
+<blockquote>
+<p>Returns object containing created <a href="#v3-offer-image-template-record">image template</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"image_template"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Image</span><span class="w"> </span><span class="err">templates</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"ImageTemplate record"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>POST</strong> <code class="prettyprint">v3/:loyalty_club_slug/offers/image_templates</code></p>
+
+<p>Creates a new template.</p>
+
+<h4 id="post-parameters-json-object">POST Parameters (JSON object)</h4>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>image_template</td>
+<td><a href="#v3-offer-image-template-record-payload">ImageTemplate Payload</a></td>
+</tr>
+</tbody></table>
+
+<h4 id="response-json-object">Response (JSON object)</h4>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>image_template</td>
+<td>ImageTemplate</td>
+<td>Created <a href="#v3-offer-image-template-record">ImageTemplate</a></td>
+</tr>
+</tbody></table>
+
+<h4 id="error-responses">Error responses</h4>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">422</code></td>
+<td>Invalid parameters - see <a href="#v3-invalid-parameters-errors-model">Invalid parameters errors model</a></td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Offers:Api:ImageTemplates:Create</code> permit
+</aside>
+
+<h3 id="update"><a name="v3-offer-admin-image-templates-update"></a> Update</h3>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl --request PUT <span class="s1">'https://bpc-api.boostcom.no/v3/infinity-mall/offers/image_templates/4321'</span> <span class="se">\</span>
+--header <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+--header <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
+--header <span class="s1">'x-user-agent: cURL Manual Testing'</span> <span class="se">\</span>
+--header <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+--data-raw <span class="s1">'{
+    "image_template": {
+        "name": "My Group 1",
+        "rectangles": [
+            {
+                "number": 1,
+                "name": "Title",
+                "offset_top": 100,
+                "offset_left": 150,
+                "width": 300,
+                "height": 200,
+                "font_size": 40,
+                "font_family": "'</span>Playfair Display<span class="s1">', serif",
+                "font_url": "https://fonts.googleapis.com/css?family=Raleway:400,700&amp;display=swap",
+                "color": "#FFFFFF",
+                "text_align": "center",
+                "content": "Oh my %(title)!"
+            }
+        ]
+    }
+}'</span>
+</code></pre>
+<blockquote>
+<p>Returns object containing updated <a href="#v3-offer-image-template-record">image template</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"image_template"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Image</span><span class="w"> </span><span class="err">templates</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"ImageTemplate record"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>PUT</strong> <code class="prettyprint">v3/:loyalty_club_slug/offers/image_templates/:image_template_id</code></p>
+
+<p>Updates given template.</p>
+
+<h4 id="post-parameters-json-object">POST Parameters (JSON object)</h4>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>image_template</td>
+<td><a href="#v3-offer-image-template-record-payload">ImageTemplate Payload</a></td>
+</tr>
+</tbody></table>
+
+<h4 id="response-json-object">Response (JSON object)</h4>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>image_template</td>
+<td>ImageTemplate</td>
+<td>Created <a href="#v3-offer-image-template-record">ImageTemplate</a></td>
+</tr>
+</tbody></table>
+
+<h4 id="error-responses">Error responses</h4>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">404</code></td>
+<td>ImageTemplate does not exist</td>
+</tr>
+<tr>
+<td><code class="prettyprint">422</code></td>
+<td>Invalid parameters - see <a href="#v3-invalid-parameters-errors-model">Invalid parameters errors model</a></td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Offers:Api:ImageTemplates:Update</code> permit
+</aside>
+
+<h3 id="destroy"><a name="v3-offer-admin-image-templates-destroy"></a> Destroy</h3>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl --request DELETE <span class="s1">'https://bpc-api.boostcom.no/v3/infinity-mall/offers/image_templates/4321'</span> <span class="se">\</span>
+--header <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+--header <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
+--header <span class="s1">'x-user-agent: cURL Manual Testing'</span> <span class="se">\</span>
+--header <span class="s1">'content-type: application/json'</span>
+</code></pre>
+<blockquote>
+<p>Returns object containing deleted <a href="#v3-offer-image-template-record">image template</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"image_template"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Image</span><span class="w"> </span><span class="err">templates</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"ImageTemplate record"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>DELETE</strong> <code class="prettyprint">v3/:loyalty_club_slug/offers/image_templates/:image_template_id</code></p>
+
+<p>Deletes given template.</p>
+
+<h4 id="url-parameters">URL Parameters</h4>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>image_template_id</td>
+<td>Integer</td>
+</tr>
+</tbody></table>
+
+<h4 id="response-json-object">Response (JSON object)</h4>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>image_template</td>
+<td>ImageTemplate</td>
+<td>The deleted <a href="#v3-offer-image-template-record">ImageTemplate</a></td>
+</tr>
+</tbody></table>
+
+<h4 id="error-responses">Error responses</h4>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">404</code></td>
+<td>ImageTemplate does not exist</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Offers:Api:ImageTemplates:Destroy</code> permit
+</aside>

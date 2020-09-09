@@ -1,5 +1,12 @@
 <h1 id="changelog">Changelog</h1>
 
+<h4 id="09-09-2020-piotr-witlicki">09.09.2020 | Piotr Świtlicki</h4>
+
+<ul>
+<li>Add <a href="#v3-image-templates">Offers Admin API &bull; ImageTemplates API</a></li>
+<li>Add <a href="#v3-offer-image-template">Offer ImageTemplate model</a></li>
+</ul>
+
 <h4 id="09-09-2020-natalia-styrska">09.09.2020 | Natalia Styrska</h4>
 
 <ul>
