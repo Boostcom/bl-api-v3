@@ -174,7 +174,7 @@ Requires <code>Offers:Api:ImageTemplates:Get</code> permit
                 "font_url": "https://fonts.googleapis.com/css?family=Raleway:400,700&amp;display=swap",
                 "color": "#FFFFFF",
                 "text_align": "center",
-                "content": "Oh my %(title)!"
+                "content": "Oh my {{name}}!"
             }
         ]
     }
@@ -265,7 +265,7 @@ Requires <code>Offers:Api:ImageTemplates:Create</code> permit
                 "font_url": "https://fonts.googleapis.com/css?family=Raleway:400,700&amp;display=swap",
                 "color": "#FFFFFF",
                 "text_align": "center",
-                "content": "Oh my %(title)!"
+                "content": "Oh my {{name}}!"
             }
         ]
     }
