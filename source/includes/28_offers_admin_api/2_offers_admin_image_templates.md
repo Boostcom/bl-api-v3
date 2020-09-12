@@ -116,7 +116,7 @@ curl --request POST 'https://bpc-api.boostcom.no/v3/infinity-mall/offers/image_t
                 "font_url": "https://fonts.googleapis.com/css?family=Raleway:400,700&display=swap",
                 "color": "#FFFFFF",
                 "text_align": "center",
-                "content": "Oh my %(title)!"
+                "content": "Oh my {{name}}!"
             }
         ]
 	}
@@ -183,7 +183,7 @@ curl --request PUT 'https://bpc-api.boostcom.no/v3/infinity-mall/offers/image_te
                 "font_url": "https://fonts.googleapis.com/css?family=Raleway:400,700&display=swap",
                 "color": "#FFFFFF",
                 "text_align": "center",
-                "content": "Oh my %(title)!"
+                "content": "Oh my {{name}}!"
             }
         ]
 	}

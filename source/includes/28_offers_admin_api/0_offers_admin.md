@@ -213,7 +213,7 @@ rectangles     | TemplateRectangle[] | yes       | See [ImageTemplate Rectangle]
     "font_size": 15,
     "font_family": "'Playfair Display', serif",
     "font_url": "https://fonts.googleapis.com/css?family=Raleway:400,700&display=swap",
-    "content": "%(shop)"
+    "content": "{{stores}}"
 }
 ```
 
@@ -235,8 +235,9 @@ content     | string                              | no        | Content to displ
 
 It is possible to use following merge-fields in order to inject offer attributes into the image generated from template.
 
-Merge field     | Description 
---------------- | ---------------------------------------------------
-`%(title)`      | Injects `name` of offer
-`%(stores)`     | When only one store is assigned to offer, injects it as it is. When more, it injects stores joined with comma
-`%(collection)` | Injects `name` of first collection assigned to offer
+Merge field       | Description 
+----------------- | ---------------------------------------------------
+`{{name}}`        | Injects `name` of offer
+`{{description}}` | Injects `description` of offer
+`{{collection}}`  | Injects `name` of first collection assigned to offer
+`{{stores}}`      | When only one store is assigned to offer, injects it as it is. When more, it injects stores joined with comma
