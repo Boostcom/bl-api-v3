@@ -2,7 +2,7 @@
 
 <h2 id="loyalty-clubs">Loyalty Clubs</h2>
 
-<h3 id="loyalty-club-model"><a name="v3-loyalty-club-model"></a> Loyalty Club model</h3>
+<h3 id="loyalty-club-model"><a name="loyalty-club-model"></a> Loyalty Club model</h3>
 
 <blockquote>
 <p>Loyalty Club example:</p>
@@ -87,7 +87,7 @@
 </tr>
 </tbody></table>
 
-<h3 id="list"><a name="v3-loyalty-clubs-list"></a> List</h3>
+<h3 id="list"><a name="loyalty-clubs-list"></a> List</h3>
 
 <blockquote>
 <p>Example</p>
@@ -114,7 +114,7 @@
 </span></code></pre>
 <p><strong>GET</strong> <code class="prettyprint">v3/loyalty_clubs/</code></p>
 
-<p>Returns <a href="#v3-loyalty-club-model">Loyalty Clubs</a> accessible by API client.</p>
+<p>Returns <a href="#loyalty-club-model">Loyalty Clubs</a> accessible by API client.</p>
 
 <h4 id="query-parameters">Query Parameters</h4>
 
@@ -164,12 +164,12 @@
 <tr>
 <td>Loyalty Club</td>
 <td>Array<Loyalty Club></td>
-<td>Array of <a href="#v3-loyalty-club-model">Loyalty Clubs</a></td>
+<td>Array of <a href="#loyalty-club-model">Loyalty Clubs</a></td>
 </tr>
 <tr>
 <td>pagination_info</td>
 <td>Object</td>
-<td><a href="#v3-pagination-model">Pagination</a> object</td>
+<td><a href="#pagination-model">Pagination</a> object</td>
 </tr>
 </tbody></table>
 
@@ -177,7 +177,7 @@
 Requires <code>BL:Api:LoyaltyClubs:ListMine</code> permit
 </aside>
 
-<h3 id="get"><a name="v3-loyalty-clubs-get"></a> Get</h3>
+<h3 id="get"><a name="loyalty-clubs-get"></a> Get</h3>
 
 <blockquote>
 <p>Example</p>
@@ -199,7 +199,7 @@ Requires <code>BL:Api:LoyaltyClubs:ListMine</code> permit
 
 <p><strong>GET</strong> <code class="prettyprint">v3/loyalty_clubs/by_community_id/:community_id</code></p>
 
-<p>Returns basic information about the <a href="#v3-loyalty-club-model">Loyalty Clubs</a>, by one of it&rsquo;s slugs or by it&rsquo;s <code class="prettyprint">community_id</code>.</p>
+<p>Returns basic information about the <a href="#loyalty-club-model">Loyalty Clubs</a>, by one of it&rsquo;s slugs or by it&rsquo;s <code class="prettyprint">community_id</code>.</p>
 
 <aside class="notice">
 Requires <code>BL:Api:LoyaltyClubs:Get</code> permit
@@ -207,7 +207,7 @@ Requires <code>BL:Api:LoyaltyClubs:Get</code> permit
 
 <h2 id="schema">Schema</h2>
 
-<h3 id="get"><a name="v3-loyalty-clubs-schema"></a> Get</h3>
+<h3 id="get"><a name="loyalty-clubs-schema"></a> Get</h3>
 
 <blockquote>
 <p>Example</p>
@@ -331,7 +331,7 @@ Requires <code>BL:Api:Schema:Get</code> permit
 
 <h2 id="products">Products</h2>
 
-<h3 id="list"><a name="v3-loyalty-clubs-products"></a> List</h3>
+<h3 id="list"><a name="loyalty-clubs-products"></a> List</h3>
 
 <blockquote>
 <p>Example</p>
@@ -408,7 +408,7 @@ Requires <code>BL:Api:Products:Index</code> permit
 
 <h2 id="translations">Translations</h2>
 
-<h3 id="list"><a name="v3-list-translations"></a> List</h3>
+<h3 id="list"><a name="list-translations"></a> List</h3>
 
 <blockquote>
 <p>Example request</p>

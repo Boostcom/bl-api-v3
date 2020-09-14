@@ -1,6 +1,6 @@
 <h2 id="members-imports">Members Imports</h2>
 
-<h3 id="introduction"><a name="v3-members-imports-import-flow"></a> Introduction</h3>
+<h3 id="introduction"><a name="members-imports-import-flow"></a> Introduction</h3>
 
 <h5 id="import-bulks">Import bulks</h5>
 
@@ -14,8 +14,8 @@
 
 <p>Each bulk is processed by an asynchronous job, so you need to check it&rsquo;s status some time after sending a request.</p>
 
-<p>For that, you should firstly check the import status <a href="#v3-members-imports-status">here</a> and then 
-check bulks details for each bulk <a href="#v3-members-imports-bulk-status">here</a>.</p>
+<p>For that, you should firstly check the import status <a href="#members-imports-status">here</a> and then 
+check bulks details for each bulk <a href="#members-imports-bulk-status">here</a>.</p>
 
 <p>Please note that:</p>
 
@@ -48,7 +48,7 @@ for more details.  </p>
 <p>After 5th failure, the bulk will have <code class="prettyprint">failed</code> status assigned. In such case, please contact us, so we may identify 
 and resolve the problem.</p>
 
-<h3 id="send-import-request"><a name="v3-members-imports"></a> Send import request</h3>
+<h3 id="send-import-request"><a name="members-imports"></a> Send import request</h3>
 
 <p><strong>POST</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/imports</code></p>
 
@@ -164,7 +164,7 @@ that, you may want to identify all bulks with the same <code class="prettyprint"
 <td>properties</td>
 <td>yes</td>
 <td>-</td>
-<td>JSON with properties for member (see: <a href="#v3-member-model">Member model</a></td>
+<td>JSON with properties for member (see: <a href="#member-model">Member model</a></td>
 <td>JSON Object</td>
 </tr>
 <tr>
@@ -228,7 +228,7 @@ that, you may want to identify all bulks with the same <code class="prettyprint"
 <td>no</td>
 <td>{}</td>
 <td>Members consents</td>
-<td>See <a href="#v3-member-consents-model">Member&rsquo;s consents JSON model</a></td>
+<td>See <a href="#member-consents-model">Member&rsquo;s consents JSON model</a></td>
 </tr>
 </tbody></table>
 
@@ -306,13 +306,13 @@ that, you may want to identify all bulks with the same <code class="prettyprint"
 Requires <code>BL:Api:Members:Imports:Create</code> permit
 </aside>
 
-<h3 id="get-import-status"><a name="v3-members-imports-status"></a> Get import status</h3>
+<h3 id="get-import-status"><a name="members-imports-status"></a> Get import status</h3>
 
 <p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/imports/:import_id</code></p>
 
 <p>Returns status of import with a list of references to bulks (<code class="prettyprint">id</code> and <code class="prettyprint">request_number</code>). </p>
 
-<p>You need to call <a href="#v3-members-import-bulk-status">Members Imports &bull; Get bulk status</a> to see bulks details.</p>
+<p>You need to call <a href="#members-import-bulk-status">Members Imports &bull; Get bulk status</a> to see bulks details.</p>
 
 <blockquote>
 <p>Example:</p>
@@ -414,7 +414,7 @@ Requires <code>BL:Api:Members:Imports:Create</code> permit
 Requires <code>BL:Api:Members:Imports:Get</code> permit
 </aside>
 
-<h3 id="get-bulk-status"><a name="v3-members-imports-bulk-status"></a> Get bulk status</h3>
+<h3 id="get-bulk-status"><a name="members-imports-bulk-status"></a> Get bulk status</h3>
 
 <p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/imports/:import_id/bulks/:bulk_id</code></p>
 
@@ -515,7 +515,7 @@ Requires <code>BL:Api:Members:Imports:Get</code> permit
 </tr>
 <tr>
 <td>status</td>
-<td>Job status - one of: &lsquo;waiting&rsquo;, &lsquo;working&rsquo;, &lsquo;finished&rsquo;, &lsquo;failed&rsquo; &lsquo;waiting_for_retry&rsquo; - see more <a href="#v3-members-imports-import-flow">here</a> in &ldquo;Bulk statuses&rdquo; section</td>
+<td>Job status - one of: &lsquo;waiting&rsquo;, &lsquo;working&rsquo;, &lsquo;finished&rsquo;, &lsquo;failed&rsquo; &lsquo;waiting_for_retry&rsquo; - see more <a href="#members-imports-import-flow">here</a> in &ldquo;Bulk statuses&rdquo; section</td>
 <td>String</td>
 </tr>
 <tr>

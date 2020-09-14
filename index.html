@@ -299,7 +299,7 @@ That will allow further targeting members by communication channel.</p>
 <p>Example header: <code class="prettyprint">authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522</code></p>
 </blockquote>
 
-<p>See: <a href="#v3-oauth2">OAuth2</a></p>
+<p>See: <a href="#oauth2">OAuth2</a></p>
 
 <h3 id="loyalty-club-slug-param">Loyalty club slug param</h3>
 
@@ -346,7 +346,7 @@ We use format without leading <code class="prettyprint">00</code> or <code class
 </tr>
 <tr>
 <td><code class="prettyprint">460</code></td>
-<td>OAuth token required for the action is invalid (applies only to OAuth-related actions - see <a href="#v3-oauth2">OAuth2</a>)</td>
+<td>OAuth token required for the action is invalid (applies only to OAuth-related actions - see <a href="#oauth2">OAuth2</a>)</td>
 </tr>
 <tr>
 <td><code class="prettyprint">470</code></td>
@@ -366,7 +366,7 @@ We use format without leading <code class="prettyprint">00</code> or <code class
 
 <p><code class="prettyprint">{&quot;error&quot;: &quot;Message describing what went wrong&quot;}</code></p>
 
-<h2 id="pagination-json-model"><a name="v3-pagination-model"></a> Pagination JSON model</h2>
+<h2 id="pagination-json-model"><a name="pagination-model"></a> Pagination JSON model</h2>
 
 <blockquote>
 <p>Example:</p>
@@ -439,7 +439,7 @@ We use format without leading <code class="prettyprint">00</code> or <code class
 </tr>
 </tbody></table>
 
-<h2 id="invalid-parameters-errors-422"><a name="v3-invalid-parameters-errors-model"></a> Invalid parameters errors (422)</h2>
+<h2 id="invalid-parameters-errors-422"><a name="invalid-parameters-errors-model"></a> Invalid parameters errors (422)</h2>
 
 <blockquote>
 <p>Example:</p>
@@ -527,23 +527,23 @@ object:  </p>
 <tr>
 <td>details</td>
 <td>Errors object</td>
-<td>See <a href="#v3-errors-object">Errors</a> below</td>
+<td>See <a href="#errors-object">Errors</a> below</td>
 </tr>
 <tr>
 <td>details.(path.0.to.)parameter_name</td>
 <td>Array<ParameterError></td>
-<td>See <a href="#v3-parameter-error-object">ParameterError</a> below</td>
+<td>See <a href="#parameter-error-object">ParameterError</a> below</td>
 </tr>
 </tbody></table>
 
-<h3 id="errors-object"><a name="v3-errors-object"></a> Errors object</h3>
+<h3 id="errors-object"><a name="errors-object"></a> Errors object</h3>
 
 <p>It&rsquo;s a recursive tree structure, corresponding to the structure original payload.
 Objects being parts of arrays are represented by their array indexes.</p>
 
-<p>Each leaf node is an array of <a href="#v3-parameter-error-object">ParameterError</a> objects for given parameter.</p>
+<p>Each leaf node is an array of <a href="#parameter-error-object">ParameterError</a> objects for given parameter.</p>
 
-<h3 id="parametererror-object"><a name="v3-parameter-error-object""></a> ParameterError object</h3>
+<h3 id="parametererror-object"><a name="parameter-error-object""></a> ParameterError object</h3>
 
 <table><thead>
 <tr>
@@ -578,7 +578,7 @@ Objects being parts of arrays are represented by their array indexes.</p>
 
 <h2 id="loyalty-clubs">Loyalty Clubs</h2>
 
-<h3 id="loyalty-club-model"><a name="v3-loyalty-club-model"></a> Loyalty Club model</h3>
+<h3 id="loyalty-club-model"><a name="loyalty-club-model"></a> Loyalty Club model</h3>
 
 <blockquote>
 <p>Loyalty Club example:</p>
@@ -663,7 +663,7 @@ Objects being parts of arrays are represented by their array indexes.</p>
 </tr>
 </tbody></table>
 
-<h3 id="list"><a name="v3-loyalty-clubs-list"></a> List</h3>
+<h3 id="list"><a name="loyalty-clubs-list"></a> List</h3>
 
 <blockquote>
 <p>Example</p>
@@ -690,7 +690,7 @@ Objects being parts of arrays are represented by their array indexes.</p>
 </span></code></pre>
 <p><strong>GET</strong> <code class="prettyprint">v3/loyalty_clubs/</code></p>
 
-<p>Returns <a href="#v3-loyalty-club-model">Loyalty Clubs</a> accessible by API client.</p>
+<p>Returns <a href="#loyalty-club-model">Loyalty Clubs</a> accessible by API client.</p>
 
 <h4 id="query-parameters">Query Parameters</h4>
 
@@ -740,12 +740,12 @@ Objects being parts of arrays are represented by their array indexes.</p>
 <tr>
 <td>Loyalty Club</td>
 <td>Array<Loyalty Club></td>
-<td>Array of <a href="#v3-loyalty-club-model">Loyalty Clubs</a></td>
+<td>Array of <a href="#loyalty-club-model">Loyalty Clubs</a></td>
 </tr>
 <tr>
 <td>pagination_info</td>
 <td>Object</td>
-<td><a href="#v3-pagination-model">Pagination</a> object</td>
+<td><a href="#pagination-model">Pagination</a> object</td>
 </tr>
 </tbody></table>
 
@@ -753,7 +753,7 @@ Objects being parts of arrays are represented by their array indexes.</p>
 Requires <code>BL:Api:LoyaltyClubs:ListMine</code> permit
 </aside>
 
-<h3 id="get"><a name="v3-loyalty-clubs-get"></a> Get</h3>
+<h3 id="get"><a name="loyalty-clubs-get"></a> Get</h3>
 
 <blockquote>
 <p>Example</p>
@@ -775,7 +775,7 @@ Requires <code>BL:Api:LoyaltyClubs:ListMine</code> permit
 
 <p><strong>GET</strong> <code class="prettyprint">v3/loyalty_clubs/by_community_id/:community_id</code></p>
 
-<p>Returns basic information about the <a href="#v3-loyalty-club-model">Loyalty Clubs</a>, by one of it&rsquo;s slugs or by it&rsquo;s <code class="prettyprint">community_id</code>.</p>
+<p>Returns basic information about the <a href="#loyalty-club-model">Loyalty Clubs</a>, by one of it&rsquo;s slugs or by it&rsquo;s <code class="prettyprint">community_id</code>.</p>
 
 <aside class="notice">
 Requires <code>BL:Api:LoyaltyClubs:Get</code> permit
@@ -783,7 +783,7 @@ Requires <code>BL:Api:LoyaltyClubs:Get</code> permit
 
 <h2 id="schema">Schema</h2>
 
-<h3 id="get"><a name="v3-loyalty-clubs-schema"></a> Get</h3>
+<h3 id="get"><a name="loyalty-clubs-schema"></a> Get</h3>
 
 <blockquote>
 <p>Example</p>
@@ -907,7 +907,7 @@ Requires <code>BL:Api:Schema:Get</code> permit
 
 <h2 id="products">Products</h2>
 
-<h3 id="list"><a name="v3-loyalty-clubs-products"></a> List</h3>
+<h3 id="list"><a name="loyalty-clubs-products"></a> List</h3>
 
 <blockquote>
 <p>Example</p>
@@ -984,7 +984,7 @@ Requires <code>BL:Api:Products:Index</code> permit
 
 <h2 id="translations">Translations</h2>
 
-<h3 id="list"><a name="v3-list-translations"></a> List</h3>
+<h3 id="list"><a name="list-translations"></a> List</h3>
 
 <blockquote>
 <p>Example request</p>
@@ -1107,9 +1107,9 @@ Requires <code>BL:Api:Products:Index</code> permit
 Requires <code>Translations:Api:Index</code> permit
 </aside>
 
-          <h2 id="links"><a name="v3-links"> Links</h2>
+          <h2 id="links"><a name="links"> Links</h2>
 
-<h3 id="link-model"><a name="v3-link-model"></a> Link model</h3>
+<h3 id="link-model"><a name="link-model"></a> Link model</h3>
 
 <blockquote>
 <p>Example</p>
@@ -1189,21 +1189,21 @@ Requires <code>Translations:Api:Index</code> permit
 </tr>
 </tbody></table>
 
-<h4 id="enabled-links"><a name="v3-enabled-links"></a> Enabled links</h4>
+<h4 id="enabled-links"><a name="enabled-links"></a> Enabled links</h4>
 
 <p>When link is enabled, it&rsquo;s available in MPC&rsquo;s UI for being used within sending (unless the link is parameterized).</p>
 
 <h4 id="global-links">Global links</h4>
 
-<p>Global links are standard links used within MPC apps. Every LC may be configured to have each of them <a href="#v3-links-enable">enabled</a>.</p>
+<p>Global links are standard links used within MPC apps. Every LC may be configured to have each of them <a href="#links-enable">enabled</a>.</p>
 
 <p>Non-global links are links created specifically for the Loyalty Club.</p>
 
 <h4 id="system-links">System links</h4>
 
-<p>System links are global links that are essential for LC to operate and are always <a href="#v3-links-enable">enabled</a>..</p>
+<p>System links are global links that are essential for LC to operate and are always <a href="#links-enable">enabled</a>..</p>
 
-<h3 id="list"><a name="v3-links-list"></a> List</h3>
+<h3 id="list"><a name="links-list"></a> List</h3>
 
 <p>Returns all links available within Loyalty Club.</p>
 
@@ -1219,7 +1219,7 @@ Requires <code>Translations:Api:Index</code> permit
     -H <span class="s1">'x-user-agent: CURL manual test'</span>
 </code></pre>
 <blockquote>
-<p>When successful (200), returns list of <a href="#v3-link-model">links</a>:</p>
+<p>When successful (200), returns list of <a href="#link-model">links</a>:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">List</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">links</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Link model"</span><span class="w">
@@ -1237,7 +1237,7 @@ Requires <code>Translations:Api:Index</code> permit
 </thead><tbody>
 <tr>
 <td>links</td>
-<td><a href="#v3-link-model">Links</a>[]</td>
+<td><a href="#link-model">Links</a>[]</td>
 </tr>
 </tbody></table>
 
@@ -1245,7 +1245,7 @@ Requires <code>Translations:Api:Index</code> permit
 Requires <code>BL:Api:Links:Index</code> permit
 </aside>
 
-<h3 id="get"><a name="v3-links-list"></a> Get</h3>
+<h3 id="get"><a name="links-list"></a> Get</h3>
 
 <p>Returns specific link.</p>
 
@@ -1261,7 +1261,7 @@ Requires <code>BL:Api:Links:Index</code> permit
     -H <span class="s1">'x-user-agent: CURL manual test'</span>
 </code></pre>
 <blockquote>
-<p>When successful (200), returns <a href="#v3-link-model">link</a>:</p>
+<p>When successful (200), returns <a href="#link-model">link</a>:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"link"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Link</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Link model"</span><span class="w">
@@ -1279,7 +1279,7 @@ Requires <code>BL:Api:Links:Index</code> permit
 </thead><tbody>
 <tr>
 <td>link</td>
-<td><a href="#v3-link-model">Link</a></td>
+<td><a href="#link-model">Link</a></td>
 </tr>
 </tbody></table>
 
@@ -1301,9 +1301,9 @@ Requires <code>BL:Api:Links:Index</code> permit
 Requires <code>BL:Api:Links:Get</code> permit
 </aside>
 
-<h3 id="enable"><a name="v3-links-enable"></a> Enable</h3>
+<h3 id="enable"><a name="links-enable"></a> Enable</h3>
 
-<p>Enables given link - see <a href="#v3-enabled-links">enabled links</a></p>
+<p>Enables given link - see <a href="#enabled-links">enabled links</a></p>
 
 <blockquote>
 <p>Example:</p>
@@ -1317,7 +1317,7 @@ Requires <code>BL:Api:Links:Get</code> permit
     -H <span class="s1">'x-user-agent: CURL manual test'</span>
 </code></pre>
 <blockquote>
-<p>When successful (200), returns <a href="#v3-link-model">link</a>:</p>
+<p>When successful (200), returns <a href="#link-model">link</a>:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"link"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Link</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Link model"</span><span class="w">
@@ -1335,7 +1335,7 @@ Requires <code>BL:Api:Links:Get</code> permit
 </thead><tbody>
 <tr>
 <td>link</td>
-<td><a href="#v3-link-model">Link</a></td>
+<td><a href="#link-model">Link</a></td>
 </tr>
 </tbody></table>
 
@@ -1357,9 +1357,9 @@ Requires <code>BL:Api:Links:Get</code> permit
 Requires <code>BL:Api:Links:Enable</code> permit
 </aside>
 
-<h3 id="disable"><a name="v3-links-disable"></a> Disable</h3>
+<h3 id="disable"><a name="links-disable"></a> Disable</h3>
 
-<p>Disables given link - see <a href="#v3-enabled-links">enabled links</a></p>
+<p>Disables given link - see <a href="#enabled-links">enabled links</a></p>
 
 <blockquote>
 <p>Example:</p>
@@ -1373,7 +1373,7 @@ Requires <code>BL:Api:Links:Enable</code> permit
     -H <span class="s1">'x-user-agent: CURL manual test'</span>
 </code></pre>
 <blockquote>
-<p>When successful (200), returns <a href="#v3-link-model">link</a>:</p>
+<p>When successful (200), returns <a href="#link-model">link</a>:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"link"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Link</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Link model"</span><span class="w">
@@ -1391,7 +1391,7 @@ Requires <code>BL:Api:Links:Enable</code> permit
 </thead><tbody>
 <tr>
 <td>link</td>
-<td><a href="#v3-link-model">Link</a></td>
+<td><a href="#link-model">Link</a></td>
 </tr>
 </tbody></table>
 
@@ -1413,9 +1413,9 @@ Requires <code>BL:Api:Links:Enable</code> permit
 Requires <code>BL:Api:Links:Enable</code> permit
 </aside>
 
-<h3 id="create"><a name="v3-links-create"></a> Create</h3>
+<h3 id="create"><a name="links-create"></a> Create</h3>
 
-<p>Create a new link for the Loyalty Club. Created link is always <a href="#v3-enabled-links">enabled</a> by default.</p>
+<p>Create a new link for the Loyalty Club. Created link is always <a href="#enabled-links">enabled</a> by default.</p>
 
 <blockquote>
 <p>Example:</p>
@@ -1437,14 +1437,14 @@ Requires <code>BL:Api:Links:Enable</code> permit
     }'</span>
 </code></pre>
 <blockquote>
-<p>When successful (200), returns created <a href="#v3-link-model">link</a>:</p>
+<p>When successful (200), returns created <a href="#link-model">link</a>:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"link"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Link</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Link model"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
-<p>This link <a href="#v3-links-generate">generated</a> by MPC backend will then look like this:</p>
+<p>This link <a href="#links-generate">generated</a> by MPC backend will then look like this:</p>
 </blockquote>
 <pre class="highlight plaintext"><code>my-app://some/url
 </code></pre>
@@ -1491,7 +1491,7 @@ Requires <code>BL:Api:Links:Enable</code> permit
 </thead><tbody>
 <tr>
 <td>link</td>
-<td><a href="#v3-link-model">Link</a></td>
+<td><a href="#link-model">Link</a></td>
 </tr>
 </tbody></table>
 
@@ -1505,7 +1505,7 @@ Requires <code>BL:Api:Links:Enable</code> permit
 </thead><tbody>
 <tr>
 <td><code class="prettyprint">422</code></td>
-<td>Invalid parameters - see <a href="#v3-invalid-parameters-errors-model">Invalid parameters errors model</a></td>
+<td>Invalid parameters - see <a href="#invalid-parameters-errors-model">Invalid parameters errors model</a></td>
 </tr>
 </tbody></table>
 
@@ -1513,7 +1513,7 @@ Requires <code>BL:Api:Links:Enable</code> permit
 Requires <code>BL:Api:Links:Create</code> permit
 </aside>
 
-<h3 id="delete"><a name="v3-links-delete"></a> Delete</h3>
+<h3 id="delete"><a name="links-delete"></a> Delete</h3>
 
 <p>Destroys Loyalty Club link.</p>
 
@@ -1529,7 +1529,7 @@ Requires <code>BL:Api:Links:Create</code> permit
     -H <span class="s1">'x-user-agent: CURL manual test'</span>
 </code></pre>
 <blockquote>
-<p>When successful (200), returns deleted <a href="#v3-link-model">link</a>:</p>
+<p>When successful (200), returns deleted <a href="#link-model">link</a>:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"link"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Link</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Link model"</span><span class="w">
@@ -1547,7 +1547,7 @@ Requires <code>BL:Api:Links:Create</code> permit
 </thead><tbody>
 <tr>
 <td>link</td>
-<td><a href="#v3-link-model">Link</a></td>
+<td><a href="#link-model">Link</a></td>
 </tr>
 </tbody></table>
 
@@ -1573,7 +1573,7 @@ Requires <code>BL:Api:Links:Create</code> permit
 Requires <code>BL:Api:Links:Delete</code> permit
 </aside>
 
-<h3 id="generate"><a name="v3-links-generate"></a> Generate</h3>
+<h3 id="generate"><a name="links-generate"></a> Generate</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -1686,9 +1686,9 @@ it&rsquo;s installed on member system.</p>
 <p>Actions related to specific member (the one that is using your application) require to have member authenticated and we implement
 OAuth2 flow for this.</p>
 
-<p>See <a href="#v3-oauth2">Members OAuth</a> to see how to authenticate the member with OAuth2.</p>
+<p>See <a href="#oauth2">Members OAuth</a> to see how to authenticate the member with OAuth2.</p>
 
-<h4 id="member-model"><a name="v3-member-model"></a> Member model</h4>
+<h4 id="member-model"><a name="member-model"></a> Member model</h4>
 
 <blockquote>
 <p>Example:</p>
@@ -1795,7 +1795,7 @@ OAuth2 flow for this.</p>
 </tr>
 </tbody></table>
 
-<h4 id="members-consents-json-model"><a name="v3-member-consents-model"></a> Member&rsquo;s consents JSON model</h4>
+<h4 id="members-consents-json-model"><a name="member-consents-model"></a> Member&rsquo;s consents JSON model</h4>
 
 <p>JSON model for consents. Keys can be dynamically created based on customer&rsquo;s need.</p>
 
@@ -1809,7 +1809,7 @@ OAuth2 flow for this.</p>
 
 <p><code class="prettyprint">updated_at</code> is the time of last consent update. It can be also not provided or null.</p>
 
-<p>Available consents for Loyalty Club are described in <a href="#v3-loyalty-clubs-schema">schema</a>.</p>
+<p>Available consents for Loyalty Club are described in <a href="#loyalty-clubs-schema">schema</a>.</p>
 
 <h4 id="validation-on-members">Validation on members</h4>
 
@@ -2017,7 +2017,7 @@ OAuth2 flow for this.</p>
 </tr>
 </tbody></table>
 
-<h3 id="list"><a name="v3-members-index"></a> List</h3>
+<h3 id="list"><a name="members-index"></a> List</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -2029,7 +2029,7 @@ OAuth2 flow for this.</p>
   -H <span class="s1">'x-user-agent: CURL manual test'</span>
 </code></pre>
 <blockquote>
-<p>Returns object containing <a href="#v3-member-model">members</a> and <a href="#v3-pagination-model">pagination_info</a></p>
+<p>Returns object containing <a href="#member-model">members</a> and <a href="#pagination-model">pagination_info</a></p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"members"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">List</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">members</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Member model"</span><span class="w">
@@ -2041,7 +2041,7 @@ OAuth2 flow for this.</p>
 
 <p>Returns paginated list of all Loyalty Club members, sorted by <code class="prettyprint">created_at ASC</code>.</p>
 
-<p>Every returned member is represented by <a href="#v3-member-model">Member model</a>.</p>
+<p>Every returned member is represented by <a href="#member-model">Member model</a>.</p>
 
 <h4 id="query-parameters">Query Parameters</h4>
 
@@ -2096,12 +2096,12 @@ OAuth2 flow for this.</p>
 <tr>
 <td>members</td>
 <td>Array<Member></td>
-<td>Array of <a href="#v3-member-model">Members</a></td>
+<td>Array of <a href="#member-model">Members</a></td>
 </tr>
 <tr>
 <td>pagination_info</td>
 <td>Object</td>
-<td><a href="#v3-pagination-model">Pagination</a> object</td>
+<td><a href="#pagination-model">Pagination</a> object</td>
 </tr>
 </tbody></table>
 
@@ -2130,7 +2130,7 @@ OAuth2 flow for this.</p>
 Requires <code>BL:Api:Members:Index</code> permit
 </aside>
 
-<h3 id="get"><a name="v3-members-get"></a> Get</h3>
+<h3 id="get"><a name="members-get"></a> Get</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -2142,7 +2142,7 @@ Requires <code>BL:Api:Members:Index</code> permit
   -H <span class="s1">'x-user-agent: CURL manual test'</span>
 </code></pre>
 <blockquote>
-<p>When successful, returns member object as depicted <a href="#v3-member-model">here</a></p>
+<p>When successful, returns member object as depicted <a href="#member-model">here</a></p>
 </blockquote>
 
 <p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/:id</code></p>
@@ -2197,7 +2197,7 @@ Requires <code>BL:Api:Members:OAuth:Get</code> permit
 
 <h4 id="response-json-object">Response (JSON object)</h4>
 
-<p>See: <a href="#v3-member-model">Member model</a></p>
+<p>See: <a href="#member-model">Member model</a></p>
 
 <h5 id="error-responses">Error responses</h5>
 
@@ -2217,7 +2217,7 @@ Requires <code>BL:Api:Members:OAuth:Get</code> permit
 </tr>
 </tbody></table>
 
-<h3 id="get-public-info"><a name="v3-members-public-info"></a> Get public info</h3>
+<h3 id="get-public-info"><a name="members-public-info"></a> Get public info</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -2323,7 +2323,7 @@ Requires <code>BL:Api:Members:Check</code> permit
 
 <!--- ############################################################################################################# --->
 
-<h3 id="get-person-id"><a name="v3-members-person-id"></a> Get person id</h3>
+<h3 id="get-person-id"><a name="members-person-id"></a> Get person id</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -2460,7 +2460,7 @@ Requires <code>BL:Api:Members:Check</code> permit
 
 <!--- ############################################################################################################# --->
 
-<h3 id="create"><a name="v3-members-create"></a> Create</h3>
+<h3 id="create"><a name="members-create"></a> Create</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -2489,7 +2489,7 @@ curl -X POST <span class="se">\</span>
 
 </code></pre>
 <blockquote>
-<p>When successful, the above command returns created member object as depicted <a href="#v3-member-model">here</a></p>
+<p>When successful, the above command returns created member object as depicted <a href="#member-model">here</a></p>
 
 <p>When payload is invalid, validation errors like this are returned:</p>
 </blockquote>
@@ -2507,7 +2507,7 @@ curl -X POST <span class="se">\</span>
 
 <p>Create member with given properties.</p>
 
-<p>Available properties and their validation rules are defined by Loyalty Club schema (see: <a href="#v3-loyalty-clubs-schema">here</a>).</p>
+<p>Available properties and their validation rules are defined by Loyalty Club schema (see: <a href="#loyalty-clubs-schema">here</a>).</p>
 
 <p>Actual welcome messages sending depends on Loyalty Club and Product configuration.
 For example, even if send_email_welcome_message:true param is provided, message may not be sent because either Product 
@@ -2515,10 +2515,10 @@ or Loyalty has disabled welcome messages or Loyalty Club has no e-mails configur
 
 <p>There is also a possibility to have multiple SMS welcome messages sent. The one that matches Product or default one will be sent.</p>
 
-<h4 id="registration-password"><a name="v3-members-create-registration-password"></a> Registration Password</h4>
+<h4 id="registration-password"><a name="members-create-registration-password"></a> Registration Password</h4>
 
 <p>Some API clients (depends on Permit assigned to given <code class="prettyprint">x-client-authorization</code> token) may be required to provide 
-valid <code class="prettyprint">registration_password</code> param that is sent to user with <a href="#v3-members-send-registration-password">Members &bull; Send registration password</a> </p>
+valid <code class="prettyprint">registration_password</code> param that is sent to user with <a href="#members-send-registration-password">Members &bull; Send registration password</a> </p>
 
 <h4 id="headers">Headers</h4>
 
@@ -2536,7 +2536,7 @@ valid <code class="prettyprint">registration_password</code> param that is sent 
 </tr>
 </tbody></table>
 
-<h4 id="post-parameters-json"><a name="v3-members-create-post-parameters"></a> POST Parameters (JSON)</h4>
+<h4 id="post-parameters-json"><a name="members-create-post-parameters"></a> POST Parameters (JSON)</h4>
 
 <table><thead>
 <tr>
@@ -2579,7 +2579,7 @@ valid <code class="prettyprint">registration_password</code> param that is sent 
 <td>consents</td>
 <td>no</td>
 <td>{}</td>
-<td>Member&rsquo;s consents (similar to <a href="#v3-member-consents-model">Member&rsquo;s consents JSON model</a>)</td>
+<td>Member&rsquo;s consents (similar to <a href="#member-consents-model">Member&rsquo;s consents JSON model</a>)</td>
 <td>JSON Object</td>
 </tr>
 <tr>
@@ -2628,7 +2628,7 @@ valid <code class="prettyprint">registration_password</code> param that is sent 
 <td>registration_password</td>
 <td>depends</td>
 <td>none</td>
-<td>Password for registration for member MSISDN verification, see <a href="#v3-members-create-registration-password">above</a></td>
+<td>Password for registration for member MSISDN verification, see <a href="#members-create-registration-password">above</a></td>
 <td></td>
 </tr>
 </tbody></table>
@@ -2637,7 +2637,7 @@ valid <code class="prettyprint">registration_password</code> param that is sent 
 
 <h4 id="response-json-object">Response (JSON object)</h4>
 
-<p>Created member properties - see: <a href="#v3-member-model">Member model</a></p>
+<p>Created member properties - see: <a href="#member-model">Member model</a></p>
 
 <h4 id="error-responses">Error responses</h4>
 
@@ -2667,7 +2667,7 @@ Requires <code>BL:Api:Members:Create</code> or <code>BL:Api:Members:CreateWithVe
 
 <!--- ############################################################################################################# --->
 
-<h3 id="update"><a name="v3-members-update"></a> Update</h3>
+<h3 id="update"><a name="members-update"></a> Update</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -2688,9 +2688,9 @@ curl -X PUT <span class="se">\</span>
   }'</span>
 </code></pre>
 <blockquote>
-<p>When successful, the above command returns updated member object as depicted <a href="#v3-member-model">here</a></p>
+<p>When successful, the above command returns updated member object as depicted <a href="#member-model">here</a></p>
 
-<p>When payload is invalid, validation errors as depicted <a href="#v3-members-create">here</a></p>
+<p>When payload is invalid, validation errors as depicted <a href="#members-create">here</a></p>
 </blockquote>
 
 <p><strong>PUT</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/:id</code></p>
@@ -2699,7 +2699,7 @@ curl -X PUT <span class="se">\</span>
 Requires <code>BL:Api:Members:Update</code> permit
 </aside>
 
-<p><strong>PUT</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/me</code> <a href="#v3-oauth2">OAuth</a></p>
+<p><strong>PUT</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/me</code> <a href="#oauth2">OAuth</a></p>
 
 <aside class="notice">
 Requires <code>BL:Api:Members:OAuth:Update</code> permit.
@@ -2753,7 +2753,7 @@ attributes that were provided in payload. </p>
 </tr>
 <tr>
 <td>consents</td>
-<td>Member&rsquo;s consents (similar to <a href="#v3-member-consents-model">Member&rsquo;s consents JSON model</a>)</td>
+<td>Member&rsquo;s consents (similar to <a href="#member-consents-model">Member&rsquo;s consents JSON model</a>)</td>
 <td>JSON Object</td>
 <td>null</td>
 </tr>
@@ -2789,13 +2789,13 @@ attributes that were provided in payload. </p>
 </tr>
 <tr>
 <td>event_occurred_at</td>
-<td>See: <a href="#v3-member-event-occured-at-param"><code class="prettyprint">event_occurred_at</code> param</a></td>
+<td>See: <a href="#member-event-occured-at-param"><code class="prettyprint">event_occurred_at</code> param</a></td>
 <td>Date</td>
 <td>(current time)</td>
 </tr>
 </tbody></table>
 
-<h5 id="event_occurred_at-param"><a name="v3-member-event-occured-at-param"></a> <code class="prettyprint">event_occurred_at</code> param</h5>
+<h5 id="event_occurred_at-param"><a name="member-event-occured-at-param"></a> <code class="prettyprint">event_occurred_at</code> param</h5>
 
 <p>When actual member data change occurred at the time different than request&rsquo;s time, you can utilize the `event_occurred_at&rsquo; param to pass
 the actual update time.</p>
@@ -2804,7 +2804,7 @@ the actual update time.</p>
 
 <h4 id="response-json-object">Response (JSON object)</h4>
 
-<p>Member properties after update - see: <a href="#v3-member-model">Member model</a></p>
+<p>Member properties after update - see: <a href="#member-model">Member model</a></p>
 
 <h4 id="error-responses">Error responses</h4>
 
@@ -2826,7 +2826,7 @@ the actual update time.</p>
 
 <!--- ############################################################################################################# --->
 
-<h3 id="update-password"><a name="v3-me-update-password"></a> Update password</h3>
+<h3 id="update-password"><a name="me-update-password"></a> Update password</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -2851,7 +2851,7 @@ the actual update time.</p>
   </span><span class="err">//</span><span class="w"> </span><span class="err">Empty</span><span class="w"> </span><span class="err">object</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>PUT</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/update_password</code> <a href="#v3-oauth2">OAuth</a></p>
+<p><strong>PUT</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/update_password</code> <a href="#oauth2">OAuth</a></p>
 
 <p>Updates members&rsquo;s password.</p>
 
@@ -2906,7 +2906,7 @@ the actual update time.</p>
 Requires <code>BL:Api:Members:OAuth:UpdatePassword</code> permit.
 </aside>
 
-<h3 id="update-app-token"><a name="v3-members-update-app-token"></a> Update app token</h3>
+<h3 id="update-app-token"><a name="members-update-app-token"></a> Update app token</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -2952,7 +2952,7 @@ curl -X PUT <span class="se">\</span>
 Requires <code>BL:Api:Members:UpdateAppToken</code> permit
 </aside>
 
-<p><strong>PUT</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/me/update_app_token</code> <a href="#v3-oauth2">OAuth</a></p>
+<p><strong>PUT</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/me/update_app_token</code> <a href="#oauth2">OAuth</a></p>
 
 <aside class="notice">
 Requires <code>BL:Api:Members:OAuth:UpdateAppToken</code> permit
@@ -3004,7 +3004,7 @@ Platform is automatically removed when token is empty.</p>
 
 <!--- ############################################################################################################# --->
 
-<h3 id="destroy"><a name="v3-members-destroy"></a> Destroy</h3>
+<h3 id="destroy"><a name="members-destroy"></a> Destroy</h3>
 
 <p><strong>DELETE</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/:id</code></p>
 
@@ -3012,7 +3012,7 @@ Platform is automatically removed when token is empty.</p>
 Requires <code>BL:Api:Members:Destroy</code> permit
 </aside>
 
-<p><strong>DELETE</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/me</code> <a href="#v3-oauth2">OAuth</a></p>
+<p><strong>DELETE</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/me</code> <a href="#oauth2">OAuth</a></p>
 
 <aside class="notice">
 Requires <code>BL:Api:Members:OAuth:Destroy</code> permit.
@@ -3034,7 +3034,7 @@ Same as welcome messages, optout messages sending also depends on Loyalty Club a
     -H <span class="s1">'x-user-agent: CURL manual test'</span>
 </code></pre>
 <blockquote>
-<p>When successful, the above command returns destroyed member object as depicted <a href="#v3-member-model">here</a></p>
+<p>When successful, the above command returns destroyed member object as depicted <a href="#member-model">here</a></p>
 </blockquote>
 
 <h4 id="url-parameters">URL Parameters</h4>
@@ -3075,7 +3075,7 @@ Same as welcome messages, optout messages sending also depends on Loyalty Club a
 
 <h4 id="response-json-object">Response (JSON object)</h4>
 
-<p>Properties of member that has been destroyed - see: <a href="#v3-member-model">Member model</a></p>
+<p>Properties of member that has been destroyed - see: <a href="#member-model">Member model</a></p>
 
 <h4 id="error-responses">Error responses</h4>
 
@@ -3097,7 +3097,7 @@ Same as welcome messages, optout messages sending also depends on Loyalty Club a
 
 <!--- ############################################################################################################# --->
 
-<h3 id="validate"><a name="v3-members-validate"></a> Validate</h3>
+<h3 id="validate"><a name="members-validate"></a> Validate</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -3170,9 +3170,9 @@ curl -X POST <span class="se">\</span>
 <p>This behaviour has been designed to allow validate member partially, property by property. This way you can choose 
 what values should be validated at specific point of registration.</p>
 
-<h4 id="post-parameters-json"><a name="v3-members-validate-post-parameters"></a> POST Parameters (JSON)</h4>
+<h4 id="post-parameters-json"><a name="members-validate-post-parameters"></a> POST Parameters (JSON)</h4>
 
-<p>Following keys of <a href="#v3-members-create-post-parameters">Members &bull; Create</a> payload are supported when validating:</p>
+<p>Following keys of <a href="#members-create-post-parameters">Members &bull; Create</a> payload are supported when validating:</p>
 
 <ul>
 <li>properties</li>
@@ -3205,7 +3205,7 @@ what values should be validated at specific point of registration.</p>
 Requires <code>BL:Api:Members:Validate</code> permit
 </aside>
 
-<h3 id="reset-password"><a name="v3-members-reset-password"></a> Reset password</h3>
+<h3 id="reset-password"><a name="members-reset-password"></a> Reset password</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -3249,7 +3249,7 @@ Requires <code>BL:Api:Members:Validate</code> permit
 </tr>
 <tr>
 <td>token</td>
-<td>Confirmation token generated and sent with <a href="#v3-members-send-password-reset-token">Members &bull; Send password reset token</a></td>
+<td>Confirmation token generated and sent with <a href="#members-send-password-reset-token">Members &bull; Send password reset token</a></td>
 <td>string</td>
 </tr>
 </tbody></table>
@@ -3286,7 +3286,7 @@ Requires <code>BL:Api:Members:ResetPassword</code> permit
 
 <!--- ############################################################################################################# --->
 
-<h3 id="send-password-reset-token"><a name="v3-members-send-password-reset-token"></a> Send password reset token</h3>
+<h3 id="send-password-reset-token"><a name="members-send-password-reset-token"></a> Send password reset token</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -3310,8 +3310,8 @@ Requires <code>BL:Api:Members:ResetPassword</code> permit
 
 <p>The e-mail contains a token generated for member, valid for 24 hours.</p>
 
-<p>The token can be then used to reset password with <a href="#v3-members-reset-password">Members &bull; Reset password</a>.
-It also may be verified with <a href="#v3-members-verify-token">Members &bull; Verify token</a></p>
+<p>The token can be then used to reset password with <a href="#members-reset-password">Members &bull; Reset password</a>.
+It also may be verified with <a href="#members-verify-token">Members &bull; Verify token</a></p>
 
 <h4 id="url-parameters">URL Parameters</h4>
 
@@ -3335,7 +3335,7 @@ Requires <code>BL:Api:Members:Tokens:Create</code> permit
 
 <!--- ############################################################################################################# --->
 
-<h3 id="send-one-time-password-sms"><a name="v3-members-send-one-time-password"></a> Send one time password SMS</h3>
+<h3 id="send-one-time-password-sms"><a name="members-send-one-time-password"></a> Send one time password SMS</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -3359,7 +3359,7 @@ Requires <code>BL:Api:Members:Tokens:Create</code> permit
 
 <p>The SMS contains 4-digit One-Time-Password generated for member, valid for 1 hour.</p>
 
-<p>This password then can be used to sign in, just as &quot;regular&rdquo; member password - see:  <a href="#v3-token-create">OAuth Token &bull; Create</a>.</p>
+<p>This password then can be used to sign in, just as &quot;regular&rdquo; member password - see:  <a href="#token-create">OAuth Token &bull; Create</a>.</p>
 
 <h4 id="url-parameters">URL Parameters</h4>
 
@@ -3383,7 +3383,7 @@ Requires <code>BL:Api:Members:CreateOneTimePassword</code> permit
 
 <!--- ############################################################################################################# --->
 
-<h3 id="send-one-time-password-e-mail"><a name="v3-members-send-one-time-password-email"></a> Send one time password E-mail</h3>
+<h3 id="send-one-time-password-e-mail"><a name="members-send-one-time-password-email"></a> Send one time password E-mail</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -3407,7 +3407,7 @@ Requires <code>BL:Api:Members:CreateOneTimePassword</code> permit
 
 <p>The link scheme is: <code class="prettyprint">https://&lt;app_scheme&gt;.al.bstcm.no/lgn?member_id=&lt;member_id&gt;&amp;otp=&lt;otp&gt;</code> and contains member id and 16-digit password generated for member, valid for 1 hour.  </p>
 
-<p>Those params then can be used to sign in the user, just as &ldquo;regular&rdquo; member password - see:  <a href="#v3-token-create">OAuth Token &bull; Create</a>.</p>
+<p>Those params then can be used to sign in the user, just as &ldquo;regular&rdquo; member password - see:  <a href="#token-create">OAuth Token &bull; Create</a>.</p>
 
 <h4 id="url-parameters">URL Parameters</h4>
 
@@ -3445,7 +3445,7 @@ Requires <code>BL:Api:Members:CreateOneTimePassword</code> permit
 
 <!--- ############################################################################################################# --->
 
-<h3 id="send-registration-password"><a name="v3-members-send-registration-password"></a> Send registration password</h3>
+<h3 id="send-registration-password"><a name="members-send-registration-password"></a> Send registration password</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -3473,7 +3473,7 @@ Requires <code>BL:Api:Members:CreateOneTimePassword</code> permit
 
 <p>The sent message contains 4-digit registration password, valid for 10 minutes.</p>
 
-<p>This password may be required for member registration - see: <a href="#v3-members-create-registration-password">Registration password</a></p>
+<p>This password may be required for member registration - see: <a href="#members-create-registration-password">Registration password</a></p>
 
 <h4 id="url-parameters">URL Parameters</h4>
 
@@ -3527,7 +3527,7 @@ Requires <code>BL:Api:Members:CreateRegistrationPassword</code> permit
 
 <!--- ############################################################################################################# --->
 
-<h3 id="verify-token"><a name="v3-members-verify-token"></a> Verify token</h3>
+<h3 id="verify-token"><a name="members-verify-token"></a> Verify token</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -3609,7 +3609,7 @@ Requires <code>BL:Api:Members:Tokens:Verify</code> permit
 
 <!--- ############################################################################################################# --->
 
-<h3 id="send-msisdn-verification-sms"><a name="v3-members-send-verification-sms"></a> Send MSISDN verification SMS</h3>
+<h3 id="send-msisdn-verification-sms"><a name="members-send-verification-sms"></a> Send MSISDN verification SMS</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -3663,7 +3663,7 @@ Requires <code>BL:Api:Members:Msisdns:Verify</code> permit
 
 <!--- ############################################################################################################# --->
 
-<h3 id="verify-msisdn"><a name="v3-members-verify-msisdn"></a> Verify MSISDN</h3>
+<h3 id="verify-msisdn"><a name="members-verify-msisdn"></a> Verify MSISDN</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -3688,7 +3688,7 @@ Requires <code>BL:Api:Members:Msisdns:Verify</code> permit
 </span></code></pre>
 <p><strong>PUT</strong> <code class="prettyprint">/v3/:loyalty_club_slug/members/channels/msisdn/:msisdn/verify</code></p>
 
-<p>Uses given token (sent with <a href="#v3-members-send-verification-sms">Members &bull; Send MSISDN verification SMS</a>) to verify
+<p>Uses given token (sent with <a href="#members-send-verification-sms">Members &bull; Send MSISDN verification SMS</a>) to verify
 user identified with given MSISDN.</p>
 
 <h4 id="put-body-parameters">PUT body parameters</h4>
@@ -3705,7 +3705,7 @@ user identified with given MSISDN.</p>
 <td>token</td>
 <td>string</td>
 <td>yes</td>
-<td>Token generated and sent with <a href="#v3-members-send-verification-sms">Members &bull; Send MSISDN verification SMS</a></td>
+<td>Token generated and sent with <a href="#members-send-verification-sms">Members &bull; Send MSISDN verification SMS</a></td>
 </tr>
 </tbody></table>
 
@@ -3731,7 +3731,7 @@ user identified with given MSISDN.</p>
 Requires <code>BL:Api:Members:Msisdns:Verify</code> permit
 </aside>
 
-          <h2 id="members-oauth"><a name="v3-oauth2"></a> Members OAuth</h2>
+          <h2 id="members-oauth"><a name="oauth2"></a> Members OAuth</h2>
 
 <blockquote>
 <p>Example header: <code class="prettyprint">authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522</code></p>
@@ -3742,9 +3742,9 @@ OAuth2 flow for this.</p>
 
 <p>To authorize those actions, we <strong>require</strong> <code class="prettyprint">authorization</code> header that should contain: <code class="prettyprint">Bearer :access_token</code>. </p>
 
-<p>Look at <a href="#v3-token-create">OAuth Token &bull; Create</a> to see how to obtain the :access_token.</p>
+<p>Look at <a href="#token-create">OAuth Token &bull; Create</a> to see how to obtain the :access_token.</p>
 
-<h3 id="create-token"><a name="v3-token-create"></a> Create token</h3>
+<h3 id="create-token"><a name="token-create"></a> Create token</h3>
 
 <blockquote>
 <p>Create token example:</p>
@@ -3802,7 +3802,7 @@ OAuth2 flow for this.</p>
 <p>In response, two tokens are returned:</p>
 
 <ul>
-<li><code class="prettyprint">access_token</code> that is valid for <strong>24 hours</strong> - may be used to authenticate member in member-related actions (see: <a href="#v3-oauth2">OAuth2</a>).</li>
+<li><code class="prettyprint">access_token</code> that is valid for <strong>24 hours</strong> - may be used to authenticate member in member-related actions (see: <a href="#oauth2">OAuth2</a>).</li>
 <li><code class="prettyprint">refresh_token</code> which is valid for <strong>1 year</strong> - may be used to get a new access token (with <code class="prettyprint">refresh_token</code> grant)</li>
 </ul>
 
@@ -3923,7 +3923,7 @@ Requires <code>BL:Api:Members:OAuth</code> permit
 
 <!--- ############################################################################################################# --->
 
-<h3 id="revoke-token"><a name="v3-token-revoke"></a> Revoke token</h3>
+<h3 id="revoke-token"><a name="token-revoke"></a> Revoke token</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -3961,7 +3961,7 @@ Requires <code>BL:Api:Members:OAuth</code> permit
 </thead><tbody>
 <tr>
 <td>token</td>
-<td>access or refresh token obtained from <a href="#v3-token-create">OAuth Token &bull; Create</a></td>
+<td>access or refresh token obtained from <a href="#token-create">OAuth Token &bull; Create</a></td>
 <td>string</td>
 </tr>
 </tbody></table>
@@ -3972,7 +3972,7 @@ Requires <code>BL:Api:Members:OAuth</code> permit
 
 <!--- ############################################################################################################# --->
 
-<h3 id="get-token-info"><a name="v3-token-info"></a> Get token info</h3>
+<h3 id="get-token-info"><a name="token-info"></a> Get token info</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -4058,11 +4058,11 @@ Requires <code>BL:Api:Members:OAuth</code> permit
 
 <!--- ############################################################################################################# --->
 
-          <h2 id="members-messages"><a name="v3-members-messages"></a> Members Messages</h2>
+          <h2 id="members-messages"><a name="members-messages"></a> Members Messages</h2>
 
-<h3 id="introduction"><a name="v3-member-messages-introduction"> Introduction</h3>
+<h3 id="introduction"><a name="member-messages-introduction"> Introduction</h3>
 
-<h4 id="membermessage-model"><a name="v3-member-message-model"></a> MemberMessage model</h4>
+<h4 id="membermessage-model"><a name="member-message-model"></a> MemberMessage model</h4>
 
 <blockquote>
 <p>Example:</p>
@@ -4108,7 +4108,7 @@ Requires <code>BL:Api:Members:OAuth</code> permit
 </tr>
 </tbody></table>
 
-<h3 id="list-messages"><a name="v3-members-messages-list"></a> List messages</h3>
+<h3 id="list-messages"><a name="members-messages-list"></a> List messages</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -4120,7 +4120,7 @@ Requires <code>BL:Api:Members:OAuth</code> permit
   -H <span class="s1">'x-user-agent: CURL manual test'</span>
 </code></pre>
 <blockquote>
-<p>Returns object containing <a href="#v3-member-message-model">member messages</a> and <a href="#v3-pagination-model">pagination_info</a></p>
+<p>Returns object containing <a href="#member-message-model">member messages</a> and <a href="#pagination-model">pagination_info</a></p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">List</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">members</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Member message"</span><span class="w">
@@ -4176,12 +4176,12 @@ Does not translate id to other identifiers and vice versa. If no messages are fo
 <tr>
 <td>messages</td>
 <td>Array<MemberMessage></td>
-<td>Array of <a href="#v3-member-message-model">MemberMessages</a></td>
+<td>Array of <a href="#member-message-model">MemberMessages</a></td>
 </tr>
 <tr>
 <td>pagination_info</td>
 <td>Pagination</td>
-<td><a href="#v3-pagination-model">Pagination</a> object</td>
+<td><a href="#pagination-model">Pagination</a> object</td>
 </tr>
 </tbody></table>
 
@@ -4191,7 +4191,7 @@ Requires <code>BL:Api:Members:MessagesHistory:List</code> permit
 
 <!--- ############################################################################################################# --->
 
-<h3 id="get-message"><a name="v3-members-message-get"></a> Get message</h3>
+<h3 id="get-message"><a name="members-message-get"></a> Get message</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -4203,7 +4203,7 @@ Requires <code>BL:Api:Members:MessagesHistory:List</code> permit
   -H <span class="s1">'x-user-agent: CURL manual test'</span>
 </code></pre>
 <blockquote>
-<p>Returns <a href="#v3-member-message-model">member message</a></p>
+<p>Returns <a href="#member-message-model">member message</a></p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">MemberMessage</span><span class="w"> </span><span class="err">record</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"MemberMessage model"</span><span class="w">
@@ -4249,7 +4249,7 @@ Requires <code>BL:Api:Members:MessagesHistory:List</code> permit
 <tr>
 <td>message</td>
 <td>MemberMessage</td>
-<td><a href="#v3-member-message-model">MemberMessage</a></td>
+<td><a href="#member-message-model">MemberMessage</a></td>
 </tr>
 </tbody></table>
 
@@ -4275,7 +4275,7 @@ Requires <code>BL:Api:Members:MessagesHistory:Get</code> permit
 
           <h2 id="members-imports">Members Imports</h2>
 
-<h3 id="introduction"><a name="v3-members-imports-import-flow"></a> Introduction</h3>
+<h3 id="introduction"><a name="members-imports-import-flow"></a> Introduction</h3>
 
 <h5 id="import-bulks">Import bulks</h5>
 
@@ -4289,8 +4289,8 @@ Requires <code>BL:Api:Members:MessagesHistory:Get</code> permit
 
 <p>Each bulk is processed by an asynchronous job, so you need to check it&rsquo;s status some time after sending a request.</p>
 
-<p>For that, you should firstly check the import status <a href="#v3-members-imports-status">here</a> and then 
-check bulks details for each bulk <a href="#v3-members-imports-bulk-status">here</a>.</p>
+<p>For that, you should firstly check the import status <a href="#members-imports-status">here</a> and then 
+check bulks details for each bulk <a href="#members-imports-bulk-status">here</a>.</p>
 
 <p>Please note that:</p>
 
@@ -4323,7 +4323,7 @@ for more details.  </p>
 <p>After 5th failure, the bulk will have <code class="prettyprint">failed</code> status assigned. In such case, please contact us, so we may identify 
 and resolve the problem.</p>
 
-<h3 id="send-import-request"><a name="v3-members-imports"></a> Send import request</h3>
+<h3 id="send-import-request"><a name="members-imports"></a> Send import request</h3>
 
 <p><strong>POST</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/imports</code></p>
 
@@ -4439,7 +4439,7 @@ that, you may want to identify all bulks with the same <code class="prettyprint"
 <td>properties</td>
 <td>yes</td>
 <td>-</td>
-<td>JSON with properties for member (see: <a href="#v3-member-model">Member model</a></td>
+<td>JSON with properties for member (see: <a href="#member-model">Member model</a></td>
 <td>JSON Object</td>
 </tr>
 <tr>
@@ -4503,7 +4503,7 @@ that, you may want to identify all bulks with the same <code class="prettyprint"
 <td>no</td>
 <td>{}</td>
 <td>Members consents</td>
-<td>See <a href="#v3-member-consents-model">Member&rsquo;s consents JSON model</a></td>
+<td>See <a href="#member-consents-model">Member&rsquo;s consents JSON model</a></td>
 </tr>
 </tbody></table>
 
@@ -4581,13 +4581,13 @@ that, you may want to identify all bulks with the same <code class="prettyprint"
 Requires <code>BL:Api:Members:Imports:Create</code> permit
 </aside>
 
-<h3 id="get-import-status"><a name="v3-members-imports-status"></a> Get import status</h3>
+<h3 id="get-import-status"><a name="members-imports-status"></a> Get import status</h3>
 
 <p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/imports/:import_id</code></p>
 
 <p>Returns status of import with a list of references to bulks (<code class="prettyprint">id</code> and <code class="prettyprint">request_number</code>). </p>
 
-<p>You need to call <a href="#v3-members-import-bulk-status">Members Imports &bull; Get bulk status</a> to see bulks details.</p>
+<p>You need to call <a href="#members-import-bulk-status">Members Imports &bull; Get bulk status</a> to see bulks details.</p>
 
 <blockquote>
 <p>Example:</p>
@@ -4689,7 +4689,7 @@ Requires <code>BL:Api:Members:Imports:Create</code> permit
 Requires <code>BL:Api:Members:Imports:Get</code> permit
 </aside>
 
-<h3 id="get-bulk-status"><a name="v3-members-imports-bulk-status"></a> Get bulk status</h3>
+<h3 id="get-bulk-status"><a name="members-imports-bulk-status"></a> Get bulk status</h3>
 
 <p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/imports/:import_id/bulks/:bulk_id</code></p>
 
@@ -4790,7 +4790,7 @@ Requires <code>BL:Api:Members:Imports:Get</code> permit
 </tr>
 <tr>
 <td>status</td>
-<td>Job status - one of: &lsquo;waiting&rsquo;, &lsquo;working&rsquo;, &lsquo;finished&rsquo;, &lsquo;failed&rsquo; &lsquo;waiting_for_retry&rsquo; - see more <a href="#v3-members-imports-import-flow">here</a> in &ldquo;Bulk statuses&rdquo; section</td>
+<td>Job status - one of: &lsquo;waiting&rsquo;, &lsquo;working&rsquo;, &lsquo;finished&rsquo;, &lsquo;failed&rsquo; &lsquo;waiting_for_retry&rsquo; - see more <a href="#members-imports-import-flow">here</a> in &ldquo;Bulk statuses&rdquo; section</td>
 <td>String</td>
 </tr>
 <tr>
@@ -5118,7 +5118,7 @@ On consequent failures, deliveries will be attempted up to 20 days.</p>
 
 <p>If your server returns a <code class="prettyprint">4xx</code> code, the delivery will be ignored.</p>
 
-          <h1 id="members-groups-api"><a name="v3-members-groups"></a> Members Groups API</h1>
+          <h1 id="members-groups-api"><a name="members-groups"></a> Members Groups API</h1>
 
 <aside class="warning">
 This API is in development. Therefore, it may not be ready for use and is a subject to change at any time.
@@ -5126,16 +5126,16 @@ This API is in development. Therefore, it may not be ready for use and is a subj
 
 <p>Members may be grouped into groups. It&rsquo;s up to API client / customer how they are utilized. </p>
 
-<h2 id="introduction"><a name="v3-members-groups-introduction"></a> Introduction</h2>
+<h2 id="introduction"><a name="members-groups-introduction"></a> Introduction</h2>
 
-<h3 id="automatic-groups"><a name="v3-automatic-members-groups"></a> Automatic groups</h3>
+<h3 id="automatic-groups"><a name="automatic-members-groups"></a> Automatic groups</h3>
 
 <p>Group is automatic (and has <code class="prettyprint">&quot;automatic&quot;: true</code> attribute ) when it has been created with <code class="prettyprint">audience_id</code> or 
 <code class="prettyprint">audience_conditions</code> param.</p>
 
 <p>Automatic group doesn&rsquo;t allow API client to manually manage its members - instead, those are fetched from the given audience.</p>
 
-<p>See more <a href="#v3-members-groups-create">here</a></p>
+<p>See more <a href="#members-groups-create">here</a></p>
 
 <h3 id="system-groups">System groups</h3>
 
@@ -5145,7 +5145,7 @@ by API client - only MPC system can create, edit and destroy system groups.</p>
 <p>The set of system groups present in given Loyalty Club depends on its configuration. An example of system group could be
 &ldquo;All members&rdquo; group that would contain all Loyalty Club members.</p>
 
-<h3 id="membersgroup-model"><a name="v3-members-group-model"></a> MembersGroup model</h3>
+<h3 id="membersgroup-model"><a name="members-group-model"></a> MembersGroup model</h3>
 
 <blockquote>
 <p>JSON example:</p>
@@ -5235,7 +5235,7 @@ by API client - only MPC system can create, edit and destroy system groups.</p>
 </tr>
 </tbody></table>
 
-<h3 id="membersgroup-payload-model"><a name="v3-members-group-payload-model"></a> MembersGroup payload model</h3>
+<h3 id="membersgroup-payload-model"><a name="members-group-payload-model"></a> MembersGroup payload model</h3>
 
 <p>Used as an input of creations and updates.</p>
 
@@ -5308,7 +5308,7 @@ by API client - only MPC system can create, edit and destroy system groups.</p>
 
 <h2 id="members-groups">Members Groups</h2>
 
-<h3 id="list"><a name="v3-members-groups-list"></a> List</h3>
+<h3 id="list"><a name="members-groups-list"></a> List</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -5319,7 +5319,7 @@ by API client - only MPC system can create, edit and destroy system groups.</p>
 --header <span class="s1">'x-user-agent: cURL Manual Testing'</span>
 </code></pre>
 <blockquote>
-<p>Returns object containing <a href="#v3-members-group-model">members groups</a> and <a href="#v3-pagination-model">pagination_info</a></p>
+<p>Returns object containing <a href="#members-group-model">members groups</a> and <a href="#pagination-model">pagination_info</a></p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"members_groups"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">List</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">members</span><span class="w"> </span><span class="err">groups</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"MemberGroup model"</span><span class="w">
@@ -5396,12 +5396,12 @@ by API client - only MPC system can create, edit and destroy system groups.</p>
 <tr>
 <td>members_groups</td>
 <td>Array<MembersGroup></td>
-<td>Array of <a href="#v3-members-group-model">MembersGroup</a></td>
+<td>Array of <a href="#members-group-model">MembersGroup</a></td>
 </tr>
 <tr>
 <td>pagination_info</td>
 <td>Object</td>
-<td><a href="#v3-pagination-model">Pagination</a> object</td>
+<td><a href="#pagination-model">Pagination</a> object</td>
 </tr>
 </tbody></table>
 
@@ -5409,7 +5409,7 @@ by API client - only MPC system can create, edit and destroy system groups.</p>
 Requires <code>BL:Api:MembersGroups:Index</code> permit
 </aside>
 
-<h3 id="get"><a name="v3-members-groups-get"></a> Get</h3>
+<h3 id="get"><a name="members-groups-get"></a> Get</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -5420,7 +5420,7 @@ Requires <code>BL:Api:MembersGroups:Index</code> permit
 --header <span class="s1">'x-user-agent: cURL Manual Testing'</span>
 </code></pre>
 <blockquote>
-<p>Returns object containing <a href="#v3-members-group-model">members group</a></p>
+<p>Returns object containing <a href="#members-group-model">members group</a></p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"members_group"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Members</span><span class="w"> </span><span class="err">groups</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"MemberGroup model"</span><span class="w">
@@ -5456,7 +5456,7 @@ Requires <code>BL:Api:MembersGroups:Index</code> permit
 <tr>
 <td>members_group</td>
 <td>MembersGroup</td>
-<td><a href="#v3-members-group-model">MembersGroup</a></td>
+<td><a href="#members-group-model">MembersGroup</a></td>
 </tr>
 </tbody></table>
 
@@ -5478,7 +5478,7 @@ Requires <code>BL:Api:MembersGroups:Index</code> permit
 Requires <code>BL:Api:MembersGroups:Get</code> permit
 </aside>
 
-<h3 id="create"><a name="v3-members-groups-create"></a> Create</h3>
+<h3 id="create"><a name="members-groups-create"></a> Create</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -5497,7 +5497,7 @@ Requires <code>BL:Api:MembersGroups:Get</code> permit
 }'</span>
 </code></pre>
 <blockquote>
-<p>Returns object containing created <a href="#v3-members-group-model">members group</a></p>
+<p>Returns object containing created <a href="#members-group-model">members group</a></p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"members_group"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Members</span><span class="w"> </span><span class="err">groups</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"MemberGroup model"</span><span class="w">
@@ -5508,7 +5508,7 @@ Requires <code>BL:Api:MembersGroups:Get</code> permit
 <p>Creates a new group.</p>
 
 <p>When <code class="prettyprint">audience_id</code> or <code class="prettyprint">audience_conditions</code> param is provided, the group is treated 
-as <a href="#v3-automatic-members-groups">automatic</a>.</p>
+as <a href="#automatic-members-groups">automatic</a>.</p>
 
 <p>Specifically:</p>
 
@@ -5529,7 +5529,7 @@ manually assigned to the group by API client</li>
 </thead><tbody>
 <tr>
 <td>members_group</td>
-<td><a href="#v3-members-group-payload-model">MembersGroup Payload</a></td>
+<td><a href="#members-group-payload-model">MembersGroup Payload</a></td>
 </tr>
 <tr>
 <td>members_group.audience_id</td>
@@ -5553,7 +5553,7 @@ manually assigned to the group by API client</li>
 <tr>
 <td>members_group</td>
 <td>MembersGroup</td>
-<td>Created <a href="#v3-members-group-model">MembersGroup</a></td>
+<td>Created <a href="#members-group-model">MembersGroup</a></td>
 </tr>
 </tbody></table>
 
@@ -5567,7 +5567,7 @@ manually assigned to the group by API client</li>
 </thead><tbody>
 <tr>
 <td><code class="prettyprint">422</code></td>
-<td>Invalid parameters - see <a href="#v3-invalid-parameters-errors-model">Invalid parameters errors model</a></td>
+<td>Invalid parameters - see <a href="#invalid-parameters-errors-model">Invalid parameters errors model</a></td>
 </tr>
 </tbody></table>
 
@@ -5575,7 +5575,7 @@ manually assigned to the group by API client</li>
 Requires <code>BL:Api:MembersGroups:Create</code> permit
 </aside>
 
-<h3 id="update"><a name="v3-members-groups-update"></a> Update</h3>
+<h3 id="update"><a name="members-groups-update"></a> Update</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -5594,7 +5594,7 @@ Requires <code>BL:Api:MembersGroups:Create</code> permit
 }'</span>
 </code></pre>
 <blockquote>
-<p>Returns object containing updated <a href="#v3-members-group-model">members group</a></p>
+<p>Returns object containing updated <a href="#members-group-model">members group</a></p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"members_group"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Members</span><span class="w"> </span><span class="err">groups</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"MemberGroup model"</span><span class="w">
@@ -5614,7 +5614,7 @@ Requires <code>BL:Api:MembersGroups:Create</code> permit
 </thead><tbody>
 <tr>
 <td>members_group</td>
-<td><a href="#v3-members-group-payload-model">MembersGroup Payload</a></td>
+<td><a href="#members-group-payload-model">MembersGroup Payload</a></td>
 </tr>
 </tbody></table>
 
@@ -5630,7 +5630,7 @@ Requires <code>BL:Api:MembersGroups:Create</code> permit
 <tr>
 <td>members_group</td>
 <td>MembersGroup</td>
-<td>Created <a href="#v3-members-group-model">MembersGroup</a></td>
+<td>Created <a href="#members-group-model">MembersGroup</a></td>
 </tr>
 </tbody></table>
 
@@ -5648,7 +5648,7 @@ Requires <code>BL:Api:MembersGroups:Create</code> permit
 </tr>
 <tr>
 <td><code class="prettyprint">422</code></td>
-<td>Invalid parameters - see <a href="#v3-invalid-parameters-errors-model">Invalid parameters errors model</a></td>
+<td>Invalid parameters - see <a href="#invalid-parameters-errors-model">Invalid parameters errors model</a></td>
 </tr>
 </tbody></table>
 
@@ -5656,7 +5656,7 @@ Requires <code>BL:Api:MembersGroups:Create</code> permit
 Requires <code>BL:Api:MembersGroups:Update</code> permit
 </aside>
 
-<h3 id="destroy"><a name="v3-members-groups-destroy"></a> Destroy</h3>
+<h3 id="destroy"><a name="members-groups-destroy"></a> Destroy</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -5668,7 +5668,7 @@ Requires <code>BL:Api:MembersGroups:Update</code> permit
 --header <span class="s1">'content-type: application/json'</span>
 </code></pre>
 <blockquote>
-<p>Returns object containing deleted <a href="#v3-members-group-model">members group</a></p>
+<p>Returns object containing deleted <a href="#members-group-model">members group</a></p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"members_group"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Members</span><span class="w"> </span><span class="err">groups</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"MemberGroup model"</span><span class="w">
@@ -5704,7 +5704,7 @@ Requires <code>BL:Api:MembersGroups:Update</code> permit
 <tr>
 <td>members_group</td>
 <td>MembersGroup</td>
-<td>The deleted <a href="#v3-members-group-model">MembersGroup</a></td>
+<td>The deleted <a href="#members-group-model">MembersGroup</a></td>
 </tr>
 </tbody></table>
 
@@ -5728,7 +5728,7 @@ Requires <code>BL:Api:MembersGroups:Destroy</code> permit
 
 <h2 id="types">Types</h2>
 
-<h3 id="list-types"><a name="v3-members-groups-types"></a> List types</h3>
+<h3 id="list-types"><a name="members-groups-types"></a> List types</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -5739,7 +5739,7 @@ Requires <code>BL:Api:MembersGroups:Destroy</code> permit
 --header <span class="s1">'x-user-agent: cURL Manual Testing'</span>
 </code></pre>
 <blockquote>
-<p>Returns object containing <a href="#v3-members-group-model">members groups</a> and <a href="#v3-pagination-model">pagination_info</a></p>
+<p>Returns object containing <a href="#members-group-model">members groups</a> and <a href="#pagination-model">pagination_info</a></p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"members_group_types"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -5791,7 +5791,7 @@ Requires <code>BL:Api:MembersGroups:Types:Index</code> permit
 
 <h2 id="members-management">Members Management</h2>
 
-<h3 id="add-member"><a name="v3-members-groups-add-member"></a> Add member</h3>
+<h3 id="add-member"><a name="members-groups-add-member"></a> Add member</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -5846,7 +5846,7 @@ Requires <code>BL:Api:MembersGroups:Types:Index</code> permit
 </tr>
 <tr>
 <td><code class="prettyprint">422</code></td>
-<td>Invalid parameters - see <a href="#v3-invalid-parameters-errors-model">Invalid parameters errors model</a></td>
+<td>Invalid parameters - see <a href="#invalid-parameters-errors-model">Invalid parameters errors model</a></td>
 </tr>
 </tbody></table>
 
@@ -5854,7 +5854,7 @@ Requires <code>BL:Api:MembersGroups:Types:Index</code> permit
 Requires <code>BL:Api:MembersGroups:Members:Add</code> permit
 </aside>
 
-<h3 id="remove-member"><a name="v3-members-groups-remove-member"></a> Remove member</h3>
+<h3 id="remove-member"><a name="members-groups-remove-member"></a> Remove member</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -5909,7 +5909,7 @@ Requires <code>BL:Api:MembersGroups:Members:Add</code> permit
 </tr>
 <tr>
 <td><code class="prettyprint">422</code></td>
-<td>Invalid parameters - see <a href="#v3-invalid-parameters-errors-model">Invalid parameters errors model</a></td>
+<td>Invalid parameters - see <a href="#invalid-parameters-errors-model">Invalid parameters errors model</a></td>
 </tr>
 </tbody></table>
 
@@ -5917,7 +5917,7 @@ Requires <code>BL:Api:MembersGroups:Members:Add</code> permit
 Requires <code>BL:Api:MembersGroups:Members:Remove</code> permit
 </aside>
 
-<h3 id="list-members-of-a-group"><a name="v3-members-groups-list-group-members"></a> List members of a group</h3>
+<h3 id="list-members-of-a-group"><a name="members-groups-list-group-members"></a> List members of a group</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -5929,7 +5929,7 @@ Requires <code>BL:Api:MembersGroups:Members:Remove</code> permit
 --data-raw <span class="s1">''</span>
 </code></pre>
 <blockquote>
-<p>Returns object containing <a href="#v3-member-model">members</a> and <a href="#v3-pagination-model">pagination_info</a></p>
+<p>Returns object containing <a href="#member-model">members</a> and <a href="#pagination-model">pagination_info</a></p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"members"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">List</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">members</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Member model"</span><span class="w">
@@ -5991,12 +5991,12 @@ Requires <code>BL:Api:MembersGroups:Members:Remove</code> permit
 <tr>
 <td>members</td>
 <td>Array<Member></td>
-<td>Array of <a href="#v3-member-model">Members</a></td>
+<td>Array of <a href="#member-model">Members</a></td>
 </tr>
 <tr>
 <td>pagination_info</td>
 <td>Object</td>
-<td><a href="#v3-pagination-model">Pagination</a> object</td>
+<td><a href="#pagination-model">Pagination</a> object</td>
 </tr>
 </tbody></table>
 
@@ -6004,7 +6004,7 @@ Requires <code>BL:Api:MembersGroups:Members:Remove</code> permit
 Requires <code>BL:Api:MembersGroups:Members:List</code> permit
 </aside>
 
-<h3 id="list-groups-of-a-member"><a name="v3-members-groups-list-member-groups"></a> List groups of a member</h3>
+<h3 id="list-groups-of-a-member"><a name="members-groups-list-member-groups"></a> List groups of a member</h3>
 
 <blockquote>
 <p>Example: </p>
@@ -6015,7 +6015,7 @@ Requires <code>BL:Api:MembersGroups:Members:List</code> permit
 --header <span class="s1">'x-user-agent: cURL Manual Testing'</span>
 </code></pre>
 <blockquote>
-<p>Returns object containing <a href="#v3-members-group-model">members groups</a> and <a href="#v3-pagination-model">pagination_info</a></p>
+<p>Returns object containing <a href="#members-group-model">members groups</a> and <a href="#pagination-model">pagination_info</a></p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"members_groups"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">List</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">members</span><span class="w"> </span><span class="err">groups</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"MemberGroup model"</span><span class="w">
@@ -6092,12 +6092,12 @@ Requires <code>BL:Api:MembersGroups:Members:List</code> permit
 <tr>
 <td>members_groups</td>
 <td>Array<MembersGroup></td>
-<td>Array of <a href="#v3-members-group-model">MembersGroup</a></td>
+<td>Array of <a href="#members-group-model">MembersGroup</a></td>
 </tr>
 <tr>
 <td>pagination_info</td>
 <td>Object</td>
-<td><a href="#v3-pagination-model">Pagination</a> object</td>
+<td><a href="#pagination-model">Pagination</a> object</td>
 </tr>
 </tbody></table>
 
@@ -6121,7 +6121,7 @@ Requires <code>BL:Api:Members:Groups</code> permit
 
           <h1 id="messaging-api">Messaging API</h1>
 
-<h2 id="send-smses"><a name="v3-smses-create"></a> Send SMSes</h2>
+<h2 id="send-smses"><a name="smses-create"></a> Send SMSes</h2>
 
 <blockquote>
 <p>Example:</p>
@@ -6312,7 +6312,7 @@ Messages are being sent asynchronously. Also, it cannot be guaranteed that the m
 Requires <code>BL:Api:Smses:Send</code> permit
 </aside>
 
-          <h2 id="send-e-mails"><a name="v3-emails-create"></a> Send e-mails</h2>
+          <h2 id="send-e-mails"><a name="emails-create"></a> Send e-mails</h2>
 
 <blockquote>
 <p>Example:</p>
@@ -6503,7 +6503,7 @@ Messages are being sent asynchronously. Also, it cannot be guaranteed that the m
 Requires <code>BL:Api:Emails:Send</code> permit
 </aside>
 
-          <h2 id="send-push-notifications"><a name="v3-push-notification-create"></a> Send push notifications</h2>
+          <h2 id="send-push-notifications"><a name="push-notification-create"></a> Send push notifications</h2>
 
 <blockquote>
 <p>Example:</p>
@@ -6653,7 +6653,7 @@ Requires <code>BL:Api:PushNotifications:Send</code> permit
           <h1 id="offers-api">Offers API</h1>
 
 <p>This section describes endpoints destined for end user (e.g. for mobile apps) and work within context of (signed in) member.
-Navigate to <a href="#v3-offers-admin">Offers Admin</a> section to see docs for offers management endpoints.</p>
+Navigate to <a href="#offers-admin">Offers Admin</a> section to see docs for offers management endpoints.</p>
 
 <h2 id="introduction">Introduction</h2>
 
@@ -6661,13 +6661,13 @@ Navigate to <a href="#v3-offers-admin">Offers Admin</a> section to see docs for 
 
 <p>Offers API supports two distinct approaches to work with context of member.</p>
 
-<h4 id="member-id-oauth-recommended"><a name="v3-offers-oauth-context"></a> Member ID OAuth (recommended)</h4>
+<h4 id="member-id-oauth-recommended"><a name="offers-oauth-context"></a> Member ID OAuth (recommended)</h4>
 
-<p>In the first one member context is resolved from MPC <a href="#v3-oauth2">OAuth</a> member session.</p>
+<p>In the first one member context is resolved from MPC <a href="#oauth2">OAuth</a> member session.</p>
 
 <p>This setup requires use of endpoints that have <code class="prettyprint">/me/</code> URL segment and requires token provided with <code class="prettyprint">authorization</code> header.</p>
 
-<h4 id="member-id"><a name="v3-offers-member-id-context"></a> Member ID</h4>
+<h4 id="member-id"><a name="offers-member-id-context"></a> Member ID</h4>
 
 <p>In this approach member context is resolved from Member&rsquo;s ID provided within URL.</p>
 
@@ -6676,7 +6676,7 @@ Navigate to <a href="#v3-offers-admin">Offers Admin</a> section to see docs for 
 <p>This approach is designed for implementations in which member is authenticated by your system and 
 <strong>should not be used on front-end implementations</strong>, where API token is exposed to an end user. </p>
 
-<h4 id="guest-access"><a name="v3-offers-guest-access"></a> Guest access</h4>
+<h4 id="guest-access"><a name="offers-guest-access"></a> Guest access</h4>
 
 <p>Some API client implementations may need to present content to a non-authenticated user.</p>
 
@@ -6685,7 +6685,7 @@ Navigate to <a href="#v3-offers-admin">Offers Admin</a> section to see docs for 
 <p>They exist in versions which use <code class="prettyprint">/guest/</code> URL segment instead of <code class="prettyprint">/me/</code> or <code class="prettyprint">/member_id/</code> and may be used by both
 aforementioned approaches.</p>
 
-<h3 id="offer-model"><a name="v3-offer-model"></a> Offer model</h3>
+<h3 id="offer-model"><a name="offer-model"></a> Offer model</h3>
 
 <blockquote>
 <p>Offer example:</p>
@@ -6814,7 +6814,7 @@ aforementioned approaches.</p>
 <td>tags</td>
 <td>string[]</td>
 <td>no (may be empty)</td>
-<td>List of tags identifiers associated with the offer. Information from <a href="#v3-list-translations">Translations &bull; List</a> should be used to display the tags.</td>
+<td>List of tags identifiers associated with the offer. Information from <a href="#list-translations">Translations &bull; List</a> should be used to display the tags.</td>
 </tr>
 <tr>
 <td>stores</td>
@@ -6826,7 +6826,7 @@ aforementioned approaches.</p>
 <td>files</td>
 <td>File[]</td>
 <td>no</td>
-<td>A list of offer files - see <a href="#v3-file-model">File model</a></td>
+<td>A list of offer files - see <a href="#file-model">File model</a></td>
 </tr>
 <tr>
 <td>liked</td>
@@ -6838,7 +6838,7 @@ aforementioned approaches.</p>
 <td>usage</td>
 <td>Usage</td>
 <td>no</td>
-<td>Usage information object - see <a href="#v3-offer-usage-model">Offer usage model</a></td>
+<td>Usage information object - see <a href="#offer-usage-model">Offer usage model</a></td>
 </tr>
 <tr>
 <td>extras</td>
@@ -6856,7 +6856,7 @@ aforementioned approaches.</p>
 <td>display.schemas</td>
 <td>Object</td>
 <td>no</td>
-<td>Offer displays schemas - see <a href="#v3-offers-display-schemas">Offer display schemas</a></td>
+<td>Offer displays schemas - see <a href="#offers-display-schemas">Offer display schemas</a></td>
 </tr>
 <tr>
 <td>display.read_more</td>
@@ -6914,7 +6914,7 @@ aforementioned approaches.</p>
 </tr>
 </tbody></table>
 
-<h3 id="offer-usage-model"><a name="v3-offer-usage-model"></a> Offer usage model</h3>
+<h3 id="offer-usage-model"><a name="offer-usage-model"></a> Offer usage model</h3>
 
 <table><thead>
 <tr>
@@ -6950,7 +6950,7 @@ aforementioned approaches.</p>
 </tr>
 </tbody></table>
 
-<h3 id="collection-model"><a name="v3-offers-collection-model"></a> Collection model</h3>
+<h3 id="collection-model"><a name="offers-collection-model"></a> Collection model</h3>
 
 <table><thead>
 <tr>
@@ -6994,11 +6994,11 @@ aforementioned approaches.</p>
 <td>files</td>
 <td>File[]</td>
 <td>no</td>
-<td>A list of Offer Files - see <a href="#v3-file-model">File model</a></td>
+<td>A list of Offer Files - see <a href="#file-model">File model</a></td>
 </tr>
 </tbody></table>
 
-<h3 id="display-schemas"><a name="v3-offers-display-schemas"></a> Display schemas</h3>
+<h3 id="display-schemas"><a name="offers-display-schemas"></a> Display schemas</h3>
 
 <blockquote>
 <p>Example schemas:</p>
@@ -7071,9 +7071,9 @@ There are three types of fields:</p>
 <li><code class="prettyprint">body</code> =&gt; <code class="prettyprint">description</code></li>
 </ul>
 
-<h2 id="offers"><a name="v3-offers"></a> Offers</h2>
+<h2 id="offers"><a name="offers"></a> Offers</h2>
 
-<h3 id="get-offers-meta"><a name="v3-offers-meta"></a> Get offers meta</h3>
+<h3 id="get-offers-meta"><a name="offers-meta"></a> Get offers meta</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -7127,7 +7127,7 @@ There are three types of fields:</p>
     </span><span class="s2">"activated_seconds_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">35</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>GET</strong> <code class="prettyprint">v3/infinity-mall/members/me/offers/meta</code> [<a href="#v3-oauth2">OAuth</a>]</p>
+<p><strong>GET</strong> <code class="prettyprint">v3/infinity-mall/members/me/offers/meta</code> [<a href="#oauth2">OAuth</a>]</p>
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:GetMeta</code> permit
@@ -7178,7 +7178,7 @@ Requires <code>Offers:Api:MemberOffers:GetMetaPreview</code> permit
 <td>collections</td>
 <td>Collection[]</td>
 <td>no (may be empty)</td>
-<td>List of unique collections assigned to offers - see <a href="#v3-offers-collection-model">Collection model</a></td>
+<td>List of unique collections assigned to offers - see <a href="#offers-collection-model">Collection model</a></td>
 </tr>
 <tr>
 <td>activated_seconds_time</td>
@@ -7188,9 +7188,9 @@ Requires <code>Offers:Api:MemberOffers:GetMetaPreview</code> permit
 </tr>
 </tbody></table>
 
-<h3 id="get-offer"><a name="v3-get-offer"></a> Get offer</h3>
+<h3 id="get-offer"><a name="get-offer"></a> Get offer</h3>
 
-<p><strong>GET</strong> <code class="prettyprint">v3/infinity-mall/members/me/offers/:id</code> [<a href="#v3-oauth2">OAuth</a>]</p>
+<p><strong>GET</strong> <code class="prettyprint">v3/infinity-mall/members/me/offers/:id</code> [<a href="#oauth2">OAuth</a>]</p>
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:Get</code> permit
@@ -7220,7 +7220,7 @@ Requires <code>Offers:Api:MemberOffers:GetPreview</code> permit
     -H <span class="s1">'x-user-agent: CURL manual test'</span>
 </code></pre>
 <blockquote>
-<p>When successful (200), returns an Offer object under &ldquo;offer&rdquo; key. See <a href="#v3-offer-model">Offer model</a></p>
+<p>When successful (200), returns an Offer object under &ldquo;offer&rdquo; key. See <a href="#offer-model">Offer model</a></p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"offer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -7244,11 +7244,11 @@ Requires <code>Offers:Api:MemberOffers:GetPreview</code> permit
 <td>offer</td>
 <td>Offer</td>
 <td>no</td>
-<td>See <a href="#v3-offer-model">Offer model</a></td>
+<td>See <a href="#offer-model">Offer model</a></td>
 </tr>
 </tbody></table>
 
-<h3 id="list-offers"><a name="v3-list-offers"></a> List offers</h3>
+<h3 id="list-offers"><a name="list-offers"></a> List offers</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -7263,7 +7263,7 @@ Requires <code>Offers:Api:MemberOffers:GetPreview</code> permit
 </code></pre>
 <blockquote>
 <p>When successful (200), returns a list of offers and pagination info. 
-  See <a href="#v3-offer-model">Offer model</a> and <a href="#pagination-json-model">Pagination info model</a></p>
+  See <a href="#offer-model">Offer model</a> and <a href="#pagination-json-model">Pagination info model</a></p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"offers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -7276,7 +7276,7 @@ Requires <code>Offers:Api:MemberOffers:GetPreview</code> permit
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>GET</strong> <code class="prettyprint">v3/infinity-mall/members/me/offers</code> [<a href="#v3-oauth2">OAuth</a>]</p>
+<p><strong>GET</strong> <code class="prettyprint">v3/infinity-mall/members/me/offers</code> [<a href="#oauth2">OAuth</a>]</p>
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:ListVisible</code> permit
@@ -7328,7 +7328,7 @@ Requires <code>Offers:Api:MemberOffers:ListVisiblePreview</code> permit
 <td>order_by</td>
 <td>string</td>
 <td>&ldquo;name&rdquo;</td>
-<td>See <a href="#v3-offers-list-order-by"><code class="prettyprint">order_by</code> param</a></td>
+<td>See <a href="#offers-list-order-by"><code class="prettyprint">order_by</code> param</a></td>
 </tr>
 <tr>
 <td>collection_ids</td>
@@ -7376,7 +7376,7 @@ Requires <code>Offers:Api:MemberOffers:ListVisiblePreview</code> permit
 
 <p>All parameters are optional.</p>
 
-<h5 id="order_by-param"><a name="v3-offers-list-order-by"></a> <code class="prettyprint">order_by</code> param</h5>
+<h5 id="order_by-param"><a name="offers-list-order-by"></a> <code class="prettyprint">order_by</code> param</h5>
 
 <p>Offers list may be sorted by <code class="prettyprint">order_by</code> param, which has similar syntax as ORDER BY keyword in SQL statements.</p>
 
@@ -7419,7 +7419,7 @@ Requires <code>Offers:Api:MemberOffers:ListVisiblePreview</code> permit
 <td>offers</td>
 <td>Offer[]</td>
 <td>no (may be empty)</td>
-<td>See <a href="#v3-offer-model">Offer model</a></td>
+<td>See <a href="#offer-model">Offer model</a></td>
 </tr>
 <tr>
 <td>pagination_info</td>
@@ -7429,7 +7429,7 @@ Requires <code>Offers:Api:MemberOffers:ListVisiblePreview</code> permit
 </tr>
 </tbody></table>
 
-<h3 id="use-offer"><a name="v3-use-offer"></a> Use offer</h3>
+<h3 id="use-offer"><a name="use-offer"></a> Use offer</h3>
 <pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
 <span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/members/me/offers/1000016"</span> <span class="se">\</span>
     -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
@@ -7444,7 +7444,7 @@ Requires <code>Offers:Api:MemberOffers:ListVisiblePreview</code> permit
     '</span>
 </code></pre>
 <blockquote>
-<p>When successful (200), returns a Offer usage object - See <a href="#v3-offer-usage-model">Offer usage model</a></p>
+<p>When successful (200), returns a Offer usage object - See <a href="#offer-usage-model">Offer usage model</a></p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"usage"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -7455,7 +7455,7 @@ Requires <code>Offers:Api:MemberOffers:ListVisiblePreview</code> permit
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>POST</strong> <code class="prettyprint">v3/infinity-mall/members/me/offers/:id/use</code> [<a href="#v3-oauth2">OAuth</a>]</p>
+<p><strong>POST</strong> <code class="prettyprint">v3/infinity-mall/members/me/offers/:id/use</code> [<a href="#oauth2">OAuth</a>]</p>
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:Use</code> permit
@@ -7483,11 +7483,11 @@ Requires <code>Offers:Api:MemberOffers:UseByMemberId</code> permit
 <td>authorization_token</td>
 <td>string</td>
 <td>yes</td>
-<td>See <a href="#v3-offer-use-authorization">below</a></td>
+<td>See <a href="#offer-use-authorization">below</a></td>
 </tr>
 </tbody></table>
 
-<h5 id="offer-use-authorization"><a name="v3-offer-use-authorization"></a> Offer use authorization</h5>
+<h5 id="offer-use-authorization"><a name="offer-use-authorization"></a> Offer use authorization</h5>
 
 <p>Some features (like Rewards Program) may require from member to provide some code (scanned QR code, for example), so we can register
 his physical presence in the store.</p>
@@ -7509,7 +7509,7 @@ tied to it may not be granted to the member.</p>
 <tr>
 <td>usage</td>
 <td>OfferUsage</td>
-<td>See <a href="#v3-offer-usage-model">Offer usage model</a></td>
+<td>See <a href="#offer-usage-model">Offer usage model</a></td>
 </tr>
 </tbody></table>
 
@@ -7559,7 +7559,7 @@ tied to it may not be granted to the member.</p>
 </tr>
 </tbody></table>
 
-<h3 id="like-offer"><a name="v3-like-offer"></a> Like offer</h3>
+<h3 id="like-offer"><a name="like-offer"></a> Like offer</h3>
 
 <blockquote>
 <p>Example</p>
@@ -7579,7 +7579,7 @@ tied to it may not be granted to the member.</p>
   </span><span class="err">//</span><span class="w"> </span><span class="err">Empty</span><span class="w"> </span><span class="err">object</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>PUT</strong> <code class="prettyprint">v3/infinity-mall/members/me/offers/:id/like</code> [<a href="#v3-oauth2">OAuth</a>]</p>
+<p><strong>PUT</strong> <code class="prettyprint">v3/infinity-mall/members/me/offers/:id/like</code> [<a href="#oauth2">OAuth</a>]</p>
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:Like</code> permit
@@ -7593,7 +7593,7 @@ Requires <code>Offers:Api:MemberOffers:LikeByMemberId</code> permit
 
 <p>Marks offer as &ldquo;liked&rdquo; by user.</p>
 
-<h3 id="unlike-offer"><a name="v3-unlike-offer"></a> Unlike offer</h3>
+<h3 id="unlike-offer"><a name="unlike-offer"></a> Unlike offer</h3>
 
 <blockquote>
 <p>Example</p>
@@ -7613,7 +7613,7 @@ Requires <code>Offers:Api:MemberOffers:LikeByMemberId</code> permit
   </span><span class="err">//</span><span class="w"> </span><span class="err">Empty</span><span class="w"> </span><span class="err">object</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>PUT</strong> <code class="prettyprint">v3/infinity-mall/members/me/offers/:id/unlike</code> [<a href="#v3-oauth2">OAuth</a>]</p>
+<p><strong>PUT</strong> <code class="prettyprint">v3/infinity-mall/members/me/offers/:id/unlike</code> [<a href="#oauth2">OAuth</a>]</p>
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:Like</code> permit
@@ -7627,7 +7627,7 @@ Requires <code>Offers:Api:MemberOffers:LikeByMemberId</code> permit
 
 <p>Revers marking offer as &ldquo;liked&rdquo; by user.</p>
 
-<h3 id="grant-offer"><a name="v3-grant-offer"></a> Grant offer</h3>
+<h3 id="grant-offer"><a name="grant-offer"></a> Grant offer</h3>
 
 <blockquote>
 <p>Example</p>
@@ -7653,7 +7653,7 @@ Requires <code>Offers:Api:MemberOffers:LikeByMemberId</code> permit
 <p>It may make sense to grant a same offer to one member multiple times when offer has limited number of uses. 
 In such case, each consecutive grant will increase the number of uses for this member.</p>
 
-<p>NOTE: This endpoint does not have <a href="#v3-oauth2">OAuth</a> version </p>
+<p>NOTE: This endpoint does not have <a href="#oauth2">OAuth</a> version </p>
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:GrantByMemberId</code> permit
@@ -7703,9 +7703,9 @@ Requires <code>Offers:Api:MemberOffers:GrantByMemberId</code> permit
 </tr>
 </tbody></table>
 
-          <h2 id="offers-events"><a name="v3-offers-events"></a> Offers Events</h2>
+          <h2 id="offers-events"><a name="offers-events"></a> Offers Events</h2>
 
-<h3 id="offerevent-model"><a name="v3-offer-event-model"></a> OfferEvent model</h3>
+<h3 id="offerevent-model"><a name="offer-event-model"></a> OfferEvent model</h3>
 
 <blockquote>
 <p>Offer Event example:</p>
@@ -7783,7 +7783,7 @@ Requires <code>Offers:Api:MemberOffers:GrantByMemberId</code> permit
 <p>Context describes in what circumstances the event has occurred. 
 For example, member clicked on a coupon that was displayed inside collection, the context should include this collection_id. </p>
 
-<h3 id="register-clicked-event"><a name="v3-offers-clicked"></a> Register &ldquo;clicked&rdquo; event</h3>
+<h3 id="register-clicked-event"><a name="offers-clicked"></a> Register &ldquo;clicked&rdquo; event</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -7819,7 +7819,7 @@ For example, member clicked on a coupon that was displayed inside collection, th
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{}</span><span class="w">
 </span></code></pre>
-<p><strong>POST</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/me/events/offers_clicked</code> [<a href="#v3-oauth2">OAuth</a>]</p>
+<p><strong>POST</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/me/events/offers_clicked</code> [<a href="#oauth2">OAuth</a>]</p>
 
 <p>Registers that OAuth member clicked on given offers.</p>
 
@@ -7835,7 +7835,7 @@ For example, member clicked on a coupon that was displayed inside collection, th
 <tr>
 <td>events</td>
 <td>Array<OfferEvent></td>
-<td>See <a href="#v3-offer-event-model">Offer Event</a></td>
+<td>See <a href="#offer-event-model">Offer Event</a></td>
 </tr>
 </tbody></table>
 
@@ -7843,7 +7843,7 @@ For example, member clicked on a coupon that was displayed inside collection, th
 Requires <code>Offers:Api:Events:Clicked</code> permit
 </aside>
 
-<h3 id="register-seen-event"><a name="v3-offers-seen"></a> Register &ldquo;seen&rdquo; event</h3>
+<h3 id="register-seen-event"><a name="offers-seen"></a> Register &ldquo;seen&rdquo; event</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -7879,7 +7879,7 @@ Requires <code>Offers:Api:Events:Clicked</code> permit
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{}</span><span class="w">
 </span></code></pre>
-<p><strong>POST</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/me/events/offers_seen</code> [<a href="#v3-oauth2">OAuth</a>]</p>
+<p><strong>POST</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/me/events/offers_seen</code> [<a href="#oauth2">OAuth</a>]</p>
 
 <p>Registers that OAuth member saw given offers.</p>
 
@@ -7899,7 +7899,7 @@ Seen events are automatically tracked when retrieving offer image/file within me
 <tr>
 <td>events</td>
 <td>Array <OfferEvent></td>
-<td>See <a href="#v3-offer-event-model">Offer Event</a></td>
+<td>See <a href="#offer-event-model">Offer Event</a></td>
 </tr>
 </tbody></table>
 
@@ -7907,18 +7907,18 @@ Seen events are automatically tracked when retrieving offer image/file within me
 Requires <code>Offers:Api:Events:Seen</code> permit
 </aside>
 
-          <h1 id="offers-admin-api"><a name="v3-offers-admin"></a>  Offers Admin API</h1>
+          <h1 id="offers-admin-api"><a name="offers-admin"></a>  Offers Admin API</h1>
 
 <aside class="warning">
 This API is in development. Therefore, it may not be ready for use and is a subject to change at any time.
 </aside>
 
 <p>This section describes endpoints destined for offers management. 
-Navigate to <a href="#v3-offers">Offers</a> section to see docs for member-related endpoints.</p>
+Navigate to <a href="#offers">Offers</a> section to see docs for member-related endpoints.</p>
 
 <h2 id="common-models">Common models</h2>
 
-<h3 id="offer"><a name="v3-admin-offer-model"></a> Offer</h3>
+<h3 id="offer"><a name="admin-offer-model"></a> Offer</h3>
 
 <blockquote>
 <p>Offer example:</p>
@@ -8070,13 +8070,13 @@ Navigate to <a href="#v3-offers">Offers</a> section to see docs for member-relat
 <td>tags</td>
 <td>string[]</td>
 <td>no (may be empty)</td>
-<td>List of tags identifiers associated with the offer. Information from <a href="#v3-list-translations">Translations &bull; List</a> should be used to display the tags.</td>
+<td>List of tags identifiers associated with the offer. Information from <a href="#list-translations">Translations &bull; List</a> should be used to display the tags.</td>
 </tr>
 <tr>
 <td>stores</td>
 <td>string[]</td>
 <td>no (may be empty)</td>
-<td>List of stores names associated with the offer. See <a href="#v3-store-list">Stores &bull; List</a>.</td>
+<td>List of stores names associated with the offer. See <a href="#store-list">Stores &bull; List</a>.</td>
 </tr>
 <tr>
 <td>audience_id</td>
@@ -8094,7 +8094,7 @@ Navigate to <a href="#v3-offers">Offers</a> section to see docs for member-relat
 <td>files</td>
 <td>File[]</td>
 <td>no</td>
-<td>A list of offer files - see <a href="#v3-file-model">File model</a></td>
+<td>A list of offer files - see <a href="#file-model">File model</a></td>
 </tr>
 <tr>
 <td>extras</td>
@@ -8106,7 +8106,7 @@ Navigate to <a href="#v3-offers">Offers</a> section to see docs for member-relat
 <td>display_schemas</td>
 <td>Object</td>
 <td>no</td>
-<td>Offer displays schemas - see <a href="#v3-offers-display-schemas">Offer display schemas</a></td>
+<td>Offer displays schemas - see <a href="#offers-display-schemas">Offer display schemas</a></td>
 </tr>
 <tr>
 <td>maximum_uses_per_user</td>
@@ -8148,26 +8148,26 @@ Navigate to <a href="#v3-offers">Offers</a> section to see docs for member-relat
 <td>image_template</td>
 <td>Object</td>
 <td>yes</td>
-<td>See <a href="#v3-offer-image-template-attr">image_template</a> below</td>
+<td>See <a href="#offer-image-template-attr">image_template</a> below</td>
 </tr>
 <tr>
 <td>image_template.rectangles</td>
 <td>ImageTemplateRectangle[]</td>
 <td>yes</td>
-<td>See <a href="#v3-offer-image-template-rectangle">ImageTemplate Rectangle</a></td>
+<td>See <a href="#offer-image-template-rectangle">ImageTemplate Rectangle</a></td>
 </tr>
 </tbody></table>
 
-<h4 id="image_template-attribute"><a name="v3-admin-offer-model-image-template"></a> <code class="prettyprint">image_template</code> attribute</h4>
+<h4 id="image_template-attribute"><a name="admin-offer-model-image-template"></a> <code class="prettyprint">image_template</code> attribute</h4>
 
 <p>With this object, you can determine that offer&rsquo;s image will be rendered according to the given definition.</p>
 
-<p>It reflects the <a href="#v3-offer-image-template-model">ImageTemplate model</a>. 
-However, it <strong>is not</strong> a reference to existing <a href="#v3-offer-image-template-record">ImageTemplate record</a>. </p>
+<p>It reflects the <a href="#offer-image-template-model">ImageTemplate model</a>. 
+However, it <strong>is not</strong> a reference to existing <a href="#offer-image-template-record">ImageTemplate record</a>. </p>
 
 <p>If you want to apply record&rsquo;s model to the offer, you must use some of its attributes (copy them) as the offer&rsquo;s <code class="prettyprint">image_template</code> attribute.</p>
 
-<h3 id="offerpayload"><a name="v3-admin-offer-payload"></a> OfferPayload</h3>
+<h3 id="offerpayload"><a name="admin-offer-payload"></a> OfferPayload</h3>
 
 <p>Following Offer attributes (described above) are available to set when creating or updating offers.</p>
 
@@ -8195,9 +8195,9 @@ However, it <strong>is not</strong> a reference to existing <a href="#v3-offer-i
 <li>image_template</li>
 </ul>
 
-<h3 id="imagetemplate"><a name="v3-offer-image-template"></a> ImageTemplate</h3>
+<h3 id="imagetemplate"><a name="offer-image-template"></a> ImageTemplate</h3>
 
-<h4 id="imagetemplate-model"><a name="v3-offer-image-template-model"></a> ImageTemplate Model</h4>
+<h4 id="imagetemplate-model"><a name="offer-image-template-model"></a> ImageTemplate Model</h4>
 
 <blockquote>
 <p>ImageTemplate model:</p>
@@ -8208,8 +8208,8 @@ However, it <strong>is not</strong> a reference to existing <a href="#v3-offer-i
 </span></code></pre>
 <p>Defines how offer image should be rendered. </p>
 
-<p>It&rsquo;s an interface used both by <a href="#v3-admin-offer-model-image-template">Offer&rsquo;s <code class="prettyprint">image_template</code> attribute</a> and 
-<a href="#v3-offer-image-template-record">ImageTemplate record</a>.</p>
+<p>It&rsquo;s an interface used both by <a href="#admin-offer-model-image-template">Offer&rsquo;s <code class="prettyprint">image_template</code> attribute</a> and 
+<a href="#offer-image-template-record">ImageTemplate record</a>.</p>
 
 <table><thead>
 <tr>
@@ -8221,7 +8221,7 @@ However, it <strong>is not</strong> a reference to existing <a href="#v3-offer-i
 <tr>
 <td>rectangles</td>
 <td>TemplateRectangle[]</td>
-<td>See <a href="#v3-offer-image-template-rectangle">ImageTemplate Rectangle</a></td>
+<td>See <a href="#offer-image-template-rectangle">ImageTemplate Rectangle</a></td>
 </tr>
 </tbody></table>
 
@@ -8229,11 +8229,11 @@ However, it <strong>is not</strong> a reference to existing <a href="#v3-offer-i
 
 <p>The output image is rendered from template after offer creation/update request, asynchronously. </p>
 
-<p>Rendering process draws (up to 4) <a href="#v3-offer-image-template-rectangle">rectangles</a> over a background image (not yet implemented).</p>
+<p>Rendering process draws (up to 4) <a href="#offer-image-template-rectangle">rectangles</a> over a background image (not yet implemented).</p>
 
 <p>When rendering is done, the image is stored as a regular file of the subject offer. </p>
 
-<h4 id="imagetemplate-record"><a name="v3-offer-image-template-record"></a> ImageTemplate Record</h4>
+<h4 id="imagetemplate-record"><a name="offer-image-template-record"></a> ImageTemplate Record</h4>
 
 <blockquote>
 <p>ImageTemplate record example:</p>
@@ -8247,7 +8247,7 @@ However, it <strong>is not</strong> a reference to existing <a href="#v3-offer-i
     </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-04T14:55:44.385Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Stores <code class="prettyprint">ImageTemplate</code> model (see above) for re-usage. Managed with <a href="#v3-image-templates">ImageTemplates API</a>.</p>
+<p>Stores <code class="prettyprint">ImageTemplate</code> model (see above) for re-usage. Managed with <a href="#image-templates">ImageTemplates API</a>.</p>
 
 <table><thead>
 <tr>
@@ -8274,7 +8274,7 @@ However, it <strong>is not</strong> a reference to existing <a href="#v3-offer-i
 <tr>
 <td>rectangles</td>
 <td>TemplateRectangle[]</td>
-<td>See <a href="#v3-offer-image-template-rectangle">ImageTemplate Rectangle</a></td>
+<td>See <a href="#offer-image-template-rectangle">ImageTemplate Rectangle</a></td>
 </tr>
 <tr>
 <td>created_at</td>
@@ -8294,7 +8294,7 @@ However, it <strong>is not</strong> a reference to existing <a href="#v3-offer-i
 
 <p>It&rsquo;s up to API client how to utilize this feature.</p>
 
-<h4 id="imagetemplate-record-payload"><a name="v3-offer-image-template-record-payload"></a> ImageTemplate Record payload</h4>
+<h4 id="imagetemplate-record-payload"><a name="offer-image-template-record-payload"></a> ImageTemplate Record payload</h4>
 
 <blockquote>
 <p>ImageTemplate record payload example:</p>
@@ -8332,11 +8332,11 @@ However, it <strong>is not</strong> a reference to existing <a href="#v3-offer-i
 <td>rectangles</td>
 <td>TemplateRectangle[]</td>
 <td>yes</td>
-<td>See <a href="#v3-offer-image-template-rectangle">ImageTemplate Rectangle</a></td>
+<td>See <a href="#offer-image-template-rectangle">ImageTemplate Rectangle</a></td>
 </tr>
 </tbody></table>
 
-<h3 id="imagetemplate-rectangle"><a name="v3-offer-image-template-rectangle"></a> ImageTemplate Rectangle</h3>
+<h3 id="imagetemplate-rectangle"><a name="offer-image-template-rectangle"></a> ImageTemplate Rectangle</h3>
 
 <blockquote>
 <p>ImageTemplateRectangle example:</p>
@@ -8427,11 +8427,11 @@ However, it <strong>is not</strong> a reference to existing <a href="#v3-offer-i
 <td>content</td>
 <td>string</td>
 <td>no</td>
-<td>Content to display, may contain <a href="#v3-image-template-mergefields">merge fields</a></td>
+<td>Content to display, may contain <a href="#image-template-mergefields">merge fields</a></td>
 </tr>
 </tbody></table>
 
-<h3 id="imagetemplate-merge-fields"><a name="v3-image-template-mergefields"></a> ImageTemplate Merge-fields</h3>
+<h3 id="imagetemplate-merge-fields"><a name="image-template-mergefields"></a> ImageTemplate Merge-fields</h3>
 
 <p>It is possible to use following merge-fields in order to inject offer attributes into the image generated from template.</p>
 
@@ -8459,9 +8459,9 @@ However, it <strong>is not</strong> a reference to existing <a href="#v3-offer-i
 </tr>
 </tbody></table>
 
-          <h2 id="offers"><a name="v3-offer-admin-offers"></a> Offers</h2>
+          <h2 id="offers"><a name="offer-admin-offers"></a> Offers</h2>
 
-<h3 id="get-offer"><a name="v3-get-offer"></a> Get offer</h3>
+<h3 id="get-offer"><a name="get-offer"></a> Get offer</h3>
 
 <p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/offers/:id</code></p>
 
@@ -8476,7 +8476,7 @@ However, it <strong>is not</strong> a reference to existing <a href="#v3-offer-i
     -H <span class="s1">'x-user-agent: CURL manual test'</span>
 </code></pre>
 <blockquote>
-<p>When successful (200), returns an Offer object under &ldquo;offer&rdquo; key. See <a href="#v3-admin-offer-model">Offer model</a></p>
+<p>When successful (200), returns an Offer object under &ldquo;offer&rdquo; key. See <a href="#admin-offer-model">Offer model</a></p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"offer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -8500,7 +8500,7 @@ However, it <strong>is not</strong> a reference to existing <a href="#v3-offer-i
 <td>offer</td>
 <td>Offer</td>
 <td>no</td>
-<td>See <a href="#v3-admin-offer-model">Offer model</a></td>
+<td>See <a href="#admin-offer-model">Offer model</a></td>
 </tr>
 </tbody></table>
 
@@ -8508,7 +8508,7 @@ However, it <strong>is not</strong> a reference to existing <a href="#v3-offer-i
 Requires <code>Offers:Api:Offers:Get</code> permit
 </aside>
 
-<h3 id="list-offers"><a name="v3-list-offers"></a> List offers</h3>
+<h3 id="list-offers"><a name="list-offers"></a> List offers</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -8522,7 +8522,7 @@ Requires <code>Offers:Api:Offers:Get</code> permit
 </code></pre>
 <blockquote>
 <p>When successful (200), returns a list of offers and pagination info. 
-  See <a href="#v3-admin-offer-model">Offer model</a> and <a href="#pagination-json-model">Pagination info model</a></p>
+  See <a href="#admin-offer-model">Offer model</a> and <a href="#pagination-json-model">Pagination info model</a></p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"offers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -8681,7 +8681,7 @@ Requires <code>Offers:Api:Offers:Get</code> permit
 <td>offers</td>
 <td>Offer[]</td>
 <td>no (may be empty)</td>
-<td>See <a href="#v3-admin-offer-model">Offer model</a></td>
+<td>See <a href="#admin-offer-model">Offer model</a></td>
 </tr>
 <tr>
 <td>pagination_info</td>
@@ -8695,7 +8695,7 @@ Requires <code>Offers:Api:Offers:Get</code> permit
 Requires <code>Offers:Api:Offers:List</code> permit
 </aside>
 
-<h3 id="create-offers"><a name="v3-create-offers"></a> Create offers</h3>
+<h3 id="create-offers"><a name="create-offers"></a> Create offers</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -8750,7 +8750,7 @@ Requires <code>Offers:Api:Offers:List</code> permit
 <tr>
 <td>offers</td>
 <td>OfferPayload[]</td>
-<td>List of offers to create. See <a href="#v3-admin-offer-payload">Offer payload</a></td>
+<td>List of offers to create. See <a href="#admin-offer-payload">Offer payload</a></td>
 </tr>
 </tbody></table>
 
@@ -8784,7 +8784,7 @@ Requires <code>Offers:Api:Offers:List</code> permit
 Requires <code>Offers:Api:Offers:Create</code> permit
 </aside>
 
-<h3 id="update-offers"><a name="v3-update-offers"></a> Update offers</h3>
+<h3 id="update-offers"><a name="update-offers"></a> Update offers</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -8841,7 +8841,7 @@ Update is not partial, so all attributes that aren&rsquo;t present in the payloa
 <tr>
 <td>offers</td>
 <td>OfferPayload[]</td>
-<td>List of offers to update. See <a href="#v3-admin-offer-payload">Offer payload</a>.</td>
+<td>List of offers to update. See <a href="#admin-offer-payload">Offer payload</a>.</td>
 </tr>
 </tbody></table>
 
@@ -8875,7 +8875,7 @@ Update is not partial, so all attributes that aren&rsquo;t present in the payloa
 Requires <code>Offers:Api:Offers:Update</code> permit
 </aside>
 
-<h3 id="clone-offers"><a name="v3-clone-offers"></a> Clone offers</h3>
+<h3 id="clone-offers"><a name="clone-offers"></a> Clone offers</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -8939,7 +8939,7 @@ Requires <code>Offers:Api:Offers:Update</code> permit
 Requires <code>Offers:Api:Offers:Clone</code> permit
 </aside>
 
-<h3 id="delete-offers"><a name="v3-update-offers"></a> Delete offers</h3>
+<h3 id="delete-offers"><a name="update-offers"></a> Delete offers</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -8987,11 +8987,11 @@ Requires <code>Offers:Api:Offers:Clone</code> permit
 Requires <code>Offers:Api:Offers:Destroy</code> permit
 </aside>
 
-          <h2 id="imagetemplates"><a name="v3-image-templates"></a> ImageTemplates</h2>
+          <h2 id="imagetemplates"><a name="image-templates"></a> ImageTemplates</h2>
 
-<p>This API allows managing <a href="#v3-offer-image-template-record">ImageTemplates records</a>.</p>
+<p>This API allows managing <a href="#offer-image-template-record">ImageTemplates records</a>.</p>
 
-<h3 id="list"><a name="v3-offer-admin-image-templates-list"></a> List</h3>
+<h3 id="list"><a name="offer-admin-image-templates-list"></a> List</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -9002,7 +9002,7 @@ Requires <code>Offers:Api:Offers:Destroy</code> permit
 --header <span class="s1">'x-user-agent: cURL Manual Testing'</span>
 </code></pre>
 <blockquote>
-<p>Returns object containing <a href="#v3-offer-image-template-record">image_templates</a> and <a href="#v3-pagination-model">pagination_info</a></p>
+<p>Returns object containing <a href="#offer-image-template-record">image_templates</a> and <a href="#pagination-model">pagination_info</a></p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"image_templates"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="err">//</span><span class="w"> </span><span class="err">List</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">image_templates</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"ImageTemplate record"</span><span class="w">
@@ -9055,12 +9055,12 @@ Requires <code>Offers:Api:Offers:Destroy</code> permit
 <tr>
 <td>image_templates</td>
 <td>Array<ImageTemplate></td>
-<td>Array of <a href="#v3-offer-image-template-record">ImageTemplate</a></td>
+<td>Array of <a href="#offer-image-template-record">ImageTemplate</a></td>
 </tr>
 <tr>
 <td>pagination_info</td>
 <td>Object</td>
-<td><a href="#v3-pagination-model">Pagination</a> object</td>
+<td><a href="#pagination-model">Pagination</a> object</td>
 </tr>
 </tbody></table>
 
@@ -9068,7 +9068,7 @@ Requires <code>Offers:Api:Offers:Destroy</code> permit
 Requires <code>Offers:Api:ImageTemplates:List</code> permit
 </aside>
 
-<h3 id="get"><a name="v3-offer-admin-image-templates-get"></a> Get</h3>
+<h3 id="get"><a name="offer-admin-image-templates-get"></a> Get</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -9079,7 +9079,7 @@ Requires <code>Offers:Api:ImageTemplates:List</code> permit
 --header <span class="s1">'x-user-agent: cURL Manual Testing'</span>
 </code></pre>
 <blockquote>
-<p>Returns object containing <a href="#v3-offer-image-template-record">image template</a></p>
+<p>Returns object containing <a href="#offer-image-template-record">image template</a></p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"image_template"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Image</span><span class="w"> </span><span class="err">template</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"ImageTemplate record"</span><span class="w">
@@ -9115,7 +9115,7 @@ Requires <code>Offers:Api:ImageTemplates:List</code> permit
 <tr>
 <td>image_template</td>
 <td>ImageTemplate</td>
-<td><a href="#v3-offer-image-template-record">ImageTemplate</a></td>
+<td><a href="#offer-image-template-record">ImageTemplate</a></td>
 </tr>
 </tbody></table>
 
@@ -9137,7 +9137,7 @@ Requires <code>Offers:Api:ImageTemplates:List</code> permit
 Requires <code>Offers:Api:ImageTemplates:Get</code> permit
 </aside>
 
-<h3 id="create"><a name="v3-offer-admin-image-templates-create"></a> Create</h3>
+<h3 id="create"><a name="offer-admin-image-templates-create"></a> Create</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -9170,7 +9170,7 @@ Requires <code>Offers:Api:ImageTemplates:Get</code> permit
 }'</span>
 </code></pre>
 <blockquote>
-<p>Returns object containing created <a href="#v3-offer-image-template-record">image template</a></p>
+<p>Returns object containing created <a href="#offer-image-template-record">image template</a></p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"image_template"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Image</span><span class="w"> </span><span class="err">templates</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"ImageTemplate record"</span><span class="w">
@@ -9190,7 +9190,7 @@ Requires <code>Offers:Api:ImageTemplates:Get</code> permit
 </thead><tbody>
 <tr>
 <td>image_template</td>
-<td><a href="#v3-offer-image-template-record-payload">ImageTemplate Payload</a></td>
+<td><a href="#offer-image-template-record-payload">ImageTemplate Payload</a></td>
 </tr>
 </tbody></table>
 
@@ -9206,7 +9206,7 @@ Requires <code>Offers:Api:ImageTemplates:Get</code> permit
 <tr>
 <td>image_template</td>
 <td>ImageTemplate</td>
-<td>Created <a href="#v3-offer-image-template-record">ImageTemplate</a></td>
+<td>Created <a href="#offer-image-template-record">ImageTemplate</a></td>
 </tr>
 </tbody></table>
 
@@ -9220,7 +9220,7 @@ Requires <code>Offers:Api:ImageTemplates:Get</code> permit
 </thead><tbody>
 <tr>
 <td><code class="prettyprint">422</code></td>
-<td>Invalid parameters - see <a href="#v3-invalid-parameters-errors-model">Invalid parameters errors model</a></td>
+<td>Invalid parameters - see <a href="#invalid-parameters-errors-model">Invalid parameters errors model</a></td>
 </tr>
 </tbody></table>
 
@@ -9228,7 +9228,7 @@ Requires <code>Offers:Api:ImageTemplates:Get</code> permit
 Requires <code>Offers:Api:ImageTemplates:Create</code> permit
 </aside>
 
-<h3 id="update"><a name="v3-offer-admin-image-templates-update"></a> Update</h3>
+<h3 id="update"><a name="offer-admin-image-templates-update"></a> Update</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -9261,7 +9261,7 @@ Requires <code>Offers:Api:ImageTemplates:Create</code> permit
 }'</span>
 </code></pre>
 <blockquote>
-<p>Returns object containing updated <a href="#v3-offer-image-template-record">image template</a></p>
+<p>Returns object containing updated <a href="#offer-image-template-record">image template</a></p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"image_template"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Image</span><span class="w"> </span><span class="err">templates</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"ImageTemplate record"</span><span class="w">
@@ -9281,7 +9281,7 @@ Requires <code>Offers:Api:ImageTemplates:Create</code> permit
 </thead><tbody>
 <tr>
 <td>image_template</td>
-<td><a href="#v3-offer-image-template-record-payload">ImageTemplate Payload</a></td>
+<td><a href="#offer-image-template-record-payload">ImageTemplate Payload</a></td>
 </tr>
 </tbody></table>
 
@@ -9297,7 +9297,7 @@ Requires <code>Offers:Api:ImageTemplates:Create</code> permit
 <tr>
 <td>image_template</td>
 <td>ImageTemplate</td>
-<td>Created <a href="#v3-offer-image-template-record">ImageTemplate</a></td>
+<td>Created <a href="#offer-image-template-record">ImageTemplate</a></td>
 </tr>
 </tbody></table>
 
@@ -9315,7 +9315,7 @@ Requires <code>Offers:Api:ImageTemplates:Create</code> permit
 </tr>
 <tr>
 <td><code class="prettyprint">422</code></td>
-<td>Invalid parameters - see <a href="#v3-invalid-parameters-errors-model">Invalid parameters errors model</a></td>
+<td>Invalid parameters - see <a href="#invalid-parameters-errors-model">Invalid parameters errors model</a></td>
 </tr>
 </tbody></table>
 
@@ -9323,7 +9323,7 @@ Requires <code>Offers:Api:ImageTemplates:Create</code> permit
 Requires <code>Offers:Api:ImageTemplates:Update</code> permit
 </aside>
 
-<h3 id="destroy"><a name="v3-offer-admin-image-templates-destroy"></a> Destroy</h3>
+<h3 id="destroy"><a name="offer-admin-image-templates-destroy"></a> Destroy</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -9335,7 +9335,7 @@ Requires <code>Offers:Api:ImageTemplates:Update</code> permit
 --header <span class="s1">'content-type: application/json'</span>
 </code></pre>
 <blockquote>
-<p>Returns object containing deleted <a href="#v3-offer-image-template-record">image template</a></p>
+<p>Returns object containing deleted <a href="#offer-image-template-record">image template</a></p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"image_template"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Image</span><span class="w"> </span><span class="err">templates</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"ImageTemplate record"</span><span class="w">
@@ -9371,7 +9371,7 @@ Requires <code>Offers:Api:ImageTemplates:Update</code> permit
 <tr>
 <td>image_template</td>
 <td>ImageTemplate</td>
-<td>The deleted <a href="#v3-offer-image-template-record">ImageTemplate</a></td>
+<td>The deleted <a href="#offer-image-template-record">ImageTemplate</a></td>
 </tr>
 </tbody></table>
 
@@ -9409,7 +9409,7 @@ Points may expire after some time.</p>
 <p>Every Loyalty Club that has Boostcom Rewards enabled, has defined list of achievements that have rules attached to them.
 The rules are described below.</p>
 
-<h3 id="achievement-model"><a name="v3-rewards-program-achievements"></a> Achievement model</h3>
+<h3 id="achievement-model"><a name="rewards-program-achievements"></a> Achievement model</h3>
 
 <table><thead>
 <tr>
@@ -9421,7 +9421,7 @@ The rules are described below.</p>
 <tr>
 <td>type</td>
 <td>string</td>
-<td>see <a href="#v3-rewards-program-achievement-types">Achievement types</a></td>
+<td>see <a href="#rewards-program-achievement-types">Achievement types</a></td>
 </tr>
 <tr>
 <td>points</td>
@@ -9450,7 +9450,7 @@ The rules are described below.</p>
 </tr>
 </tbody></table>
 
-<h4 id="achievement-types"><a name="v3-rewards-program-achievement-types"></a> Achievement types</h4>
+<h4 id="achievement-types"><a name="rewards-program-achievement-types"></a> Achievement types</h4>
 
 <table><thead>
 <tr>
@@ -9496,7 +9496,7 @@ The rules are described below.</p>
 </tr>
 </tbody></table>
 
-<h3 id="member-levels"><a name="v3-rewards-program-levels-program"></a> Member levels</h3>
+<h3 id="member-levels"><a name="rewards-program-levels-program"></a> Member levels</h3>
 
 <blockquote>
 <p>Example configuration for regular levels</p>
@@ -9531,7 +9531,7 @@ The rules are described below.</p>
     </span><span class="s2">"maximum_points"</span><span class="p">:</span><span class="w"> </span><span class="mi">1500</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Loyalty Club may have members level defined (available in <a href="#v3-rewards-program-info">Rewards Program &bull; Get info</a> response).
+<p>Loyalty Club may have members level defined (available in <a href="#rewards-program-info">Rewards Program &bull; Get info</a> response).
 There are two types of them: <code class="prettyprint">regular</code> and <code class="prettyprint">virtual_level</code>.</p>
 
 <h4 id="regular-levels">Regular levels</h4>
@@ -9564,7 +9564,7 @@ Levels are returned in ascending order, sorted by the <code class="prettyprint">
 
 <h2 id="rewards-program">Rewards Program</h2>
 
-<h3 id="get-info"><a name="v3-rewards-program-info"></a> Get info</h3>
+<h3 id="get-info"><a name="rewards-program-info"></a> Get info</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -9633,7 +9633,7 @@ Levels are returned in ascending order, sorted by the <code class="prettyprint">
 <tr>
 <td>achievements</td>
 <td>Array<Achievement></td>
-<td>List of Achievement objects - see <a href="#v3-rewards-program-achievements">Achievements</a></td>
+<td>List of Achievement objects - see <a href="#rewards-program-achievements">Achievements</a></td>
 </tr>
 <tr>
 <td>reward_activation_time</td>
@@ -9643,7 +9643,7 @@ Levels are returned in ascending order, sorted by the <code class="prettyprint">
 <tr>
 <td>levels_program</td>
 <td>object</td>
-<td>Definition of member levels - see <a href="#v3-rewards-program-levels-program">Levels</a>. When null, there are no levels.</td>
+<td>Definition of member levels - see <a href="#rewards-program-levels-program">Levels</a>. When null, there are no levels.</td>
 </tr>
 </tbody></table>
 
@@ -9651,7 +9651,7 @@ Levels are returned in ascending order, sorted by the <code class="prettyprint">
 Requires <code>Rewards:Api:Program:GetInfo</code> permit
 </aside>
 
-<h3 id="join"><a name="v3-rewards-program-join"></a> Join</h3>
+<h3 id="join"><a name="rewards-program-join"></a> Join</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -9675,13 +9675,13 @@ Requires <code>Rewards:Api:Program:GetInfo</code> permit
 
 <p>Registers current member in Rewards Program. This results granting &ldquo;rewards_enrollment&rdquo; consent to user.</p>
 
-<p>As a member-related action, it requires member authorization. See <a href="#v3-oauth2">OAuth</a>.</p>
+<p>As a member-related action, it requires member authorization. See <a href="#oauth2">OAuth</a>.</p>
 
 <aside class="notice">
 Requires <code>Rewards:Api:OAuth:Memberships:Create</code> permit
 </aside>
 
-<h3 id="leave"><a name="v3-rewards-program-leave"></a> Leave</h3>
+<h3 id="leave"><a name="rewards-program-leave"></a> Leave</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -9706,13 +9706,13 @@ Requires <code>Rewards:Api:OAuth:Memberships:Create</code> permit
 <p>Removes current member from Rewards Program. This results in removing &ldquo;rewards_enrollment&rdquo; consent from member
 and <strong>deletion of all points and transaction from Rewards Program.</strong></p>
 
-<p>As a member-related action, it requires member authorization. See <a href="#v3-oauth2">OAuth</a>.</p>
+<p>As a member-related action, it requires member authorization. See <a href="#oauth2">OAuth</a>.</p>
 
 <aside class="notice">
 Requires <code>Rewards:Api:OAuth:Memberships:Delete</code> permit
 </aside>
 
-<h3 id="get-status"><a name="v3-rewards-program-status"></a> Get status</h3>
+<h3 id="get-status"><a name="rewards-program-status"></a> Get status</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -9793,7 +9793,7 @@ Requires <code>Rewards:Api:OAuth:Memberships:Delete</code> permit
 
 <p>Returns Rewards Program status for current member.</p>
 
-<p>As a member-related action, it requires member authorization. See <a href="#v3-oauth2">OAuth</a>.</p>
+<p>As a member-related action, it requires member authorization. See <a href="#oauth2">OAuth</a>.</p>
 
 <h4 id="query-parameters">Query Parameters</h4>
 
@@ -9854,7 +9854,7 @@ Requires <code>Rewards:Api:OAuth:Memberships:Delete</code> permit
 <tr>
 <td>pagination_info</td>
 <td>Object</td>
-<td><a href="#v3-pagination-model">Pagination</a> object describing transactions list</td>
+<td><a href="#pagination-model">Pagination</a> object describing transactions list</td>
 </tr>
 </tbody></table>
 
@@ -9934,7 +9934,7 @@ Requires <code>Rewards:Api:OAuth:Memberships:Delete</code> permit
 <tr>
 <td>achievement</td>
 <td>achievement_type</td>
-<td>Type of achievement that granted the points - see <a href="#v3-rewards-program-achievement-types">Achievement types</a></td>
+<td>Type of achievement that granted the points - see <a href="#rewards-program-achievement-types">Achievement types</a></td>
 </tr>
 <tr>
 <td>reward_purchase</td>
@@ -9952,7 +9952,7 @@ Requires <code>Rewards:Api:OAuth:Memberships:Delete</code> permit
 Requires <code>Rewards:Api:OAuth:Memberships:CheckStatus</code> permit
 </aside>
 
-<h3 id="get-status-by-member-id"><a name="v3-rewards-program-status-by-member-id"></a> Get status by member ID</h3>
+<h3 id="get-status-by-member-id"><a name="rewards-program-status-by-member-id"></a> Get status by member ID</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -9965,19 +9965,19 @@ Requires <code>Rewards:Api:OAuth:Memberships:CheckStatus</code> permit
     -H <span class="s1">'x-user-agent: CURL manual test'</span>
 </code></pre>
 <blockquote>
-<p>Returns response as in <a href="$v3-rewards-program-status">Rewards Program &bull; Get Status</a></p>
+<p>Returns response as in <a href="$rewards-program-status">Rewards Program &bull; Get Status</a></p>
 </blockquote>
 
 <p><strong>GET</strong> <code class="prettyprint">v3/infinity-mall/members/:id/rewards-program/status</code></p>
 
 <p>Returns Rewards Program status for member identified by given ID.
-Works just the same as <a href="#v3-rewards-program-status">Rewards Program &bull; Get Status</a>.</p>
+Works just the same as <a href="#rewards-program-status">Rewards Program &bull; Get Status</a>.</p>
 
 <aside class="notice">
 Requires <code>Rewards:Api:Memberships:CheckStatus</code> permit
 </aside>
 
-<h3 id="achievements-summary"><a name="v3-rewards-program-achievements-summary"></a> Achievements summary</h3>
+<h3 id="achievements-summary"><a name="rewards-program-achievements-summary"></a> Achievements summary</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -10038,7 +10038,7 @@ Requires <code>Rewards:Api:Memberships:CheckStatus</code> permit
 
 <p>Returns a summary for achievements made by member, grouped by type and month.</p>
 
-<p>As a member-related action, it requires member authorization. See <a href="#v3-oauth2">OAuth</a>.</p>
+<p>As a member-related action, it requires member authorization. See <a href="#oauth2">OAuth</a>.</p>
 
 <h4 id="query-parameters">Query Parameters</h4>
 
@@ -10072,7 +10072,7 @@ Requires <code>Rewards:Api:Memberships:CheckStatus</code> permit
 <tr>
 <td>type</td>
 <td>string</td>
-<td>See: <a href="#v3-rewards-program-achievement-types">Achievement types</a></td>
+<td>See: <a href="#rewards-program-achievement-types">Achievement types</a></td>
 </tr>
 <tr>
 <td>times_achieved</td>
@@ -10123,7 +10123,7 @@ Requires <code>Rewards:Api:OAuth:Memberships:CheckStatus</code> permit
 
           <h2 id="rewards">Rewards</h2>
 
-<h3 id="list"><a name="v3-rewards-list"></a> List</h3>
+<h3 id="list"><a name="rewards-list"></a> List</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -10180,7 +10180,7 @@ Requires <code>Rewards:Api:OAuth:Memberships:CheckStatus</code> permit
 
 <p>Returns list of rewards available to purchase by member.</p>
 
-<p>As a member-related action, it requires member authorization. See <a href="#v3-oauth2">OAuth</a>.</p>
+<p>As a member-related action, it requires member authorization. See <a href="#oauth2">OAuth</a>.</p>
 
 <h4 id="response-json-object">Response (JSON object)</h4>
 
@@ -10198,7 +10198,7 @@ Requires <code>Rewards:Api:OAuth:Memberships:CheckStatus</code> permit
 </tr>
 </tbody></table>
 
-<h4 id="reward"><a name="v3-reward-model"></a> Reward</h4>
+<h4 id="reward"><a name="reward-model"></a> Reward</h4>
 
 <table><thead>
 <tr>
@@ -10230,7 +10230,7 @@ Requires <code>Rewards:Api:OAuth:Memberships:CheckStatus</code> permit
 <tr>
 <td>required_member_level</td>
 <td>string</td>
-<td>(optional) Minimal level name the members needs to have to be able to purchase the reward. See <a href="#v3-rewards-program-levels-program">Levels</a></td>
+<td>(optional) Minimal level name the members needs to have to be able to purchase the reward. See <a href="#rewards-program-levels-program">Levels</a></td>
 </tr>
 <tr>
 <td>remaining_stock</td>
@@ -10240,7 +10240,7 @@ Requires <code>Rewards:Api:OAuth:Memberships:CheckStatus</code> permit
 <tr>
 <td>files</td>
 <td>Array</td>
-<td>A list of Reward Files - see <a href="#v3-file-model">File model</a></td>
+<td>A list of Reward Files - see <a href="#file-model">File model</a></td>
 </tr>
 </tbody></table>
 
@@ -10248,7 +10248,7 @@ Requires <code>Rewards:Api:OAuth:Memberships:CheckStatus</code> permit
 Requires <code>Rewards:Api:OAuth:Rewards:List</code> permit
 </aside>
 
-<h3 id="list-purchased"><a name="v3-rewards-list-purchased"></a> List purchased</h3>
+<h3 id="list-purchased"><a name="rewards-list-purchased"></a> List purchased</h3>
 <pre class="highlight shell tab-shell"><code>curl <span class="se">\</span>
 <span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/members/me/rewards-program/rewards/purchased"</span> <span class="se">\</span>
     -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
@@ -10302,13 +10302,13 @@ Requires <code>Rewards:Api:OAuth:Rewards:List</code> permit
 
 <p>Returns list of rewards purchased by member.</p>
 
-<p>As a member-related action, it requires member authorization. See <a href="#v3-oauth2">OAuth</a>.</p>
+<p>As a member-related action, it requires member authorization. See <a href="#oauth2">OAuth</a>.</p>
 
 <h4 id="response-json-object">Response (JSON object)</h4>
 
-<p>Response looks as in <a href="#v3-rewards-list">Reward list</a>, but with reward usage instead of purchasing info</p>
+<p>Response looks as in <a href="#rewards-list">Reward list</a>, but with reward usage instead of purchasing info</p>
 
-<h4 id="usage"><a name="v3-rewards-usage"></a> Usage</h4>
+<h4 id="usage"><a name="rewards-usage"></a> Usage</h4>
 
 <table><thead>
 <tr>
@@ -10338,7 +10338,7 @@ Requires <code>Rewards:Api:OAuth:Rewards:List</code> permit
 Requires <code>Rewards:Api:OAuth:Rewards:ListPurchased</code> permit
 </aside>
 
-<h3 id="purchase"><a name="v3-rewards-purchase"></a> Purchase</h3>
+<h3 id="purchase"><a name="rewards-purchase"></a> Purchase</h3>
 <pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
 <span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/members/me/rewards-program/rewards/153/purchase"</span> <span class="se">\</span>
     -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
@@ -10358,7 +10358,7 @@ Requires <code>Rewards:Api:OAuth:Rewards:ListPurchased</code> permit
 
 <p>Adds one of available rewards to member&rsquo;s purchased list and reduces member&rsquo;s balance by price.</p>
 
-<p>As a member-related action, it requires member authorization. See <a href="#v3-oauth2">OAuth</a>.</p>
+<p>As a member-related action, it requires member authorization. See <a href="#oauth2">OAuth</a>.</p>
 
 <h4 id="error-responses">Error responses</h4>
 
@@ -10395,7 +10395,7 @@ Requires <code>Rewards:Api:OAuth:Rewards:ListPurchased</code> permit
 Requires <code>Rewards:Api:OAuth:Rewards:Purchase</code> permit
 </aside>
 
-<h3 id="use"><a name="v3-rewards-use"></a> Use</h3>
+<h3 id="use"><a name="rewards-use"></a> Use</h3>
 <pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
 <span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/members/me/rewards-program/rewards/153/use"</span> <span class="se">\</span>
     -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
@@ -10419,7 +10419,7 @@ Requires <code>Rewards:Api:OAuth:Rewards:Purchase</code> permit
 
 <p>Uses (activates) one of usable rewards purchased by member.</p>
 
-<p>As a member-related action, it requires member authorization. See <a href="#v3-oauth2">OAuth</a>.</p>
+<p>As a member-related action, it requires member authorization. See <a href="#oauth2">OAuth</a>.</p>
 
 <h4 id="response-json-object">Response (JSON object)</h4>
 
@@ -10433,7 +10433,7 @@ Requires <code>Rewards:Api:OAuth:Rewards:Purchase</code> permit
 <tr>
 <td>usage</td>
 <td>Object</td>
-<td>See <a href="#v3-rewards-usage">Reward Usage</a></td>
+<td>See <a href="#rewards-usage">Reward Usage</a></td>
 </tr>
 </tbody></table>
 
@@ -10476,7 +10476,7 @@ Requires <code>Rewards:Api:OAuth:Rewards:Use</code> permit
 
 <h2 id="transactions">Transactions</h2>
 
-<h3 id="create"><a name="v3-transactions-create"></a> Create</h3>
+<h3 id="create"><a name="transactions-create"></a> Create</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -10868,7 +10868,7 @@ Requires <code>Rewards:Api:OAuth:Rewards:Use</code> permit
 Requires <code>Transaction:Api:Transactions:Create</code> and <code>BL:Api:Members:Get</code> permits
 </aside>
 
-<h3 id="list"><a name="v3-transactions-list"></a> List</h3>
+<h3 id="list"><a name="transactions-list"></a> List</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -11001,7 +11001,7 @@ Requires <code>Transaction:Api:Transactions:Create</code> and <code>BL:Api:Membe
 Requires <code>Transaction:Api:Transactions:Read</code> permit
 </aside> 
 
-<h3 id="get"><a name="v3-transactions-get"></a> Get</h3>
+<h3 id="get"><a name="transactions-get"></a> Get</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -11076,7 +11076,7 @@ Requires <code>Transaction:Api:Transactions:Read</code> permit
 
 <h2 id="categories">Categories</h2>
 
-<h3 id="list"><a name="v3-transactions-categories-get"></a> List</h3>
+<h3 id="list"><a name="transactions-categories-get"></a> List</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -11189,7 +11189,7 @@ Requires <code>Transaction:Api:Transactions:Read</code> permit
 
 <h2 id="events">Events</h2>
 
-<h3 id="create-events"><a name="v3-transactions-events-create"></a> Create events</h3>
+<h3 id="create-events"><a name="transactions-events-create"></a> Create events</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -11491,7 +11491,7 @@ Requires <code>Transaction:Api:Events:Create</code> permit
 
           <h2 id="points">Points</h2>
 
-<h3 id="create"><a name="v3-points-create"></a> Create</h3>
+<h3 id="create"><a name="points-create"></a> Create</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -11719,7 +11719,7 @@ Requires <code>Transaction:Api:Events:Create</code> permit
 Requires <code>Transaction:Api:Points:Create</code>
 </aside>
 
-<h3 id="member-points"><a name="v3-member-points"></a> Member points</h3>
+<h3 id="member-points"><a name="member-points"></a> Member points</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -11791,7 +11791,7 @@ Requires <code>Transaction:Api:Points:Create</code>
 Requires <code>Transaction:Api:Points:Get</code> permit
 </aside>
 
-<h3 id="member-points-list"><a name="v3-member-points-list"></a> Member points list</h3>
+<h3 id="member-points-list"><a name="member-points-list"></a> Member points list</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -11907,7 +11907,7 @@ Requires <code>Transaction:Api:Points:List</code> permit
 
 <h2 id="stores">Stores</h2>
 
-<h3 id="list"><a name="v3-store-list"></a> List</h3>
+<h3 id="list"><a name="store-list"></a> List</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -12036,7 +12036,7 @@ Requires <code>Transaction:Api:Points:List</code> permit
 Requires <code>Stores:Api:Stores:Get</code> permit
 </aside> 
 
-<h3 id="get"><a name="v3-store-get"></a> Get</h3>
+<h3 id="get"><a name="store-get"></a> Get</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -12155,7 +12155,7 @@ Requires <code>Stores:Api:Stores:Get</code> permit
 Requires <code>Stores:Api:Stores:Get</code> permit
 </aside>
 
-<h3 id="create"><a name="v3-store-create"></a> Create</h3>
+<h3 id="create"><a name="store-create"></a> Create</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -12358,7 +12358,7 @@ Requires <code>Stores:Api:Stores:Get</code> permit
 Requires <code>Stores:Api:Stores:Create</code>
 </aside>
 
-<h3 id="update"><a name="v3-store-update"></a> Update</h3>
+<h3 id="update"><a name="store-update"></a> Update</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -12583,7 +12583,7 @@ Requires <code>Stores:Api:Stores:Create</code>
 Requires <code>Stores:Api:Stores:Update</code>
 </aside>
 
-<h3 id="delete"><a name="v3-store-delete"></a> Delete</h3>
+<h3 id="delete"><a name="store-delete"></a> Delete</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -12674,9 +12674,9 @@ Requires <code>Stores:Api:Stores:Update</code>
 Requires <code>Stores:Api:Stores:Delete</code>
 </aside>
 
-<h2 id="categories"><a name="v3-stores-categories"></a> Categories</h2>
+<h2 id="categories"><a name="stores-categories"></a> Categories</h2>
 
-<h3 id="list"><a name="v3-store-categories-list"></a> List</h3>
+<h3 id="list"><a name="store-categories-list"></a> List</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -12707,7 +12707,7 @@ Requires <code>Stores:Api:Zones:Get</code> permit
 
 <h2 id="zones">Zones</h2>
 
-<h3 id="list"><a name="v3-store-zones-list"></a> List</h3>
+<h3 id="list"><a name="store-zones-list"></a> List</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -12738,7 +12738,7 @@ Requires <code>Stores:Api:Zones:Get</code> permit
 
           <h2 id="departments">Departments</h2>
 
-<h3 id="list"><a name="v3-department-list"></a> List</h3>
+<h3 id="list"><a name="department-list"></a> List</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -12769,7 +12769,7 @@ Requires <code>Stores:Api:Zones:Get</code> permit
 Requires <code>Stores:Api:Departments:Get</code> permit
 </aside> 
 
-<h3 id="get"><a name="v3-department-get"></a> Get</h3>
+<h3 id="get"><a name="department-get"></a> Get</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -12842,7 +12842,7 @@ Requires <code>Stores:Api:Departments:Get</code> permit
 Requires <code>Stores:Api:Departments:Get</code> permit
 </aside>
 
-<h3 id="create"><a name="v3-department-create"></a> Create</h3>
+<h3 id="create"><a name="department-create"></a> Create</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -12943,7 +12943,7 @@ Requires <code>Stores:Api:Departments:Get</code> permit
 Requires <code>Stores:Api:Departments:Create</code>
 </aside>
 
-<h3 id="update"><a name="v3-department-update"></a> Update</h3>
+<h3 id="update"><a name="department-update"></a> Update</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -13074,7 +13074,7 @@ This API is in development. Therefore, it may not be ready for use and is a subj
 
 <h2 id="events">Events</h2>
 
-<h3 id="list"><a name="v3-events-list"></a> List</h3>
+<h3 id="list"><a name="events-list"></a> List</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -13114,7 +13114,7 @@ This API is in development. Therefore, it may not be ready for use and is a subj
 Requires <code>Events:Api:Events:Get</code> permit
 </aside>
 
-<h3 id="get"><a name="v3-event-get"></a> Get</h3>
+<h3 id="get"><a name="event-get"></a> Get</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -13152,7 +13152,7 @@ Requires <code>Events:Api:Events:Get</code> permit
 Requires <code>Events:Api:Events:Get</code> permit
 </aside>
 
-<h3 id="member-validation"><a name="v3-events-validate-member"></a> Member validation</h3>
+<h3 id="member-validation"><a name="events-validate-member"></a> Member validation</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -13230,7 +13230,7 @@ Requires <code>Events:Api:Validation:Create</code> permit
 
 <h2 id="checkins">Checkins</h2>
 
-<h3 id="create"><a name="v3-events-checkin-member"></a> Create</h3>
+<h3 id="create"><a name="events-checkin-member"></a> Create</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -13320,7 +13320,7 @@ Requires <code>Events:Api:Checkin:Create</code> permit
 
 <p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/events/checkin</code></p>
 
-<h3 id="list"><a name="v3-events-checkin-list"></a> List</h3>
+<h3 id="list"><a name="events-checkin-list"></a> List</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -13353,7 +13353,7 @@ Requires <code>Events:Api:Checkin:Get</code> permit
 
 <h2 id="invitations">Invitations</h2>
 
-<h3 id="send-invitation"><a name="v3-events-invitation"></a> Send invitation</h3>
+<h3 id="send-invitation"><a name="events-invitation"></a> Send invitation</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -13431,7 +13431,7 @@ Requires <code>Events:Api:Invitation:Create</code> permit
 
 <h2 id="introduction">Introduction</h2>
 
-<h3 id="file-model"><a name="v3-file-model"></a> File model</h3>
+<h3 id="file-model"><a name="file-model"></a> File model</h3>
 
 <p>Every file attached to some entity (Offer, Reward, Offer Collection) follows the file schema and is defined like this:</p>
 
@@ -13460,21 +13460,21 @@ Requires <code>Events:Api:Invitation:Create</code> permit
 <tr>
 <td>kind</td>
 <td>string</td>
-<td>File kind identifier (e.x. <code class="prettyprint">offer_default</code>), see <a href="#v3-file-kinds">Standard file kinds</a></td>
+<td>File kind identifier (e.x. <code class="prettyprint">offer_default</code>), see <a href="#file-kinds">Standard file kinds</a></td>
 </tr>
 <tr>
 <td>size_type</td>
 <td>string</td>
-<td>e.x. <code class="prettyprint">base</code>, see: <a href="#v3-file-sizes">File sizes</a></td>
+<td>e.x. <code class="prettyprint">base</code>, see: <a href="#file-sizes">File sizes</a></td>
 </tr>
 </tbody></table>
 
-<h3 id="file-schema"><a name="v3-file-schema"></a> File schema</h3>
+<h3 id="file-schema"><a name="file-schema"></a> File schema</h3>
 
 <p>File schema defines a list of files kinds available in the Loyalty club. 
 Each file kind is also available in multiple sizes. </p>
 
-<p>The schema may get retrieved with <a href="#v3-get-file-schema">Files&bull; Get schema</a> endpoint.</p>
+<p>The schema may get retrieved with <a href="#get-file-schema">Files&bull; Get schema</a> endpoint.</p>
 
 <blockquote>
 <p>Example loyalty club file schema</p>
@@ -13596,7 +13596,7 @@ Each file kind is also available in multiple sizes. </p>
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<h3 id="file-kind-model"><a name="v3-file-kind-model"></a> File kind model</h3>
+<h3 id="file-kind-model"><a name="file-kind-model"></a> File kind model</h3>
 
 <table><thead>
 <tr>
@@ -13608,7 +13608,7 @@ Each file kind is also available in multiple sizes. </p>
 <tr>
 <td>identifier</td>
 <td>string</td>
-<td>See: <a href="#v3-file-kinds">Standard file kinds</a></td>
+<td>See: <a href="#file-kinds">Standard file kinds</a></td>
 </tr>
 <tr>
 <td>type</td>
@@ -13618,12 +13618,12 @@ Each file kind is also available in multiple sizes. </p>
 <tr>
 <td>ratio</td>
 <td>string</td>
-<td>Describes ratio of an image. See: <a href="#v3-file-kind-ratio">Ratio</a> (optional)</td>
+<td>Describes ratio of an image. See: <a href="#file-kind-ratio">Ratio</a> (optional)</td>
 </tr>
 <tr>
 <td>sizes</td>
 <td>Array<Object></td>
-<td>See: <a href="#v3-file-sizes">File sizes</a></td>
+<td>See: <a href="#file-sizes">File sizes</a></td>
 </tr>
 <tr>
 <td>sizes[][&lsquo;identifier&rsquo;]</td>
@@ -13652,7 +13652,7 @@ Each file kind is also available in multiple sizes. </p>
 </tr>
 </tbody></table>
 
-<h3 id="standard-file-kinds"><a name="v3-file-kinds"></a> Standard file kinds</h3>
+<h3 id="standard-file-kinds"><a name="file-kinds"></a> Standard file kinds</h3>
 
 <p>There are some standard file kinds, their size definitions differ among Loyalty Clubs.</p>
 
@@ -13676,11 +13676,11 @@ Each file kind is also available in multiple sizes. </p>
 </tr>
 </tbody></table>
 
-<h3 id="ratio"><a name="v3-file-kind-ratio"></a> Ratio</h3>
+<h3 id="ratio"><a name="file-kind-ratio"></a> Ratio</h3>
 
 <p>Images may have fixed proportions ratio which is represented as a string: <code class="prettyprint">&quot;&lt;width&gt;:&lt;height&gt;&quot;</code></p>
 
-<h3 id="file-sizes"><a name="v3-file-sizes"></a> File sizes</h3>
+<h3 id="file-sizes"><a name="file-sizes"></a> File sizes</h3>
 
 <p>Every file has at least three file sizes available: </p>
 
@@ -13720,7 +13720,7 @@ Each file kind is also available in multiple sizes. </p>
 Because of that, you can expect them to have <code class="prettyprint">min_height</code> and <code class="prettyprint">min_width</code> that match the <code class="prettyprint">base</code> size, 
 but they never have <code class="prettyprint">max_width</code> or <code class="prettyprint">max_height</code> defined.</p>
 
-<h4 id="file-cropping"><a name="v3-file-cropping"></a> File cropping</h4>
+<h4 id="file-cropping"><a name="file-cropping"></a> File cropping</h4>
 
 <blockquote>
 <p><code class="prettyprint">crop_to</code> param interpretation may be visualized like this:</p>
@@ -13753,7 +13753,7 @@ This can be achieved by providing cropping param (<code class="prettyprint">crop
 <p>With crop_to=&ldquo;0,250,1000,750&rdquo;, a rectangle of &ldquo;1000x500&rdquo; size will be cropped, with 250px left offset.
 The file will be then also resized to 400x200.</p>
 
-<h4 id="uploaded-instances-projections"><a name="v3-projected-file-versions"></a> Uploaded instances projections</h4>
+<h4 id="uploaded-instances-projections"><a name="projected-file-versions"></a> Uploaded instances projections</h4>
 
 <p>When file is uploaded, only original file is physically processed and stored. <code class="prettyprint">base</code> and other versions are processed asynchronously. 
 So, the responses returned on upload contains only &ldquo;projected&rdquo; info about files.</p>
@@ -13799,7 +13799,7 @@ So, the responses returned on upload contains only &ldquo;projected&rdquo; info 
 
 <h2 id="files">Files</h2>
 
-<h3 id="get-file-schema"><a name="v3-get-file-schema"></a> Get file schema</h3>
+<h3 id="get-file-schema"><a name="get-file-schema"></a> Get file schema</h3>
 
 <blockquote>
 <p>Example request</p>
@@ -13811,18 +13811,18 @@ So, the responses returned on upload contains only &ldquo;projected&rdquo; info 
   -H <span class="s1">'x-user-agent: CURL manual test'</span>
 </code></pre>
 <blockquote>
-<p>Returns the schema as described <a href="#v3-file-schema">here</a></p>
+<p>Returns the schema as described <a href="#file-schema">here</a></p>
 </blockquote>
 
 <p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/files/schema</code></p>
 
-<p>Returns the Loyalty Club file schema. See: <a href="#v3-file-schema">Files &bull; Schema</a></p>
+<p>Returns the Loyalty Club file schema. See: <a href="#file-schema">Files &bull; Schema</a></p>
 
 <aside class="notice">
 Requires <code>Files:Api:GetSchema</code> permit
 </aside>
 
-<h3 id="create-file"><a name="v3-create-file"></a> Create file</h3>
+<h3 id="create-file"><a name="create-file"></a> Create file</h3>
 
 <blockquote>
 <p>Example request</p>
@@ -13873,7 +13873,7 @@ Requires <code>Files:Api:GetSchema</code> permit
 
 <p>Creates new file for given Fileable (e.g. Offer).</p>
 
-<h4 id="url-parameters"><a name="v3-create-file-url-parameters"></a> URL Parameters</h4>
+<h4 id="url-parameters"><a name="create-file-url-parameters"></a> URL Parameters</h4>
 
 <table><thead>
 <tr>
@@ -13895,11 +13895,11 @@ Requires <code>Files:Api:GetSchema</code> permit
 <tr>
 <td>kind</td>
 <td>enum</td>
-<td>see <a href="#v3-file-kinds">Standard file kinds</a></td>
+<td>see <a href="#file-kinds">Standard file kinds</a></td>
 </tr>
 </tbody></table>
 
-<h4 id="post-parameters"><a name="v3-create-file-post-parameters"></a> POST Parameters</h4>
+<h4 id="post-parameters"><a name="create-file-post-parameters"></a> POST Parameters</h4>
 
 <table><thead>
 <tr>
@@ -13919,11 +13919,11 @@ Requires <code>Files:Api:GetSchema</code> permit
 <td>crop_to</td>
 <td>string</td>
 <td>no</td>
-<td>See: <a href="#v3-file-cropping">cropping</a></td>
+<td>See: <a href="#file-cropping">cropping</a></td>
 </tr>
 </tbody></table>
 
-<h4 id="response-json-object"><a name="v3-create-file-response"></a> Response (JSON object)</h4>
+<h4 id="response-json-object"><a name="create-file-response"></a> Response (JSON object)</h4>
 
 <table><thead>
 <tr>
@@ -13935,12 +13935,12 @@ Requires <code>Files:Api:GetSchema</code> permit
 <tr>
 <td>original</td>
 <td>File</td>
-<td>See <a href="#v3-file-model">File model</a></td>
+<td>See <a href="#file-model">File model</a></td>
 </tr>
 <tr>
 <td>projected_versions</td>
 <td>ProjectedVersion[]</td>
-<td>See <a href="#v3-projected-file-versions">Projected file versions</a></td>
+<td>See <a href="#projected-file-versions">Projected file versions</a></td>
 </tr>
 </tbody></table>
 
@@ -13966,7 +13966,7 @@ Requires <code>Files:Api:GetSchema</code> permit
 Requires <code>Files:Api:Create</code> permit
 </aside>
 
-<h3 id="update-file"><a name="v3-update-file"></a> Update file</h3>
+<h3 id="update-file"><a name="update-file"></a> Update file</h3>
 
 <blockquote>
 <p>Example request</p>
@@ -13982,7 +13982,7 @@ Requires <code>Files:Api:Create</code> permit
 
 </code></pre>
 <blockquote>
-<p>When successful (200), Returns info about uploaded file. Same as <a href="#v3-create-file">Create file</a> example response</p>
+<p>When successful (200), Returns info about uploaded file. Same as <a href="#create-file">Create file</a> example response</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="err">//</span><span class="w"> </span><span class="err">(...)</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="s2">"Create file"</span><span class="w"> </span><span class="err">example</span><span class="w"> </span><span class="err">response</span><span class="w">
@@ -13994,15 +13994,15 @@ Requires <code>Files:Api:Create</code> permit
 
 <h4 id="url-parameters">URL Parameters</h4>
 
-<p>See: <a href="#v3-create-file-url-parameters">Create File URL Parameters</a></p>
+<p>See: <a href="#create-file-url-parameters">Create File URL Parameters</a></p>
 
 <h4 id="post-parameters">POST Parameters</h4>
 
-<p>See: <a href="#v3-create-file-post-parameters">Create File POST Parameters</a></p>
+<p>See: <a href="#create-file-post-parameters">Create File POST Parameters</a></p>
 
 <h4 id="response-json-object">Response (JSON object)</h4>
 
-<p>See: <a href="#v3-create-file-response">Create File Response</a></p>
+<p>See: <a href="#create-file-response">Create File Response</a></p>
 
 <h4 id="error-responses">Error responses</h4>
 
@@ -14030,7 +14030,7 @@ Requires <code>Files:Api:Create</code> permit
 Requires <code>Files:Api:Update</code> permit
 </aside>
 
-<h3 id="reprocess-file"><a name="v3-reprocess-file"></a> Reprocess file</h3>
+<h3 id="reprocess-file"><a name="reprocess-file"></a> Reprocess file</h3>
 
 <blockquote>
 <p>Example request</p>
@@ -14045,7 +14045,7 @@ Requires <code>Files:Api:Update</code> permit
 
 </code></pre>
 <blockquote>
-<p>When successful (200), Returns info about uploaded file. Same as <a href="#v3-create-file">Create file</a> example response</p>
+<p>When successful (200), Returns info about uploaded file. Same as <a href="#create-file">Create file</a> example response</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="err">//</span><span class="w"> </span><span class="err">(...)</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="s2">"Create file"</span><span class="w"> </span><span class="err">example</span><span class="w"> </span><span class="err">response</span><span class="w">
@@ -14058,15 +14058,15 @@ It means that no file needs to be uploaded, instead the original file will be re
 
 <h4 id="url-parameters">URL Parameters</h4>
 
-<p>See: <a href="#v3-create-file-url-parameters">Create File URL Parameters</a></p>
+<p>See: <a href="#create-file-url-parameters">Create File URL Parameters</a></p>
 
 <h4 id="post-parameters">POST Parameters</h4>
 
-<p>See: <a href="#v3-create-file-post-parameters">Create File POST Parameters</a> - except no <code class="prettyprint">file</code> param is accepted here</p>
+<p>See: <a href="#create-file-post-parameters">Create File POST Parameters</a> - except no <code class="prettyprint">file</code> param is accepted here</p>
 
 <h4 id="response-json-object">Response (JSON object)</h4>
 
-<p>See: <a href="#v3-create-file-response">Create File Response</a></p>
+<p>See: <a href="#create-file-response">Create File Response</a></p>
 
 <h4 id="error-responses">Error responses</h4>
 
@@ -14094,7 +14094,7 @@ It means that no file needs to be uploaded, instead the original file will be re
 Requires <code>Files:Api:Reprocess</code> permit
 </aside>
 
-<h3 id="delete-file"><a name="v3-delete-file"></a> Delete file</h3>
+<h3 id="delete-file"><a name="delete-file"></a> Delete file</h3>
 
 <blockquote>
 <p>Example request</p>
@@ -14118,7 +14118,7 @@ Requires <code>Files:Api:Reprocess</code> permit
 
 <h4 id="url-parameters">URL Parameters</h4>
 
-<p>See: <a href="#v3-create-file-url-parameters">Create File URL Parameters</a></p>
+<p>See: <a href="#create-file-url-parameters">Create File URL Parameters</a></p>
 
 <h4 id="error-responses">Error responses</h4>
 
@@ -14147,20 +14147,20 @@ Requires <code>Files:Api:Delete</code> permit
 <h4 id="09-09-2020-piotr-witlicki">09.09.2020 | Piotr Świtlicki</h4>
 
 <ul>
-<li>Add <a href="#v3-image-templates">Offers Admin API &bull; ImageTemplates API</a></li>
-<li>Add <a href="#v3-offer-image-template">Offer ImageTemplate model</a></li>
+<li>Add <a href="#image-templates">Offers Admin API &bull; ImageTemplates API</a></li>
+<li>Add <a href="#offer-image-template">Offer ImageTemplate model</a></li>
 </ul>
 
 <h4 id="09-09-2020-natalia-styrska">09.09.2020 | Natalia Styrska</h4>
 
 <ul>
-<li>Update <a href="#v3-transactions-events-create">Transactions &bull; Create events</a></li>
+<li>Update <a href="#transactions-events-create">Transactions &bull; Create events</a></li>
 </ul>
 
 <h4 id="17-08-2020-piotr-witlicki">17.08.2020 | Piotr Świtlicki</h4>
 
 <ul>
-<li>Add <a href="#v3-links">Links</a></li>
+<li>Add <a href="#links">Links</a></li>
 </ul>
 
 <h4 id="17-08-2020-jakub-kruczek">17.08.2020 | Jakub Kruczek</h4>
@@ -14180,194 +14180,194 @@ Requires <code>Files:Api:Delete</code> permit
 <h4 id="07-08-2020-natalia-styrska">07.08.2020 | Natalia Styrska</h4>
 
 <ul>
-<li>Add <a href="#v3-member-points-list">Points &bull; List</a></li>
+<li>Add <a href="#member-points-list">Points &bull; List</a></li>
 </ul>
 
 <h4 id="02-07-2020-natalia-styrska">02.07.2020 | Natalia Styrska</h4>
 
 <ul>
-<li>Add <a href="#v3-events-list">Events &bull; Index</a></li>
-<li>Add <a href="#v3-event-get">Events &bull; Get</a></li>
-<li>Add <a href="#v3-events-validate-member">Events &bull; Validate</a></li>
-<li>Add <a href="#v3-events-checkin-member">Events &bull; Checkin</a></li>
-<li>Add <a href="#v3-events-invitation">Events &bull; Invitation</a></li>
+<li>Add <a href="#events-list">Events &bull; Index</a></li>
+<li>Add <a href="#event-get">Events &bull; Get</a></li>
+<li>Add <a href="#events-validate-member">Events &bull; Validate</a></li>
+<li>Add <a href="#events-checkin-member">Events &bull; Checkin</a></li>
+<li>Add <a href="#events-invitation">Events &bull; Invitation</a></li>
 </ul>
 
 <h4 id="02-06-2020-piotr-witlicki">02.06.2020 | Piotr Świtlicki</h4>
 
 <ul>
-<li>Extend <a href="#v3-members-groups-list">Members Groups &bull; Index</a> with filtering parameters</li>
-<li>Add <a href="#v3-members-groups-types">Members Groups &bull; Types</a></li>
+<li>Extend <a href="#members-groups-list">Members Groups &bull; Index</a> with filtering parameters</li>
+<li>Add <a href="#members-groups-types">Members Groups &bull; Types</a></li>
 </ul>
 
 <h4 id="28-05-2020-natalia-styrska">28.05.2020 | Natalia Styrska</h4>
 
 <ul>
-<li>Extend (<a href="#v3-store-list">#  Stores</a>) all endpoints with new properties</li>
-<li>Add (<a href="#v3-store-zones-list">Stores &bull; Zones</a>) endpoint </li>
+<li>Extend (<a href="#store-list">#  Stores</a>) all endpoints with new properties</li>
+<li>Add (<a href="#store-zones-list">Stores &bull; Zones</a>) endpoint </li>
 </ul>
 
 <h4 id="21-05-2020-piotr-witlicki">21.05.2020 | Piotr Świtlicki</h4>
 
 <ul>
-<li>Extend <a href="#v3-members-groups">Members Groups</a> to work with audiences (automatic groups)</li>
+<li>Extend <a href="#members-groups">Members Groups</a> to work with audiences (automatic groups)</li>
 </ul>
 
 <h4 id="20-04-2020-piotr-witlicki">20.04.2020 | Piotr Świtlicki</h4>
 
 <ul>
-<li>Add <code class="prettyprint">usable_for_seconds</code> param to <a href="#v3-grant-offer">Grant offer</a> </li>
-<li>Add <code class="prettyprint">type</code> to <a href="#v3-offer-model">Offer</a> </li>
+<li>Add <code class="prettyprint">usable_for_seconds</code> param to <a href="#grant-offer">Grant offer</a> </li>
+<li>Add <code class="prettyprint">type</code> to <a href="#offer-model">Offer</a> </li>
 </ul>
 
 <h4 id="09-04-2020-piotr-witlicki">09.04.2020 | Piotr Świtlicki</h4>
 
 <ul>
 <li>Restructure members docs</li>
-<li>Add <a href="#v3-invalid-parameters-errors-model">Invalid parameters errors</a></li>
-<li>Add <a href="#v3-members-groups">Members Groups</a></li>
+<li>Add <a href="#invalid-parameters-errors-model">Invalid parameters errors</a></li>
+<li>Add <a href="#members-groups">Members Groups</a></li>
 </ul>
 
 <h4 id="13-03-2020-natalia-styrska">13.03.2020 | Natalia Styrska</h4>
 
 <ul>
-<li>Extend <a href="#v3-transactions-events-create">Transaction Events &bull; Create</a> endpoint </li>
+<li>Extend <a href="#transactions-events-create">Transaction Events &bull; Create</a> endpoint </li>
 </ul>
 
 <h4 id="12-03-2020-natalia-styrska">12.03.2020 | Natalia Styrska</h4>
 
 <ul>
-<li>Extend <a href="#v3-points-create">Points &bull; Create</a> endpoint </li>
+<li>Extend <a href="#points-create">Points &bull; Create</a> endpoint </li>
 </ul>
 
 <h4 id="05-03-2020-piotr-witlicki">05.03.2020 | Piotr Świtlicki</h4>
 
 <ul>
-<li>Extend <a href="#v3-loyalty-clubs-list">Loyalty Clubs &bull; List</a> endpoint </li>
+<li>Extend <a href="#loyalty-clubs-list">Loyalty Clubs &bull; List</a> endpoint </li>
 </ul>
 
 <h4 id="01-03-2020-piotr-witlicki">01.03.2020 | Piotr Świtlicki</h4>
 
 <ul>
-<li>Extend <a href="#v3-offers">Offers</a> API to work within <a href="v3-offers-oauth-context">Member context</a></li>
-<li>Rework <a href="#v3-offers">Offers</a> API to work within <a href="v3-offers-guest-access">Guest context</a> </li>
+<li>Extend <a href="#offers">Offers</a> API to work within <a href="offers-oauth-context">Member context</a></li>
+<li>Rework <a href="#offers">Offers</a> API to work within <a href="offers-guest-access">Guest context</a> </li>
 </ul>
 
 <h4 id="11-02-2020-piotr-witlicki">11.02.2020 | Piotr Świtlicki</h4>
 
 <ul>
-<li>Add <a href="#v3-grant-offer">Offers &bull; Grant offer</a></li>
+<li>Add <a href="#grant-offer">Offers &bull; Grant offer</a></li>
 </ul>
 
 <h4 id="03-02-2020-natalia-styrska">03.02.2020 | Natalia Styrska</h4>
 
 <ul>
-<li>Add (<a href="#v3-transactions-events-create">Transactions &bull; Events</a>) endpoint</li>
+<li>Add (<a href="#transactions-events-create">Transactions &bull; Events</a>) endpoint</li>
 </ul>
 
 <h4 id="11-12-2019-piotr-witlicki">11.12.2019 | Piotr Świtlicki</h4>
 
 <ul>
-<li>Update <a href="#v3-offers-display-schemas">Offers &bull; Display schemas</a> to have <a href="https://support.smartbear.com/readyapi/docs/testing/jsonpath-reference.html">JSONPath</a> references</li>
+<li>Update <a href="#offers-display-schemas">Offers &bull; Display schemas</a> to have <a href="https://support.smartbear.com/readyapi/docs/testing/jsonpath-reference.html">JSONPath</a> references</li>
 </ul>
 
 <h4 id="05-12-2019-piotr-witlicki">05.12.2019 | Piotr Świtlicki</h4>
 
 <ul>
-<li>Add <a href="#v3-links-generate">Links &bull; Generate</a> </li>
+<li>Add <a href="#links-generate">Links &bull; Generate</a> </li>
 </ul>
 
 <h4 id="22-11-2019-piotr-witlicki">22.11.2019 | Piotr Świtlicki</h4>
 
 <ul>
-<li>Add <a href="#v3-loyalty-clubs-get">Loyalty Clubs &bull; Get</a></li>
-<li>Add info about new <code class="prettyprint">client</code> <a href="#v3-offers-display-schemas">display schema</a> item type </li>
+<li>Add <a href="#loyalty-clubs-get">Loyalty Clubs &bull; Get</a></li>
+<li>Add info about new <code class="prettyprint">client</code> <a href="#offers-display-schemas">display schema</a> item type </li>
 </ul>
 
 <h4 id="22-10-2019-piotr-witlicki">22.10.2019 | Piotr Świtlicki</h4>
 
 <ul>
-<li>Add <code class="prettyprint">collection_position</code> order_by key to <a href="#v3-list-offers">Offers &bull; List offers</a></li>
+<li>Add <code class="prettyprint">collection_position</code> order_by key to <a href="#list-offers">Offers &bull; List offers</a></li>
 </ul>
 
 <h4 id="18-10-2019-piotr-witlicki">18.10.2019 | Piotr Świtlicki</h4>
 
 <ul>
-<li>Add <a href="#v3-offers-display-schemas">Offer display schemas</a></li>
+<li>Add <a href="#offers-display-schemas">Offer display schemas</a></li>
 </ul>
 
 <h4 id="16-10-2019-natalia-styrska">16.10.2019 | Natalia Styrska</h4>
 
 <ul>
-<li>Add (<a href="#v3-store-categories-list">Stores &bull; Categories</a>) endpoint</li>
-<li>Add (<a href="#v3-department-create">Departments &bull; Create</a>) endpoint</li>
-<li>Add (<a href="#v3-department-update">Departments &bull; Update</a>) endpoint</li>
+<li>Add (<a href="#store-categories-list">Stores &bull; Categories</a>) endpoint</li>
+<li>Add (<a href="#department-create">Departments &bull; Create</a>) endpoint</li>
+<li>Add (<a href="#department-update">Departments &bull; Update</a>) endpoint</li>
 </ul>
 
 <h4 id="23-09-2019-piotr-witlicki">23.09.2019 | Piotr Świtlicki</h4>
 
 <ul>
-<li>Add <code class="prettyprint">event_occurred_at</code> param to <a href="#v3-member-event-occured-at-param">Members &bull; Update</a> </li>
+<li>Add <code class="prettyprint">event_occurred_at</code> param to <a href="#member-event-occured-at-param">Members &bull; Update</a> </li>
 </ul>
 
 <h4 id="21-09-2019-piotr-witlicki">21.09.2019 | Piotr Świtlicki</h4>
 
 <ul>
-<li>Add <code class="prettyprint">membership_started_at</code> to <a href="#v3-rewards-program-status">Rewards Program &bull; Get Status</a> </li>
+<li>Add <code class="prettyprint">membership_started_at</code> to <a href="#rewards-program-status">Rewards Program &bull; Get Status</a> </li>
 </ul>
 
 <h4 id="19-09-2019-natalia-styrska">19.09.2019 | Natalia Styrska</h4>
 
 <ul>
-<li>Add (<a href="#v3-member-points">Points &bull; Member points</a>) endpoint</li>
-<li>Add (<a href="#v3-points-create">Points &bull; Create</a>) endpoint</li>
+<li>Add (<a href="#member-points">Points &bull; Member points</a>) endpoint</li>
+<li>Add (<a href="#points-create">Points &bull; Create</a>) endpoint</li>
 </ul>
 
 <h4 id="02-09-2019-natalia-styrska">02.09.2019 | Natalia Styrska</h4>
 
 <ul>
-<li>Change (<a href="#v3-store-list">Stores &bull; List</a>) rename malls to departments</li>
-<li>Change (<a href="#v3-store-get">Stores &bull; Get</a>) rename malls to departments</li>
-<li>Change (<a href="#v3-store-create">Stores &bull; Create</a>) rename malls to departments</li>
-<li>Change (<a href="#v3-store-update">Stores &bull; Update</a>) rename malls to departments</li>
-<li>Add (<a href="#v3-department-list">Departments &bull; List</a>) rename malls to departments</li>
-<li>Add (<a href="#v3-department-get">Departments &bull; Get</a>) rename malls to departments</li>
+<li>Change (<a href="#store-list">Stores &bull; List</a>) rename malls to departments</li>
+<li>Change (<a href="#store-get">Stores &bull; Get</a>) rename malls to departments</li>
+<li>Change (<a href="#store-create">Stores &bull; Create</a>) rename malls to departments</li>
+<li>Change (<a href="#store-update">Stores &bull; Update</a>) rename malls to departments</li>
+<li>Add (<a href="#department-list">Departments &bull; List</a>) rename malls to departments</li>
+<li>Add (<a href="#department-get">Departments &bull; Get</a>) rename malls to departments</li>
 </ul>
 
 <h4 id="29-08-2019-piotr-witlicki">29.08.2019 | Piotr Świtlicki</h4>
 
 <ul>
-<li>Add <a href="#v3-members-update-app-token">Members &bull; Update app token</a> endpoint</li>
-<li>Add <a href="#v3-me-update-app-token">OAuth &bull; Update app token</a> endpoint</li>
+<li>Add <a href="#members-update-app-token">Members &bull; Update app token</a> endpoint</li>
+<li>Add <a href="#me-update-app-token">OAuth &bull; Update app token</a> endpoint</li>
 </ul>
 
 <h4 id="27-08-2019-piotr-witlicki">27.08.2019 | Piotr Świtlicki</h4>
 
 <ul>
-<li>Add <a href="#v3-offers-events">Offers Events</a> section</li>
+<li>Add <a href="#offers-events">Offers Events</a> section</li>
 </ul>
 
 <h4 id="23-08-2019-piotr-witlicki">23.08.2019 | Piotr Świtlicki</h4>
 
 <ul>
-<li>Add <a href="#v3-members-validate">Members &bull; Validate</a> endpoint</li>
-<li>Change <a href="#v3-offers-list">Offers &bull; List</a> to accept <code class="prettyprint">include_pagination_info</code> instead of <code class="prettyprint">include_total</code> param</li>
+<li>Add <a href="#members-validate">Members &bull; Validate</a> endpoint</li>
+<li>Change <a href="#offers-list">Offers &bull; List</a> to accept <code class="prettyprint">include_pagination_info</code> instead of <code class="prettyprint">include_total</code> param</li>
 </ul>
 
 <h4 id="19-08-2019-piotr-witlicki">19.08.2019 | Piotr Świtlicki</h4>
 
 <ul>
-<li>Add <a href="#v3-reprocess-file">Offers &bull; Reprocess</a></li>
-<li>Add <a href="#v3-offers-list-order-by"><code class="prettyprint">order_by</code> param</a> to Offers List</li>
+<li>Add <a href="#reprocess-file">Offers &bull; Reprocess</a></li>
+<li>Add <a href="#offers-list-order-by"><code class="prettyprint">order_by</code> param</a> to Offers List</li>
 </ul>
 
 <h4 id="09-08-2019-piotr-witlicki">09.08.2019 | Piotr Świtlicki</h4>
 
 <ul>
-<li>Add <a href="#v3-offers-admin">Offers Admin</a> section</li>
-<li>Add <a href="#v3-create-file">Files &bull; Create</a></li>
-<li>Add <a href="#v3-update-file">Files &bull; Update</a></li>
-<li>Add <a href="#v3-delete-file">Files &bull; Delete</a></li>
+<li>Add <a href="#offers-admin">Offers Admin</a> section</li>
+<li>Add <a href="#create-file">Files &bull; Create</a></li>
+<li>Add <a href="#update-file">Files &bull; Update</a></li>
+<li>Add <a href="#delete-file">Files &bull; Delete</a></li>
 </ul>
 
 <h4 id="08-08-2019-natalia-styrska">08.08.2019 | Natalia Styrska</h4>
@@ -14375,25 +14375,25 @@ Requires <code>Files:Api:Delete</code> permit
 <p>Stores</p>
 
 <ul>
-<li>Add <code class="prettyprint">GET /v3/:loyalty_club_slug/stores</code> (<a href="#v3-store-list">Stores &bull; List</a>)</li>
-<li>Add <code class="prettyprint">GET /v3/:loyalty_club_slug/stores/:id</code> (<a href="#v3-store-get">Stores &bull; Get</a>)</li>
-<li>Add <code class="prettyprint">POST /v3/:loyalty_club_slug/stores</code> (<a href="#v3-store-create">Stores &bull; Create</a>)</li>
-<li>Add <code class="prettyprint">PUT /v3/:loyalty_club_slug/stores</code> (<a href="#v3-store-update">Stores &bull; Update</a>)</li>
-<li>Add <code class="prettyprint">DELETE /v3/:loyalty_club_slug/stores</code> (<a href="#v3-store-delete">Stores &bull; Delete</a>)</li>
-<li>Add <code class="prettyprint">GET /v3/:loyalty_club_slug/stores/malls</code> (<a href="#v3-mall-list">Malls &bull; List</a>)</li>
-<li>Add <code class="prettyprint">GET /v3/:loyalty_club_slug/stores/malls/:id</code> (<a href="#v3-mall-get">Malls &bull; Get</a>)</li>
+<li>Add <code class="prettyprint">GET /v3/:loyalty_club_slug/stores</code> (<a href="#store-list">Stores &bull; List</a>)</li>
+<li>Add <code class="prettyprint">GET /v3/:loyalty_club_slug/stores/:id</code> (<a href="#store-get">Stores &bull; Get</a>)</li>
+<li>Add <code class="prettyprint">POST /v3/:loyalty_club_slug/stores</code> (<a href="#store-create">Stores &bull; Create</a>)</li>
+<li>Add <code class="prettyprint">PUT /v3/:loyalty_club_slug/stores</code> (<a href="#store-update">Stores &bull; Update</a>)</li>
+<li>Add <code class="prettyprint">DELETE /v3/:loyalty_club_slug/stores</code> (<a href="#store-delete">Stores &bull; Delete</a>)</li>
+<li>Add <code class="prettyprint">GET /v3/:loyalty_club_slug/stores/malls</code> (<a href="#mall-list">Malls &bull; List</a>)</li>
+<li>Add <code class="prettyprint">GET /v3/:loyalty_club_slug/stores/malls/:id</code> (<a href="#mall-get">Malls &bull; Get</a>)</li>
 </ul>
 
 <h4 id="27-06-2019-piotr-witlicki">27.06.2019 | Piotr Świtlicki</h4>
 
 <ul>
-<li>Introduce <a href="#v3-rewards-program-levels-program">Levels</a> </li>
+<li>Introduce <a href="#rewards-program-levels-program">Levels</a> </li>
 </ul>
 
 <h4 id="13-05-2019-piotr-witlicki">13.05.2019 | Piotr Świtlicki:</h4>
 
 <ul>
-<li>Add <code class="prettyprint">GET /v3/:loyalty_club_slug/translations</code> (<a href="#v3-list-translations">Translations &bull; List</a>)</li>
+<li>Add <code class="prettyprint">GET /v3/:loyalty_club_slug/translations</code> (<a href="#list-translations">Translations &bull; List</a>)</li>
 </ul>
 
 <h4 id="06-05-2019-piotr-witlicki">06.05.2019 | Piotr Świtlicki:</h4>
@@ -14401,51 +14401,51 @@ Requires <code>Files:Api:Delete</code> permit
 <p>Offers</p>
 
 <ul>
-<li>Add <code class="prettyprint">GET /v3/:loyalty_club_slug/members/me/offers/meta</code> (<a href="#v3-offers-meta">Offers &bull; Get offers meta</a>)</li>
-<li>Add <code class="prettyprint">GET /v3/:loyalty_club_slug/members/me/offers/:id</code> (<a href="#v3-get-offer">Offers &bull; Get offer</a>)</li>
-<li>Add <code class="prettyprint">GET /v3/:loyalty_club_slug/members/me/offers</code> (<a href="#v3-list-offers">Offers &bull; List offers</a>)</li>
-<li>Add <code class="prettyprint">POST /v3/:loyalty_club_slug/members/me/offers/:id/use</code> (<a href="#v3-use-offer">Offers &bull; Use offer</a>)</li>
-<li>Add <code class="prettyprint">PUT /v3/:loyalty_club_slug/members/me/offers/:id/like</code> (<a href="#v3-like-offer">Offers &bull; Like offer</a>)</li>
-<li>Add <code class="prettyprint">PUT /v3/:loyalty_club_slug/members/me/offers/:id/unlike</code> (<a href="#v3-unlike-offer">Offers &bull; Unlike offer</a>)</li>
+<li>Add <code class="prettyprint">GET /v3/:loyalty_club_slug/members/me/offers/meta</code> (<a href="#offers-meta">Offers &bull; Get offers meta</a>)</li>
+<li>Add <code class="prettyprint">GET /v3/:loyalty_club_slug/members/me/offers/:id</code> (<a href="#get-offer">Offers &bull; Get offer</a>)</li>
+<li>Add <code class="prettyprint">GET /v3/:loyalty_club_slug/members/me/offers</code> (<a href="#list-offers">Offers &bull; List offers</a>)</li>
+<li>Add <code class="prettyprint">POST /v3/:loyalty_club_slug/members/me/offers/:id/use</code> (<a href="#use-offer">Offers &bull; Use offer</a>)</li>
+<li>Add <code class="prettyprint">PUT /v3/:loyalty_club_slug/members/me/offers/:id/like</code> (<a href="#like-offer">Offers &bull; Like offer</a>)</li>
+<li>Add <code class="prettyprint">PUT /v3/:loyalty_club_slug/members/me/offers/:id/unlike</code> (<a href="#unlike-offer">Offers &bull; Unlike offer</a>)</li>
 </ul>
 
 <h4 id="16-04-2019-piotr-witlicki">16.04.2019 | Piotr Świtlicki:</h4>
 
 <ul>
-<li>Add <code class="prettyprint">X-Usage-Token</code> header to <a href="#v3-rewards-use">Rewards &bull; Use</a></li>
+<li>Add <code class="prettyprint">X-Usage-Token</code> header to <a href="#rewards-use">Rewards &bull; Use</a></li>
 </ul>
 
 <h4 id="07-03-2019-piotr-witlicki">07.03.2019 | Piotr Świtlicki:</h4>
 
 <ul>
-<li>Add <code class="prettyprint">GET /v3/:loyalty_club_slug/rewards-program/status/achievements_summary</code> (<a href="#v3-rewards-program-achievements-summary">Rewards Program &bull; Achievements summary</a>)</li>
+<li>Add <code class="prettyprint">GET /v3/:loyalty_club_slug/rewards-program/status/achievements_summary</code> (<a href="#rewards-program-achievements-summary">Rewards Program &bull; Achievements summary</a>)</li>
 </ul>
 
 <h4 id="06-03-2019-piotr-witlicki">06.03.2019 | Piotr Świtlicki:</h4>
 
 <ul>
-<li>Add file schema info (<a href="#v3-file-schema">General info&bull; Files schema</a>)</li>
-<li>Add <code class="prettyprint">GET /v3/:loyalty_club_slug/files/schema</code> (<a href="#v3-get-file-schema">Files&bull; Get schema</a>)</li>
+<li>Add file schema info (<a href="#file-schema">General info&bull; Files schema</a>)</li>
+<li>Add <code class="prettyprint">GET /v3/:loyalty_club_slug/files/schema</code> (<a href="#get-file-schema">Files&bull; Get schema</a>)</li>
 </ul>
 
 <h4 id="27-02-2019-jakub-kruczek">27.02.2019 | Jakub Kruczek:</h4>
 
 <ul>
-<li>Extend consent definitions example (<a href="#v3-loyalty-clubs-schema">Loyalty Clubs &bull; Get schema</a>)</li>
+<li>Extend consent definitions example (<a href="#loyalty-clubs-schema">Loyalty Clubs &bull; Get schema</a>)</li>
 </ul>
 
 <h4 id="27-02-2019-adam-ku">27.02.2019 | Adam Kuś:</h4>
 
 <ul>
-<li>Add <code class="prettyprint">POST /v3/:loyalty_club_slug/transactions</code> (<a href="#v3-transactions-create">Transactions &bull; Create</a>)</li>
-<li>Add <code class="prettyprint">GET /v3/:loyalty_club_slug/transactions</code> (<a href="#v3-transactions-list">Transactions &bull; List</a>)</li>
-<li>Add <code class="prettyprint">GET /v3/:loyalty_club_slug/transactions/:id</code> (<a href="#v3-transactions-get">Transactions &bull; Get</a>)</li>
+<li>Add <code class="prettyprint">POST /v3/:loyalty_club_slug/transactions</code> (<a href="#transactions-create">Transactions &bull; Create</a>)</li>
+<li>Add <code class="prettyprint">GET /v3/:loyalty_club_slug/transactions</code> (<a href="#transactions-list">Transactions &bull; List</a>)</li>
+<li>Add <code class="prettyprint">GET /v3/:loyalty_club_slug/transactions/:id</code> (<a href="#transactions-get">Transactions &bull; Get</a>)</li>
 </ul>
 
 <h4 id="19-02-2019-piotr-witlicki">19.02.2019 | Piotr Świtlicki:</h4>
 
 <ul>
-<li>Add <code class="prettyprint">GET /v3/:loyalty_club_slug/members/:id/rewards-program/status</code> (<a href="#v3-rewards-program-status-by-member-id">Rewards Program &bull; Get status by member ID</a>)</li>
+<li>Add <code class="prettyprint">GET /v3/:loyalty_club_slug/members/:id/rewards-program/status</code> (<a href="#rewards-program-status-by-member-id">Rewards Program &bull; Get status by member ID</a>)</li>
 </ul>
 
 <h4 id="08-02-2019-piotr-witlicki">08.02.2019 | Piotr Świtlicki:</h4>
@@ -14453,20 +14453,20 @@ Requires <code>Files:Api:Delete</code> permit
 <p>Boostcom Rewards draft</p>
 
 <ul>
-<li>Add <code class="prettyprint">GET /v3/:loyalty_club_slug/rewards-program/info</code> (<a href="#v3-rewards-program-info">Rewards Program &bull; Get Info</a>)</li>
-<li>Add <code class="prettyprint">POST /v3/:loyalty_club_slug/members/me/rewards-program/join</code> (<a href="#v3-rewards-program-join">Rewards Program &bull; Join</a>)</li>
-<li>Add <code class="prettyprint">DELETE /v3/:loyalty_club_slug/members/me/rewards-program/leave</code> (<a href="#v3-rewards-program-leave">Rewards Program &bull; Leave</a>)</li>
-<li>Add <code class="prettyprint">GET /v3/:loyalty_club_slug/members/me/rewards-program/status</code> (<a href="#v3-rewards-program-status">Rewards Program &bull; Get status</a>)</li>
-<li>Add <code class="prettyprint">GET /v3/:loyalty_club_slug/members/me/rewards-program/rewards</code> (<a href="#v3-rewards-list">Rewards &bull; List</a>)</li>
-<li>Add <code class="prettyprint">GET /v3/:loyalty_club_slug/members/me/rewards-program/rewards/purchased</code> (<a href="#v3-rewards-list-purchased">Rewards &bull; List purchased</a>)</li>
-<li>Add <code class="prettyprint">POST /v3/:loyalty_club_slug/members/me/rewards-program/rewards/:id/purchase</code> (<a href="#v3-rewards-purchase">Rewards &bull; Purchase</a>)</li>
-<li>Add <code class="prettyprint">POST /v3/:loyalty_club_slug/members/me/rewards-program/rewards/:id/use</code> (<a href="#v3-rewards-use">Rewards &bull; Use</a>)</li>
+<li>Add <code class="prettyprint">GET /v3/:loyalty_club_slug/rewards-program/info</code> (<a href="#rewards-program-info">Rewards Program &bull; Get Info</a>)</li>
+<li>Add <code class="prettyprint">POST /v3/:loyalty_club_slug/members/me/rewards-program/join</code> (<a href="#rewards-program-join">Rewards Program &bull; Join</a>)</li>
+<li>Add <code class="prettyprint">DELETE /v3/:loyalty_club_slug/members/me/rewards-program/leave</code> (<a href="#rewards-program-leave">Rewards Program &bull; Leave</a>)</li>
+<li>Add <code class="prettyprint">GET /v3/:loyalty_club_slug/members/me/rewards-program/status</code> (<a href="#rewards-program-status">Rewards Program &bull; Get status</a>)</li>
+<li>Add <code class="prettyprint">GET /v3/:loyalty_club_slug/members/me/rewards-program/rewards</code> (<a href="#rewards-list">Rewards &bull; List</a>)</li>
+<li>Add <code class="prettyprint">GET /v3/:loyalty_club_slug/members/me/rewards-program/rewards/purchased</code> (<a href="#rewards-list-purchased">Rewards &bull; List purchased</a>)</li>
+<li>Add <code class="prettyprint">POST /v3/:loyalty_club_slug/members/me/rewards-program/rewards/:id/purchase</code> (<a href="#rewards-purchase">Rewards &bull; Purchase</a>)</li>
+<li>Add <code class="prettyprint">POST /v3/:loyalty_club_slug/members/me/rewards-program/rewards/:id/use</code> (<a href="#rewards-use">Rewards &bull; Use</a>)</li>
 </ul>
 
 <h4 id="07-02-2019-dominik-halat">07.02.2019 | Dominik Halat:</h4>
 
 <ul>
-<li>Remove <code class="prettyprint">shortening_enabled</code> param from Emails API (<a href="#v3-emails-create">Emails &bull; Create</a>)</li>
+<li>Remove <code class="prettyprint">shortening_enabled</code> param from Emails API (<a href="#emails-create">Emails &bull; Create</a>)</li>
 </ul>
 
 <h4 id="07-02-2019-piotr-witlicki">07.02.2019 | Piotr Świtlicki:</h4>
@@ -14478,8 +14478,8 @@ Requires <code>Files:Api:Delete</code> permit
 <h4 id="25-01-2019-dominik-halat">25.01.2019 | Dominik Halat:</h4>
 
 <ul>
-<li>Add <code class="prettyprint">POST /v3/:loyalty_club_slug/emails</code> (<a href="#v3-emails-create">Emails &bull; Create</a>)</li>
-<li>Add <code class="prettyprint">db_and_cache</code> response type for Member#person_id (<a href="#v3-members-person-id">Get person id</a>)</li>
+<li>Add <code class="prettyprint">POST /v3/:loyalty_club_slug/emails</code> (<a href="#emails-create">Emails &bull; Create</a>)</li>
+<li>Add <code class="prettyprint">db_and_cache</code> response type for Member#person_id (<a href="#members-person-id">Get person id</a>)</li>
 </ul>
 
 <h4 id="14-12-2018-jakub-kruczek">14.12.2018 | Jakub Kruczek:</h4>
@@ -14497,14 +14497,14 @@ Requires <code>Files:Api:Delete</code> permit
 <h4 id="13-11-2018-piotr-witlicki">13.11.2018 | Piotr Świtlicki:</h4>
 
 <ul>
-<li>Add <code class="prettyprint">PUT /v3/:loyalty_club_slug/members/channels/msisdn/:msisdn/send_verification</code>(<a href="#v3-members-send-verification-sms">Members &bull; Send MSISDN verification SMS</a>)</li>
-<li>Add <code class="prettyprint">PUT /v3/:loyalty_club_slug/members/channels/msisdn/:msisdn/verify</code> (<a href="#v3-members-verify-msisdn">Members &bull; Verify MSISDN</a>)</li>
+<li>Add <code class="prettyprint">PUT /v3/:loyalty_club_slug/members/channels/msisdn/:msisdn/send_verification</code>(<a href="#members-send-verification-sms">Members &bull; Send MSISDN verification SMS</a>)</li>
+<li>Add <code class="prettyprint">PUT /v3/:loyalty_club_slug/members/channels/msisdn/:msisdn/verify</code> (<a href="#members-verify-msisdn">Members &bull; Verify MSISDN</a>)</li>
 </ul>
 
 <h4 id="08-11-2018-piotr-witlicki">08.11.2018 | Piotr Świtlicki:</h4>
 
 <ul>
-<li>Add <code class="prettyprint">POST /v3/:loyalty_club_slug/smses</code> (<a href="#v3-smses-create">SMSes &bull; Create</a>)</li>
+<li>Add <code class="prettyprint">POST /v3/:loyalty_club_slug/smses</code> (<a href="#smses-create">SMSes &bull; Create</a>)</li>
 </ul>
 
 <h4 id="12-10-2018-piotr-witlicki">12.10.2018 | Piotr Świtlicki:</h4>
@@ -14516,41 +14516,41 @@ Requires <code>Files:Api:Delete</code> permit
 <h4 id="03-08-2018-piotr-witlicki">03.08.2018 | Piotr Świtlicki:</h4>
 
 <ul>
-<li>Add <a href="#v3-members-imports-import-flow">Members Import</a></li>
+<li>Add <a href="#members-imports-import-flow">Members Import</a></li>
 </ul>
 
 <h4 id="27-04-2018-piotr-witlicki">27.04.2018 | Piotr Świtlicki:</h4>
 
 <ul>
-<li>Add <code class="prettyprint">POST /v3/:loyalty_club_slug/members/by_email/:email/send_one_time_password</code> (<a href="#v3-members-send-one-time-password-email">Members &bull; Send one time password E-mail</a>)</li>
+<li>Add <code class="prettyprint">POST /v3/:loyalty_club_slug/members/by_email/:email/send_one_time_password</code> (<a href="#members-send-one-time-password-email">Members &bull; Send one time password E-mail</a>)</li>
 </ul>
 
 <h4 id="27-04-2018-piotr-witlicki">27.04.2018 | Piotr Świtlicki:</h4>
 
 <ul>
 <li>Add <code class="prettyprint">channel</code> and <code class="prettyprint">subchannel</code> attributes to <code class="prettyprint">Member</code></li>
-<li>Add <code class="prettyprint">validate_partially</code> param in (<a href="v3-members-update">Members &bull; Update</a> and (<a href="#v3-me-update">Me &bull; Update</a></li>
-<li>Add <code class="prettyprint">GET /v3/:loyalty_club_slug/products</code> (<a href="#v3-loyalty-clubs-products">Loyalty Clubs &bull; List Products</a>)</li>
-<li>Add <code class="prettyprint">POST /v3/:loyalty_club_slug/push_notifications</code> (<a href="#v3-push-notification-create">Push Notifications &bull; Create</a>)</li>
+<li>Add <code class="prettyprint">validate_partially</code> param in (<a href="members-update">Members &bull; Update</a> and (<a href="#me-update">Me &bull; Update</a></li>
+<li>Add <code class="prettyprint">GET /v3/:loyalty_club_slug/products</code> (<a href="#loyalty-clubs-products">Loyalty Clubs &bull; List Products</a>)</li>
+<li>Add <code class="prettyprint">POST /v3/:loyalty_club_slug/push_notifications</code> (<a href="#push-notification-create">Push Notifications &bull; Create</a>)</li>
 </ul>
 
 <h4 id="11-04-2018-dominik-halat">11.04.2018 | Dominik Halat</h4>
 
 <ul>
 <li>Add <code class="prettyprint">person_id</code> to <code class="prettyprint">Member</code></li>
-<li>Add new endpoint <code class="prettyprint">GET /v3/:loyalty_club_slug/members/person_id</code> (<a href="#v3-members-index">Members &bull; List</a>)</li>
+<li>Add new endpoint <code class="prettyprint">GET /v3/:loyalty_club_slug/members/person_id</code> (<a href="#members-index">Members &bull; List</a>)</li>
 </ul>
 
 <h4 id="01-02-2017-piotr-witlicki">01.02.2017 | Piotr Świtlicki:</h4>
 
 <ul>
-<li>Add <code class="prettyprint">ids</code> query param to <code class="prettyprint">GET /v3/:loyalty_club_slug/members</code> (<a href="#v3-members-index">Members &bull; List</a>)</li>
+<li>Add <code class="prettyprint">ids</code> query param to <code class="prettyprint">GET /v3/:loyalty_club_slug/members</code> (<a href="#members-index">Members &bull; List</a>)</li>
 </ul>
 
 <h4 id="29-01-2017-piotr-witlicki">29.01.2017 | Piotr Świtlicki:</h4>
 
 <ul>
-<li>Add <code class="prettyprint">GET /v3/:loyalty_club_slug/members</code> (<a href="#v3-members-index">Members &bull; List</a>)</li>
+<li>Add <code class="prettyprint">GET /v3/:loyalty_club_slug/members</code> (<a href="#members-index">Members &bull; List</a>)</li>
 </ul>
 
 <h4 id="22-01-2017-jakub-kruczek">22.01.2017 | Jakub Kruczek:</h4>
@@ -14575,7 +14575,7 @@ Requires <code>Files:Api:Delete</code> permit
 
 <ul>
 <li>Add <code class="prettyprint">POST /v3/:loyalty_club_slug/members/by_msisdn/:msisdn/send_registration_password</code></li>
-<li>Add information about <code class="prettyprint">registration_password</code> in <a href="#v3-members-create">Members &bull; Create</a></li>
+<li>Add information about <code class="prettyprint">registration_password</code> in <a href="#members-create">Members &bull; Create</a></li>
 <li>Add some other minor fixes</li>
 </ul>
 

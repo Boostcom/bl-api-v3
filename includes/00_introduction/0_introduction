@@ -69,7 +69,7 @@ That will allow further targeting members by communication channel.</p>
 <p>Example header: <code class="prettyprint">authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522</code></p>
 </blockquote>
 
-<p>See: <a href="#v3-oauth2">OAuth2</a></p>
+<p>See: <a href="#oauth2">OAuth2</a></p>
 
 <h3 id="loyalty-club-slug-param">Loyalty club slug param</h3>
 
@@ -116,7 +116,7 @@ We use format without leading <code class="prettyprint">00</code> or <code class
 </tr>
 <tr>
 <td><code class="prettyprint">460</code></td>
-<td>OAuth token required for the action is invalid (applies only to OAuth-related actions - see <a href="#v3-oauth2">OAuth2</a>)</td>
+<td>OAuth token required for the action is invalid (applies only to OAuth-related actions - see <a href="#oauth2">OAuth2</a>)</td>
 </tr>
 <tr>
 <td><code class="prettyprint">470</code></td>
@@ -136,7 +136,7 @@ We use format without leading <code class="prettyprint">00</code> or <code class
 
 <p><code class="prettyprint">{&quot;error&quot;: &quot;Message describing what went wrong&quot;}</code></p>
 
-<h2 id="pagination-json-model"><a name="v3-pagination-model"></a> Pagination JSON model</h2>
+<h2 id="pagination-json-model"><a name="pagination-model"></a> Pagination JSON model</h2>
 
 <blockquote>
 <p>Example:</p>
@@ -209,7 +209,7 @@ We use format without leading <code class="prettyprint">00</code> or <code class
 </tr>
 </tbody></table>
 
-<h2 id="invalid-parameters-errors-422"><a name="v3-invalid-parameters-errors-model"></a> Invalid parameters errors (422)</h2>
+<h2 id="invalid-parameters-errors-422"><a name="invalid-parameters-errors-model"></a> Invalid parameters errors (422)</h2>
 
 <blockquote>
 <p>Example:</p>
@@ -297,23 +297,23 @@ object:  </p>
 <tr>
 <td>details</td>
 <td>Errors object</td>
-<td>See <a href="#v3-errors-object">Errors</a> below</td>
+<td>See <a href="#errors-object">Errors</a> below</td>
 </tr>
 <tr>
 <td>details.(path.0.to.)parameter_name</td>
 <td>Array<ParameterError></td>
-<td>See <a href="#v3-parameter-error-object">ParameterError</a> below</td>
+<td>See <a href="#parameter-error-object">ParameterError</a> below</td>
 </tr>
 </tbody></table>
 
-<h3 id="errors-object"><a name="v3-errors-object"></a> Errors object</h3>
+<h3 id="errors-object"><a name="errors-object"></a> Errors object</h3>
 
 <p>It&rsquo;s a recursive tree structure, corresponding to the structure original payload.
 Objects being parts of arrays are represented by their array indexes.</p>
 
-<p>Each leaf node is an array of <a href="#v3-parameter-error-object">ParameterError</a> objects for given parameter.</p>
+<p>Each leaf node is an array of <a href="#parameter-error-object">ParameterError</a> objects for given parameter.</p>
 
-<h3 id="parametererror-object"><a name="v3-parameter-error-object""></a> ParameterError object</h3>
+<h3 id="parametererror-object"><a name="parameter-error-object""></a> ParameterError object</h3>
 
 <table><thead>
 <tr>

@@ -1,8 +1,8 @@
-<h2 id="imagetemplates"><a name="v3-image-templates"></a> ImageTemplates</h2>
+<h2 id="imagetemplates"><a name="image-templates"></a> ImageTemplates</h2>
 
-<p>This API allows managing <a href="#v3-offer-image-template-record">ImageTemplates records</a>.</p>
+<p>This API allows managing <a href="#offer-image-template-record">ImageTemplates records</a>.</p>
 
-<h3 id="list"><a name="v3-offer-admin-image-templates-list"></a> List</h3>
+<h3 id="list"><a name="offer-admin-image-templates-list"></a> List</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -13,7 +13,7 @@
 --header <span class="s1">'x-user-agent: cURL Manual Testing'</span>
 </code></pre>
 <blockquote>
-<p>Returns object containing <a href="#v3-offer-image-template-record">image_templates</a> and <a href="#v3-pagination-model">pagination_info</a></p>
+<p>Returns object containing <a href="#offer-image-template-record">image_templates</a> and <a href="#pagination-model">pagination_info</a></p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"image_templates"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="err">//</span><span class="w"> </span><span class="err">List</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">image_templates</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"ImageTemplate record"</span><span class="w">
@@ -66,12 +66,12 @@
 <tr>
 <td>image_templates</td>
 <td>Array<ImageTemplate></td>
-<td>Array of <a href="#v3-offer-image-template-record">ImageTemplate</a></td>
+<td>Array of <a href="#offer-image-template-record">ImageTemplate</a></td>
 </tr>
 <tr>
 <td>pagination_info</td>
 <td>Object</td>
-<td><a href="#v3-pagination-model">Pagination</a> object</td>
+<td><a href="#pagination-model">Pagination</a> object</td>
 </tr>
 </tbody></table>
 
@@ -79,7 +79,7 @@
 Requires <code>Offers:Api:ImageTemplates:List</code> permit
 </aside>
 
-<h3 id="get"><a name="v3-offer-admin-image-templates-get"></a> Get</h3>
+<h3 id="get"><a name="offer-admin-image-templates-get"></a> Get</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -90,7 +90,7 @@ Requires <code>Offers:Api:ImageTemplates:List</code> permit
 --header <span class="s1">'x-user-agent: cURL Manual Testing'</span>
 </code></pre>
 <blockquote>
-<p>Returns object containing <a href="#v3-offer-image-template-record">image template</a></p>
+<p>Returns object containing <a href="#offer-image-template-record">image template</a></p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"image_template"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Image</span><span class="w"> </span><span class="err">template</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"ImageTemplate record"</span><span class="w">
@@ -126,7 +126,7 @@ Requires <code>Offers:Api:ImageTemplates:List</code> permit
 <tr>
 <td>image_template</td>
 <td>ImageTemplate</td>
-<td><a href="#v3-offer-image-template-record">ImageTemplate</a></td>
+<td><a href="#offer-image-template-record">ImageTemplate</a></td>
 </tr>
 </tbody></table>
 
@@ -148,7 +148,7 @@ Requires <code>Offers:Api:ImageTemplates:List</code> permit
 Requires <code>Offers:Api:ImageTemplates:Get</code> permit
 </aside>
 
-<h3 id="create"><a name="v3-offer-admin-image-templates-create"></a> Create</h3>
+<h3 id="create"><a name="offer-admin-image-templates-create"></a> Create</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -181,7 +181,7 @@ Requires <code>Offers:Api:ImageTemplates:Get</code> permit
 }'</span>
 </code></pre>
 <blockquote>
-<p>Returns object containing created <a href="#v3-offer-image-template-record">image template</a></p>
+<p>Returns object containing created <a href="#offer-image-template-record">image template</a></p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"image_template"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Image</span><span class="w"> </span><span class="err">templates</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"ImageTemplate record"</span><span class="w">
@@ -201,7 +201,7 @@ Requires <code>Offers:Api:ImageTemplates:Get</code> permit
 </thead><tbody>
 <tr>
 <td>image_template</td>
-<td><a href="#v3-offer-image-template-record-payload">ImageTemplate Payload</a></td>
+<td><a href="#offer-image-template-record-payload">ImageTemplate Payload</a></td>
 </tr>
 </tbody></table>
 
@@ -217,7 +217,7 @@ Requires <code>Offers:Api:ImageTemplates:Get</code> permit
 <tr>
 <td>image_template</td>
 <td>ImageTemplate</td>
-<td>Created <a href="#v3-offer-image-template-record">ImageTemplate</a></td>
+<td>Created <a href="#offer-image-template-record">ImageTemplate</a></td>
 </tr>
 </tbody></table>
 
@@ -231,7 +231,7 @@ Requires <code>Offers:Api:ImageTemplates:Get</code> permit
 </thead><tbody>
 <tr>
 <td><code class="prettyprint">422</code></td>
-<td>Invalid parameters - see <a href="#v3-invalid-parameters-errors-model">Invalid parameters errors model</a></td>
+<td>Invalid parameters - see <a href="#invalid-parameters-errors-model">Invalid parameters errors model</a></td>
 </tr>
 </tbody></table>
 
@@ -239,7 +239,7 @@ Requires <code>Offers:Api:ImageTemplates:Get</code> permit
 Requires <code>Offers:Api:ImageTemplates:Create</code> permit
 </aside>
 
-<h3 id="update"><a name="v3-offer-admin-image-templates-update"></a> Update</h3>
+<h3 id="update"><a name="offer-admin-image-templates-update"></a> Update</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -272,7 +272,7 @@ Requires <code>Offers:Api:ImageTemplates:Create</code> permit
 }'</span>
 </code></pre>
 <blockquote>
-<p>Returns object containing updated <a href="#v3-offer-image-template-record">image template</a></p>
+<p>Returns object containing updated <a href="#offer-image-template-record">image template</a></p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"image_template"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Image</span><span class="w"> </span><span class="err">templates</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"ImageTemplate record"</span><span class="w">
@@ -292,7 +292,7 @@ Requires <code>Offers:Api:ImageTemplates:Create</code> permit
 </thead><tbody>
 <tr>
 <td>image_template</td>
-<td><a href="#v3-offer-image-template-record-payload">ImageTemplate Payload</a></td>
+<td><a href="#offer-image-template-record-payload">ImageTemplate Payload</a></td>
 </tr>
 </tbody></table>
 
@@ -308,7 +308,7 @@ Requires <code>Offers:Api:ImageTemplates:Create</code> permit
 <tr>
 <td>image_template</td>
 <td>ImageTemplate</td>
-<td>Created <a href="#v3-offer-image-template-record">ImageTemplate</a></td>
+<td>Created <a href="#offer-image-template-record">ImageTemplate</a></td>
 </tr>
 </tbody></table>
 
@@ -326,7 +326,7 @@ Requires <code>Offers:Api:ImageTemplates:Create</code> permit
 </tr>
 <tr>
 <td><code class="prettyprint">422</code></td>
-<td>Invalid parameters - see <a href="#v3-invalid-parameters-errors-model">Invalid parameters errors model</a></td>
+<td>Invalid parameters - see <a href="#invalid-parameters-errors-model">Invalid parameters errors model</a></td>
 </tr>
 </tbody></table>
 
@@ -334,7 +334,7 @@ Requires <code>Offers:Api:ImageTemplates:Create</code> permit
 Requires <code>Offers:Api:ImageTemplates:Update</code> permit
 </aside>
 
-<h3 id="destroy"><a name="v3-offer-admin-image-templates-destroy"></a> Destroy</h3>
+<h3 id="destroy"><a name="offer-admin-image-templates-destroy"></a> Destroy</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -346,7 +346,7 @@ Requires <code>Offers:Api:ImageTemplates:Update</code> permit
 --header <span class="s1">'content-type: application/json'</span>
 </code></pre>
 <blockquote>
-<p>Returns object containing deleted <a href="#v3-offer-image-template-record">image template</a></p>
+<p>Returns object containing deleted <a href="#offer-image-template-record">image template</a></p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"image_template"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Image</span><span class="w"> </span><span class="err">templates</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"ImageTemplate record"</span><span class="w">
@@ -382,7 +382,7 @@ Requires <code>Offers:Api:ImageTemplates:Update</code> permit
 <tr>
 <td>image_template</td>
 <td>ImageTemplate</td>
-<td>The deleted <a href="#v3-offer-image-template-record">ImageTemplate</a></td>
+<td>The deleted <a href="#offer-image-template-record">ImageTemplate</a></td>
 </tr>
 </tbody></table>
 

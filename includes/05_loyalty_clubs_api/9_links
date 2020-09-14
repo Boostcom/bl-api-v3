@@ -1,6 +1,6 @@
-<h2 id="links"><a name="v3-links"> Links</h2>
+<h2 id="links"><a name="links"> Links</h2>
 
-<h3 id="link-model"><a name="v3-link-model"></a> Link model</h3>
+<h3 id="link-model"><a name="link-model"></a> Link model</h3>
 
 <blockquote>
 <p>Example</p>
@@ -80,21 +80,21 @@
 </tr>
 </tbody></table>
 
-<h4 id="enabled-links"><a name="v3-enabled-links"></a> Enabled links</h4>
+<h4 id="enabled-links"><a name="enabled-links"></a> Enabled links</h4>
 
 <p>When link is enabled, it&rsquo;s available in MPC&rsquo;s UI for being used within sending (unless the link is parameterized).</p>
 
 <h4 id="global-links">Global links</h4>
 
-<p>Global links are standard links used within MPC apps. Every LC may be configured to have each of them <a href="#v3-links-enable">enabled</a>.</p>
+<p>Global links are standard links used within MPC apps. Every LC may be configured to have each of them <a href="#links-enable">enabled</a>.</p>
 
 <p>Non-global links are links created specifically for the Loyalty Club.</p>
 
 <h4 id="system-links">System links</h4>
 
-<p>System links are global links that are essential for LC to operate and are always <a href="#v3-links-enable">enabled</a>..</p>
+<p>System links are global links that are essential for LC to operate and are always <a href="#links-enable">enabled</a>..</p>
 
-<h3 id="list"><a name="v3-links-list"></a> List</h3>
+<h3 id="list"><a name="links-list"></a> List</h3>
 
 <p>Returns all links available within Loyalty Club.</p>
 
@@ -110,7 +110,7 @@
     -H <span class="s1">'x-user-agent: CURL manual test'</span>
 </code></pre>
 <blockquote>
-<p>When successful (200), returns list of <a href="#v3-link-model">links</a>:</p>
+<p>When successful (200), returns list of <a href="#link-model">links</a>:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">List</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">links</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Link model"</span><span class="w">
@@ -128,7 +128,7 @@
 </thead><tbody>
 <tr>
 <td>links</td>
-<td><a href="#v3-link-model">Links</a>[]</td>
+<td><a href="#link-model">Links</a>[]</td>
 </tr>
 </tbody></table>
 
@@ -136,7 +136,7 @@
 Requires <code>BL:Api:Links:Index</code> permit
 </aside>
 
-<h3 id="get"><a name="v3-links-list"></a> Get</h3>
+<h3 id="get"><a name="links-list"></a> Get</h3>
 
 <p>Returns specific link.</p>
 
@@ -152,7 +152,7 @@ Requires <code>BL:Api:Links:Index</code> permit
     -H <span class="s1">'x-user-agent: CURL manual test'</span>
 </code></pre>
 <blockquote>
-<p>When successful (200), returns <a href="#v3-link-model">link</a>:</p>
+<p>When successful (200), returns <a href="#link-model">link</a>:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"link"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Link</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Link model"</span><span class="w">
@@ -170,7 +170,7 @@ Requires <code>BL:Api:Links:Index</code> permit
 </thead><tbody>
 <tr>
 <td>link</td>
-<td><a href="#v3-link-model">Link</a></td>
+<td><a href="#link-model">Link</a></td>
 </tr>
 </tbody></table>
 
@@ -192,9 +192,9 @@ Requires <code>BL:Api:Links:Index</code> permit
 Requires <code>BL:Api:Links:Get</code> permit
 </aside>
 
-<h3 id="enable"><a name="v3-links-enable"></a> Enable</h3>
+<h3 id="enable"><a name="links-enable"></a> Enable</h3>
 
-<p>Enables given link - see <a href="#v3-enabled-links">enabled links</a></p>
+<p>Enables given link - see <a href="#enabled-links">enabled links</a></p>
 
 <blockquote>
 <p>Example:</p>
@@ -208,7 +208,7 @@ Requires <code>BL:Api:Links:Get</code> permit
     -H <span class="s1">'x-user-agent: CURL manual test'</span>
 </code></pre>
 <blockquote>
-<p>When successful (200), returns <a href="#v3-link-model">link</a>:</p>
+<p>When successful (200), returns <a href="#link-model">link</a>:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"link"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Link</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Link model"</span><span class="w">
@@ -226,7 +226,7 @@ Requires <code>BL:Api:Links:Get</code> permit
 </thead><tbody>
 <tr>
 <td>link</td>
-<td><a href="#v3-link-model">Link</a></td>
+<td><a href="#link-model">Link</a></td>
 </tr>
 </tbody></table>
 
@@ -248,9 +248,9 @@ Requires <code>BL:Api:Links:Get</code> permit
 Requires <code>BL:Api:Links:Enable</code> permit
 </aside>
 
-<h3 id="disable"><a name="v3-links-disable"></a> Disable</h3>
+<h3 id="disable"><a name="links-disable"></a> Disable</h3>
 
-<p>Disables given link - see <a href="#v3-enabled-links">enabled links</a></p>
+<p>Disables given link - see <a href="#enabled-links">enabled links</a></p>
 
 <blockquote>
 <p>Example:</p>
@@ -264,7 +264,7 @@ Requires <code>BL:Api:Links:Enable</code> permit
     -H <span class="s1">'x-user-agent: CURL manual test'</span>
 </code></pre>
 <blockquote>
-<p>When successful (200), returns <a href="#v3-link-model">link</a>:</p>
+<p>When successful (200), returns <a href="#link-model">link</a>:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"link"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Link</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Link model"</span><span class="w">
@@ -282,7 +282,7 @@ Requires <code>BL:Api:Links:Enable</code> permit
 </thead><tbody>
 <tr>
 <td>link</td>
-<td><a href="#v3-link-model">Link</a></td>
+<td><a href="#link-model">Link</a></td>
 </tr>
 </tbody></table>
 
@@ -304,9 +304,9 @@ Requires <code>BL:Api:Links:Enable</code> permit
 Requires <code>BL:Api:Links:Enable</code> permit
 </aside>
 
-<h3 id="create"><a name="v3-links-create"></a> Create</h3>
+<h3 id="create"><a name="links-create"></a> Create</h3>
 
-<p>Create a new link for the Loyalty Club. Created link is always <a href="#v3-enabled-links">enabled</a> by default.</p>
+<p>Create a new link for the Loyalty Club. Created link is always <a href="#enabled-links">enabled</a> by default.</p>
 
 <blockquote>
 <p>Example:</p>
@@ -328,14 +328,14 @@ Requires <code>BL:Api:Links:Enable</code> permit
     }'</span>
 </code></pre>
 <blockquote>
-<p>When successful (200), returns created <a href="#v3-link-model">link</a>:</p>
+<p>When successful (200), returns created <a href="#link-model">link</a>:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"link"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Link</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Link model"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
-<p>This link <a href="#v3-links-generate">generated</a> by MPC backend will then look like this:</p>
+<p>This link <a href="#links-generate">generated</a> by MPC backend will then look like this:</p>
 </blockquote>
 <pre class="highlight plaintext"><code>my-app://some/url
 </code></pre>
@@ -382,7 +382,7 @@ Requires <code>BL:Api:Links:Enable</code> permit
 </thead><tbody>
 <tr>
 <td>link</td>
-<td><a href="#v3-link-model">Link</a></td>
+<td><a href="#link-model">Link</a></td>
 </tr>
 </tbody></table>
 
@@ -396,7 +396,7 @@ Requires <code>BL:Api:Links:Enable</code> permit
 </thead><tbody>
 <tr>
 <td><code class="prettyprint">422</code></td>
-<td>Invalid parameters - see <a href="#v3-invalid-parameters-errors-model">Invalid parameters errors model</a></td>
+<td>Invalid parameters - see <a href="#invalid-parameters-errors-model">Invalid parameters errors model</a></td>
 </tr>
 </tbody></table>
 
@@ -404,7 +404,7 @@ Requires <code>BL:Api:Links:Enable</code> permit
 Requires <code>BL:Api:Links:Create</code> permit
 </aside>
 
-<h3 id="delete"><a name="v3-links-delete"></a> Delete</h3>
+<h3 id="delete"><a name="links-delete"></a> Delete</h3>
 
 <p>Destroys Loyalty Club link.</p>
 
@@ -420,7 +420,7 @@ Requires <code>BL:Api:Links:Create</code> permit
     -H <span class="s1">'x-user-agent: CURL manual test'</span>
 </code></pre>
 <blockquote>
-<p>When successful (200), returns deleted <a href="#v3-link-model">link</a>:</p>
+<p>When successful (200), returns deleted <a href="#link-model">link</a>:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"link"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Link</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Link model"</span><span class="w">
@@ -438,7 +438,7 @@ Requires <code>BL:Api:Links:Create</code> permit
 </thead><tbody>
 <tr>
 <td>link</td>
-<td><a href="#v3-link-model">Link</a></td>
+<td><a href="#link-model">Link</a></td>
 </tr>
 </tbody></table>
 
@@ -464,7 +464,7 @@ Requires <code>BL:Api:Links:Create</code> permit
 Requires <code>BL:Api:Links:Delete</code> permit
 </aside>
 
-<h3 id="generate"><a name="v3-links-generate"></a> Generate</h3>
+<h3 id="generate"><a name="links-generate"></a> Generate</h3>
 
 <blockquote>
 <p>Example:</p>

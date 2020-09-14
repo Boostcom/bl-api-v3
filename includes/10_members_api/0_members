@@ -9,9 +9,9 @@
 <p>Actions related to specific member (the one that is using your application) require to have member authenticated and we implement
 OAuth2 flow for this.</p>
 
-<p>See <a href="#v3-oauth2">Members OAuth</a> to see how to authenticate the member with OAuth2.</p>
+<p>See <a href="#oauth2">Members OAuth</a> to see how to authenticate the member with OAuth2.</p>
 
-<h4 id="member-model"><a name="v3-member-model"></a> Member model</h4>
+<h4 id="member-model"><a name="member-model"></a> Member model</h4>
 
 <blockquote>
 <p>Example:</p>
@@ -118,7 +118,7 @@ OAuth2 flow for this.</p>
 </tr>
 </tbody></table>
 
-<h4 id="members-consents-json-model"><a name="v3-member-consents-model"></a> Member&rsquo;s consents JSON model</h4>
+<h4 id="members-consents-json-model"><a name="member-consents-model"></a> Member&rsquo;s consents JSON model</h4>
 
 <p>JSON model for consents. Keys can be dynamically created based on customer&rsquo;s need.</p>
 
@@ -132,7 +132,7 @@ OAuth2 flow for this.</p>
 
 <p><code class="prettyprint">updated_at</code> is the time of last consent update. It can be also not provided or null.</p>
 
-<p>Available consents for Loyalty Club are described in <a href="#v3-loyalty-clubs-schema">schema</a>.</p>
+<p>Available consents for Loyalty Club are described in <a href="#loyalty-clubs-schema">schema</a>.</p>
 
 <h4 id="validation-on-members">Validation on members</h4>
 
@@ -340,7 +340,7 @@ OAuth2 flow for this.</p>
 </tr>
 </tbody></table>
 
-<h3 id="list"><a name="v3-members-index"></a> List</h3>
+<h3 id="list"><a name="members-index"></a> List</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -352,7 +352,7 @@ OAuth2 flow for this.</p>
   -H <span class="s1">'x-user-agent: CURL manual test'</span>
 </code></pre>
 <blockquote>
-<p>Returns object containing <a href="#v3-member-model">members</a> and <a href="#v3-pagination-model">pagination_info</a></p>
+<p>Returns object containing <a href="#member-model">members</a> and <a href="#pagination-model">pagination_info</a></p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"members"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">List</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">members</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Member model"</span><span class="w">
@@ -364,7 +364,7 @@ OAuth2 flow for this.</p>
 
 <p>Returns paginated list of all Loyalty Club members, sorted by <code class="prettyprint">created_at ASC</code>.</p>
 
-<p>Every returned member is represented by <a href="#v3-member-model">Member model</a>.</p>
+<p>Every returned member is represented by <a href="#member-model">Member model</a>.</p>
 
 <h4 id="query-parameters">Query Parameters</h4>
 
@@ -419,12 +419,12 @@ OAuth2 flow for this.</p>
 <tr>
 <td>members</td>
 <td>Array<Member></td>
-<td>Array of <a href="#v3-member-model">Members</a></td>
+<td>Array of <a href="#member-model">Members</a></td>
 </tr>
 <tr>
 <td>pagination_info</td>
 <td>Object</td>
-<td><a href="#v3-pagination-model">Pagination</a> object</td>
+<td><a href="#pagination-model">Pagination</a> object</td>
 </tr>
 </tbody></table>
 
@@ -453,7 +453,7 @@ OAuth2 flow for this.</p>
 Requires <code>BL:Api:Members:Index</code> permit
 </aside>
 
-<h3 id="get"><a name="v3-members-get"></a> Get</h3>
+<h3 id="get"><a name="members-get"></a> Get</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -465,7 +465,7 @@ Requires <code>BL:Api:Members:Index</code> permit
   -H <span class="s1">'x-user-agent: CURL manual test'</span>
 </code></pre>
 <blockquote>
-<p>When successful, returns member object as depicted <a href="#v3-member-model">here</a></p>
+<p>When successful, returns member object as depicted <a href="#member-model">here</a></p>
 </blockquote>
 
 <p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/:id</code></p>
@@ -520,7 +520,7 @@ Requires <code>BL:Api:Members:OAuth:Get</code> permit
 
 <h4 id="response-json-object">Response (JSON object)</h4>
 
-<p>See: <a href="#v3-member-model">Member model</a></p>
+<p>See: <a href="#member-model">Member model</a></p>
 
 <h5 id="error-responses">Error responses</h5>
 
@@ -540,7 +540,7 @@ Requires <code>BL:Api:Members:OAuth:Get</code> permit
 </tr>
 </tbody></table>
 
-<h3 id="get-public-info"><a name="v3-members-public-info"></a> Get public info</h3>
+<h3 id="get-public-info"><a name="members-public-info"></a> Get public info</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -646,7 +646,7 @@ Requires <code>BL:Api:Members:Check</code> permit
 
 <!--- ############################################################################################################# --->
 
-<h3 id="get-person-id"><a name="v3-members-person-id"></a> Get person id</h3>
+<h3 id="get-person-id"><a name="members-person-id"></a> Get person id</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -783,7 +783,7 @@ Requires <code>BL:Api:Members:Check</code> permit
 
 <!--- ############################################################################################################# --->
 
-<h3 id="create"><a name="v3-members-create"></a> Create</h3>
+<h3 id="create"><a name="members-create"></a> Create</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -812,7 +812,7 @@ curl -X POST <span class="se">\</span>
 
 </code></pre>
 <blockquote>
-<p>When successful, the above command returns created member object as depicted <a href="#v3-member-model">here</a></p>
+<p>When successful, the above command returns created member object as depicted <a href="#member-model">here</a></p>
 
 <p>When payload is invalid, validation errors like this are returned:</p>
 </blockquote>
@@ -830,7 +830,7 @@ curl -X POST <span class="se">\</span>
 
 <p>Create member with given properties.</p>
 
-<p>Available properties and their validation rules are defined by Loyalty Club schema (see: <a href="#v3-loyalty-clubs-schema">here</a>).</p>
+<p>Available properties and their validation rules are defined by Loyalty Club schema (see: <a href="#loyalty-clubs-schema">here</a>).</p>
 
 <p>Actual welcome messages sending depends on Loyalty Club and Product configuration.
 For example, even if send_email_welcome_message:true param is provided, message may not be sent because either Product 
@@ -838,10 +838,10 @@ or Loyalty has disabled welcome messages or Loyalty Club has no e-mails configur
 
 <p>There is also a possibility to have multiple SMS welcome messages sent. The one that matches Product or default one will be sent.</p>
 
-<h4 id="registration-password"><a name="v3-members-create-registration-password"></a> Registration Password</h4>
+<h4 id="registration-password"><a name="members-create-registration-password"></a> Registration Password</h4>
 
 <p>Some API clients (depends on Permit assigned to given <code class="prettyprint">x-client-authorization</code> token) may be required to provide 
-valid <code class="prettyprint">registration_password</code> param that is sent to user with <a href="#v3-members-send-registration-password">Members &bull; Send registration password</a> </p>
+valid <code class="prettyprint">registration_password</code> param that is sent to user with <a href="#members-send-registration-password">Members &bull; Send registration password</a> </p>
 
 <h4 id="headers">Headers</h4>
 
@@ -859,7 +859,7 @@ valid <code class="prettyprint">registration_password</code> param that is sent 
 </tr>
 </tbody></table>
 
-<h4 id="post-parameters-json"><a name="v3-members-create-post-parameters"></a> POST Parameters (JSON)</h4>
+<h4 id="post-parameters-json"><a name="members-create-post-parameters"></a> POST Parameters (JSON)</h4>
 
 <table><thead>
 <tr>
@@ -902,7 +902,7 @@ valid <code class="prettyprint">registration_password</code> param that is sent 
 <td>consents</td>
 <td>no</td>
 <td>{}</td>
-<td>Member&rsquo;s consents (similar to <a href="#v3-member-consents-model">Member&rsquo;s consents JSON model</a>)</td>
+<td>Member&rsquo;s consents (similar to <a href="#member-consents-model">Member&rsquo;s consents JSON model</a>)</td>
 <td>JSON Object</td>
 </tr>
 <tr>
@@ -951,7 +951,7 @@ valid <code class="prettyprint">registration_password</code> param that is sent 
 <td>registration_password</td>
 <td>depends</td>
 <td>none</td>
-<td>Password for registration for member MSISDN verification, see <a href="#v3-members-create-registration-password">above</a></td>
+<td>Password for registration for member MSISDN verification, see <a href="#members-create-registration-password">above</a></td>
 <td></td>
 </tr>
 </tbody></table>
@@ -960,7 +960,7 @@ valid <code class="prettyprint">registration_password</code> param that is sent 
 
 <h4 id="response-json-object">Response (JSON object)</h4>
 
-<p>Created member properties - see: <a href="#v3-member-model">Member model</a></p>
+<p>Created member properties - see: <a href="#member-model">Member model</a></p>
 
 <h4 id="error-responses">Error responses</h4>
 
@@ -990,7 +990,7 @@ Requires <code>BL:Api:Members:Create</code> or <code>BL:Api:Members:CreateWithVe
 
 <!--- ############################################################################################################# --->
 
-<h3 id="update"><a name="v3-members-update"></a> Update</h3>
+<h3 id="update"><a name="members-update"></a> Update</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -1011,9 +1011,9 @@ curl -X PUT <span class="se">\</span>
   }'</span>
 </code></pre>
 <blockquote>
-<p>When successful, the above command returns updated member object as depicted <a href="#v3-member-model">here</a></p>
+<p>When successful, the above command returns updated member object as depicted <a href="#member-model">here</a></p>
 
-<p>When payload is invalid, validation errors as depicted <a href="#v3-members-create">here</a></p>
+<p>When payload is invalid, validation errors as depicted <a href="#members-create">here</a></p>
 </blockquote>
 
 <p><strong>PUT</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/:id</code></p>
@@ -1022,7 +1022,7 @@ curl -X PUT <span class="se">\</span>
 Requires <code>BL:Api:Members:Update</code> permit
 </aside>
 
-<p><strong>PUT</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/me</code> <a href="#v3-oauth2">OAuth</a></p>
+<p><strong>PUT</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/me</code> <a href="#oauth2">OAuth</a></p>
 
 <aside class="notice">
 Requires <code>BL:Api:Members:OAuth:Update</code> permit.
@@ -1076,7 +1076,7 @@ attributes that were provided in payload. </p>
 </tr>
 <tr>
 <td>consents</td>
-<td>Member&rsquo;s consents (similar to <a href="#v3-member-consents-model">Member&rsquo;s consents JSON model</a>)</td>
+<td>Member&rsquo;s consents (similar to <a href="#member-consents-model">Member&rsquo;s consents JSON model</a>)</td>
 <td>JSON Object</td>
 <td>null</td>
 </tr>
@@ -1112,13 +1112,13 @@ attributes that were provided in payload. </p>
 </tr>
 <tr>
 <td>event_occurred_at</td>
-<td>See: <a href="#v3-member-event-occured-at-param"><code class="prettyprint">event_occurred_at</code> param</a></td>
+<td>See: <a href="#member-event-occured-at-param"><code class="prettyprint">event_occurred_at</code> param</a></td>
 <td>Date</td>
 <td>(current time)</td>
 </tr>
 </tbody></table>
 
-<h5 id="event_occurred_at-param"><a name="v3-member-event-occured-at-param"></a> <code class="prettyprint">event_occurred_at</code> param</h5>
+<h5 id="event_occurred_at-param"><a name="member-event-occured-at-param"></a> <code class="prettyprint">event_occurred_at</code> param</h5>
 
 <p>When actual member data change occurred at the time different than request&rsquo;s time, you can utilize the `event_occurred_at&rsquo; param to pass
 the actual update time.</p>
@@ -1127,7 +1127,7 @@ the actual update time.</p>
 
 <h4 id="response-json-object">Response (JSON object)</h4>
 
-<p>Member properties after update - see: <a href="#v3-member-model">Member model</a></p>
+<p>Member properties after update - see: <a href="#member-model">Member model</a></p>
 
 <h4 id="error-responses">Error responses</h4>
 
@@ -1149,7 +1149,7 @@ the actual update time.</p>
 
 <!--- ############################################################################################################# --->
 
-<h3 id="update-password"><a name="v3-me-update-password"></a> Update password</h3>
+<h3 id="update-password"><a name="me-update-password"></a> Update password</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -1174,7 +1174,7 @@ the actual update time.</p>
   </span><span class="err">//</span><span class="w"> </span><span class="err">Empty</span><span class="w"> </span><span class="err">object</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>PUT</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/update_password</code> <a href="#v3-oauth2">OAuth</a></p>
+<p><strong>PUT</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/update_password</code> <a href="#oauth2">OAuth</a></p>
 
 <p>Updates members&rsquo;s password.</p>
 
@@ -1229,7 +1229,7 @@ the actual update time.</p>
 Requires <code>BL:Api:Members:OAuth:UpdatePassword</code> permit.
 </aside>
 
-<h3 id="update-app-token"><a name="v3-members-update-app-token"></a> Update app token</h3>
+<h3 id="update-app-token"><a name="members-update-app-token"></a> Update app token</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -1275,7 +1275,7 @@ curl -X PUT <span class="se">\</span>
 Requires <code>BL:Api:Members:UpdateAppToken</code> permit
 </aside>
 
-<p><strong>PUT</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/me/update_app_token</code> <a href="#v3-oauth2">OAuth</a></p>
+<p><strong>PUT</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/me/update_app_token</code> <a href="#oauth2">OAuth</a></p>
 
 <aside class="notice">
 Requires <code>BL:Api:Members:OAuth:UpdateAppToken</code> permit
@@ -1327,7 +1327,7 @@ Platform is automatically removed when token is empty.</p>
 
 <!--- ############################################################################################################# --->
 
-<h3 id="destroy"><a name="v3-members-destroy"></a> Destroy</h3>
+<h3 id="destroy"><a name="members-destroy"></a> Destroy</h3>
 
 <p><strong>DELETE</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/:id</code></p>
 
@@ -1335,7 +1335,7 @@ Platform is automatically removed when token is empty.</p>
 Requires <code>BL:Api:Members:Destroy</code> permit
 </aside>
 
-<p><strong>DELETE</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/me</code> <a href="#v3-oauth2">OAuth</a></p>
+<p><strong>DELETE</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/me</code> <a href="#oauth2">OAuth</a></p>
 
 <aside class="notice">
 Requires <code>BL:Api:Members:OAuth:Destroy</code> permit.
@@ -1357,7 +1357,7 @@ Same as welcome messages, optout messages sending also depends on Loyalty Club a
     -H <span class="s1">'x-user-agent: CURL manual test'</span>
 </code></pre>
 <blockquote>
-<p>When successful, the above command returns destroyed member object as depicted <a href="#v3-member-model">here</a></p>
+<p>When successful, the above command returns destroyed member object as depicted <a href="#member-model">here</a></p>
 </blockquote>
 
 <h4 id="url-parameters">URL Parameters</h4>
@@ -1398,7 +1398,7 @@ Same as welcome messages, optout messages sending also depends on Loyalty Club a
 
 <h4 id="response-json-object">Response (JSON object)</h4>
 
-<p>Properties of member that has been destroyed - see: <a href="#v3-member-model">Member model</a></p>
+<p>Properties of member that has been destroyed - see: <a href="#member-model">Member model</a></p>
 
 <h4 id="error-responses">Error responses</h4>
 
@@ -1420,7 +1420,7 @@ Same as welcome messages, optout messages sending also depends on Loyalty Club a
 
 <!--- ############################################################################################################# --->
 
-<h3 id="validate"><a name="v3-members-validate"></a> Validate</h3>
+<h3 id="validate"><a name="members-validate"></a> Validate</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -1493,9 +1493,9 @@ curl -X POST <span class="se">\</span>
 <p>This behaviour has been designed to allow validate member partially, property by property. This way you can choose 
 what values should be validated at specific point of registration.</p>
 
-<h4 id="post-parameters-json"><a name="v3-members-validate-post-parameters"></a> POST Parameters (JSON)</h4>
+<h4 id="post-parameters-json"><a name="members-validate-post-parameters"></a> POST Parameters (JSON)</h4>
 
-<p>Following keys of <a href="#v3-members-create-post-parameters">Members &bull; Create</a> payload are supported when validating:</p>
+<p>Following keys of <a href="#members-create-post-parameters">Members &bull; Create</a> payload are supported when validating:</p>
 
 <ul>
 <li>properties</li>
@@ -1528,7 +1528,7 @@ what values should be validated at specific point of registration.</p>
 Requires <code>BL:Api:Members:Validate</code> permit
 </aside>
 
-<h3 id="reset-password"><a name="v3-members-reset-password"></a> Reset password</h3>
+<h3 id="reset-password"><a name="members-reset-password"></a> Reset password</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -1572,7 +1572,7 @@ Requires <code>BL:Api:Members:Validate</code> permit
 </tr>
 <tr>
 <td>token</td>
-<td>Confirmation token generated and sent with <a href="#v3-members-send-password-reset-token">Members &bull; Send password reset token</a></td>
+<td>Confirmation token generated and sent with <a href="#members-send-password-reset-token">Members &bull; Send password reset token</a></td>
 <td>string</td>
 </tr>
 </tbody></table>
@@ -1609,7 +1609,7 @@ Requires <code>BL:Api:Members:ResetPassword</code> permit
 
 <!--- ############################################################################################################# --->
 
-<h3 id="send-password-reset-token"><a name="v3-members-send-password-reset-token"></a> Send password reset token</h3>
+<h3 id="send-password-reset-token"><a name="members-send-password-reset-token"></a> Send password reset token</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -1633,8 +1633,8 @@ Requires <code>BL:Api:Members:ResetPassword</code> permit
 
 <p>The e-mail contains a token generated for member, valid for 24 hours.</p>
 
-<p>The token can be then used to reset password with <a href="#v3-members-reset-password">Members &bull; Reset password</a>.
-It also may be verified with <a href="#v3-members-verify-token">Members &bull; Verify token</a></p>
+<p>The token can be then used to reset password with <a href="#members-reset-password">Members &bull; Reset password</a>.
+It also may be verified with <a href="#members-verify-token">Members &bull; Verify token</a></p>
 
 <h4 id="url-parameters">URL Parameters</h4>
 
@@ -1658,7 +1658,7 @@ Requires <code>BL:Api:Members:Tokens:Create</code> permit
 
 <!--- ############################################################################################################# --->
 
-<h3 id="send-one-time-password-sms"><a name="v3-members-send-one-time-password"></a> Send one time password SMS</h3>
+<h3 id="send-one-time-password-sms"><a name="members-send-one-time-password"></a> Send one time password SMS</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -1682,7 +1682,7 @@ Requires <code>BL:Api:Members:Tokens:Create</code> permit
 
 <p>The SMS contains 4-digit One-Time-Password generated for member, valid for 1 hour.</p>
 
-<p>This password then can be used to sign in, just as &quot;regular&rdquo; member password - see:  <a href="#v3-token-create">OAuth Token &bull; Create</a>.</p>
+<p>This password then can be used to sign in, just as &quot;regular&rdquo; member password - see:  <a href="#token-create">OAuth Token &bull; Create</a>.</p>
 
 <h4 id="url-parameters">URL Parameters</h4>
 
@@ -1706,7 +1706,7 @@ Requires <code>BL:Api:Members:CreateOneTimePassword</code> permit
 
 <!--- ############################################################################################################# --->
 
-<h3 id="send-one-time-password-e-mail"><a name="v3-members-send-one-time-password-email"></a> Send one time password E-mail</h3>
+<h3 id="send-one-time-password-e-mail"><a name="members-send-one-time-password-email"></a> Send one time password E-mail</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -1730,7 +1730,7 @@ Requires <code>BL:Api:Members:CreateOneTimePassword</code> permit
 
 <p>The link scheme is: <code class="prettyprint">https://&lt;app_scheme&gt;.al.bstcm.no/lgn?member_id=&lt;member_id&gt;&amp;otp=&lt;otp&gt;</code> and contains member id and 16-digit password generated for member, valid for 1 hour.  </p>
 
-<p>Those params then can be used to sign in the user, just as &ldquo;regular&rdquo; member password - see:  <a href="#v3-token-create">OAuth Token &bull; Create</a>.</p>
+<p>Those params then can be used to sign in the user, just as &ldquo;regular&rdquo; member password - see:  <a href="#token-create">OAuth Token &bull; Create</a>.</p>
 
 <h4 id="url-parameters">URL Parameters</h4>
 
@@ -1768,7 +1768,7 @@ Requires <code>BL:Api:Members:CreateOneTimePassword</code> permit
 
 <!--- ############################################################################################################# --->
 
-<h3 id="send-registration-password"><a name="v3-members-send-registration-password"></a> Send registration password</h3>
+<h3 id="send-registration-password"><a name="members-send-registration-password"></a> Send registration password</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -1796,7 +1796,7 @@ Requires <code>BL:Api:Members:CreateOneTimePassword</code> permit
 
 <p>The sent message contains 4-digit registration password, valid for 10 minutes.</p>
 
-<p>This password may be required for member registration - see: <a href="#v3-members-create-registration-password">Registration password</a></p>
+<p>This password may be required for member registration - see: <a href="#members-create-registration-password">Registration password</a></p>
 
 <h4 id="url-parameters">URL Parameters</h4>
 
@@ -1850,7 +1850,7 @@ Requires <code>BL:Api:Members:CreateRegistrationPassword</code> permit
 
 <!--- ############################################################################################################# --->
 
-<h3 id="verify-token"><a name="v3-members-verify-token"></a> Verify token</h3>
+<h3 id="verify-token"><a name="members-verify-token"></a> Verify token</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -1932,7 +1932,7 @@ Requires <code>BL:Api:Members:Tokens:Verify</code> permit
 
 <!--- ############################################################################################################# --->
 
-<h3 id="send-msisdn-verification-sms"><a name="v3-members-send-verification-sms"></a> Send MSISDN verification SMS</h3>
+<h3 id="send-msisdn-verification-sms"><a name="members-send-verification-sms"></a> Send MSISDN verification SMS</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -1986,7 +1986,7 @@ Requires <code>BL:Api:Members:Msisdns:Verify</code> permit
 
 <!--- ############################################################################################################# --->
 
-<h3 id="verify-msisdn"><a name="v3-members-verify-msisdn"></a> Verify MSISDN</h3>
+<h3 id="verify-msisdn"><a name="members-verify-msisdn"></a> Verify MSISDN</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -2011,7 +2011,7 @@ Requires <code>BL:Api:Members:Msisdns:Verify</code> permit
 </span></code></pre>
 <p><strong>PUT</strong> <code class="prettyprint">/v3/:loyalty_club_slug/members/channels/msisdn/:msisdn/verify</code></p>
 
-<p>Uses given token (sent with <a href="#v3-members-send-verification-sms">Members &bull; Send MSISDN verification SMS</a>) to verify
+<p>Uses given token (sent with <a href="#members-send-verification-sms">Members &bull; Send MSISDN verification SMS</a>) to verify
 user identified with given MSISDN.</p>
 
 <h4 id="put-body-parameters">PUT body parameters</h4>
@@ -2028,7 +2028,7 @@ user identified with given MSISDN.</p>
 <td>token</td>
 <td>string</td>
 <td>yes</td>
-<td>Token generated and sent with <a href="#v3-members-send-verification-sms">Members &bull; Send MSISDN verification SMS</a></td>
+<td>Token generated and sent with <a href="#members-send-verification-sms">Members &bull; Send MSISDN verification SMS</a></td>
 </tr>
 </tbody></table>
 

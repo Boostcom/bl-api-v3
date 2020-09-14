@@ -1,7 +1,7 @@
 <h1 id="offers-api">Offers API</h1>
 
 <p>This section describes endpoints destined for end user (e.g. for mobile apps) and work within context of (signed in) member.
-Navigate to <a href="#v3-offers-admin">Offers Admin</a> section to see docs for offers management endpoints.</p>
+Navigate to <a href="#offers-admin">Offers Admin</a> section to see docs for offers management endpoints.</p>
 
 <h2 id="introduction">Introduction</h2>
 
@@ -9,13 +9,13 @@ Navigate to <a href="#v3-offers-admin">Offers Admin</a> section to see docs for 
 
 <p>Offers API supports two distinct approaches to work with context of member.</p>
 
-<h4 id="member-id-oauth-recommended"><a name="v3-offers-oauth-context"></a> Member ID OAuth (recommended)</h4>
+<h4 id="member-id-oauth-recommended"><a name="offers-oauth-context"></a> Member ID OAuth (recommended)</h4>
 
-<p>In the first one member context is resolved from MPC <a href="#v3-oauth2">OAuth</a> member session.</p>
+<p>In the first one member context is resolved from MPC <a href="#oauth2">OAuth</a> member session.</p>
 
 <p>This setup requires use of endpoints that have <code class="prettyprint">/me/</code> URL segment and requires token provided with <code class="prettyprint">authorization</code> header.</p>
 
-<h4 id="member-id"><a name="v3-offers-member-id-context"></a> Member ID</h4>
+<h4 id="member-id"><a name="offers-member-id-context"></a> Member ID</h4>
 
 <p>In this approach member context is resolved from Member&rsquo;s ID provided within URL.</p>
 
@@ -24,7 +24,7 @@ Navigate to <a href="#v3-offers-admin">Offers Admin</a> section to see docs for 
 <p>This approach is designed for implementations in which member is authenticated by your system and 
 <strong>should not be used on front-end implementations</strong>, where API token is exposed to an end user. </p>
 
-<h4 id="guest-access"><a name="v3-offers-guest-access"></a> Guest access</h4>
+<h4 id="guest-access"><a name="offers-guest-access"></a> Guest access</h4>
 
 <p>Some API client implementations may need to present content to a non-authenticated user.</p>
 
@@ -33,7 +33,7 @@ Navigate to <a href="#v3-offers-admin">Offers Admin</a> section to see docs for 
 <p>They exist in versions which use <code class="prettyprint">/guest/</code> URL segment instead of <code class="prettyprint">/me/</code> or <code class="prettyprint">/member_id/</code> and may be used by both
 aforementioned approaches.</p>
 
-<h3 id="offer-model"><a name="v3-offer-model"></a> Offer model</h3>
+<h3 id="offer-model"><a name="offer-model"></a> Offer model</h3>
 
 <blockquote>
 <p>Offer example:</p>
@@ -162,7 +162,7 @@ aforementioned approaches.</p>
 <td>tags</td>
 <td>string[]</td>
 <td>no (may be empty)</td>
-<td>List of tags identifiers associated with the offer. Information from <a href="#v3-list-translations">Translations &bull; List</a> should be used to display the tags.</td>
+<td>List of tags identifiers associated with the offer. Information from <a href="#list-translations">Translations &bull; List</a> should be used to display the tags.</td>
 </tr>
 <tr>
 <td>stores</td>
@@ -174,7 +174,7 @@ aforementioned approaches.</p>
 <td>files</td>
 <td>File[]</td>
 <td>no</td>
-<td>A list of offer files - see <a href="#v3-file-model">File model</a></td>
+<td>A list of offer files - see <a href="#file-model">File model</a></td>
 </tr>
 <tr>
 <td>liked</td>
@@ -186,7 +186,7 @@ aforementioned approaches.</p>
 <td>usage</td>
 <td>Usage</td>
 <td>no</td>
-<td>Usage information object - see <a href="#v3-offer-usage-model">Offer usage model</a></td>
+<td>Usage information object - see <a href="#offer-usage-model">Offer usage model</a></td>
 </tr>
 <tr>
 <td>extras</td>
@@ -204,7 +204,7 @@ aforementioned approaches.</p>
 <td>display.schemas</td>
 <td>Object</td>
 <td>no</td>
-<td>Offer displays schemas - see <a href="#v3-offers-display-schemas">Offer display schemas</a></td>
+<td>Offer displays schemas - see <a href="#offers-display-schemas">Offer display schemas</a></td>
 </tr>
 <tr>
 <td>display.read_more</td>
@@ -262,7 +262,7 @@ aforementioned approaches.</p>
 </tr>
 </tbody></table>
 
-<h3 id="offer-usage-model"><a name="v3-offer-usage-model"></a> Offer usage model</h3>
+<h3 id="offer-usage-model"><a name="offer-usage-model"></a> Offer usage model</h3>
 
 <table><thead>
 <tr>
@@ -298,7 +298,7 @@ aforementioned approaches.</p>
 </tr>
 </tbody></table>
 
-<h3 id="collection-model"><a name="v3-offers-collection-model"></a> Collection model</h3>
+<h3 id="collection-model"><a name="offers-collection-model"></a> Collection model</h3>
 
 <table><thead>
 <tr>
@@ -342,11 +342,11 @@ aforementioned approaches.</p>
 <td>files</td>
 <td>File[]</td>
 <td>no</td>
-<td>A list of Offer Files - see <a href="#v3-file-model">File model</a></td>
+<td>A list of Offer Files - see <a href="#file-model">File model</a></td>
 </tr>
 </tbody></table>
 
-<h3 id="display-schemas"><a name="v3-offers-display-schemas"></a> Display schemas</h3>
+<h3 id="display-schemas"><a name="offers-display-schemas"></a> Display schemas</h3>
 
 <blockquote>
 <p>Example schemas:</p>
@@ -419,9 +419,9 @@ There are three types of fields:</p>
 <li><code class="prettyprint">body</code> =&gt; <code class="prettyprint">description</code></li>
 </ul>
 
-<h2 id="offers"><a name="v3-offers"></a> Offers</h2>
+<h2 id="offers"><a name="offers"></a> Offers</h2>
 
-<h3 id="get-offers-meta"><a name="v3-offers-meta"></a> Get offers meta</h3>
+<h3 id="get-offers-meta"><a name="offers-meta"></a> Get offers meta</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -475,7 +475,7 @@ There are three types of fields:</p>
     </span><span class="s2">"activated_seconds_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">35</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>GET</strong> <code class="prettyprint">v3/infinity-mall/members/me/offers/meta</code> [<a href="#v3-oauth2">OAuth</a>]</p>
+<p><strong>GET</strong> <code class="prettyprint">v3/infinity-mall/members/me/offers/meta</code> [<a href="#oauth2">OAuth</a>]</p>
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:GetMeta</code> permit
@@ -526,7 +526,7 @@ Requires <code>Offers:Api:MemberOffers:GetMetaPreview</code> permit
 <td>collections</td>
 <td>Collection[]</td>
 <td>no (may be empty)</td>
-<td>List of unique collections assigned to offers - see <a href="#v3-offers-collection-model">Collection model</a></td>
+<td>List of unique collections assigned to offers - see <a href="#offers-collection-model">Collection model</a></td>
 </tr>
 <tr>
 <td>activated_seconds_time</td>
@@ -536,9 +536,9 @@ Requires <code>Offers:Api:MemberOffers:GetMetaPreview</code> permit
 </tr>
 </tbody></table>
 
-<h3 id="get-offer"><a name="v3-get-offer"></a> Get offer</h3>
+<h3 id="get-offer"><a name="get-offer"></a> Get offer</h3>
 
-<p><strong>GET</strong> <code class="prettyprint">v3/infinity-mall/members/me/offers/:id</code> [<a href="#v3-oauth2">OAuth</a>]</p>
+<p><strong>GET</strong> <code class="prettyprint">v3/infinity-mall/members/me/offers/:id</code> [<a href="#oauth2">OAuth</a>]</p>
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:Get</code> permit
@@ -568,7 +568,7 @@ Requires <code>Offers:Api:MemberOffers:GetPreview</code> permit
     -H <span class="s1">'x-user-agent: CURL manual test'</span>
 </code></pre>
 <blockquote>
-<p>When successful (200), returns an Offer object under &ldquo;offer&rdquo; key. See <a href="#v3-offer-model">Offer model</a></p>
+<p>When successful (200), returns an Offer object under &ldquo;offer&rdquo; key. See <a href="#offer-model">Offer model</a></p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"offer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -592,11 +592,11 @@ Requires <code>Offers:Api:MemberOffers:GetPreview</code> permit
 <td>offer</td>
 <td>Offer</td>
 <td>no</td>
-<td>See <a href="#v3-offer-model">Offer model</a></td>
+<td>See <a href="#offer-model">Offer model</a></td>
 </tr>
 </tbody></table>
 
-<h3 id="list-offers"><a name="v3-list-offers"></a> List offers</h3>
+<h3 id="list-offers"><a name="list-offers"></a> List offers</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -611,7 +611,7 @@ Requires <code>Offers:Api:MemberOffers:GetPreview</code> permit
 </code></pre>
 <blockquote>
 <p>When successful (200), returns a list of offers and pagination info. 
-  See <a href="#v3-offer-model">Offer model</a> and <a href="#pagination-json-model">Pagination info model</a></p>
+  See <a href="#offer-model">Offer model</a> and <a href="#pagination-json-model">Pagination info model</a></p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"offers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -624,7 +624,7 @@ Requires <code>Offers:Api:MemberOffers:GetPreview</code> permit
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>GET</strong> <code class="prettyprint">v3/infinity-mall/members/me/offers</code> [<a href="#v3-oauth2">OAuth</a>]</p>
+<p><strong>GET</strong> <code class="prettyprint">v3/infinity-mall/members/me/offers</code> [<a href="#oauth2">OAuth</a>]</p>
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:ListVisible</code> permit
@@ -676,7 +676,7 @@ Requires <code>Offers:Api:MemberOffers:ListVisiblePreview</code> permit
 <td>order_by</td>
 <td>string</td>
 <td>&ldquo;name&rdquo;</td>
-<td>See <a href="#v3-offers-list-order-by"><code class="prettyprint">order_by</code> param</a></td>
+<td>See <a href="#offers-list-order-by"><code class="prettyprint">order_by</code> param</a></td>
 </tr>
 <tr>
 <td>collection_ids</td>
@@ -724,7 +724,7 @@ Requires <code>Offers:Api:MemberOffers:ListVisiblePreview</code> permit
 
 <p>All parameters are optional.</p>
 
-<h5 id="order_by-param"><a name="v3-offers-list-order-by"></a> <code class="prettyprint">order_by</code> param</h5>
+<h5 id="order_by-param"><a name="offers-list-order-by"></a> <code class="prettyprint">order_by</code> param</h5>
 
 <p>Offers list may be sorted by <code class="prettyprint">order_by</code> param, which has similar syntax as ORDER BY keyword in SQL statements.</p>
 
@@ -767,7 +767,7 @@ Requires <code>Offers:Api:MemberOffers:ListVisiblePreview</code> permit
 <td>offers</td>
 <td>Offer[]</td>
 <td>no (may be empty)</td>
-<td>See <a href="#v3-offer-model">Offer model</a></td>
+<td>See <a href="#offer-model">Offer model</a></td>
 </tr>
 <tr>
 <td>pagination_info</td>
@@ -777,7 +777,7 @@ Requires <code>Offers:Api:MemberOffers:ListVisiblePreview</code> permit
 </tr>
 </tbody></table>
 
-<h3 id="use-offer"><a name="v3-use-offer"></a> Use offer</h3>
+<h3 id="use-offer"><a name="use-offer"></a> Use offer</h3>
 <pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
 <span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/members/me/offers/1000016"</span> <span class="se">\</span>
     -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
@@ -792,7 +792,7 @@ Requires <code>Offers:Api:MemberOffers:ListVisiblePreview</code> permit
     '</span>
 </code></pre>
 <blockquote>
-<p>When successful (200), returns a Offer usage object - See <a href="#v3-offer-usage-model">Offer usage model</a></p>
+<p>When successful (200), returns a Offer usage object - See <a href="#offer-usage-model">Offer usage model</a></p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"usage"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -803,7 +803,7 @@ Requires <code>Offers:Api:MemberOffers:ListVisiblePreview</code> permit
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>POST</strong> <code class="prettyprint">v3/infinity-mall/members/me/offers/:id/use</code> [<a href="#v3-oauth2">OAuth</a>]</p>
+<p><strong>POST</strong> <code class="prettyprint">v3/infinity-mall/members/me/offers/:id/use</code> [<a href="#oauth2">OAuth</a>]</p>
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:Use</code> permit
@@ -831,11 +831,11 @@ Requires <code>Offers:Api:MemberOffers:UseByMemberId</code> permit
 <td>authorization_token</td>
 <td>string</td>
 <td>yes</td>
-<td>See <a href="#v3-offer-use-authorization">below</a></td>
+<td>See <a href="#offer-use-authorization">below</a></td>
 </tr>
 </tbody></table>
 
-<h5 id="offer-use-authorization"><a name="v3-offer-use-authorization"></a> Offer use authorization</h5>
+<h5 id="offer-use-authorization"><a name="offer-use-authorization"></a> Offer use authorization</h5>
 
 <p>Some features (like Rewards Program) may require from member to provide some code (scanned QR code, for example), so we can register
 his physical presence in the store.</p>
@@ -857,7 +857,7 @@ tied to it may not be granted to the member.</p>
 <tr>
 <td>usage</td>
 <td>OfferUsage</td>
-<td>See <a href="#v3-offer-usage-model">Offer usage model</a></td>
+<td>See <a href="#offer-usage-model">Offer usage model</a></td>
 </tr>
 </tbody></table>
 
@@ -907,7 +907,7 @@ tied to it may not be granted to the member.</p>
 </tr>
 </tbody></table>
 
-<h3 id="like-offer"><a name="v3-like-offer"></a> Like offer</h3>
+<h3 id="like-offer"><a name="like-offer"></a> Like offer</h3>
 
 <blockquote>
 <p>Example</p>
@@ -927,7 +927,7 @@ tied to it may not be granted to the member.</p>
   </span><span class="err">//</span><span class="w"> </span><span class="err">Empty</span><span class="w"> </span><span class="err">object</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>PUT</strong> <code class="prettyprint">v3/infinity-mall/members/me/offers/:id/like</code> [<a href="#v3-oauth2">OAuth</a>]</p>
+<p><strong>PUT</strong> <code class="prettyprint">v3/infinity-mall/members/me/offers/:id/like</code> [<a href="#oauth2">OAuth</a>]</p>
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:Like</code> permit
@@ -941,7 +941,7 @@ Requires <code>Offers:Api:MemberOffers:LikeByMemberId</code> permit
 
 <p>Marks offer as &ldquo;liked&rdquo; by user.</p>
 
-<h3 id="unlike-offer"><a name="v3-unlike-offer"></a> Unlike offer</h3>
+<h3 id="unlike-offer"><a name="unlike-offer"></a> Unlike offer</h3>
 
 <blockquote>
 <p>Example</p>
@@ -961,7 +961,7 @@ Requires <code>Offers:Api:MemberOffers:LikeByMemberId</code> permit
   </span><span class="err">//</span><span class="w"> </span><span class="err">Empty</span><span class="w"> </span><span class="err">object</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>PUT</strong> <code class="prettyprint">v3/infinity-mall/members/me/offers/:id/unlike</code> [<a href="#v3-oauth2">OAuth</a>]</p>
+<p><strong>PUT</strong> <code class="prettyprint">v3/infinity-mall/members/me/offers/:id/unlike</code> [<a href="#oauth2">OAuth</a>]</p>
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:Like</code> permit
@@ -975,7 +975,7 @@ Requires <code>Offers:Api:MemberOffers:LikeByMemberId</code> permit
 
 <p>Revers marking offer as &ldquo;liked&rdquo; by user.</p>
 
-<h3 id="grant-offer"><a name="v3-grant-offer"></a> Grant offer</h3>
+<h3 id="grant-offer"><a name="grant-offer"></a> Grant offer</h3>
 
 <blockquote>
 <p>Example</p>
@@ -1001,7 +1001,7 @@ Requires <code>Offers:Api:MemberOffers:LikeByMemberId</code> permit
 <p>It may make sense to grant a same offer to one member multiple times when offer has limited number of uses. 
 In such case, each consecutive grant will increase the number of uses for this member.</p>
 
-<p>NOTE: This endpoint does not have <a href="#v3-oauth2">OAuth</a> version </p>
+<p>NOTE: This endpoint does not have <a href="#oauth2">OAuth</a> version </p>
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:GrantByMemberId</code> permit

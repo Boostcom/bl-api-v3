@@ -2,7 +2,7 @@
 
 <h2 id="transactions">Transactions</h2>
 
-<h3 id="create"><a name="v3-transactions-create"></a> Create</h3>
+<h3 id="create"><a name="transactions-create"></a> Create</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -394,7 +394,7 @@
 Requires <code>Transaction:Api:Transactions:Create</code> and <code>BL:Api:Members:Get</code> permits
 </aside>
 
-<h3 id="list"><a name="v3-transactions-list"></a> List</h3>
+<h3 id="list"><a name="transactions-list"></a> List</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -527,7 +527,7 @@ Requires <code>Transaction:Api:Transactions:Create</code> and <code>BL:Api:Membe
 Requires <code>Transaction:Api:Transactions:Read</code> permit
 </aside> 
 
-<h3 id="get"><a name="v3-transactions-get"></a> Get</h3>
+<h3 id="get"><a name="transactions-get"></a> Get</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -602,7 +602,7 @@ Requires <code>Transaction:Api:Transactions:Read</code> permit
 
 <h2 id="categories">Categories</h2>
 
-<h3 id="list"><a name="v3-transactions-categories-get"></a> List</h3>
+<h3 id="list"><a name="transactions-categories-get"></a> List</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -715,7 +715,7 @@ Requires <code>Transaction:Api:Transactions:Read</code> permit
 
 <h2 id="events">Events</h2>
 
-<h3 id="create-events"><a name="v3-transactions-events-create"></a> Create events</h3>
+<h3 id="create-events"><a name="transactions-events-create"></a> Create events</h3>
 
 <blockquote>
 <p>Example:</p>

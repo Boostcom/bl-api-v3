@@ -1,8 +1,8 @@
-<h2 id="members-messages"><a name="v3-members-messages"></a> Members Messages</h2>
+<h2 id="members-messages"><a name="members-messages"></a> Members Messages</h2>
 
-<h3 id="introduction"><a name="v3-member-messages-introduction"> Introduction</h3>
+<h3 id="introduction"><a name="member-messages-introduction"> Introduction</h3>
 
-<h4 id="membermessage-model"><a name="v3-member-message-model"></a> MemberMessage model</h4>
+<h4 id="membermessage-model"><a name="member-message-model"></a> MemberMessage model</h4>
 
 <blockquote>
 <p>Example:</p>
@@ -48,7 +48,7 @@
 </tr>
 </tbody></table>
 
-<h3 id="list-messages"><a name="v3-members-messages-list"></a> List messages</h3>
+<h3 id="list-messages"><a name="members-messages-list"></a> List messages</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -60,7 +60,7 @@
   -H <span class="s1">'x-user-agent: CURL manual test'</span>
 </code></pre>
 <blockquote>
-<p>Returns object containing <a href="#v3-member-message-model">member messages</a> and <a href="#v3-pagination-model">pagination_info</a></p>
+<p>Returns object containing <a href="#member-message-model">member messages</a> and <a href="#pagination-model">pagination_info</a></p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">List</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">members</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Member message"</span><span class="w">
@@ -116,12 +116,12 @@ Does not translate id to other identifiers and vice versa. If no messages are fo
 <tr>
 <td>messages</td>
 <td>Array<MemberMessage></td>
-<td>Array of <a href="#v3-member-message-model">MemberMessages</a></td>
+<td>Array of <a href="#member-message-model">MemberMessages</a></td>
 </tr>
 <tr>
 <td>pagination_info</td>
 <td>Pagination</td>
-<td><a href="#v3-pagination-model">Pagination</a> object</td>
+<td><a href="#pagination-model">Pagination</a> object</td>
 </tr>
 </tbody></table>
 
@@ -131,7 +131,7 @@ Requires <code>BL:Api:Members:MessagesHistory:List</code> permit
 
 <!--- ############################################################################################################# --->
 
-<h3 id="get-message"><a name="v3-members-message-get"></a> Get message</h3>
+<h3 id="get-message"><a name="members-message-get"></a> Get message</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -143,7 +143,7 @@ Requires <code>BL:Api:Members:MessagesHistory:List</code> permit
   -H <span class="s1">'x-user-agent: CURL manual test'</span>
 </code></pre>
 <blockquote>
-<p>Returns <a href="#v3-member-message-model">member message</a></p>
+<p>Returns <a href="#member-message-model">member message</a></p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">MemberMessage</span><span class="w"> </span><span class="err">record</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"MemberMessage model"</span><span class="w">
@@ -189,7 +189,7 @@ Requires <code>BL:Api:Members:MessagesHistory:List</code> permit
 <tr>
 <td>message</td>
 <td>MemberMessage</td>
-<td><a href="#v3-member-message-model">MemberMessage</a></td>
+<td><a href="#member-message-model">MemberMessage</a></td>
 </tr>
 </tbody></table>
 

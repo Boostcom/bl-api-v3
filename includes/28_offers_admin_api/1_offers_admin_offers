@@ -1,6 +1,6 @@
-<h2 id="offers"><a name="v3-offer-admin-offers"></a> Offers</h2>
+<h2 id="offers"><a name="offer-admin-offers"></a> Offers</h2>
 
-<h3 id="get-offer"><a name="v3-get-offer"></a> Get offer</h3>
+<h3 id="get-offer"><a name="get-offer"></a> Get offer</h3>
 
 <p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/offers/:id</code></p>
 
@@ -15,7 +15,7 @@
     -H <span class="s1">'x-user-agent: CURL manual test'</span>
 </code></pre>
 <blockquote>
-<p>When successful (200), returns an Offer object under &ldquo;offer&rdquo; key. See <a href="#v3-admin-offer-model">Offer model</a></p>
+<p>When successful (200), returns an Offer object under &ldquo;offer&rdquo; key. See <a href="#admin-offer-model">Offer model</a></p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"offer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -39,7 +39,7 @@
 <td>offer</td>
 <td>Offer</td>
 <td>no</td>
-<td>See <a href="#v3-admin-offer-model">Offer model</a></td>
+<td>See <a href="#admin-offer-model">Offer model</a></td>
 </tr>
 </tbody></table>
 
@@ -47,7 +47,7 @@
 Requires <code>Offers:Api:Offers:Get</code> permit
 </aside>
 
-<h3 id="list-offers"><a name="v3-list-offers"></a> List offers</h3>
+<h3 id="list-offers"><a name="list-offers"></a> List offers</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -61,7 +61,7 @@ Requires <code>Offers:Api:Offers:Get</code> permit
 </code></pre>
 <blockquote>
 <p>When successful (200), returns a list of offers and pagination info. 
-  See <a href="#v3-admin-offer-model">Offer model</a> and <a href="#pagination-json-model">Pagination info model</a></p>
+  See <a href="#admin-offer-model">Offer model</a> and <a href="#pagination-json-model">Pagination info model</a></p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"offers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -220,7 +220,7 @@ Requires <code>Offers:Api:Offers:Get</code> permit
 <td>offers</td>
 <td>Offer[]</td>
 <td>no (may be empty)</td>
-<td>See <a href="#v3-admin-offer-model">Offer model</a></td>
+<td>See <a href="#admin-offer-model">Offer model</a></td>
 </tr>
 <tr>
 <td>pagination_info</td>
@@ -234,7 +234,7 @@ Requires <code>Offers:Api:Offers:Get</code> permit
 Requires <code>Offers:Api:Offers:List</code> permit
 </aside>
 
-<h3 id="create-offers"><a name="v3-create-offers"></a> Create offers</h3>
+<h3 id="create-offers"><a name="create-offers"></a> Create offers</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -289,7 +289,7 @@ Requires <code>Offers:Api:Offers:List</code> permit
 <tr>
 <td>offers</td>
 <td>OfferPayload[]</td>
-<td>List of offers to create. See <a href="#v3-admin-offer-payload">Offer payload</a></td>
+<td>List of offers to create. See <a href="#admin-offer-payload">Offer payload</a></td>
 </tr>
 </tbody></table>
 
@@ -323,7 +323,7 @@ Requires <code>Offers:Api:Offers:List</code> permit
 Requires <code>Offers:Api:Offers:Create</code> permit
 </aside>
 
-<h3 id="update-offers"><a name="v3-update-offers"></a> Update offers</h3>
+<h3 id="update-offers"><a name="update-offers"></a> Update offers</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -380,7 +380,7 @@ Update is not partial, so all attributes that aren&rsquo;t present in the payloa
 <tr>
 <td>offers</td>
 <td>OfferPayload[]</td>
-<td>List of offers to update. See <a href="#v3-admin-offer-payload">Offer payload</a>.</td>
+<td>List of offers to update. See <a href="#admin-offer-payload">Offer payload</a>.</td>
 </tr>
 </tbody></table>
 
@@ -414,7 +414,7 @@ Update is not partial, so all attributes that aren&rsquo;t present in the payloa
 Requires <code>Offers:Api:Offers:Update</code> permit
 </aside>
 
-<h3 id="clone-offers"><a name="v3-clone-offers"></a> Clone offers</h3>
+<h3 id="clone-offers"><a name="clone-offers"></a> Clone offers</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -478,7 +478,7 @@ Requires <code>Offers:Api:Offers:Update</code> permit
 Requires <code>Offers:Api:Offers:Clone</code> permit
 </aside>
 
-<h3 id="delete-offers"><a name="v3-update-offers"></a> Delete offers</h3>
+<h3 id="delete-offers"><a name="update-offers"></a> Delete offers</h3>
 
 <blockquote>
 <p>Example:</p>

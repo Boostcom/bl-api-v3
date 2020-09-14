@@ -1,6 +1,6 @@
-<h2 id="offers-events"><a name="v3-offers-events"></a> Offers Events</h2>
+<h2 id="offers-events"><a name="offers-events"></a> Offers Events</h2>
 
-<h3 id="offerevent-model"><a name="v3-offer-event-model"></a> OfferEvent model</h3>
+<h3 id="offerevent-model"><a name="offer-event-model"></a> OfferEvent model</h3>
 
 <blockquote>
 <p>Offer Event example:</p>
@@ -78,7 +78,7 @@
 <p>Context describes in what circumstances the event has occurred. 
 For example, member clicked on a coupon that was displayed inside collection, the context should include this collection_id. </p>
 
-<h3 id="register-clicked-event"><a name="v3-offers-clicked"></a> Register &ldquo;clicked&rdquo; event</h3>
+<h3 id="register-clicked-event"><a name="offers-clicked"></a> Register &ldquo;clicked&rdquo; event</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -114,7 +114,7 @@ For example, member clicked on a coupon that was displayed inside collection, th
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{}</span><span class="w">
 </span></code></pre>
-<p><strong>POST</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/me/events/offers_clicked</code> [<a href="#v3-oauth2">OAuth</a>]</p>
+<p><strong>POST</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/me/events/offers_clicked</code> [<a href="#oauth2">OAuth</a>]</p>
 
 <p>Registers that OAuth member clicked on given offers.</p>
 
@@ -130,7 +130,7 @@ For example, member clicked on a coupon that was displayed inside collection, th
 <tr>
 <td>events</td>
 <td>Array<OfferEvent></td>
-<td>See <a href="#v3-offer-event-model">Offer Event</a></td>
+<td>See <a href="#offer-event-model">Offer Event</a></td>
 </tr>
 </tbody></table>
 
@@ -138,7 +138,7 @@ For example, member clicked on a coupon that was displayed inside collection, th
 Requires <code>Offers:Api:Events:Clicked</code> permit
 </aside>
 
-<h3 id="register-seen-event"><a name="v3-offers-seen"></a> Register &ldquo;seen&rdquo; event</h3>
+<h3 id="register-seen-event"><a name="offers-seen"></a> Register &ldquo;seen&rdquo; event</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -174,7 +174,7 @@ Requires <code>Offers:Api:Events:Clicked</code> permit
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{}</span><span class="w">
 </span></code></pre>
-<p><strong>POST</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/me/events/offers_seen</code> [<a href="#v3-oauth2">OAuth</a>]</p>
+<p><strong>POST</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/me/events/offers_seen</code> [<a href="#oauth2">OAuth</a>]</p>
 
 <p>Registers that OAuth member saw given offers.</p>
 
@@ -194,7 +194,7 @@ Seen events are automatically tracked when retrieving offer image/file within me
 <tr>
 <td>events</td>
 <td>Array <OfferEvent></td>
-<td>See <a href="#v3-offer-event-model">Offer Event</a></td>
+<td>See <a href="#offer-event-model">Offer Event</a></td>
 </tr>
 </tbody></table>
 

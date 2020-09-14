@@ -1,15 +1,15 @@
-<h1 id="offers-admin-api"><a name="v3-offers-admin"></a>  Offers Admin API</h1>
+<h1 id="offers-admin-api"><a name="offers-admin"></a>  Offers Admin API</h1>
 
 <aside class="warning">
 This API is in development. Therefore, it may not be ready for use and is a subject to change at any time.
 </aside>
 
 <p>This section describes endpoints destined for offers management. 
-Navigate to <a href="#v3-offers">Offers</a> section to see docs for member-related endpoints.</p>
+Navigate to <a href="#offers">Offers</a> section to see docs for member-related endpoints.</p>
 
 <h2 id="common-models">Common models</h2>
 
-<h3 id="offer"><a name="v3-admin-offer-model"></a> Offer</h3>
+<h3 id="offer"><a name="admin-offer-model"></a> Offer</h3>
 
 <blockquote>
 <p>Offer example:</p>
@@ -161,13 +161,13 @@ Navigate to <a href="#v3-offers">Offers</a> section to see docs for member-relat
 <td>tags</td>
 <td>string[]</td>
 <td>no (may be empty)</td>
-<td>List of tags identifiers associated with the offer. Information from <a href="#v3-list-translations">Translations &bull; List</a> should be used to display the tags.</td>
+<td>List of tags identifiers associated with the offer. Information from <a href="#list-translations">Translations &bull; List</a> should be used to display the tags.</td>
 </tr>
 <tr>
 <td>stores</td>
 <td>string[]</td>
 <td>no (may be empty)</td>
-<td>List of stores names associated with the offer. See <a href="#v3-store-list">Stores &bull; List</a>.</td>
+<td>List of stores names associated with the offer. See <a href="#store-list">Stores &bull; List</a>.</td>
 </tr>
 <tr>
 <td>audience_id</td>
@@ -185,7 +185,7 @@ Navigate to <a href="#v3-offers">Offers</a> section to see docs for member-relat
 <td>files</td>
 <td>File[]</td>
 <td>no</td>
-<td>A list of offer files - see <a href="#v3-file-model">File model</a></td>
+<td>A list of offer files - see <a href="#file-model">File model</a></td>
 </tr>
 <tr>
 <td>extras</td>
@@ -197,7 +197,7 @@ Navigate to <a href="#v3-offers">Offers</a> section to see docs for member-relat
 <td>display_schemas</td>
 <td>Object</td>
 <td>no</td>
-<td>Offer displays schemas - see <a href="#v3-offers-display-schemas">Offer display schemas</a></td>
+<td>Offer displays schemas - see <a href="#offers-display-schemas">Offer display schemas</a></td>
 </tr>
 <tr>
 <td>maximum_uses_per_user</td>
@@ -239,26 +239,26 @@ Navigate to <a href="#v3-offers">Offers</a> section to see docs for member-relat
 <td>image_template</td>
 <td>Object</td>
 <td>yes</td>
-<td>See <a href="#v3-offer-image-template-attr">image_template</a> below</td>
+<td>See <a href="#offer-image-template-attr">image_template</a> below</td>
 </tr>
 <tr>
 <td>image_template.rectangles</td>
 <td>ImageTemplateRectangle[]</td>
 <td>yes</td>
-<td>See <a href="#v3-offer-image-template-rectangle">ImageTemplate Rectangle</a></td>
+<td>See <a href="#offer-image-template-rectangle">ImageTemplate Rectangle</a></td>
 </tr>
 </tbody></table>
 
-<h4 id="image_template-attribute"><a name="v3-admin-offer-model-image-template"></a> <code class="prettyprint">image_template</code> attribute</h4>
+<h4 id="image_template-attribute"><a name="admin-offer-model-image-template"></a> <code class="prettyprint">image_template</code> attribute</h4>
 
 <p>With this object, you can determine that offer&rsquo;s image will be rendered according to the given definition.</p>
 
-<p>It reflects the <a href="#v3-offer-image-template-model">ImageTemplate model</a>. 
-However, it <strong>is not</strong> a reference to existing <a href="#v3-offer-image-template-record">ImageTemplate record</a>. </p>
+<p>It reflects the <a href="#offer-image-template-model">ImageTemplate model</a>. 
+However, it <strong>is not</strong> a reference to existing <a href="#offer-image-template-record">ImageTemplate record</a>. </p>
 
 <p>If you want to apply record&rsquo;s model to the offer, you must use some of its attributes (copy them) as the offer&rsquo;s <code class="prettyprint">image_template</code> attribute.</p>
 
-<h3 id="offerpayload"><a name="v3-admin-offer-payload"></a> OfferPayload</h3>
+<h3 id="offerpayload"><a name="admin-offer-payload"></a> OfferPayload</h3>
 
 <p>Following Offer attributes (described above) are available to set when creating or updating offers.</p>
 
@@ -286,9 +286,9 @@ However, it <strong>is not</strong> a reference to existing <a href="#v3-offer-i
 <li>image_template</li>
 </ul>
 
-<h3 id="imagetemplate"><a name="v3-offer-image-template"></a> ImageTemplate</h3>
+<h3 id="imagetemplate"><a name="offer-image-template"></a> ImageTemplate</h3>
 
-<h4 id="imagetemplate-model"><a name="v3-offer-image-template-model"></a> ImageTemplate Model</h4>
+<h4 id="imagetemplate-model"><a name="offer-image-template-model"></a> ImageTemplate Model</h4>
 
 <blockquote>
 <p>ImageTemplate model:</p>
@@ -299,8 +299,8 @@ However, it <strong>is not</strong> a reference to existing <a href="#v3-offer-i
 </span></code></pre>
 <p>Defines how offer image should be rendered. </p>
 
-<p>It&rsquo;s an interface used both by <a href="#v3-admin-offer-model-image-template">Offer&rsquo;s <code class="prettyprint">image_template</code> attribute</a> and 
-<a href="#v3-offer-image-template-record">ImageTemplate record</a>.</p>
+<p>It&rsquo;s an interface used both by <a href="#admin-offer-model-image-template">Offer&rsquo;s <code class="prettyprint">image_template</code> attribute</a> and 
+<a href="#offer-image-template-record">ImageTemplate record</a>.</p>
 
 <table><thead>
 <tr>
@@ -312,7 +312,7 @@ However, it <strong>is not</strong> a reference to existing <a href="#v3-offer-i
 <tr>
 <td>rectangles</td>
 <td>TemplateRectangle[]</td>
-<td>See <a href="#v3-offer-image-template-rectangle">ImageTemplate Rectangle</a></td>
+<td>See <a href="#offer-image-template-rectangle">ImageTemplate Rectangle</a></td>
 </tr>
 </tbody></table>
 
@@ -320,11 +320,11 @@ However, it <strong>is not</strong> a reference to existing <a href="#v3-offer-i
 
 <p>The output image is rendered from template after offer creation/update request, asynchronously. </p>
 
-<p>Rendering process draws (up to 4) <a href="#v3-offer-image-template-rectangle">rectangles</a> over a background image (not yet implemented).</p>
+<p>Rendering process draws (up to 4) <a href="#offer-image-template-rectangle">rectangles</a> over a background image (not yet implemented).</p>
 
 <p>When rendering is done, the image is stored as a regular file of the subject offer. </p>
 
-<h4 id="imagetemplate-record"><a name="v3-offer-image-template-record"></a> ImageTemplate Record</h4>
+<h4 id="imagetemplate-record"><a name="offer-image-template-record"></a> ImageTemplate Record</h4>
 
 <blockquote>
 <p>ImageTemplate record example:</p>
@@ -338,7 +338,7 @@ However, it <strong>is not</strong> a reference to existing <a href="#v3-offer-i
     </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-04T14:55:44.385Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Stores <code class="prettyprint">ImageTemplate</code> model (see above) for re-usage. Managed with <a href="#v3-image-templates">ImageTemplates API</a>.</p>
+<p>Stores <code class="prettyprint">ImageTemplate</code> model (see above) for re-usage. Managed with <a href="#image-templates">ImageTemplates API</a>.</p>
 
 <table><thead>
 <tr>
@@ -365,7 +365,7 @@ However, it <strong>is not</strong> a reference to existing <a href="#v3-offer-i
 <tr>
 <td>rectangles</td>
 <td>TemplateRectangle[]</td>
-<td>See <a href="#v3-offer-image-template-rectangle">ImageTemplate Rectangle</a></td>
+<td>See <a href="#offer-image-template-rectangle">ImageTemplate Rectangle</a></td>
 </tr>
 <tr>
 <td>created_at</td>
@@ -385,7 +385,7 @@ However, it <strong>is not</strong> a reference to existing <a href="#v3-offer-i
 
 <p>It&rsquo;s up to API client how to utilize this feature.</p>
 
-<h4 id="imagetemplate-record-payload"><a name="v3-offer-image-template-record-payload"></a> ImageTemplate Record payload</h4>
+<h4 id="imagetemplate-record-payload"><a name="offer-image-template-record-payload"></a> ImageTemplate Record payload</h4>
 
 <blockquote>
 <p>ImageTemplate record payload example:</p>
@@ -423,11 +423,11 @@ However, it <strong>is not</strong> a reference to existing <a href="#v3-offer-i
 <td>rectangles</td>
 <td>TemplateRectangle[]</td>
 <td>yes</td>
-<td>See <a href="#v3-offer-image-template-rectangle">ImageTemplate Rectangle</a></td>
+<td>See <a href="#offer-image-template-rectangle">ImageTemplate Rectangle</a></td>
 </tr>
 </tbody></table>
 
-<h3 id="imagetemplate-rectangle"><a name="v3-offer-image-template-rectangle"></a> ImageTemplate Rectangle</h3>
+<h3 id="imagetemplate-rectangle"><a name="offer-image-template-rectangle"></a> ImageTemplate Rectangle</h3>
 
 <blockquote>
 <p>ImageTemplateRectangle example:</p>
@@ -518,11 +518,11 @@ However, it <strong>is not</strong> a reference to existing <a href="#v3-offer-i
 <td>content</td>
 <td>string</td>
 <td>no</td>
-<td>Content to display, may contain <a href="#v3-image-template-mergefields">merge fields</a></td>
+<td>Content to display, may contain <a href="#image-template-mergefields">merge fields</a></td>
 </tr>
 </tbody></table>
 
-<h3 id="imagetemplate-merge-fields"><a name="v3-image-template-mergefields"></a> ImageTemplate Merge-fields</h3>
+<h3 id="imagetemplate-merge-fields"><a name="image-template-mergefields"></a> ImageTemplate Merge-fields</h3>
 
 <p>It is possible to use following merge-fields in order to inject offer attributes into the image generated from template.</p>
 

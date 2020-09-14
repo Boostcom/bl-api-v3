@@ -6,7 +6,7 @@ This API is in development. Therefore, it may not be ready for use and is a subj
 
 <h2 id="events">Events</h2>
 
-<h3 id="list"><a name="v3-events-list"></a> List</h3>
+<h3 id="list"><a name="events-list"></a> List</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -46,7 +46,7 @@ This API is in development. Therefore, it may not be ready for use and is a subj
 Requires <code>Events:Api:Events:Get</code> permit
 </aside>
 
-<h3 id="get"><a name="v3-event-get"></a> Get</h3>
+<h3 id="get"><a name="event-get"></a> Get</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -84,7 +84,7 @@ Requires <code>Events:Api:Events:Get</code> permit
 Requires <code>Events:Api:Events:Get</code> permit
 </aside>
 
-<h3 id="member-validation"><a name="v3-events-validate-member"></a> Member validation</h3>
+<h3 id="member-validation"><a name="events-validate-member"></a> Member validation</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -162,7 +162,7 @@ Requires <code>Events:Api:Validation:Create</code> permit
 
 <h2 id="checkins">Checkins</h2>
 
-<h3 id="create"><a name="v3-events-checkin-member"></a> Create</h3>
+<h3 id="create"><a name="events-checkin-member"></a> Create</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -252,7 +252,7 @@ Requires <code>Events:Api:Checkin:Create</code> permit
 
 <p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/events/checkin</code></p>
 
-<h3 id="list"><a name="v3-events-checkin-list"></a> List</h3>
+<h3 id="list"><a name="events-checkin-list"></a> List</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -285,7 +285,7 @@ Requires <code>Events:Api:Checkin:Get</code> permit
 
 <h2 id="invitations">Invitations</h2>
 
-<h3 id="send-invitation"><a name="v3-events-invitation"></a> Send invitation</h3>
+<h3 id="send-invitation"><a name="events-invitation"></a> Send invitation</h3>
 
 <blockquote>
 <p>Example:</p>

@@ -1,4 +1,4 @@
-<h2 id="members-oauth"><a name="v3-oauth2"></a> Members OAuth</h2>
+<h2 id="members-oauth"><a name="oauth2"></a> Members OAuth</h2>
 
 <blockquote>
 <p>Example header: <code class="prettyprint">authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522</code></p>
@@ -9,9 +9,9 @@ OAuth2 flow for this.</p>
 
 <p>To authorize those actions, we <strong>require</strong> <code class="prettyprint">authorization</code> header that should contain: <code class="prettyprint">Bearer :access_token</code>. </p>
 
-<p>Look at <a href="#v3-token-create">OAuth Token &bull; Create</a> to see how to obtain the :access_token.</p>
+<p>Look at <a href="#token-create">OAuth Token &bull; Create</a> to see how to obtain the :access_token.</p>
 
-<h3 id="create-token"><a name="v3-token-create"></a> Create token</h3>
+<h3 id="create-token"><a name="token-create"></a> Create token</h3>
 
 <blockquote>
 <p>Create token example:</p>
@@ -69,7 +69,7 @@ OAuth2 flow for this.</p>
 <p>In response, two tokens are returned:</p>
 
 <ul>
-<li><code class="prettyprint">access_token</code> that is valid for <strong>24 hours</strong> - may be used to authenticate member in member-related actions (see: <a href="#v3-oauth2">OAuth2</a>).</li>
+<li><code class="prettyprint">access_token</code> that is valid for <strong>24 hours</strong> - may be used to authenticate member in member-related actions (see: <a href="#oauth2">OAuth2</a>).</li>
 <li><code class="prettyprint">refresh_token</code> which is valid for <strong>1 year</strong> - may be used to get a new access token (with <code class="prettyprint">refresh_token</code> grant)</li>
 </ul>
 
@@ -190,7 +190,7 @@ Requires <code>BL:Api:Members:OAuth</code> permit
 
 <!--- ############################################################################################################# --->
 
-<h3 id="revoke-token"><a name="v3-token-revoke"></a> Revoke token</h3>
+<h3 id="revoke-token"><a name="token-revoke"></a> Revoke token</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -228,7 +228,7 @@ Requires <code>BL:Api:Members:OAuth</code> permit
 </thead><tbody>
 <tr>
 <td>token</td>
-<td>access or refresh token obtained from <a href="#v3-token-create">OAuth Token &bull; Create</a></td>
+<td>access or refresh token obtained from <a href="#token-create">OAuth Token &bull; Create</a></td>
 <td>string</td>
 </tr>
 </tbody></table>
@@ -239,7 +239,7 @@ Requires <code>BL:Api:Members:OAuth</code> permit
 
 <!--- ############################################################################################################# --->
 
-<h3 id="get-token-info"><a name="v3-token-info"></a> Get token info</h3>
+<h3 id="get-token-info"><a name="token-info"></a> Get token info</h3>
 
 <blockquote>
 <p>Example:</p>

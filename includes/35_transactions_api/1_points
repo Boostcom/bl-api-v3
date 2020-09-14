@@ -1,6 +1,6 @@
 <h2 id="points">Points</h2>
 
-<h3 id="create"><a name="v3-points-create"></a> Create</h3>
+<h3 id="create"><a name="points-create"></a> Create</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -228,7 +228,7 @@
 Requires <code>Transaction:Api:Points:Create</code>
 </aside>
 
-<h3 id="member-points"><a name="v3-member-points"></a> Member points</h3>
+<h3 id="member-points"><a name="member-points"></a> Member points</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -300,7 +300,7 @@ Requires <code>Transaction:Api:Points:Create</code>
 Requires <code>Transaction:Api:Points:Get</code> permit
 </aside>
 
-<h3 id="member-points-list"><a name="v3-member-points-list"></a> Member points list</h3>
+<h3 id="member-points-list"><a name="member-points-list"></a> Member points list</h3>
 
 <blockquote>
 <p>Example:</p>

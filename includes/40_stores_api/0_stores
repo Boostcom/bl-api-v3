@@ -2,7 +2,7 @@
 
 <h2 id="stores">Stores</h2>
 
-<h3 id="list"><a name="v3-store-list"></a> List</h3>
+<h3 id="list"><a name="store-list"></a> List</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -131,7 +131,7 @@
 Requires <code>Stores:Api:Stores:Get</code> permit
 </aside> 
 
-<h3 id="get"><a name="v3-store-get"></a> Get</h3>
+<h3 id="get"><a name="store-get"></a> Get</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -250,7 +250,7 @@ Requires <code>Stores:Api:Stores:Get</code> permit
 Requires <code>Stores:Api:Stores:Get</code> permit
 </aside>
 
-<h3 id="create"><a name="v3-store-create"></a> Create</h3>
+<h3 id="create"><a name="store-create"></a> Create</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -453,7 +453,7 @@ Requires <code>Stores:Api:Stores:Get</code> permit
 Requires <code>Stores:Api:Stores:Create</code>
 </aside>
 
-<h3 id="update"><a name="v3-store-update"></a> Update</h3>
+<h3 id="update"><a name="store-update"></a> Update</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -678,7 +678,7 @@ Requires <code>Stores:Api:Stores:Create</code>
 Requires <code>Stores:Api:Stores:Update</code>
 </aside>
 
-<h3 id="delete"><a name="v3-store-delete"></a> Delete</h3>
+<h3 id="delete"><a name="store-delete"></a> Delete</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -769,9 +769,9 @@ Requires <code>Stores:Api:Stores:Update</code>
 Requires <code>Stores:Api:Stores:Delete</code>
 </aside>
 
-<h2 id="categories"><a name="v3-stores-categories"></a> Categories</h2>
+<h2 id="categories"><a name="stores-categories"></a> Categories</h2>
 
-<h3 id="list"><a name="v3-store-categories-list"></a> List</h3>
+<h3 id="list"><a name="store-categories-list"></a> List</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -802,7 +802,7 @@ Requires <code>Stores:Api:Zones:Get</code> permit
 
 <h2 id="zones">Zones</h2>
 
-<h3 id="list"><a name="v3-store-zones-list"></a> List</h3>
+<h3 id="list"><a name="store-zones-list"></a> List</h3>
 
 <blockquote>
 <p>Example:</p>
