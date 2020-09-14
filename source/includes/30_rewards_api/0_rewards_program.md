@@ -14,18 +14,18 @@ Participation in program is optional, so member can enroll (join) to it and leav
 Every Loyalty Club that has Boostcom Rewards enabled, has defined list of achievements that have rules attached to them.
 The rules are described below.
 
-### <a name="v3-rewards-program-achievements"></a> Achievement model
+### <a name="rewards-program-achievements"></a> Achievement model
 
 Key | Type | Description
 --------- | --------- | ---------
-type | string | see [Achievement types](#v3-rewards-program-achievement-types)
+type | string | see [Achievement types](#rewards-program-achievement-types)
 points | integer | How many points the achievement grants
 limit | integer | Maximum number of times the member can have the achievement granted (when null, there's no limit)  
 frequency | Object | How often the achievement may be granted to member (when null, there are no constraints). For example, achievement with frequency defined as `{"timespan": "day", "limit": 5}` means that member may get points for it at most 5 times a day.
 frequency['timespan'] | string | One of: `['hour', 'day', 'week', 'month', 'year']`
 frequency['limit'] | integer |
 
-#### <a name="v3-rewards-program-achievement-types"></a> Achievement types
+#### <a name="rewards-program-achievement-types"></a> Achievement types
 
 type | Event
 ---- | -----------
@@ -39,7 +39,7 @@ geofence_approached | Member approached geofence defined by loyalty club mobile 
 beacon_approached | Member approached one of loyalty club's beacons
 consent_granted | Member granted one of loyalty club's consents
 
-### <a name="v3-rewards-program-levels-program"></a> Member levels
+### <a name="rewards-program-levels-program"></a> Member levels
 
 > Example configuration for regular levels
 
@@ -76,7 +76,7 @@ consent_granted | Member granted one of loyalty club's consents
 }
 ```
 
-Loyalty Club may have members level defined (available in [Rewards Program &bull; Get info](#v3-rewards-program-info) response).
+Loyalty Club may have members level defined (available in [Rewards Program &bull; Get info](#rewards-program-info) response).
 There are two types of them: `regular` and `virtual_level`.
 
 #### Regular levels
@@ -101,7 +101,7 @@ Status | Response body
 
 ##  Rewards Program
 
-### <a name="v3-rewards-program-info"></a> Get info
+### <a name="rewards-program-info"></a> Get info
 
 > Example:
 
@@ -164,15 +164,15 @@ Returns information about Rewards Program in Loyalty Club.
 
 Key | Type | Description
 --------- | --------- | ---------
-achievements | Array<Achievement> | List of Achievement objects - see [Achievements](#v3-rewards-program-achievements)
+achievements | Array<Achievement> | List of Achievement objects - see [Achievements](#rewards-program-achievements)
 reward_activation_time | integer | Time in seconds describing how long the reward is active after use
-levels_program | object |  Definition of member levels - see [Levels](#v3-rewards-program-levels-program). When null, there are no levels.
+levels_program | object |  Definition of member levels - see [Levels](#rewards-program-levels-program). When null, there are no levels.
 
 <aside class="notice">
 Requires <code>Rewards:Api:Program:GetInfo</code> permit
 </aside>
 
-### <a name="v3-rewards-program-join"></a> Join
+### <a name="rewards-program-join"></a> Join
 
 > Example:
 
@@ -198,13 +198,13 @@ curl -X POST \
 
 Registers current member in Rewards Program. This results granting "rewards_enrollment" consent to user.
 
-As a member-related action, it requires member authorization. See [OAuth](#v3-oauth2).
+As a member-related action, it requires member authorization. See [OAuth](#oauth2).
 
 <aside class="notice">
 Requires <code>Rewards:Api:OAuth:Memberships:Create</code> permit
 </aside>
 
-### <a name="v3-rewards-program-leave"></a> Leave
+### <a name="rewards-program-leave"></a> Leave
 
 > Example:
 
@@ -231,13 +231,13 @@ curl -X DELETE \
 Removes current member from Rewards Program. This results in removing "rewards_enrollment" consent from member
 and **deletion of all points and transaction from Rewards Program.**
 
-As a member-related action, it requires member authorization. See [OAuth](#v3-oauth2).
+As a member-related action, it requires member authorization. See [OAuth](#oauth2).
 
 <aside class="notice">
 Requires <code>Rewards:Api:OAuth:Memberships:Delete</code> permit
 </aside>
 
-### <a name="v3-rewards-program-status"></a> Get status
+### <a name="rewards-program-status"></a> Get status
 
 > Example:
 
@@ -321,7 +321,7 @@ curl \
 
 Returns Rewards Program status for current member.
 
-As a member-related action, it requires member authorization. See [OAuth](#v3-oauth2).
+As a member-related action, it requires member authorization. See [OAuth](#oauth2).
 
 #### Query Parameters
 
@@ -338,7 +338,7 @@ membership | boolean | Does member participate the Rewards Program?
 membership_started_at | Date | When the member joined the Rewards Program
 balance | integer | Member's current points number
 transactions | Array| List of Transactions objects, ordered by date descending. See below
-pagination_info | Object | [Pagination](#v3-pagination-model) object describing transactions list
+pagination_info | Object | [Pagination](#pagination-model) object describing transactions list
 
 #### Transaction object
 
@@ -365,7 +365,7 @@ Depending on transaction type, the details contain different kind of data.
 
 Transaction type | Key | Description
 --- | --- | ---
-achievement | achievement_type | Type of achievement that granted the points - see [Achievement types](#v3-rewards-program-achievement-types)
+achievement | achievement_type | Type of achievement that granted the points - see [Achievement types](#rewards-program-achievement-types)
 reward_purchase | reward_name | Name of reward that the points have been spent on
 correction | comment | (optional) Admin's notes
 
@@ -373,7 +373,7 @@ correction | comment | (optional) Admin's notes
 Requires <code>Rewards:Api:OAuth:Memberships:CheckStatus</code> permit
 </aside>
 
-### <a name="v3-rewards-program-status-by-member-id"></a> Get status by member ID
+### <a name="rewards-program-status-by-member-id"></a> Get status by member ID
 
 > Example:
 
@@ -386,18 +386,18 @@ curl \
     -H 'x-user-agent: CURL manual test'
 ```
 
-> Returns response as in [Rewards Program &bull; Get Status]($v3-rewards-program-status)
+> Returns response as in [Rewards Program &bull; Get Status]($rewards-program-status)
 
 **GET** `v3/infinity-mall/members/:id/rewards-program/status`
 
 Returns Rewards Program status for member identified by given ID.
-Works just the same as [Rewards Program &bull; Get Status](#v3-rewards-program-status).
+Works just the same as [Rewards Program &bull; Get Status](#rewards-program-status).
 
 <aside class="notice">
 Requires <code>Rewards:Api:Memberships:CheckStatus</code> permit
 </aside>
 
-### <a name="v3-rewards-program-achievements-summary"></a> Achievements summary
+### <a name="rewards-program-achievements-summary"></a> Achievements summary
 
 > Example:
 
@@ -460,7 +460,7 @@ curl \
 
 Returns a summary for achievements made by member, grouped by type and month.
 
-As a member-related action, it requires member authorization. See [OAuth](#v3-oauth2).
+As a member-related action, it requires member authorization. See [OAuth](#oauth2).
 
 #### Query Parameters
 
@@ -472,7 +472,7 @@ months_no | integer | no | 12 | Number of last months to fetch. Must be in (0..9
 
 Key | Type | Description
 --------- | --------- | ---------
-type | string | See: [Achievement types](#v3-rewards-program-achievement-types)
+type | string | See: [Achievement types](#rewards-program-achievement-types)
 times_achieved | integer | Number of times member made the achievements of this type
 total_amount_earned | integer | Sum of points member get with this achievement type 
 

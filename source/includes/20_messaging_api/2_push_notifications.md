@@ -1,4 +1,4 @@
-## <a name="v3-push-notification-create"></a> Send push notifications
+## <a name="push-notification-create"></a> Send push notifications
 
 > Example:
 

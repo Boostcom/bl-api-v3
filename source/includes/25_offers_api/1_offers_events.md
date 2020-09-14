@@ -1,6 +1,6 @@
-## <a name="v3-offers-events"></a> Offers Events
+## <a name="offers-events"></a> Offers Events
 
-### <a name="v3-offer-event-model"></a> OfferEvent model
+### <a name="offer-event-model"></a> OfferEvent model
 
 > Offer Event example:
 
@@ -32,7 +32,7 @@ context.utm | string | no |
 Context describes in what circumstances the event has occurred. 
 For example, member clicked on a coupon that was displayed inside collection, the context should include this collection_id. 
 
-### <a name="v3-offers-clicked"></a> Register "clicked" event
+### <a name="offers-clicked"></a> Register "clicked" event
 
 > Example:
 
@@ -70,7 +70,7 @@ curl -X POST \
 {}
 ```
 
-**POST** `v3/:loyalty_club_slug/members/me/events/offers_clicked` [[OAuth](#v3-oauth2)]
+**POST** `v3/:loyalty_club_slug/members/me/events/offers_clicked` [[OAuth](#oauth2)]
 
 Registers that OAuth member clicked on given offers.
 
@@ -78,13 +78,13 @@ Registers that OAuth member clicked on given offers.
 
 Parameter | Type | Description
 --------- | --------- | ------
-events | Array<OfferEvent> | See [Offer Event](#v3-offer-event-model)
+events | Array<OfferEvent> | See [Offer Event](#offer-event-model)
 
 <aside class="notice">
 Requires <code>Offers:Api:Events:Clicked</code> permit
 </aside>
 
-### <a name="v3-offers-seen"></a> Register "seen" event
+### <a name="offers-seen"></a> Register "seen" event
 
 > Example:
 
@@ -122,7 +122,7 @@ curl -X POST \
 {}
 ```
 
-**POST** `v3/:loyalty_club_slug/members/me/events/offers_seen` [[OAuth](#v3-oauth2)]
+**POST** `v3/:loyalty_club_slug/members/me/events/offers_seen` [[OAuth](#oauth2)]
 
 Registers that OAuth member saw given offers.
 
@@ -134,7 +134,7 @@ Seen events are automatically tracked when retrieving offer image/file within me
 
 Parameter | Type | Description
 --------- | --------- | ------
-events | Array <OfferEvent> | See [Offer Event](#v3-offer-event-model)
+events | Array <OfferEvent> | See [Offer Event](#offer-event-model)
 
 <aside class="notice">
 Requires <code>Offers:Api:Events:Seen</code> permit

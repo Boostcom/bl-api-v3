@@ -2,7 +2,7 @@
 
 ##  Transactions
 
-### <a name="v3-transactions-create"></a> Create
+### <a name="transactions-create"></a> Create
 
 > Example:
 
@@ -205,7 +205,7 @@ Requires <code>Transaction:Api:Transactions:Create</code> and <code>BL:Api:Membe
 </aside>
 
 
-### <a name="v3-transactions-list"></a> List
+### <a name="transactions-list"></a> List
 
 > Example:
 
@@ -281,7 +281,7 @@ Status | Description
 Requires <code>Transaction:Api:Transactions:Read</code> permit
 </aside> 
 
-### <a name="v3-transactions-get"></a> Get
+### <a name="transactions-get"></a> Get
 
 > Example:
 
@@ -351,7 +351,7 @@ Requires <code>Transaction:Api:Transactions:Read</code> permit
 
 ## Categories
 
-### <a name="v3-transactions-categories-get"></a> List
+### <a name="transactions-categories-get"></a> List
 
 > Example:
 
@@ -433,7 +433,7 @@ Requires <code>Transaction:Api:Transactions:Read</code> permit
 
 ## Events
 
-### <a name="v3-transactions-events-create"></a> Create events 
+### <a name="transactions-events-create"></a> Create events 
 
 > Example:
 

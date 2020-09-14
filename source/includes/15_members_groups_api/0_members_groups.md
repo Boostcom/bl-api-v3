@@ -1,4 +1,4 @@
-# <a name="v3-members-groups"></a> Members Groups API
+# <a name="members-groups"></a> Members Groups API
 
 <aside class="warning">
 This API is in development. Therefore, it may not be ready for use and is a subject to change at any time.
@@ -6,16 +6,16 @@ This API is in development. Therefore, it may not be ready for use and is a subj
 
 Members may be grouped into groups. It's up to API client / customer how they are utilized. 
 
-## <a name="v3-members-groups-introduction"></a> Introduction
+## <a name="members-groups-introduction"></a> Introduction
 
-### <a name="v3-automatic-members-groups"></a> Automatic groups
+### <a name="automatic-members-groups"></a> Automatic groups
 
 Group is automatic (and has `"automatic": true` attribute ) when it has been created with `audience_id` or 
 `audience_conditions` param.
 
 Automatic group doesn't allow API client to manually manage its members - instead, those are fetched from the given audience.
 
-See more [here](#v3-members-groups-create)
+See more [here](#members-groups-create)
 
 ### System groups
 
@@ -25,7 +25,7 @@ by API client - only MPC system can create, edit and destroy system groups.
 The set of system groups present in given Loyalty Club depends on its configuration. An example of system group could be
 "All members" group that would contain all Loyalty Club members.
 
-### <a name="v3-members-group-model"></a> MembersGroup model
+### <a name="members-group-model"></a> MembersGroup model
 
 > JSON example:
 
@@ -63,7 +63,7 @@ members_count | integer| yes |
 audience_id | integer | no| ID of related audience
 audience_conditions | Object | no| Conditions of related audience - See [DMP docs](https://dmp.boostcom.no/docs/#conditions)
 
-### <a name="v3-members-group-payload-model"></a> MembersGroup payload model
+### <a name="members-group-payload-model"></a> MembersGroup payload model
 
 Used as an input of creations and updates.
 
@@ -99,7 +99,7 @@ audience_conditions | Object | no| Conditions of related audience
 
 ## Members Groups
 
-### <a name="v3-members-groups-list"></a> List
+### <a name="members-groups-list"></a> List
 
 > Example:
 
@@ -110,7 +110,7 @@ curl --request GET 'https://bpc-api.boostcom.no/v3/infinity-mall/members_groups'
 --header 'x-user-agent: cURL Manual Testing'
 ```
 
-> Returns object containing [members groups](#v3-members-group-model) and [pagination_info](#v3-pagination-model)
+> Returns object containing [members groups](#members-group-model) and [pagination_info](#pagination-model)
 
 ```json
 {
@@ -139,14 +139,14 @@ search | string | null | When given, returns groups that have name, type or desc
 
 Key | Type | Description
 --------- | --------- | ---------
-members_groups | Array<MembersGroup> | Array of [MembersGroup](#v3-members-group-model)
-pagination_info | Object | [Pagination](#v3-pagination-model) object
+members_groups | Array<MembersGroup> | Array of [MembersGroup](#members-group-model)
+pagination_info | Object | [Pagination](#pagination-model) object
 
 <aside class="notice">
 Requires <code>BL:Api:MembersGroups:Index</code> permit
 </aside>
 
-### <a name="v3-members-groups-get"></a> Get
+### <a name="members-groups-get"></a> Get
 
 > Example:
 
@@ -157,7 +157,7 @@ curl --request GET 'https://bpc-api.boostcom.no/v3/infinity-mall/members_groups'
 --header 'x-user-agent: cURL Manual Testing'
 ```
 
-> Returns object containing [members group](#v3-members-group-model)
+> Returns object containing [members group](#members-group-model)
 
 ```json
 {
@@ -179,7 +179,7 @@ members_group_id | Integer
 
 Key | Type | Description
 --------- | --------- | ---------
-members_group | MembersGroup | [MembersGroup](#v3-members-group-model)
+members_group | MembersGroup | [MembersGroup](#members-group-model)
 
 #### Error responses
 
@@ -191,7 +191,7 @@ Status | Description
 Requires <code>BL:Api:MembersGroups:Get</code> permit
 </aside>
 
-### <a name="v3-members-groups-create"></a> Create
+### <a name="members-groups-create"></a> Create
 
 > Example:
 
@@ -210,7 +210,7 @@ curl --request POST 'https://bpc-api.boostcom.no/v3/infinity-mall/members_groups
 }'
 ```
 
-> Returns object containing created [members group](#v3-members-group-model)
+> Returns object containing created [members group](#members-group-model)
 
 ```json
 {
@@ -223,7 +223,7 @@ curl --request POST 'https://bpc-api.boostcom.no/v3/infinity-mall/members_groups
 Creates a new group.
 
 When `audience_id` or `audience_conditions` param is provided, the group is treated 
-as [automatic](#v3-automatic-members-groups).
+as [automatic](#automatic-members-groups).
 
 Specifically:
 
@@ -236,7 +236,7 @@ Specifically:
 
 Parameter | Type
 --------- |  -----
-members_group | [MembersGroup Payload](#v3-members-group-payload-model) 
+members_group | [MembersGroup Payload](#members-group-payload-model) 
 members_group.audience_id | ID of audience that the group should relate to  
 members_group.audience_conditions | Conditions of audience that the group should relate to
 
@@ -244,19 +244,19 @@ members_group.audience_conditions | Conditions of audience that the group should
 
 Key | Type | Description
 --------- | --------- | ---------
-members_group | MembersGroup | Created [MembersGroup](#v3-members-group-model)
+members_group | MembersGroup | Created [MembersGroup](#members-group-model)
 
 #### Error responses
 
 Status | Description
 --------- | ----------- 
-`422` | Invalid parameters - see [Invalid parameters errors model](#v3-invalid-parameters-errors-model)
+`422` | Invalid parameters - see [Invalid parameters errors model](#invalid-parameters-errors-model)
 
 <aside class="notice">
 Requires <code>BL:Api:MembersGroups:Create</code> permit
 </aside>
 
-### <a name="v3-members-groups-update"></a> Update
+### <a name="members-groups-update"></a> Update
 
 > Example:
 
@@ -275,7 +275,7 @@ curl --request PUT 'https://bpc-api.boostcom.no/v3/infinity-mall/members_groups/
 }'
 ```
 
-> Returns object containing updated [members group](#v3-members-group-model)
+> Returns object containing updated [members group](#members-group-model)
 
 ```json
 {
@@ -291,26 +291,26 @@ Updates given group.
 
 Parameter | Type
 --------- |  -----
-members_group | [MembersGroup Payload](#v3-members-group-payload-model) 
+members_group | [MembersGroup Payload](#members-group-payload-model) 
 
 #### Response (JSON object)
 
 Key | Type | Description
 --------- | --------- | ---------
-members_group | MembersGroup | Created [MembersGroup](#v3-members-group-model)
+members_group | MembersGroup | Created [MembersGroup](#members-group-model)
 
 #### Error responses
 
 Status | Description
 --------- | ----------- 
 `404` | MembersGroup does not exist
-`422` | Invalid parameters - see [Invalid parameters errors model](#v3-invalid-parameters-errors-model)
+`422` | Invalid parameters - see [Invalid parameters errors model](#invalid-parameters-errors-model)
 
 <aside class="notice">
 Requires <code>BL:Api:MembersGroups:Update</code> permit
 </aside>
 
-### <a name="v3-members-groups-destroy"></a> Destroy
+### <a name="members-groups-destroy"></a> Destroy
 
 > Example:
 
@@ -322,7 +322,7 @@ curl --request DELETE 'https://bpc-api.boostcom.no/v3/infinity-mall/members_grou
 --header 'content-type: application/json'
 ```
 
-> Returns object containing deleted [members group](#v3-members-group-model)
+> Returns object containing deleted [members group](#members-group-model)
 
 ```json
 {
@@ -344,7 +344,7 @@ members_group_id | Integer
 
 Key | Type | Description
 --------- | --------- | ---------
-members_group | MembersGroup | The deleted [MembersGroup](#v3-members-group-model)
+members_group | MembersGroup | The deleted [MembersGroup](#members-group-model)
 
 #### Error responses
 
@@ -358,7 +358,7 @@ Requires <code>BL:Api:MembersGroups:Destroy</code> permit
 
 ## Types
 
-### <a name="v3-members-groups-types"></a> List types
+### <a name="members-groups-types"></a> List types
 
 > Example:
 
@@ -369,7 +369,7 @@ curl --request GET 'https://bpc-api.boostcom.no/v3/infinity-mall/members_groups/
 --header 'x-user-agent: cURL Manual Testing'
 ```
 
-> Returns object containing [members groups](#v3-members-group-model) and [pagination_info](#v3-pagination-model)
+> Returns object containing [members groups](#members-group-model) and [pagination_info](#pagination-model)
 
 ```json
 {
@@ -404,7 +404,7 @@ Requires <code>BL:Api:MembersGroups:Types:Index</code> permit
 </aside>
 
 ## Members Management
-### <a name="v3-members-groups-add-member"></a> Add member
+### <a name="members-groups-add-member"></a> Add member
 
 > Example:
 
@@ -437,13 +437,13 @@ Status | Description
 --------- | ----------- 
 `404` | MembersGroup does not exist
 `404` | Member does not exist
-`422` | Invalid parameters - see [Invalid parameters errors model](#v3-invalid-parameters-errors-model)
+`422` | Invalid parameters - see [Invalid parameters errors model](#invalid-parameters-errors-model)
 
 <aside class="notice">
 Requires <code>BL:Api:MembersGroups:Members:Add</code> permit
 </aside>
 
-### <a name="v3-members-groups-remove-member"></a> Remove member
+### <a name="members-groups-remove-member"></a> Remove member
 
 > Example:
 
@@ -476,13 +476,13 @@ Status | Description
 --------- | ----------- 
 `404` | MembersGroup does not exist
 `404` | Member does not exist
-`422` | Invalid parameters - see [Invalid parameters errors model](#v3-invalid-parameters-errors-model)
+`422` | Invalid parameters - see [Invalid parameters errors model](#invalid-parameters-errors-model)
 
 <aside class="notice">
 Requires <code>BL:Api:MembersGroups:Members:Remove</code> permit
 </aside>
 
-### <a name="v3-members-groups-list-group-members"></a> List members of a group
+### <a name="members-groups-list-group-members"></a> List members of a group
 
 > Example:
 
@@ -494,7 +494,7 @@ curl --request GET 'https://bpc-api.boostcom.no/v3/infinity-mall/members_groups/
 --data-raw ''
 ```
 
-> Returns object containing [members](#v3-member-model) and [pagination_info](#v3-pagination-model)
+> Returns object containing [members](#member-model) and [pagination_info](#pagination-model)
 
 ```json
 {
@@ -523,14 +523,14 @@ members_group_id | MembersGroup ID | integer
 
 Key | Type | Description
 --------- | --------- | ---------
-members | Array<Member> | Array of [Members](#v3-member-model)
-pagination_info | Object | [Pagination](#v3-pagination-model) object
+members | Array<Member> | Array of [Members](#member-model)
+pagination_info | Object | [Pagination](#pagination-model) object
 
 <aside class="notice">
 Requires <code>BL:Api:MembersGroups:Members:List</code> permit
 </aside>
 
-### <a name="v3-members-groups-list-member-groups"></a> List groups of a member
+### <a name="members-groups-list-member-groups"></a> List groups of a member
 
 > Example: 
 
@@ -541,7 +541,7 @@ curl --request GET 'https://bpc-api.boostcom.no/v3/infinity-mall/members/549123/
 --header 'x-user-agent: cURL Manual Testing'
 ```
 
-> Returns object containing [members groups](#v3-members-group-model) and [pagination_info](#v3-pagination-model)
+> Returns object containing [members groups](#members-group-model) and [pagination_info](#pagination-model)
 
 ```json
 {
@@ -577,8 +577,8 @@ member_email | Member's email | string (email)
 
 Key | Type | Description
 --------- | --------- | ---------
-members_groups | Array<MembersGroup> | Array of [MembersGroup](#v3-members-group-model)
-pagination_info | Object | [Pagination](#v3-pagination-model) object
+members_groups | Array<MembersGroup> | Array of [MembersGroup](#members-group-model)
+pagination_info | Object | [Pagination](#pagination-model) object
 
 #### Error responses
 

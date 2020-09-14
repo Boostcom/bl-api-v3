@@ -1,8 +1,8 @@
-## <a name="v3-members-messages"></a> Members Messages
+## <a name="members-messages"></a> Members Messages
 
-### <a name="v3-member-messages-introduction"> Introduction
+### <a name="member-messages-introduction"> Introduction
 
-#### <a name="v3-member-message-model"></a> MemberMessage model
+#### <a name="member-message-model"></a> MemberMessage model
 
 > Example:
 
@@ -22,7 +22,7 @@ type       | Object with member's properties     | yes       | enum: ["sms", "em
 created_at | Time when the message has been sent | yes       | string
 content    |                                     | yes       | string
 
-### <a name="v3-members-messages-list"></a> List messages
+### <a name="members-messages-list"></a> List messages
 
 > Example:
 
@@ -34,7 +34,7 @@ curl "https://bpc-api.boostcom.no/v3/infinity-mall/members/509134/messages" \
   -H 'x-user-agent: CURL manual test'
 ```
 
-> Returns object containing [member messages](#v3-member-message-model) and [pagination_info](#v3-pagination-model)
+> Returns object containing [member messages](#member-message-model) and [pagination_info](#pagination-model)
 
 ```json
 {
@@ -62,8 +62,8 @@ page_no   | Number of results page                       | no        | integer
 
 Key             | Type                 | Description
 --------------- | -------------------- | ---------------------------------------------------
-messages        | Array<MemberMessage> | Array of [MemberMessages](#v3-member-message-model)
-pagination_info | Pagination           | [Pagination](#v3-pagination-model) object
+messages        | Array<MemberMessage> | Array of [MemberMessages](#member-message-model)
+pagination_info | Pagination           | [Pagination](#pagination-model) object
 
 <aside class="notice">
 Requires <code>BL:Api:Members:MessagesHistory:List</code> permit
@@ -71,7 +71,7 @@ Requires <code>BL:Api:Members:MessagesHistory:List</code> permit
 
 <!--- ############################################################################################################# --->
 
-### <a name="v3-members-message-get"></a> Get message
+### <a name="members-message-get"></a> Get message
 
 > Example:
 
@@ -83,7 +83,7 @@ curl "https://bpc-api.boostcom.no/v3/infinity-mall/members/509134/messages/MTE0N
   -H 'x-user-agent: CURL manual test'
 ```
 
-> Returns [member message](#v3-member-message-model)
+> Returns [member message](#member-message-model)
 
 ```json
 {
@@ -106,7 +106,7 @@ id        | Message ID  | yes       | string
 
 Key     | Type          | Description
 ------- | ------------- | ---------
-message | MemberMessage | [MemberMessage](#v3-member-message-model)
+message | MemberMessage | [MemberMessage](#member-message-model)
 
 #### Error responses
 

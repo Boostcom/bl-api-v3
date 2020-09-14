@@ -1,4 +1,4 @@
-## <a name="v3-oauth2"></a> Members OAuth
+## <a name="oauth2"></a> Members OAuth
 
 > Example header: `authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522`
 
@@ -7,9 +7,9 @@ OAuth2 flow for this.
 
 To authorize those actions, we **require** `authorization` header that should contain: `Bearer :access_token`. 
 
-Look at [OAuth Token &bull; Create](#v3-token-create) to see how to obtain the :access_token.
+Look at [OAuth Token &bull; Create](#token-create) to see how to obtain the :access_token.
 
-### <a name="v3-token-create"></a> Create token
+### <a name="token-create"></a> Create token
 
 > Create token example:
 
@@ -67,7 +67,7 @@ When creating new access token, `"grant_type": "password"` should be given along
 
 In response, two tokens are returned:
 
-* `access_token` that is valid for **24 hours** - may be used to authenticate member in member-related actions (see: [OAuth2](#v3-oauth2)).
+* `access_token` that is valid for **24 hours** - may be used to authenticate member in member-related actions (see: [OAuth2](#oauth2)).
 * `refresh_token` which is valid for **1 year** - may be used to get a new access token (with `refresh_token` grant)
 
 Also, `resource_owner_id` is returned, is an ID of member that the token has been issued for. 
@@ -114,7 +114,7 @@ Requires <code>BL:Api:Members:OAuth</code> permit
 
 <!--- ############################################################################################################# --->
 
-### <a name="v3-token-revoke"></a> Revoke token
+### <a name="token-revoke"></a> Revoke token
 
 > Example:
 
@@ -147,7 +147,7 @@ Always returns an empty JSON object (even if given token is invalid).
 
 Parameter | Description | Type
 --------- | ------- | -------
-token | access or refresh token obtained from [OAuth Token &bull; Create](#v3-token-create) | string
+token | access or refresh token obtained from [OAuth Token &bull; Create](#token-create) | string
 
 <aside class="notice">
 Requires <code>BL:Api:Members:OAuth</code> permit
@@ -155,7 +155,7 @@ Requires <code>BL:Api:Members:OAuth</code> permit
 
 <!--- ############################################################################################################# --->
 
-### <a name="v3-token-info"></a> Get token info
+### <a name="token-info"></a> Get token info
 
 > Example:
 

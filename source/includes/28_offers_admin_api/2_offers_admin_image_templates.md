@@ -1,8 +1,8 @@
-## <a name="v3-image-templates"></a> ImageTemplates
+## <a name="image-templates"></a> ImageTemplates
 
-This API allows managing [ImageTemplates records](#v3-offer-image-template-record).
+This API allows managing [ImageTemplates records](#offer-image-template-record).
 
-### <a name="v3-offer-admin-image-templates-list"></a> List
+### <a name="offer-admin-image-templates-list"></a> List
 
 > Example:
 
@@ -13,7 +13,7 @@ curl --request GET 'https://bpc-api.boostcom.no/v3/infinity-mall/offers/image_te
 --header 'x-user-agent: cURL Manual Testing'
 ```
 
-> Returns object containing [image_templates](#v3-offer-image-template-record) and [pagination_info](#v3-pagination-model)
+> Returns object containing [image_templates](#offer-image-template-record) and [pagination_info](#pagination-model)
 
 ```json
 {
@@ -38,14 +38,14 @@ default | boolean | null | When true - returns only default template
 
 Key | Type | Description
 --------- | --------- | ---------
-image_templates | Array<ImageTemplate> | Array of [ImageTemplate](#v3-offer-image-template-record)
-pagination_info | Object | [Pagination](#v3-pagination-model) object
+image_templates | Array<ImageTemplate> | Array of [ImageTemplate](#offer-image-template-record)
+pagination_info | Object | [Pagination](#pagination-model) object
 
 <aside class="notice">
 Requires <code>Offers:Api:ImageTemplates:List</code> permit
 </aside>
 
-### <a name="v3-offer-admin-image-templates-get"></a> Get
+### <a name="offer-admin-image-templates-get"></a> Get
 
 > Example:
 
@@ -56,7 +56,7 @@ curl --request GET 'https://bpc-api.boostcom.no/v3/infinity-mall/offers/image_te
 --header 'x-user-agent: cURL Manual Testing'
 ```
 
-> Returns object containing [image template](#v3-offer-image-template-record)
+> Returns object containing [image template](#offer-image-template-record)
 
 ```json
 {
@@ -78,7 +78,7 @@ image_template_id | Integer
 
 Key | Type | Description
 --------- | --------- | ---------
-image_template | ImageTemplate | [ImageTemplate](#v3-offer-image-template-record)
+image_template | ImageTemplate | [ImageTemplate](#offer-image-template-record)
 
 #### Error responses
 
@@ -90,7 +90,7 @@ Status | Description
 Requires <code>Offers:Api:ImageTemplates:Get</code> permit
 </aside>
 
-### <a name="v3-offer-admin-image-templates-create"></a> Create
+### <a name="offer-admin-image-templates-create"></a> Create
 
 > Example:
 
@@ -123,7 +123,7 @@ curl --request POST 'https://bpc-api.boostcom.no/v3/infinity-mall/offers/image_t
 }'
 ```
 
-> Returns object containing created [image template](#v3-offer-image-template-record)
+> Returns object containing created [image template](#offer-image-template-record)
 
 ```json
 {
@@ -139,25 +139,25 @@ Creates a new template.
 
 Parameter | Type
 --------- |  -----
-image_template | [ImageTemplate Payload](#v3-offer-image-template-record-payload) 
+image_template | [ImageTemplate Payload](#offer-image-template-record-payload) 
 
 #### Response (JSON object)
 
 Key | Type | Description
 --------- | --------- | ---------
-image_template | ImageTemplate | Created [ImageTemplate](#v3-offer-image-template-record)
+image_template | ImageTemplate | Created [ImageTemplate](#offer-image-template-record)
 
 #### Error responses
 
 Status | Description
 --------- | ----------- 
-`422` | Invalid parameters - see [Invalid parameters errors model](#v3-invalid-parameters-errors-model)
+`422` | Invalid parameters - see [Invalid parameters errors model](#invalid-parameters-errors-model)
 
 <aside class="notice">
 Requires <code>Offers:Api:ImageTemplates:Create</code> permit
 </aside>
 
-### <a name="v3-offer-admin-image-templates-update"></a> Update
+### <a name="offer-admin-image-templates-update"></a> Update
 
 > Example:
 
@@ -190,7 +190,7 @@ curl --request PUT 'https://bpc-api.boostcom.no/v3/infinity-mall/offers/image_te
 }'
 ```
 
-> Returns object containing updated [image template](#v3-offer-image-template-record)
+> Returns object containing updated [image template](#offer-image-template-record)
 
 ```json
 {
@@ -206,26 +206,26 @@ Updates given template.
 
 Parameter | Type
 --------- |  -----
-image_template | [ImageTemplate Payload](#v3-offer-image-template-record-payload) 
+image_template | [ImageTemplate Payload](#offer-image-template-record-payload) 
 
 #### Response (JSON object)
 
 Key | Type | Description
 --------- | --------- | ---------
-image_template | ImageTemplate | Created [ImageTemplate](#v3-offer-image-template-record)
+image_template | ImageTemplate | Created [ImageTemplate](#offer-image-template-record)
 
 #### Error responses
 
 Status | Description
 --------- | ----------- 
 `404` | ImageTemplate does not exist
-`422` | Invalid parameters - see [Invalid parameters errors model](#v3-invalid-parameters-errors-model)
+`422` | Invalid parameters - see [Invalid parameters errors model](#invalid-parameters-errors-model)
 
 <aside class="notice">
 Requires <code>Offers:Api:ImageTemplates:Update</code> permit
 </aside>
 
-### <a name="v3-offer-admin-image-templates-destroy"></a> Destroy
+### <a name="offer-admin-image-templates-destroy"></a> Destroy
 
 > Example:
 
@@ -237,7 +237,7 @@ curl --request DELETE 'https://bpc-api.boostcom.no/v3/infinity-mall/offers/image
 --header 'content-type: application/json'
 ```
 
-> Returns object containing deleted [image template](#v3-offer-image-template-record)
+> Returns object containing deleted [image template](#offer-image-template-record)
 
 ```json
 {
@@ -259,7 +259,7 @@ image_template_id | Integer
 
 Key | Type | Description
 --------- | --------- | ---------
-image_template | ImageTemplate | The deleted [ImageTemplate](#v3-offer-image-template-record)
+image_template | ImageTemplate | The deleted [ImageTemplate](#offer-image-template-record)
 
 #### Error responses
 

@@ -1,6 +1,6 @@
 ##  Departments
 
-### <a name="v3-department-list"></a> List
+### <a name="department-list"></a> List
 
 > Example:
 
@@ -33,7 +33,7 @@ List customer departments
 Requires <code>Stores:Api:Departments:Get</code> permit
 </aside> 
 
-### <a name="v3-department-get"></a> Get
+### <a name="department-get"></a> Get
 
 > Example:
 
@@ -88,7 +88,7 @@ Status | Description
 Requires <code>Stores:Api:Departments:Get</code> permit
 </aside>
 
-### <a name="v3-department-create"></a> Create
+### <a name="department-create"></a> Create
 
 > Example:
 
@@ -159,7 +159,7 @@ Status | Description
 Requires <code>Stores:Api:Departments:Create</code>
 </aside>
 
-### <a name="v3-department-update"></a> Update
+### <a name="department-update"></a> Update
 
 > Example:
 

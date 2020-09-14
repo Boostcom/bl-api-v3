@@ -1,15 +1,15 @@
-# <a name="v3-offers-admin"></a>  Offers Admin API
+# <a name="offers-admin"></a>  Offers Admin API
 
 <aside class="warning">
 This API is in development. Therefore, it may not be ready for use and is a subject to change at any time.
 </aside>
 
 This section describes endpoints destined for offers management. 
-Navigate to [Offers](#v3-offers) section to see docs for member-related endpoints.
+Navigate to [Offers](#offers) section to see docs for member-related endpoints.
 
 ## Common models
 
-### <a name="v3-admin-offer-model"></a> Offer
+### <a name="admin-offer-model"></a> Offer
 
 > Offer example:
 
@@ -62,32 +62,32 @@ usable_until | Date | yes | Time until the offer may be used. If null, there is 
 visible_since | Date | yes | Time since the offer is visible to members. If null, there is no restriction. 
 visible_until | Date | yes | Time until the offer is visible to members. If null, there is no restriction.
 collection_ids | integer[] | no (may be empty) | List of collections ids the offer belongs to
-tags | string[] | no (may be empty) | List of tags identifiers associated with the offer. Information from [Translations &bull; List](#v3-list-translations) should be used to display the tags. 
-stores | string[] | no (may be empty) | List of stores names associated with the offer. See [Stores &bull; List](#v3-store-list).
+tags | string[] | no (may be empty) | List of tags identifiers associated with the offer. Information from [Translations &bull; List](#list-translations) should be used to display the tags. 
+stores | string[] | no (may be empty) | List of stores names associated with the offer. See [Stores &bull; List](#store-list).
 audience_id | Integer | yes | DMP's audience ID. If it is set, the offer is available only to members belonging to this audience
 campaign_id | Integer | yes | MPC's campaign ID
-files | File[] | no | A list of offer files - see [File model](#v3-file-model)
+files | File[] | no | A list of offer files - see [File model](#file-model)
 extras | Object | no (may be empty) | Extendable container for any potential extra data
-display_schemas | Object | no | Offer displays schemas - see [Offer display schemas](#v3-offers-display-schemas)
+display_schemas | Object | no | Offer displays schemas - see [Offer display schemas](#offers-display-schemas)
 maximum_uses_per_user | Integer | yes | Limit of of uses individual member may perform. When empty, there's no limit.
 stock | Integer | yes | Global limit of member uses. When empty, there's no limit.
 created_at | Date | no | When the offer has been created 
 updated_at | Date | no | Last time when the offer has been updated  
 archived_at | Date | yes | Time when the offer has been archived
 uses_count | Date | no | Total number of times the offer has been used by members   
-image_template | Object | yes | See [image_template](#v3-offer-image-template-attr) below
-image_template.rectangles | ImageTemplateRectangle[] | yes | See [ImageTemplate Rectangle](#v3-offer-image-template-rectangle)
+image_template | Object | yes | See [image_template](#offer-image-template-attr) below
+image_template.rectangles | ImageTemplateRectangle[] | yes | See [ImageTemplate Rectangle](#offer-image-template-rectangle)
 
-#### <a name="v3-admin-offer-model-image-template"></a> `image_template` attribute
+#### <a name="admin-offer-model-image-template"></a> `image_template` attribute
 
 With this object, you can determine that offer's image will be rendered according to the given definition.
 
-It reflects the [ImageTemplate model](#v3-offer-image-template-model). 
-However, it **is not** a reference to existing [ImageTemplate record](#v3-offer-image-template-record). 
+It reflects the [ImageTemplate model](#offer-image-template-model). 
+However, it **is not** a reference to existing [ImageTemplate record](#offer-image-template-record). 
 
 If you want to apply record's model to the offer, you must use some of its attributes (copy them) as the offer's `image_template` attribute.
 
-### <a name="v3-admin-offer-payload"></a> OfferPayload
+### <a name="admin-offer-payload"></a> OfferPayload
 
 Following Offer attributes (described above) are available to set when creating or updating offers.
      
@@ -113,10 +113,10 @@ Following Offer attributes (described above) are available to set when creating 
 * stock
 * image_template
 
-### <a name="v3-offer-image-template"></a> ImageTemplate
+### <a name="offer-image-template"></a> ImageTemplate
 
 
-#### <a name="v3-offer-image-template-model"></a> ImageTemplate Model
+#### <a name="offer-image-template-model"></a> ImageTemplate Model
 
 > ImageTemplate model:
 
@@ -128,23 +128,23 @@ Following Offer attributes (described above) are available to set when creating 
 
 Defines how offer image should be rendered. 
 
-It's an interface used both by [Offer's `image_template` attribute](#v3-admin-offer-model-image-template) and 
-[ImageTemplate record](#v3-offer-image-template-record).
+It's an interface used both by [Offer's `image_template` attribute](#admin-offer-model-image-template) and 
+[ImageTemplate record](#offer-image-template-record).
 
 
 Attribute      | Type                | Description
 -------------- | ------------------- | ---------------------------------------------------
-rectangles     | TemplateRectangle[] | See [ImageTemplate Rectangle](#v3-offer-image-template-rectangle)
+rectangles     | TemplateRectangle[] | See [ImageTemplate Rectangle](#offer-image-template-rectangle)
 
 ##### Rendering
 
 The output image is rendered from template after offer creation/update request, asynchronously. 
 
-Rendering process draws (up to 4) [rectangles](#v3-offer-image-template-rectangle) over a background image (not yet implemented).
+Rendering process draws (up to 4) [rectangles](#offer-image-template-rectangle) over a background image (not yet implemented).
 
 When rendering is done, the image is stored as a regular file of the subject offer. 
 
-#### <a name="v3-offer-image-template-record"></a> ImageTemplate Record
+#### <a name="offer-image-template-record"></a> ImageTemplate Record
 
 > ImageTemplate record example:
 
@@ -159,14 +159,14 @@ When rendering is done, the image is stored as a regular file of the subject off
 }
 ```
 
-Stores `ImageTemplate` model (see above) for re-usage. Managed with [ImageTemplates API](#v3-image-templates).
+Stores `ImageTemplate` model (see above) for re-usage. Managed with [ImageTemplates API](#image-templates).
 
 Attribute      | Type                | Description
 -------------- | ------------------- | ---------------------------------------------------
 id             | integer             | 
 name           | string              | 
 default        | boolean             | See below
-rectangles     | TemplateRectangle[] | See [ImageTemplate Rectangle](#v3-offer-image-template-rectangle)
+rectangles     | TemplateRectangle[] | See [ImageTemplate Rectangle](#offer-image-template-rectangle)
 created_at     | Date                | When template has been created
 updated_at     | Date                | Last time the template has been updated
 
@@ -176,7 +176,7 @@ It's possible to mark template as default for LC (doing this will un-mark previo
 
 It's up to API client how to utilize this feature.
 
-#### <a name="v3-offer-image-template-record-payload"></a> ImageTemplate Record payload
+#### <a name="offer-image-template-record-payload"></a> ImageTemplate Record payload
 
 > ImageTemplate record payload example:
 
@@ -195,9 +195,9 @@ Attribute      | Type                | Required? | Description
 -------------- | ------------------- | --------- | ---------------------------------------------------
 name           | string              | yes       |
 default        | boolean             | no        | See below
-rectangles     | TemplateRectangle[] | yes       | See [ImageTemplate Rectangle](#v3-offer-image-template-rectangle)
+rectangles     | TemplateRectangle[] | yes       | See [ImageTemplate Rectangle](#offer-image-template-rectangle)
 
-### <a name="v3-offer-image-template-rectangle"></a> ImageTemplate Rectangle
+### <a name="offer-image-template-rectangle"></a> ImageTemplate Rectangle
 
 > ImageTemplateRectangle example:
 
@@ -229,9 +229,9 @@ color       | hex (e.g. `'#FF00EE'`)              | yes       | Color of the rec
 font_size   | integer                             | yes       | Font size of the rectangle text
 font_family | string                              | yes       | Family definition, related to included `font_url`
 font_url    | URL                                 | yes       | URL of font face
-content     | string                              | no        | Content to display, may contain [merge fields](#v3-image-template-mergefields)  
+content     | string                              | no        | Content to display, may contain [merge fields](#image-template-mergefields)  
 
-### <a name="v3-image-template-mergefields"></a> ImageTemplate Merge-fields
+### <a name="image-template-mergefields"></a> ImageTemplate Merge-fields
 
 It is possible to use following merge-fields in order to inject offer attributes into the image generated from template.
 

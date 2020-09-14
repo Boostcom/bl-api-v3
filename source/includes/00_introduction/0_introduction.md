@@ -61,7 +61,7 @@ If you miss your product name, please [let us know](http://boostcom.no).
 
 > Example header: `authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522`
 
-See: [OAuth2](#v3-oauth2)
+See: [OAuth2](#oauth2)
 
 ### Loyalty club slug param
 
@@ -85,7 +85,7 @@ Status | Reason
 `403` | Not authorized to perform this action (provided `x-client-authorization` doesn't have required permit)
 `404` | The requested resource doesn't exist
 `422` | Invalid parameters are provided (e.g. incorrect properties on member creation)
-`460` | OAuth token required for the action is invalid (applies only to OAuth-related actions - see [OAuth2](#v3-oauth2))
+`460` | OAuth token required for the action is invalid (applies only to OAuth-related actions - see [OAuth2](#oauth2))
 `470` | Some of required header is missing
 `471` | Some of headers is incorrect
 `503` | Server is down for maintenance
@@ -94,7 +94,7 @@ Also, most of handled errors have JSON response body like this:
 
 `{"error": "Message describing what went wrong"}`
 
-## <a name="v3-pagination-model"></a> Pagination JSON model
+## <a name="pagination-model"></a> Pagination JSON model
 
 > Example:
 
@@ -126,7 +126,7 @@ is_first_page | boolean |
 is_last_page | boolean | 
 is_out_of_range | boolean | Is given `per_page` param out of range?
 
-## <a name="v3-invalid-parameters-errors-model"></a> Invalid parameters errors (422)
+## <a name="invalid-parameters-errors-model"></a> Invalid parameters errors (422)
 
 > Example:
 
@@ -203,17 +203,17 @@ object:
 key | Type | Description
 --- | ---- | -----------
 error | String | Always "Invalid parameters"
-details | Errors object | See [Errors](#v3-errors-object) below
-details.(path.0.to.)parameter_name | Array<ParameterError> | See [ParameterError](#v3-parameter-error-object) below
+details | Errors object | See [Errors](#errors-object) below
+details.(path.0.to.)parameter_name | Array<ParameterError> | See [ParameterError](#parameter-error-object) below
 
-### <a name="v3-errors-object"></a> Errors object
+### <a name="errors-object"></a> Errors object
 
 It's a recursive tree structure, corresponding to the structure original payload.
 Objects being parts of arrays are represented by their array indexes.
 
-Each leaf node is an array of [ParameterError](#v3-parameter-error-object) objects for given parameter.
+Each leaf node is an array of [ParameterError](#parameter-error-object) objects for given parameter.
 
-### <a name="v3-parameter-error-object""></a> ParameterError object
+### <a name="parameter-error-object""></a> ParameterError object
 
 key | Type | Description
 --- | ---- | -----------

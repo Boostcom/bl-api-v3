@@ -2,7 +2,7 @@
 
 ##  Loyalty Clubs
 
-### <a name="v3-loyalty-club-model"></a> Loyalty Club model
+### <a name="loyalty-club-model"></a> Loyalty Club model
 
 > Loyalty Club example:
 
@@ -38,7 +38,7 @@ timezone | string | [TZ database name](https://en.wikipedia.org/wiki/List_of_tz_
 member_identifiers | array<string> | May consist of following values: `msisdn` and `email`
 new_offers_api_enabled | bool | Is [New Offers API](#endpoints-offers) enabled for this Loyalty Club?
 
-### <a name="v3-loyalty-clubs-list"></a> List
+### <a name="loyalty-clubs-list"></a> List
 
 > Example
 
@@ -67,7 +67,7 @@ curl "https://bpc-api.boostcom.no/v3/loyalty_clubs" \
 
 **GET** `v3/loyalty_clubs/`
  
-Returns [Loyalty Clubs](#v3-loyalty-club-model) accessible by API client.
+Returns [Loyalty Clubs](#loyalty-club-model) accessible by API client.
 
 #### Query Parameters
 
@@ -82,14 +82,14 @@ customer_id | integer | null | When present, filters results by this customer
 
 Key | Type | Description
 --------- | --------- | ---------
-Loyalty Club | Array<Loyalty Club> | Array of [Loyalty Clubs](#v3-loyalty-club-model)
-pagination_info | Object | [Pagination](#v3-pagination-model) object
+Loyalty Club | Array<Loyalty Club> | Array of [Loyalty Clubs](#loyalty-club-model)
+pagination_info | Object | [Pagination](#pagination-model) object
 
 <aside class="notice">
 Requires <code>BL:Api:LoyaltyClubs:ListMine</code> permit
 </aside>
 
-### <a name="v3-loyalty-clubs-get"></a> Get
+### <a name="loyalty-clubs-get"></a> Get
 
 > Example
 
@@ -113,7 +113,7 @@ curl "https://bpc-api.boostcom.no/v3/loyalty_clubs/infinity-mall/" \
 
 **GET** `v3/loyalty_clubs/by_community_id/:community_id`
  
-Returns basic information about the [Loyalty Clubs](#v3-loyalty-club-model), by one of it's slugs or by it's `community_id`.
+Returns basic information about the [Loyalty Clubs](#loyalty-club-model), by one of it's slugs or by it's `community_id`.
 
 <aside class="notice">
 Requires <code>BL:Api:LoyaltyClubs:Get</code> permit
@@ -121,7 +121,7 @@ Requires <code>BL:Api:LoyaltyClubs:Get</code> permit
 
 ## Schema
 
-### <a name="v3-loyalty-clubs-schema"></a> Get
+### <a name="loyalty-clubs-schema"></a> Get
 
 > Example
 
@@ -209,7 +209,7 @@ Requires <code>BL:Api:Schema:Get</code> permit
 
 ## Products
 
-### <a name="v3-loyalty-clubs-products"></a> List
+### <a name="loyalty-clubs-products"></a> List
 
 > Example
 
@@ -262,7 +262,7 @@ Requires <code>BL:Api:Products:Index</code> permit
 
 ## Translations
 
-### <a name="v3-list-translations"></a> List
+### <a name="list-translations"></a> List
 
 > Example request
 

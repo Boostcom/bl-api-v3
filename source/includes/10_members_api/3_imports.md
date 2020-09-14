@@ -1,6 +1,6 @@
 ##  Members Imports
 
-### <a name="v3-members-imports-import-flow"></a> Introduction
+### <a name="members-imports-import-flow"></a> Introduction
 
 ##### Import bulks
 
@@ -14,8 +14,8 @@ Nevertheless, keep in mind, that import always consists of at least one bulk.
 
 Each bulk is processed by an asynchronous job, so you need to check it's status some time after sending a request.
 
-For that, you should firstly check the import status [here](#v3-members-imports-status) and then 
-check bulks details for each bulk [here](#v3-members-imports-bulk-status).
+For that, you should firstly check the import status [here](#members-imports-status) and then 
+check bulks details for each bulk [here](#members-imports-bulk-status).
 
 Please note that:
 
@@ -46,7 +46,7 @@ After each failure, the bulk will have `waiting_for_retry` status assigned and i
 After 5th failure, the bulk will have `failed` status assigned. In such case, please contact us, so we may identify 
 and resolve the problem.
 
-### <a name="v3-members-imports"></a> Send import request
+### <a name="members-imports"></a> Send import request
 
 **POST** `v3/:loyalty_club_slug/members/imports`
 
@@ -120,7 +120,7 @@ General requirements:
 
 Key | Required? | Default | Description | Type
 --- | --- | --- | --- | ---
-properties | yes | - | JSON with properties for member (see: [Member model](#v3-member-model) | JSON Object
+properties | yes | - | JSON with properties for member (see: [Member model](#member-model) | JSON Object
 properties\['msisdn'\] | yes* | none | Unique member's msisdn as defined [here](#msisdn-member-identifier)) Example: `4740485124`.| string
 properties\['email'\] | yes* | none | Member's email | string
 password | no | null | Member’s password. Not required, but user may not be able to log in without this | String
@@ -129,7 +129,7 @@ email_enabled | no | true | Should email channel be enabled for member? | Boolea
 push_enabled | no | true | Should push channel be enabled for member? | Boolean
 optin_channel | no | "import"** | Source of member | String
 optin_subchannel | no | import's id** | Subsource of member| String
-consents | no | {} | Members consents | See [Member's consents JSON model](#v3-member-consents-model) | JSON object
+consents | no | {} | Members consents | See [Member's consents JSON model](#member-consents-model) | JSON object
 
 &ast; At least one of those properties must be provided
 
@@ -165,13 +165,13 @@ Code | Description
 Requires <code>BL:Api:Members:Imports:Create</code> permit
 </aside>
 
-### <a name="v3-members-imports-status"></a> Get import status
+### <a name="members-imports-status"></a> Get import status
 
 **GET** `v3/:loyalty_club_slug/members/imports/:import_id`
 
 Returns status of import with a list of references to bulks (`id` and `request_number`). 
 
-You need to call [Members Imports &bull; Get bulk status](#v3-members-import-bulk-status) to see bulks details.
+You need to call [Members Imports &bull; Get bulk status](#members-import-bulk-status) to see bulks details.
 
 > Example:
 
@@ -230,7 +230,7 @@ Status | Reason
 Requires <code>BL:Api:Members:Imports:Get</code> permit
 </aside>
 
-### <a name="v3-members-imports-bulk-status"></a> Get bulk status
+### <a name="members-imports-bulk-status"></a> Get bulk status
 
 **GET** `v3/:loyalty_club_slug/members/imports/:import_id/bulks/:bulk_id`
 
@@ -301,7 +301,7 @@ Key | Description | Type
 id | ID of bulk| Integer
 import_id | Import identifier | String
 request_number | The number of the bulk | Integer
-status | Job status - one of: 'waiting', 'working', 'finished', 'failed' 'waiting_for_retry' - see more [here](#v3-members-imports-import-flow) in "Bulk statuses" section | String
+status | Job status - one of: 'waiting', 'working', 'finished', 'failed' 'waiting_for_retry' - see more [here](#members-imports-import-flow) in "Bulk statuses" section | String
 members_in_payload_number | A number of members that were requested for importing| Integer
 members_created_number | A number of members that were successfully created | Integer
 members_updated_number | A number of members that were successfully updated | Integer

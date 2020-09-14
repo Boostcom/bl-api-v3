@@ -1,6 +1,6 @@
 # Messaging API
 
-## <a name="v3-smses-create"></a> Send SMSes
+## <a name="smses-create"></a> Send SMSes
 
 > Example:
 

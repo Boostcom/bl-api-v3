@@ -1,6 +1,6 @@
-## <a name="v3-links"> Links
+## <a name="links"> Links
 
-### <a name="v3-link-model"></a> Link model
+### <a name="link-model"></a> Link model
 
 > Example
 
@@ -30,21 +30,21 @@ global          | boolean       | no        | Is this a global link?
 enabled         | boolean       | no        | Is this link enabled for specific LC?
 
 
-#### <a name="v3-enabled-links"></a> Enabled links
+#### <a name="enabled-links"></a> Enabled links
 
 When link is enabled, it's available in MPC's UI for being used within sending (unless the link is parameterized).
 
 #### Global links
 
-Global links are standard links used within MPC apps. Every LC may be configured to have each of them [enabled](#v3-links-enable).
+Global links are standard links used within MPC apps. Every LC may be configured to have each of them [enabled](#links-enable).
 
 Non-global links are links created specifically for the Loyalty Club.
 
 #### System links
 
-System links are global links that are essential for LC to operate and are always [enabled](#v3-links-enable)..
+System links are global links that are essential for LC to operate and are always [enabled](#links-enable)..
 
-### <a name="v3-links-list"></a> List
+### <a name="links-list"></a> List
 
 Returns all links available within Loyalty Club.
 
@@ -60,7 +60,7 @@ curl \
     -H 'x-user-agent: CURL manual test'
 ```
 
-> When successful (200), returns list of [links](#v3-link-model):
+> When successful (200), returns list of [links](#link-model):
 
 ```json
 {
@@ -74,13 +74,13 @@ curl \
 
 Key | Type 
 --------- | --------- 
-links | [Links](#v3-link-model)[] 
+links | [Links](#link-model)[] 
 
 <aside class="notice">
 Requires <code>BL:Api:Links:Index</code> permit
 </aside>
 
-### <a name="v3-links-list"></a> Get
+### <a name="links-list"></a> Get
 
 Returns specific link.
 
@@ -96,7 +96,7 @@ curl \
     -H 'x-user-agent: CURL manual test'
 ```
 
-> When successful (200), returns [link](#v3-link-model):
+> When successful (200), returns [link](#link-model):
 
 ```json
 {
@@ -110,7 +110,7 @@ curl \
 
 Key | Type 
 --------- | --------- 
-link | [Link](#v3-link-model)
+link | [Link](#link-model)
 
 #### Error responses
 
@@ -122,9 +122,9 @@ Status | Description
 Requires <code>BL:Api:Links:Get</code> permit
 </aside>
 
-### <a name="v3-links-enable"></a> Enable
+### <a name="links-enable"></a> Enable
 
-Enables given link - see [enabled links](#v3-enabled-links)
+Enables given link - see [enabled links](#enabled-links)
 
 > Example:
 
@@ -138,7 +138,7 @@ curl -X PUT \
     -H 'x-user-agent: CURL manual test'
 ```
 
-> When successful (200), returns [link](#v3-link-model):
+> When successful (200), returns [link](#link-model):
 
 ```json
 {
@@ -152,7 +152,7 @@ curl -X PUT \
 
 Key | Type 
 --------- | --------- 
-link | [Link](#v3-link-model)
+link | [Link](#link-model)
 
 #### Error responses
 
@@ -164,9 +164,9 @@ Status | Description
 Requires <code>BL:Api:Links:Enable</code> permit
 </aside>
 
-### <a name="v3-links-disable"></a> Disable
+### <a name="links-disable"></a> Disable
 
-Disables given link - see [enabled links](#v3-enabled-links)
+Disables given link - see [enabled links](#enabled-links)
 
 > Example:
 
@@ -180,7 +180,7 @@ curl -X PUT \
     -H 'x-user-agent: CURL manual test'
 ```
 
-> When successful (200), returns [link](#v3-link-model):
+> When successful (200), returns [link](#link-model):
 
 ```json
 {
@@ -194,7 +194,7 @@ curl -X PUT \
 
 Key | Type 
 --------- | --------- 
-link | [Link](#v3-link-model)
+link | [Link](#link-model)
 
 #### Error responses
 
@@ -207,9 +207,9 @@ Requires <code>BL:Api:Links:Enable</code> permit
 </aside>
 
 
-### <a name="v3-links-create"></a> Create
+### <a name="links-create"></a> Create
 
-Create a new link for the Loyalty Club. Created link is always [enabled](#v3-enabled-links) by default.
+Create a new link for the Loyalty Club. Created link is always [enabled](#enabled-links) by default.
 
 > Example:
 
@@ -231,7 +231,7 @@ curl -X POST \
     }'
 ```
 
-> When successful (200), returns created [link](#v3-link-model):
+> When successful (200), returns created [link](#link-model):
 
 ```json
 {
@@ -239,7 +239,7 @@ curl -X POST \
 }
 ```
 
-> This link [generated](#v3-links-generate) by MPC backend will then look like this:
+> This link [generated](#links-generate) by MPC backend will then look like this:
 
 ```text
 my-app://some/url
@@ -260,19 +260,19 @@ link.description | string | no
 
 Key | Type 
 --------- | --------- 
-link | [Link](#v3-link-model)
+link | [Link](#link-model)
 
 #### Error responses
 
 Status | Description
 --------- | ----------- 
-`422` | Invalid parameters - see [Invalid parameters errors model](#v3-invalid-parameters-errors-model)
+`422` | Invalid parameters - see [Invalid parameters errors model](#invalid-parameters-errors-model)
 
 <aside class="notice">
 Requires <code>BL:Api:Links:Create</code> permit
 </aside>
 
-### <a name="v3-links-delete"></a> Delete
+### <a name="links-delete"></a> Delete
 
 Destroys Loyalty Club link.
 
@@ -288,7 +288,7 @@ curl -X DELETE \
     -H 'x-user-agent: CURL manual test'
 ```
 
-> When successful (200), returns deleted [link](#v3-link-model):
+> When successful (200), returns deleted [link](#link-model):
 
 ```json
 {
@@ -302,7 +302,7 @@ curl -X DELETE \
 
 Key | Type 
 --------- | --------- 
-link | [Link](#v3-link-model)
+link | [Link](#link-model)
 
 #### Error responses
 
@@ -315,7 +315,7 @@ Status | Description
 Requires <code>BL:Api:Links:Delete</code> permit
 </aside>
 
-### <a name="v3-links-generate"></a> Generate
+### <a name="links-generate"></a> Generate
 
 > Example:
 

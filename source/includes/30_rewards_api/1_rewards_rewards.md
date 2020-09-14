@@ -1,5 +1,5 @@
 ##  Rewards
-### <a name="v3-rewards-list"></a> List
+### <a name="rewards-list"></a> List
 
 > Example:
 
@@ -58,7 +58,7 @@ curl \
 
 Returns list of rewards available to purchase by member.
 
-As a member-related action, it requires member authorization. See [OAuth](#v3-oauth2).
+As a member-related action, it requires member authorization. See [OAuth](#oauth2).
 
 #### Response (JSON object)
 
@@ -66,7 +66,7 @@ Key | Type | Description
 --------- | --------- | ---------
 rewards | Array | List of Rewards - see below
 
-#### <a name="v3-reward-model"></a> Reward
+#### <a name="reward-model"></a> Reward
 
 Key | Type | Description
 --------- | --------- | ---------
@@ -74,15 +74,15 @@ id | integer |
 name | string | (optional) 
 description | string | (optional)
 price | integer | Number of points that must be spent to purchase the reward
-required_member_level | string| (optional) Minimal level name the members needs to have to be able to purchase the reward. See [Levels](#v3-rewards-program-levels-program)
+required_member_level | string| (optional) Minimal level name the members needs to have to be able to purchase the reward. See [Levels](#rewards-program-levels-program)
 remaining_stock | integer | (optional) Number of items that is available for purchase. When null, there is no limit
-files | Array | A list of Reward Files - see [File model](#v3-file-model)
+files | Array | A list of Reward Files - see [File model](#file-model)
 
 <aside class="notice">
 Requires <code>Rewards:Api:OAuth:Rewards:List</code> permit
 </aside>
 
-### <a name="v3-rewards-list-purchased"></a> List purchased
+### <a name="rewards-list-purchased"></a> List purchased
 
 ```shell
 curl \
@@ -140,13 +140,13 @@ curl \
 
 Returns list of rewards purchased by member.
 
-As a member-related action, it requires member authorization. See [OAuth](#v3-oauth2).
+As a member-related action, it requires member authorization. See [OAuth](#oauth2).
 
 #### Response (JSON object)
 
-Response looks as in [Reward list](#v3-rewards-list), but with reward usage instead of purchasing info
+Response looks as in [Reward list](#rewards-list), but with reward usage instead of purchasing info
 
-#### <a name="v3-rewards-usage"></a> Usage
+#### <a name="rewards-usage"></a> Usage
 
 Key | Type | Description
 --------- | --------- | ---------
@@ -158,7 +158,7 @@ usable | boolean | Will the reward be still usable after activation time passes?
 Requires <code>Rewards:Api:OAuth:Rewards:ListPurchased</code> permit
 </aside>
 
-### <a name="v3-rewards-purchase"></a> Purchase
+### <a name="rewards-purchase"></a> Purchase
 
 ```shell
 curl -X POST \
@@ -182,7 +182,7 @@ curl -X POST \
 
 Adds one of available rewards to member's purchased list and reduces member's balance by price.
 
-As a member-related action, it requires member authorization. See [OAuth](#v3-oauth2).
+As a member-related action, it requires member authorization. See [OAuth](#oauth2).
 
 #### Error responses
 
@@ -197,7 +197,7 @@ Status | Response body | Description
 Requires <code>Rewards:Api:OAuth:Rewards:Purchase</code> permit
 </aside>
 
-### <a name="v3-rewards-use"></a> Use
+### <a name="rewards-use"></a> Use
 
 ```shell
 curl -X POST \
@@ -225,13 +225,13 @@ curl -X POST \
 
 Uses (activates) one of usable rewards purchased by member.
 
-As a member-related action, it requires member authorization. See [OAuth](#v3-oauth2).
+As a member-related action, it requires member authorization. See [OAuth](#oauth2).
 
 #### Response (JSON object)
 
 Key | Type | Description
 --------- | --------- | ---------
-usage | Object| See [Reward Usage](#v3-rewards-usage)
+usage | Object| See [Reward Usage](#rewards-usage)
 
 #### Error responses
 

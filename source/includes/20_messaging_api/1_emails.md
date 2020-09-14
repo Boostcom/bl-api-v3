@@ -1,4 +1,4 @@
-## <a name="v3-emails-create"></a> Send e-mails
+## <a name="emails-create"></a> Send e-mails
 
 > Example:
 

@@ -1,6 +1,6 @@
-## <a name="v3-offer-admin-offers"></a> Offers
+## <a name="offer-admin-offers"></a> Offers
 
-### <a name="v3-get-offer"></a> Get offer
+### <a name="get-offer"></a> Get offer
 
 **GET** `v3/:loyalty_club_slug/offers/:id`
 
@@ -15,7 +15,7 @@ curl \
     -H 'x-user-agent: CURL manual test'
 ```
 
-> When successful (200), returns an Offer object under "offer" key. See [Offer model](#v3-admin-offer-model)
+> When successful (200), returns an Offer object under "offer" key. See [Offer model](#admin-offer-model)
 
 ```json
 {
@@ -31,13 +31,13 @@ Returns details of the specified offer.
 
 Key | Type | Optional? | Description
 --------- | --------- | -------- | ---------
-offer | Offer | no | See [Offer model](#v3-admin-offer-model) 
+offer | Offer | no | See [Offer model](#admin-offer-model) 
 
 <aside class="notice">
 Requires <code>Offers:Api:Offers:Get</code> permit
 </aside>
 
-### <a name="v3-list-offers"></a> List offers
+### <a name="list-offers"></a> List offers
 
 > Example:
 
@@ -51,7 +51,7 @@ curl \
 ```
 
 > When successful (200), returns a list of offers and pagination info. 
-  See [Offer model](#v3-admin-offer-model) and [Pagination info model](#pagination-json-model)
+  See [Offer model](#admin-offer-model) and [Pagination info model](#pagination-json-model)
 
 ```json
 {
@@ -100,14 +100,14 @@ All parameters are optional.
 
 Key | Type | Optional? | Description
 --------- | --------- | -------- | ---------
-offers | Offer[] | no (may be empty)| See [Offer model](#v3-admin-offer-model) 
+offers | Offer[] | no (may be empty)| See [Offer model](#admin-offer-model) 
 pagination_info | PaginationInfo | no| See [Pagination info model](#pagination-json-model)
 
 <aside class="notice">
 Requires <code>Offers:Api:Offers:List</code> permit
 </aside>
 
-### <a name="v3-create-offers"></a> Create offers
+### <a name="create-offers"></a> Create offers
 
 > Example:
 
@@ -156,7 +156,7 @@ Creates offer(s) with given lists of attributes (OfferPayloads).
 
 Key | Type | Description
 ----- | ---- | ---
-offers | OfferPayload[] | List of offers to create. See [Offer payload](#v3-admin-offer-payload)
+offers | OfferPayload[] | List of offers to create. See [Offer payload](#admin-offer-payload)
 
 #### Response (JSON object)
 
@@ -170,7 +170,7 @@ errors | Object | Errors of offers that couldn't be created
 Requires <code>Offers:Api:Offers:Create</code> permit
 </aside>
 
-### <a name="v3-update-offers"></a> Update offers
+### <a name="update-offers"></a> Update offers
 
 > Example:
 
@@ -221,7 +221,7 @@ Update is not partial, so all attributes that aren't present in the payload will
 
 Key | Type | Description
 ----- | ---- | ---
-offers | OfferPayload[] | List of offers to update. See [Offer payload](#v3-admin-offer-payload).
+offers | OfferPayload[] | List of offers to update. See [Offer payload](#admin-offer-payload).
 
 #### Response (JSON object)
 
@@ -235,7 +235,7 @@ errors | Object | Errors of offers that couldn't be created
 Requires <code>Offers:Api:Offers:Update</code> permit
 </aside>
 
-### <a name="v3-clone-offers"></a> Clone offers
+### <a name="clone-offers"></a> Clone offers
 
 > Example:
 
@@ -281,7 +281,7 @@ ids | integer[] | IDs of offers that have been cloned
 Requires <code>Offers:Api:Offers:Clone</code> permit
 </aside>
 
-### <a name="v3-update-offers"></a> Delete offers
+### <a name="update-offers"></a> Delete offers
 
 > Example:
 

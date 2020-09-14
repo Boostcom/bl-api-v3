@@ -1,6 +1,6 @@
 ##  Points
 
-### <a name="v3-points-create"></a> Create
+### <a name="points-create"></a> Create
 
 > Example:
 
@@ -115,7 +115,7 @@ Status | Description
 Requires <code>Transaction:Api:Points:Create</code>
 </aside>
 
-### <a name="v3-member-points"></a> Member points
+### <a name="member-points"></a> Member points
 
 > Example:
 
@@ -163,7 +163,7 @@ Status    | Description
 Requires <code>Transaction:Api:Points:Get</code> permit
 </aside>
 
-### <a name="v3-member-points-list"></a> Member points list
+### <a name="member-points-list"></a> Member points list
 
 > Example:
 

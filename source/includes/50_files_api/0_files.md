@@ -2,7 +2,7 @@
 
 ## Introduction
 
-### <a name="v3-file-model"></a> File model
+### <a name="file-model"></a> File model
 
 Every file attached to some entity (Offer, Reward, Offer Collection) follows the file schema and is defined like this:
 
@@ -11,15 +11,15 @@ Key | Type | Description
 url | URL | Link to the file
 width | integer | Image width
 height | integer | Image height
-kind | string | File kind identifier (e.x. `offer_default`), see [Standard file kinds](#v3-file-kinds)
-size_type | string | e.x. `base`, see: [File sizes](#v3-file-sizes)
+kind | string | File kind identifier (e.x. `offer_default`), see [Standard file kinds](#file-kinds)
+size_type | string | e.x. `base`, see: [File sizes](#file-sizes)
 
-### <a name="v3-file-schema"></a> File schema
+### <a name="file-schema"></a> File schema
 
 File schema defines a list of files kinds available in the Loyalty club. 
 Each file kind is also available in multiple sizes. 
 
-The schema may get retrieved with [Files&bull; Get schema](#v3-get-file-schema) endpoint.
+The schema may get retrieved with [Files&bull; Get schema](#get-file-schema) endpoint.
 
 > Example loyalty club file schema
 
@@ -142,21 +142,21 @@ The schema may get retrieved with [Files&bull; Get schema](#v3-get-file-schema) 
 }
 ```
 
-### <a name="v3-file-kind-model"></a> File kind model
+### <a name="file-kind-model"></a> File kind model
 
 Key | Type | Description
 --------- | ----------- | ---------
-identifier | string | See: [Standard file kinds](#v3-file-kinds)
+identifier | string | See: [Standard file kinds](#file-kinds)
 type | string | Currently, only `IMAGE` (MIME: `image/gif`, `image/jpeg`, `image/png`) is supported
-ratio | string | Describes ratio of an image. See: [Ratio](#v3-file-kind-ratio) (optional)
-sizes| Array<Object> | See: [File sizes](#v3-file-sizes)
+ratio | string | Describes ratio of an image. See: [Ratio](#file-kind-ratio) (optional)
+sizes| Array<Object> | See: [File sizes](#file-sizes)
 sizes[]['identifier'] | string | 
 sizes[]['min_width'] | integer | (optional)
 sizes[]['min_height'] | integer | (optional)
 sizes[]['max_width'] | integer | (optional)
 sizes[]['max_height'] | integer | (optional)
 
-### <a name="v3-file-kinds"></a> Standard file kinds
+### <a name="file-kinds"></a> Standard file kinds
 
 There are some standard file kinds, their size definitions differ among Loyalty Clubs.
 
@@ -166,11 +166,11 @@ Identifier | Description
 `offer_default` | Default Offer image
 `reward_default` | Default Reward image
 
-### <a name="v3-file-kind-ratio"></a> Ratio
+### <a name="file-kind-ratio"></a> Ratio
 
 Images may have fixed proportions ratio which is represented as a string: `"<width>:<height>"`
 
-### <a name="v3-file-sizes"></a> File sizes
+### <a name="file-sizes"></a> File sizes
 
 Every file has at least three file sizes available: 
 
@@ -203,7 +203,7 @@ Currently, we require all original files to have proper ratios and minimum sizes
 Because of that, you can expect them to have `min_height` and `min_width` that match the `base` size, 
 but they never have `max_width` or `max_height` defined.
 
-#### <a name="v3-file-cropping"></a> File cropping
+#### <a name="file-cropping"></a> File cropping
 
 > `crop_to` param interpretation may be visualized like this:
 
@@ -237,7 +237,7 @@ The kind's base size is 400x200px and the uploaded file is 1000x1000px.
 With crop_to="0,250,1000,750", a rectangle of "1000x500" size will be cropped, with 250px left offset.
 The file will be then also resized to 400x200.
 
-#### <a name="v3-projected-file-versions"></a> Uploaded instances projections
+#### <a name="projected-file-versions"></a> Uploaded instances projections
 
 When file is uploaded, only original file is physically processed and stored. `base` and other versions are processed asynchronously. 
 So, the responses returned on upload contains only "projected" info about files.
@@ -253,7 +253,7 @@ max_height | integer |
 
 ##  Files
 
-### <a name="v3-get-file-schema"></a> Get file schema
+### <a name="get-file-schema"></a> Get file schema
 
 > Example request
 
@@ -265,17 +265,17 @@ curl "https://bpc-api.boostcom.no/v3/infinity-mall/files/schema" \
   -H 'x-user-agent: CURL manual test'
 ```
 
-> Returns the schema as described [here](#v3-file-schema)
+> Returns the schema as described [here](#file-schema)
 
 **GET** `v3/:loyalty_club_slug/files/schema`
 
-Returns the Loyalty Club file schema. See: [Files &bull; Schema](#v3-file-schema)
+Returns the Loyalty Club file schema. See: [Files &bull; Schema](#file-schema)
 
 <aside class="notice">
 Requires <code>Files:Api:GetSchema</code> permit
 </aside>
 
-### <a name="v3-create-file"></a> Create file
+### <a name="create-file"></a> Create file
 
 > Example request
 
@@ -328,27 +328,27 @@ curl -X POST \
 
 Creates new file for given Fileable (e.g. Offer).
 
-#### <a name="v3-create-file-url-parameters"></a> URL Parameters
+#### <a name="create-file-url-parameters"></a> URL Parameters
 
 Parameter | Type | Description
 --------- | ----------- | -----------
 fileable_type | enum: `['offers', 'collections']` |
 fileable_id | integer 
-kind | enum | see [Standard file kinds](#v3-file-kinds)  
+kind | enum | see [Standard file kinds](#file-kinds)  
 
-#### <a name="v3-create-file-post-parameters"></a> POST Parameters
+#### <a name="create-file-post-parameters"></a> POST Parameters
 
 Parameter | Type | Required? | Description
 --------- | ----------- | ------- | -----------
 file | binary | yes | File to upload
-crop_to | string | no | See: [cropping](#v3-file-cropping)
+crop_to | string | no | See: [cropping](#file-cropping)
 
-#### <a name="v3-create-file-response"></a> Response (JSON object)
+#### <a name="create-file-response"></a> Response (JSON object)
 
 Key | Type | Description
 --------- | --------- | ---------
-original | File | See [File model](#v3-file-model) 
-projected_versions | ProjectedVersion[] | See [Projected file versions](#v3-projected-file-versions)
+original | File | See [File model](#file-model) 
+projected_versions | ProjectedVersion[] | See [Projected file versions](#projected-file-versions)
 
 #### Error responses
 
@@ -361,7 +361,7 @@ Status | Reason
 Requires <code>Files:Api:Create</code> permit
 </aside>
 
-### <a name="v3-update-file"></a> Update file
+### <a name="update-file"></a> Update file
 
 > Example request
 
@@ -377,7 +377,7 @@ curl -X PUT \
 
 ```
 
-> When successful (200), Returns info about uploaded file. Same as [Create file](#v3-create-file) example response
+> When successful (200), Returns info about uploaded file. Same as [Create file](#create-file) example response
 
 ```json
 {
@@ -391,15 +391,15 @@ Updates file for given Fileable (e.g. Offer).
 
 #### URL Parameters
 
-See: [Create File URL Parameters](#v3-create-file-url-parameters)
+See: [Create File URL Parameters](#create-file-url-parameters)
 
 #### POST Parameters
 
-See: [Create File POST Parameters](#v3-create-file-post-parameters)
+See: [Create File POST Parameters](#create-file-post-parameters)
 
 #### Response (JSON object)
 
-See: [Create File Response](#v3-create-file-response)
+See: [Create File Response](#create-file-response)
 
 #### Error responses
 
@@ -413,7 +413,7 @@ Status | Reason
 Requires <code>Files:Api:Update</code> permit
 </aside>
 
-### <a name="v3-reprocess-file"></a> Reprocess file
+### <a name="reprocess-file"></a> Reprocess file
 
 > Example request
 
@@ -428,7 +428,7 @@ curl -X PUT \
 
 ```
 
-> When successful (200), Returns info about uploaded file. Same as [Create file](#v3-create-file) example response
+> When successful (200), Returns info about uploaded file. Same as [Create file](#create-file) example response
 
 ```json
 {
@@ -443,15 +443,15 @@ It means that no file needs to be uploaded, instead the original file will be re
 
 #### URL Parameters
 
-See: [Create File URL Parameters](#v3-create-file-url-parameters)
+See: [Create File URL Parameters](#create-file-url-parameters)
 
 #### POST Parameters
 
-See: [Create File POST Parameters](#v3-create-file-post-parameters) - except no `file` param is accepted here
+See: [Create File POST Parameters](#create-file-post-parameters) - except no `file` param is accepted here
 
 #### Response (JSON object)
 
-See: [Create File Response](#v3-create-file-response)
+See: [Create File Response](#create-file-response)
 
 #### Error responses
 
@@ -465,7 +465,7 @@ Status | Reason
 Requires <code>Files:Api:Reprocess</code> permit
 </aside>
 
-### <a name="v3-delete-file"></a> Delete file
+### <a name="delete-file"></a> Delete file
 
 > Example request
 
@@ -491,7 +491,7 @@ Deletes file of given Fileable (e.g. Offer).
 
 #### URL Parameters
 
-See: [Create File URL Parameters](#v3-create-file-url-parameters)
+See: [Create File URL Parameters](#create-file-url-parameters)
 
 #### Error responses
 

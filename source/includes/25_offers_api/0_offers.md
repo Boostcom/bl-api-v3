@@ -1,7 +1,7 @@
 # Offers API
 
 This section describes endpoints destined for end user (e.g. for mobile apps) and work within context of (signed in) member.
-Navigate to [Offers Admin](#v3-offers-admin) section to see docs for offers management endpoints.
+Navigate to [Offers Admin](#offers-admin) section to see docs for offers management endpoints.
 
 ## Introduction
 
@@ -9,13 +9,13 @@ Navigate to [Offers Admin](#v3-offers-admin) section to see docs for offers mana
 
 Offers API supports two distinct approaches to work with context of member.
 
-#### <a name="v3-offers-oauth-context"></a> Member ID OAuth (recommended)
+#### <a name="offers-oauth-context"></a> Member ID OAuth (recommended)
 
-In the first one member context is resolved from MPC [OAuth](#v3-oauth2) member session.
+In the first one member context is resolved from MPC [OAuth](#oauth2) member session.
 
 This setup requires use of endpoints that have `/me/` URL segment and requires token provided with `authorization` header.
 
-#### <a name="v3-offers-member-id-context"></a> Member ID
+#### <a name="offers-member-id-context"></a> Member ID
  
 In this approach member context is resolved from Member's ID provided within URL.
 
@@ -24,7 +24,7 @@ This setup requires use of endpoints that have `/:member_id/` URL segment and re
 This approach is designed for implementations in which member is authenticated by your system and 
 **should not be used on front-end implementations**, where API token is exposed to an end user. 
 
-#### <a name="v3-offers-guest-access"></a> Guest access
+#### <a name="offers-guest-access"></a> Guest access
 
 Some API client implementations may need to present content to a non-authenticated user.
  
@@ -33,7 +33,7 @@ In order to allow this, static endpoints (like offers list) may work without mem
 They exist in versions which use `/guest/` URL segment instead of `/me/` or `/member_id/` and may be used by both
 aforementioned approaches.
 
-### <a name="v3-offer-model"></a> Offer model
+### <a name="offer-model"></a> Offer model
 
 > Offer example:
 
@@ -113,14 +113,14 @@ external_url | string| yes | The URL the offer may be linked with
 usable_since | Date | yes | Time since the offer may be used. If null, there is no restriction. 
 usable_until | Date | yes | Time until the offer may be used. If null, there is no restriction.
 collection_ids | integer[] | no (may be empty) | List of collections ids the offer belongs to
-tags | string[] | no (may be empty) | List of tags identifiers associated with the offer. Information from [Translations &bull; List](#v3-list-translations) should be used to display the tags. 
+tags | string[] | no (may be empty) | List of tags identifiers associated with the offer. Information from [Translations &bull; List](#list-translations) should be used to display the tags. 
 stores | string[] | no (may be empty) | List of shop names associated with the offer
-files | File[] | no | A list of offer files - see [File model](#v3-file-model)
+files | File[] | no | A list of offer files - see [File model](#file-model)
 liked | Boolean | no | Has offer been liked by user?
-usage | Usage | no | Usage information object - see [Offer usage model](#v3-offer-usage-model)
+usage | Usage | no | Usage information object - see [Offer usage model](#offer-usage-model)
 extras | Object | no (may be empty) | Extendable container for any potential extra data
 display | Object | no | Stores display information
-display.schemas | Object | no | Offer displays schemas - see [Offer display schemas](#v3-offers-display-schemas)
+display.schemas | Object | no | Offer displays schemas - see [Offer display schemas](#offers-display-schemas)
 display.read_more | Object | yes |
 display.read_more.button_title | string | yes |
 display.read_more.url | string | yes |
@@ -131,7 +131,7 @@ activation_texts.modal | string | yes |
 activation_texts.button | string | yes |
 activation_texts.description | string | yes |
 
-### <a name="v3-offer-usage-model"></a> Offer usage model
+### <a name="offer-usage-model"></a> Offer usage model
 
 Key | Type | Optional? | Description
 --------- | --------- | -------- | ---------
@@ -140,7 +140,7 @@ max_uses | integer | yes | Maximum number of times the specific member can use t
 uses_left | integer | yes| How many more times the specific member can use the offer - this number can be also affected by global offer limit. When null, there's no limit.
 active_until | Date | yes | The last time time the offer has been used at+ activation time (configurable per Loyalty Club, e.x. 30s). When null, the offer has not been activated (used) yet
 
-### <a name="v3-offers-collection-model"></a> Collection model
+### <a name="offers-collection-model"></a> Collection model
 
 Key | Type | Optional? | Description
 --------- | --------- | -------- | ---------
@@ -149,9 +149,9 @@ title | string | yes |
 description | string | yes | 
 short_description | string | yes |
 offers_order | integer[] | no (may be empty) | Describes order in which offers should be displayed inside this collection 
-files | File[] | no | A list of Offer Files - see [File model](#v3-file-model)
+files | File[] | no | A list of Offer Files - see [File model](#file-model)
 
-### <a name="v3-offers-display-schemas"></a> Display schemas
+### <a name="offers-display-schemas"></a> Display schemas
 
 > Example schemas:
 
@@ -218,9 +218,9 @@ By default (when no schema is defined on offer by it's creator), all of the sche
   * `body` => `description`
  
 
-## <a name="v3-offers"></a> Offers
+## <a name="offers"></a> Offers
 
-### <a name="v3-offers-meta"></a> Get offers meta
+### <a name="offers-meta"></a> Get offers meta
 
 > Example:
 
@@ -276,7 +276,7 @@ curl \
 }
 ```
 
-**GET** `v3/infinity-mall/members/me/offers/meta` [[OAuth](#v3-oauth2)]
+**GET** `v3/infinity-mall/members/me/offers/meta` [[OAuth](#oauth2)]
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:GetMeta</code> permit
@@ -305,12 +305,12 @@ Key | Type | Optional? | Description
 --------- | --------- | ---------- | ---------
 tags | string[] | no (may be empty) | List of unique tags assigned to offers 
 stores | string[] | no (may be empty) | List of unique stores assigned to offers
-collections | Collection[] |  no (may be empty) | List of unique collections assigned to offers - see [Collection model](#v3-offers-collection-model)
+collections | Collection[] |  no (may be empty) | List of unique collections assigned to offers - see [Collection model](#offers-collection-model)
 activated_seconds_time | integer | no | Number of seconds the offers stays active after member uses it 
 
-### <a name="v3-get-offer"></a> Get offer
+### <a name="get-offer"></a> Get offer
 
-**GET** `v3/infinity-mall/members/me/offers/:id` [[OAuth](#v3-oauth2)]
+**GET** `v3/infinity-mall/members/me/offers/:id` [[OAuth](#oauth2)]
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:Get</code> permit
@@ -341,7 +341,7 @@ curl \
     -H 'x-user-agent: CURL manual test'
 ```
 
-> When successful (200), returns an Offer object under "offer" key. See [Offer model](#v3-offer-model)
+> When successful (200), returns an Offer object under "offer" key. See [Offer model](#offer-model)
 
 ```json
 {
@@ -357,9 +357,9 @@ Returns details of the specified offer.
 
 Key | Type | Optional? | Description
 --------- | --------- | -------- | ---------
-offer | Offer | no | See [Offer model](#v3-offer-model) 
+offer | Offer | no | See [Offer model](#offer-model) 
 
-### <a name="v3-list-offers"></a> List offers
+### <a name="list-offers"></a> List offers
 
 > Example:
 
@@ -374,7 +374,7 @@ curl \
 ```
 
 > When successful (200), returns a list of offers and pagination info. 
-  See [Offer model](#v3-offer-model) and [Pagination info model](#pagination-json-model)
+  See [Offer model](#offer-model) and [Pagination info model](#pagination-json-model)
 
 ```json
 {
@@ -389,7 +389,7 @@ curl \
 }
 ```
 
-**GET** `v3/infinity-mall/members/me/offers` [[OAuth](#v3-oauth2)]
+**GET** `v3/infinity-mall/members/me/offers` [[OAuth](#oauth2)]
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:ListVisible</code> permit
@@ -416,7 +416,7 @@ Parameter | Type | Default | Description
 per_page | integer | 100 | Number of results to be returned per request (100 is the maximum)
 page_no | integer | 1 | Number of results page
 include_pagination_info | boolean | false | When true, pagination info (containing info like total records count, next page) will be returned
-order_by | string | "name" | See [`order_by` param](#v3-offers-list-order-by)
+order_by | string | "name" | See [`order_by` param](#offers-list-order-by)
 collection_ids | integer[] | null |  When present, only offers belonging to least one of given collections will be returned
 tags | string[] | null |  When present, only offers having at least one of given tags will be returned
 stores | string[] | null | When present, only offers having at least one of given stores will be returned
@@ -427,7 +427,7 @@ liked | boolean | false | When true, only offers that have been liked by member
 
 All parameters are optional.
 
-##### <a name="v3-offers-list-order-by"></a> `order_by` param
+##### <a name="offers-list-order-by"></a> `order_by` param
 
 Offers list may be sorted by `order_by` param, which has similar syntax as ORDER BY keyword in SQL statements.
 
@@ -454,10 +454,10 @@ Also, when querying offers by *single* collection_id, the list may also be sorte
 
 Key | Type | Optional? | Description
 --------- | --------- | -------- | ---------
-offers | Offer[] | no (may be empty)| See [Offer model](#v3-offer-model) 
+offers | Offer[] | no (may be empty)| See [Offer model](#offer-model) 
 pagination_info | PaginationInfo | yes| See [Pagination info model](#pagination-json-model)
 
-### <a name="v3-use-offer"></a> Use offer
+### <a name="use-offer"></a> Use offer
 
 ```shell
 curl -X POST \
@@ -474,7 +474,7 @@ curl -X POST \
     '
 ```
 
-> When successful (200), returns a Offer usage object - See [Offer usage model](#v3-offer-usage-model)
+> When successful (200), returns a Offer usage object - See [Offer usage model](#offer-usage-model)
 
 ```json
 {
@@ -487,7 +487,7 @@ curl -X POST \
 }
 ```
 
-**POST** `v3/infinity-mall/members/me/offers/:id/use` [[OAuth](#v3-oauth2)]
+**POST** `v3/infinity-mall/members/me/offers/:id/use` [[OAuth](#oauth2)]
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:Use</code> permit
@@ -505,9 +505,9 @@ Uses (activates) the offer by member.
 
 Key | Type | Optional? | Description
 --- | ---- | --------- | -----------
-authorization_token | string | yes | See [below](#v3-offer-use-authorization)
+authorization_token | string | yes | See [below](#offer-use-authorization)
 
-##### <a name="v3-offer-use-authorization"></a> Offer use authorization
+##### <a name="offer-use-authorization"></a> Offer use authorization
 
 Some features (like Rewards Program) may require from member to provide some code (scanned QR code, for example), so we can register
 his physical presence in the store.
@@ -521,7 +521,7 @@ However, when token is provided and happens to be invalid, the offer use is not 
 
 Key | Type  | Description
 --------- | -------- | ---------
-usage | OfferUsage | See [Offer usage model](#v3-offer-usage-model)
+usage | OfferUsage | See [Offer usage model](#offer-usage-model)
 
 #### Error responses
 
@@ -535,7 +535,7 @@ Status | Response body | Description
 `422` | `{"error": "Global limit exceeded"}` | There are no more offers available globally (stock is empty)
 `422` | `{"error": "Not in usable timeframes"}` | Offer is not usable yet or anymore
 
-### <a name="v3-like-offer"></a> Like offer
+### <a name="like-offer"></a> Like offer
 
 > Example
 
@@ -557,7 +557,7 @@ curl -X PUT \
 }
 ```
 
-**PUT** `v3/infinity-mall/members/me/offers/:id/like` [[OAuth](#v3-oauth2)]
+**PUT** `v3/infinity-mall/members/me/offers/:id/like` [[OAuth](#oauth2)]
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:Like</code> permit
@@ -571,7 +571,7 @@ Requires <code>Offers:Api:MemberOffers:LikeByMemberId</code> permit
 
 Marks offer as "liked" by user.
 
-### <a name="v3-unlike-offer"></a> Unlike offer
+### <a name="unlike-offer"></a> Unlike offer
 
 > Example
 
@@ -593,7 +593,7 @@ curl -X PUT \
 }
 ```
 
-**PUT** `v3/infinity-mall/members/me/offers/:id/unlike` [[OAuth](#v3-oauth2)]
+**PUT** `v3/infinity-mall/members/me/offers/:id/unlike` [[OAuth](#oauth2)]
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:Like</code> permit
@@ -607,7 +607,7 @@ Requires <code>Offers:Api:MemberOffers:LikeByMemberId</code> permit
 
 Revers marking offer as "liked" by user.
 
-### <a name="v3-grant-offer"></a> Grant offer
+### <a name="grant-offer"></a> Grant offer
 
 > Example
 
@@ -635,7 +635,7 @@ Some types of offers are not available to members until they are granted to them
 It may make sense to grant a same offer to one member multiple times when offer has limited number of uses. 
 In such case, each consecutive grant will increase the number of uses for this member.
 
-NOTE: This endpoint does not have [OAuth](#v3-oauth2) version 
+NOTE: This endpoint does not have [OAuth](#oauth2) version 
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:GrantByMemberId</code> permit

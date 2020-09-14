@@ -6,7 +6,7 @@ This API is in development. Therefore, it may not be ready for use and is a subj
 
 ##  Events
 
-### <a name="v3-events-list"></a> List
+### <a name="events-list"></a> List
 
 > Example:
 
@@ -48,7 +48,7 @@ List of events
 Requires <code>Events:Api:Events:Get</code> permit
 </aside>
 
-### <a name="v3-event-get"></a> Get
+### <a name="event-get"></a> Get
 
 > Example:
 
@@ -88,7 +88,7 @@ Single event information
 Requires <code>Events:Api:Events:Get</code> permit
 </aside>
 
-### <a name="v3-events-validate-member"></a> Member validation
+### <a name="events-validate-member"></a> Member validation
 
 > Example:
 
@@ -147,7 +147,7 @@ Status    | Description
 
 ## Checkins
 
-### <a name="v3-events-checkin-member"></a> Create
+### <a name="events-checkin-member"></a> Create
 
 > Example:
 
@@ -212,7 +212,7 @@ Status    | Description
 
 **GET** `v3/:loyalty_club_slug/events/checkin`
 
-### <a name="v3-events-checkin-list"></a> List
+### <a name="events-checkin-list"></a> List
 
 > Example:
 
@@ -248,7 +248,7 @@ Requires <code>Events:Api:Checkin:Get</code> permit
 
 ## Invitations
 
-### <a name="v3-events-invitation"></a> Send invitation
+### <a name="events-invitation"></a> Send invitation
 
 > Example:
 

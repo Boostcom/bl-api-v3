@@ -2,7 +2,7 @@
 
 ##  Stores
 
-### <a name="v3-store-list"></a> List
+### <a name="store-list"></a> List
 
 > Example:
 
@@ -95,7 +95,7 @@ All parameters are optional
 Requires <code>Stores:Api:Stores:Get</code> permit
 </aside> 
 
-### <a name="v3-store-get"></a> Get
+### <a name="store-get"></a> Get
 
 > Example:
 
@@ -196,7 +196,7 @@ Status    | Description
 Requires <code>Stores:Api:Stores:Get</code> permit
 </aside>
 
-### <a name="v3-store-create"></a> Create
+### <a name="store-create"></a> Create
 
 > Example:
 
@@ -323,7 +323,7 @@ Status | Description
 Requires <code>Stores:Api:Stores:Create</code>
 </aside>
 
-### <a name="v3-store-update"></a> Update
+### <a name="store-update"></a> Update
 
 > Example:
 
@@ -463,7 +463,7 @@ Status | Description
 Requires <code>Stores:Api:Stores:Update</code>
 </aside>
 
-### <a name="v3-store-delete"></a> Delete
+### <a name="store-delete"></a> Delete
 
 > Example:
 
@@ -525,9 +525,9 @@ Status | Description
 Requires <code>Stores:Api:Stores:Delete</code>
 </aside>
 
-## <a name="v3-stores-categories"></a> Categories
+## <a name="stores-categories"></a> Categories
 
-### <a name="v3-store-categories-list"></a> List
+### <a name="store-categories-list"></a> List
 
 > Example:
 
@@ -561,7 +561,7 @@ Requires <code>Stores:Api:Zones:Get</code> permit
 
 ## Zones
 
-### <a name="v3-store-zones-list"></a> List
+### <a name="store-zones-list"></a> List
 
 > Example:
 
