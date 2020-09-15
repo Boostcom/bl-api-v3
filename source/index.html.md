@@ -18,9 +18,8 @@ includes:
   - 10_members_api/3_imports
   - 10_members_api/9_webhooks
   - 15_members_groups_api/0_members_groups
-  - 20_messaging_api/0_smses
-  - 20_messaging_api/1_emails
-  - 20_messaging_api/2_push_notifications
+  - 20_messaging_api/1_models
+  - 20_messaging_api/2_messages
   - 25_offers_api/0_offers
   - 25_offers_api/1_offers_events
   - 28_offers_admin_api/0_offers_admin

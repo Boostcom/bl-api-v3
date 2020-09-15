@@ -275,7 +275,7 @@ Requires <code>BL:Api:Members:OAuth:Get</code> permit
 Parameter | Description | Type
 --------- | ----------- | ------
 id | Member's ID | integer
-msisdn | Member's msisdn | string (format as defined [here](#msisdn-member-identifier) - example: `4740485124`)
+msisdn | Member's msisdn | string (format as defined [here](#msisdn-param) - example: `4740485124`)
 email | Member's email | string (email)
 
 #### Response (JSON object)
@@ -326,7 +326,7 @@ Returns basic info for given member. If member does not exist, returns `null'.
 Parameter | Description | Type
 --------- | ----------- | ------
 id | Member's ID | integer
-msisdn | Member's msisdn | string (format as defined [here](#msisdn-member-identifier) - example: `4740485124`)
+msisdn | Member's msisdn | string (format as defined [here](#msisdn-param) - example: `4740485124`)
 email | Member's email | string (email)
 
 #### Response (JSON object)
@@ -426,7 +426,7 @@ Returns `person_id` for given member. Please note that `person_id` cannot be pre
 Parameter | Description | Type
 --------- | ----------- | ------
 id | Member's ID | integer
-msisdn | Member's msisdn | string (format as defined [here](#msisdn-member-identifier) - example: `4740485124`)
+msisdn | Member's msisdn | string (format as defined [here](#msisdn-param) - example: `4740485124`)
 email | Member's email | string (email)
 
 #### Response (JSON object)
@@ -524,7 +524,7 @@ Parameter | Required? | Default | Description | Type
 --------- | ----------- | ----------- | --------- | -----------
 properties | **yes** | none | JSON with properties for member | JSON Object
 properties\['language'\] | no | "default_language" from schema | Language used by user | string
-properties\['msisdn'\] | yes* | none | Unique member's msisdn as defined [here](#msisdn-member-identifier)) Example: `4740485124`.| string
+properties\['msisdn'\] | yes* | none | Unique member's msisdn as defined [here](#msisdn-param)) Example: `4740485124`.| string
 properties\['email'\] | yes* | none | Member's email | string
 consents | no | {} | Member's consents (similar to [Member's consents JSON model](#member-consents-model)) | JSON Object
 sms_enabled | no | true | Should SMS channel be enabled for member? | Boolean
@@ -1049,7 +1049,7 @@ This password then can be used to sign in, just as "regular" member password - s
 
 Parameter | Description | Type
 --------- | ----------- | ------
-msisdn | Member's msisdn | string (format as defined [here](#msisdn-member-identifier) - example: `4740485124`)
+msisdn | Member's msisdn | string (format as defined [here](#msisdn-param) - example: `4740485124`)
 
 <aside class="notice">
 Requires <code>BL:Api:Members:CreateOneTimePassword</code> permit
@@ -1139,7 +1139,7 @@ This password may be required for member registration - see: [Registration passw
 
 Parameter | Description | Type
 --------- | ----------- | ------
-msisdn | MSISDN | string (format as defined [here](#msisdn-member-identifier) - example: `4740485124`)
+msisdn | MSISDN | string (format as defined [here](#msisdn-param) - example: `4740485124`)
 
 #### POST Parameters
 

@@ -570,7 +570,7 @@ page_no | integer | 1 | Number of results page
 Key | Description | Type
 --- | ---- | ---
 member_id | Member's ID | integer
-member_msisdn | Member's msisdn | string (format as defined [here](#msisdn-member-identifier) - example: `4740485124`)
+member_msisdn | Member's msisdn | string (format as defined [here](#msisdn-param) - example: `4740485124`)
 member_email | Member's email | string (email)
 
 #### Response (JSON object)
