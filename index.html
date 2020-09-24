@@ -10998,7 +10998,7 @@ Requires <code>Transaction:Api:Transactions:Create</code> and <code>BL:Api:Membe
 </tbody></table>
 
 <aside class="notice">
-Requires <code>Transaction:Api:Transactions:Read</code> permit
+Requires <code>Transaction:Api:Transactions:Get</code> permit
 </aside> 
 
 <h3 id="get"><a name="transactions-get"></a> Get</h3>
@@ -11071,7 +11071,7 @@ Requires <code>Transaction:Api:Transactions:Read</code> permit
 </tbody></table>
 
 <aside class="notice">
-Requires <code>Transaction:Api:Transactions:Read</code> permit
+Requires <code>Transaction:Api:Transactions:Get</code> permit
 </aside> 
 
 <h2 id="categories">Categories</h2>
@@ -11184,7 +11184,7 @@ Requires <code>Transaction:Api:Transactions:Read</code> permit
 </tbody></table>
 
 <aside class="notice">
-Requires <code>Transaction:Api:Transactions:Read</code> permit
+Requires <code>Transaction:Api:Transactions:Get</code> permit
 </aside> 
 
 <h2 id="events">Events</h2>
@@ -11242,7 +11242,7 @@ Requires <code>Transaction:Api:Transactions:Read</code> permit
 <blockquote>
 <p>GWP</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
 <span class="s2">"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/transactions/categories"</span> <span class="se">\</span>
     -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
