@@ -278,7 +278,7 @@ Status | Description
 `422` | Invalid parameters (see example on the right)
 
 <aside class="notice">
-Requires <code>Transaction:Api:Transactions:Read</code> permit
+Requires <code>Transaction:Api:Transactions:Get</code> permit
 </aside> 
 
 ### <a name="transactions-get"></a> Get
@@ -346,7 +346,7 @@ Status | Description
 `422` | Invalid parameters (see example on the right)
 
 <aside class="notice">
-Requires <code>Transaction:Api:Transactions:Read</code> permit
+Requires <code>Transaction:Api:Transactions:Get</code> permit
 </aside> 
 
 ## Categories
@@ -428,7 +428,7 @@ Status | Description
 `422` | Invalid parameters (see example on the right)
 
 <aside class="notice">
-Requires <code>Transaction:Api:Transactions:Read</code> permit
+Requires <code>Transaction:Api:Transactions:Get</code> permit
 </aside> 
 
 ## Events
@@ -487,7 +487,7 @@ curl -X POST \
 > GWP
 
 ```shell
-curl -X GET \
+curl -X POST \
 "https://bpc-api.boostcom.no/v3/:loyalty_club_slug/transactions/categories" \
     -H 'content-type: application/json' \
     -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
