@@ -1119,6 +1119,7 @@ Requires <code>Translations:Api:Index</code> permit
             </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"About"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
             </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/about"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"push_message_data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"foo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bar"</span><span class="w"> </span><span class="p">},</span><span class="w">
             </span><span class="s2">"optional_params"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
             </span><span class="s2">"system"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
             </span><span class="s2">"global"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -1161,7 +1162,13 @@ Requires <code>Translations:Api:Index</code> permit
 <td>scheme</td>
 <td>string</td>
 <td>no</td>
-<td>When given, link will be generated with this scheme</td>
+<td>When present, link will be generated with this scheme</td>
+</tr>
+<tr>
+<td>push_message_data</td>
+<td>Object</td>
+<td>yes</td>
+<td>When present, it will be sent along push messages that contain this link</td>
 </tr>
 <tr>
 <td>optional_params</td>
