@@ -10,6 +10,7 @@
             "name": "About",
             "description": null,
             "url": "/about",
+            "push_message_data": { "foo": "bar" },
             "optional_params": [],
             "system": false,
             "global": true,
@@ -17,17 +18,18 @@
         }
 ```
 
-Key             | Type          | Optional? | Description
---------------- | ------------- | --------- | ---------
-slug            | string        | no        | Identifier or Link. Generated from name.
-name            | string        | no        | Must be unique
-description     | string        | yes       |
-url             | string        | no        | Must be unique
-scheme          | string        | no        | When given, link will be generated with this scheme
-optional_params | array<string> | yes       | Contains information which link params are optional
-system          | boolean       | no        | Is this a system link?
-global          | boolean       | no        | Is this a global link?
-enabled         | boolean       | no        | Is this link enabled for specific LC?
+Key               | Type          | Optional? | Description
+----------------- | ------------- | --------- | ---------
+slug              | string        | no        | Identifier or Link. Generated from name.
+name              | string        | no        | Must be unique
+description       | string        | yes       |
+url               | string        | no        | Must be unique
+scheme            | string        | no        | When present, link will be generated with this scheme
+push_message_data | Object        | yes       | When present, it will be sent along push messages that contain this link
+optional_params   | array<string> | yes       | Contains information which link params are optional
+system            | boolean       | no        | Is this a system link?
+global            | boolean       | no        | Is this a global link?
+enabled           | boolean       | no        | Is this link enabled for specific LC?
 
 
 #### <a name="enabled-links"></a> Enabled links
