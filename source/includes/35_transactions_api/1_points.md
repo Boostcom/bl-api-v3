@@ -169,7 +169,7 @@ Requires <code>Transaction:Api:Points:Get</code> permit
 
 ```shell
 curl -X GET \
-"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/transactions/points/events/12345?type=issue_points&event=Event1" \
+"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/transactions/points/events/12345?type=issue_points&event=Event1&external_event_id=12345" \
     -H 'content-type: application/json' \
     -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
     -H 'x-product-name: default' \
@@ -190,7 +190,8 @@ curl -X GET \
         "store_id": "123",
         "receipt_id": "receipt",
         "event": "used coupon",
-        "message": "Black Friday"
+        "message": "Black Friday",
+        "external_event_id": "12345"
     }
 ]
 ```  
@@ -212,6 +213,7 @@ wallet     | Wallet        | string     | optional
 amount     | Amount of points  | integer | optional
 receipt_id | Receipt       | string     | optional
 store_id   | Store id      | string     | optional
+external_event_id   | External event id      | string     | optional
 
 #### Error responses
 
