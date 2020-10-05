@@ -306,7 +306,7 @@ Requires <code>Transaction:Api:Points:Get</code> permit
 <p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
-<span class="s2">"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/transactions/points/events/12345?type=issue_points&amp;event=Event1"</span> <span class="se">\</span>
+<span class="s2">"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/transactions/points/events/12345?type=issue_points&amp;event=Event1&amp;external_event_id=12345"</span> <span class="se">\</span>
     -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
     -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
@@ -326,7 +326,8 @@ Requires <code>Transaction:Api:Points:Get</code> permit
         </span><span class="s2">"store_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"receipt_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"receipt"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"event"</span><span class="p">:</span><span class="w"> </span><span class="s2">"used coupon"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Black Friday"</span><span class="w">
+        </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Black Friday"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"external_event_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
@@ -389,6 +390,12 @@ Requires <code>Transaction:Api:Points:Get</code> permit
 <tr>
 <td>store_id</td>
 <td>Store id</td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td>external_event_id</td>
+<td>External event id</td>
 <td>string</td>
 <td>optional</td>
 </tr>
