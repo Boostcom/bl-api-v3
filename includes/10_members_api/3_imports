@@ -171,7 +171,7 @@ that, you may want to identify all bulks with the same <code class="prettyprint"
 <td>properties[&lsquo;msisdn&rsquo;]</td>
 <td>yes*</td>
 <td>none</td>
-<td>Unique member&rsquo;s msisdn as defined <a href="#msisdn-member-identifier">here</a>) Example: <code class="prettyprint">4740485124</code>.</td>
+<td>Unique member&rsquo;s msisdn as defined <a href="#msisdn-param">here</a>) Example: <code class="prettyprint">4740485124</code>.</td>
 <td>string</td>
 </tr>
 <tr>

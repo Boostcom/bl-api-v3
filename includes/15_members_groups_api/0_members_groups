@@ -951,7 +951,7 @@ Requires <code>BL:Api:MembersGroups:Members:List</code> permit
 <tr>
 <td>member_msisdn</td>
 <td>Member&rsquo;s msisdn</td>
-<td>string (format as defined <a href="#msisdn-member-identifier">here</a> - example: <code class="prettyprint">4740485124</code>)</td>
+<td>string (format as defined <a href="#msisdn-param">here</a> - example: <code class="prettyprint">4740485124</code>)</td>
 </tr>
 <tr>
 <td>member_email</td>

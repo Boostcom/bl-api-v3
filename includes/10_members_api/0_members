@@ -509,7 +509,7 @@ Requires <code>BL:Api:Members:OAuth:Get</code> permit
 <tr>
 <td>msisdn</td>
 <td>Member&rsquo;s msisdn</td>
-<td>string (format as defined <a href="#msisdn-member-identifier">here</a> - example: <code class="prettyprint">4740485124</code>)</td>
+<td>string (format as defined <a href="#msisdn-param">here</a> - example: <code class="prettyprint">4740485124</code>)</td>
 </tr>
 <tr>
 <td>email</td>
@@ -586,7 +586,7 @@ Requires <code>BL:Api:Members:OAuth:Get</code> permit
 <tr>
 <td>msisdn</td>
 <td>Member&rsquo;s msisdn</td>
-<td>string (format as defined <a href="#msisdn-member-identifier">here</a> - example: <code class="prettyprint">4740485124</code>)</td>
+<td>string (format as defined <a href="#msisdn-param">here</a> - example: <code class="prettyprint">4740485124</code>)</td>
 </tr>
 <tr>
 <td>email</td>
@@ -728,7 +728,7 @@ Requires <code>BL:Api:Members:Check</code> permit
 <tr>
 <td>msisdn</td>
 <td>Member&rsquo;s msisdn</td>
-<td>string (format as defined <a href="#msisdn-member-identifier">here</a> - example: <code class="prettyprint">4740485124</code>)</td>
+<td>string (format as defined <a href="#msisdn-param">here</a> - example: <code class="prettyprint">4740485124</code>)</td>
 </tr>
 <tr>
 <td>email</td>
@@ -888,7 +888,7 @@ valid <code class="prettyprint">registration_password</code> param that is sent 
 <td>properties[&lsquo;msisdn&rsquo;]</td>
 <td>yes*</td>
 <td>none</td>
-<td>Unique member&rsquo;s msisdn as defined <a href="#msisdn-member-identifier">here</a>) Example: <code class="prettyprint">4740485124</code>.</td>
+<td>Unique member&rsquo;s msisdn as defined <a href="#msisdn-param">here</a>) Example: <code class="prettyprint">4740485124</code>.</td>
 <td>string</td>
 </tr>
 <tr>
@@ -1696,7 +1696,7 @@ Requires <code>BL:Api:Members:Tokens:Create</code> permit
 <tr>
 <td>msisdn</td>
 <td>Member&rsquo;s msisdn</td>
-<td>string (format as defined <a href="#msisdn-member-identifier">here</a> - example: <code class="prettyprint">4740485124</code>)</td>
+<td>string (format as defined <a href="#msisdn-param">here</a> - example: <code class="prettyprint">4740485124</code>)</td>
 </tr>
 </tbody></table>
 
@@ -1810,7 +1810,7 @@ Requires <code>BL:Api:Members:CreateOneTimePassword</code> permit
 <tr>
 <td>msisdn</td>
 <td>MSISDN</td>
-<td>string (format as defined <a href="#msisdn-member-identifier">here</a> - example: <code class="prettyprint">4740485124</code>)</td>
+<td>string (format as defined <a href="#msisdn-param">here</a> - example: <code class="prettyprint">4740485124</code>)</td>
 </tr>
 </tbody></table>
 

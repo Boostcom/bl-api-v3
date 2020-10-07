@@ -1,0 +1,872 @@
+<h1 id="messaging-api"><a name="messaging"></a> Messaging API</h1>
+
+<h2 id="models">Models</h2>
+
+<h3 id="message-model"><a name="messaging-message-model"></a> Message model</h3>
+
+<blockquote>
+<p>Message example:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">758131</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DD3"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"shorten_urls"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"track_in_shortener"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"campaign_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-15T10:01:09.467Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-15T10:01:09.467Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"channels"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">55781</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sms"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"sender"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"alphanumeric"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Infinity"</span><span class="w"> </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"template"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">609193</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"plain"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hei {{name}}"</span><span class="w"> </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-15T12:45:08.618Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-15T12:45:08.618Z"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-15T12:45:08.625Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-15T12:45:08.625Z"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"sendings"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000016</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"audience_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">106642</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"scheduled_with"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"in"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15 minutes"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"relative"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"scheduled_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-18T09:28:59.918Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-18T09:13:59.937Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-18T09:13:59.937Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"recipients"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"member_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">150</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"msisdn"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"app_token"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Piotr"</span><span class="w"> </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>id</strong></td>
+<td>integer</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>name</strong></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>shorten_urls</strong></td>
+<td>boolean</td>
+<td>Should sendings for this message have URLs shortened with MPC&rsquo;s Shortener?</td>
+</tr>
+<tr>
+<td><strong>track_in_shortener</strong></td>
+<td>boolean</td>
+<td>Should MPC&rsquo;s Shortener track users?</td>
+</tr>
+<tr>
+<td>campaign_id</td>
+<td>string</td>
+<td>MPC&rsquo;s campaign ID</td>
+</tr>
+<tr>
+<td><strong>channels</strong></td>
+<td><a href="#messaging-channel-model">Channel</a>[]</td>
+<td>Channels the message is sent with</td>
+</tr>
+<tr>
+<td><strong>sendings</strong></td>
+<td><a href="#messaging-sending-model">Sending</a>[]</td>
+<td>Sending of the message</td>
+</tr>
+<tr>
+<td><strong>created_at</strong></td>
+<td>datetime</td>
+<td>Time of creation</td>
+</tr>
+<tr>
+<td><strong>updated_at</strong></td>
+<td>datetime</td>
+<td>Time of last update</td>
+</tr>
+</tbody></table>
+
+<h3 id="channel-model"><a name="messaging-channel-model"></a> Channel model</h3>
+
+<blockquote>
+<p>Channel example:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">55781</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sms"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"sender"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"alphanumeric"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Infinity"</span><span class="w"> </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"template"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">609193</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"plain"</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hei {{name}}"</span><span class="w"> </span><span class="p">},</span><span class="w">
+     </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-15T12:45:08.618Z"</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-15T12:45:08.618Z"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-15T12:45:08.625Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-15T12:45:08.625Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Defines channel the message should be sent with along with the content that should be sent through this channel. </p>
+
+<p>Please note that while we allow to set multiple channels on single message (for future usage), 
+currently just one (the first) is utilized as the Message&rsquo;s only channel.</p>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>id</strong></td>
+<td>integer</td>
+</tr>
+<tr>
+<td><strong>type</strong></td>
+<td>enum: <code class="prettyprint">[&#39;sms&#39;, &#39;email&#39;, &#39;push&#39;]</code></td>
+</tr>
+<tr>
+<td><strong>created_at</strong></td>
+<td>datetime</td>
+</tr>
+<tr>
+<td><strong>updated_at</strong></td>
+<td>datetime</td>
+</tr>
+<tr>
+<td><strong>template</strong></td>
+<td><a href="#messaging-template-model">Template</a></td>
+</tr>
+<tr>
+<td><a href="#messaging-channel-specific-attributes">(channel-specific attributes)</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h4 id="channel-specific-attributes"><a name="messaging-channel-specific-attributes"></a> Channel-specific attributes</h4>
+
+<p>When not provided explicitly, values of all the following attributes are taken from Loyalty Club configuration.</p>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Channel type</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>sender.type</td>
+<td><code class="prettyprint">sms</code></td>
+<td>enum: <code class="prettyprint">[&#39;alphanumeric&#39;, &#39;international&#39;]</code></td>
+</tr>
+<tr>
+<td>sender.value</td>
+<td><code class="prettyprint">sms</code></td>
+<td>string</td>
+</tr>
+<tr>
+<td>from_email</td>
+<td><code class="prettyprint">email</code></td>
+<td>string</td>
+</tr>
+<tr>
+<td>from_name</td>
+<td><code class="prettyprint">email</code></td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p>The <code class="prettyprint">sender</code> describes how SMS sender will be displayed to the receiver of SMS.
+By default, a value from Loyalty Club configuration is used.</p>
+
+<p>Depending on selected <code class="prettyprint">sender.type</code>, <code class="prettyprint">sender.value</code> can be provided according to the following table:  </p>
+
+<table><thead>
+<tr>
+<th>Type</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">alphanumeric</code></td>
+<td>String consisting of 2-11 characters</td>
+</tr>
+<tr>
+<td><code class="prettyprint">international</code></td>
+<td>Any MSISDN</td>
+</tr>
+</tbody></table>
+
+<h3 id="template-model"><a name="messaging-template-model"></a> Template model</h3>
+
+<blockquote>
+<p>Template example:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">609193</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"wrapper_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5913</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"plain"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hei {{name}}"</span><span class="w"> </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-15T12:45:08.618Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-15T12:45:08.618Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>id</strong></td>
+<td>integer</td>
+<td></td>
+</tr>
+<tr>
+<td>wrapper_id</td>
+<td>integer</td>
+<td>ID of <a href="#messaging-template-wrapping">wrapping template</a></td>
+</tr>
+<tr>
+<td><strong>type</strong></td>
+<td>enum: <code class="prettyprint">[&#39;plain&#39;, &#39;email&#39;, &#39;bee_email&#39;, &#39;push&#39;]</code></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>content</strong></td>
+<td>Object</td>
+<td>Definition depends on the <code class="prettyprint">type</code>. See below</td>
+</tr>
+<tr>
+<td><strong>created_at</strong></td>
+<td>datetime</td>
+<td>Time of creation</td>
+</tr>
+<tr>
+<td><strong>updated_at</strong></td>
+<td>datetime</td>
+<td>Time of last update</td>
+</tr>
+</tbody></table>
+
+<h4 id="plain-template"><a name="messaging-template-model-plain"></a> <code class="prettyprint">plain</code> template</h4>
+
+<blockquote>
+<p>Plain Template example:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">609193</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"wrapper_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"plain"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hei {{name}}"</span><span class="w"> </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-15T12:45:08.618Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-15T12:45:08.618Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This type of template can be assigned to any type.</p>
+
+<p>Content of such template consists of single (required) property - <code class="prettyprint">body</code>.</p>
+
+<h4 id="email-template"><a name="messaging-template-model-email"></a> <code class="prettyprint">email</code> template</h4>
+
+<blockquote>
+<p>Email Template example:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">609194</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"wrapper_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"email"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"subject"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Welcome!"</span><span class="p">,</span><span class="w"> </span><span class="s2">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;b&gt;Hei {{name}}&lt;/b&gt;"</span><span class="w"> </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-15T12:45:08.618Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-15T12:45:08.618Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This type of template can be assigned to <code class="prettyprint">email</code> channel.</p>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>content.body</strong></td>
+<td>HTML</td>
+</tr>
+<tr>
+<td>content.subject</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<h4 id="bee_email-template"><a name="messaging-template-model-bee-email"></a> <code class="prettyprint">bee_email</code> template</h4>
+
+<blockquote>
+<p>BeeEmail Template example:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">609193</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"wrapper_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bee_email"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"subject"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Welcome!"</span><span class="p">,</span><span class="w"> </span><span class="s2">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;b&gt;Hei {{name}}&lt;/b&gt;"</span><span class="p">,</span><span class="w"> </span><span class="s2">"bee_json"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-15T12:45:08.618Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-15T12:45:08.618Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This type of template is used internally by MPC UI. </p>
+
+<p>It differs from <code class="prettyprint">email</code> by containing JSON source which is used by <a href="https://docs.beefree.io/">Bee Plugin</a> to generate HTML <code class="prettyprint">body</code>. </p>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>content.body</strong></td>
+<td>HTML</td>
+</tr>
+<tr>
+<td><strong>content.bee_json</strong></td>
+<td>Object</td>
+</tr>
+<tr>
+<td>content.subject</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<h4 id="push-template"><a name="messaging-template-model-push"></a> <code class="prettyprint">push</code> template</h4>
+
+<blockquote>
+<p>Push Template example:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">609193</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"wrapper_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"push"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Welcome"</span><span class="p">,</span><span class="w"> </span><span class="s2">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hi {{name}}!"</span><span class="p">,</span><span class="w"> </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"iml://app/cpn"</span><span class="w"> </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-15T12:45:08.618Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-15T12:45:08.618Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This type of template can be assigned to <code class="prettyprint">push</code> channel.</p>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>content.body</strong></td>
+<td>string</td>
+</tr>
+<tr>
+<td>content.title</td>
+<td>string</td>
+</tr>
+<tr>
+<td>content.uri</td>
+<td>URL</td>
+</tr>
+</tbody></table>
+
+<h4 id="wrapping"><a name="messaging-template-wrapping"></a> Wrapping</h4>
+
+<p><code class="prettyprint">@todo</code></p>
+
+<h4 id="template-generating"><a name="messaging-template-generating"></a> Template generating</h4>
+
+<p><code class="prettyprint">@todo</code></p>
+
+<h3 id="sending-model"><a name="messaging-sending-model"></a> Sending model</h3>
+
+<blockquote>
+<p>Sending example:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000016</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"audience_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">106642</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"scheduled_with"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"in"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15 minutes"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"relative"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"scheduled_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-18T09:28:59.918Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-18T09:13:59.937Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-18T09:13:59.937Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"recipients"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"member_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">150</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"msisdn"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"app_token"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Piotr"</span><span class="w"> </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>id</strong></td>
+<td>integer</td>
+<td></td>
+</tr>
+<tr>
+<td>audience_id</td>
+<td>integer</td>
+<td>ID of audience the sending is directed to</td>
+</tr>
+<tr>
+<td>scheduled_with</td>
+<td>Object</td>
+<td>Params the sending has been scheduled with - See <a href="#messaging-sending-schedule-payload-model">SendingSchedulePayload</a></td>
+</tr>
+<tr>
+<td><strong>scheduled_at</strong></td>
+<td>datetime</td>
+<td>Time of sending execution</td>
+</tr>
+<tr>
+<td><strong>created_at</strong></td>
+<td>datetime</td>
+<td>Time of creation</td>
+</tr>
+<tr>
+<td><strong>updated_at</strong></td>
+<td>datetime</td>
+<td>Time of update</td>
+</tr>
+<tr>
+<td><strong>recipients</strong></td>
+<td><a href="#messaging-recipient-model">Recipient</a>[]</td>
+<td>Inline recipients the sending is directed to</td>
+</tr>
+</tbody></table>
+
+<h3 id="recipient-model"><a name="messaging-recipient-model"></a> Recipient model</h3>
+
+<blockquote>
+<p>Sending example:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"member_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">150</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"msisdn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4740485124"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"recipient@example.com"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"app_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c6OE_joK28g:APA91bFkT5fzhdWJMJswPo3btVLxtMmhi7jKdOE_VL1IhkSmuoz3iEQMg4Cq"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Piotr"</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>member_id</td>
+<td>integer</td>
+<td>ID of MPC member</td>
+</tr>
+<tr>
+<td>msisdn</td>
+<td><a href="#msisdn-param">MSISDN</a></td>
+<td></td>
+</tr>
+<tr>
+<td>email</td>
+<td>email</td>
+<td></td>
+</tr>
+<tr>
+<td>app_token</td>
+<td>email</td>
+<td></td>
+</tr>
+<tr>
+<td>properties</td>
+<td>Object</td>
+<td>Arbitrary keys that can be used as merge-fields in the message template</td>
+</tr>
+</tbody></table>
+
+<p><br />
+Recipient may be an MPC member (identified by <code class="prettyprint">member_id</code>) or an arbitrary sending receivers - <code class="prettyprint">msisdn</code>, <code class="prettyprint">email</code> or <code class="prettyprint">push</code>.  </p>
+
+<h4 id="mpc-member-recipient">MPC member recipient</h4>
+
+<p>When <code class="prettyprint">member_id</code> is provided, other identifiers will be ignored and actual identifiers for sending execution will 
+be fetched from MPC member&rsquo;s data (for example, for <code class="prettyprint">sms</code> channel member&rsquo;s <code class="prettyprint">msisdn</code> will be used as a sending receiver).</p>
+
+<p>Merge-fields for template will be fetched from MPC - extended by provided <code class="prettyprint">properties</code>.</p>
+
+<h4 id="arbitrary-identifier-recipient">Arbitrary identifier recipient</h4>
+
+<p>Without <code class="prettyprint">member_id</code>, at least one identifier relevant to message&rsquo;s channels definition is required.</p>
+
+<p>For example, if <code class="prettyprint">sms</code> and <code class="prettyprint">email</code> channels are defined on message, <code class="prettyprint">msisdn</code> or <code class="prettyprint">email</code> is required.</p>
+
+<p>Given <code class="prettyprint">properties</code> will be used as template&rsquo;s merge-fields. </p>
+
+<h3 id="messagepayload-model"><a name="messaging-message-payload-model"></a> MessagePayload model</h3>
+
+<blockquote>
+<p>MessagePayload example - it creates an SMS message which will be sent at given time to members of given audience:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My message"</span><span class="p">,</span><span class="w"> </span><span class="s2">"shorten_urls"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="s2">"track_in_shortener"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="s2">"campaign_id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">32</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"channels"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sms"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"sender"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"alphanumeric"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Infinity"</span><span class="w"> </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"template"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"inline"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"plain"</span><span class="p">,</span><span class="w"> </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hi {{name}}"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"sending"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"schedule"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"absolute"</span><span class="p">,</span><span class="w"> </span><span class="s2">"at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-10-18T10:59:32.340Z"</span><span class="w"> </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"audience"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"reference"</span><span class="p">,</span><span class="w"> </span><span class="s2">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="w"> </span><span class="p">}</span><span class="w"> 
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>name</strong></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>shorten_urls</td>
+<td>boolean</td>
+<td>Should sendings for this message have URLs shortened? Default: <code class="prettyprint">true</code></td>
+</tr>
+<tr>
+<td>shorten_urls</td>
+<td>boolean</td>
+<td>Should MPC&rsquo;s Shortener track users? Default: <code class="prettyprint">false</code></td>
+</tr>
+<tr>
+<td>campaign_id</td>
+<td>string</td>
+<td>MPC&rsquo;s campaign ID</td>
+</tr>
+<tr>
+<td><strong>channels</strong></td>
+<td><a href="#messaging-channel-payload-model">ChannelPayload</a>[]</td>
+<td>Channels the message should be sent with.</td>
+</tr>
+<tr>
+<td>sending</td>
+<td><a href="#messaging-sending-payload-model">SendingPayload</a></td>
+<td>Sending to schedule for the message</td>
+</tr>
+</tbody></table>
+
+<p><br /></p>
+
+<h3 id="channelpayload-model"><a name="messaging-channel-payload-model"></a> ChannelPayload model</h3>
+
+<blockquote>
+<p>ChannelPayload example:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sms"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"sender"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"alphanumeric"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Infinity"</span><span class="w"> </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"template"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"inline"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"plain"</span><span class="p">,</span><span class="w"> </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hi {{first_name}}"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>type</strong></td>
+<td>enum: <code class="prettyprint">[&#39;sms&#39;, &#39;email&#39;, &#39;push&#39;]</code></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>template.type</strong></td>
+<td>enum: <code class="prettyprint">[&#39;inline&#39;, &#39;reference&#39;]</code></td>
+<td></td>
+</tr>
+<tr>
+<td>template.id</td>
+<td>integer</td>
+<td>ID of Template to assign (when <code class="prettyprint">reference</code>)</td>
+</tr>
+<tr>
+<td>template.definition</td>
+<td><a href="#messaging-template-payload-model">TemplatePayload</a></td>
+<td>Definition of Template to assign (when <code class="prettyprint">inline</code>)</td>
+</tr>
+<tr>
+<td><a href="#messaging-channel-specific-attributes">(channel-specific attributes)</a></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p>There are two ways to provide template:</p>
+
+<ul>
+<li><code class="prettyprint">inline</code> - you will need provide new template <code class="prettyprint">definition</code> </li>
+<li><code class="prettyprint">reference</code> - template definition will be copied from template identified by <code class="prettyprint">id</code> </li>
+</ul>
+
+<h3 id="templatepayload-model"><a name="messaging-template-payload-model"></a> TemplatePayload model</h3>
+
+<blockquote>
+<p>Template example:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"plain"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"wrapper_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9193</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hi {{first_name}}"</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>type</strong></td>
+<td>enum: <code class="prettyprint">[&#39;plain&#39;, &#39;email&#39;, &#39;bee_email&#39;, &#39;push&#39;]</code></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>content</strong></td>
+<td>Object</td>
+<td>Depends on type. See: <a href="#messaging-template-model">Template model</a></td>
+</tr>
+<tr>
+<td>wrapper_id</td>
+<td>integer</td>
+<td>ID of <a href="#messaging-template-wrapping">wrapping template</a></td>
+</tr>
+</tbody></table>
+
+<h3 id="sendingpayload-model"><a name="messaging-sending-payload-model"></a> SendingPayload model</h3>
+
+<blockquote>
+<p>Example #1 - schedules sending ASAP to audience defined by given conditions</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"audience"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="err">//</span><span class="w"> </span><span class="err">Schedule</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">provided</span><span class="p">,</span><span class="w"> </span><span class="err">so</span><span class="w"> </span><span class="err">message</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">sent</span><span class="w"> </span><span class="err">ASAP</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"inline"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"conditions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"condition_group"</span><span class="p">:</span><span class="w"> </span><span class="s2">"member_properties"</span><span class="p">,</span><span class="w"> </span><span class="s2">"field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"first_name"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"operator"</span><span class="p">:</span><span class="w"> </span><span class="s2">"match"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Piotr"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example #2 - schedules message sending 2 days from now to members of audience defined by ID and 2 arbitrary recipients</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"schedule"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"relative"</span><span class="p">,</span><span class="w"> </span><span class="s2">"in"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2 days"</span><span class="w"> </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"audience"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"inline"</span><span class="p">,</span><span class="w"> </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="w"> </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"recipients"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w"> </span><span class="s2">"member_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">150</span><span class="p">,</span><span class="w"> </span><span class="s2">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Piotr"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w"> </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jan@example.com"</span><span class="p">,</span><span class="w"> </span><span class="s2">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jan"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>schedule</td>
+<td><a href="#messaging-sending-schedule-payload-model">SendingSchedulePayload</a></td>
+<td></td>
+</tr>
+<tr>
+<td>audience</td>
+<td><a href="#messaging-sending-schedule-audience-model">SendingAudiencePayload</a></td>
+<td></td>
+</tr>
+<tr>
+<td>recipients</td>
+<td><a href="#messaging-recipient-model">Recipient</a></td>
+<td></td>
+</tr>
+<tr>
+<td>priority</td>
+<td>Integer (1-10)</td>
+<td>Requires <code class="prettyprint">Messages:Api:Sendings:SetPriority</code> permit</td>
+</tr>
+</tbody></table>
+
+<p><br /></p>
+
+<p>There are two methods to define recipients of the sending:</p>
+
+<ul>
+<li><code class="prettyprint">audience</code> - members of the audience will be used as recipients</li>
+<li><code class="prettyprint">recipients</code> - inline receivers</li>
+</ul>
+
+<p>Both methods can be used at the same time.</p>
+
+<p><code class="prettyprint">schedule</code> is optional - when not provided, sending will be scheduled ASAP.</p>
+
+<h4 id="sendingschedulepayload-model"><a name="messaging-sending-schedule-payload-model"></a> SendingSchedulePayload model</h4>
+
+<blockquote>
+<p>Example #1 - absolute schedule</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> 
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"absolute"</span><span class="p">,</span><span class="w"> 
+  </span><span class="s2">"at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-10-18T10:59:32.340Z"</span><span class="w"> 
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example #2 - relative schedule</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> 
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"relative"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"in"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5 minutes"</span><span class="w"> 
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>type</td>
+<td>enum: <code class="prettyprint">[&#39;absolute&#39;, &#39;relative&#39;]</code></td>
+<td></td>
+</tr>
+<tr>
+<td>at</td>
+<td>ISO 8601 DateTime</td>
+<td>For <code class="prettyprint">absolute</code> type - defines exact time the sending should be executed at</td>
+</tr>
+<tr>
+<td>in</td>
+<td>string</td>
+<td>For <code class="prettyprint">relative</code> type - see below</td>
+</tr>
+</tbody></table>
+
+<p><br /></p>
+
+<p><strong><code class="prettyprint">in</code> format</strong></p>
+
+<p>You can provide <code class="prettyprint">number</code> of time <code class="prettyprint">unit</code>s the sending will be scheduled at in format described by following 
+regex: 
+<code class="prettyprint">^(?&lt;number&gt;\d+) (?&lt;unit&gt;second|minute|hour|day|week|month|year)s?$</code>.</p>
+
+<p>Examples:</p>
+
+<ul>
+<li><code class="prettyprint">30 minutes</code></li>
+<li><code class="prettyprint">1 day</code></li>
+<li><code class="prettyprint">5 months</code></li>
+</ul>
+
+<h4 id="sendingaudiencepayload-model"><a name="messaging-sending-audience-payload-model"></a> SendingAudiencePayload model</h4>
+
+<blockquote>
+<p>Example #1 - audience by reference</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> 
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"inline"</span><span class="p">,</span><span class="w"> 
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">532</span><span class="w"> 
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example #2 - audience by inline conditions</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> 
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"inline"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"conditions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"condition_group"</span><span class="p">:</span><span class="w"> </span><span class="s2">"member_properties"</span><span class="p">,</span><span class="w"> </span><span class="s2">"field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"first_name"</span><span class="p">,</span><span class="w"> 
+      </span><span class="s2">"operator"</span><span class="p">:</span><span class="w"> </span><span class="s2">"match"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Piotr"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>type</td>
+<td>enum: <code class="prettyprint">[&#39;reference&#39;, &#39;inline&#39;]</code></td>
+<td></td>
+</tr>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>For <code class="prettyprint">reference</code> type - ID of audience the sending should be sent to</td>
+</tr>
+<tr>
+<td>conditions</td>
+<td>Object[]</td>
+<td>For <code class="prettyprint">inline</code> type - See <a href="https://dmp.boostcom.no/docs/#conditions">DMP docs</a></td>
+</tr>
+</tbody></table>
