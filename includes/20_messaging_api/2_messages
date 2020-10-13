@@ -10,8 +10,9 @@ This API is under development. Therefore, it may not be ready for use and is a s
 <p>Example - creates an SMS message, scheduled in 15 minutes, sent to given audience and one inline recipient.</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
-<span class="s2">"https://bpc-api.boostcom.no/v1/infinity-mall/messages"</span> <span class="se">\</span>
+<span class="s2">"https://bpc-api.boostcom.no/v1/messages"</span> <span class="se">\</span>
   -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'x-loyalty-club-slug: infinity-mall'</span> <span class="se">\</span>
   -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
   -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
   -H <span class="s1">'x-user-agent: CURL manual test'</span> <span class="se">\</span>
@@ -115,8 +116,9 @@ Requires <code>Messages:Api:Messages:Create</code> permit
 <p>Example - creates an SMS message, scheduled in 15 minutes, sent to given audience and one inline recipient.</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
-<span class="s2">"https://bpc-api.boostcom.no/v1/infinity-mall/messages/83"</span> <span class="se">\</span>
+<span class="s2">"https://bpc-api.boostcom.no/v1/messages/83"</span> <span class="se">\</span>
   -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'x-loyalty-club-slug: infinity-mall'</span> <span class="se">\</span>
   -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
   -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
   -H <span class="s1">'x-user-agent: CURL manual test'</span>
@@ -128,7 +130,7 @@ Requires <code>Messages:Api:Messages:Create</code> permit
   </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Message</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Message model"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>GET</strong> <code class="prettyprint">v1/:loyalty_club_slug/messages/:message_id</code></p>
+<p><strong>GET</strong> <code class="prettyprint">v1/messages/:message_id</code></p>
 
 <p>Returns <a href="#messaging-message-model">Message</a>.  </p>
 
