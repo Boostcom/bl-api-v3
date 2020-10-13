@@ -1,6 +1,6 @@
 # <a name="messaging"></a> Messaging API
 
-## Models
+## <a name="messaging-models"></a> Models
 
 ### <a name="messaging-message-model"></a> Message model
 
@@ -39,6 +39,7 @@
         "in": "15 minutes",
         "type": "relative"
       },
+      "draft": false,
       "scheduled_at": "2020-09-18T09:28:59.918Z",
       "created_at": "2020-09-18T09:13:59.937Z",
       "updated_at": "2020-09-18T09:13:59.937Z",
@@ -55,6 +56,12 @@
   ]
 }
 ```
+
+Message stores business-level information and configuration.
+
+It has [Templates](#messaging-template-model) through [Channels](#messaging-channel-model) (currently only one is supported). 
+
+It may be sent, more than once, by scheduling [Sendings](#messaging-sending-model) to specific recipients.
 
 Key | Type | Description
 --------- | --------- | ---------
@@ -89,10 +96,11 @@ campaign_id | string | MPC's campaign ID
 }
 ```
 
-Defines channel the message should be sent with along with the content that should be sent through this channel. 
+Channel defines how [Message](#messaging-message-model) may be sent along with the content (defined by [Template](#messaging-template-model)) that 
+should be sent through this channel.
 
-Please note that while we allow to set multiple channels on single message (for future usage), 
-currently just one (the first) is utilized as the Message's only channel.
+Please note that while we allow to set multiple channels on single message for future usage, 
+currently just one (the first) is utilized as the Message's single channel.
 
 Key | Type
 ----- | --------- 
@@ -138,6 +146,9 @@ Type | Value
   "updated_at": "2020-09-15T12:45:08.618Z"
 }
 ```
+
+Template describes content of the [Message](#messaging-message-model). 
+
 Key | Type | Description
 --------- | --------- | -----
 **id** | integer |
@@ -222,7 +233,7 @@ content.subject | string
   "id": 609193,
   "wrapper_id": null,
   "type": "push",
-  "content": { "title": "Welcome", "body": "Hi {{name}}!", "uri": "iml://app/cpn" },
+  "content": { "subject": "Welcome", "body": "Hi {{name}}!", "uri": "iml://app/cpn" },
   "created_at": "2020-09-15T12:45:08.618Z",
   "updated_at": "2020-09-15T12:45:08.618Z"
 }
@@ -233,7 +244,7 @@ This type of template can be assigned to `push` channel.
 Key | Type 
 --------- | ---------
 **content.body** | string
-content.title | string
+content.subject | string
 content.uri | URL
 
 #### <a name="messaging-template-wrapping"></a> Wrapping
@@ -252,11 +263,11 @@ content.uri | URL
 {
   "id": 1000016,
   "audience_id": 106642,
+  "scheduled_at": "2020-09-18T09:28:59.918Z",
   "scheduled_with": {
     "in": "15 minutes",
     "type": "relative"
   },
-  "scheduled_at": "2020-09-18T09:28:59.918Z",
   "created_at": "2020-09-18T09:13:59.937Z",
   "updated_at": "2020-09-18T09:13:59.937Z",
   "recipients": [
@@ -275,8 +286,8 @@ Key | Type | Description
 --------- | --------- | ---------
 **id** | integer |   
 audience_id | integer | ID of audience the sending is directed to  
-scheduled_with | Object | Params the sending has been scheduled with - See [SendingSchedulePayload](#messaging-sending-schedule-payload-model)
 **scheduled_at** | datetime | Time of sending execution
+scheduled_with | Object | Params the sending has been scheduled with - See [SendingSchedulePayload](#messaging-sending-schedule-payload-model)
 **created_at** | datetime | Time of creation
 **updated_at** | datetime | Time of update
 **recipients** | [Recipient](#messaging-recipient-model)[] | Inline recipients the sending is directed to
@@ -436,10 +447,11 @@ wrapper_id | integer | ID of [wrapping template](#messaging-template-wrapping)
 
 Key | Type | Description
 --------- | --------- | -----
+draft | bool | If true (false, by default), the Sending is not scheduled for execution, even if schedule is present  
+priority | Integer (1-10) | Requires `Messages:Api:Sendings:SetPriority` permit 
 schedule | [SendingSchedulePayload](#messaging-sending-schedule-payload-model) |
 audience | [SendingAudiencePayload](#messaging-sending-schedule-audience-model) |
 recipients | [Recipient](#messaging-recipient-model) | 
-priority | Integer (1-10) | Requires `Messages:Api:Sendings:SetPriority` permit 
 
 <br />
 
@@ -450,11 +462,19 @@ There are two methods to define recipients of the sending:
  
 Both methods can be used at the same time.
 
-`schedule` is optional - when not provided, sending will be scheduled ASAP.
+`schedule` is optional - when not provided, sending will not be scheduled (will have `draft` status).
 
 #### <a name="messaging-sending-schedule-payload-model"></a> SendingSchedulePayload model
 
-> Example #1 - absolute schedule
+> Example #1 - immediate schedule
+
+```json
+{ 
+  "type": "immediate" 
+}
+```
+
+> Example #2 - absolute schedule
 
 ```json
 { 
@@ -463,7 +483,7 @@ Both methods can be used at the same time.
 }
 ```
 
-> Example #2 - relative schedule
+> Example #3 - relative schedule
 
 ```json
 { 
@@ -474,7 +494,7 @@ Both methods can be used at the same time.
 
 Key | Type | Description
 --------- | --------- | ---------
-type | enum: `['absolute', 'relative']` |
+type | enum: `['immediate', 'absolute', 'relative']` |
 at | ISO 8601 DateTime | For `absolute` type - defines exact time the sending should be executed at
 in | string | For `relative` type - see below
 <br />
