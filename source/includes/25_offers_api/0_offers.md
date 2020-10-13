@@ -276,19 +276,19 @@ curl \
 }
 ```
 
-**GET** `v3/infinity-mall/members/me/offers/meta` [[OAuth](#oauth2)]
+**GET** `v3/:loyalty_club_slug/members/me/offers/meta` [[OAuth](#oauth2)]
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:GetMeta</code> permit
 </aside>
 
-**GET** `v3/infinity-mall/members/:member_id/offers/meta`
+**GET** `v3/:loyalty_club_slug/members/:member_id/offers/meta`
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:GetMetaByMemberId</code> permit
 </aside>
 
-**GET** `v3/infinity-mall/members/guest/offers/meta`
+**GET** `v3/:loyalty_club_slug/members/guest/offers/meta`
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:GetMetaPreview</code> permit
@@ -310,19 +310,19 @@ activated_seconds_time | integer | no | Number of seconds the offers stays activ
 
 ### <a name="get-offer"></a> Get offer
 
-**GET** `v3/infinity-mall/members/me/offers/:id` [[OAuth](#oauth2)]
+**GET** `v3/:loyalty_club_slug/members/me/offers/:id` [[OAuth](#oauth2)]
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:Get</code> permit
 </aside>
 
-**GET** `v3/infinity-mall/members/:member_id/offers/:id`
+**GET** `v3/:loyalty_club_slug/members/:member_id/offers/:id`
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:GetByMemberId</code> permit
 </aside>
 
-**GET** `v3/infinity-mall/members/guest/offers/:id`
+**GET** `v3/:loyalty_club_slug/members/guest/offers/:id`
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:GetPreview</code> permit
@@ -389,19 +389,19 @@ curl \
 }
 ```
 
-**GET** `v3/infinity-mall/members/me/offers` [[OAuth](#oauth2)]
+**GET** `v3/:loyalty_club_slug/members/me/offers` [[OAuth](#oauth2)]
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:ListVisible</code> permit
 </aside>
 
-**GET** `v3/infinity-mall/members/:member_id/offers`
+**GET** `v3/:loyalty_club_slug/members/:member_id/offers`
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:ListVisibleByMemberId</code> permit
 </aside>
 
-**GET** `v3/infinity-mall/members/guest/offers`
+**GET** `v3/:loyalty_club_slug/members/guest/offers`
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:ListVisiblePreview</code> permit
@@ -487,13 +487,13 @@ curl -X POST \
 }
 ```
 
-**POST** `v3/infinity-mall/members/me/offers/:id/use` [[OAuth](#oauth2)]
+**POST** `v3/:loyalty_club_slug/members/me/offers/:id/use` [[OAuth](#oauth2)]
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:Use</code> permit
 </aside>
 
-**POST** `v3/infinity-mall/members/:member_id/offers/:id/use`
+**POST** `v3/:loyalty_club_slug/members/:member_id/offers/:id/use`
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:UseByMemberId</code> permit
@@ -557,13 +557,13 @@ curl -X PUT \
 }
 ```
 
-**PUT** `v3/infinity-mall/members/me/offers/:id/like` [[OAuth](#oauth2)]
+**PUT** `v3/:loyalty_club_slug/members/me/offers/:id/like` [[OAuth](#oauth2)]
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:Like</code> permit
 </aside>
 
-**PUT** `v3/infinity-mall/members/:member_id/offers/:id/like`
+**PUT** `v3/:loyalty_club_slug/members/:member_id/offers/:id/like`
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:LikeByMemberId</code> permit
@@ -593,13 +593,13 @@ curl -X PUT \
 }
 ```
 
-**PUT** `v3/infinity-mall/members/me/offers/:id/unlike` [[OAuth](#oauth2)]
+**PUT** `v3/:loyalty_club_slug/members/me/offers/:id/unlike` [[OAuth](#oauth2)]
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:Like</code> permit
 </aside>
 
-**PUT** `v3/infinity-mall/members/:member_id/offers/:id/unlike`
+**PUT** `v3/:loyalty_club_slug/members/:member_id/offers/:id/unlike`
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:LikeByMemberId</code> permit
@@ -628,7 +628,7 @@ curl -X POST \
 }
 ```
 
-**POST** `v3/infinity-mall/members/:member_id/members/:member_id/offers/:id/grant`
+**POST** `v3/:loyalty_club_slug/members/:member_id/members/:member_id/offers/:id/grant`
 
 Some types of offers are not available to members until they are granted to them - this endpoint allows to do this. 
 
