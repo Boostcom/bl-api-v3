@@ -34,13 +34,13 @@
   "sendings": [
     {
       "id": 1000016,
-      "audience_id": 106642,
+      "audience_id": 106642, 
+      "status": "scheduled",
+      "scheduled_at": "2020-09-18T09:28:59.918Z",
       "scheduled_with": {
         "in": "15 minutes",
         "type": "relative"
       },
-      "draft": false,
-      "scheduled_at": "2020-09-18T09:28:59.918Z",
       "created_at": "2020-09-18T09:13:59.937Z",
       "updated_at": "2020-09-18T09:13:59.937Z",
       "recipients": [
@@ -263,6 +263,7 @@ content.uri | URL
 {
   "id": 1000016,
   "audience_id": 106642,
+  "status": "scheduled",
   "scheduled_at": "2020-09-18T09:28:59.918Z",
   "scheduled_with": {
     "in": "15 minutes",
@@ -286,11 +287,39 @@ Key | Type | Description
 --------- | --------- | ---------
 **id** | integer |   
 audience_id | integer | ID of audience the sending is directed to  
+**status** | string | See: [Sending status](#messaging-sending-status)
 **scheduled_at** | datetime | Time of sending execution
 scheduled_with | Object | Params the sending has been scheduled with - See [SendingSchedulePayload](#messaging-sending-schedule-payload-model)
 **created_at** | datetime | Time of creation
 **updated_at** | datetime | Time of update
 **recipients** | [Recipient](#messaging-recipient-model)[] | Inline recipients the sending is directed to
+
+#### <a name="messaging-sending-status"></a> Sending status
+
+The Sending may have one of following statuses, which may be grouped into **initial states**, **execution steps** and the **final outcomes**:
+
+* **initial states**:
+    * **draft** - When API client didn't't define the schedule (or has `draft: true` flag)
+    * **scheduled** - When scheduled to be sent at specific time by API client
+
+Sending may have status changed from `draft` to `scheduled`  and vice versa, as long as the execution haven't started yet.  
+
+* **execution steps**:
+    * **preparing** - Building Dispatches for Recipients and Audience members
+    * **prepared** - Dispatches are built, ready for transmission
+    * **transmitting** - Dispatches are being transmitted
+
+Preparing is a process that builds Dispatches for given recipients. Potentially Sendings may have very large Audiences assigned, 
+so it may take some time to build Dispatches for all of them. Therefore, the preparation starts 5 minutes before the actual transmission.
+
+* **final outcomes**: 
+    * **transmitted** - When the Dispatches have been transmitted
+    * **skipped** - When no recipients could be resolved for it (for example, Audience may lose its members over time).
+    * **cancelled** - When cancelled by API client at any point of execution (see: [Sending cancellation](#todo-cancel-endpoint).
+    * **failed** - When the execution couldn't be finished in about 20 minutes after the desired time 
+
+Whenever Sending is `cancelled` or `failed`, it cannot be rescheduled again. 
+It must be created again, for example with [Clone sending endpoint](#todo). 
 
 ### <a name="messaging-recipient-model"></a> Recipient model
 
@@ -361,7 +390,7 @@ Key | Type | Description
 **name** | string | 
 shorten_urls | boolean | Should sendings for this message have URLs shortened? Default: `true`  
 shorten_urls | boolean | Should MPC's Shortener track users? Default: `false`  
-campaign_id | string | MPC's campaign ID
+campaign_id | integer | MPC's campaign ID
 **channels** | [ChannelPayload](#messaging-channel-payload-model)[] | Channels the message should be sent with.
 sending | [SendingPayload](#messaging-sending-payload-model) | Sending to schedule for the message 
 <br />

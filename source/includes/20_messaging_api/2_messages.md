@@ -10,8 +10,9 @@ This API is under development. Therefore, it may not be ready for use and is a s
 
 ```shell
 curl -X POST \
-"https://bpc-api.boostcom.no/v1/infinity-mall/messages" \
+"https://bpc-api.boostcom.no/v1/messages" \
   -H 'content-type: application/json' \
+  -H 'x-loyalty-club-slug: infinity-mall' \
   -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
   -H 'x-product-name: default' \
   -H 'x-user-agent: CURL manual test' \
@@ -89,8 +90,9 @@ Requires <code>Messages:Api:Messages:Create</code> permit
 
 ```shell
 curl -X GET \
-"https://bpc-api.boostcom.no/v1/infinity-mall/messages/83" \
+"https://bpc-api.boostcom.no/v1/messages/83" \
   -H 'content-type: application/json' \
+  -H 'x-loyalty-club-slug: infinity-mall' \
   -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
   -H 'x-product-name: default' \
   -H 'x-user-agent: CURL manual test'
@@ -104,7 +106,7 @@ curl -X GET \
 }
 ```
 
-**GET** `v1/:loyalty_club_slug/messages/:message_id`
+**GET** `v1/messages/:message_id`
 
 Returns [Message](#messaging-message-model).  
 
