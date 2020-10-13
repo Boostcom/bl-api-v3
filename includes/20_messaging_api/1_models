@@ -1,6 +1,6 @@
 <h1 id="messaging-api"><a name="messaging"></a> Messaging API</h1>
 
-<h2 id="models">Models</h2>
+<h2 id="models"><a name="messaging-models"></a> Models</h2>
 
 <h3 id="message-model"><a name="messaging-message-model"></a> Message model</h3>
 
@@ -39,6 +39,7 @@
         </span><span class="s2">"in"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15 minutes"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"relative"</span><span class="w">
       </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"draft"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="s2">"scheduled_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-18T09:28:59.918Z"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-18T09:13:59.937Z"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-18T09:13:59.937Z"</span><span class="p">,</span><span class="w">
@@ -55,6 +56,12 @@
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+<p>Message stores business-level information and configuration.</p>
+
+<p>It has <a href="#messaging-template-model">Templates</a> through <a href="#messaging-channel-model">Channels</a> (currently only one is supported). </p>
+
+<p>It may be sent, more than once, by scheduling <a href="#messaging-sending-model">Sendings</a> to specific recipients.</p>
+
 <table><thead>
 <tr>
 <th>Key</th>
@@ -129,10 +136,11 @@
   </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-15T12:45:08.625Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Defines channel the message should be sent with along with the content that should be sent through this channel. </p>
+<p>Channel defines how <a href="#messaging-message-model">Message</a> may be sent along with the content (defined by <a href="#messaging-template-model">Template</a>) that 
+should be sent through this channel.</p>
 
-<p>Please note that while we allow to set multiple channels on single message (for future usage), 
-currently just one (the first) is utilized as the Message&rsquo;s only channel.</p>
+<p>Please note that while we allow to set multiple channels on single message for future usage, 
+currently just one (the first) is utilized as the Message&rsquo;s single channel.</p>
 
 <table><thead>
 <tr>
@@ -234,6 +242,8 @@ By default, a value from Loyalty Club configuration is used.</p>
   </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-15T12:45:08.618Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+<p>Template describes content of the <a href="#messaging-message-model">Message</a>. </p>
+
 <table><thead>
 <tr>
 <th>Key</th>
@@ -370,7 +380,7 @@ By default, a value from Loyalty Club configuration is used.</p>
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">609193</span><span class="p">,</span><span class="w">
   </span><span class="s2">"wrapper_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"push"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Welcome"</span><span class="p">,</span><span class="w"> </span><span class="s2">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hi {{name}}!"</span><span class="p">,</span><span class="w"> </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"iml://app/cpn"</span><span class="w"> </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"subject"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Welcome"</span><span class="p">,</span><span class="w"> </span><span class="s2">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hi {{name}}!"</span><span class="p">,</span><span class="w"> </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"iml://app/cpn"</span><span class="w"> </span><span class="p">},</span><span class="w">
   </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-15T12:45:08.618Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-15T12:45:08.618Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -388,7 +398,7 @@ By default, a value from Loyalty Club configuration is used.</p>
 <td>string</td>
 </tr>
 <tr>
-<td>content.title</td>
+<td>content.subject</td>
 <td>string</td>
 </tr>
 <tr>
@@ -413,11 +423,11 @@ By default, a value from Loyalty Club configuration is used.</p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000016</span><span class="p">,</span><span class="w">
   </span><span class="s2">"audience_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">106642</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"scheduled_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-18T09:28:59.918Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"scheduled_with"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"in"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15 minutes"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"relative"</span><span class="w">
   </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"scheduled_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-18T09:28:59.918Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-18T09:13:59.937Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-18T09:13:59.937Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"recipients"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -449,14 +459,14 @@ By default, a value from Loyalty Club configuration is used.</p>
 <td>ID of audience the sending is directed to</td>
 </tr>
 <tr>
-<td>scheduled_with</td>
-<td>Object</td>
-<td>Params the sending has been scheduled with - See <a href="#messaging-sending-schedule-payload-model">SendingSchedulePayload</a></td>
-</tr>
-<tr>
 <td><strong>scheduled_at</strong></td>
 <td>datetime</td>
 <td>Time of sending execution</td>
+</tr>
+<tr>
+<td>scheduled_with</td>
+<td>Object</td>
+<td>Params the sending has been scheduled with - See <a href="#messaging-sending-schedule-payload-model">SendingSchedulePayload</a></td>
 </tr>
 <tr>
 <td><strong>created_at</strong></td>
@@ -732,6 +742,16 @@ be fetched from MPC member&rsquo;s data (for example, for <code class="prettypri
 </tr>
 </thead><tbody>
 <tr>
+<td>draft</td>
+<td>bool</td>
+<td>If true (false, by default), the Sending is not scheduled for execution, even if schedule is present</td>
+</tr>
+<tr>
+<td>priority</td>
+<td>Integer (1-10)</td>
+<td>Requires <code class="prettyprint">Messages:Api:Sendings:SetPriority</code> permit</td>
+</tr>
+<tr>
 <td>schedule</td>
 <td><a href="#messaging-sending-schedule-payload-model">SendingSchedulePayload</a></td>
 <td></td>
@@ -746,11 +766,6 @@ be fetched from MPC member&rsquo;s data (for example, for <code class="prettypri
 <td><a href="#messaging-recipient-model">Recipient</a></td>
 <td></td>
 </tr>
-<tr>
-<td>priority</td>
-<td>Integer (1-10)</td>
-<td>Requires <code class="prettyprint">Messages:Api:Sendings:SetPriority</code> permit</td>
-</tr>
 </tbody></table>
 
 <p><br /></p>
@@ -764,12 +779,19 @@ be fetched from MPC member&rsquo;s data (for example, for <code class="prettypri
 
 <p>Both methods can be used at the same time.</p>
 
-<p><code class="prettyprint">schedule</code> is optional - when not provided, sending will be scheduled ASAP.</p>
+<p><code class="prettyprint">schedule</code> is optional - when not provided, sending will not be scheduled (will have <code class="prettyprint">draft</code> status).</p>
 
 <h4 id="sendingschedulepayload-model"><a name="messaging-sending-schedule-payload-model"></a> SendingSchedulePayload model</h4>
 
 <blockquote>
-<p>Example #1 - absolute schedule</p>
+<p>Example #1 - immediate schedule</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> 
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"immediate"</span><span class="w"> 
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example #2 - absolute schedule</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> 
   </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"absolute"</span><span class="p">,</span><span class="w"> 
@@ -777,7 +799,7 @@ be fetched from MPC member&rsquo;s data (for example, for <code class="prettypri
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
-<p>Example #2 - relative schedule</p>
+<p>Example #3 - relative schedule</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> 
   </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"relative"</span><span class="p">,</span><span class="w">
@@ -793,7 +815,7 @@ be fetched from MPC member&rsquo;s data (for example, for <code class="prettypri
 </thead><tbody>
 <tr>
 <td>type</td>
-<td>enum: <code class="prettyprint">[&#39;absolute&#39;, &#39;relative&#39;]</code></td>
+<td>enum: <code class="prettyprint">[&#39;immediate&#39;, &#39;absolute&#39;, &#39;relative&#39;]</code></td>
 <td></td>
 </tr>
 <tr>

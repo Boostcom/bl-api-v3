@@ -475,19 +475,19 @@ There are three types of fields:</p>
     </span><span class="s2">"activated_seconds_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">35</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>GET</strong> <code class="prettyprint">v3/infinity-mall/members/me/offers/meta</code> [<a href="#oauth2">OAuth</a>]</p>
+<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/me/offers/meta</code> [<a href="#oauth2">OAuth</a>]</p>
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:GetMeta</code> permit
 </aside>
 
-<p><strong>GET</strong> <code class="prettyprint">v3/infinity-mall/members/:member_id/offers/meta</code></p>
+<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/:member_id/offers/meta</code></p>
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:GetMetaByMemberId</code> permit
 </aside>
 
-<p><strong>GET</strong> <code class="prettyprint">v3/infinity-mall/members/guest/offers/meta</code></p>
+<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/guest/offers/meta</code></p>
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:GetMetaPreview</code> permit
@@ -538,19 +538,19 @@ Requires <code>Offers:Api:MemberOffers:GetMetaPreview</code> permit
 
 <h3 id="get-offer"><a name="get-offer"></a> Get offer</h3>
 
-<p><strong>GET</strong> <code class="prettyprint">v3/infinity-mall/members/me/offers/:id</code> [<a href="#oauth2">OAuth</a>]</p>
+<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/me/offers/:id</code> [<a href="#oauth2">OAuth</a>]</p>
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:Get</code> permit
 </aside>
 
-<p><strong>GET</strong> <code class="prettyprint">v3/infinity-mall/members/:member_id/offers/:id</code></p>
+<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/:member_id/offers/:id</code></p>
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:GetByMemberId</code> permit
 </aside>
 
-<p><strong>GET</strong> <code class="prettyprint">v3/infinity-mall/members/guest/offers/:id</code></p>
+<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/guest/offers/:id</code></p>
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:GetPreview</code> permit
@@ -624,19 +624,19 @@ Requires <code>Offers:Api:MemberOffers:GetPreview</code> permit
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>GET</strong> <code class="prettyprint">v3/infinity-mall/members/me/offers</code> [<a href="#oauth2">OAuth</a>]</p>
+<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/me/offers</code> [<a href="#oauth2">OAuth</a>]</p>
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:ListVisible</code> permit
 </aside>
 
-<p><strong>GET</strong> <code class="prettyprint">v3/infinity-mall/members/:member_id/offers</code></p>
+<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/:member_id/offers</code></p>
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:ListVisibleByMemberId</code> permit
 </aside>
 
-<p><strong>GET</strong> <code class="prettyprint">v3/infinity-mall/members/guest/offers</code></p>
+<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/guest/offers</code></p>
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:ListVisiblePreview</code> permit
@@ -803,13 +803,13 @@ Requires <code>Offers:Api:MemberOffers:ListVisiblePreview</code> permit
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>POST</strong> <code class="prettyprint">v3/infinity-mall/members/me/offers/:id/use</code> [<a href="#oauth2">OAuth</a>]</p>
+<p><strong>POST</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/me/offers/:id/use</code> [<a href="#oauth2">OAuth</a>]</p>
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:Use</code> permit
 </aside>
 
-<p><strong>POST</strong> <code class="prettyprint">v3/infinity-mall/members/:member_id/offers/:id/use</code></p>
+<p><strong>POST</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/:member_id/offers/:id/use</code></p>
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:UseByMemberId</code> permit
@@ -927,13 +927,13 @@ tied to it may not be granted to the member.</p>
   </span><span class="err">//</span><span class="w"> </span><span class="err">Empty</span><span class="w"> </span><span class="err">object</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>PUT</strong> <code class="prettyprint">v3/infinity-mall/members/me/offers/:id/like</code> [<a href="#oauth2">OAuth</a>]</p>
+<p><strong>PUT</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/me/offers/:id/like</code> [<a href="#oauth2">OAuth</a>]</p>
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:Like</code> permit
 </aside>
 
-<p><strong>PUT</strong> <code class="prettyprint">v3/infinity-mall/members/:member_id/offers/:id/like</code></p>
+<p><strong>PUT</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/:member_id/offers/:id/like</code></p>
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:LikeByMemberId</code> permit
@@ -961,13 +961,13 @@ Requires <code>Offers:Api:MemberOffers:LikeByMemberId</code> permit
   </span><span class="err">//</span><span class="w"> </span><span class="err">Empty</span><span class="w"> </span><span class="err">object</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>PUT</strong> <code class="prettyprint">v3/infinity-mall/members/me/offers/:id/unlike</code> [<a href="#oauth2">OAuth</a>]</p>
+<p><strong>PUT</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/me/offers/:id/unlike</code> [<a href="#oauth2">OAuth</a>]</p>
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:Like</code> permit
 </aside>
 
-<p><strong>PUT</strong> <code class="prettyprint">v3/infinity-mall/members/:member_id/offers/:id/unlike</code></p>
+<p><strong>PUT</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/:member_id/offers/:id/unlike</code></p>
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:LikeByMemberId</code> permit
@@ -994,7 +994,7 @@ Requires <code>Offers:Api:MemberOffers:LikeByMemberId</code> permit
   </span><span class="err">//</span><span class="w"> </span><span class="err">Empty</span><span class="w"> </span><span class="err">object</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>POST</strong> <code class="prettyprint">v3/infinity-mall/members/:member_id/members/:member_id/offers/:id/grant</code></p>
+<p><strong>POST</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/:member_id/members/:member_id/offers/:id/grant</code></p>
 
 <p>Some types of offers are not available to members until they are granted to them - this endpoint allows to do this. </p>
 

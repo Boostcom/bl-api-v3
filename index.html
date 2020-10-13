@@ -6128,7 +6128,7 @@ Requires <code>BL:Api:Members:Groups</code> permit
 
           <h1 id="messaging-api"><a name="messaging"></a> Messaging API</h1>
 
-<h2 id="models">Models</h2>
+<h2 id="models"><a name="messaging-models"></a> Models</h2>
 
 <h3 id="message-model"><a name="messaging-message-model"></a> Message model</h3>
 
@@ -6167,6 +6167,7 @@ Requires <code>BL:Api:Members:Groups</code> permit
         </span><span class="s2">"in"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15 minutes"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"relative"</span><span class="w">
       </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"draft"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="s2">"scheduled_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-18T09:28:59.918Z"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-18T09:13:59.937Z"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-18T09:13:59.937Z"</span><span class="p">,</span><span class="w">
@@ -6183,6 +6184,12 @@ Requires <code>BL:Api:Members:Groups</code> permit
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+<p>Message stores business-level information and configuration.</p>
+
+<p>It has <a href="#messaging-template-model">Templates</a> through <a href="#messaging-channel-model">Channels</a> (currently only one is supported). </p>
+
+<p>It may be sent, more than once, by scheduling <a href="#messaging-sending-model">Sendings</a> to specific recipients.</p>
+
 <table><thead>
 <tr>
 <th>Key</th>
@@ -6257,10 +6264,11 @@ Requires <code>BL:Api:Members:Groups</code> permit
   </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-15T12:45:08.625Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Defines channel the message should be sent with along with the content that should be sent through this channel. </p>
+<p>Channel defines how <a href="#messaging-message-model">Message</a> may be sent along with the content (defined by <a href="#messaging-template-model">Template</a>) that 
+should be sent through this channel.</p>
 
-<p>Please note that while we allow to set multiple channels on single message (for future usage), 
-currently just one (the first) is utilized as the Message&rsquo;s only channel.</p>
+<p>Please note that while we allow to set multiple channels on single message for future usage, 
+currently just one (the first) is utilized as the Message&rsquo;s single channel.</p>
 
 <table><thead>
 <tr>
@@ -6362,6 +6370,8 @@ By default, a value from Loyalty Club configuration is used.</p>
   </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-15T12:45:08.618Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+<p>Template describes content of the <a href="#messaging-message-model">Message</a>. </p>
+
 <table><thead>
 <tr>
 <th>Key</th>
@@ -6498,7 +6508,7 @@ By default, a value from Loyalty Club configuration is used.</p>
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">609193</span><span class="p">,</span><span class="w">
   </span><span class="s2">"wrapper_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"push"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Welcome"</span><span class="p">,</span><span class="w"> </span><span class="s2">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hi {{name}}!"</span><span class="p">,</span><span class="w"> </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"iml://app/cpn"</span><span class="w"> </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"subject"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Welcome"</span><span class="p">,</span><span class="w"> </span><span class="s2">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hi {{name}}!"</span><span class="p">,</span><span class="w"> </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"iml://app/cpn"</span><span class="w"> </span><span class="p">},</span><span class="w">
   </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-15T12:45:08.618Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-15T12:45:08.618Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -6516,7 +6526,7 @@ By default, a value from Loyalty Club configuration is used.</p>
 <td>string</td>
 </tr>
 <tr>
-<td>content.title</td>
+<td>content.subject</td>
 <td>string</td>
 </tr>
 <tr>
@@ -6541,11 +6551,11 @@ By default, a value from Loyalty Club configuration is used.</p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000016</span><span class="p">,</span><span class="w">
   </span><span class="s2">"audience_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">106642</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"scheduled_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-18T09:28:59.918Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"scheduled_with"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"in"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15 minutes"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"relative"</span><span class="w">
   </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"scheduled_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-18T09:28:59.918Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-18T09:13:59.937Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-18T09:13:59.937Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"recipients"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -6577,14 +6587,14 @@ By default, a value from Loyalty Club configuration is used.</p>
 <td>ID of audience the sending is directed to</td>
 </tr>
 <tr>
-<td>scheduled_with</td>
-<td>Object</td>
-<td>Params the sending has been scheduled with - See <a href="#messaging-sending-schedule-payload-model">SendingSchedulePayload</a></td>
-</tr>
-<tr>
 <td><strong>scheduled_at</strong></td>
 <td>datetime</td>
 <td>Time of sending execution</td>
+</tr>
+<tr>
+<td>scheduled_with</td>
+<td>Object</td>
+<td>Params the sending has been scheduled with - See <a href="#messaging-sending-schedule-payload-model">SendingSchedulePayload</a></td>
 </tr>
 <tr>
 <td><strong>created_at</strong></td>
@@ -6860,6 +6870,16 @@ be fetched from MPC member&rsquo;s data (for example, for <code class="prettypri
 </tr>
 </thead><tbody>
 <tr>
+<td>draft</td>
+<td>bool</td>
+<td>If true (false, by default), the Sending is not scheduled for execution, even if schedule is present</td>
+</tr>
+<tr>
+<td>priority</td>
+<td>Integer (1-10)</td>
+<td>Requires <code class="prettyprint">Messages:Api:Sendings:SetPriority</code> permit</td>
+</tr>
+<tr>
 <td>schedule</td>
 <td><a href="#messaging-sending-schedule-payload-model">SendingSchedulePayload</a></td>
 <td></td>
@@ -6874,11 +6894,6 @@ be fetched from MPC member&rsquo;s data (for example, for <code class="prettypri
 <td><a href="#messaging-recipient-model">Recipient</a></td>
 <td></td>
 </tr>
-<tr>
-<td>priority</td>
-<td>Integer (1-10)</td>
-<td>Requires <code class="prettyprint">Messages:Api:Sendings:SetPriority</code> permit</td>
-</tr>
 </tbody></table>
 
 <p><br /></p>
@@ -6892,12 +6907,19 @@ be fetched from MPC member&rsquo;s data (for example, for <code class="prettypri
 
 <p>Both methods can be used at the same time.</p>
 
-<p><code class="prettyprint">schedule</code> is optional - when not provided, sending will be scheduled ASAP.</p>
+<p><code class="prettyprint">schedule</code> is optional - when not provided, sending will not be scheduled (will have <code class="prettyprint">draft</code> status).</p>
 
 <h4 id="sendingschedulepayload-model"><a name="messaging-sending-schedule-payload-model"></a> SendingSchedulePayload model</h4>
 
 <blockquote>
-<p>Example #1 - absolute schedule</p>
+<p>Example #1 - immediate schedule</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> 
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"immediate"</span><span class="w"> 
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example #2 - absolute schedule</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> 
   </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"absolute"</span><span class="p">,</span><span class="w"> 
@@ -6905,7 +6927,7 @@ be fetched from MPC member&rsquo;s data (for example, for <code class="prettypri
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
-<p>Example #2 - relative schedule</p>
+<p>Example #3 - relative schedule</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> 
   </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"relative"</span><span class="p">,</span><span class="w">
@@ -6921,7 +6943,7 @@ be fetched from MPC member&rsquo;s data (for example, for <code class="prettypri
 </thead><tbody>
 <tr>
 <td>type</td>
-<td>enum: <code class="prettyprint">[&#39;absolute&#39;, &#39;relative&#39;]</code></td>
+<td>enum: <code class="prettyprint">[&#39;immediate&#39;, &#39;absolute&#39;, &#39;relative&#39;]</code></td>
 <td></td>
 </tr>
 <tr>
@@ -7011,7 +7033,7 @@ This API is under development. Therefore, it may not be ready for use and is a s
 <p>Example - creates an SMS message, scheduled in 15 minutes, sent to given audience and one inline recipient.</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
-<span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/messages"</span> <span class="se">\</span>
+<span class="s2">"https://bpc-api.boostcom.no/v1/infinity-mall/messages"</span> <span class="se">\</span>
   -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
   -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
@@ -7056,7 +7078,7 @@ This API is under development. Therefore, it may not be ready for use and is a s
   </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Message</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Message model"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>POST</strong> <code class="prettyprint">v3/:loyalty_club_slug/messages</code></p>
+<p><strong>POST</strong> <code class="prettyprint">v1/:loyalty_club_slug/messages</code></p>
 
 <p>Creates a new Message and optionally schedules Sending for it.  </p>
 
@@ -7107,7 +7129,50 @@ This API is under development. Therefore, it may not be ready for use and is a s
 </tbody></table>
 
 <aside class="notice">
-Requires <code>Messaging:Api:Messages:Create</code> permit
+Requires <code>Messages:Api:Messages:Create</code> permit
+</aside>
+
+<h3 id="get-message"><a name="messaging-get-message"></a> Get message</h3>
+
+<blockquote>
+<p>Example - creates an SMS message, scheduled in 15 minutes, sent to given audience and one inline recipient.</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+<span class="s2">"https://bpc-api.boostcom.no/v1/infinity-mall/messages/83"</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
+  -H <span class="s1">'x-user-agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>Returns object containing the requested <a href="#messaging-message-model">message</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Message</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Message model"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>GET</strong> <code class="prettyprint">v1/:loyalty_club_slug/messages/:message_id</code></p>
+
+<p>Returns <a href="#messaging-message-model">Message</a>.  </p>
+
+<h4 id="url-parameters">URL Parameters</h4>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>message_id</td>
+<td>Message ID</td>
+<td>integer</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Messages:Api:Messages:Get</code> permit
 </aside>
 
           <h1 id="offers-api">Offers API</h1>
@@ -7587,19 +7652,19 @@ There are three types of fields:</p>
     </span><span class="s2">"activated_seconds_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">35</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>GET</strong> <code class="prettyprint">v3/infinity-mall/members/me/offers/meta</code> [<a href="#oauth2">OAuth</a>]</p>
+<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/me/offers/meta</code> [<a href="#oauth2">OAuth</a>]</p>
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:GetMeta</code> permit
 </aside>
 
-<p><strong>GET</strong> <code class="prettyprint">v3/infinity-mall/members/:member_id/offers/meta</code></p>
+<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/:member_id/offers/meta</code></p>
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:GetMetaByMemberId</code> permit
 </aside>
 
-<p><strong>GET</strong> <code class="prettyprint">v3/infinity-mall/members/guest/offers/meta</code></p>
+<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/guest/offers/meta</code></p>
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:GetMetaPreview</code> permit
@@ -7650,19 +7715,19 @@ Requires <code>Offers:Api:MemberOffers:GetMetaPreview</code> permit
 
 <h3 id="get-offer"><a name="get-offer"></a> Get offer</h3>
 
-<p><strong>GET</strong> <code class="prettyprint">v3/infinity-mall/members/me/offers/:id</code> [<a href="#oauth2">OAuth</a>]</p>
+<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/me/offers/:id</code> [<a href="#oauth2">OAuth</a>]</p>
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:Get</code> permit
 </aside>
 
-<p><strong>GET</strong> <code class="prettyprint">v3/infinity-mall/members/:member_id/offers/:id</code></p>
+<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/:member_id/offers/:id</code></p>
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:GetByMemberId</code> permit
 </aside>
 
-<p><strong>GET</strong> <code class="prettyprint">v3/infinity-mall/members/guest/offers/:id</code></p>
+<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/guest/offers/:id</code></p>
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:GetPreview</code> permit
@@ -7736,19 +7801,19 @@ Requires <code>Offers:Api:MemberOffers:GetPreview</code> permit
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>GET</strong> <code class="prettyprint">v3/infinity-mall/members/me/offers</code> [<a href="#oauth2">OAuth</a>]</p>
+<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/me/offers</code> [<a href="#oauth2">OAuth</a>]</p>
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:ListVisible</code> permit
 </aside>
 
-<p><strong>GET</strong> <code class="prettyprint">v3/infinity-mall/members/:member_id/offers</code></p>
+<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/:member_id/offers</code></p>
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:ListVisibleByMemberId</code> permit
 </aside>
 
-<p><strong>GET</strong> <code class="prettyprint">v3/infinity-mall/members/guest/offers</code></p>
+<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/guest/offers</code></p>
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:ListVisiblePreview</code> permit
@@ -7915,13 +7980,13 @@ Requires <code>Offers:Api:MemberOffers:ListVisiblePreview</code> permit
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>POST</strong> <code class="prettyprint">v3/infinity-mall/members/me/offers/:id/use</code> [<a href="#oauth2">OAuth</a>]</p>
+<p><strong>POST</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/me/offers/:id/use</code> [<a href="#oauth2">OAuth</a>]</p>
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:Use</code> permit
 </aside>
 
-<p><strong>POST</strong> <code class="prettyprint">v3/infinity-mall/members/:member_id/offers/:id/use</code></p>
+<p><strong>POST</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/:member_id/offers/:id/use</code></p>
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:UseByMemberId</code> permit
@@ -8039,13 +8104,13 @@ tied to it may not be granted to the member.</p>
   </span><span class="err">//</span><span class="w"> </span><span class="err">Empty</span><span class="w"> </span><span class="err">object</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>PUT</strong> <code class="prettyprint">v3/infinity-mall/members/me/offers/:id/like</code> [<a href="#oauth2">OAuth</a>]</p>
+<p><strong>PUT</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/me/offers/:id/like</code> [<a href="#oauth2">OAuth</a>]</p>
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:Like</code> permit
 </aside>
 
-<p><strong>PUT</strong> <code class="prettyprint">v3/infinity-mall/members/:member_id/offers/:id/like</code></p>
+<p><strong>PUT</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/:member_id/offers/:id/like</code></p>
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:LikeByMemberId</code> permit
@@ -8073,13 +8138,13 @@ Requires <code>Offers:Api:MemberOffers:LikeByMemberId</code> permit
   </span><span class="err">//</span><span class="w"> </span><span class="err">Empty</span><span class="w"> </span><span class="err">object</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>PUT</strong> <code class="prettyprint">v3/infinity-mall/members/me/offers/:id/unlike</code> [<a href="#oauth2">OAuth</a>]</p>
+<p><strong>PUT</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/me/offers/:id/unlike</code> [<a href="#oauth2">OAuth</a>]</p>
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:Like</code> permit
 </aside>
 
-<p><strong>PUT</strong> <code class="prettyprint">v3/infinity-mall/members/:member_id/offers/:id/unlike</code></p>
+<p><strong>PUT</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/:member_id/offers/:id/unlike</code></p>
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:LikeByMemberId</code> permit
@@ -8106,7 +8171,7 @@ Requires <code>Offers:Api:MemberOffers:LikeByMemberId</code> permit
   </span><span class="err">//</span><span class="w"> </span><span class="err">Empty</span><span class="w"> </span><span class="err">object</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>POST</strong> <code class="prettyprint">v3/infinity-mall/members/:member_id/members/:member_id/offers/:id/grant</code></p>
+<p><strong>POST</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/:member_id/members/:member_id/offers/:id/grant</code></p>
 
 <p>Some types of offers are not available to members until they are granted to them - this endpoint allows to do this. </p>
 
