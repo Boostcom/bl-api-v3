@@ -22,7 +22,7 @@ type       | Object with member's properties     | yes       | enum: ["sms", "em
 created_at | Time when the message has been sent | yes       | string
 content    |                                     | yes       | string
 
-### <a name="members-messages-list"></a> List messages
+### <a name="members-messages-list"></a> List Member Messages
 
 > Example:
 
@@ -71,7 +71,7 @@ Requires <code>BL:Api:Members:MessagesHistory:List</code> permit
 
 <!--- ############################################################################################################# --->
 
-### <a name="members-message-get"></a> Get message
+### <a name="members-message-get"></a> Get Member Message
 
 > Example:
 

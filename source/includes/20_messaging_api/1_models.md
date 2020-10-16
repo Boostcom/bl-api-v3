@@ -59,9 +59,9 @@ Key | Type | Description
 **shorten_urls** | boolean | Should sendings for this message have URLs shortened with MPC's Shortener? 
 **track_in_shortener** | boolean | Should MPC's Shortener track users?
 campaign_id | string | MPC's campaign ID
-service | string| MPC [Service](#messaging-message-service) the Message is related to
+service | enum | [Service](#messaging-message-service) MPC Service the Message is related to
 **channels** | [Channel](#messaging-channel-model)[] | Channels the message is sent with
-**sendings_status** | string | [Aggregated Sendings status](#messaging-message-sendings-status)
+**sendings_status** | enum | [Aggregated Sendings status](#messaging-message-sendings-status)
 **sendings_count** | integer | Number of Sendings of Message
 **latest_sending** | [MessageSending](#messaging-message-sending-model)[] | Most recent Sending of Message
 **created_at** | datetime | Time of creation
@@ -73,7 +73,7 @@ If all Message's Sendings are `transmitted`, `cancelled`, `failed` or `skipped`,
 
 If all Message's Sendings are `draft`, then `sending_status` is `draft`.
 
-If both above conditions are not true, then `sending_status` is `scheduled`
+If both above conditions are not true, then `sending_status` is `scheduled`.
 
 ##### <a name="messaging-message-sending-model"></a> MessageSending model
 
@@ -90,7 +90,7 @@ Also, returns `recipients_count` instead of presenting actual Recipients.
 
 #### <a name="messaging-message-service"></a> Service
 
-Service is used to provide special treatment for some types of Messages.
+Service is used to provide special treatment for some types of Messages that are bound to specific MPC features.
 
 A permit is required for managing Messages of each Service.
 

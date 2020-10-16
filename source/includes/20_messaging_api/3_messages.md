@@ -4,7 +4,7 @@
 This API is under development. Therefore, it may not be ready for use and is a subject to change at any time.
 </aside>
 
-### <a name="messaging-create-message"></a> Create message
+### <a name="messaging-create-message"></a> Create Message
 
 > Example - creates an SMS message, scheduled in 15 minutes, sent to given audience and one inline recipient.
 
@@ -84,7 +84,47 @@ Status | Description
 Requires <code>Messages:Api:Messages:Create</code> permit
 </aside>
 
-### <a name="messaging-get-message"></a> Get message
+### <a name="messaging-list-messages"></a> List Messages
+
+> Example
+
+```shell
+curl -X GET \
+"https://bpc-api.boostcom.no/v1/messages?sending_status=finished" \
+  -H 'content-type: application/json' \
+  -H 'x-loyalty-club-slug: infinity-mall' \
+  -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+  -H 'x-product-name: default' \
+  -H 'x-user-agent: CURL manual test'
+```
+
+> Returns object containing [messages](#messaging-message-model) and [pagination_info](#pagination-model)
+
+```json
+{
+  "messages": [], // List of messages - See: "Message model"
+  "pagination_info": {} // Pagination info - see "Pagination info"
+}
+````
+
+**GET** `v1/messages`
+
+Returns list of [Messages](#messaging-message-model).  
+
+#### Query Parameters
+
+Parameter      | Type        | Default   | Description
+-------------- | ----------- | --------- | -----------
+per_page       | integer     | 100       | Number of results to be returned per request (100 is the maximum)
+page_no        | integer     | 1         | Number of results page 
+sending_status | enum        | null      | When present, returns only Messages having given [Aggregated Sendings status](#messaging-message-sendings-status)
+service        | enum        | null      | When present, returns only Messages having given [Service](#messaging-message-service)
+
+<aside class="notice">
+Requires <code>Messages:Api:Messages:List</code> permit
+</aside>
+
+### <a name="messaging-get-message"></a> Get Message
 
 > Example - creates an SMS message, scheduled in 15 minutes, sent to given audience and one inline recipient.
 
