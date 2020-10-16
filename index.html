@@ -6199,17 +6199,17 @@ Requires <code>BL:Api:Members:Groups</code> permit
 <tr>
 <td><strong>shorten_urls</strong></td>
 <td>boolean</td>
-<td>Should sendings for this message have URLs shortened with MPC&rsquo;s Shortener?</td>
+<td>Should sendings for this message have URLs shortened with MPC Shortener?</td>
 </tr>
 <tr>
 <td><strong>track_in_shortener</strong></td>
 <td>boolean</td>
-<td>Should MPC&rsquo;s Shortener track users?</td>
+<td>Should MPC Shortener track users?</td>
 </tr>
 <tr>
 <td>campaign_id</td>
 <td>string</td>
-<td>MPC&rsquo;s campaign ID</td>
+<td>MPC&rsquo;s campaign ID (applicable to <code class="prettyprint">campaigns</code> service)</td>
 </tr>
 <tr>
 <td>service</td>
@@ -6940,11 +6940,11 @@ be fetched from MPC member&rsquo;s data (for example, for <code class="prettypri
 <h3 id="sendingpayload-model"><a name="messaging-sending-payload-model"></a> SendingPayload model</h3>
 
 <blockquote>
-<p>Example #1 - schedules sending ASAP to audience defined by given conditions</p>
+<p>Example #1 - Creates Sending without schedule to audience defined by given conditions</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="err">//</span><span class="w"> </span><span class="err">Schedule</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">provided</span><span class="p">,</span><span class="w"> </span><span class="err">so</span><span class="w"> </span><span class="err">message</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">scheduled</span><span class="w">
   </span><span class="s2">"audience"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="err">//</span><span class="w"> </span><span class="err">Schedule</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">provided</span><span class="p">,</span><span class="w"> </span><span class="err">so</span><span class="w"> </span><span class="err">message</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">sent</span><span class="w"> </span><span class="err">ASAP</span><span class="w">
     </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"inline"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"conditions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="p">{</span><span class="w">

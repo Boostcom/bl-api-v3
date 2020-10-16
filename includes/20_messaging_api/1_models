@@ -71,17 +71,17 @@
 <tr>
 <td><strong>shorten_urls</strong></td>
 <td>boolean</td>
-<td>Should sendings for this message have URLs shortened with MPC&rsquo;s Shortener?</td>
+<td>Should sendings for this message have URLs shortened with MPC Shortener?</td>
 </tr>
 <tr>
 <td><strong>track_in_shortener</strong></td>
 <td>boolean</td>
-<td>Should MPC&rsquo;s Shortener track users?</td>
+<td>Should MPC Shortener track users?</td>
 </tr>
 <tr>
 <td>campaign_id</td>
 <td>string</td>
-<td>MPC&rsquo;s campaign ID</td>
+<td>MPC&rsquo;s campaign ID (applicable to <code class="prettyprint">campaigns</code> service)</td>
 </tr>
 <tr>
 <td>service</td>

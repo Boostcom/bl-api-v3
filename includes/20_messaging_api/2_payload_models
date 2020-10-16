@@ -160,11 +160,11 @@
 <h3 id="sendingpayload-model"><a name="messaging-sending-payload-model"></a> SendingPayload model</h3>
 
 <blockquote>
-<p>Example #1 - schedules sending ASAP to audience defined by given conditions</p>
+<p>Example #1 - Creates Sending without schedule to audience defined by given conditions</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="err">//</span><span class="w"> </span><span class="err">Schedule</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">provided</span><span class="p">,</span><span class="w"> </span><span class="err">so</span><span class="w"> </span><span class="err">message</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">scheduled</span><span class="w">
   </span><span class="s2">"audience"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="err">//</span><span class="w"> </span><span class="err">Schedule</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">provided</span><span class="p">,</span><span class="w"> </span><span class="err">so</span><span class="w"> </span><span class="err">message</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">sent</span><span class="w"> </span><span class="err">ASAP</span><span class="w">
     </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"inline"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"conditions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="p">{</span><span class="w">
