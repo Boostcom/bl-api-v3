@@ -32,29 +32,17 @@
       "updated_at": "2020-09-15T12:45:08.625Z"
     }
   ],
-  "sendings": [
-    {
-      "id": 1000016,
-      "audience_id": 106642, 
-      "status": "scheduled",
-      "scheduled_at": "2020-09-18T09:28:59.918Z",
-      "scheduled_with": {
-        "in": "15 minutes",
-        "type": "relative"
-      },
-      "created_at": "2020-09-18T09:13:59.937Z",
-      "updated_at": "2020-09-18T09:13:59.937Z",
-      "recipients": [
-        {
-          "member_id": 150,
-          "msisdn": null,
-          "email": null,
-          "app_token": null,
-          "properties": { "first_name": "Piotr" }
-        }
-      ]
-    }
-  ]
+  "sendings_status": "scheduled",
+  "sendings_count": 3,
+  "latest_sending": {
+    "id": 3920,
+    "status": "scheduled",
+    "audience_id": 107103,
+    "recipients_count": 83,
+    "scheduled_at": "2020-10-15T15:27:02.853Z",
+    "created_at": "2020-09-15T12:45:08.625Z",
+    "updated_at": "2020-09-15T12:45:08.625Z"
+  }
 }
 ```
 
@@ -71,17 +59,40 @@ Key | Type | Description
 **shorten_urls** | boolean | Should sendings for this message have URLs shortened with MPC's Shortener? 
 **track_in_shortener** | boolean | Should MPC's Shortener track users?
 campaign_id | string | MPC's campaign ID
+service | string| MPC [Service](#messaging-message-service) the Message is related to
 **channels** | [Channel](#messaging-channel-model)[] | Channels the message is sent with
-**sendings** | [Sending](#messaging-sending-model)[] | Sending of the message
-**service** | string| MPC [Service](#messaging-message-service) the Message is related to
+**sendings_status** | string | [Aggregated Sendings status](#messaging-message-sendings-status)
+**sendings_count** | integer | Number of Sendings of Message
+**latest_sending** | [MessageSending](#messaging-message-sending-model)[] | Most recent Sending of Message
 **created_at** | datetime | Time of creation
 **updated_at** | datetime | Time of last update
+
+##### <a name="messaging-message-sendings-status"></a> Aggregated Sendings status
+
+If all Message's Sendings are `transmitted`, `cancelled`, `failed` or `skipped`, then `sending_status` is `finished`.
+
+If all Message's Sendings are `draft`, then `sending_status` is `draft`.
+
+If both above conditions are not true, then `sending_status` is `scheduled`
+
+##### <a name="messaging-message-sendings-status"></a> MessageSending model
+
+Contains limited set of [Sending](#messaging-sending-model)'s attributes:
+
+* id
+* status
+* audience_id
+* scheduled_at
+* created_at
+* updated_at
+
+Also, returns `recipients_count` instead of presenting actual Recipients.
 
 #### <a name="messaging-message-service"></a> Service
 
 Service is used to provide special treatment for some types of Messages.
 
-A permit is required for managing Messages of given Service.
+A permit is required for managing Messages of each Service.
 
 Service   | Permit                                     | Description
 --------- | -----------------------------------------  | -----------------------------------------

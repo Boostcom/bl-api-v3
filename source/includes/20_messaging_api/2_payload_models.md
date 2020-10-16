@@ -80,7 +80,6 @@ Key | Type | Description
 **content** | Object | Depends on type. See: [Template model](#messaging-template-model)
 wrapper_id | integer | ID of [wrapping template](#messaging-template-wrapping)
 
-
 ### <a name="messaging-sending-payload-model"></a> SendingPayload model
 
 > Example #1 - schedules sending ASAP to audience defined by given conditions
