@@ -75,7 +75,7 @@ If all Message's Sendings are `draft`, then `sending_status` is `draft`.
 
 If both above conditions are not true, then `sending_status` is `scheduled`
 
-##### <a name="messaging-message-sendings-status"></a> MessageSending model
+##### <a name="messaging-message-sending-model"></a> MessageSending model
 
 Contains limited set of [Sending](#messaging-sending-model)'s attributes:
 
