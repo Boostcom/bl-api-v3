@@ -48,7 +48,7 @@
 </tr>
 </tbody></table>
 
-<h3 id="list-messages"><a name="members-messages-list"></a> List messages</h3>
+<h3 id="list-member-messages"><a name="members-messages-list"></a> List Member Messages</h3>
 
 <blockquote>
 <p>Example:</p>
@@ -131,7 +131,7 @@ Requires <code>BL:Api:Members:MessagesHistory:List</code> permit
 
 <!--- ############################################################################################################# --->
 
-<h3 id="get-message"><a name="members-message-get"></a> Get message</h3>
+<h3 id="get-member-message"><a name="members-message-get"></a> Get Member Message</h3>
 
 <blockquote>
 <p>Example:</p>

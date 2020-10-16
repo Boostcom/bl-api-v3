@@ -4,7 +4,7 @@
 This API is under development. Therefore, it may not be ready for use and is a subject to change at any time.
 </aside>
 
-<h3 id="create-message"><a name="messaging-create-message"></a> Create message</h3>
+<h3 id="create-message"><a name="messaging-create-message"></a> Create Message</h3>
 
 <blockquote>
 <p>Example - creates an SMS message, scheduled in 15 minutes, sent to given audience and one inline recipient.</p>
@@ -110,7 +110,72 @@ This API is under development. Therefore, it may not be ready for use and is a s
 Requires <code>Messages:Api:Messages:Create</code> permit
 </aside>
 
-<h3 id="get-message"><a name="messaging-get-message"></a> Get message</h3>
+<h3 id="list-messages"><a name="messaging-list-messages"></a> List Messages</h3>
+
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+<span class="s2">"https://bpc-api.boostcom.no/v1/messages?sending_status=finished"</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'x-loyalty-club-slug: infinity-mall'</span> <span class="se">\</span>
+  -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
+  -H <span class="s1">'x-user-agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>Returns object containing <a href="#messaging-message-model">messages</a> and <a href="#pagination-model">pagination_info</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">List</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">messages</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Message model"</span><span class="w">
+  </span><span class="s2">"pagination_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Pagination</span><span class="w"> </span><span class="err">info</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="s2">"Pagination info"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>GET</strong> <code class="prettyprint">v1/messages</code></p>
+
+<p>Returns list of <a href="#messaging-message-model">Messages</a>.  </p>
+
+<h4 id="query-parameters">Query Parameters</h4>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>per_page</td>
+<td>integer</td>
+<td>100</td>
+<td>Number of results to be returned per request (100 is the maximum)</td>
+</tr>
+<tr>
+<td>page_no</td>
+<td>integer</td>
+<td>1</td>
+<td>Number of results page</td>
+</tr>
+<tr>
+<td>sending_status</td>
+<td>enum</td>
+<td>null</td>
+<td>When present, returns only Messages having given <a href="#messaging-message-sendings-status">Aggregated Sendings status</a></td>
+</tr>
+<tr>
+<td>service</td>
+<td>enum</td>
+<td>null</td>
+<td>When present, returns only Messages having given <a href="#messaging-message-service">Service</a></td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Messages:Api:Messages:List</code> permit
+</aside>
+
+<h3 id="get-message"><a name="messaging-get-message"></a> Get Message</h3>
 
 <blockquote>
 <p>Example - creates an SMS message, scheduled in 15 minutes, sent to given audience and one inline recipient.</p>
