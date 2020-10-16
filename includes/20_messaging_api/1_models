@@ -128,7 +128,7 @@
 
 <p>If both above conditions are not true, then <code class="prettyprint">sending_status</code> is <code class="prettyprint">scheduled</code></p>
 
-<h5 id="messagesending-model"><a name="messaging-message-sendings-status"></a> MessageSending model</h5>
+<h5 id="messagesending-model"><a name="messaging-message-sending-model"></a> MessageSending model</h5>
 
 <p>Contains limited set of <a href="#messaging-sending-model">Sending</a>&lsquo;s attributes:</p>
 
