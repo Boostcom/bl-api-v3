@@ -6141,6 +6141,7 @@ Requires <code>BL:Api:Members:Groups</code> permit
   </span><span class="s2">"shorten_urls"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="s2">"track_in_shortener"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="s2">"campaign_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"service"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-15T10:01:09.467Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-15T10:01:09.467Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"channels"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -6159,29 +6160,17 @@ Requires <code>BL:Api:Members:Groups</code> permit
       </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-15T12:45:08.625Z"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
-  </span><span class="s2">"sendings"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000016</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"audience_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">106642</span><span class="p">,</span><span class="w"> 
-      </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"scheduled"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"scheduled_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-18T09:28:59.918Z"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"scheduled_with"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"in"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15 minutes"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"relative"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-18T09:13:59.937Z"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-18T09:13:59.937Z"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"recipients"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"member_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">150</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"msisdn"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"app_token"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Piotr"</span><span class="w"> </span><span class="p">}</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">]</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
+  </span><span class="s2">"sendings_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"scheduled"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"sendings_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"latest_sending"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3920</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"scheduled"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"audience_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">107103</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"recipients_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">83</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"scheduled_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-10-15T15:27:02.853Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-15T12:45:08.625Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-15T12:45:08.625Z"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Message stores business-level information and configuration.</p>
@@ -6223,14 +6212,29 @@ Requires <code>BL:Api:Members:Groups</code> permit
 <td>MPC&rsquo;s campaign ID</td>
 </tr>
 <tr>
+<td>service</td>
+<td>string</td>
+<td>MPC <a href="#messaging-message-service">Service</a> the Message is related to</td>
+</tr>
+<tr>
 <td><strong>channels</strong></td>
 <td><a href="#messaging-channel-model">Channel</a>[]</td>
 <td>Channels the message is sent with</td>
 </tr>
 <tr>
-<td><strong>sendings</strong></td>
-<td><a href="#messaging-sending-model">Sending</a>[]</td>
-<td>Sending of the message</td>
+<td><strong>sendings_status</strong></td>
+<td>string</td>
+<td><a href="#messaging-message-sendings-status">Aggregated Sendings status</a></td>
+</tr>
+<tr>
+<td><strong>sendings_count</strong></td>
+<td>integer</td>
+<td>Number of Sendings of Message</td>
+</tr>
+<tr>
+<td><strong>latest_sending</strong></td>
+<td><a href="#messaging-message-sending-model">MessageSending</a>[]</td>
+<td>Most recent Sending of Message</td>
 </tr>
 <tr>
 <td><strong>created_at</strong></td>
@@ -6241,6 +6245,54 @@ Requires <code>BL:Api:Members:Groups</code> permit
 <td><strong>updated_at</strong></td>
 <td>datetime</td>
 <td>Time of last update</td>
+</tr>
+</tbody></table>
+
+<h5 id="aggregated-sendings-status"><a name="messaging-message-sendings-status"></a> Aggregated Sendings status</h5>
+
+<p>If all Message&rsquo;s Sendings are <code class="prettyprint">transmitted</code>, <code class="prettyprint">cancelled</code>, <code class="prettyprint">failed</code> or <code class="prettyprint">skipped</code>, then <code class="prettyprint">sending_status</code> is <code class="prettyprint">finished</code>.</p>
+
+<p>If all Message&rsquo;s Sendings are <code class="prettyprint">draft</code>, then <code class="prettyprint">sending_status</code> is <code class="prettyprint">draft</code>.</p>
+
+<p>If both above conditions are not true, then <code class="prettyprint">sending_status</code> is <code class="prettyprint">scheduled</code></p>
+
+<h5 id="messagesending-model"><a name="messaging-message-sendings-status"></a> MessageSending model</h5>
+
+<p>Contains limited set of <a href="#messaging-sending-model">Sending</a>&lsquo;s attributes:</p>
+
+<ul>
+<li>id</li>
+<li>status</li>
+<li>audience_id</li>
+<li>scheduled_at</li>
+<li>created_at</li>
+<li>updated_at</li>
+</ul>
+
+<p>Also, returns <code class="prettyprint">recipients_count</code> instead of presenting actual Recipients.</p>
+
+<h4 id="service"><a name="messaging-message-service"></a> Service</h4>
+
+<p>Service is used to provide special treatment for some types of Messages.</p>
+
+<p>A permit is required for managing Messages of each Service.</p>
+
+<table><thead>
+<tr>
+<th>Service</th>
+<th>Permit</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>campaigns</td>
+<td>Messages:Api:Messages:UseService:Campaigns</td>
+<td>For MPC Campaigns Messages</td>
+</tr>
+<tr>
+<td>tenants</td>
+<td>Messages:Api:Messages:UseService:Tenants</td>
+<td>For MPC Tenant Engagement Module Messages</td>
 </tr>
 </tbody></table>
 
@@ -6726,7 +6778,7 @@ be fetched from MPC member&rsquo;s data (for example, for <code class="prettypri
 
 <p>Given <code class="prettyprint">properties</code> will be used as template&rsquo;s merge-fields. </p>
 
-<h3 id="messagepayload-model"><a name="messaging-message-payload-model"></a> MessagePayload model</h3>
+          <h3 id="messagepayload-model"><a name="messaging-message-payload-model"></a> MessagePayload model</h3>
 
 <blockquote>
 <p>MessagePayload example - it creates an SMS message which will be sent at given time to members of given audience:</p>
@@ -6774,7 +6826,12 @@ be fetched from MPC member&rsquo;s data (for example, for <code class="prettypri
 <tr>
 <td>campaign_id</td>
 <td>integer</td>
-<td>MPC&rsquo;s campaign ID</td>
+<td>MPC&rsquo;s Campaign ID</td>
+</tr>
+<tr>
+<td>service</td>
+<td>string</td>
+<td><a href="#messaging-message-service">Service</a> the Message is related to</td>
 </tr>
 <tr>
 <td><strong>channels</strong></td>
@@ -6934,7 +6991,7 @@ be fetched from MPC member&rsquo;s data (for example, for <code class="prettypri
 </tr>
 <tr>
 <td>audience</td>
-<td><a href="#messaging-sending-schedule-audience-model">SendingAudiencePayload</a></td>
+<td><a href="#messaging-sending-audience-payload-model">SendingAudiencePayload</a></td>
 <td></td>
 </tr>
 <tr>
