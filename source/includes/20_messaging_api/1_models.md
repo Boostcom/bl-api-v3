@@ -56,9 +56,9 @@ Key | Type | Description
 --------- | --------- | ---------
 **id** | integer |   
 **name** | string |
-**shorten_urls** | boolean | Should sendings for this message have URLs shortened with MPC's Shortener? 
-**track_in_shortener** | boolean | Should MPC's Shortener track users?
-campaign_id | string | MPC's campaign ID
+**shorten_urls** | boolean | Should sendings for this message have URLs shortened with MPC Shortener? 
+**track_in_shortener** | boolean | Should MPC Shortener track users?
+campaign_id | string | MPC's campaign ID (applicable to `campaigns` service)
 service | enum | [Service](#messaging-message-service) MPC Service the Message is related to
 **channels** | [Channel](#messaging-channel-model)[] | Channels the message is sent with
 **sendings_status** | enum | [Aggregated Sendings status](#messaging-message-sendings-status)

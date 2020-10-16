@@ -82,12 +82,12 @@ wrapper_id | integer | ID of [wrapping template](#messaging-template-wrapping)
 
 ### <a name="messaging-sending-payload-model"></a> SendingPayload model
 
-> Example #1 - schedules sending ASAP to audience defined by given conditions
+> Example #1 - Creates Sending without schedule to audience defined by given conditions
 
 ```json
 {
+  // Schedule is not provided, so message will not be scheduled
   "audience": {
-    // Schedule is not provided, so message will be sent ASAP
     "type": "inline",
     "conditions": [
       {
