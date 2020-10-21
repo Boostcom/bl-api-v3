@@ -161,7 +161,7 @@ Both methods can be used at the same time.
 
 Key | Type | Description
 --------- | --------- | ---------
-type | enum: `['immediate', 'absolute', 'relative']` |
+**type** | enum: `['immediate', 'absolute', 'relative']` |
 at | ISO 8601 DateTime | For `absolute` type - defines exact time the sending should be executed at
 in | string | For `relative` type - see below
 <br />
@@ -205,6 +205,6 @@ Examples:
 
 Key | Type | Description
 --------- | --------- | ---------
-type | enum: `['reference', 'inline']` |
+**type** | enum: `['reference', 'inline']` |
 id | integer | For `reference` type - ID of audience the sending should be sent to
 conditions | Object[] | For `inline` type - See [DMP docs](https://dmp.boostcom.no/docs/#conditions)

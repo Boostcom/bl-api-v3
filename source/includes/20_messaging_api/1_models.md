@@ -63,17 +63,17 @@ service | enum | [Service](#messaging-message-service) MPC Service the Message i
 **channels** | [Channel](#messaging-channel-model)[] | Channels the message is sent with
 **sendings_status** | enum | [Aggregated Sendings status](#messaging-message-sendings-status)
 **sendings_count** | integer | Number of Sendings of Message
-**latest_sending** | [MessageSending](#messaging-message-sending-model)[] | Most recent Sending of Message
+**latest_sending** | [MessageSending](#messaging-message-sending-model) | Most recent Sending of Message
 **created_at** | datetime | Time of creation
 **updated_at** | datetime | Time of last update
 
 ##### <a name="messaging-message-sendings-status"></a> Aggregated Sendings status
 
-If all Message's Sendings are `transmitted`, `cancelled`, `failed` or `skipped`, then `sending_status` is `finished`.
+If all Message's Sendings are `transmitted`, `cancelled`, `failed` or `skipped`, then `sendings_status` is `finished`.
 
-If all Message's Sendings are `draft`, then `sending_status` is `draft`.
+If all Message's Sendings are `draft`, then `sendings_status` is `draft`.
 
-If both above conditions are not true, then `sending_status` is `scheduled`.
+If both above conditions are not true, then `sendings_status` is `scheduled`.
 
 ##### <a name="messaging-message-sending-model"></a> MessageSending model
 
