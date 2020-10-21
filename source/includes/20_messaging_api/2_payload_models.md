@@ -1,39 +1,3 @@
-
-### <a name="messaging-message-payload-model"></a> MessagePayload model
-
-> MessagePayload example - it creates an SMS message which will be sent at given time to members of given audience:
-
-```json
-{
-  "name": "My message", "shorten_urls": true, "track_in_shortener": true, "campaign_id" : 32,
-  "channels": [
-    {
-      "type": "sms",
-      "sender": { "type": "alphanumeric", "value": "Infinity" },
-      "template": {
-        "type": "inline",
-        "data": { "type": "plain", "content": { "body": "Hi {{name}}" } }
-      }
-    }
-  ],
-  "sending": {
-    "schedule": { "type": "absolute", "at": "2020-10-18T10:59:32.340Z" },
-    "audience": { "type": "reference", "id" : 15 } 
-  }
-}
-```
-
-Key | Type | Description
---------- | -------- | ---------
-**name** | string | 
-shorten_urls | boolean | Should sendings for this message have URLs shortened? Default: `true`  
-shorten_urls | boolean | Should MPC's Shortener track users? Default: `false`  
-campaign_id | integer | MPC's Campaign ID
-service     | string | [Service](#messaging-message-service) the Message is related to 
-**channels** | [ChannelPayload](#messaging-channel-payload-model)[] | Channels the message should be sent with.
-sending | [SendingPayload](#messaging-sending-payload-model) | Sending to schedule for the message 
-<br />
-
 ### <a name="messaging-channel-payload-model"></a> ChannelPayload model
 
 > ChannelPayload example:

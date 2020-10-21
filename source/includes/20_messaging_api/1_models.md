@@ -1,6 +1,10 @@
 # <a name="messaging"></a> Messaging API
 
-## <a name="messaging-models"></a> Models
+<aside class="warning">
+This API is under development. Therefore, it may not be ready for use and is a subject to change at any time.
+</aside>
+
+## <a name="messaging-models"></a> Common models
 
 ### <a name="messaging-message-model"></a> Message model
 
@@ -12,8 +16,8 @@
   "name": "DD3",
   "shorten_urls": true,
   "track_in_shortener": false,
-  "campaign_id": null,
   "service": null,
+  "campaign_id": null,
   "created_at": "2020-09-15T10:01:09.467Z",
   "updated_at": "2020-09-15T10:01:09.467Z",
   "channels": [
@@ -58,8 +62,8 @@ Key | Type | Description
 **name** | string |
 **shorten_urls** | boolean | Should sendings for this message have URLs shortened with MPC Shortener? 
 **track_in_shortener** | boolean | Should MPC Shortener track users?
-campaign_id | string | MPC's campaign ID (applicable to `campaigns` service)
-service | enum | [Service](#messaging-message-service) MPC Service the Message is related to
+service | enum | MPC [Service](#messaging-message-service) the Message is related to
+campaign_id | integer | MPC's campaign ID (applicable to `campaigns` service)
 **channels** | [Channel](#messaging-channel-model)[] | Channels the message is sent with
 **sendings_status** | enum | [Aggregated Sendings status](#messaging-message-sendings-status)
 **sendings_count** | integer | Number of Sendings of Message
@@ -77,16 +81,17 @@ If both above conditions are not true, then `sendings_status` is `scheduled`.
 
 ##### <a name="messaging-message-sending-model"></a> MessageSending model
 
-Contains limited set of [Sending](#messaging-sending-model)'s attributes:
+Simplified version of [Sending](#messaging-sending-model)'s with limited set of attributes:
 
-* id
-* status
-* audience_id
-* scheduled_at
-* created_at
-* updated_at
-
-Also, returns `recipients_count` instead of presenting actual Recipients.
+Key  | Description
+--------- | ---------
+**id** | [Sending#id](#messaging-sending-model)
+audience_id | [Sending#audience_id](#messaging-sending-model)
+**status** | [Sending#status](#messaging-sending-model)
+**scheduled_at** | [Sending#scheduled_at](#messaging-sending-model)
+**created_at** | [Sending#created_at](#messaging-sending-model) 
+**updated_at** | [Sending#updated_at](#messaging-sending-model)
+**recipients_count** | Number of recipients 
 
 #### <a name="messaging-message-service"></a> Service
 
