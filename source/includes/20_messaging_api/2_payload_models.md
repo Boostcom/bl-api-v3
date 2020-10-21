@@ -131,6 +131,8 @@ Both methods can be used at the same time.
 
 `schedule` is optional - when not provided, sending will not be scheduled (will have `draft` status).
 
+<div class="clear"></div>
+
 #### <a name="messaging-sending-schedule-payload-model"></a> SendingSchedulePayload model
 
 > Example #1 - immediate schedule
@@ -177,6 +179,8 @@ Examples:
   * `30 minutes`
   * `1 day`
   * `5 months`
+
+<div class="clear"></div>
 
 #### <a name="messaging-sending-audience-payload-model"></a> SendingAudiencePayload model
 

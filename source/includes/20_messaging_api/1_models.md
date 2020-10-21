@@ -182,6 +182,8 @@ wrapper_id | integer | ID of [wrapping template](#messaging-template-wrapping)
 **created_at** | datetime | Time of creation
 **updated_at** | datetime | Time of last update
 
+<div class="clear"></div>
+
 #### <a name="messaging-template-model-plain"></a> `plain` template
 
 > Plain Template example:
@@ -200,6 +202,8 @@ wrapper_id | integer | ID of [wrapping template](#messaging-template-wrapping)
 This type of template can be assigned to any type.
 
 Content of such template consists of single (required) property - `body`.
+
+<div class="clear"></div>
 
 #### <a name="messaging-template-model-email"></a> `email` template
 
@@ -222,6 +226,8 @@ Key | Type
 --------- | ---------
 **content.body** | HTML
 content.subject | string
+
+<div class="clear"></div>
 
 #### <a name="messaging-template-model-bee-email"></a> `bee_email` template
 
@@ -247,6 +253,8 @@ Key | Type
 **content.body** | HTML
 **content.bee_json** | Object
 content.subject | string
+
+<div class="clear"></div>
 
 #### <a name="messaging-template-model-push"></a> `push` template
 
