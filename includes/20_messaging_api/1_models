@@ -335,6 +335,8 @@ By default, a value from Loyalty Club configuration is used.</p>
 </tr>
 </tbody></table>
 
+<div class="clear"></div>
+
 <h4 id="plain-template"><a name="messaging-template-model-plain"></a> <code class="prettyprint">plain</code> template</h4>
 
 <blockquote>
@@ -352,6 +354,8 @@ By default, a value from Loyalty Club configuration is used.</p>
 <p>This type of template can be assigned to any type.</p>
 
 <p>Content of such template consists of single (required) property - <code class="prettyprint">body</code>.</p>
+
+<div class="clear"></div>
 
 <h4 id="email-template"><a name="messaging-template-model-email"></a> <code class="prettyprint">email</code> template</h4>
 
@@ -384,6 +388,8 @@ By default, a value from Loyalty Club configuration is used.</p>
 <td>string</td>
 </tr>
 </tbody></table>
+
+<div class="clear"></div>
 
 <h4 id="bee_email-template"><a name="messaging-template-model-bee-email"></a> <code class="prettyprint">bee_email</code> template</h4>
 
@@ -422,6 +428,8 @@ By default, a value from Loyalty Club configuration is used.</p>
 <td>string</td>
 </tr>
 </tbody></table>
+
+<div class="clear"></div>
 
 <h4 id="push-template"><a name="messaging-template-model-push"></a> <code class="prettyprint">push</code> template</h4>
 

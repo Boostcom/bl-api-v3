@@ -234,6 +234,8 @@
 
 <p><code class="prettyprint">schedule</code> is optional - when not provided, sending will not be scheduled (will have <code class="prettyprint">draft</code> status).</p>
 
+<div class="clear"></div>
+
 <h4 id="sendingschedulepayload-model"><a name="messaging-sending-schedule-payload-model"></a> SendingSchedulePayload model</h4>
 
 <blockquote>
@@ -298,6 +300,8 @@ regex:
 <li><code class="prettyprint">1 day</code></li>
 <li><code class="prettyprint">5 months</code></li>
 </ul>
+
+<div class="clear"></div>
 
 <h4 id="sendingaudiencepayload-model"><a name="messaging-sending-audience-payload-model"></a> SendingAudiencePayload model</h4>
 
