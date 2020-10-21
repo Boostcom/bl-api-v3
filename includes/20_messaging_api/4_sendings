@@ -1,0 +1,289 @@
+<h2 id="sendings"><a name="messaging-sendings"></a> Sendings</h2>
+
+<h3 id="get-sending"><a name="messaging-get-sending"></a> Get Sending</h3>
+
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+<span class="s2">"https://bpc-api.boostcom.no/v1/sendings/32"</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'x-loyalty-club-slug: infinity-mall'</span> <span class="se">\</span>
+  -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
+  -H <span class="s1">'x-user-agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>Returns object containing the requested <a href="#messaging-sending-model">sending</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"sending"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Sending</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sending model"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>GET</strong> <code class="prettyprint">v1/sendings/:id</code></p>
+
+<p>Returns <a href="#messaging-sending-model">Sending</a>.  </p>
+
+<h4 id="url-parameters">URL Parameters</h4>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>Sending ID</td>
+</tr>
+</tbody></table>
+
+<h4 id="error-responses">Error responses</h4>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">404</code></td>
+<td>Sending not found</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Messages:Api:Sendings:Get</code> permit
+</aside>
+
+<h3 id="create-sending"><a name="messaging-create-sending"></a> Create Sending</h3>
+
+<blockquote>
+<p>Example - creates a Sending scheduled immediately, sent to given audience and one inline recipient.</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
+<span class="s2">"https://bpc-api.boostcom.no/v1/messages/42/sendings"</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'x-loyalty-club-slug: infinity-mall'</span> <span class="se">\</span>
+  -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
+  -H <span class="s1">'x-user-agent: CURL manual test'</span> <span class="se">\</span>
+  -d <span class="s1">'
+    {
+      "sending": {
+        "schedule": { "type": "immediate" },
+        "audience": {
+          "type": "inline",
+          "id": 150
+        },
+        "recipients": [
+          { "member_id": 150, "properties": { "first_name": "Piotr" } }
+        ]
+      }
+    }
+  '</span>
+</code></pre>
+<blockquote>
+<p>When successful, returns object containing created <a href="#messaging-sending-model">sending</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"sending"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Sending</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sending model"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>POST</strong> <code class="prettyprint">v1/messages/:message_id/sendings</code></p>
+
+<p>Creates (and schedules if demanded) Sending for given Message.</p>
+
+<h4 id="url-parameters">URL Parameters</h4>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>message_id</td>
+<td>integer</td>
+<td>Message ID</td>
+</tr>
+</tbody></table>
+
+<h4 id="post-parameters-json">POST Parameters (JSON)</h4>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>sending</td>
+<td>SendingPayload</td>
+<td>See: <a href="#messaging-sending-payload-model">SendingPayload model</a></td>
+</tr>
+</tbody></table>
+
+<h4 id="response-json-object">Response (JSON object)</h4>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>sending</td>
+<td>Sending</td>
+<td>See: <a href="#messaging-sending-model">Sending model</a></td>
+</tr>
+</tbody></table>
+
+<h4 id="error-responses">Error responses</h4>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">403</code></td>
+<td>Unauthorized to set Sending priority</td>
+</tr>
+<tr>
+<td><code class="prettyprint">404</code></td>
+<td>Message not found</td>
+</tr>
+<tr>
+<td><code class="prettyprint">422</code></td>
+<td>Invalid parameters - see <a href="#invalid-parameters-errors-model">Invalid parameters errors model</a></td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Messages:Api:Sendings:Create</code> permit
+</aside>
+
+<h3 id="update-sending"><a name="messaging-update-sending"></a> Update Sending</h3>
+
+<blockquote>
+<p>Example - updates the Sending - it&rsquo;s unscheduled and audience is removed</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X PUT <span class="se">\</span>
+<span class="s2">"https://bpc-api.boostcom.no/v1/sendings/42"</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'x-loyalty-club-slug: infinity-mall'</span> <span class="se">\</span>
+  -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
+  -H <span class="s1">'x-user-agent: CURL manual test'</span> <span class="se">\</span>
+  -d <span class="s1">'
+    {
+      "sending": {
+        "schedule": nil,
+        "audience": nil
+      }
+    }
+  '</span>
+</code></pre>
+<blockquote>
+<p>When successful, returns object containing updated <a href="#messaging-sending-model">sending</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"sending"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Sending</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sending model"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>PUT</strong> <code class="prettyprint">v1/sendings/:id</code></p>
+
+<p>Updates Sending attributes. </p>
+
+<p>The update is partial - only attributes present in the payload are updated. 
+If attribute removal is intended, it should be provided with <code class="prettyprint">null</code> value.</p>
+
+<h5 id="updating-recipients">Updating recipients</h5>
+
+<p>If <code class="prettyprint">recipients</code> are given, the Sending Recipients are replaced with given ones. 
+When the array is empty, all Recipients are removed from Sending.</p>
+
+<h4 id="url-parameters">URL Parameters</h4>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>Sending ID</td>
+</tr>
+</tbody></table>
+
+<h4 id="post-parameters-json">POST Parameters (JSON)</h4>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>sending</td>
+<td>SendingPayload</td>
+<td>See: <a href="#messaging-sending-payload-model">SendingPayload model</a></td>
+</tr>
+</tbody></table>
+
+<h4 id="response-json-object">Response (JSON object)</h4>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>sending</td>
+<td>Sending</td>
+<td>See: <a href="#messaging-sending-model">Sending model</a></td>
+</tr>
+</tbody></table>
+
+<h4 id="error-responses">Error responses</h4>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">403</code></td>
+<td>Unauthorized to set Sending priority</td>
+</tr>
+<tr>
+<td><code class="prettyprint">404</code></td>
+<td>Sending not found</td>
+</tr>
+<tr>
+<td><code class="prettyprint">405</code></td>
+<td>Sending is not editable - execution process has started or finished</td>
+</tr>
+<tr>
+<td><code class="prettyprint">422</code></td>
+<td>Invalid parameters - see <a href="#invalid-parameters-errors-model">Invalid parameters errors model</a></td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Messages:Api:Sendings:Update</code> permit
+</aside>

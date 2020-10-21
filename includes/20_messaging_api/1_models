@@ -1,6 +1,10 @@
 <h1 id="messaging-api"><a name="messaging"></a> Messaging API</h1>
 
-<h2 id="models"><a name="messaging-models"></a> Models</h2>
+<aside class="warning">
+This API is under development. Therefore, it may not be ready for use and is a subject to change at any time.
+</aside>
+
+<h2 id="common-models"><a name="messaging-models"></a> Common models</h2>
 
 <h3 id="message-model"><a name="messaging-message-model"></a> Message model</h3>
 
@@ -12,8 +16,8 @@
   </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DD3"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"shorten_urls"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="s2">"track_in_shortener"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"campaign_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="s2">"service"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"campaign_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-15T10:01:09.467Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-15T10:01:09.467Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"channels"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -79,14 +83,14 @@
 <td>Should MPC Shortener track users?</td>
 </tr>
 <tr>
-<td>campaign_id</td>
-<td>string</td>
-<td>MPC&rsquo;s campaign ID (applicable to <code class="prettyprint">campaigns</code> service)</td>
-</tr>
-<tr>
 <td>service</td>
 <td>enum</td>
-<td><a href="#messaging-message-service">Service</a> MPC Service the Message is related to</td>
+<td>MPC <a href="#messaging-message-service">Service</a> the Message is related to</td>
+</tr>
+<tr>
+<td>campaign_id</td>
+<td>integer</td>
+<td>MPC&rsquo;s campaign ID (applicable to <code class="prettyprint">campaigns</code> service)</td>
 </tr>
 <tr>
 <td><strong>channels</strong></td>
@@ -130,18 +134,43 @@
 
 <h5 id="messagesending-model"><a name="messaging-message-sending-model"></a> MessageSending model</h5>
 
-<p>Contains limited set of <a href="#messaging-sending-model">Sending</a>&lsquo;s attributes:</p>
+<p>Simplified version of <a href="#messaging-sending-model">Sending</a>&lsquo;s with limited set of attributes:</p>
 
-<ul>
-<li>id</li>
-<li>status</li>
-<li>audience_id</li>
-<li>scheduled_at</li>
-<li>created_at</li>
-<li>updated_at</li>
-</ul>
-
-<p>Also, returns <code class="prettyprint">recipients_count</code> instead of presenting actual Recipients.</p>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>id</strong></td>
+<td><a href="#messaging-sending-model">Sending#id</a></td>
+</tr>
+<tr>
+<td>audience_id</td>
+<td><a href="#messaging-sending-model">Sending#audience_id</a></td>
+</tr>
+<tr>
+<td><strong>status</strong></td>
+<td><a href="#messaging-sending-model">Sending#status</a></td>
+</tr>
+<tr>
+<td><strong>scheduled_at</strong></td>
+<td><a href="#messaging-sending-model">Sending#scheduled_at</a></td>
+</tr>
+<tr>
+<td><strong>created_at</strong></td>
+<td><a href="#messaging-sending-model">Sending#created_at</a></td>
+</tr>
+<tr>
+<td><strong>updated_at</strong></td>
+<td><a href="#messaging-sending-model">Sending#updated_at</a></td>
+</tr>
+<tr>
+<td><strong>recipients_count</strong></td>
+<td>Number of recipients</td>
+</tr>
+</tbody></table>
 
 <h4 id="service"><a name="messaging-message-service"></a> Service</h4>
 
