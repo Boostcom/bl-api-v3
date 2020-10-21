@@ -105,7 +105,7 @@
 </tr>
 <tr>
 <td><strong>latest_sending</strong></td>
-<td><a href="#messaging-message-sending-model">MessageSending</a>[]</td>
+<td><a href="#messaging-message-sending-model">MessageSending</a></td>
 <td>Most recent Sending of Message</td>
 </tr>
 <tr>
@@ -122,11 +122,11 @@
 
 <h5 id="aggregated-sendings-status"><a name="messaging-message-sendings-status"></a> Aggregated Sendings status</h5>
 
-<p>If all Message&rsquo;s Sendings are <code class="prettyprint">transmitted</code>, <code class="prettyprint">cancelled</code>, <code class="prettyprint">failed</code> or <code class="prettyprint">skipped</code>, then <code class="prettyprint">sending_status</code> is <code class="prettyprint">finished</code>.</p>
+<p>If all Message&rsquo;s Sendings are <code class="prettyprint">transmitted</code>, <code class="prettyprint">cancelled</code>, <code class="prettyprint">failed</code> or <code class="prettyprint">skipped</code>, then <code class="prettyprint">sendings_status</code> is <code class="prettyprint">finished</code>.</p>
 
-<p>If all Message&rsquo;s Sendings are <code class="prettyprint">draft</code>, then <code class="prettyprint">sending_status</code> is <code class="prettyprint">draft</code>.</p>
+<p>If all Message&rsquo;s Sendings are <code class="prettyprint">draft</code>, then <code class="prettyprint">sendings_status</code> is <code class="prettyprint">draft</code>.</p>
 
-<p>If both above conditions are not true, then <code class="prettyprint">sending_status</code> is <code class="prettyprint">scheduled</code>.</p>
+<p>If both above conditions are not true, then <code class="prettyprint">sendings_status</code> is <code class="prettyprint">scheduled</code>.</p>
 
 <h5 id="messagesending-model"><a name="messaging-message-sending-model"></a> MessageSending model</h5>
 

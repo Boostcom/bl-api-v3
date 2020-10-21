@@ -267,7 +267,7 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>type</td>
+<td><strong>type</strong></td>
 <td>enum: <code class="prettyprint">[&#39;immediate&#39;, &#39;absolute&#39;, &#39;relative&#39;]</code></td>
 <td></td>
 </tr>
@@ -330,7 +330,7 @@ regex:
 </tr>
 </thead><tbody>
 <tr>
-<td>type</td>
+<td><strong>type</strong></td>
 <td>enum: <code class="prettyprint">[&#39;reference&#39;, &#39;inline&#39;]</code></td>
 <td></td>
 </tr>

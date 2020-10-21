@@ -6233,7 +6233,7 @@ Requires <code>BL:Api:Members:Groups</code> permit
 </tr>
 <tr>
 <td><strong>latest_sending</strong></td>
-<td><a href="#messaging-message-sending-model">MessageSending</a>[]</td>
+<td><a href="#messaging-message-sending-model">MessageSending</a></td>
 <td>Most recent Sending of Message</td>
 </tr>
 <tr>
@@ -6250,11 +6250,11 @@ Requires <code>BL:Api:Members:Groups</code> permit
 
 <h5 id="aggregated-sendings-status"><a name="messaging-message-sendings-status"></a> Aggregated Sendings status</h5>
 
-<p>If all Message&rsquo;s Sendings are <code class="prettyprint">transmitted</code>, <code class="prettyprint">cancelled</code>, <code class="prettyprint">failed</code> or <code class="prettyprint">skipped</code>, then <code class="prettyprint">sending_status</code> is <code class="prettyprint">finished</code>.</p>
+<p>If all Message&rsquo;s Sendings are <code class="prettyprint">transmitted</code>, <code class="prettyprint">cancelled</code>, <code class="prettyprint">failed</code> or <code class="prettyprint">skipped</code>, then <code class="prettyprint">sendings_status</code> is <code class="prettyprint">finished</code>.</p>
 
-<p>If all Message&rsquo;s Sendings are <code class="prettyprint">draft</code>, then <code class="prettyprint">sending_status</code> is <code class="prettyprint">draft</code>.</p>
+<p>If all Message&rsquo;s Sendings are <code class="prettyprint">draft</code>, then <code class="prettyprint">sendings_status</code> is <code class="prettyprint">draft</code>.</p>
 
-<p>If both above conditions are not true, then <code class="prettyprint">sending_status</code> is <code class="prettyprint">scheduled</code>.</p>
+<p>If both above conditions are not true, then <code class="prettyprint">sendings_status</code> is <code class="prettyprint">scheduled</code>.</p>
 
 <h5 id="messagesending-model"><a name="messaging-message-sending-model"></a> MessageSending model</h5>
 
@@ -7047,7 +7047,7 @@ be fetched from MPC member&rsquo;s data (for example, for <code class="prettypri
 </tr>
 </thead><tbody>
 <tr>
-<td>type</td>
+<td><strong>type</strong></td>
 <td>enum: <code class="prettyprint">[&#39;immediate&#39;, &#39;absolute&#39;, &#39;relative&#39;]</code></td>
 <td></td>
 </tr>
@@ -7110,7 +7110,7 @@ regex:
 </tr>
 </thead><tbody>
 <tr>
-<td>type</td>
+<td><strong>type</strong></td>
 <td>enum: <code class="prettyprint">[&#39;reference&#39;, &#39;inline&#39;]</code></td>
 <td></td>
 </tr>
@@ -7244,7 +7244,7 @@ Requires <code>Messages:Api:Messages:Create</code> permit
 <p>Example</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
-<span class="s2">"https://bpc-api.boostcom.no/v1/messages?sending_status=finished"</span> <span class="se">\</span>
+<span class="s2">"https://bpc-api.boostcom.no/v1/messages?sendings_status=finished"</span> <span class="se">\</span>
   -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'x-loyalty-club-slug: infinity-mall'</span> <span class="se">\</span>
   -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
@@ -7286,7 +7286,7 @@ Requires <code>Messages:Api:Messages:Create</code> permit
 <td>Number of results page</td>
 </tr>
 <tr>
-<td>sending_status</td>
+<td>sendings_status</td>
 <td>enum</td>
 <td>null</td>
 <td>When present, returns only Messages having given <a href="#messaging-message-sendings-status">Aggregated Sendings status</a></td>

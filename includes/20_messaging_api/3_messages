@@ -116,7 +116,7 @@ Requires <code>Messages:Api:Messages:Create</code> permit
 <p>Example</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
-<span class="s2">"https://bpc-api.boostcom.no/v1/messages?sending_status=finished"</span> <span class="se">\</span>
+<span class="s2">"https://bpc-api.boostcom.no/v1/messages?sendings_status=finished"</span> <span class="se">\</span>
   -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'x-loyalty-club-slug: infinity-mall'</span> <span class="se">\</span>
   -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
@@ -158,7 +158,7 @@ Requires <code>Messages:Api:Messages:Create</code> permit
 <td>Number of results page</td>
 </tr>
 <tr>
-<td>sending_status</td>
+<td>sendings_status</td>
 <td>enum</td>
 <td>null</td>
 <td>When present, returns only Messages having given <a href="#messaging-message-sendings-status">Aggregated Sendings status</a></td>
