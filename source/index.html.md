@@ -22,6 +22,7 @@ includes:
   - 20_messaging_api/2_payload_models
   - 20_messaging_api/3_messages
   - 20_messaging_api/4_sendings
+  - 20_messaging_api/9_bulks
   - 25_offers_api/0_offers
   - 25_offers_api/1_offers_events
   - 28_offers_admin_api/0_offers_admin
