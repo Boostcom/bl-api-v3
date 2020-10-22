@@ -185,41 +185,55 @@ Requires <code>Messages:Api:Messages:Get</code> permit
 <tr>
 <th>Key</th>
 <th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>message</td>
+<td><a href="#messaging-message-creation-payload">Message creation payload</a></td>
+</tr>
+</tbody></table>
+
+<h5 id="message-creation-payload"><a name="messaging-message-creation-payload"></a> Message creation payload</h5>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>message.name</td>
+<td>name</td>
 <td><a href="#messaging-message-model">Message#name</a></td>
 <td></td>
 </tr>
 <tr>
-<td>message.shorten_urls</td>
+<td>shorten_urls</td>
 <td><a href="#messaging-message-model">Message#shorten_urls</a></td>
 <td></td>
 </tr>
 <tr>
-<td>message.track_in_shortener</td>
+<td>track_in_shortener</td>
 <td><a href="#messaging-message-model">Message#track_in_shortener</a></td>
 <td></td>
 </tr>
 <tr>
-<td>message.service</td>
+<td>service</td>
 <td><a href="#messaging-message-model">Message#service</a></td>
 <td></td>
 </tr>
 <tr>
-<td>message.campaign_id</td>
+<td>campaign_id</td>
 <td><a href="#messaging-message-model">Message#campaign_id</a></td>
 <td></td>
 </tr>
 <tr>
-<td><strong>message.channels</strong></td>
+<td><strong>channels</strong></td>
 <td><a href="#messaging-channel-payload-model">ChannelPayload[]</a></td>
 <td></td>
 </tr>
 <tr>
-<td>message.sending</td>
+<td>sending</td>
 <td><a href="#messaging-sending-payload-model">SendingPayload</a></td>
 <td></td>
 </tr>
@@ -327,31 +341,45 @@ If attribute removal is intended, it should be provided with <code class="pretty
 <tr>
 <th>Key</th>
 <th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>message</td>
+<td><a href="#messaging-message-update-payload">Message update payload</a></td>
+</tr>
+</tbody></table>
+
+<h5 id="message-update-payload"><a name="messaging-message-update-payload"></a> Message update payload</h5>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>message.name</td>
+<td>name</td>
 <td><a href="#messaging-message-model">Message#name</a></td>
 <td></td>
 </tr>
 <tr>
-<td>message.shorten_urls</td>
+<td>shorten_urls</td>
 <td><a href="#messaging-message-model">Message#shorten_urls</a></td>
 <td></td>
 </tr>
 <tr>
-<td>message.track_in_shortener</td>
+<td>track_in_shortener</td>
 <td><a href="#messaging-message-model">Message#track_in_shortener</a></td>
 <td></td>
 </tr>
 <tr>
-<td>message.service</td>
+<td>service</td>
 <td><a href="#messaging-message-model">Message#service</a></td>
 <td></td>
 </tr>
 <tr>
-<td>message.campaign_id</td>
+<td>campaign_id</td>
 <td><a href="#messaging-message-model">Message#campaign_id</a></td>
 <td></td>
 </tr>

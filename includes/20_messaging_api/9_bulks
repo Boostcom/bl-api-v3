@@ -1,0 +1,297 @@
+<h2 id="bulk-operations"><a name="messaging-bulk-processing"></a> Bulk Operations</h2>
+
+<blockquote>
+<p>Example - simultaneously updates Message, creates one Sending and updates another one</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
+<span class="s2">"https://bpc-api.boostcom.no/v1/messages/bulks"</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'x-loyalty-club-slug: infinity-mall'</span> <span class="se">\</span>
+  -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
+  -H <span class="s1">'x-user-agent: CURL manual test'</span> <span class="se">\</span>
+  -d <span class="s1">'
+    {
+      "operations": [
+        {
+          "type": "update",
+          "entity": "message",
+          "params": { "id": 80 },
+          "payload": { "name": "my name" }
+        },
+        {
+          "type": "update",
+          "entity": "sending",
+          "params": { "id": 3958 },
+          "payload": { "schedule": { "type": "immediate" } }
+        },
+        {
+          "type": "create",
+          "entity": "sending",
+          "params": { "message_id": 80 },
+          "payload": { "recipients": [{ "member_id": 13 }] }
+        },
+      ]
+    }
+  '</span>
+</code></pre>
+<blockquote>
+<p>When all operations have been executed successfully, returns 200 and success response for each of them</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"results"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"update"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"entity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"message"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">41</span><span class="w"> </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Updated</span><span class="w"> </span><span class="err">Message</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"update"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"entity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sending"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3958</span><span class="w"> </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid parameters"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"sending"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Updated</span><span class="w"> </span><span class="err">Sending</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"create"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"entity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sending"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"message_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">80</span><span class="w"> </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"sending"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Created</span><span class="w"> </span><span class="err">Sending</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<blockquote>
+<p>When one of operations fails, returns status 470 and results of operations up to the one that failed</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"results"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"update"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"entity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"message"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">41</span><span class="w"> </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Updated</span><span class="w"> </span><span class="err">Message</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="err">//</span><span class="w"> </span><span class="err">Failed</span><span class="w"> </span><span class="err">operation</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">previous</span><span class="w"> </span><span class="err">ones</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">cancelled</span><span class="p">,</span><span class="w"> </span><span class="err">despite</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">fact</span><span class="w"> 
+    </span><span class="err">//</span><span class="w"> </span><span class="err">they've</span><span class="w"> </span><span class="err">been</span><span class="w"> </span><span class="err">rendered</span><span class="w"> </span><span class="err">as</span><span class="w"> </span><span class="err">successful</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"update"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"entity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sending"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3958</span><span class="w"> </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">422</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid parameters"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Validation</span><span class="w"> </span><span class="err">errors</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+    </span><span class="err">//</span><span class="w"> </span><span class="err">Next</span><span class="w"> </span><span class="err">operations</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">executed</span><span class="p">,</span><span class="w"> </span><span class="err">so</span><span class="w"> </span><span class="err">there</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="err">no</span><span class="w"> </span><span class="err">response</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">them</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p><strong>POST</strong> <code class="prettyprint">v1/messages/bulks</code></p>
+
+<p>Allows to perform multiple operations (up to 10) on Messaging records (Messages, Sendings, Channels and Templates) 
+in a single request.</p>
+
+<p>Behavior and interface (payload, params and response) of each operation is based on specific API endpoint - 
+<a href="#messaging-bulk-processing-operations">this</a> table depicts it.</p>
+
+<p>Operations are performed in a transactional way - if one of them fails, processing stops and other operations 
+are cancelled. Special code - <code class="prettyprint">470</code> - is returned as the status. 
+Actual error for operation that failed is included in the returned <code class="prettyprint">results</code> array.</p>
+
+<p>If all operations are successful, <code class="prettyprint">200</code> code is returned.</p>
+
+<h4 id="post-parameters-json">POST Parameters (JSON)</h4>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>operations</td>
+<td><a href="#messaging-bulk-processing-operation-model">Operations[]</a></td>
+<td>Array of operations (max. 10) to perform</td>
+</tr>
+</tbody></table>
+
+<h5 id="operation-model"><a name="messaging-bulk-processing-operation-model"></a> Operation model</h5>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>type</td>
+<td>enum: [&lsquo;create&rsquo;, &lsquo;update&rsquo;, &lsquo;delete&rsquo;]</td>
+<td>Type of operation to perform</td>
+</tr>
+<tr>
+<td>entity</td>
+<td>enum: [&lsquo;message&rsquo;, &lsquo;sending&rsquo;, &lsquo;channel&rsquo;, &lsquo;template&rsquo;]</td>
+<td>Type of entity to change</td>
+</tr>
+<tr>
+<td>params</td>
+<td>object</td>
+<td>Params identifying the entity (reflecting original HTTP URL params), specific to type and operation</td>
+</tr>
+<tr>
+<td>payload</td>
+<td>object</td>
+<td>Attributes of identity, specific to type and operation</td>
+</tr>
+</tbody></table>
+
+<h5 id="supported-operation-types-and-their-params-and-payloads"><a name="messaging-bulk-processing-operations"></a> Supported operation types and their params and payloads</h5>
+
+<table><thead>
+<tr>
+<th>Entity</th>
+<th>Operation</th>
+<th>Params</th>
+<th>Payload</th>
+<th>Original endpoint</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">message</code></td>
+<td><code class="prettyprint">create</code></td>
+<td>none</td>
+<td><a href="#messaging-message-creation-payload">Message creation payload</a></td>
+<td><a href="#messaging-create-message">Create Message</a></td>
+</tr>
+<tr>
+<td><code class="prettyprint">message</code></td>
+<td><code class="prettyprint">update</code></td>
+<td><code class="prettyprint">id</code></td>
+<td><a href="#messaging-message-update-payload">Message update payload</a></td>
+<td><a href="#messaging-update-message">Update Message</a></td>
+</tr>
+<tr>
+<td><code class="prettyprint">sending</code></td>
+<td><code class="prettyprint">create</code></td>
+<td><code class="prettyprint">message_id</code></td>
+<td><a href="#messaging-sending-payload-model">SendingPayload</a></td>
+<td><a href="#messaging-create-sending">Create Sending</a></td>
+</tr>
+<tr>
+<td><code class="prettyprint">sending</code></td>
+<td><code class="prettyprint">update</code></td>
+<td><code class="prettyprint">id</code></td>
+<td><a href="#messaging-sending-payload-model">SendingPayload</a></td>
+<td><a href="#messaging-update-sending">Update Sending</a></td>
+</tr>
+</tbody></table>
+
+<h4 id="response-json-object">Response (JSON object)</h4>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>results</td>
+<td><a href="#messaging-bulk-processing-result">Result[]</a></td>
+</tr>
+</tbody></table>
+
+<h5 id="result-model"><a name="messaging-bulk-processing-result"></a> Result model</h5>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>type</td>
+<td></td>
+<td>Given operation type</td>
+</tr>
+<tr>
+<td>entity</td>
+<td></td>
+<td>Given type of entity</td>
+</tr>
+<tr>
+<td>params</td>
+<td></td>
+<td>Given params of operations</td>
+</tr>
+<tr>
+<td>payload</td>
+<td>object</td>
+<td>Given payload</td>
+</tr>
+<tr>
+<td>response.status</td>
+<td>integer</td>
+<td>HTTP status of operation</td>
+</tr>
+<tr>
+<td>response.body</td>
+<td>object</td>
+<td>JSON response of operation</td>
+</tr>
+</tbody></table>
+
+<h4 id="error-responses">Error responses</h4>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">200</code></td>
+<td>All operations succeeded</td>
+</tr>
+<tr>
+<td><code class="prettyprint">470</code></td>
+<td>At least one operation failed</td>
+</tr>
+<tr>
+<td><code class="prettyprint">422</code></td>
+<td>Invalid parameters - see <a href="#invalid-parameters-errors-model">Invalid parameters errors model</a></td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Messages:Api:Bulks:Process</code> permit
+</aside>
