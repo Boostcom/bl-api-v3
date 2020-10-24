@@ -306,14 +306,14 @@ object:  </p>
 </tr>
 </tbody></table>
 
-<h3 id="errors-object"><a name="errors-object"></a> Errors object</h3>
+<h4 id="errors-object"><a name="errors-object"></a> Errors object</h4>
 
 <p>It&rsquo;s a recursive tree structure, corresponding to the structure original payload.
 Objects being parts of arrays are represented by their array indexes.</p>
 
 <p>Each leaf node is an array of <a href="#parameter-error-object">ParameterError</a> objects for given parameter.</p>
 
-<h3 id="parametererror-object"><a name="parameter-error-object""></a> ParameterError object</h3>
+<h4 id="parametererror-object"><a name="parameter-error-object""></a> ParameterError object</h4>
 
 <table><thead>
 <tr>
@@ -341,5 +341,121 @@ Objects being parts of arrays are represented by their array indexes.</p>
 <td>message</td>
 <td>String</td>
 <td>Human-readable error message</td>
+</tr>
+</tbody></table>
+
+<h4 id="common-validation-errors"><a name="common-validation-errors"></a> Common validation errors</h4>
+
+<table><thead>
+<tr>
+<th>Error key</th>
+<th>Options</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>presence</td>
+<td></td>
+<td>When not present</td>
+</tr>
+<tr>
+<td>inclusion</td>
+<td><code class="prettyprint">in</code> - contains permitted values</td>
+<td>When doesn&rsquo;t match list of permitted values</td>
+</tr>
+<tr>
+<td>must_be_an_object</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>must_be_an_array</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>must_be_an_array_of_objects</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>must_have_elements_of_type</td>
+<td><code class="prettyprint">type</code> - required type</td>
+<td></td>
+</tr>
+<tr>
+<td>not_an_integer</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>invalid_msisdn</td>
+<td></td>
+<td>When cannot be processed as a valid <a href="#msisdn-param">MSISDN</a></td>
+</tr>
+<tr>
+<td>invalid_email</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>invalid_iso_8601_time</td>
+<td></td>
+<td>When not valid according to <a href="#https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a></td>
+</tr>
+<tr>
+<td>attribute_cannot_be_present_with</td>
+<td><code class="prettyprint">with</code> - other attribute name</td>
+<td>Mutually exclusive with another attribute</td>
+</tr>
+<tr>
+<td>size_too_small</td>
+<td><code class="prettyprint">number</code> - min size</td>
+<td>When array has not enough elements</td>
+</tr>
+<tr>
+<td>size_too_large</td>
+<td><code class="prettyprint">number</code> - max size</td>
+<td>When array has too many elements</td>
+</tr>
+<tr>
+<td>size_not_match</td>
+<td><code class="prettyprint">number</code> - exact size</td>
+<td>When array has not exactly required number of elements</td>
+</tr>
+<tr>
+<td>taken</td>
+<td></td>
+<td>When another record already uses this value</td>
+</tr>
+<tr>
+<td>not_a_number</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>greater_than</td>
+<td><code class="prettyprint">number</code> - min value</td>
+<td>When not &gt; <code class="prettyprint">number</code></td>
+</tr>
+<tr>
+<td>greater_or_equal_to</td>
+<td><code class="prettyprint">number</code> - min value</td>
+<td>When not &gt;= <code class="prettyprint">number</code></td>
+</tr>
+<tr>
+<td>less_than</td>
+<td><code class="prettyprint">number</code> - max value</td>
+<td>When not &lt; <code class="prettyprint">number</code></td>
+</tr>
+<tr>
+<td>less_or_equal_to</td>
+<td><code class="prettyprint">number</code> - max value</td>
+<td>When not &lt;= <code class="prettyprint">number</code></td>
+</tr>
+<tr>
+<td>invalid</td>
+<td><code class="prettyprint">format</code> - regex</td>
+<td>When does not match regex</td>
 </tr>
 </tbody></table>

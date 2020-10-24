@@ -536,14 +536,14 @@ object:  </p>
 </tr>
 </tbody></table>
 
-<h3 id="errors-object"><a name="errors-object"></a> Errors object</h3>
+<h4 id="errors-object"><a name="errors-object"></a> Errors object</h4>
 
 <p>It&rsquo;s a recursive tree structure, corresponding to the structure original payload.
 Objects being parts of arrays are represented by their array indexes.</p>
 
 <p>Each leaf node is an array of <a href="#parameter-error-object">ParameterError</a> objects for given parameter.</p>
 
-<h3 id="parametererror-object"><a name="parameter-error-object""></a> ParameterError object</h3>
+<h4 id="parametererror-object"><a name="parameter-error-object""></a> ParameterError object</h4>
 
 <table><thead>
 <tr>
@@ -571,6 +571,122 @@ Objects being parts of arrays are represented by their array indexes.</p>
 <td>message</td>
 <td>String</td>
 <td>Human-readable error message</td>
+</tr>
+</tbody></table>
+
+<h4 id="common-validation-errors"><a name="common-validation-errors"></a> Common validation errors</h4>
+
+<table><thead>
+<tr>
+<th>Error key</th>
+<th>Options</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>presence</td>
+<td></td>
+<td>When not present</td>
+</tr>
+<tr>
+<td>inclusion</td>
+<td><code class="prettyprint">in</code> - contains permitted values</td>
+<td>When doesn&rsquo;t match list of permitted values</td>
+</tr>
+<tr>
+<td>must_be_an_object</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>must_be_an_array</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>must_be_an_array_of_objects</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>must_have_elements_of_type</td>
+<td><code class="prettyprint">type</code> - required type</td>
+<td></td>
+</tr>
+<tr>
+<td>not_an_integer</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>invalid_msisdn</td>
+<td></td>
+<td>When cannot be processed as a valid <a href="#msisdn-param">MSISDN</a></td>
+</tr>
+<tr>
+<td>invalid_email</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>invalid_iso_8601_time</td>
+<td></td>
+<td>When not valid according to <a href="#https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a></td>
+</tr>
+<tr>
+<td>attribute_cannot_be_present_with</td>
+<td><code class="prettyprint">with</code> - other attribute name</td>
+<td>Mutually exclusive with another attribute</td>
+</tr>
+<tr>
+<td>size_too_small</td>
+<td><code class="prettyprint">number</code> - min size</td>
+<td>When array has not enough elements</td>
+</tr>
+<tr>
+<td>size_too_large</td>
+<td><code class="prettyprint">number</code> - max size</td>
+<td>When array has too many elements</td>
+</tr>
+<tr>
+<td>size_not_match</td>
+<td><code class="prettyprint">number</code> - exact size</td>
+<td>When array has not exactly required number of elements</td>
+</tr>
+<tr>
+<td>taken</td>
+<td></td>
+<td>When another record already uses this value</td>
+</tr>
+<tr>
+<td>not_a_number</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>greater_than</td>
+<td><code class="prettyprint">number</code> - min value</td>
+<td>When not &gt; <code class="prettyprint">number</code></td>
+</tr>
+<tr>
+<td>greater_or_equal_to</td>
+<td><code class="prettyprint">number</code> - min value</td>
+<td>When not &gt;= <code class="prettyprint">number</code></td>
+</tr>
+<tr>
+<td>less_than</td>
+<td><code class="prettyprint">number</code> - max value</td>
+<td>When not &lt; <code class="prettyprint">number</code></td>
+</tr>
+<tr>
+<td>less_or_equal_to</td>
+<td><code class="prettyprint">number</code> - max value</td>
+<td>When not &lt;= <code class="prettyprint">number</code></td>
+</tr>
+<tr>
+<td>invalid</td>
+<td><code class="prettyprint">format</code> - regex</td>
+<td>When does not match regex</td>
 </tr>
 </tbody></table>
 
@@ -6815,7 +6931,97 @@ be fetched from MPC member&rsquo;s data (for example, for <code class="prettypri
 
 <p>Given <code class="prettyprint">properties</code> will be used as template&rsquo;s merge-fields. </p>
 
-          <h3 id="channelpayload-model"><a name="messaging-channel-payload-model"></a> ChannelPayload model</h3>
+          <h3 id="messagepayload-model"><a name="messaging-message-payload-model"></a> MessagePayload model</h3>
+
+<blockquote>
+<p>MessagePayload example - it creates an SMS message which will be sent at given time to members of given audience:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My message"</span><span class="p">,</span><span class="w"> </span><span class="s2">"shorten_urls"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="s2">"track_in_shortener"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="s2">"campaign_id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">32</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"channels"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sms"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"sender"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"alphanumeric"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Infinity"</span><span class="w"> </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"template"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"inline"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"plain"</span><span class="p">,</span><span class="w"> </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hi {{name}}"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"sending"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"schedule"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"absolute"</span><span class="p">,</span><span class="w"> </span><span class="s2">"at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-10-18T10:59:32.340Z"</span><span class="w"> </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"audience"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"reference"</span><span class="p">,</span><span class="w"> </span><span class="s2">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="w"> </span><span class="p">}</span><span class="w"> 
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>name</strong></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>shorten_urls</td>
+<td>boolean</td>
+<td>Should sendings for this message have URLs shortened? Default: <code class="prettyprint">true</code></td>
+</tr>
+<tr>
+<td>shorten_urls</td>
+<td>boolean</td>
+<td>Should MPC&rsquo;s Shortener track users? Default: <code class="prettyprint">false</code></td>
+</tr>
+<tr>
+<td>campaign_id</td>
+<td>integer</td>
+<td>MPC&rsquo;s Campaign ID</td>
+</tr>
+<tr>
+<td>service</td>
+<td>string</td>
+<td><a href="#messaging-message-service">Service</a> the Message is related to</td>
+</tr>
+<tr>
+<td><strong>channels</strong></td>
+<td><a href="#messaging-channel-payload-model">ChannelPayload</a>[]</td>
+<td>Channels the message should be sent with.</td>
+</tr>
+<tr>
+<td>sending</td>
+<td><a href="#messaging-sending-payload-model">SendingPayload</a></td>
+<td>Sending to schedule for the message, available only on creation</td>
+</tr>
+</tbody></table>
+
+<p><br /></p>
+
+<h4 id="validation-errors-specific-to-the-payload">Validation errors specific to the payload</h4>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Error key</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>campaign_id</td>
+<td>is_relevant_only_for_campaign_service</td>
+<td>When campaign_id is given and service is not &ldquo;campaigns&rdquo;</td>
+</tr>
+<tr>
+<td>channels</td>
+<td>types_must_be_unique</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h3 id="channelpayload-model"><a name="messaging-channel-payload-model"></a> ChannelPayload model</h3>
 
 <blockquote>
 <p>ChannelPayload example:</p>
@@ -6870,6 +7076,32 @@ be fetched from MPC member&rsquo;s data (for example, for <code class="prettypri
 <li><code class="prettyprint">reference</code> - template definition will be copied from template identified by <code class="prettyprint">id</code> </li>
 </ul>
 
+<h4 id="validation-errors-specific-to-the-payload">Validation errors specific to the payload</h4>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Error key</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>template.id</td>
+<td>template_does_not_exist</td>
+</tr>
+<tr>
+<td>template.id</td>
+<td>template_does_not_match_channel</td>
+</tr>
+<tr>
+<td>template.definition.type</td>
+<td>template_does_not_match_channel</td>
+</tr>
+<tr>
+<td>template.definition.wrapper_id</td>
+<td>template_does_not_match_channel</td>
+</tr>
+</tbody></table>
+
 <h3 id="templatepayload-model"><a name="messaging-template-payload-model"></a> TemplatePayload model</h3>
 
 <blockquote>
@@ -6902,6 +7134,24 @@ be fetched from MPC member&rsquo;s data (for example, for <code class="prettypri
 <td>wrapper_id</td>
 <td>integer</td>
 <td>ID of <a href="#messaging-template-wrapping">wrapping template</a></td>
+</tr>
+</tbody></table>
+
+<h4 id="validation-errors-specific-to-the-payload">Validation errors specific to the payload</h4>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Error key</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>wrapper_id</td>
+<td>template_does_not_exist</td>
+</tr>
+<tr>
+<td>wrapper_id</td>
+<td>wrapper_type_does_not_match</td>
 </tr>
 </tbody></table>
 
@@ -6983,6 +7233,20 @@ be fetched from MPC member&rsquo;s data (for example, for <code class="prettypri
 <p><code class="prettyprint">schedule</code> is optional - when not provided, sending will not be scheduled (will have <code class="prettyprint">draft</code> status).</p>
 
 <div class="clear"></div>
+
+<h4 id="validation-errors-specific-to-the-payload">Validation errors specific to the payload</h4>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Error key</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>(base)</td>
+<td>sending_must_have_audience_or_recipients</td>
+</tr>
+</tbody></table>
 
 <h4 id="sendingschedulepayload-model"><a name="messaging-sending-schedule-payload-model"></a> SendingSchedulePayload model</h4>
 
@@ -7095,6 +7359,20 @@ regex:
 <td>conditions</td>
 <td>Object[]</td>
 <td>For <code class="prettyprint">inline</code> type - See <a href="https://dmp.boostcom.no/docs/#conditions">DMP docs</a></td>
+</tr>
+</tbody></table>
+
+<h4 id="validation-errors-specific-to-the-payload">Validation errors specific to the payload</h4>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Error key</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>referenced_audience_must_exist</td>
 </tr>
 </tbody></table>
 
@@ -7289,53 +7567,7 @@ Requires <code>Messages:Api:Messages:Get</code> permit
 </thead><tbody>
 <tr>
 <td>message</td>
-<td><a href="#messaging-message-creation-payload">Message creation payload</a></td>
-</tr>
-</tbody></table>
-
-<h5 id="message-creation-payload"><a name="messaging-message-creation-payload"></a> Message creation payload</h5>
-
-<table><thead>
-<tr>
-<th>Key</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>name</td>
-<td><a href="#messaging-message-model">Message#name</a></td>
-<td></td>
-</tr>
-<tr>
-<td>shorten_urls</td>
-<td><a href="#messaging-message-model">Message#shorten_urls</a></td>
-<td></td>
-</tr>
-<tr>
-<td>track_in_shortener</td>
-<td><a href="#messaging-message-model">Message#track_in_shortener</a></td>
-<td></td>
-</tr>
-<tr>
-<td>service</td>
-<td><a href="#messaging-message-model">Message#service</a></td>
-<td></td>
-</tr>
-<tr>
-<td>campaign_id</td>
-<td><a href="#messaging-message-model">Message#campaign_id</a></td>
-<td></td>
-</tr>
-<tr>
-<td><strong>channels</strong></td>
-<td><a href="#messaging-channel-payload-model">ChannelPayload[]</a></td>
-<td></td>
-</tr>
-<tr>
-<td>sending</td>
-<td><a href="#messaging-sending-payload-model">SendingPayload</a></td>
-<td></td>
+<td><a href="#messaging-message-payload-model">MessagePayload</a></td>
 </tr>
 </tbody></table>
 
@@ -7401,7 +7633,19 @@ Requires <code>Messages:Api:Messages:Create</code> permit
         "track_in_shortener": false,
         "campaign_id": 15,
         "service": "campaigns"
-      }
+      },
+      "channels": [
+        {
+          "type": "email",
+          "template": {
+            "type": "inline",
+            "definition": {
+              "type": "plain",
+              "content": { "body": "Hi {{first_name}}", "subject": "foo" }
+            }
+          }
+        }
+      ]
     }
   '</span>
 </code></pre>
@@ -7414,7 +7658,7 @@ Requires <code>Messages:Api:Messages:Create</code> permit
 </span></code></pre>
 <p><strong>PUT</strong> <code class="prettyprint">v1/messages/:id</code></p>
 
-<p>Updates Message&rsquo;s attributes.  </p>
+<p>Updates Message&rsquo;s attributes and its Channels.</p>
 
 <p>The update is partial - only attributes present in the payload are updated. 
 If attribute removal is intended, it should be provided with <code class="prettyprint">null</code> value.</p>
@@ -7445,45 +7689,12 @@ If attribute removal is intended, it should be provided with <code class="pretty
 </thead><tbody>
 <tr>
 <td>message</td>
-<td><a href="#messaging-message-update-payload">Message update payload</a></td>
+<td><a href="#messaging-message-payload-model">MessagePayload</a></td>
 </tr>
 </tbody></table>
 
-<h5 id="message-update-payload"><a name="messaging-message-update-payload"></a> Message update payload</h5>
-
-<table><thead>
-<tr>
-<th>Key</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>name</td>
-<td><a href="#messaging-message-model">Message#name</a></td>
-<td></td>
-</tr>
-<tr>
-<td>shorten_urls</td>
-<td><a href="#messaging-message-model">Message#shorten_urls</a></td>
-<td></td>
-</tr>
-<tr>
-<td>track_in_shortener</td>
-<td><a href="#messaging-message-model">Message#track_in_shortener</a></td>
-<td></td>
-</tr>
-<tr>
-<td>service</td>
-<td><a href="#messaging-message-model">Message#service</a></td>
-<td></td>
-</tr>
-<tr>
-<td>campaign_id</td>
-<td><a href="#messaging-message-model">Message#campaign_id</a></td>
-<td></td>
-</tr>
-</tbody></table>
+<p>Note that <a href="#messaging-message-payload-model">MessagePayload</a>&lsquo;s <code class="prettyprint">sending</code> attribute is not available, as it&rsquo;s not 
+possible to change any Sending during Message update.  </p>
 
 <h4 id="response-json-object">Response (JSON object)</h4>
 

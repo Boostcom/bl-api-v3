@@ -189,53 +189,7 @@ Requires <code>Messages:Api:Messages:Get</code> permit
 </thead><tbody>
 <tr>
 <td>message</td>
-<td><a href="#messaging-message-creation-payload">Message creation payload</a></td>
-</tr>
-</tbody></table>
-
-<h5 id="message-creation-payload"><a name="messaging-message-creation-payload"></a> Message creation payload</h5>
-
-<table><thead>
-<tr>
-<th>Key</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>name</td>
-<td><a href="#messaging-message-model">Message#name</a></td>
-<td></td>
-</tr>
-<tr>
-<td>shorten_urls</td>
-<td><a href="#messaging-message-model">Message#shorten_urls</a></td>
-<td></td>
-</tr>
-<tr>
-<td>track_in_shortener</td>
-<td><a href="#messaging-message-model">Message#track_in_shortener</a></td>
-<td></td>
-</tr>
-<tr>
-<td>service</td>
-<td><a href="#messaging-message-model">Message#service</a></td>
-<td></td>
-</tr>
-<tr>
-<td>campaign_id</td>
-<td><a href="#messaging-message-model">Message#campaign_id</a></td>
-<td></td>
-</tr>
-<tr>
-<td><strong>channels</strong></td>
-<td><a href="#messaging-channel-payload-model">ChannelPayload[]</a></td>
-<td></td>
-</tr>
-<tr>
-<td>sending</td>
-<td><a href="#messaging-sending-payload-model">SendingPayload</a></td>
-<td></td>
+<td><a href="#messaging-message-payload-model">MessagePayload</a></td>
 </tr>
 </tbody></table>
 
@@ -301,7 +255,19 @@ Requires <code>Messages:Api:Messages:Create</code> permit
         "track_in_shortener": false,
         "campaign_id": 15,
         "service": "campaigns"
-      }
+      },
+      "channels": [
+        {
+          "type": "email",
+          "template": {
+            "type": "inline",
+            "definition": {
+              "type": "plain",
+              "content": { "body": "Hi {{first_name}}", "subject": "foo" }
+            }
+          }
+        }
+      ]
     }
   '</span>
 </code></pre>
@@ -314,7 +280,7 @@ Requires <code>Messages:Api:Messages:Create</code> permit
 </span></code></pre>
 <p><strong>PUT</strong> <code class="prettyprint">v1/messages/:id</code></p>
 
-<p>Updates Message&rsquo;s attributes.  </p>
+<p>Updates Message&rsquo;s attributes and its Channels.</p>
 
 <p>The update is partial - only attributes present in the payload are updated. 
 If attribute removal is intended, it should be provided with <code class="prettyprint">null</code> value.</p>
@@ -345,45 +311,12 @@ If attribute removal is intended, it should be provided with <code class="pretty
 </thead><tbody>
 <tr>
 <td>message</td>
-<td><a href="#messaging-message-update-payload">Message update payload</a></td>
+<td><a href="#messaging-message-payload-model">MessagePayload</a></td>
 </tr>
 </tbody></table>
 
-<h5 id="message-update-payload"><a name="messaging-message-update-payload"></a> Message update payload</h5>
-
-<table><thead>
-<tr>
-<th>Key</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>name</td>
-<td><a href="#messaging-message-model">Message#name</a></td>
-<td></td>
-</tr>
-<tr>
-<td>shorten_urls</td>
-<td><a href="#messaging-message-model">Message#shorten_urls</a></td>
-<td></td>
-</tr>
-<tr>
-<td>track_in_shortener</td>
-<td><a href="#messaging-message-model">Message#track_in_shortener</a></td>
-<td></td>
-</tr>
-<tr>
-<td>service</td>
-<td><a href="#messaging-message-model">Message#service</a></td>
-<td></td>
-</tr>
-<tr>
-<td>campaign_id</td>
-<td><a href="#messaging-message-model">Message#campaign_id</a></td>
-<td></td>
-</tr>
-</tbody></table>
+<p>Note that <a href="#messaging-message-payload-model">MessagePayload</a>&lsquo;s <code class="prettyprint">sending</code> attribute is not available, as it&rsquo;s not 
+possible to change any Sending during Message update.  </p>
 
 <h4 id="response-json-object">Response (JSON object)</h4>
 
