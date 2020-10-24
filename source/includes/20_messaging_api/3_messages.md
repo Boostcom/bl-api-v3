@@ -196,7 +196,19 @@ curl -X PUT \
         "track_in_shortener": false,
         "campaign_id": 15,
         "service": "campaigns"
-      }
+      },
+      "channels": [
+        {
+          "type": "email",
+          "template": {
+            "type": "inline",
+            "definition": {
+              "type": "plain",
+              "content": { "body": "Hi {{first_name}}", "subject": "foo" }
+            }
+          }
+        }
+      ]
     }
   '
 ```
@@ -211,7 +223,7 @@ curl -X PUT \
 
 **PUT** `v1/messages/:id`
 
-Updates Message's attributes.  
+Updates Message's attributes and its Channels.
 
 The update is partial - only attributes present in the payload are updated. 
 If attribute removal is intended, it should be provided with `null` value.
@@ -237,6 +249,7 @@ shorten_urls | [Message#shorten_urls](#messaging-message-model)
 track_in_shortener | [Message#track_in_shortener](#messaging-message-model)  
 service     | [Message#service](#messaging-message-model)
 campaign_id | [Message#campaign_id](#messaging-message-model)
+channels | [ChannelPayload[]](#messaging-channel-payload-model)
 
 #### Response (JSON object)
 
