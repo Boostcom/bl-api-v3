@@ -1,3 +1,45 @@
+### <a name="messaging-message-payload-model"></a> MessagePayload model
+
+> MessagePayload example - it creates an SMS message which will be sent at given time to members of given audience:
+
+```json
+{
+  "name": "My message", "shorten_urls": true, "track_in_shortener": true, "campaign_id" : 32,
+  "channels": [
+    {
+      "type": "sms",
+      "sender": { "type": "alphanumeric", "value": "Infinity" },
+      "template": {
+        "type": "inline",
+        "data": { "type": "plain", "content": { "body": "Hi {{name}}" } }
+      }
+    }
+  ],
+  "sending": {
+    "schedule": { "type": "absolute", "at": "2020-10-18T10:59:32.340Z" },
+    "audience": { "type": "reference", "id" : 15 } 
+  }
+}
+```
+
+Key | Type | Description
+--------- | -------- | ---------
+**name** | string | 
+shorten_urls | boolean | Should sendings for this message have URLs shortened? Default: `true`  
+shorten_urls | boolean | Should MPC's Shortener track users? Default: `false`  
+campaign_id | integer | MPC's Campaign ID
+service     | string | [Service](#messaging-message-service) the Message is related to 
+**channels** | [ChannelPayload](#messaging-channel-payload-model)[] | Channels the message should be sent with.
+sending | [SendingPayload](#messaging-sending-payload-model) | Sending to schedule for the message, available only on creation
+<br />
+
+#### Validation errors specific to the payload
+
+Attribute   | Error key                             | Description
+---         | ---                                   | ---                                                         
+campaign_id | is_relevant_only_for_campaign_service | When campaign_id is given and service is not "campaigns"
+channels    | types_must_be_unique                  | 
+
 ### <a name="messaging-channel-payload-model"></a> ChannelPayload model
 
 > ChannelPayload example:
@@ -26,6 +68,15 @@ There are two ways to provide template:
 * `inline` - you will need provide new template `definition` 
 * `reference` - template definition will be copied from template identified by `id` 
 
+#### Validation errors specific to the payload
+
+Attribute                      | Error key                      
+---                            | ---                                                                                     
+template.id                    | template_does_not_exist        
+template.id                    | template_does_not_match_channel
+template.definition.type       | template_does_not_match_channel
+template.definition.wrapper_id | template_does_not_match_channel
+
 ### <a name="messaging-template-payload-model"></a> TemplatePayload model
 
 > Template example:
@@ -43,6 +94,13 @@ Key | Type | Description
 **type** | enum: `['plain', 'email', 'bee_email', 'push']` |  
 **content** | Object | Depends on type. See: [Template model](#messaging-template-model)
 wrapper_id | integer | ID of [wrapping template](#messaging-template-wrapping)
+
+#### Validation errors specific to the payload
+
+Attribute    | Error key                      
+---          | ---                                                                                     
+wrapper_id   | template_does_not_exist        
+wrapper_id   | wrapper_type_does_not_match
 
 ### <a name="messaging-sending-payload-model"></a> SendingPayload model
 
@@ -96,6 +154,12 @@ Both methods can be used at the same time.
 `schedule` is optional - when not provided, sending will not be scheduled (will have `draft` status).
 
 <div class="clear"></div>
+
+#### Validation errors specific to the payload
+
+Attribute                                | Error key                      
+---                                      | ---                                                                                     
+(base)                                   | sending_must_have_audience_or_recipients         
 
 #### <a name="messaging-sending-schedule-payload-model"></a> SendingSchedulePayload model
 
@@ -176,3 +240,9 @@ Key | Type | Description
 **type** | enum: `['reference', 'inline']` |
 id | integer | For `reference` type - ID of audience the sending should be sent to
 conditions | Object[] | For `inline` type - See [DMP docs](https://dmp.boostcom.no/docs/#conditions)
+
+#### Validation errors specific to the payload
+
+Attribute    | Error key                      
+---          | ---                                                                                     
+id           | referenced_audience_must_exist        

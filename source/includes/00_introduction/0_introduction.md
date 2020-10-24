@@ -206,14 +206,14 @@ error | String | Always "Invalid parameters"
 details | Errors object | See [Errors](#errors-object) below
 details.(path.0.to.)parameter_name | Array<ParameterError> | See [ParameterError](#parameter-error-object) below
 
-### <a name="errors-object"></a> Errors object
+#### <a name="errors-object"></a> Errors object
 
 It's a recursive tree structure, corresponding to the structure original payload.
 Objects being parts of arrays are represented by their array indexes.
 
 Each leaf node is an array of [ParameterError](#parameter-error-object) objects for given parameter.
 
-### <a name="parameter-error-object""></a> ParameterError object
+#### <a name="parameter-error-object""></a> ParameterError object
 
 key | Type | Description
 --- | ---- | -----------
@@ -221,3 +221,29 @@ value | Mixed | Value of given parameter
 error | String | Symbol of error that relates to this parameter
 options | Object| Contains options of specific validation rule. For example `{"max": 15}`.
 message | String | Human-readable error message
+
+#### <a name="common-validation-errors"></a> Common validation errors
+
+Error key                        | Options                            | Description
+---                              | ---                                | ---                                                         
+presence                         |                                    | When not present 
+inclusion                        | `in` - contains permitted values   | When doesn't match list of permitted values
+must_be_an_object                |                                    | 
+must_be_an_array                 |                                    |
+must_be_an_array_of_objects      |                                    |
+must_have_elements_of_type       |  `type` - required type            |
+not_an_integer                   |                                    |
+invalid_msisdn                   |                                    | When cannot be processed as a valid [MSISDN](#msisdn-param)
+invalid_email                    |                                    |     
+invalid_iso_8601_time            |                                    | When not valid according to [ISO 8601](#https://en.wikipedia.org/wiki/ISO_8601)
+attribute_cannot_be_present_with | `with` - other attribute name      | Mutually exclusive with another attribute
+size_too_small                   | `number` - min size                | When array has not enough elements
+size_too_large                   | `number` - max size                | When array has too many elements
+size_not_match                   | `number` - exact size              | When array has not exactly required number of elements
+taken                            |                                    | When another record already uses this value
+not_a_number                     |                                    |    
+greater_than                     | `number` - min value               | When not > `number`
+greater_or_equal_to              | `number` - min value               | When not >= `number`
+less_than                        | `number` - max value               | When not < `number`
+less_or_equal_to                 | `number` - max value               | When not <= `number`
+invalid                          | `format` - regex                   | When does not match regex

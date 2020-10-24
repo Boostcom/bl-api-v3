@@ -140,23 +140,11 @@ curl -X POST \
 
 Creates a new Message with Channel(s) and Template(s) and optionally schedules Sending for it.  
 
-####  POST Parameters (JSON)
+#### POST Parameters (JSON)
 
-Key | Type
---------- | -------- 
-message | [Message creation payload](#messaging-message-creation-payload)
-
-##### <a name="messaging-message-creation-payload"></a> Message creation payload
-
-Key | Type | Description
---------- | -------- | ---------
-name | [Message#name](#messaging-message-model)
-shorten_urls | [Message#shorten_urls](#messaging-message-model)
-track_in_shortener | [Message#track_in_shortener](#messaging-message-model)  
-service     | [Message#service](#messaging-message-model)
-campaign_id | [Message#campaign_id](#messaging-message-model)
-**channels** | [ChannelPayload[]](#messaging-channel-payload-model)
-sending | [SendingPayload](#messaging-sending-payload-model)
+Key | Type 
+----- | ---- 
+message | [MessagePayload](#messaging-message-payload-model) 
 
 #### Response (JSON object)
 
@@ -236,20 +224,12 @@ id | integer                                   | Message ID
 
 #### POST Parameters (JSON)
 
-Key | Type
---------- | -------- 
-message | [Message update payload](#messaging-message-update-payload)
-
-##### <a name="messaging-message-update-payload"></a> Message update payload
-
-Key | Type | Description
---------- | -------- | ---------
-name | [Message#name](#messaging-message-model)
-shorten_urls | [Message#shorten_urls](#messaging-message-model)
-track_in_shortener | [Message#track_in_shortener](#messaging-message-model)  
-service     | [Message#service](#messaging-message-model)
-campaign_id | [Message#campaign_id](#messaging-message-model)
-channels | [ChannelPayload[]](#messaging-channel-payload-model)
+Key | Type 
+----- | ---- 
+message | [MessagePayload](#messaging-message-payload-model)
+ 
+Note that [MessagePayload](#messaging-message-payload-model)'s `sending` attribute is not available, as it's not 
+possible to change any Sending during Message update.  
 
 #### Response (JSON object)
 
