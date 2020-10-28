@@ -550,7 +550,6 @@ Status | Description
 `422` | [validation errors](#validation-on-members) JSON object.
 `465` | `registration_password` or `password` param is missing
 `466` | `registration_password` param is invalid
-`467` | `{"error": "Member is banned!", "banned_since": "2020-10-28T17:24:06.207Z"}` | -
 
 <aside class="notice">
 Requires <code>BL:Api:Members:Create</code> or <code>BL:Api:Members:CreateWithVerification</code>permit
