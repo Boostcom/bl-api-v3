@@ -44,6 +44,7 @@ OAuth2 flow for this.</p>
   </span><span class="s2">"optin_subchannel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"campaign-10-2017"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-19T10:07:08.336+01:00"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-04-03T09:35:19.313+02:00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"banned_since"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2137-04-03T09:35:19.313+02:00"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"person_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">99</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -109,6 +110,11 @@ OAuth2 flow for this.</p>
 <tr>
 <td>updated_at</td>
 <td>Time when the user was last updated</td>
+<td>string</td>
+</tr>
+<tr>
+<td>banned_since</td>
+<td>Time since member was/is banned (not updatable through OAuth)</td>
 <td>string</td>
 </tr>
 <tr>
@@ -981,6 +987,10 @@ valid <code class="prettyprint">registration_password</code> param that is sent 
 <tr>
 <td><code class="prettyprint">466</code></td>
 <td><code class="prettyprint">registration_password</code> param is invalid</td>
+</tr>
+<tr>
+<td><code class="prettyprint">467</code></td>
+<td><code class="prettyprint">{&quot;error&quot;: &quot;Member is banned!&quot;, &quot;banned_since&quot;: &quot;2020-10-28T17:24:06.207Z&quot;}</code></td>
 </tr>
 </tbody></table>
 

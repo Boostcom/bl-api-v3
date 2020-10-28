@@ -688,6 +688,11 @@ Objects being parts of arrays are represented by their array indexes.</p>
 <td><code class="prettyprint">format</code> - regex</td>
 <td>When does not match regex</td>
 </tr>
+<tr>
+<td>liquid_syntax_error</td>
+<td><code class="prettyprint">syntax_error</code> - error description</td>
+<td>When not valid <a href="https://shopify.github.io/liquid/">liquid</a> syntax</td>
+</tr>
 </tbody></table>
 
           <h1 id="loyalty-clubs-api">Loyalty Clubs API</h1>
@@ -1844,6 +1849,7 @@ OAuth2 flow for this.</p>
   </span><span class="s2">"optin_subchannel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"campaign-10-2017"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-19T10:07:08.336+01:00"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-04-03T09:35:19.313+02:00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"banned_since"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2137-04-03T09:35:19.313+02:00"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"person_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">99</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -1909,6 +1915,11 @@ OAuth2 flow for this.</p>
 <tr>
 <td>updated_at</td>
 <td>Time when the user was last updated</td>
+<td>string</td>
+</tr>
+<tr>
+<td>banned_since</td>
+<td>Time since member was/is banned (not updatable through OAuth)</td>
 <td>string</td>
 </tr>
 <tr>
@@ -2781,6 +2792,10 @@ valid <code class="prettyprint">registration_password</code> param that is sent 
 <tr>
 <td><code class="prettyprint">466</code></td>
 <td><code class="prettyprint">registration_password</code> param is invalid</td>
+</tr>
+<tr>
+<td><code class="prettyprint">467</code></td>
+<td><code class="prettyprint">{&quot;error&quot;: &quot;Member is banned!&quot;, &quot;banned_since&quot;: &quot;2020-10-28T17:24:06.207Z&quot;}</code></td>
 </tr>
 </tbody></table>
 
@@ -6619,14 +6634,31 @@ By default, a value from Loyalty Club configuration is used.</p>
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">609193</span><span class="p">,</span><span class="w">
   </span><span class="s2">"wrapper_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"plain"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hei {{name}}"</span><span class="w"> </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"subject"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Important message for {{name}}"</span><span class="p">,</span><span class="w"> </span><span class="s2">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hei {{name}}"</span><span class="w"> </span><span class="p">},</span><span class="w">
   </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-15T12:45:08.618Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-15T12:45:08.618Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This type of template can be assigned to any type.</p>
 
-<p>Content of such template consists of single (required) property - <code class="prettyprint">body</code>.</p>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>content.body</strong></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>content.subject</td>
+<td>string</td>
+<td>Used only in Channels that support it - <code class="prettyprint">email</code> and <code class="prettyprint">push</code>.</td>
+</tr>
+</tbody></table>
 
 <div class="clear"></div>
 
@@ -6744,10 +6776,93 @@ By default, a value from Loyalty Club configuration is used.</p>
 
 <p><code class="prettyprint">@todo</code></p>
 
-<h4 id="template-generating"><a name="messaging-template-generating"></a> Template generating</h4>
+<h4 id="templating-system"><a name="messaging-template-templating-system"></a> Templating system</h4>
 
-<p><code class="prettyprint">@todo</code></p>
+<p>We use <a href="https://shopify.github.io/liquid">Liquid</a> template language for generating dynamic Message content.</p>
 
+<p>NOTE: Currently, because of technical reasons, in e-mail messages very limited set of Liquid features is supported - 
+it&rsquo;s demonstrated in examples of this section. However, in pushes and SMSes, full set of features is available.</p>
+
+<p>The set of available merge-tags in Message depends on recipient type the Message is being sent to.</p>
+
+<blockquote>
+<p>Example: Having this as a body of SMS sent to MPC members  </p>
+</blockquote>
+<pre class="highlight plaintext"><code>{% if dmp.bonus_points %}
+    Your points balance is {{ member.bonus_points }}! :)
+{% else %}
+    You have no points :(
+{% endif %}
+</code></pre>
+<blockquote>
+<p>A following text will be received by member that has some points:</p>
+</blockquote>
+<pre class="highlight plaintext"><code>Your points balance is 540 :)
+</code></pre>
+<blockquote>
+<p>A the following text will be received by member that has no points:</p>
+</blockquote>
+<pre class="highlight plaintext"><code>You have no points :(
+</code></pre>
+<p>For MPC members (fetched from <a href="#messaging-sending-audience-payload-model">audience</a> or provided as <a href="#messaging-mpc-recipient-model">MPC members recipients</a>),
+their MPC data may be used as merge-fields:</p>
+
+<table><thead>
+<tr>
+<th>Merge-field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">member.id</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">member.secret_id</code></td>
+<td>Special member&rsquo;s ID of used to authorize member in some MPC services</td>
+</tr>
+<tr>
+<td><code class="prettyprint">member.msisdn</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">member.email</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">member.app_token</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">member.*</code></td>
+<td>Member property (e.g. <code class="prettyprint">member.first_name</code>) - the set depends on LC configuration</td>
+</tr>
+<tr>
+<td><code class="prettyprint">dmp.*</code></td>
+<td>DMP value for member (e.g. <code class="prettyprint">dmp.bonus_points</code>) - available for audience members only, <br />the set depends on LC configuration</td>
+</tr>
+</tbody></table>
+
+<div class="clearfix"></div>
+
+<p>For <a href="#messaging-arbitrary-recipient-model">arbitrary recipients</a>, only their identifiers and arbitrary data provided 
+within <code class="prettyprint">properties</code>  may be used - see example.</p>
+
+<blockquote>
+<p>Having arbitrary recipients provided as follows: </p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w"> </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"piotr@example.com"</span><span class="p">,</span><span class="w"> </span><span class="s2">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Piotr"</span><span class="p">,</span><span class="w"> </span><span class="s2">"extras"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"points"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">}</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w"> </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ola@example.com"</span><span class="p">,</span><span class="w"> </span><span class="s2">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ola"</span><span class="p">,</span><span class="w"> </span><span class="s2">"extras"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"points"</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>A Template&rsquo;s content may be defined this way:</p>
+</blockquote>
+<pre class="highlight plaintext"><code>Hello {{ first_name }}.
+Your email is {{ email }}.
+Your points balance is {{ extras.points }}.
+</code></pre>
 <h3 id="sending-model"><a name="messaging-sending-model"></a> Sending model</h3>
 
 <blockquote>
@@ -6869,7 +6984,7 @@ It must be created again, for example with <a href="#todo">Clone sending endpoin
 <h3 id="recipient-model"><a name="messaging-recipient-model"></a> Recipient model</h3>
 
 <blockquote>
-<p>Sending example:</p>
+<p>Recipient example:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"member_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">150</span><span class="p">,</span><span class="w">
@@ -6909,21 +7024,21 @@ It must be created again, for example with <a href="#todo">Clone sending endpoin
 <tr>
 <td>properties</td>
 <td>Object</td>
-<td>Arbitrary keys that can be used as merge-fields in the message template</td>
+<td>Arbitrary keys that can be used as <a href="#messaging-templating-system">merge-fields</a> in the message template</td>
 </tr>
 </tbody></table>
 
 <p><br />
 Recipient may be an MPC member (identified by <code class="prettyprint">member_id</code>) or an arbitrary sending receivers - <code class="prettyprint">msisdn</code>, <code class="prettyprint">email</code> or <code class="prettyprint">push</code>.  </p>
 
-<h4 id="mpc-member-recipient">MPC member recipient</h4>
+<h4 id="mpc-member-recipient"><a name="messaging-mpc-recipient-model"></a> MPC member recipient</h4>
 
 <p>When <code class="prettyprint">member_id</code> is provided, other identifiers will be ignored and actual identifiers for sending execution will 
 be fetched from MPC member&rsquo;s data (for example, for <code class="prettyprint">sms</code> channel member&rsquo;s <code class="prettyprint">msisdn</code> will be used as a sending receiver).</p>
 
-<p>Merge-fields for template will be fetched from MPC - extended by provided <code class="prettyprint">properties</code>.</p>
+<p>Merge-fields for template will be fetched from MPC Members - but may be extended/replaced with provided <code class="prettyprint">properties</code>.</p>
 
-<h4 id="arbitrary-identifier-recipient">Arbitrary identifier recipient</h4>
+<h4 id="arbitrary-identifier-recipient"><a name="messaging-arbtrary-recipient-model"></a> Arbitrary identifier recipient</h4>
 
 <p>Without <code class="prettyprint">member_id</code>, at least one identifier relevant to message&rsquo;s channels definition is required.</p>
 
@@ -11232,6 +11347,10 @@ Levels are returned in ascending order, sorted by the <code class="prettyprint">
 <th>Response body</th>
 </tr>
 </thead><tbody>
+<tr>
+<td><code class="prettyprint">467</code></td>
+<td><code class="prettyprint">{&quot;error&quot;: &quot;Member is banned!&quot;, &quot;banned_since&quot;: &quot;2020-10-28T17:24:06.207Z&quot;}</code></td>
+</tr>
 <tr>
 <td><code class="prettyprint">480</code></td>
 <td><code class="prettyprint">{&quot;error&quot;: &quot;Member is not participating in Rewards Program&quot;}</code></td>

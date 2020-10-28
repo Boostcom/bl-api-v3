@@ -162,6 +162,10 @@ Levels are returned in ascending order, sorted by the <code class="prettyprint">
 </tr>
 </thead><tbody>
 <tr>
+<td><code class="prettyprint">467</code></td>
+<td><code class="prettyprint">{&quot;error&quot;: &quot;Member is banned!&quot;, &quot;banned_since&quot;: &quot;2020-10-28T17:24:06.207Z&quot;}</code></td>
+</tr>
+<tr>
 <td><code class="prettyprint">480</code></td>
 <td><code class="prettyprint">{&quot;error&quot;: &quot;Member is not participating in Rewards Program&quot;}</code></td>
 </tr>

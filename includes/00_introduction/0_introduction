@@ -458,4 +458,9 @@ Objects being parts of arrays are represented by their array indexes.</p>
 <td><code class="prettyprint">format</code> - regex</td>
 <td>When does not match regex</td>
 </tr>
+<tr>
+<td>liquid_syntax_error</td>
+<td><code class="prettyprint">syntax_error</code> - error description</td>
+<td>When not valid <a href="https://shopify.github.io/liquid/">liquid</a> syntax</td>
+</tr>
 </tbody></table>
