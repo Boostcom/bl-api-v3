@@ -266,6 +266,11 @@ Requires <code>Rewards:Api:OAuth:Rewards:ListPurchased</code> permit
 <td><code class="prettyprint">{&quot;error&quot;: &quot;Global limit exceeded&quot;}</code></td>
 <td>There are no more rewards available to purchase</td>
 </tr>
+<tr>
+<td><code class="prettyprint">467</code></td>
+<td><code class="prettyprint">{&quot;error&quot;: &quot;Member is banned!&quot;, &quot;banned_since&quot;: &quot;2137-10-28T17:24:06.207Z&quot;}</code></td>
+<td>Member is banned</td>
+</tr>
 </tbody></table>
 
 <aside class="notice">
@@ -342,6 +347,11 @@ Requires <code>Rewards:Api:OAuth:Rewards:Purchase</code> permit
 <td><code class="prettyprint">422</code></td>
 <td><code class="prettyprint">{&quot;error&quot;: &quot;User limit exceeded&quot;}</code></td>
 <td>There are no more rewards available to purchase for the member</td>
+</tr>
+<tr>
+<td><code class="prettyprint">467</code></td>
+<td><code class="prettyprint">{&quot;error&quot;: &quot;Member is banned!&quot;, &quot;banned_since&quot;: &quot;2137-10-28T17:24:06.207Z&quot;}</code></td>
+<td>Member is banned</td>
 </tr>
 </tbody></table>
 

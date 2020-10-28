@@ -988,10 +988,6 @@ valid <code class="prettyprint">registration_password</code> param that is sent 
 <td><code class="prettyprint">466</code></td>
 <td><code class="prettyprint">registration_password</code> param is invalid</td>
 </tr>
-<tr>
-<td><code class="prettyprint">467</code></td>
-<td><code class="prettyprint">{&quot;error&quot;: &quot;Member is banned!&quot;, &quot;banned_since&quot;: &quot;2020-10-28T17:24:06.207Z&quot;}</code></td>
-</tr>
 </tbody></table>
 
 <aside class="notice">

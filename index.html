@@ -2793,10 +2793,6 @@ valid <code class="prettyprint">registration_password</code> param that is sent 
 <td><code class="prettyprint">466</code></td>
 <td><code class="prettyprint">registration_password</code> param is invalid</td>
 </tr>
-<tr>
-<td><code class="prettyprint">467</code></td>
-<td><code class="prettyprint">{&quot;error&quot;: &quot;Member is banned!&quot;, &quot;banned_since&quot;: &quot;2020-10-28T17:24:06.207Z&quot;}</code></td>
-</tr>
 </tbody></table>
 
 <aside class="notice">
@@ -9348,6 +9344,11 @@ tied to it may not be granted to the member.</p>
 <td><code class="prettyprint">{&quot;error&quot;: &quot;Not in usable timeframes&quot;}</code></td>
 <td>Offer is not usable yet or anymore</td>
 </tr>
+<tr>
+<td><code class="prettyprint">467</code></td>
+<td><code class="prettyprint">{&quot;error&quot;: &quot;Member is banned!&quot;, &quot;banned_since&quot;: &quot;2137-10-28T17:24:06.207Z&quot;}</code></td>
+<td>Member is banned</td>
+</tr>
 </tbody></table>
 
 <h3 id="like-offer"><a name="like-offer"></a> Like offer</h3>
@@ -9491,6 +9492,11 @@ Requires <code>Offers:Api:MemberOffers:GrantByMemberId</code> permit
 <td><code class="prettyprint">422</code></td>
 <td><code class="prettyprint">{&quot;error&quot;: &quot;Member not in audience&quot;}</code></td>
 <td>The offer has been specify to only be available to members in specific audience and the member does not belong to it</td>
+</tr>
+<tr>
+<td><code class="prettyprint">467</code></td>
+<td><code class="prettyprint">{&quot;error&quot;: &quot;Member is banned!&quot;, &quot;banned_since&quot;: &quot;2137-10-28T17:24:06.207Z&quot;}</code></td>
+<td>Member is banned</td>
 </tr>
 </tbody></table>
 
@@ -12184,6 +12190,11 @@ Requires <code>Rewards:Api:OAuth:Rewards:ListPurchased</code> permit
 <td><code class="prettyprint">{&quot;error&quot;: &quot;Global limit exceeded&quot;}</code></td>
 <td>There are no more rewards available to purchase</td>
 </tr>
+<tr>
+<td><code class="prettyprint">467</code></td>
+<td><code class="prettyprint">{&quot;error&quot;: &quot;Member is banned!&quot;, &quot;banned_since&quot;: &quot;2137-10-28T17:24:06.207Z&quot;}</code></td>
+<td>Member is banned</td>
+</tr>
 </tbody></table>
 
 <aside class="notice">
@@ -12260,6 +12271,11 @@ Requires <code>Rewards:Api:OAuth:Rewards:Purchase</code> permit
 <td><code class="prettyprint">422</code></td>
 <td><code class="prettyprint">{&quot;error&quot;: &quot;User limit exceeded&quot;}</code></td>
 <td>There are no more rewards available to purchase for the member</td>
+</tr>
+<tr>
+<td><code class="prettyprint">467</code></td>
+<td><code class="prettyprint">{&quot;error&quot;: &quot;Member is banned!&quot;, &quot;banned_since&quot;: &quot;2137-10-28T17:24:06.207Z&quot;}</code></td>
+<td>Member is banned</td>
 </tr>
 </tbody></table>
 
