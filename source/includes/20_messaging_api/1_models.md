@@ -198,7 +198,7 @@ wrapper_id | integer | ID of [wrapping template](#messaging-template-wrapping)
   "id": 609193,
   "wrapper_id": null,
   "type": "plain",
-  "content": { "body": "Hei {{name}}" },
+  "content": { "subject": "Important message for {{name}}", "body": "Hei {{name}}" },
   "created_at": "2020-09-15T12:45:08.618Z",
   "updated_at": "2020-09-15T12:45:08.618Z"
 }
@@ -206,7 +206,10 @@ wrapper_id | integer | ID of [wrapping template](#messaging-template-wrapping)
 
 This type of template can be assigned to any type.
 
-Content of such template consists of single (required) property - `body`.
+Key | Type | Description
+--------- | --------- | ----------
+**content.body** | string |
+content.subject | string | Used only in Channels that support it - `email` and `push`.
 
 <div class="clear"></div>
 
@@ -288,9 +291,71 @@ content.uri | URL
 
 `@todo`
 
-#### <a name="messaging-template-generating"></a> Template generating
+#### <a name="messaging-template-templating-system"></a> Templating system
 
-`@todo`
+We use [Liquid](https://shopify.github.io/liquid) template language for generating dynamic Message content.
+
+NOTE: Currently, because of technical reasons, in e-mail messages very limited set of Liquid features is supported - 
+it's demonstrated in examples of this section. However, in pushes and SMSes, full set of features is available.
+
+The set of available merge-tags in Message depends on recipient type the Message is being sent to.
+
+> Example: Having this as a body of SMS sent to MPC members  
+
+```text
+{% if dmp.bonus_points %}
+    Your points balance is {{ member.bonus_points }}! :)
+{% else %}
+    You have no points :(
+{% endif %}
+```    
+
+> A following text will be received by member that has some points:
+
+```text
+Your points balance is 540 :)
+```
+
+> A the following text will be received by member that has no points:
+
+```text
+You have no points :(
+```
+
+For MPC members (fetched from [audience](#messaging-sending-audience-payload-model) or provided as [MPC members recipients](#messaging-mpc-recipient-model)),
+their MPC data may be used as merge-fields:
+
+Merge-field  | Description 
+---------- | ------- 
+`member.id` |  
+`member.secret_id`  | Special member's ID of used to authorize member in some MPC services 
+`member.msisdn`  | 
+`member.email` | 
+`member.app_token`| 
+`member.*` | Member property (e.g. `member.first_name`) - the set depends on LC configuration
+`dmp.*` | DMP value for member (e.g. `dmp.bonus_points`) - available for audience members only, <br />the set depends on LC configuration
+
+<div class="clearfix"></div>
+
+For [arbitrary recipients](#messaging-arbitrary-recipient-model), only their identifiers and arbitrary data provided 
+within `properties`  may be used - see example.
+
+> Having arbitrary recipients provided as follows: 
+
+```json
+[
+  { "email": "piotr@example.com", "properties": { "first_name": "Piotr", "extras": { "points": 15} } },
+  { "email": "ola@example.com", "properties": { "first_name": "Ola", "extras": { "points": 42 } } }
+]
+```
+
+> A Template's content may be defined this way:
+
+```text
+Hello {{ first_name }}.
+Your email is {{ email }}.
+Your points balance is {{ extras.points }}.
+```
 
 ### <a name="messaging-sending-model"></a> Sending model
 
@@ -360,7 +425,7 @@ It must be created again, for example with [Clone sending endpoint](#todo).
 
 ### <a name="messaging-recipient-model"></a> Recipient model
 
-> Sending example:
+> Recipient example:
 
 ```json
 {
@@ -378,19 +443,19 @@ member_id | integer | ID of MPC member
 msisdn | [MSISDN](#msisdn-param) |
 email | email |
 app_token | email | 
-properties | Object | Arbitrary keys that can be used as merge-fields in the message template
+properties | Object | Arbitrary keys that can be used as [merge-fields](#messaging-templating-system) in the message template
 
 <br />
 Recipient may be an MPC member (identified by `member_id`) or an arbitrary sending receivers - `msisdn`, `email` or `push`.  
 
-#### MPC member recipient
+#### <a name="messaging-mpc-recipient-model"></a> MPC member recipient
 
 When `member_id` is provided, other identifiers will be ignored and actual identifiers for sending execution will 
 be fetched from MPC member's data (for example, for `sms` channel member's `msisdn` will be used as a sending receiver).
 
-Merge-fields for template will be fetched from MPC - extended by provided `properties`.
+Merge-fields for template will be fetched from MPC Members - but may be extended/replaced with provided `properties`.
 
-#### Arbitrary identifier recipient
+#### <a name="messaging-arbtrary-recipient-model"></a> Arbitrary identifier recipient
 
 Without `member_id`, at least one identifier relevant to message's channels definition is required.
 
