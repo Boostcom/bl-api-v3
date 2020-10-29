@@ -907,7 +907,7 @@ tied to it may not be granted to the member.</p>
 </tr>
 <tr>
 <td><code class="prettyprint">467</code></td>
-<td><code class="prettyprint">{&quot;error&quot;: &quot;Member is banned!&quot;, &quot;banned_since&quot;: &quot;2137-10-28T17:24:06.207Z&quot;}</code></td>
+<td><code class="prettyprint">{&quot;error&quot;: &quot;Member is banned!&quot;, &quot;banned_until&quot;: &quot;2137-10-28T17:24:06.207Z&quot;}</code></td>
 <td>Member is banned</td>
 </tr>
 </tbody></table>
@@ -1056,7 +1056,7 @@ Requires <code>Offers:Api:MemberOffers:GrantByMemberId</code> permit
 </tr>
 <tr>
 <td><code class="prettyprint">467</code></td>
-<td><code class="prettyprint">{&quot;error&quot;: &quot;Member is banned!&quot;, &quot;banned_since&quot;: &quot;2137-10-28T17:24:06.207Z&quot;}</code></td>
+<td><code class="prettyprint">{&quot;error&quot;: &quot;Member is banned!&quot;, &quot;banned_until&quot;: &quot;2137-10-28T17:24:06.207Z&quot;}</code></td>
 <td>Member is banned</td>
 </tr>
 </tbody></table>
