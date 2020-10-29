@@ -192,7 +192,7 @@ Status | Response body | Description
 `422` | `{"error": "Not enough points"}` | Member has no enough points to purchase the reward
 `422` | `{"error": "Member level is not high enough"}` | Member level is not high enough to purchase the reward
 `422` | `{"error": "Global limit exceeded"}` | There are no more rewards available to purchase
-`467` | `{"error": "Member is banned!", "banned_since": "2137-10-28T17:24:06.207Z"}` | Member is banned
+`467` | `{"error": "Member is banned!", "banned_until": "2137-10-28T17:24:06.207Z"}` | Member is banned
 
 <aside class="notice">
 Requires <code>Rewards:Api:OAuth:Rewards:Purchase</code> permit
@@ -242,7 +242,7 @@ Status | Response body | Description
 `422` | `{"error": "Already active"}` | The reward has been just used
 `422` | `{"error": "Not granted"}` | The reward has not been purchased by member
 `422` | `{"error": "User limit exceeded"}` | There are no more rewards available to purchase for the member
-`467` | `{"error": "Member is banned!", "banned_since": "2137-10-28T17:24:06.207Z"}` | Member is banned
+`467` | `{"error": "Member is banned!", "banned_until": "2137-10-28T17:24:06.207Z"}` | Member is banned
 
 <aside class="notice">
 Requires <code>Rewards:Api:OAuth:Rewards:Use</code> permit

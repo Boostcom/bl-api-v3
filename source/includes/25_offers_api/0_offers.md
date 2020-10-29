@@ -534,7 +534,7 @@ Status | Response body | Description
 `422` | `{"error": "User limit exceeded"}` | There are no more offers available to purchase for the member
 `422` | `{"error": "Global limit exceeded"}` | There are no more offers available globally (stock is empty)
 `422` | `{"error": "Not in usable timeframes"}` | Offer is not usable yet or anymore
-`467` | `{"error": "Member is banned!", "banned_since": "2137-10-28T17:24:06.207Z"}` | Member is banned
+`467` | `{"error": "Member is banned!", "banned_until": "2137-10-28T17:24:06.207Z"}` | Member is banned
 
 ### <a name="like-offer"></a> Like offer
 
@@ -655,4 +655,4 @@ Status | Response body | Description
 `422` | `{"error": "Not grantable"}` | The offer has type not eligible for granting
 `422` | `{"error": "Global limit exceeded"}` | The offer has no more uses available 
 `422` | `{"error": "Member not in audience"}` | The offer has been specify to only be available to members in specific audience and the member does not belong to it
-`467` | `{"error": "Member is banned!", "banned_since": "2137-10-28T17:24:06.207Z"}` | Member is banned
+`467` | `{"error": "Member is banned!", "banned_until": "2137-10-28T17:24:06.207Z"}` | Member is banned

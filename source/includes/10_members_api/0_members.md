@@ -44,7 +44,7 @@ See [Members OAuth](#oauth2) to see how to authenticate the member with OAuth2.
   "optin_subchannel": "campaign-10-2017",
   "created_at": "2017-01-19T10:07:08.336+01:00",
   "updated_at": "2017-04-03T09:35:19.313+02:00",
-  "banned_since": "2137-04-03T09:35:19.313+02:00",
+  "banned_until": "2137-04-03T09:35:19.313+02:00",
   "person_id": 99
 }
 ```
@@ -64,7 +64,7 @@ optin_channel | Channel (`x-product-name` header) which had been used to registe
 optin_subchannel | Subchannel (`X-Subproduct-Name` header) which had been used to register member | string
 created_at | Time when the user was firstly created | string
 updated_at | Time when the user was last updated | string
-banned_since | Time since member was/is banned (not updatable through OAuth) | string
+banned_until | Time since member was/is banned (not updatable through OAuth) | string
 person_id | Unique Member's identifier (set internally) | string
 
 #### <a name="member-consents-model"></a> Member's consents JSON model

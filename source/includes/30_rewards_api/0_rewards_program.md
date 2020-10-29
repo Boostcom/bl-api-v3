@@ -97,7 +97,7 @@ It defines `maximum_points` value, that is meant to be compared with member's **
 
 Status | Response body
 --------- | ----------- 
-`467` | `{"error": "Member is banned!", "banned_since": "2020-10-28T17:24:06.207Z"}` | -
+`467` | `{"error": "Member is banned!", "banned_until": "2020-10-28T17:24:06.207Z"}` | -
 `480` | `{"error": "Member is not participating in Rewards Program"}` | -
 
 ##  Rewards Program
