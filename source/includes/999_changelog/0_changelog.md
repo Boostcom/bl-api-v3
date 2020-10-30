@@ -1,5 +1,8 @@
 # Changelog
 
+#### 29.10.2020 | Natalia Styrska
+* Add [Members &bull; Stores](#image-templates)(#members-stores-get)
+
 #### 09.09.2020 | Piotr Świtlicki
 * Add [Offers Admin API &bull; ImageTemplates API](#image-templates)
 * Add [Offer ImageTemplate model](#offer-image-template)

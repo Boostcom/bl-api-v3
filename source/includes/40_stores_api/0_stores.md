@@ -85,6 +85,7 @@ category      | filter by single category           | string
 zone          | filter by single zone               | string
 name          | filter by part of store name        | string
 search        | filter by all searchable fields     | string
+logo          | show store log url                  | bool
 limit         | max number of results               | integer
 sort          | field to sort by (name,id,store_id) | string
 order         | order (asc,desc)                    | string
