@@ -1,9 +1,15 @@
 <h1 id="changelog">Changelog</h1>
 
+<h4 id="30-10-2020-pawe-buczkowski">30.10.2020 | Paweł Buczkowski</h4>
+
+<ul>
+<li>Add <a href="#points-config">POS Campaigns &bull; PointsConfig</a></li>
+</ul>
+
 <h4 id="29-10-2020-natalia-styrska">29.10.2020 | Natalia Styrska</h4>
 
 <ul>
-<li>Add <a href="#image-templates">Members &bull; Stores</a>(#members-stores-get)</li>
+<li>Add <a href="#members-stores-get">Members &bull; Stores</a></li>
 </ul>
 
 <h4 id="09-09-2020-piotr-witlicki">09.09.2020 | Piotr Świtlicki</h4>

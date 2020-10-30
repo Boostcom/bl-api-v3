@@ -13880,6 +13880,305 @@ Requires <code>Transaction:Api:Points:Get</code> permit
 Requires <code>Transaction:Api:Points:List</code> permit
 </aside>
 
+          <h1 id="pos-campaign-api">POS Campaign API</h1>
+
+<h2 id="points-config">Points Config</h2>
+
+<h3 id="create"><a name="pos-campaign-points-config-create"></a> Create</h3>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
+<span class="s2">"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/pos-campaign/points"</span> <span class="se">\</span>
+    -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+    -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
+    -H <span class="s1">'x-user-agent: CURL manual test'</span>
+    -d <span class="se">\</span>
+    <span class="s1">'{
+
+         "name": "Default Campaign",
+         "bonus": {
+             "type": "amount",
+             "value": 50
+         },
+         "conditions": 
+         {
+             "condition":"Or",
+             "arg": [
+                 {
+                     "condition":"StoreId",
+                     "arg": "910"
+                 },
+                 {
+                     "condition":"ItemId",
+                     "arg" : "112"
+                 }
+             ]
+         },
+         "start":  "2019-02-02T18:48:47+08:00",
+         "end" :  "2022-02-02T18:48:47+08:00"
+     }'</span>
+</code></pre>
+<blockquote>
+<p>When successful (200), returns a feedback object structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"id"</span><span class="p">:</span><span class="mi">1</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>When payload is invalid (422), returns an object structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"error"</span><span class="p">:</span><span class="s2">"Invalid format"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"details"</span><span class="p">:</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"bonus.value"</span><span class="p">:</span><span class="s2">"String value found, but an integer is required"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>POST</strong> <code class="prettyprint">v3/:loyalty_club_slug/pos-campaign/points</code></p>
+
+<p>Create POS Campaign.</p>
+
+<h4 id="messages-post-parameters-json">Messages POST Parameters (JSON)</h4>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name*</td>
+<td>string</td>
+<td>n/a</td>
+<td></td>
+</tr>
+<tr>
+<td>bonus*</td>
+<td>Bonus</td>
+<td>n/a</td>
+<td></td>
+</tr>
+<tr>
+<td>conditions*</td>
+<td>Condition</td>
+<td>n/a</td>
+<td></td>
+</tr>
+<tr>
+<td>start*</td>
+<td>string</td>
+<td>use format with timezone</td>
+<td></td>
+</tr>
+<tr>
+<td>end*</td>
+<td>string</td>
+<td>use format with timezone</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p>* required</p>
+
+<p><code class="prettyprint">Bonus</code> object is a hash with following attributes:</p>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>type*</td>
+<td>enum: [&ldquo;amount&rdquo;, &ldquo;percentage&rdquo;]</td>
+<td>n/a</td>
+<td></td>
+</tr>
+<tr>
+<td>value*</td>
+<td>integer</td>
+<td>n/a</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p>* required</p>
+
+<p><code class="prettyprint">Condition</code> object is a hash with following attributes:</p>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>condition*</td>
+<td>string</td>
+<td>n/a</td>
+<td>Class name</td>
+</tr>
+<tr>
+<td>args*</td>
+<td>Condition, Condition[], integer, string, array</td>
+<td>n/a</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p>* required</p>
+
+<h4 id="conditions-list"><a name="pos-campaign-points-config-conditions"></a> Conditions List</h4>
+
+<table><thead>
+<tr>
+<th>Condition</th>
+<th>Args</th>
+<th>Type</th>
+<th>Meets requirements when</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">Or</code></td>
+<td>Condition[]</td>
+<td>One of</td>
+<td>One of conditions meets requirements</td>
+</tr>
+<tr>
+<td><code class="prettyprint">And</code></td>
+<td>Condition[]</td>
+<td>All of</td>
+<td>All of conditions meet requirements</td>
+</tr>
+<tr>
+<td><code class="prettyprint">Not</code></td>
+<td>Condition</td>
+<td>Negation</td>
+<td>Condition does not meet requirements</td>
+</tr>
+<tr>
+<td><code class="prettyprint">ItemId</code></td>
+<td>string</td>
+<td>Equal</td>
+<td>Item ID is equal to arg</td>
+</tr>
+<tr>
+<td><code class="prettyprint">CategoryId</code></td>
+<td>string</td>
+<td>Equal</td>
+<td>Category ID is equal to arg</td>
+</tr>
+<tr>
+<td><code class="prettyprint">StoreId</code></td>
+<td>string</td>
+<td>Equal</td>
+<td>Store ID is equal to arg</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"condition"</span><span class="p">:</span><span class="s2">"Or"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"arg"</span><span class="p">:</span><span class="w"> 
+    </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"condition"</span><span class="p">:</span><span class="s2">"StoreId"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"arg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"910"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"condition"</span><span class="p">:</span><span class="s2">"And"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"arg"</span><span class="w"> </span><span class="p">:</span><span class="w"> 
+            </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"condition"</span><span class="p">:</span><span class="s2">"ItemId"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"arg"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"112"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"condition"</span><span class="p">:</span><span class="s2">"Not"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"arg"</span><span class="w"> </span><span class="p">:</span><span class="w"> 
+                    </span><span class="p">{</span><span class="w">
+                        </span><span class="s2">"condition"</span><span class="p">:</span><span class="s2">"StoreId"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"arg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"910"</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">     
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h4 id="example">Example:</h4>
+
+<p>MR = Meets Requirements</p>
+
+<p>Condition <code class="prettyprint">Or</code> MR  when <code class="prettyprint">StoreId</code> MR or <code class="prettyprint">And</code> MR.
+<code class="prettyprint">And</code> MR when <code class="prettyprint">ItemId</code> MR and <code class="prettyprint">Not</code> MR.
+<code class="prettyprint">Not</code> MR when <code class="prettyprint">StoreId</code> not MR. </p>
+
+<p>Bonus will apply when StoreId = &ldquo;910&rdquo; or (ItemId = &ldquo;112&rdquo; and StoreId != &ldquo;910&rdquo;)</p>
+
+<h3 id="delete"><a name="pos-campaign-points-config-delete"></a> Delete</h3>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X DELETE <span class="se">\</span>
+<span class="s2">"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/pos-campaign/points"</span> <span class="se">\</span>
+    -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+    -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
+    -H <span class="s1">'x-user-agent: CURL manual test'</span>
+    -d <span class="se">\</span>
+    <span class="s1">'{
+         "id":1
+     }'</span>
+</code></pre>
+<blockquote>
+<p>When successful (200), returns empty array:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[]</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>When payload is invalid (422), returns an object structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"error"</span><span class="p">:</span><span class="s2">"Can not delete campaign. Campaign does not exist."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>DELETE</strong> <code class="prettyprint">v3/:loyalty_club_slug/pos-campaign/points</code></p>
+
+<p>Remove POS Campaign.</p>
+
+<h4 id="messages-delete-parameters-json">Messages DELETE Parameters (JSON)</h4>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id*</td>
+<td>integer</td>
+<td>n/a</td>
+<td>ID obtained by <a href="#pos-campaign-points-config-create">CREATE</a>  method</td>
+</tr>
+</tbody></table>
+
+<p>* required</p>
+
           <h1 id="stores-api">Stores API</h1>
 
 <h2 id="stores">Stores</h2>
@@ -16126,10 +16425,16 @@ Requires <code>Files:Api:Delete</code> permit
 
           <h1 id="changelog">Changelog</h1>
 
+<h4 id="30-10-2020-pawe-buczkowski">30.10.2020 | Paweł Buczkowski</h4>
+
+<ul>
+<li>Add <a href="#points-config">POS Campaigns &bull; PointsConfig</a></li>
+</ul>
+
 <h4 id="29-10-2020-natalia-styrska">29.10.2020 | Natalia Styrska</h4>
 
 <ul>
-<li>Add <a href="#image-templates">Members &bull; Stores</a>(#members-stores-get)</li>
+<li>Add <a href="#members-stores-get">Members &bull; Stores</a></li>
 </ul>
 
 <h4 id="09-09-2020-piotr-witlicki">09.09.2020 | Piotr Świtlicki</h4>
