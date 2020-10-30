@@ -32,6 +32,7 @@ includes:
   - 30_rewards_api/1_rewards_rewards
   - 35_transactions_api/0_transactions
   - 35_transactions_api/1_points
+  - 36_pos_campaign_api/0_points_config
   - 40_stores_api/0_stores
   - 40_stores_api/1_departments
   - 45_events_api/0_events

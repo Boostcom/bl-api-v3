@@ -1,7 +1,11 @@
 # Changelog
 
+#### 30.10.2020 | Paweł Buczkowski
+* Add [POS Campaigns &bull; PointsConfig](#points-config)
+
+
 #### 29.10.2020 | Natalia Styrska
-* Add [Members &bull; Stores](#image-templates)(#members-stores-get)
+* Add [Members &bull; Stores](#members-stores-get)
 
 #### 09.09.2020 | Piotr Świtlicki
 * Add [Offers Admin API &bull; ImageTemplates API](#image-templates)
