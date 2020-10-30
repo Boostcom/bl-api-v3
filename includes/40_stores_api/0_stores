@@ -109,6 +109,11 @@
 <td>string</td>
 </tr>
 <tr>
+<td>logo</td>
+<td>show store log url</td>
+<td>bool</td>
+</tr>
+<tr>
 <td>limit</td>
 <td>max number of results</td>
 <td>integer</td>

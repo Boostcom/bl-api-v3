@@ -2059,3 +2059,162 @@ user identified with given MSISDN.</p>
 <aside class="notice">
 Requires <code>BL:Api:Members:Msisdns:Verify</code> permit
 </aside>
+
+<!--- ############################################################################################################# --->
+
+<h3 id="get-id-of-stores-assigned-to-member"><a name="members-stores-get"></a> Get id of stores assigned to member</h3>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+  <span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/members/12345/stores"</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
+  -H <span class="s1">'x-user-agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>When successful, returns an empty object:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"stores_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>GET</strong> <code class="prettyprint">/v3/:loyalty_club_slug/members/:member_id/stores</code></p>
+
+<p>Show id of stores assigned to member</p>
+
+<aside class="notice">
+Requires <code>BL:Api:Members:Stores:Index</code> permit
+</aside>
+
+<!--- ############################################################################################################# --->
+
+<h3 id="assign-member-to-stores"><a name="members-stores-add"></a> Assign member to stores</h3>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
+  <span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/members/12345/stores"</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
+  -H <span class="s1">'x-user-agent: CURL manual test'</span> <span class="se">\</span>
+  -d <span class="se">\</span>
+    <span class="s1">'{
+      "stores_ids": [1, 2]
+    }'</span>
+</code></pre>
+<blockquote>
+<p>When successful, returns an empty object:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"stores_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>POST</strong> <code class="prettyprint">/v3/:loyalty_club_slug/members/:member_id/stores</code></p>
+
+<p>Assing stores to member using stores ids</p>
+
+<h4 id="post-body-parameters">POST body parameters</h4>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required?</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>stores_ids</td>
+<td>array</td>
+<td>yes</td>
+<td>Id of stores</td>
+</tr>
+</tbody></table>
+
+<h4 id="error-responses">Error responses</h4>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">400</code></td>
+<td>Stores ids missing</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>BL:Api:Members:Stores:Create</code> permit
+</aside>
+
+<!--- ############################################################################################################# --->
+
+<h3 id="remove-stores-to-member"><a name="members-stores-remove"></a> Remove stores to member</h3>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X DELETE <span class="se">\</span>
+  <span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/members/12345/stores"</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
+  -H <span class="s1">'x-user-agent: CURL manual test'</span> <span class="se">\</span>
+  -d <span class="se">\</span>
+    <span class="s1">'{
+      "stores_ids": [1, 2]
+    }'</span>
+</code></pre>
+<blockquote>
+<p>When successful, returns an empty object:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"stores_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>DELETE</strong> <code class="prettyprint">/v3/:loyalty_club_slug/members/:member_id/stores</code></p>
+
+<p>Remove stores assigned from member</p>
+
+<h4 id="delete-body-parameters">DELETE body parameters</h4>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required?</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>stores_ids</td>
+<td>array</td>
+<td>yes</td>
+<td>Id of stores</td>
+</tr>
+</tbody></table>
+
+<h4 id="error-responses">Error responses</h4>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">400</code></td>
+<td>Stores ids missing</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>BL:Api:Members:Stores:Destroy</code> permit
+</aside>
