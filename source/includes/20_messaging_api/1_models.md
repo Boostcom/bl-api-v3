@@ -27,6 +27,7 @@ This API is under development. Therefore, it may not be ready for use and is a s
       "sender": { "type": "alphanumeric", "value": "Infinity" },
       "template": {
         "id": 609193,
+        "wrapper_id": 3491,
         "type": "plain",
         "content": { "body": "Hei {{name}}" },
         "created_at": "2020-09-15T12:45:08.618Z",
@@ -181,8 +182,8 @@ Template describes content of the [Message](#messaging-message-model).
 Key | Type | Description
 --------- | --------- | -----
 **id** | integer |
-wrapper_id | integer | ID of [wrapping template](#messaging-template-wrapping)  
-**type** | enum: `['plain', 'email', 'bee_email', 'push']` |
+wrapper_id | integer | ID of [wrapper template](#messaging-template-wrapping)  
+**type** | enum: `['plain', 'email', 'bee_email', 'push', 'generic']` |
 **content** | Object | Definition depends on the `type`. See below
 **created_at** | datetime | Time of creation
 **updated_at** | datetime | Time of last update
@@ -204,12 +205,11 @@ wrapper_id | integer | ID of [wrapping template](#messaging-template-wrapping)
 }
 ```
 
-This type of template can be assigned to any type.
+This type of template contains only body and can be sent with any channel.
 
 Key | Type | Description
 --------- | --------- | ----------
 **content.body** | string |
-content.subject | string | Used only in Channels that support it - `email` and `push`.
 
 <div class="clear"></div>
 
@@ -287,9 +287,33 @@ Key | Type
 content.subject | string
 content.uri | URL
 
-#### <a name="messaging-template-wrapping"></a> Wrapping
+<div class="clear"></div>
 
-`@todo`
+#### <a name="messaging-template-model-generic"></a> `generic` template
+
+> Generic Template example:
+
+```json
+{
+  "id": 609193,
+  "wrapper_id": null,
+  "type": "generic",
+  "content": { "subject": "Welcome", "body": "Hi {{name}}!", "uri": "iml://app/cpn" },
+  "created_at": "2020-09-15T12:45:08.618Z",
+  "updated_at": "2020-09-15T12:45:08.618Z"
+}
+```
+
+This type of template also can be assigned to any channel. But any possible content attribute can be set.
+
+It's designed to be used as a generic wrapper or in appliances where the template needs to be utilized by messages
+sent with various channels.
+
+Key | Type 
+--------- | ---------
+content.body | string
+content.subject | string
+content.uri | URL
 
 #### <a name="messaging-template-templating-system"></a> Templating system
 
@@ -298,7 +322,7 @@ We use [Liquid](https://shopify.github.io/liquid) template language for generati
 NOTE: Currently, because of technical reasons, in e-mail messages very limited set of Liquid features is supported - 
 it's demonstrated in examples of this section. However, in pushes and SMSes, full set of features is available.
 
-The set of available merge-tags in Message depends on recipient type the Message is being sent to.
+The set of merge-tags available for given Message depends on recipient type the Message is being sent to.
 
 > Example: Having this as a body of SMS sent to MPC members  
 
@@ -323,9 +347,9 @@ You have no points :(
 ```
 
 For MPC members (fetched from [audience](#messaging-sending-audience-payload-model) or provided as [MPC members recipients](#messaging-mpc-recipient-model)),
-their MPC data may be used as merge-fields:
+their MPC data may be used as merge-tags:
 
-Merge-field  | Description 
+merge-tag  | Description 
 ---------- | ------- 
 `member.id` |  
 `member.secret_id`  | Special member's ID of used to authorize member in some MPC services 
@@ -344,8 +368,8 @@ within `properties`  may be used - see example.
 
 ```json
 [
-  { "email": "piotr@example.com", "properties": { "first_name": "Piotr", "extras": { "points": 15} } },
-  { "email": "ola@example.com", "properties": { "first_name": "Ola", "extras": { "points": 42 } } }
+  { "email": "piotr@example.com", "properties": { "first_name": "Piotr", "some_object": { "points": 15} } },
+  { "email": "ola@example.com", "properties": { "first_name": "Ola", "some_object": { "points": 42 } } }
 ]
 ```
 
@@ -354,8 +378,72 @@ within `properties`  may be used - see example.
 ```text
 Hello {{ first_name }}.
 Your email is {{ email }}.
-Your points balance is {{ extras.points }}.
+Your points balance is {{ some_object.points }}.
 ```
+
+<div class="clear"></div>
+
+##### <a name="messaging-template-wrapping"></a> Template wrapping
+
+> Sample wrapper definition:
+
+```json
+{
+  "id": 609193,
+  "wrapper_id": null,
+  "type": "generic",
+  "content": { 
+    "subject": "Important message for {{member.first_name}}", 
+    "body": "Hi {{member.name}}! {{content}}",
+    "uri": null // Empty, so it won't be used on wrapping
+  }
+}
+```
+
+> Consider this wrapper to be assigned to a template as follows:
+
+```json
+{
+  "id": 609194,
+  "wrapper_id": 609193,
+  "type": "push",
+  "content": { 
+    "subject": "I will be replaced by wrapper, as wrapper has no {{content} defined for this property", 
+    "body": "Your last name is {{member.last_name}}!",
+    "uri": "foo://bar"
+  }
+}
+```
+
+> Effectively, following content will be used during sending execution after wrapping and merging:
+
+```json
+{ 
+  "subject": "Important message for Piotr", 
+  "body": "Hi Piotr! Your last name is Świtlicki!",
+  "uri": "foo://bar"
+}
+```
+
+Any template may be wrapped by another template by providing `wrapper_id`.
+
+On sending execution, if channel's template has a wrapper assigned, each content attribute (body, subject, etc) 
+of the template will be injected into special `{{ content }}` merge-tag of corresponding wrapper's attribute.
+
+When wrapper has no specific content attribute defined, it will be ignored. 
+
+Wrapping is not recursive, so if template A has a template B as a wrapper and template B has a template C as a wrapper,
+template A will be wrapped by Template B, but template B will not be wrapped by Template C.
+
+The type of wrapper that can be assigned to a template depends on given template type, as follows:
+
+Template type | Wrappable with
+------------- | -------------- 
+`plain`       | `generic`, `email`, `bee_email`, `push`, `plain`
+`generic`     | `generic`, `email`, `bee_email`, `push`
+`email`       | `generic`, `email`, `bee_email`
+`push`        | `generic`, `push`
+`bee_email`   | `generic`
 
 ### <a name="messaging-sending-model"></a> Sending model
 
@@ -443,7 +531,7 @@ member_id | integer | ID of MPC member
 msisdn | [MSISDN](#msisdn-param) |
 email | email |
 app_token | email | 
-properties | Object | Arbitrary keys that can be used as [merge-fields](#messaging-templating-system) in the message template
+properties | Object | Arbitrary keys that can be used as [merge-tags](#messaging-templating-system) in the message template
 
 <br />
 Recipient may be an MPC member (identified by `member_id`) or an arbitrary sending receivers - `msisdn`, `email` or `push`.  
@@ -453,7 +541,7 @@ Recipient may be an MPC member (identified by `member_id`) or an arbitrary sendi
 When `member_id` is provided, other identifiers will be ignored and actual identifiers for sending execution will 
 be fetched from MPC member's data (for example, for `sms` channel member's `msisdn` will be used as a sending receiver).
 
-Merge-fields for template will be fetched from MPC Members - but may be extended/replaced with provided `properties`.
+merge-tags for template will be fetched from MPC Members - but may be extended/replaced with provided `properties`.
 
 #### <a name="messaging-arbtrary-recipient-model"></a> Arbitrary identifier recipient
 
@@ -461,4 +549,4 @@ Without `member_id`, at least one identifier relevant to message's channels defi
 
 For example, if `sms` and `email` channels are defined on message, `msisdn` or `email` is required.
 
-Given `properties` will be used as template's merge-fields. 
+Given `properties` will be used as template's merge-tags. 
