@@ -1423,3 +1423,50 @@ Status | Reason
 <aside class="notice">
 Requires <code>BL:Api:Members:Stores:Destroy</code> permit
 </aside>
+
+<!--- ############################################################################################################# --->
+
+### <a name="members-user-create"></a> Transform member to user
+
+> Example:
+
+```shell
+curl -X POST \
+  "https://bpc-api.boostcom.no/v3/infinity-mall/members/12345/user" \
+  -H 'content-type: application/json' \
+  -H 'Authorization: Bearer B7t9U9tsoWsGhrv2ouUoSqpM' \
+  -H 'x-product-name: default' \
+  -H 'x-user-agent: CURL manual test' \
+  -d \
+    '{
+      "role": "role"
+    }'
+```
+
+> When successful, returns an empty object:
+
+```json
+{
+  "user_id": "created-user-id"
+}
+```
+
+**POST** `/v3/:loyalty_club_slug/members/:member_id/user`
+
+Transform member (tenant contact) to user and return user id
+
+#### POST body parameters
+
+Parameter | Type | Required? | Description
+--------- | ----------- | ------ | ------
+role | string | yes | role
+
+#### Error responses
+
+Status | Reason
+--------- | ----------- 
+`400` | Role missing
+
+<aside class="notice">
+Requires <code>BL:Api:Members:User:Create</code> permit
+</aside>
