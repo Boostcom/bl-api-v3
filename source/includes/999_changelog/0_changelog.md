@@ -1,8 +1,10 @@
 # Changelog
 
+#### 09.11.2020 | Piotr Świtlicki
+* Add [Offers &bull; Grant](#grant-offers)
+
 #### 30.10.2020 | Paweł Buczkowski
 * Add [POS Campaigns &bull; PointsConfig](#points-config)
-
 
 #### 29.10.2020 | Natalia Styrska
 * Add [Members &bull; Stores](#members-stores-get)

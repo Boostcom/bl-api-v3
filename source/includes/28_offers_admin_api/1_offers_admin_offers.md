@@ -261,7 +261,7 @@ curl -X DELETE \
 }
 ```
 
-**POST** `v3/:loyalty_club_slug/offers/clones`
+**POST** `v3/:loyalty_club_slug/offers/clone`
 
 Clones given offers (by their IDs)
 
@@ -279,6 +279,56 @@ ids | integer[] | IDs of offers that have been cloned
 
 <aside class="notice">
 Requires <code>Offers:Api:Offers:Clone</code> permit
+</aside>
+
+### <a name="grant-offers"></a> Grant offers
+
+> Example:
+
+```shell
+curl -X POST \
+"https://bpc-api.boostcom.no/v3/infinity-mall/offers/grant" \
+    -H 'content-type: application/json' \
+    -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+    -H 'x-product-name: default' \
+    -H 'x-user-agent: CURL manual test' \
+    -d '
+        {
+            "offers": [
+                {
+                    "id": 47,
+                    "audience_id": 572,
+                    "usable_for_seconds": 60
+                },
+                {
+                    "id": 49,
+                    "audience_id": 572,
+                }
+            ]
+        }
+    '
+```
+
+> When successful (200), returns an empty JSON
+
+```json
+{}
+```
+
+**POST** `v3/:loyalty_club_slug/offers/grant`
+
+Grants offer(s) to members of given audience(s).
+
+#### POST Parameters (JSON)
+
+Key | Type | Description
+----- | ---- | ---
+offers[].id | integer | ID of offer to grant
+offers[].audience_id | integer | ID of audience which members should be granted with the offer
+offers[].usable_for_seconds | integer | (optional) When present, the granted offer will be available for use by member only for the defined time
+
+<aside class="notice">
+Requires <code>Offers:Api:Offers:Grant</code> permit
 </aside>
 
 ### <a name="update-offers"></a> Delete offers
