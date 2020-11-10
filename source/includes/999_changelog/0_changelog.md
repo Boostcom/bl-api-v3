@@ -1,5 +1,8 @@
 # Changelog
 
+#### 23.11.2020 | Piotr Świtlicki
+* Add periodic limits feature to [Offers](#offers-api)
+
 #### 20.11.2020 | Jakub Kruczek
 * New API hosts after rebranding to Placewise
 * Rename Boostcom references to Placewise

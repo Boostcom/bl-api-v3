@@ -1,4 +1,4 @@
-# Offers API
+# <a name="offers-api"></a> Offers API
 
 This section describes endpoints destined for end user (e.g. for mobile apps) and work within context of (signed in) member.
 Navigate to [Offers Admin](#offers-admin) section to see docs for offers management endpoints.
@@ -97,7 +97,8 @@ aforementioned approaches.
     "usable": true,
     "max_uses": 10,
     "uses_left": 3,
-    "active_until": "2019-03-13T18:41:00.000Z"
+    "active_until": "2019-03-13T18:41:00.000Z",
+    "period": null
   },
   "extras": {}
 }
@@ -139,6 +140,10 @@ usable | Boolean | no | Is the offer usable?
 max_uses | integer | yes | Maximum number of times the specific member can use the offer. When null, there's no limit.
 uses_left | integer | yes| How many more times the specific member can use the offer - this number can be also affected by global offer limit. When null, there's no limit.
 active_until | Date | yes | The last time time the offer has been used at+ activation time (configurable per Loyalty Club, e.x. 30s). When null, the offer has not been activated (used) yet
+period | Object | yes | If present, it describes limtations of using the offer by member within specific period
+period.timespan | enum: ['MINUTE', 'HOUR', 'DAY', 'WEEK', 'MONTH', 'YEAR'] | no | Defines the period in which usage is limited
+period.max_uses | integer | no | Defines how many times the offer may be used by member within period 
+period.uses_left | integer | yes | Defines how many times member may use the offer until end of current period 
 
 ### <a name="offers-collection-model"></a> Collection model
 
@@ -529,9 +534,10 @@ Status | Response body | Description
 --------- | ----------- | -------- 
 `404` | `{"error": "Offer#10000951 not found"}`| -
 `422` | `{"error": "Already active"}` | The offer has been just used
-`422` | `{"error": "Not granted"}` | The offer has not been purchased by member
+`422` | `{"error": "Not granted"}` | The offer is not available to  member
 `422` | `{"error": "Usage authorization token invalid"}` | Provided usage token is invalid
-`422` | `{"error": "User limit exceeded"}` | There are no more offers available to purchase for the member
+`422` | `{"error": "User limit exceeded"}` | Member exhausted his pool of uses
+`422` | `{"error": "Periodic user limit exceeded"}` | Member exhausted his pool of uses within current time period 
 `422` | `{"error": "Global limit exceeded"}` | There are no more offers available globally (stock is empty)
 `422` | `{"error": "Not in usable timeframes"}` | Offer is not usable yet or anymore
 `467` | `{"error": "Member is banned!", "banned_until": "2137-10-28T17:24:06.207Z"}` | Member is banned
