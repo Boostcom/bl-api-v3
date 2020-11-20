@@ -8,7 +8,7 @@
 <p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
-<span class="s2">"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/stores?department_id=123&amp;search=test&amp;category=cat&amp;limit=100&amp;sort=name&amp;order=asc"</span> <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v3/:loyalty_club_slug/stores?department_id=123&amp;search=test&amp;category=cat&amp;limit=100&amp;sort=name&amp;order=asc"</span> <span class="se">\</span>
     -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
     -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
@@ -142,7 +142,7 @@ Requires <code>Stores:Api:Stores:Get</code> permit
 <p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
-<span class="s2">"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/stores/123456"</span> <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v3/:loyalty_club_slug/stores/123456"</span> <span class="se">\</span>
     -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
     -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
@@ -261,7 +261,7 @@ Requires <code>Stores:Api:Stores:Get</code> permit
 <p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
-<span class="s2">"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/stores"</span> <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v3/:loyalty_club_slug/stores"</span> <span class="se">\</span>
     -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
     -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
@@ -464,7 +464,7 @@ Requires <code>Stores:Api:Stores:Create</code>
 <p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X PUT <span class="se">\</span>
-<span class="s2">"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/stores/12345"</span> <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v3/:loyalty_club_slug/stores/12345"</span> <span class="se">\</span>
     -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
     -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
@@ -689,7 +689,7 @@ Requires <code>Stores:Api:Stores:Update</code>
 <p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
-<span class="s2">"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/stores/12345"</span> <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v3/:loyalty_club_slug/stores/12345"</span> <span class="se">\</span>
     -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
     -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
@@ -782,7 +782,7 @@ Requires <code>Stores:Api:Stores:Delete</code>
 <p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
-<span class="s2">"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/stores/categories"</span> <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v3/:loyalty_club_slug/stores/categories"</span> <span class="se">\</span>
     -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
     -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
@@ -813,7 +813,7 @@ Requires <code>Stores:Api:Zones:Get</code> permit
 <p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
-<span class="s2">"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/stores/zones"</span> <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v3/:loyalty_club_slug/stores/zones"</span> <span class="se">\</span>
     -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
     -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>

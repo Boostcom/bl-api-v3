@@ -12,7 +12,7 @@ This API is in development. Therefore, it may not be ready for use and is a subj
 <p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
-<span class="s2">"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/events"</span> <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v3/:loyalty_club_slug/events"</span> <span class="se">\</span>
     -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
     -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
@@ -52,7 +52,7 @@ Requires <code>Events:Api:Events:Get</code> permit
 <p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
-<span class="s2">"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/events/:event_id"</span> <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v3/:loyalty_club_slug/events/:event_id"</span> <span class="se">\</span>
     -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
     -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
@@ -90,7 +90,7 @@ Requires <code>Events:Api:Events:Get</code> permit
 <p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
-<span class="s2">"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/events/validation"</span> <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v3/:loyalty_club_slug/events/validation"</span> <span class="se">\</span>
     -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
     -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
@@ -168,7 +168,7 @@ Requires <code>Events:Api:Validation:Create</code> permit
 <p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
-<span class="s2">"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/events/checkin"</span> <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v3/:loyalty_club_slug/events/checkin"</span> <span class="se">\</span>
     -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
     -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
@@ -258,7 +258,7 @@ Requires <code>Events:Api:Checkin:Create</code> permit
 <p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
-<span class="s2">"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/events/checkin/:event_id"</span> <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v3/:loyalty_club_slug/events/checkin/:event_id"</span> <span class="se">\</span>
     -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
     -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
@@ -291,7 +291,7 @@ Requires <code>Events:Api:Checkin:Get</code> permit
 <p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
-<span class="s2">"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/events/invitation"</span> <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v3/:loyalty_club_slug/events/invitation"</span> <span class="se">\</span>
     -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
     -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>

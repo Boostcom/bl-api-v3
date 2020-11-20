@@ -179,7 +179,7 @@ Levels are returned in ascending order, sorted by the <code class="prettyprint">
 <p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl <span class="se">\</span>
-<span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/rewards-program/info"</span> <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v3/infinity-mall/rewards-program/info"</span> <span class="se">\</span>
     -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
     -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
@@ -266,7 +266,7 @@ Requires <code>Rewards:Api:Program:GetInfo</code> permit
 <p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
-<span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/members/me/rewards-program/join"</span> <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v3/infinity-mall/members/me/rewards-program/join"</span> <span class="se">\</span>
     -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522'</span> <span class="se">\</span>
     -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
@@ -296,7 +296,7 @@ Requires <code>Rewards:Api:OAuth:Memberships:Create</code> permit
 <p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X DELETE <span class="se">\</span>
-<span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/members/me/rewards-program/leave"</span> <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v3/infinity-mall/members/me/rewards-program/leave"</span> <span class="se">\</span>
     -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522'</span> <span class="se">\</span>
     -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
@@ -327,7 +327,7 @@ Requires <code>Rewards:Api:OAuth:Memberships:Delete</code> permit
 <p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl <span class="se">\</span>
-<span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/members/me/rewards-program/status"</span> <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v3/infinity-mall/members/me/rewards-program/status"</span> <span class="se">\</span>
     -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522'</span> <span class="se">\</span>
     -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
@@ -567,7 +567,7 @@ Requires <code>Rewards:Api:OAuth:Memberships:CheckStatus</code> permit
 <p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl <span class="se">\</span>
-<span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/members/837182/rewards-program/status"</span> <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v3/infinity-mall/members/837182/rewards-program/status"</span> <span class="se">\</span>
     -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
     -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
@@ -592,7 +592,7 @@ Requires <code>Rewards:Api:Memberships:CheckStatus</code> permit
 <p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl <span class="se">\</span>
-<span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/members/me/rewards-program/status/achievements_summary"</span> <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v3/infinity-mall/members/me/rewards-program/status/achievements_summary"</span> <span class="se">\</span>
     -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522'</span> <span class="se">\</span>
     -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>

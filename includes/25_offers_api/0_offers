@@ -427,7 +427,7 @@ There are three types of fields:</p>
 <p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl <span class="se">\</span>
-<span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/members/me/offers/meta"</span> <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v3/infinity-mall/members/me/offers/meta"</span> <span class="se">\</span>
     -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522'</span> <span class="se">\</span>
     -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
@@ -560,7 +560,7 @@ Requires <code>Offers:Api:MemberOffers:GetPreview</code> permit
 <p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl <span class="se">\</span>
-<span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/members/me/offers/1000016"</span> <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v3/infinity-mall/members/me/offers/1000016"</span> <span class="se">\</span>
     -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522'</span> <span class="se">\</span>
     -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
@@ -602,7 +602,7 @@ Requires <code>Offers:Api:MemberOffers:GetPreview</code> permit
 <p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl <span class="se">\</span>
-<span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/members/me/offers"</span> <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v3/infinity-mall/members/me/offers"</span> <span class="se">\</span>
     -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522'</span> <span class="se">\</span>
     -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
@@ -779,7 +779,7 @@ Requires <code>Offers:Api:MemberOffers:ListVisiblePreview</code> permit
 
 <h3 id="use-offer"><a name="use-offer"></a> Use offer</h3>
 <pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
-<span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/members/me/offers/1000016"</span> <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v3/infinity-mall/members/me/offers/1000016"</span> <span class="se">\</span>
     -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522'</span> <span class="se">\</span>
     -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
@@ -918,7 +918,7 @@ tied to it may not be granted to the member.</p>
 <p>Example</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X PUT <span class="se">\</span>
-<span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/members/me/offers/1000016/like"</span> <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v3/infinity-mall/members/me/offers/1000016/like"</span> <span class="se">\</span>
     -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522'</span> <span class="se">\</span>
     -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
@@ -952,7 +952,7 @@ Requires <code>Offers:Api:MemberOffers:LikeByMemberId</code> permit
 <p>Example</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X PUT <span class="se">\</span>
-<span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/members/me/offers/1000016/unlike"</span> <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v3/infinity-mall/members/me/offers/1000016/unlike"</span> <span class="se">\</span>
     -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522'</span> <span class="se">\</span>
     -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
@@ -986,7 +986,7 @@ Requires <code>Offers:Api:MemberOffers:LikeByMemberId</code> permit
 <p>Example</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
-<span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/members/7371713/offers/10000951/unlike"</span> <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v3/infinity-mall/members/7371713/offers/10000951/unlike"</span> <span class="se">\</span>
     -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
     -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>

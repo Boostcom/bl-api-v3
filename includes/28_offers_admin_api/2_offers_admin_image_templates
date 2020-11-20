@@ -7,7 +7,7 @@
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl --request GET <span class="s1">'https://bpc-api.boostcom.no/v3/infinity-mall/offers/image_templates'</span> <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl --request GET <span class="s1">'https://api.mpc.placewise.com/v3/infinity-mall/offers/image_templates'</span> <span class="se">\</span>
 --header <span class="s1">'x-client-authorization: B7t``9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
 --header <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
 --header <span class="s1">'x-user-agent: cURL Manual Testing'</span>
@@ -84,7 +84,7 @@ Requires <code>Offers:Api:ImageTemplates:List</code> permit
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl --request GET <span class="s1">'https://bpc-api.boostcom.no/v3/infinity-mall/offers/image_templates'</span> <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl --request GET <span class="s1">'https://api.mpc.placewise.com/v3/infinity-mall/offers/image_templates'</span> <span class="se">\</span>
 --header <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
 --header <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
 --header <span class="s1">'x-user-agent: cURL Manual Testing'</span>
@@ -153,7 +153,7 @@ Requires <code>Offers:Api:ImageTemplates:Get</code> permit
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl --request POST <span class="s1">'https://bpc-api.boostcom.no/v3/infinity-mall/offers/image_templates'</span> <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl --request POST <span class="s1">'https://api.mpc.placewise.com/v3/infinity-mall/offers/image_templates'</span> <span class="se">\</span>
 --header <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
 --header <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
 --header <span class="s1">'x-user-agent: cURL Manual Testing'</span> <span class="se">\</span>
@@ -244,7 +244,7 @@ Requires <code>Offers:Api:ImageTemplates:Create</code> permit
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl --request PUT <span class="s1">'https://bpc-api.boostcom.no/v3/infinity-mall/offers/image_templates/4321'</span> <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl --request PUT <span class="s1">'https://api.mpc.placewise.com/v3/infinity-mall/offers/image_templates/4321'</span> <span class="se">\</span>
 --header <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
 --header <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
 --header <span class="s1">'x-user-agent: cURL Manual Testing'</span> <span class="se">\</span>
@@ -339,7 +339,7 @@ Requires <code>Offers:Api:ImageTemplates:Update</code> permit
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl --request DELETE <span class="s1">'https://bpc-api.boostcom.no/v3/infinity-mall/offers/image_templates/4321'</span> <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl --request DELETE <span class="s1">'https://api.mpc.placewise.com/v3/infinity-mall/offers/image_templates/4321'</span> <span class="se">\</span>
 --header <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
 --header <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
 --header <span class="s1">'x-user-agent: cURL Manual Testing'</span> <span class="se">\</span>

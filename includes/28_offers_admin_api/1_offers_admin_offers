@@ -8,7 +8,7 @@
 <p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl <span class="se">\</span>
-<span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/offers/1000016"</span> <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v3/infinity-mall/offers/1000016"</span> <span class="se">\</span>
     -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
     -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
@@ -53,7 +53,7 @@ Requires <code>Offers:Api:Offers:Get</code> permit
 <p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl <span class="se">\</span>
-<span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/offers"</span> <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v3/infinity-mall/offers"</span> <span class="se">\</span>
     -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
     -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
@@ -240,7 +240,7 @@ Requires <code>Offers:Api:Offers:List</code> permit
 <p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
-<span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/offers"</span> <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v3/infinity-mall/offers"</span> <span class="se">\</span>
     -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
     -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
@@ -329,7 +329,7 @@ Requires <code>Offers:Api:Offers:Create</code> permit
 <p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X PUT <span class="se">\</span>
-<span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/offers"</span> <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v3/infinity-mall/offers"</span> <span class="se">\</span>
     -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
     -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
@@ -420,7 +420,7 @@ Requires <code>Offers:Api:Offers:Update</code> permit
 <p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X DELETE <span class="se">\</span>
-<span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/offers/clone"</span> <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v3/infinity-mall/offers/clone"</span> <span class="se">\</span>
     -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
     -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
@@ -484,7 +484,7 @@ Requires <code>Offers:Api:Offers:Clone</code> permit
 <p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
-<span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/offers/grant"</span> <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v3/infinity-mall/offers/grant"</span> <span class="se">\</span>
     -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
     -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
@@ -550,7 +550,7 @@ Requires <code>Offers:Api:Offers:Grant</code> permit
 <p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X DELETE <span class="se">\</span>
-<span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/offers"</span> <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v3/infinity-mall/offers"</span> <span class="se">\</span>
     -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
     -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>

@@ -1,5 +1,11 @@
 <h1 id="changelog">Changelog</h1>
 
+<h4 id="20-11-2020-jakub-kruczek">20.11.2020 | Jakub Kruczek</h4>
+
+<ul>
+<li>New API hosts after rebranding to Placewise</li>
+</ul>
+
 <h4 id="09-11-2020-piotr-witlicki">09.11.2020 | Piotr Świtlicki</h4>
 
 <ul>
@@ -430,7 +436,7 @@
 <h4 id="22-01-2017-jakub-kruczek">22.01.2017 | Jakub Kruczek:</h4>
 
 <ul>
-<li>Update staging domain to: <code class="prettyprint">https://bpc-api.dev.boostcom.no/</code></li>
+<li>Update staging domain to: <code class="prettyprint">https://api.mpc.dev.placewise.com/</code></li>
 </ul>
 
 <h4 id="9-01-2017-piotr-witlicki">9.01.2017 | Piotr Świtlicki:</h4>

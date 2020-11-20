@@ -4,11 +4,11 @@
 
 <h2 id="hosts">Hosts</h2>
 
-<p>Production: <a href="https://bpc-api.boostcom.no">https://bpc-api.boostcom.no</a></p>
+<p>Production: <a href="https://api.mpc.placewise.com">https://api.mpc.placewise.com</a></p>
 
-<p>Production (APAC region): <a href="https://bpc-api.apac.boostcom.com">https://bpc-api.apac.boostcom.com</a></p>
+<p>Production (APAC region): <a href="https://api.mpc.apac.placewise.com">https://api.mpc.apac.placewise.com</a></p>
 
-<p>Staging: <a href="https://bpc-api.dev.boostcom.no">https://bpc-api.dev.boostcom.no</a></p>
+<p>Staging: <a href="https://api.mpc.dev.placewise.com">https://api.mpc.dev.placewise.com</a></p>
 
 <h3 id="https-tls-requirement">HTTPS (TLS) requirement</h3>
 

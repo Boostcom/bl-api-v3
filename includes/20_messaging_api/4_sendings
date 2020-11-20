@@ -6,7 +6,7 @@
 <p>Example</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
-<span class="s2">"https://bpc-api.boostcom.no/v1/sendings/32"</span> <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v1/sendings/32"</span> <span class="se">\</span>
   -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'x-loyalty-club-slug: infinity-mall'</span> <span class="se">\</span>
   -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
@@ -64,7 +64,7 @@ Requires <code>Messages:Api:Sendings:Get</code> permit
 <p>Example - creates a Sending scheduled immediately, sent to given audience and one inline recipient.</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
-<span class="s2">"https://bpc-api.boostcom.no/v1/messages/42/sendings"</span> <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v1/messages/42/sendings"</span> <span class="se">\</span>
   -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'x-loyalty-club-slug: infinity-mall'</span> <span class="se">\</span>
   -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
@@ -176,7 +176,7 @@ Requires <code>Messages:Api:Sendings:Create</code> permit
 <p>Example - updates the Sending - it&rsquo;s unscheduled and audience is removed</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X PUT <span class="se">\</span>
-<span class="s2">"https://bpc-api.boostcom.no/v1/sendings/42"</span> <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v1/sendings/42"</span> <span class="se">\</span>
   -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'x-loyalty-club-slug: infinity-mall'</span> <span class="se">\</span>
   -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>

@@ -375,7 +375,7 @@ So, the responses returned on upload contains only &ldquo;projected&rdquo; info 
 <blockquote>
 <p>Example request</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/files/schema"</span> <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.mpc.placewise.com/v3/infinity-mall/files/schema"</span> <span class="se">\</span>
   -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
   -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
@@ -399,7 +399,7 @@ Requires <code>Files:Api:GetSchema</code> permit
 <p>Example request</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
-  https://bpc-api.boostcom.no/v3/infinity-mall/files/offers/1000289/offer_default <span class="se">\</span>
+  https://api.mpc.placewise.com/v3/infinity-mall/files/offers/1000289/offer_default <span class="se">\</span>
   -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
   -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
   -H <span class="s1">'x-user-agent: CURL manual test'</span> <span class="se">\</span>
@@ -543,7 +543,7 @@ Requires <code>Files:Api:Create</code> permit
 <p>Example request</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X PUT <span class="se">\</span>
-  https://bpc-api.boostcom.no/v3/infinity-mall/files/offers/1000289/offer_default <span class="se">\</span>
+  https://api.mpc.placewise.com/v3/infinity-mall/files/offers/1000289/offer_default <span class="se">\</span>
   -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
   -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
   -H <span class="s1">'x-user-agent: CURL manual test'</span> <span class="se">\</span>
@@ -607,7 +607,7 @@ Requires <code>Files:Api:Update</code> permit
 <p>Example request</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X PUT <span class="se">\</span>
-  https://bpc-api.boostcom.no/v3/infinity-mall/files/offers/1000289/offer_default/reprocess <span class="se">\</span>
+  https://api.mpc.placewise.com/v3/infinity-mall/files/offers/1000289/offer_default/reprocess <span class="se">\</span>
   -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
   -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
   -H <span class="s1">'x-user-agent: CURL manual test'</span> <span class="se">\</span>
@@ -670,7 +670,7 @@ Requires <code>Files:Api:Reprocess</code> permit
 <blockquote>
 <p>Example request</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X DELETE <span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/files/offers/1000289/offer_default </span><span class="se">\</span><span class="s2">
+<pre class="highlight shell tab-shell"><code>curl -X DELETE <span class="s2">"https://api.mpc.placewise.com/v3/infinity-mall/files/offers/1000289/offer_default </span><span class="se">\</span><span class="s2">
   -H 'content-type: application/json' </span><span class="se">\</span><span class="s2">
   -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' </span><span class="se">\</span><span class="s2">
   -H 'x-product-name: default' </span><span class="se">\</span><span class="s2">

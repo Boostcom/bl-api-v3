@@ -84,7 +84,7 @@ For example, member clicked on a coupon that was displayed inside collection, th
 <p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
-<span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/offers/events/offers_clicked"</span> <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v3/infinity-mall/offers/events/offers_clicked"</span> <span class="se">\</span>
     -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
     -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
@@ -144,7 +144,7 @@ Requires <code>Offers:Api:Events:Clicked</code> permit
 <p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
-<span class="s2">"https://bpc-api.boostcom.no/v3/infinity-mall/offers/events/offers_seen"</span> <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v3/infinity-mall/offers/events/offers_seen"</span> <span class="se">\</span>
     -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
     -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>

@@ -6,7 +6,7 @@
 <p>Example</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
-<span class="s2">"https://bpc-api.boostcom.no/v1/messages?sendings_status=finished"</span> <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v1/messages?sendings_status=finished"</span> <span class="se">\</span>
   -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'x-loyalty-club-slug: infinity-mall'</span> <span class="se">\</span>
   -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
@@ -71,7 +71,7 @@ Requires <code>Messages:Api:Messages:List</code> permit
 <p>Example</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
-<span class="s2">"https://bpc-api.boostcom.no/v1/messages/83"</span> <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v1/messages/83"</span> <span class="se">\</span>
   -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'x-loyalty-club-slug: infinity-mall'</span> <span class="se">\</span>
   -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
@@ -129,7 +129,7 @@ Requires <code>Messages:Api:Messages:Get</code> permit
 <p>Example - creates an SMS message, scheduled in 15 minutes, sent to given audience and one inline recipient.</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
-<span class="s2">"https://bpc-api.boostcom.no/v1/messages"</span> <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v1/messages"</span> <span class="se">\</span>
   -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'x-loyalty-club-slug: infinity-mall'</span> <span class="se">\</span>
   -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
@@ -241,7 +241,7 @@ Requires <code>Messages:Api:Messages:Create</code> permit
 <p>Example - updates Message</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X PUT <span class="se">\</span>
-<span class="s2">"https://bpc-api.boostcom.no/v1/messages/13"</span> <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v1/messages/13"</span> <span class="se">\</span>
   -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'x-loyalty-club-slug: infinity-mall'</span> <span class="se">\</span>
   -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
