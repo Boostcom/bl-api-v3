@@ -258,7 +258,7 @@ max_height | integer |
 > Example request
 
 ```shell
-curl "https://bpc-api.boostcom.no/v3/infinity-mall/files/schema" \
+curl "https://api.mpc.placewise.com/v3/infinity-mall/files/schema" \
   -H 'content-type: application/json' \
   -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
   -H 'x-product-name: default' \
@@ -281,7 +281,7 @@ Requires <code>Files:Api:GetSchema</code> permit
 
 ```shell
 curl -X POST \
-  https://bpc-api.boostcom.no/v3/infinity-mall/files/offers/1000289/offer_default \
+  https://api.mpc.placewise.com/v3/infinity-mall/files/offers/1000289/offer_default \
   -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
   -H 'x-product-name: default' \
   -H 'x-user-agent: CURL manual test' \
@@ -367,7 +367,7 @@ Requires <code>Files:Api:Create</code> permit
 
 ```shell
 curl -X PUT \
-  https://bpc-api.boostcom.no/v3/infinity-mall/files/offers/1000289/offer_default \
+  https://api.mpc.placewise.com/v3/infinity-mall/files/offers/1000289/offer_default \
   -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
   -H 'x-product-name: default' \
   -H 'x-user-agent: CURL manual test' \
@@ -419,7 +419,7 @@ Requires <code>Files:Api:Update</code> permit
 
 ```shell
 curl -X PUT \
-  https://bpc-api.boostcom.no/v3/infinity-mall/files/offers/1000289/offer_default/reprocess \
+  https://api.mpc.placewise.com/v3/infinity-mall/files/offers/1000289/offer_default/reprocess \
   -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
   -H 'x-product-name: default' \
   -H 'x-user-agent: CURL manual test' \
@@ -470,7 +470,7 @@ Requires <code>Files:Api:Reprocess</code> permit
 > Example request
 
 ```shell
-curl -X DELETE "https://bpc-api.boostcom.no/v3/infinity-mall/files/offers/1000289/offer_default \
+curl -X DELETE "https://api.mpc.placewise.com/v3/infinity-mall/files/offers/1000289/offer_default \
   -H 'content-type: application/json' \
   -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
   -H 'x-product-name: default' \

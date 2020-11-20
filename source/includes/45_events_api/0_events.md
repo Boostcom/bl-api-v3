@@ -12,7 +12,7 @@ This API is in development. Therefore, it may not be ready for use and is a subj
 
 ```shell
 curl -X GET \
-"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/events" \
+"https://api.mpc.placewise.com/v3/:loyalty_club_slug/events" \
     -H 'content-type: application/json' \
     -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
     -H 'x-product-name: default' \
@@ -54,7 +54,7 @@ Requires <code>Events:Api:Events:Get</code> permit
 
 ```shell
 curl -X GET \
-"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/events/:event_id" \
+"https://api.mpc.placewise.com/v3/:loyalty_club_slug/events/:event_id" \
     -H 'content-type: application/json' \
     -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
     -H 'x-product-name: default' \
@@ -94,7 +94,7 @@ Requires <code>Events:Api:Events:Get</code> permit
 
 ```shell
 curl -X POST \
-"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/events/validation" \
+"https://api.mpc.placewise.com/v3/:loyalty_club_slug/events/validation" \
     -H 'content-type: application/json' \
     -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
     -H 'x-product-name: default' \
@@ -153,7 +153,7 @@ Status    | Description
 
 ```shell
 curl -X POST \
-"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/events/checkin" \
+"https://api.mpc.placewise.com/v3/:loyalty_club_slug/events/checkin" \
     -H 'content-type: application/json' \
     -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
     -H 'x-product-name: default' \
@@ -218,7 +218,7 @@ Status    | Description
 
 ```shell
 curl -X GET \
-"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/events/checkin/:event_id" \
+"https://api.mpc.placewise.com/v3/:loyalty_club_slug/events/checkin/:event_id" \
     -H 'content-type: application/json' \
     -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
     -H 'x-product-name: default' \
@@ -254,7 +254,7 @@ Requires <code>Events:Api:Checkin:Get</code> permit
 
 ```shell
 curl -X POST \
-"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/events/invitation" \
+"https://api.mpc.placewise.com/v3/:loyalty_club_slug/events/invitation" \
     -H 'content-type: application/json' \
     -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
     -H 'x-product-name: default' \

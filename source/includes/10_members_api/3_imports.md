@@ -59,7 +59,7 @@ that, you may want to identify all bulks with the same `import_id` and pass cons
 
 ```shell
 curl -X POST \
-    "https://bpc-api.boostcom.no/v3/infinity-mall/members/imports" \
+    "https://api.mpc.placewise.com/v3/infinity-mall/members/imports" \
     -H 'content-type: application/json' \
     -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
     -H 'x-product-name: default' \
@@ -177,7 +177,7 @@ You need to call [Members Imports &bull; Get bulk status](#members-import-bulk-s
 
 ```shell
 curl -X GET \
-    "https://bpc-api.boostcom.no/v3/infinity-mall/members/imports/:import_id" \
+    "https://api.mpc.placewise.com/v3/infinity-mall/members/imports/:import_id" \
     -H 'content-type: application/json' \
     -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
     -H 'x-product-name: default' \
@@ -242,7 +242,7 @@ Returns status of import bulk.
 
 ```shell
 curl -X GET \
-    "https://bpc-api.boostcom.no/v3/infinity-mall/members/imports/:import_id/bulks/:bulk_id" \
+    "https://api.mpc.placewise.com/v3/infinity-mall/members/imports/:import_id/bulks/:bulk_id" \
     -H 'content-type: application/json' \
     -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
     -H 'x-product-name: default' \

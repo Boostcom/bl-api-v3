@@ -180,7 +180,7 @@ duplicated_email | The email was duplicated in community
 > Example:
 
 ```shell
-curl "https://bpc-api.boostcom.no/v3/infinity-mall/members?per_page=100&page=1&ids[]=1&ids[]=2" \
+curl "https://api.mpc.placewise.com/v3/infinity-mall/members?per_page=100&page=1&ids[]=1&ids[]=2" \
   -H 'content-type: application/json' \
   -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
   -H 'x-product-name: default' \
@@ -239,7 +239,7 @@ Requires <code>BL:Api:Members:Index</code> permit
 > Example:
 
 ```shell
-curl "https://bpc-api.boostcom.no/v3/infinity-mall/members/:id" \
+curl "https://api.mpc.placewise.com/v3/infinity-mall/members/:id" \
   -H 'content-type: application/json' \
   -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
   -H 'x-product-name: default' \
@@ -296,7 +296,7 @@ Status | Reason
 > Example:
 
 ```shell
-curl "https://bpc-api.boostcom.no/v3/infinity-mall/members/:id/public_info" \
+curl "https://api.mpc.placewise.com/v3/infinity-mall/members/:id/public_info" \
   -H 'content-type: application/json' \
   -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
   -H 'x-product-name: default' \
@@ -357,7 +357,7 @@ Status | Reason
 > Example:
 
 ```shell
-curl "https://bpc-api.boostcom.no/v3/infinity-mall/members/:id/person_id" \
+curl "https://api.mpc.placewise.com/v3/infinity-mall/members/:id/person_id" \
   -H 'content-type: application/json' \
   -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
   -H 'x-product-name: default' \
@@ -459,7 +459,7 @@ Status | Reason
 ```shell
 
 curl -X POST \
-  https://bpc-api.boostcom.no/v3/infinity-mall/members \
+  https://api.mpc.placewise.com/v3/infinity-mall/members \
   -H 'content-type: application/json' \
   -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
   -H 'x-product-name: facebook' \
@@ -564,7 +564,7 @@ Requires <code>BL:Api:Members:Create</code> or <code>BL:Api:Members:CreateWithVe
 ```shell
 
 curl -X PUT \
-  https://bpc-api.boostcom.no/v3/infinity-mall/members/:id \
+  https://api.mpc.placewise.com/v3/infinity-mall/members/:id \
   -H 'content-type: application/json' \
   -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
   -H 'x-product-name: default' \
@@ -654,7 +654,7 @@ Status | Description
 
 ```shell
 curl -X PUT \
-  https://bpc-api.boostcom.no/v3/infinity-mall/members/me/update_password \
+  https://api.mpc.placewise.com/v3/infinity-mall/members/me/update_password \
   -H 'content-type: application/json' \
   -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
   -H 'x-product-name: default' \
@@ -706,7 +706,7 @@ Requires <code>BL:Api:Members:OAuth:UpdatePassword</code> permit.
 ```shell
 
 curl -X PUT \
-  https://bpc-api.boostcom.no/v3/infinity-mall/members/:id/update_app_token \
+  https://api.mpc.placewise.com/v3/infinity-mall/members/:id/update_app_token \
   -H 'content-type: application/json' \
   -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
   -H 'x-product-name: default' \
@@ -798,7 +798,7 @@ Same as welcome messages, optout messages sending also depends on Loyalty Club a
 
 ```shell
 curl -X DELETE \
-    "https://bpc-api.boostcom.no/v3/infinity-mall/members/:id" \
+    "https://api.mpc.placewise.com/v3/infinity-mall/members/:id" \
     -H 'content-type: application/json' \
     -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
     -H 'x-product-name: default' \
@@ -840,7 +840,7 @@ Status | Reason
 ```shell
 
 curl -X POST \
-  https://bpc-api.boostcom.no/v3/infinity-mall/members/validate \
+  https://api.mpc.placewise.com/v3/infinity-mall/members/validate \
   -H 'content-type: application/json' \
   -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
   -H 'x-product-name: android-app' \
@@ -932,7 +932,7 @@ Requires <code>BL:Api:Members:Validate</code> permit
 
 ```shell
 curl -X PUT \
-  "https://bpc-api.boostcom.no/v3/:loyalty_club_slug/members/by_email/:email/reset_password" \
+  "https://api.mpc.placewise.com/v3/:loyalty_club_slug/members/by_email/:email/reset_password" \
   -H 'content-type: application/json' \
   -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
   -H 'x-product-name: default' \
@@ -983,7 +983,7 @@ Requires <code>BL:Api:Members:ResetPassword</code> permit
 > Example:
 
 ```shell
-curl "https://bpc-api.boostcom.no/v3/infinity-mall/members/by_email/joe@example.com/send_password_reset_token" \
+curl "https://api.mpc.placewise.com/v3/infinity-mall/members/by_email/joe@example.com/send_password_reset_token" \
   -H 'content-type: application/json' \
   -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
   -H 'x-product-name: default' \
@@ -1024,7 +1024,7 @@ Requires <code>BL:Api:Members:Tokens:Create</code> permit
 > Example:
 
 ```shell
-curl "https://bpc-api.boostcom.no/v3/infinity-mall/members/by_msisdn/4740485124/send_one_time_password" \
+curl "https://api.mpc.placewise.com/v3/infinity-mall/members/by_msisdn/4740485124/send_one_time_password" \
   -H 'content-type: application/json' \
   -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
   -H 'x-product-name: default' \
@@ -1064,7 +1064,7 @@ Requires <code>BL:Api:Members:CreateOneTimePassword</code> permit
 > Example:
 
 ```shell
-curl "https://bpc-api.boostcom.no/v3/infinity-mall/members/by_email/user@example.com/send_one_time_password" \
+curl "https://api.mpc.placewise.com/v3/infinity-mall/members/by_email/user@example.com/send_one_time_password" \
   -H 'content-type: application/json' \
   -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
   -H 'x-product-name: default' \
@@ -1110,7 +1110,7 @@ Requires <code>BL:Api:Members:CreateOneTimePassword</code> permit
 > Example:
 
 ```shell
-curl "https://bpc-api.boostcom.no/v3/infinity-mall/members/by_msisdn/4740485124/send_registration_password" \
+curl "https://api.mpc.placewise.com/v3/infinity-mall/members/by_msisdn/4740485124/send_registration_password" \
   -H 'content-type: application/json' \
   -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
   -H 'x-product-name: default' \
@@ -1166,7 +1166,7 @@ Requires <code>BL:Api:Members:CreateRegistrationPassword</code> permit
 > Example:
 
 ```shell
-curl "https://bpc-api.boostcom.no/v3/infinity-mall/members/by_email/joe@example.com/verify_token/password_reset/k4wort03j2" \
+curl "https://api.mpc.placewise.com/v3/infinity-mall/members/by_email/joe@example.com/verify_token/password_reset/k4wort03j2" \
   -H 'content-type: application/json' \
   -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
   -H 'x-product-name: default' \
@@ -1217,7 +1217,7 @@ Requires <code>BL:Api:Members:Tokens:Verify</code> permit
 
 ```shell
 curl -X PUT \
-  "https://bpc-api.boostcom.no/v3/infinity-mall/members/channels/msisdn/4740485124/send_verification" \
+  "https://api.mpc.placewise.com/v3/infinity-mall/members/channels/msisdn/4740485124/send_verification" \
   -H 'content-type: application/json' \
   -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
   -H 'x-product-name: default' \
@@ -1258,7 +1258,7 @@ Requires <code>BL:Api:Members:Msisdns:Verify</code> permit
 
 ```shell
 curl -X PUT \
-  "https://bpc-api.boostcom.no/v3/infinity-mall/members/channels/msisdn/4740485124/verify" \
+  "https://api.mpc.placewise.com/v3/infinity-mall/members/channels/msisdn/4740485124/verify" \
   -H 'content-type: application/json' \
   -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
   -H 'x-product-name: default' \
@@ -1307,7 +1307,7 @@ Requires <code>BL:Api:Members:Msisdns:Verify</code> permit
 
 ```shell
 curl -X GET \
-  "https://bpc-api.boostcom.no/v3/infinity-mall/members/12345/stores" \
+  "https://api.mpc.placewise.com/v3/infinity-mall/members/12345/stores" \
   -H 'content-type: application/json' \
   -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
   -H 'x-product-name: default' \
@@ -1338,7 +1338,7 @@ Requires <code>BL:Api:Members:Stores:Index</code> permit
 
 ```shell
 curl -X POST \
-  "https://bpc-api.boostcom.no/v3/infinity-mall/members/12345/stores" \
+  "https://api.mpc.placewise.com/v3/infinity-mall/members/12345/stores" \
   -H 'content-type: application/json' \
   -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
   -H 'x-product-name: default' \
@@ -1385,7 +1385,7 @@ Requires <code>BL:Api:Members:Stores:Create</code> permit
 
 ```shell
 curl -X DELETE \
-  "https://bpc-api.boostcom.no/v3/infinity-mall/members/12345/stores" \
+  "https://api.mpc.placewise.com/v3/infinity-mall/members/12345/stores" \
   -H 'content-type: application/json' \
   -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
   -H 'x-product-name: default' \
@@ -1432,7 +1432,7 @@ Requires <code>BL:Api:Members:Stores:Destroy</code> permit
 
 ```shell
 curl -X POST \
-  "https://bpc-api.boostcom.no/v3/infinity-mall/members/12345/user" \
+  "https://api.mpc.placewise.com/v3/infinity-mall/members/12345/user" \
   -H 'content-type: application/json' \
   -H 'Authorization: Bearer B7t9U9tsoWsGhrv2ouUoSqpM' \
   -H 'x-product-name: default' \

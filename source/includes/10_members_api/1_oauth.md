@@ -14,7 +14,7 @@ Look at [OAuth Token &bull; Create](#token-create) to see how to obtain the :acc
 > Create token example:
 
 ```shell
-curl -X POST "https://bpc-api.boostcom.no/v3/infinity-mall/members/oauth/token" \
+curl -X POST "https://api.mpc.placewise.com/v3/infinity-mall/members/oauth/token" \
   -H 'content-type: application/json' \
   -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
   -H 'x-product-name: default' \
@@ -30,7 +30,7 @@ curl -X POST "https://bpc-api.boostcom.no/v3/infinity-mall/members/oauth/token" 
 > Refresh token example:
 
 ```shell
-curl -X POST "https://bpc-api.boostcom.no/v3/infinity-mall/members/oauth/token" \
+curl -X POST "https://api.mpc.placewise.com/v3/infinity-mall/members/oauth/token" \
   -H 'content-type: application/json' \
   -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
   -H 'x-product-name: default' \
@@ -119,7 +119,7 @@ Requires <code>BL:Api:Members:OAuth</code> permit
 > Example:
 
 ```shell
-curl -X POST "https://bpc-api.boostcom.no/v3/infinity-mall/members/oauth/revoke" \
+curl -X POST "https://api.mpc.placewise.com/v3/infinity-mall/members/oauth/revoke" \
   -H 'content-type: application/json' \
   -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
   -H 'x-product-name: default' \
@@ -160,7 +160,7 @@ Requires <code>BL:Api:Members:OAuth</code> permit
 > Example:
 
 ```shell
-curl "https://bpc-api.boostcom.no/v3/infinity-mall/members/oauth/token/info" \
+curl "https://api.mpc.placewise.com/v3/infinity-mall/members/oauth/token/info" \
   -H 'content-type: application/json' \
   -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
   -H 'x-product-name: default' \

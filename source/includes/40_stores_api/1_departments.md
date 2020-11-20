@@ -6,7 +6,7 @@
 
 ```shell
 curl -X GET \
-"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/stores/departments" \
+"https://api.mpc.placewise.com/v3/:loyalty_club_slug/stores/departments" \
     -H 'content-type: application/json' \
     -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
     -H 'x-product-name: default' \
@@ -39,7 +39,7 @@ Requires <code>Stores:Api:Departments:Get</code> permit
 
 ```shell
 curl -X GET \
-"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/stores/departments/123456" \
+"https://api.mpc.placewise.com/v3/:loyalty_club_slug/stores/departments/123456" \
     -H 'content-type: application/json' \
     -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
     -H 'x-product-name: default' \
@@ -94,7 +94,7 @@ Requires <code>Stores:Api:Departments:Get</code> permit
 
 ```shell
 curl -X POST \
-"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/stores/departments" \
+"https://api.mpc.placewise.com/v3/:loyalty_club_slug/stores/departments" \
     -H 'content-type: application/json' \
     -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
     -H 'x-product-name: default' \
@@ -165,7 +165,7 @@ Requires <code>Stores:Api:Departments:Create</code>
 
 ```shell
 curl -X PUT \
-"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/stores/departments/12345" \
+"https://api.mpc.placewise.com/v3/:loyalty_club_slug/stores/departments/12345" \
     -H 'content-type: application/json' \
     -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
     -H 'x-product-name: default' \

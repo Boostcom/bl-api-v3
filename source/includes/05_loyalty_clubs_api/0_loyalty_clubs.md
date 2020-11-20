@@ -43,7 +43,7 @@ new_offers_api_enabled | bool | Is [New Offers API](#endpoints-offers) enabled f
 > Example
 
 ```shell
-curl "https://bpc-api.boostcom.no/v3/loyalty_clubs" \
+curl "https://api.mpc.placewise.com/v3/loyalty_clubs" \
   -H 'content-type: application/json' \
   -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
   -H 'x-product-name: default' \
@@ -94,7 +94,7 @@ Requires <code>BL:Api:LoyaltyClubs:ListMine</code> permit
 > Example
 
 ```shell
-curl "https://bpc-api.boostcom.no/v3/loyalty_clubs/infinity-mall/" \
+curl "https://api.mpc.placewise.com/v3/loyalty_clubs/infinity-mall/" \
   -H 'content-type: application/json' \
   -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
   -H 'x-product-name: default' \
@@ -126,7 +126,7 @@ Requires <code>BL:Api:LoyaltyClubs:Get</code> permit
 > Example
 
 ```shell
-curl "https://bpc-api.boostcom.no/v3/infinity-mall/member_schema" \
+curl "https://api.mpc.placewise.com/v3/infinity-mall/member_schema" \
   -H 'content-type: application/json' \
   -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
   -H 'x-product-name: default' \
@@ -214,7 +214,7 @@ Requires <code>BL:Api:Schema:Get</code> permit
 > Example
 
 ```shell
-curl "https://bpc-api.boostcom.no/v3/infinity-mall/products" \
+curl "https://api.mpc.placewise.com/v3/infinity-mall/products" \
   -H 'content-type: application/json' \
   -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
   -H 'x-product-name: default' \
@@ -267,7 +267,7 @@ Requires <code>BL:Api:Products:Index</code> permit
 > Example request
 
 ```shell
-curl "https://bpc-api.boostcom.no/v3/infinity-mall/translations?language=en" \
+curl "https://api.mpc.placewise.com/v3/infinity-mall/translations?language=en" \
   -H 'content-type: application/json' \
   -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
   -H 'x-product-name: default' \

@@ -8,7 +8,7 @@
 
 ```shell
 curl -X POST \
-"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/pos-campaign/points" \
+"https://api.mpc.placewise.com/v3/:loyalty_club_slug/pos-campaign/points" \
     -H 'content-type: application/json' \
     -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
     -H 'x-product-name: default' \
@@ -148,7 +148,7 @@ Bonus will apply when StoreId = "910" or (ItemId = "112" and StoreId != "910")
 
 ```shell
 curl -X DELETE \
-"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/pos-campaign/points" \
+"https://api.mpc.placewise.com/v3/:loyalty_club_slug/pos-campaign/points" \
     -H 'content-type: application/json' \
     -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
     -H 'x-product-name: default' \

@@ -4,7 +4,7 @@
 
 ```shell
 curl -X POST \
-"https://bpc-api.boostcom.no/v1/messages/bulks" \
+"https://api.mpc.placewise.com/v1/messages/bulks" \
   -H 'content-type: application/json' \
   -H 'x-loyalty-club-slug: infinity-mall' \
   -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \

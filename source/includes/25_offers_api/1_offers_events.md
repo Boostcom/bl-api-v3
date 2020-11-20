@@ -38,7 +38,7 @@ For example, member clicked on a coupon that was displayed inside collection, th
 
 ```shell
 curl -X POST \
-"https://bpc-api.boostcom.no/v3/infinity-mall/offers/events/offers_clicked" \
+"https://api.mpc.placewise.com/v3/infinity-mall/offers/events/offers_clicked" \
     -H 'content-type: application/json' \
     -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
     -H 'x-product-name: default' \
@@ -90,7 +90,7 @@ Requires <code>Offers:Api:Events:Clicked</code> permit
 
 ```shell
 curl -X POST \
-"https://bpc-api.boostcom.no/v3/infinity-mall/offers/events/offers_seen" \
+"https://api.mpc.placewise.com/v3/infinity-mall/offers/events/offers_seen" \
     -H 'content-type: application/json' \
     -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
     -H 'x-product-name: default' \

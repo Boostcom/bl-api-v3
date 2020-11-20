@@ -6,7 +6,7 @@
 
 ```shell
 curl -X POST \
-"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/transactions/points" \
+"https://api.mpc.placewise.com/v3/:loyalty_club_slug/transactions/points" \
     -H 'content-type: application/json' \
     -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
     -H 'x-product-name: default' \
@@ -121,7 +121,7 @@ Requires <code>Transaction:Api:Points:Create</code>
 
 ```shell
 curl -X GET \
-"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/transactions/points/by_member_id/12345" \
+"https://api.mpc.placewise.com/v3/:loyalty_club_slug/transactions/points/by_member_id/12345" \
     -H 'content-type: application/json' \
     -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
     -H 'x-product-name: default' \
@@ -169,7 +169,7 @@ Requires <code>Transaction:Api:Points:Get</code> permit
 
 ```shell
 curl -X GET \
-"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/transactions/points/events/12345?type=issue_points&event=Event1&external_event_id=12345" \
+"https://api.mpc.placewise.com/v3/:loyalty_club_slug/transactions/points/events/12345?type=issue_points&event=Event1&external_event_id=12345" \
     -H 'content-type: application/json' \
     -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
     -H 'x-product-name: default' \

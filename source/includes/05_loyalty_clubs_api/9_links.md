@@ -54,7 +54,7 @@ Returns all links available within Loyalty Club.
 
 ```shell
 curl \
-"https://bpc-api.boostcom.no/v3/infinity-mall/links" \
+"https://api.mpc.placewise.com/v3/infinity-mall/links" \
     -H 'content-type: application/json' \
     -H 'authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522' \
     -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
@@ -90,7 +90,7 @@ Returns specific link.
 
 ```shell
 curl \
-"https://bpc-api.boostcom.no/v3/infinity-mall/links/about" \
+"https://api.mpc.placewise.com/v3/infinity-mall/links/about" \
     -H 'content-type: application/json' \
     -H 'authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522' \
     -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
@@ -132,7 +132,7 @@ Enables given link - see [enabled links](#enabled-links)
 
 ```shell
 curl -X PUT \
-"https://bpc-api.boostcom.no/v3/infinity-mall/links/about/enable" \
+"https://api.mpc.placewise.com/v3/infinity-mall/links/about/enable" \
     -H 'content-type: application/json' \
     -H 'authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522' \
     -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
@@ -174,7 +174,7 @@ Disables given link - see [enabled links](#enabled-links)
 
 ```shell
 curl -X PUT \
-"https://bpc-api.boostcom.no/v3/infinity-mall/links/about/disable" \
+"https://api.mpc.placewise.com/v3/infinity-mall/links/about/disable" \
     -H 'content-type: application/json' \
     -H 'authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522' \
     -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
@@ -217,7 +217,7 @@ Create a new link for the Loyalty Club. Created link is always [enabled](#enable
 
 ```shell
 curl -X POST \
-"https://bpc-api.boostcom.no/v3/infinity-mall/links" \
+"https://api.mpc.placewise.com/v3/infinity-mall/links" \
     -H 'content-type: application/json' \
     -H 'authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522' \
     -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
@@ -282,7 +282,7 @@ Destroys Loyalty Club link.
 
 ```shell
 curl -X DELETE \
-"https://bpc-api.boostcom.no/v3/infinity-mall/links/articles" \
+"https://api.mpc.placewise.com/v3/infinity-mall/links/articles" \
     -H 'content-type: application/json' \
     -H 'authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522' \
     -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
@@ -323,7 +323,7 @@ Requires <code>BL:Api:Links:Delete</code> permit
 
 ```shell
 curl -X POST \
-"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/links/offer_page/generate" \
+"https://api.mpc.placewise.com/v3/:loyalty_club_slug/links/offer_page/generate" \
     -H 'content-type: application/json' \
     -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
     -H 'x-product-name: default' \

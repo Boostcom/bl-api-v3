@@ -104,7 +104,7 @@ audience_conditions | Object | no| Conditions of related audience
 > Example:
 
 ```shell
-curl --request GET 'https://bpc-api.boostcom.no/v3/infinity-mall/members_groups' \
+curl --request GET 'https://api.mpc.placewise.com/v3/infinity-mall/members_groups' \
 --header 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
 --header 'x-product-name: default' \
 --header 'x-user-agent: cURL Manual Testing'
@@ -151,7 +151,7 @@ Requires <code>BL:Api:MembersGroups:Index</code> permit
 > Example:
 
 ```shell
-curl --request GET 'https://bpc-api.boostcom.no/v3/infinity-mall/members_groups' \
+curl --request GET 'https://api.mpc.placewise.com/v3/infinity-mall/members_groups' \
 --header 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
 --header 'x-product-name: default' \
 --header 'x-user-agent: cURL Manual Testing'
@@ -196,7 +196,7 @@ Requires <code>BL:Api:MembersGroups:Get</code> permit
 > Example:
 
 ```shell
-curl --request POST 'https://bpc-api.boostcom.no/v3/infinity-mall/members_groups' \
+curl --request POST 'https://api.mpc.placewise.com/v3/infinity-mall/members_groups' \
 --header 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
 --header 'x-product-name: default' \
 --header 'x-user-agent: cURL Manual Testing' \
@@ -261,7 +261,7 @@ Requires <code>BL:Api:MembersGroups:Create</code> permit
 > Example:
 
 ```shell
-curl --request PUT 'https://bpc-api.boostcom.no/v3/infinity-mall/members_groups/4321' \
+curl --request PUT 'https://api.mpc.placewise.com/v3/infinity-mall/members_groups/4321' \
 --header 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
 --header 'x-product-name: default' \
 --header 'x-user-agent: cURL Manual Testing' \
@@ -315,7 +315,7 @@ Requires <code>BL:Api:MembersGroups:Update</code> permit
 > Example:
 
 ```shell
-curl --request DELETE 'https://bpc-api.boostcom.no/v3/infinity-mall/members_groups/4321' \
+curl --request DELETE 'https://api.mpc.placewise.com/v3/infinity-mall/members_groups/4321' \
 --header 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
 --header 'x-product-name: default' \
 --header 'x-user-agent: cURL Manual Testing' \
@@ -363,7 +363,7 @@ Requires <code>BL:Api:MembersGroups:Destroy</code> permit
 > Example:
 
 ```shell
-curl --request GET 'https://bpc-api.boostcom.no/v3/infinity-mall/members_groups/types' \
+curl --request GET 'https://api.mpc.placewise.com/v3/infinity-mall/members_groups/types' \
 --header 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
 --header 'x-product-name: default' \
 --header 'x-user-agent: cURL Manual Testing'
@@ -409,7 +409,7 @@ Requires <code>BL:Api:MembersGroups:Types:Index</code> permit
 > Example:
 
 ```shell
-curl --request POST 'https://bpc-api.boostcom.no/v3/infinity-mall/members_groups/512/members/123' \
+curl --request POST 'https://api.mpc.placewise.com/v3/infinity-mall/members_groups/512/members/123' \
 --header 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
 --header 'x-product-name: default' \
 --header 'x-user-agent: cURL Manual Testing' \
@@ -448,7 +448,7 @@ Requires <code>BL:Api:MembersGroups:Members:Add</code> permit
 > Example:
 
 ```shell
-curl --request DELETE 'https://bpc-api.boostcom.no/v3/infinity-mall/members_groups/512/members/123' \
+curl --request DELETE 'https://api.mpc.placewise.com/v3/infinity-mall/members_groups/512/members/123' \
 --header 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
 --header 'x-product-name: default' \
 --header 'x-user-agent: cURL Manual Testing' \
@@ -487,7 +487,7 @@ Requires <code>BL:Api:MembersGroups:Members:Remove</code> permit
 > Example:
 
 ```shell
-curl --request GET 'https://bpc-api.boostcom.no/v3/infinity-mall/members_groups/1/members' \
+curl --request GET 'https://api.mpc.placewise.com/v3/infinity-mall/members_groups/1/members' \
 --header 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
 --header 'x-product-name: default' \
 --header 'x-user-agent: cURL Manual Testing' \
@@ -535,7 +535,7 @@ Requires <code>BL:Api:MembersGroups:Members:List</code> permit
 > Example: 
 
 ```shell
-curl --request GET 'https://bpc-api.boostcom.no/v3/infinity-mall/members/549123/groups' \
+curl --request GET 'https://api.mpc.placewise.com/v3/infinity-mall/members/549123/groups' \
 --header 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
 --header 'x-product-name: default' \
 --header 'x-user-agent: cURL Manual Testing'

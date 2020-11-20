@@ -7,7 +7,7 @@ This API allows managing [ImageTemplates records](#offer-image-template-record).
 > Example:
 
 ```shell
-curl --request GET 'https://bpc-api.boostcom.no/v3/infinity-mall/offers/image_templates' \
+curl --request GET 'https://api.mpc.placewise.com/v3/infinity-mall/offers/image_templates' \
 --header 'x-client-authorization: B7t``9U9tsoWsGhrv2ouUoSqpM' \
 --header 'x-product-name: default' \
 --header 'x-user-agent: cURL Manual Testing'
@@ -50,7 +50,7 @@ Requires <code>Offers:Api:ImageTemplates:List</code> permit
 > Example:
 
 ```shell
-curl --request GET 'https://bpc-api.boostcom.no/v3/infinity-mall/offers/image_templates' \
+curl --request GET 'https://api.mpc.placewise.com/v3/infinity-mall/offers/image_templates' \
 --header 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
 --header 'x-product-name: default' \
 --header 'x-user-agent: cURL Manual Testing'
@@ -95,7 +95,7 @@ Requires <code>Offers:Api:ImageTemplates:Get</code> permit
 > Example:
 
 ```shell
-curl --request POST 'https://bpc-api.boostcom.no/v3/infinity-mall/offers/image_templates' \
+curl --request POST 'https://api.mpc.placewise.com/v3/infinity-mall/offers/image_templates' \
 --header 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
 --header 'x-product-name: default' \
 --header 'x-user-agent: cURL Manual Testing' \
@@ -162,7 +162,7 @@ Requires <code>Offers:Api:ImageTemplates:Create</code> permit
 > Example:
 
 ```shell
-curl --request PUT 'https://bpc-api.boostcom.no/v3/infinity-mall/offers/image_templates/4321' \
+curl --request PUT 'https://api.mpc.placewise.com/v3/infinity-mall/offers/image_templates/4321' \
 --header 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
 --header 'x-product-name: default' \
 --header 'x-user-agent: cURL Manual Testing' \
@@ -230,7 +230,7 @@ Requires <code>Offers:Api:ImageTemplates:Update</code> permit
 > Example:
 
 ```shell
-curl --request DELETE 'https://bpc-api.boostcom.no/v3/infinity-mall/offers/image_templates/4321' \
+curl --request DELETE 'https://api.mpc.placewise.com/v3/infinity-mall/offers/image_templates/4321' \
 --header 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
 --header 'x-product-name: default' \
 --header 'x-user-agent: cURL Manual Testing' \

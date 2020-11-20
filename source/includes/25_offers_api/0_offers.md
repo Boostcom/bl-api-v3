@@ -226,7 +226,7 @@ By default (when no schema is defined on offer by it's creator), all of the sche
 
 ```shell
 curl \
-"https://bpc-api.boostcom.no/v3/infinity-mall/members/me/offers/meta" \
+"https://api.mpc.placewise.com/v3/infinity-mall/members/me/offers/meta" \
     -H 'content-type: application/json' \
     -H 'authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522' \
     -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
@@ -333,7 +333,7 @@ Requires <code>Offers:Api:MemberOffers:GetPreview</code> permit
 
 ```shell
 curl \
-"https://bpc-api.boostcom.no/v3/infinity-mall/members/me/offers/1000016" \
+"https://api.mpc.placewise.com/v3/infinity-mall/members/me/offers/1000016" \
     -H 'content-type: application/json' \
     -H 'authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522' \
     -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
@@ -365,7 +365,7 @@ offer | Offer | no | See [Offer model](#offer-model)
 
 ```shell
 curl \
-"https://bpc-api.boostcom.no/v3/infinity-mall/members/me/offers" \
+"https://api.mpc.placewise.com/v3/infinity-mall/members/me/offers" \
     -H 'content-type: application/json' \
     -H 'authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522' \
     -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
@@ -461,7 +461,7 @@ pagination_info | PaginationInfo | yes| See [Pagination info model](#pagination-
 
 ```shell
 curl -X POST \
-"https://bpc-api.boostcom.no/v3/infinity-mall/members/me/offers/1000016" \
+"https://api.mpc.placewise.com/v3/infinity-mall/members/me/offers/1000016" \
     -H 'content-type: application/json' \
     -H 'authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522' \
     -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
@@ -542,7 +542,7 @@ Status | Response body | Description
 
 ```shell
 curl -X PUT \
-"https://bpc-api.boostcom.no/v3/infinity-mall/members/me/offers/1000016/like" \
+"https://api.mpc.placewise.com/v3/infinity-mall/members/me/offers/1000016/like" \
     -H 'content-type: application/json' \
     -H 'authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522' \
     -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
@@ -578,7 +578,7 @@ Marks offer as "liked" by user.
 
 ```shell
 curl -X PUT \
-"https://bpc-api.boostcom.no/v3/infinity-mall/members/me/offers/1000016/unlike" \
+"https://api.mpc.placewise.com/v3/infinity-mall/members/me/offers/1000016/unlike" \
     -H 'content-type: application/json' \
     -H 'authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522' \
     -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
@@ -614,7 +614,7 @@ Revers marking offer as "liked" by user.
 
 ```shell
 curl -X POST \
-"https://bpc-api.boostcom.no/v3/infinity-mall/members/7371713/offers/10000951/unlike" \
+"https://api.mpc.placewise.com/v3/infinity-mall/members/7371713/offers/10000951/unlike" \
     -H 'content-type: application/json' \
     -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
     -H 'x-product-name: default' \

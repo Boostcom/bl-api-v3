@@ -5,7 +5,7 @@
 
 ```shell
 curl \
-"https://bpc-api.boostcom.no/v3/infinity-mall/members/me/rewards-program/rewards" \
+"https://api.mpc.placewise.com/v3/infinity-mall/members/me/rewards-program/rewards" \
     -H 'content-type: application/json' \
     -H 'authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522' \
     -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
@@ -86,7 +86,7 @@ Requires <code>Rewards:Api:OAuth:Rewards:List</code> permit
 
 ```shell
 curl \
-"https://bpc-api.boostcom.no/v3/infinity-mall/members/me/rewards-program/rewards/purchased" \
+"https://api.mpc.placewise.com/v3/infinity-mall/members/me/rewards-program/rewards/purchased" \
     -H 'content-type: application/json' \
     -H 'authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522' \
     -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
@@ -162,7 +162,7 @@ Requires <code>Rewards:Api:OAuth:Rewards:ListPurchased</code> permit
 
 ```shell
 curl -X POST \
-"https://bpc-api.boostcom.no/v3/infinity-mall/members/me/rewards-program/rewards/153/purchase" \
+"https://api.mpc.placewise.com/v3/infinity-mall/members/me/rewards-program/rewards/153/purchase" \
     -H 'content-type: application/json' \
     -H 'authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522' \
     -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
@@ -202,7 +202,7 @@ Requires <code>Rewards:Api:OAuth:Rewards:Purchase</code> permit
 
 ```shell
 curl -X POST \
-"https://bpc-api.boostcom.no/v3/infinity-mall/members/me/rewards-program/rewards/153/use" \
+"https://api.mpc.placewise.com/v3/infinity-mall/members/me/rewards-program/rewards/153/use" \
     -H 'content-type: application/json' \
     -H 'authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522' \
     -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \

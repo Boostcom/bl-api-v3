@@ -8,7 +8,7 @@
 
 ```shell
 curl \
-"https://bpc-api.boostcom.no/v3/infinity-mall/offers/1000016" \
+"https://api.mpc.placewise.com/v3/infinity-mall/offers/1000016" \
     -H 'content-type: application/json' \
     -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
     -H 'x-product-name: default' \
@@ -43,7 +43,7 @@ Requires <code>Offers:Api:Offers:Get</code> permit
 
 ```shell
 curl \
-"https://bpc-api.boostcom.no/v3/infinity-mall/offers" \
+"https://api.mpc.placewise.com/v3/infinity-mall/offers" \
     -H 'content-type: application/json' \
     -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
     -H 'x-product-name: default' \
@@ -113,7 +113,7 @@ Requires <code>Offers:Api:Offers:List</code> permit
 
 ```shell
 curl -X POST \
-"https://bpc-api.boostcom.no/v3/infinity-mall/offers" \
+"https://api.mpc.placewise.com/v3/infinity-mall/offers" \
     -H 'content-type: application/json' \
     -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
     -H 'x-product-name: default' \
@@ -176,7 +176,7 @@ Requires <code>Offers:Api:Offers:Create</code> permit
 
 ```shell
 curl -X PUT \
-"https://bpc-api.boostcom.no/v3/infinity-mall/offers" \
+"https://api.mpc.placewise.com/v3/infinity-mall/offers" \
     -H 'content-type: application/json' \
     -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
     -H 'x-product-name: default' \
@@ -241,7 +241,7 @@ Requires <code>Offers:Api:Offers:Update</code> permit
 
 ```shell
 curl -X DELETE \
-"https://bpc-api.boostcom.no/v3/infinity-mall/offers/clone" \
+"https://api.mpc.placewise.com/v3/infinity-mall/offers/clone" \
     -H 'content-type: application/json' \
     -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
     -H 'x-product-name: default' \
@@ -287,7 +287,7 @@ Requires <code>Offers:Api:Offers:Clone</code> permit
 
 ```shell
 curl -X POST \
-"https://bpc-api.boostcom.no/v3/infinity-mall/offers/grant" \
+"https://api.mpc.placewise.com/v3/infinity-mall/offers/grant" \
     -H 'content-type: application/json' \
     -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
     -H 'x-product-name: default' \
@@ -337,7 +337,7 @@ Requires <code>Offers:Api:Offers:Grant</code> permit
 
 ```shell
 curl -X DELETE \
-"https://bpc-api.boostcom.no/v3/infinity-mall/offers" \
+"https://api.mpc.placewise.com/v3/infinity-mall/offers" \
     -H 'content-type: application/json' \
     -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
     -H 'x-product-name: default' \

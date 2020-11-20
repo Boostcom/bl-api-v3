@@ -1,5 +1,8 @@
 # Changelog
 
+#### 20.11.2020 | Jakub Kruczek
+* New API hosts after rebranding to Placewise
+
 #### 09.11.2020 | Piotr Świtlicki
 * Add [Offers &bull; Grant](#grant-offers)
 
@@ -282,7 +285,7 @@ Boostcom Rewards draft
 
 #### 22.01.2017 | Jakub Kruczek:
 
-* Update staging domain to: `https://bpc-api.dev.boostcom.no/`
+* Update staging domain to: `https://api.mpc.dev.placewise.com/`
 
 #### 9.01.2017 | Piotr Świtlicki:
 

@@ -4,11 +4,11 @@ This documentation describes Boostcom's MPC APIs that allow to manage Loyalty Cl
 
 ## Hosts
 
-Production: [https://bpc-api.boostcom.no](https://bpc-api.boostcom.no)
+Production: [https://api.mpc.placewise.com](https://api.mpc.placewise.com)
 
-Production (APAC region): [https://bpc-api.apac.boostcom.com](https://bpc-api.apac.boostcom.com)
+Production (APAC region): [https://api.mpc.apac.placewise.com](https://api.mpc.apac.placewise.com)
 
-Staging: [https://bpc-api.dev.boostcom.no](https://bpc-api.dev.boostcom.no)
+Staging: [https://api.mpc.dev.placewise.com](https://api.mpc.dev.placewise.com)
 
 ### HTTPS (TLS) requirement
 

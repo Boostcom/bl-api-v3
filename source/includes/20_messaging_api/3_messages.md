@@ -6,7 +6,7 @@
 
 ```shell
 curl -X GET \
-"https://bpc-api.boostcom.no/v1/messages?sendings_status=finished" \
+"https://api.mpc.placewise.com/v1/messages?sendings_status=finished" \
   -H 'content-type: application/json' \
   -H 'x-loyalty-club-slug: infinity-mall' \
   -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
@@ -46,7 +46,7 @@ Requires <code>Messages:Api:Messages:List</code> permit
 
 ```shell
 curl -X GET \
-"https://bpc-api.boostcom.no/v1/messages/83" \
+"https://api.mpc.placewise.com/v1/messages/83" \
   -H 'content-type: application/json' \
   -H 'x-loyalty-club-slug: infinity-mall' \
   -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
@@ -88,7 +88,7 @@ Requires <code>Messages:Api:Messages:Get</code> permit
 
 ```shell
 curl -X POST \
-"https://bpc-api.boostcom.no/v1/messages" \
+"https://api.mpc.placewise.com/v1/messages" \
   -H 'content-type: application/json' \
   -H 'x-loyalty-club-slug: infinity-mall' \
   -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
@@ -170,7 +170,7 @@ Requires <code>Messages:Api:Messages:Create</code> permit
 
 ```shell
 curl -X PUT \
-"https://bpc-api.boostcom.no/v1/messages/13" \
+"https://api.mpc.placewise.com/v1/messages/13" \
   -H 'content-type: application/json' \
   -H 'x-loyalty-club-slug: infinity-mall' \
   -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \

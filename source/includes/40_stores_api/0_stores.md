@@ -8,7 +8,7 @@
 
 ```shell
 curl -X GET \
-"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/stores?department_id=123&search=test&category=cat&limit=100&sort=name&order=asc" \
+"https://api.mpc.placewise.com/v3/:loyalty_club_slug/stores?department_id=123&search=test&category=cat&limit=100&sort=name&order=asc" \
     -H 'content-type: application/json' \
     -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
     -H 'x-product-name: default' \
@@ -102,7 +102,7 @@ Requires <code>Stores:Api:Stores:Get</code> permit
 
 ```shell
 curl -X GET \
-"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/stores/123456" \
+"https://api.mpc.placewise.com/v3/:loyalty_club_slug/stores/123456" \
     -H 'content-type: application/json' \
     -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
     -H 'x-product-name: default' \
@@ -203,7 +203,7 @@ Requires <code>Stores:Api:Stores:Get</code> permit
 
 ```shell
 curl -X POST \
-"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/stores" \
+"https://api.mpc.placewise.com/v3/:loyalty_club_slug/stores" \
     -H 'content-type: application/json' \
     -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
     -H 'x-product-name: default' \
@@ -330,7 +330,7 @@ Requires <code>Stores:Api:Stores:Create</code>
 
 ```shell
 curl -X PUT \
-"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/stores/12345" \
+"https://api.mpc.placewise.com/v3/:loyalty_club_slug/stores/12345" \
     -H 'content-type: application/json' \
     -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
     -H 'x-product-name: default' \
@@ -470,7 +470,7 @@ Requires <code>Stores:Api:Stores:Update</code>
 
 ```shell
 curl -X POST \
-"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/stores/12345" \
+"https://api.mpc.placewise.com/v3/:loyalty_club_slug/stores/12345" \
     -H 'content-type: application/json' \
     -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
     -H 'x-product-name: default' \
@@ -534,7 +534,7 @@ Requires <code>Stores:Api:Stores:Delete</code>
 
 ```shell
 curl -X GET \
-"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/stores/categories" \
+"https://api.mpc.placewise.com/v3/:loyalty_club_slug/stores/categories" \
     -H 'content-type: application/json' \
     -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
     -H 'x-product-name: default' \
@@ -568,7 +568,7 @@ Requires <code>Stores:Api:Zones:Get</code> permit
 
 ```shell
 curl -X GET \
-"https://bpc-api.boostcom.no/v3/:loyalty_club_slug/stores/zones" \
+"https://api.mpc.placewise.com/v3/:loyalty_club_slug/stores/zones" \
     -H 'content-type: application/json' \
     -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
     -H 'x-product-name: default' \

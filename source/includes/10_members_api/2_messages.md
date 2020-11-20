@@ -27,7 +27,7 @@ content    |                                     | yes       | string
 > Example:
 
 ```shell
-curl "https://bpc-api.boostcom.no/v3/infinity-mall/members/509134/messages" \
+curl "https://api.mpc.placewise.com/v3/infinity-mall/members/509134/messages" \
   -H 'content-type: application/json' \
   -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
   -H 'x-product-name: default' \
@@ -76,7 +76,7 @@ Requires <code>BL:Api:Members:MessagesHistory:List</code> permit
 > Example:
 
 ```shell
-curl "https://bpc-api.boostcom.no/v3/infinity-mall/members/509134/messages/MTE0NTc1Mg" \
+curl "https://api.mpc.placewise.com/v3/infinity-mall/members/509134/messages/MTE0NTc1Mg" \
   -H 'content-type: application/json' \
   -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
   -H 'x-product-name: default' \
