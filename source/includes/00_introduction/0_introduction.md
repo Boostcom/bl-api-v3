@@ -1,6 +1,6 @@
 # Introduction
 
-This documentation describes Boostcom's MPC APIs that allow to manage Loyalty Club, its members and content.
+This documentation describes Placewise's MPC APIs that allow to manage Loyalty Club, its members and content.
 
 ## Hosts
 
@@ -12,7 +12,7 @@ Staging: [https://api.mpc.dev.placewise.com](https://api.mpc.dev.placewise.com)
 
 ### HTTPS (TLS) requirement
 
-To make connection to Boostcom's MPC APIs you have to use HTTPS with TLS encryption.
+To make connection to Placewise's MPC APIs you have to use HTTPS with TLS encryption.
 Your client has to support TLS1.2+ with strong ciphers.
 
 ## Common params and headers
@@ -36,7 +36,7 @@ It should be used only on backend and never exposed in frontend code.
 Each token has are permits assigned to it. Depending what permits are assigned, access to some of the endpoints
 may be restricted.
 
-If you miss your authentication token, please [let us know](http://boostcom.no).
+If you miss your authentication token, please [let us know](https://placewise.com).
 
 ### "x-user-agent" header
 
@@ -55,7 +55,7 @@ That will allow further targeting members by communication channel.
 
 For that we use product name. It should be passed as **required** header `x-product-name` that is intended to provide the necessary granularity.
 
-If you miss your product name, please [let us know](http://boostcom.no).
+If you miss your product name, please [let us know](https://placewise.com).
 
 ### "authorization" header
 

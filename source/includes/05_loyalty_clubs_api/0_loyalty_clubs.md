@@ -30,7 +30,7 @@ id | integer |
 community_id | integer | ID of community assigned to the Loyalty Club
 customer_id | integer | ID of customer that the Loyalty Club belongs to
 main_slug | slug | Main LC's slug
-short_slug | slug | Short LC's slug, used in Boostcom Shortener
+short_slug | slug | Short LC's slug, used in Placewise Shortener
 other_slugs | array<string> | May be empty
 name | string | 
 country | string | [ISO 3166-1 alpha-2 code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements)

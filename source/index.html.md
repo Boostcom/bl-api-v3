@@ -1,10 +1,10 @@
 ---
-title: Boostcom Performance Cloud APIs Reference
+title: Placewise Performance Cloud APIs Reference
 layout: slate
 
 toc_footers:
   - <a href='https://loyalty.boostcom.no'>Performance Cloud</a>
-  - <a href='http://boostcom.com/'>Boostcom</a>
+  - <a href='https://placewise.com/'>Placewise</a>
   - <hr/>
   - <a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a>
 

@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Boostcom Rewards is a Loyalty Program that awards members for achieving some defined goals with points.
+Placewise Rewards is a Loyalty Program that awards members for achieving some defined goals with points.
 
 The points may be spent on acquiring (purchasing) special rewards and then using them.
 Points may expire after some time.
@@ -11,7 +11,7 @@ Participation in program is optional, so member can enroll (join) to it and leav
 
 ### Achievements
 
-Every Loyalty Club that has Boostcom Rewards enabled, has defined list of achievements that have rules attached to them.
+Every Loyalty Club that has Placewise Rewards enabled, has defined list of achievements that have rules attached to them.
 The rules are described below.
 
 ### <a name="rewards-program-achievements"></a> Achievement model

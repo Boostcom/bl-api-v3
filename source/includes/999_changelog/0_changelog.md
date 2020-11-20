@@ -2,6 +2,8 @@
 
 #### 20.11.2020 | Jakub Kruczek
 * New API hosts after rebranding to Placewise
+* Rename Boostcom references to Placewise
+* Add new Placewise logo
 
 #### 09.11.2020 | Piotr Świtlicki
 * Add [Offers &bull; Grant](#grant-offers)
