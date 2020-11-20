@@ -53,7 +53,7 @@
 <tr>
 <td>short_slug</td>
 <td>slug</td>
-<td>Short LC&rsquo;s slug, used in Boostcom Shortener</td>
+<td>Short LC&rsquo;s slug, used in Placewise Shortener</td>
 </tr>
 <tr>
 <td>other_slugs</td>

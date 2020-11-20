@@ -2,7 +2,7 @@
 
 <h2 id="introduction">Introduction</h2>
 
-<p>Boostcom Rewards is a Loyalty Program that awards members for achieving some defined goals with points.</p>
+<p>Placewise Rewards is a Loyalty Program that awards members for achieving some defined goals with points.</p>
 
 <p>The points may be spent on acquiring (purchasing) special rewards and then using them.
 Points may expire after some time.</p>
@@ -11,7 +11,7 @@ Points may expire after some time.</p>
 
 <h3 id="achievements">Achievements</h3>
 
-<p>Every Loyalty Club that has Boostcom Rewards enabled, has defined list of achievements that have rules attached to them.
+<p>Every Loyalty Club that has Placewise Rewards enabled, has defined list of achievements that have rules attached to them.
 The rules are described below.</p>
 
 <h3 id="achievement-model"><a name="rewards-program-achievements"></a> Achievement model</h3>

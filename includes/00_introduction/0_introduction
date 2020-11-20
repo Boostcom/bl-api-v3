@@ -1,6 +1,6 @@
 <h1 id="introduction">Introduction</h1>
 
-<p>This documentation describes Boostcom&rsquo;s MPC APIs that allow to manage Loyalty Club, its members and content.</p>
+<p>This documentation describes Placewise&rsquo;s MPC APIs that allow to manage Loyalty Club, its members and content.</p>
 
 <h2 id="hosts">Hosts</h2>
 
@@ -12,7 +12,7 @@
 
 <h3 id="https-tls-requirement">HTTPS (TLS) requirement</h3>
 
-<p>To make connection to Boostcom&rsquo;s MPC APIs you have to use HTTPS with TLS encryption.
+<p>To make connection to Placewise&rsquo;s MPC APIs you have to use HTTPS with TLS encryption.
 Your client has to support TLS1.2+ with strong ciphers.</p>
 
 <h2 id="common-params-and-headers">Common params and headers</h2>
@@ -38,7 +38,7 @@ Your client has to support TLS1.2+ with strong ciphers.</p>
 <p>Each token has are permits assigned to it. Depending what permits are assigned, access to some of the endpoints
 may be restricted.</p>
 
-<p>If you miss your authentication token, please <a href="http://boostcom.no">let us know</a>.</p>
+<p>If you miss your authentication token, please <a href="https://placewise.com">let us know</a>.</p>
 
 <h3 id="x-user-agent-header">&ldquo;x-user-agent&rdquo; header</h3>
 
@@ -61,7 +61,7 @@ That will allow further targeting members by communication channel.</p>
 
 <p>For that we use product name. It should be passed as <strong>required</strong> header <code class="prettyprint">x-product-name</code> that is intended to provide the necessary granularity.</p>
 
-<p>If you miss your product name, please <a href="http://boostcom.no">let us know</a>.</p>
+<p>If you miss your product name, please <a href="https://placewise.com">let us know</a>.</p>
 
 <h3 id="authorization-header">&ldquo;authorization&rdquo; header</h3>
 
