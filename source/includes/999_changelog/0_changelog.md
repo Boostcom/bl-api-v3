@@ -1,5 +1,8 @@
 # Changelog
 
+#### 20.11.2020 | Piotr Świtlicki
+* Add [Messages API &bull; Sending](#messaging-list-sending-dispatche
+
 #### 23.11.2020 | Piotr Świtlicki
 * Add periodic limits feature to [Offers](#offers-api)
 

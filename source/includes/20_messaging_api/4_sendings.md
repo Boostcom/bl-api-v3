@@ -22,7 +22,7 @@ curl -X GET \
 }
 ```
 
-**GET** `v1/sendings/:id`
+**GET** `v1/mgessages/sendings/:id`
 
 Returns [Sending](#messaging-sending-model).  
 
@@ -40,6 +40,62 @@ Status | Description
 
 <aside class="notice">
 Requires <code>Messages:Api:Sendings:Get</code> permit
+</aside>
+
+### <a name="messaging-list-sending-dispatches"></a> List Sending Dispatches
+
+> Example
+
+```shell
+curl -X GET \
+"https://bpc-api.boostcom.no/v1/sendings/32/dispatches" \
+  -H 'content-type: application/json' \
+  -H 'x-loyalty-club-slug: infinity-mall' \
+  -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+  -H 'x-product-name: default' \
+  -H 'x-user-agent: CURL manual test'
+```
+
+> Returns object containing [dispatches](#messaging-dispatch-model) and [pagination_info](#pagination-model)
+
+```json
+{
+  "dispatches": [], // List of messages - See: "Dispatch model"
+  "pagination_info": {} // Pagination info - see "Pagination info"
+}
+```
+
+**GET** `v1/messages/sendings/:id`
+
+Returns [Dispatches](#messaging-dispatch-model) created for Sending.  
+
+#### URL Parameters
+
+Parameter  |                   Type                | Description
+---------- | -------------------------------------------- | ------
+id | integer                                   | Sending ID 
+
+#### Query Parameters
+
+Parameter            | Type        | Default   | Description
+--------------       | ----------- | --------- | -----------
+per_page             | integer     | 100       | Number of results to be returned per request (100 is the maximum)
+page_no              | integer     | 1         | Number of results page 
+transmission_status  | enum        | null      | When present, returns only Messages having given [transmission_status](#messaging-dispatch-model)
+delivery_status      | enum        | null      | When present, returns only Dispatches with given [delivery_status](#messaging-dispatch-model)
+member_id            | integer     | null      | When present, returns only Dispatches sent to recipient identified by given id
+msisdn               | string      | null      | When present, returns only Dispatches sent to recipient identified by given msisdn
+email                | string      | null      | When present, returns only Dispatches sent to recipient identified by given email
+app_token            | string      | null      | When present, returns only Dispatches sent to recipient identified by given app_token
+
+#### Error responses
+
+Status | Description
+--------- | ----------- 
+`404` | Sending not found
+
+<aside class="notice">
+Requires <code>Messages:Api:Dispatches:List</code> permit
 </aside>
 
 ### <a name="messaging-create-sending"></a> Create Sending
@@ -142,7 +198,7 @@ curl -X PUT \
 }
 ```
 
-**PUT** `v1/sendings/:id`
+**PUT** `v1/messages/sendings/:id`
 
 Updates Sending attributes. 
 

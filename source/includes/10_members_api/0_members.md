@@ -1031,14 +1031,6 @@ curl "https://api.mpc.placewise.com/v3/infinity-mall/members/by_msisdn/474048512
   -H 'x-user-agent: CURL manual test'
 ```
 
-> Always returns an empty JSON object
-
-```json
-{
-  // Empty object
-}
-```
-
 **POST** `/v3/:loyalty_club_slug/members/by_msisdn/:msisdn/send_one_time_password`
 
 Sends an SMS to given msisdn if it is associated with member in given loyalty club.

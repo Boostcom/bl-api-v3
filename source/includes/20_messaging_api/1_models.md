@@ -511,6 +511,51 @@ so it may take some time to build Dispatches for all of them. Therefore, the pre
 Whenever Sending is `cancelled` or `failed`, it cannot be rescheduled again. 
 It must be created again, for example with [Clone sending endpoint](#todo). 
 
+### <a name="messaging-dispatch-model"></a> Dispatch model
+
+> Sending example:
+
+```json
+{
+    "id": 173,
+    "type": "sms",
+    "content": {
+        "body": "Hi Piotr"
+    },
+    "member_id": 46085834,
+    "msisdn": "+4740769126",
+    "email": null,
+    "app_token": null,
+    "transmission_status": "transmitted",
+    "delivery_status": "delivered",
+    "external_delivery_status": "delivered",
+    "created_at": "2020-11-18T22:47:45.191Z",
+    "updated_at": "2020-11-18T22:47:52.016Z",
+    "scheduled_at": "2020-11-18T22:47:45.066Z",
+    "transmitted_at": "2020-11-18T22:47:45.495Z",
+    "delivered_at": "2020-11-18T22:47:48.000Z",
+    "cleaned_at": null
+}
+```
+
+Key | Type | Description
+--------- | --------- | ---------
+**id** | integer |   
+**type** | enum: ['sms', 'email', 'push'] | 
+**content**  | object | Depends on Dispatch type  
+member_id | integer | 
+msisdn | string | 
+email | string | 
+app_token | string | 
+**transmission_status** | enum: ['scheduled', 'transmitted', 'failed'] | Describes status of transmission within Messages API
+**delivery_status** | enum: ['pending', 'delivered', 'failed'] | Describes status of delivery within external senders
+**created_at** | datetime | Time of creation
+**updated_at** | datetime | Time of update
+**scheduled_at** | datetime | Time when the Dispatch was meant to be sent
+**transmitted_at** | datetime | Time when the Dispatch has been transmitted to external senders
+**delivered_at** | datetime | Time when the Dispatch has been delivered to recipient
+**cleaned_at** | datetime | Time when the Dispatch has been stripped off from personal data (content and identifiers)
+
 ### <a name="messaging-recipient-model"></a> Recipient model
 
 > Recipient example:
