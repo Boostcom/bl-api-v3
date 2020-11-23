@@ -1675,13 +1675,6 @@ Requires <code>BL:Api:Members:Tokens:Create</code> permit
   -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
   -H <span class="s1">'x-user-agent: CURL manual test'</span>
 </code></pre>
-<blockquote>
-<p>Always returns an empty JSON object</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="err">//</span><span class="w"> </span><span class="err">Empty</span><span class="w"> </span><span class="err">object</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
 <p><strong>POST</strong> <code class="prettyprint">/v3/:loyalty_club_slug/members/by_msisdn/:msisdn/send_one_time_password</code></p>
 
 <p>Sends an SMS to given msisdn if it is associated with member in given loyalty club.</p>

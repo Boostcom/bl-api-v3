@@ -20,7 +20,7 @@
   </span><span class="s2">"sending"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Sending</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sending model"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>GET</strong> <code class="prettyprint">v1/sendings/:id</code></p>
+<p><strong>GET</strong> <code class="prettyprint">v1/mgessages/sendings/:id</code></p>
 
 <p>Returns <a href="#messaging-sending-model">Sending</a>.  </p>
 
@@ -56,6 +56,125 @@
 
 <aside class="notice">
 Requires <code>Messages:Api:Sendings:Get</code> permit
+</aside>
+
+<h3 id="list-sending-dispatches"><a name="messaging-list-sending-dispatches"></a> List Sending Dispatches</h3>
+
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+<span class="s2">"https://bpc-api.boostcom.no/v1/sendings/32/dispatches"</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'x-loyalty-club-slug: infinity-mall'</span> <span class="se">\</span>
+  -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
+  -H <span class="s1">'x-user-agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>Returns object containing <a href="#messaging-dispatch-model">dispatches</a> and <a href="#pagination-model">pagination_info</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"dispatches"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">List</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">messages</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dispatch model"</span><span class="w">
+  </span><span class="s2">"pagination_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Pagination</span><span class="w"> </span><span class="err">info</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="s2">"Pagination info"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>GET</strong> <code class="prettyprint">v1/messages/sendings/:id</code></p>
+
+<p>Returns <a href="#messaging-dispatch-model">Dispatches</a> created for Sending.  </p>
+
+<h4 id="url-parameters">URL Parameters</h4>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>Sending ID</td>
+</tr>
+</tbody></table>
+
+<h4 id="query-parameters">Query Parameters</h4>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>per_page</td>
+<td>integer</td>
+<td>100</td>
+<td>Number of results to be returned per request (100 is the maximum)</td>
+</tr>
+<tr>
+<td>page_no</td>
+<td>integer</td>
+<td>1</td>
+<td>Number of results page</td>
+</tr>
+<tr>
+<td>transmission_status</td>
+<td>enum</td>
+<td>null</td>
+<td>When present, returns only Messages having given <a href="#messaging-dispatch-model">transmission_status</a></td>
+</tr>
+<tr>
+<td>delivery_status</td>
+<td>enum</td>
+<td>null</td>
+<td>When present, returns only Dispatches with given <a href="#messaging-dispatch-model">delivery_status</a></td>
+</tr>
+<tr>
+<td>member_id</td>
+<td>integer</td>
+<td>null</td>
+<td>When present, returns only Dispatches sent to recipient identified by given id</td>
+</tr>
+<tr>
+<td>msisdn</td>
+<td>string</td>
+<td>null</td>
+<td>When present, returns only Dispatches sent to recipient identified by given msisdn</td>
+</tr>
+<tr>
+<td>email</td>
+<td>string</td>
+<td>null</td>
+<td>When present, returns only Dispatches sent to recipient identified by given email</td>
+</tr>
+<tr>
+<td>app_token</td>
+<td>string</td>
+<td>null</td>
+<td>When present, returns only Dispatches sent to recipient identified by given app_token</td>
+</tr>
+</tbody></table>
+
+<h4 id="error-responses">Error responses</h4>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">404</code></td>
+<td>Sending not found</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Messages:Api:Dispatches:List</code> permit
 </aside>
 
 <h3 id="create-sending"><a name="messaging-create-sending"></a> Create Sending</h3>
@@ -198,7 +317,7 @@ Requires <code>Messages:Api:Sendings:Create</code> permit
   </span><span class="s2">"sending"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Sending</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sending model"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>PUT</strong> <code class="prettyprint">v1/sendings/:id</code></p>
+<p><strong>PUT</strong> <code class="prettyprint">v1/messages/sendings/:id</code></p>
 
 <p>Updates Sending attributes. </p>
 

@@ -1,5 +1,23 @@
 <h1 id="changelog">Changelog</h1>
 
+<h4 id="23-11-2020-piotr-witlicki">23.11.2020 | Piotr Świtlicki</h4>
+
+<ul>
+<li>Add <a href="#offer-admin-image-templates-preview">Offers Admin API &bull; Image Templates &bull; Preview</a></li>
+</ul>
+
+<h4 id="23-11-2020-piotr-witlicki">23.11.2020 | Piotr Świtlicki</h4>
+
+<ul>
+<li>Add <a href="#messaging-list-sending-dispatches">Messages API &bull; Sending</a></li>
+</ul>
+
+<h4 id="23-11-2020-piotr-witlicki">23.11.2020 | Piotr Świtlicki</h4>
+
+<ul>
+<li>Add periodic limits feature to <a href="#offers-api">Offers</a></li>
+</ul>
+
 <h4 id="20-11-2020-jakub-kruczek">20.11.2020 | Jakub Kruczek</h4>
 
 <ul>

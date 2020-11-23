@@ -242,6 +242,12 @@ Navigate to <a href="#offers">Offers</a> section to see docs for member-related 
 <td>See <a href="#offer-image-template-attr">image_template</a> below</td>
 </tr>
 <tr>
+<td>image_template.background_url</td>
+<td>string</td>
+<td>yes</td>
+<td>The URL of image that will be used for the background</td>
+</tr>
+<tr>
 <td>image_template.rectangles</td>
 <td>ImageTemplateRectangle[]</td>
 <td>yes</td>
@@ -253,10 +259,15 @@ Navigate to <a href="#offers">Offers</a> section to see docs for member-related 
 
 <p>With this object, you can determine that offer&rsquo;s image will be rendered according to the given definition.</p>
 
-<p>It reflects the <a href="#offer-image-template-model">ImageTemplate model</a>. 
-However, it <strong>is not</strong> a reference to existing <a href="#offer-image-template-record">ImageTemplate record</a>. </p>
+<p>It reflects the <a href="#offer-image-template-model">ImageTemplate model</a> - with additional <code class="prettyprint">background_url</code> attribute.</p>
 
-<p>If you want to apply record&rsquo;s model to the offer, you must use some of its attributes (copy them) as the offer&rsquo;s <code class="prettyprint">image_template</code> attribute.</p>
+<p>However, it <strong>is not</strong> a reference to existing <a href="#offer-image-template-record">ImageTemplate record</a>. 
+If you want to apply record&rsquo;s model to the offer, you must use some of its attributes (copy them) as the offer&rsquo;s <code class="prettyprint">image_template</code> attribute.</p>
+
+<p>The attribute <code class="prettyprint">background_url</code> determines what image will be used for the background. If you want to use ImageTemplate&rsquo;s
+background, supply it&rsquo;s URL here.</p>
+
+<p><code class="prettyprint">back</code></p>
 
 <h3 id="offerpayload"><a name="admin-offer-payload"></a> OfferPayload</h3>
 
@@ -320,7 +331,10 @@ However, it <strong>is not</strong> a reference to existing <a href="#offer-imag
 
 <p>The output image is rendered from template after offer creation/update request, asynchronously. </p>
 
-<p>Rendering process draws (up to 4) <a href="#offer-image-template-rectangle">rectangles</a> over a background image (not yet implemented).</p>
+<p>Rendering process draws (up to 4) <a href="#offer-image-template-rectangle">rectangles</a> over an optional background image.</p>
+
+<p>The background image must be uploaded as <code class="prettyprint">offer_template_background</code> and with identifier of given
+<code class="prettyprint">ImageTemplate</code> record.</p>
 
 <p>When rendering is done, the image is stored as a regular file of the subject offer. </p>
 
@@ -356,6 +370,16 @@ However, it <strong>is not</strong> a reference to existing <a href="#offer-imag
 <td>name</td>
 <td>string</td>
 <td></td>
+</tr>
+<tr>
+<td>width</td>
+<td>integer</td>
+<td>Defines width of the image in pixels, between 1 and 2000</td>
+</tr>
+<tr>
+<td>height</td>
+<td>integer</td>
+<td>Defines height of the image in pixels, between 1 and 2000</td>
 </tr>
 <tr>
 <td>default</td>

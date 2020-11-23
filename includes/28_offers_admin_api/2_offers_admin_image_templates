@@ -148,6 +148,56 @@ Requires <code>Offers:Api:ImageTemplates:List</code> permit
 Requires <code>Offers:Api:ImageTemplates:Get</code> permit
 </aside>
 
+<h3 id="preview"><a name="offer-admin-image-templates-preview"></a> Preview</h3>
+
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl --request GET <span class="s1">'https://api.mpc.placewise.com/v3/infinity-mall/offers/image_templates'</span> <span class="se">\</span>
+--header <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+--header <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
+--header <span class="s1">'x-user-agent: cURL Manual Testing'</span>
+</code></pre>
+<blockquote>
+<p>Returns generated image - <code class="prettyprint">application/png</code></p>
+</blockquote>
+
+<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/offers/image_templates/:image_template_id/preview</code></p>
+
+<p>Generates image (<code class="prettyprint">image/png</code> MIME) from given ImageTemplate.</p>
+
+<h4 id="url-parameters">URL Parameters</h4>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>image_template_id</td>
+<td>Integer</td>
+</tr>
+</tbody></table>
+
+<h4 id="error-responses">Error responses</h4>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">404</code></td>
+<td>ImageTemplate does not exist</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Offers:Api:ImageTemplates:Preview</code> permit
+</aside>
+
 <h3 id="create"><a name="offer-admin-image-templates-create"></a> Create</h3>
 
 <blockquote>
