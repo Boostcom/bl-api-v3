@@ -76,17 +76,22 @@ updated_at | Date | no | Last time when the offer has been updated
 archived_at | Date | yes | Time when the offer has been archived
 uses_count | Date | no | Total number of times the offer has been used by members   
 image_template | Object | yes | See [image_template](#offer-image-template-attr) below
+image_template.background_url | string | yes | The URL of image that will be used for the background
 image_template.rectangles | ImageTemplateRectangle[] | yes | See [ImageTemplate Rectangle](#offer-image-template-rectangle)
 
 #### <a name="admin-offer-model-image-template"></a> `image_template` attribute
 
 With this object, you can determine that offer's image will be rendered according to the given definition.
 
-It reflects the [ImageTemplate model](#offer-image-template-model). 
-However, it **is not** a reference to existing [ImageTemplate record](#offer-image-template-record). 
+It reflects the [ImageTemplate model](#offer-image-template-model) - with additional `background_url` attribute.
 
+However, it **is not** a reference to existing [ImageTemplate record](#offer-image-template-record). 
 If you want to apply record's model to the offer, you must use some of its attributes (copy them) as the offer's `image_template` attribute.
 
+The attribute `background_url` determines what image will be used for the background. If you want to use ImageTemplate's
+background, supply it's URL here.
+
+`back`
 ### <a name="admin-offer-payload"></a> OfferPayload
 
 Following Offer attributes (described above) are available to set when creating or updating offers.
@@ -140,7 +145,10 @@ rectangles     | TemplateRectangle[] | See [ImageTemplate Rectangle](#offer-imag
 
 The output image is rendered from template after offer creation/update request, asynchronously. 
 
-Rendering process draws (up to 4) [rectangles](#offer-image-template-rectangle) over a background image (not yet implemented).
+Rendering process draws (up to 4) [rectangles](#offer-image-template-rectangle) over an optional background image.
+
+The background image must be uploaded as `offer_template_background` and with identifier of given
+`ImageTemplate` record.
 
 When rendering is done, the image is stored as a regular file of the subject offer. 
 
@@ -165,6 +173,8 @@ Attribute      | Type                | Description
 -------------- | ------------------- | ---------------------------------------------------
 id             | integer             | 
 name           | string              | 
+width          | integer             | Defines width of the image in pixels, between 1 and 2000
+height         | integer             | Defines height of the image in pixels, between 1 and 2000
 default        | boolean             | See below
 rectangles     | TemplateRectangle[] | See [ImageTemplate Rectangle](#offer-image-template-rectangle)
 created_at     | Date                | When template has been created

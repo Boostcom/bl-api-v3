@@ -1,7 +1,10 @@
 # Changelog
 
-#### 20.11.2020 | Piotr Świtlicki
-* Add [Messages API &bull; Sending](#messaging-list-sending-dispatche
+#### 23.11.2020 | Piotr Świtlicki
+* Add [Offers Admin API &bull; Image Templates &bull; Preview](#offer-admin-image-templates-preview)
+
+#### 23.11.2020 | Piotr Świtlicki
+* Add [Messages API &bull; Sending](#messaging-list-sending-dispatches)
 
 #### 23.11.2020 | Piotr Świtlicki
 * Add periodic limits feature to [Offers](#offers-api)

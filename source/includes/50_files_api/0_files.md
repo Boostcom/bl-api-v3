@@ -1,4 +1,4 @@
-# Files API
+# Files API (deprecated)
 
 ## Introduction
 

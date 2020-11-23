@@ -90,6 +90,40 @@ Status | Description
 Requires <code>Offers:Api:ImageTemplates:Get</code> permit
 </aside>
 
+### <a name="offer-admin-image-templates-preview"></a> Preview
+
+> Example:
+
+```shell
+curl --request GET 'https://api.mpc.placewise.com/v3/infinity-mall/offers/image_templates' \
+--header 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+--header 'x-product-name: default' \
+--header 'x-user-agent: cURL Manual Testing'
+```
+
+> Returns generated image - `application/png`
+
+
+**GET** `v3/:loyalty_club_slug/offers/image_templates/:image_template_id/preview`
+
+Generates image (`image/png` MIME) from given ImageTemplate.
+
+#### URL Parameters
+
+Key | Type 
+--- | ----
+image_template_id | Integer
+
+#### Error responses
+
+Status | Description
+--------- | ----------- 
+`404` | ImageTemplate does not exist
+
+<aside class="notice">
+Requires <code>Offers:Api:ImageTemplates:Preview</code> permit
+</aside>
+
 ### <a name="offer-admin-image-templates-create"></a> Create
 
 > Example:
