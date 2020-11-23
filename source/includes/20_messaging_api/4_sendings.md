@@ -48,7 +48,7 @@ Requires <code>Messages:Api:Sendings:Get</code> permit
 
 ```shell
 curl -X GET \
-"https://bpc-api.boostcom.no/v1/sendings/32/dispatches" \
+"https://api.mpc.placewise.com/v1/sendings/32/dispatches" \
   -H 'content-type: application/json' \
   -H 'x-loyalty-club-slug: infinity-mall' \
   -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
