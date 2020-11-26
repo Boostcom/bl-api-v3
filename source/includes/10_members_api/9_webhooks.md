@@ -82,7 +82,7 @@ Name | Description
 ---------  | -----------
 event | See [Event model](#v2-event)
 loyalty_club | Information about member's Loyalty Club - it's ID and slug. 
-member  | Member attributes after the event - See [Member JSON model](https://docs.loyalty.boostcom.no/bl-api/v3/#member-json-model). For `delete` events it contains only `id` and `person_id`
+member  | Member attributes after the event - See [Member JSON model](https://docs.mpc.placewise.com/#introduction36). For `delete` events it contains only `id` and `person_id`
 member_changes | See [Event model](#v2-event). It's empty for `delete` events
 
 ##### <a name="v2-event"></a> Event model

@@ -1,6 +1,6 @@
 # Boostcom Loyalty API Documentation
 
-This is a source for: [http://docs.loyalty.boostcom.no](http://docs.loyalty.boostcom.no)
+This is a source for: [https://docs.mpc.placewise.com](https://docs.mpc.placewise.com)
 
 ## Development
 
