@@ -248,3 +248,5 @@ less_than                        | `number` - max value               | When not
 less_or_equal_to                 | `number` - max value               | When not <= `number`
 invalid                          | `format` - regex                   | When does not match regex
 liquid_syntax_error              | `syntax_error` - error description | When not valid [liquid](https://shopify.github.io/liquid/) syntax
+must_be_in_the_future            |                                    | When date is not in the future
+must_be_in_the_past              |                                    | When date is not in the past

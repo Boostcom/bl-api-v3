@@ -1,5 +1,8 @@
 # Changelog
 
+#### 01.12.2020 | Piotr Świtlicki
+* Add [Operations Admin API &bull; Documents](#operations-admin-documents)
+
 #### 23.11.2020 | Piotr Świtlicki
 * Add [Offers Admin API &bull; Image Templates &bull; Preview](#offer-admin-image-templates-preview)
 
