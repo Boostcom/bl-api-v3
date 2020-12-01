@@ -463,4 +463,14 @@ Objects being parts of arrays are represented by their array indexes.</p>
 <td><code class="prettyprint">syntax_error</code> - error description</td>
 <td>When not valid <a href="https://shopify.github.io/liquid/">liquid</a> syntax</td>
 </tr>
+<tr>
+<td>must_be_in_the_future</td>
+<td></td>
+<td>When date is not in the future</td>
+</tr>
+<tr>
+<td>must_be_in_the_past</td>
+<td></td>
+<td>When date is not in the past</td>
+</tr>
 </tbody></table>

@@ -1,0 +1,684 @@
+<h2 id="documents"><a name="operations-admin-documents"></a> Documents</h2>
+
+<h3 id="list-documents"><a name="operations-admin-list-documents"></a> List Documents</h3>
+
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v1/operations/documents"</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'x-loyalty-club-slug: infinity-mall'</span> <span class="se">\</span>
+  -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
+  -H <span class="s1">'x-user-agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>Returns object containing <a href="#operations-admin-document-model">documents</a> and <a href="#pagination-model">pagination_info</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"documents"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">List</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">documents</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Document model"</span><span class="w">
+  </span><span class="s2">"pagination_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Pagination</span><span class="w"> </span><span class="err">info</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="s2">"Pagination info"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>GET</strong> <code class="prettyprint">v1/operations/documents</code></p>
+
+<p>Returns list of <a href="#operations-admin-document-model">Documents</a>.  </p>
+
+<h4 id="query-parameters">Query Parameters</h4>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>per_page</td>
+<td>integer</td>
+<td>100</td>
+<td>Number of results to be returned per request (100 is the maximum)</td>
+</tr>
+<tr>
+<td>page_no</td>
+<td>integer</td>
+<td>1</td>
+<td>Number of results page</td>
+</tr>
+<tr>
+<td>confirmable</td>
+<td>boolean</td>
+<td>null</td>
+<td>When present, returns only confirmable Documents - and vice versa</td>
+</tr>
+<tr>
+<td>recipients_confirmation_status</td>
+<td>enum: <code class="prettyprint">[&#39;all&#39;, &#39;some&#39;, &#39;none&#39;]</code></td>
+<td>null</td>
+<td>When present, returns only Documents having given <code class="prettyprint">recipients_confirmation_status</code></td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Operations:Api:Documents:List</code> permit
+</aside>
+
+<h3 id="get-document"><a name="operations-admin-show-document"></a> Get Document</h3>
+
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v1/operations/documents/5"</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'x-loyalty-club-slug: infinity-mall'</span> <span class="se">\</span>
+  -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
+  -H <span class="s1">'x-user-agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>Returns object containing <a href="#operations-admin-document-model">document</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"document"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Document model"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>GET</strong> <code class="prettyprint">v1/operations/documents/:id</code></p>
+
+<p>Returns given <a href="#operations-admin-document-model">Document</a>.  </p>
+
+<h4 id="url-parameters">URL Parameters</h4>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>Document ID</td>
+</tr>
+</tbody></table>
+
+<h4 id="error-responses">Error responses</h4>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">404</code></td>
+<td>Document not found</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Operations:Api:Documents:Show</code> permit
+</aside>
+
+<h3 id="list-document-recipients"><a name="operations-admin-list-document-recipients"></a> List Document Recipients</h3>
+
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v1/operations/documents/15/recipients"</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'x-loyalty-club-slug: infinity-mall'</span> <span class="se">\</span>
+  -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
+  -H <span class="s1">'x-user-agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>Returns object containing <a href="#operations-admin-document-recipient-model">document recipients</a> and <a href="#pagination-model">pagination_info</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"document_recipients"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">List</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">document</span><span class="w"> </span><span class="err">recipients</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"DocumentRecipient model"</span><span class="w">
+  </span><span class="s2">"pagination_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Pagination</span><span class="w"> </span><span class="err">info</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="s2">"Pagination info"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>GET</strong> <code class="prettyprint">v1/operations/documents/:id/recipients</code></p>
+
+<p>Returns list of <a href="#operations-admin-document-recipient-model">DocumentRecipients</a> that are assigned to given Document</p>
+
+<h4 id="url-parameters">URL Parameters</h4>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>Document ID</td>
+</tr>
+</tbody></table>
+
+<h4 id="query-parameters">Query Parameters</h4>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>per_page</td>
+<td>integer</td>
+<td>100</td>
+<td>Number of results to be returned per request (100 is the maximum)</td>
+</tr>
+<tr>
+<td>page_no</td>
+<td>integer</td>
+<td>1</td>
+<td>Number of results page</td>
+</tr>
+<tr>
+<td>confirmed</td>
+<td>boolean</td>
+<td>null</td>
+<td>When true, returns only recipients that confirmed - and vice versa</td>
+</tr>
+</tbody></table>
+
+<h4 id="error-responses">Error responses</h4>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">404</code></td>
+<td>Document not found</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Operations:Api:Recipients:List</code> permit
+</aside>
+
+<h3 id="create-document"><a name="operations-admin-create-document"></a> Create Document</h3>
+
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v1/operations/documents"</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'x-loyalty-club-slug: infinity-mall'</span> <span class="se">\</span>
+  -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
+  -H <span class="s1">'x-user-agent: CURL manual test'</span> <span class="se">\</span>
+  -d <span class="s1">'
+    {
+        "document": {
+            "title": "My name",
+            "message_channel": "sms",
+            "confirmable": true,
+            "deadline_at": "2020-12-15T15:43:32",
+            "recipients": [14, 423],
+            "first_reminder": { "days_before_deadline": 5 },
+            "second_reminder": { "days_before_deadline": 2 }
+        }
+    }
+  '</span>
+</code></pre>
+<blockquote>
+<p>When successful, returns object containing created <a href="#operations-admin-document-model">document</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"document"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Document</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Document model"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>POST</strong> <code class="prettyprint">v1/operations/documents</code></p>
+
+<p>Creates a new <a href="#operations-admin-document-model">Document</a> and sends it to given recipients.</p>
+
+<h4 id="post-parameters-json">POST Parameters (JSON)</h4>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>document.title</strong></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>document.message_channel</strong></td>
+<td>enum: <code class="prettyprint">[&#39;sms&#39;, &#39;email&#39;, &#39;push&#39;]</code></td>
+<td>The channel for sending a notification and reminders</td>
+</tr>
+<tr>
+<td><strong>document.recipients</strong></td>
+<td>integer[]</td>
+<td>IDs of members that should receive the document - max. 1000</td>
+</tr>
+<tr>
+<td>document.confirmable</td>
+<td>boolean</td>
+<td>Is document meant to be confirmed by recipients? Default: <code class="prettyprint">false</code></td>
+</tr>
+</tbody></table>
+
+<p>When the document is confirmable:</p>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>document.deadline_at</strong></td>
+<td>datetime</td>
+<td>Date until the document should be confirmed</td>
+</tr>
+<tr>
+<td>document.first_reminder.days_before_deadline</td>
+<td>integer</td>
+<td>Number of days before the deadline the first reminder should be sent</td>
+</tr>
+<tr>
+<td>document.second_reminder.days_before_deadline</td>
+<td>integer</td>
+<td>Number of days before the deadline the second reminder should be sent</td>
+</tr>
+</tbody></table>
+
+<h4 id="response-json-object">Response (JSON object)</h4>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>document</td>
+<td>Document</td>
+<td>See: <a href="#operations-admin-document-model">Document model</a></td>
+</tr>
+</tbody></table>
+
+<h4 id="error-responses">Error responses</h4>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">422</code></td>
+<td>Invalid parameters - see <a href="#invalid-parameters-errors-model">Invalid parameters errors model</a></td>
+</tr>
+</tbody></table>
+
+<h4 id="specific-validation-errors">Specific validation errors</h4>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Error</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">document.second_reminder</code></td>
+<td><code class="prettyprint">cannot_be_present_without_first_reminder</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">document.second_reminder.days_before_deadline</code></td>
+<td><code class="prettyprint">cannot_be_before_first_reminder</code></td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">422</code></td>
+<td>Invalid parameters - see <a href="#invalid-parameters-errors-model">Invalid parameters errors model</a></td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Operations:Api:Documents:Create</code> permit
+</aside>
+
+<h3 id="update-document"><a name="operations-admin-update-document"></a> Update Document</h3>
+
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X PUT <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v1/operations/documents/12"</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'x-loyalty-club-slug: infinity-mall'</span> <span class="se">\</span>
+  -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
+  -H <span class="s1">'x-user-agent: CURL manual test'</span> <span class="se">\</span>
+  -d <span class="s1">'
+    {
+        "document": {
+            "title": "My name",
+            "deadline_at": "2020-12-15T15:43:32",
+            "first_reminder": { "days_before_deadline": 5 },
+            "second_reminder": { "days_before_deadline": 2 }
+        }
+    }
+  '</span>
+</code></pre>
+<blockquote>
+<p>When successful, returns object containing updated <a href="#operations-admin-document-model">document</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"document"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Document</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Document model"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>PUT</strong> <code class="prettyprint">v1/operations/documents/:id</code></p>
+
+<p>Updates the <a href="#operations-admin-document-model">Document</a>.</p>
+
+<h4 id="url-parameters">URL Parameters</h4>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>Document ID</td>
+</tr>
+</tbody></table>
+
+<h4 id="post-parameters-json">POST Parameters (JSON)</h4>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>document.title</strong></td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p>When the document is confirmable:</p>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>document.deadline_at</strong></td>
+<td>datetime</td>
+<td>Date until the document should be confirmed</td>
+</tr>
+<tr>
+<td>document.first_reminder.days_before_deadline</td>
+<td>integer</td>
+<td>Number of days before the deadline the first reminder should be sent</td>
+</tr>
+<tr>
+<td>document.second_reminder.days_before_deadline</td>
+<td>integer</td>
+<td>Number of days before the deadline the second reminder should be sent</td>
+</tr>
+</tbody></table>
+
+<h4 id="response-json-object">Response (JSON object)</h4>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>document</td>
+<td>Document</td>
+<td>See: <a href="#operations-admin-document-model">Document model</a></td>
+</tr>
+</tbody></table>
+
+<h4 id="error-responses">Error responses</h4>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">404</code></td>
+<td>Document not found</td>
+</tr>
+<tr>
+<td><code class="prettyprint">422</code></td>
+<td>Invalid parameters - see <a href="#invalid-parameters-errors-model">Invalid parameters errors model</a></td>
+</tr>
+</tbody></table>
+
+<h4 id="specific-validation-errors">Specific validation errors</h4>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Error</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">document.first_reminder</code></td>
+<td><code class="prettyprint">already_sent</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">document.second_reminder</code></td>
+<td><code class="prettyprint">already_sent</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">document.second_reminder</code></td>
+<td><code class="prettyprint">cannot_be_present_without_first_reminder</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">document.second_reminder.days_before_deadline</code></td>
+<td><code class="prettyprint">cannot_be_before_first_reminder</code></td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Operations:Api:Documents:Update</code> permit
+</aside>
+
+<h3 id="add-recipients-to-the-document"><a name="operations-admin-add-document-recipients"></a> Add recipients to the Document</h3>
+
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v1/operations/documents/12"</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'x-loyalty-club-slug: infinity-mall'</span> <span class="se">\</span>
+  -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
+  -H <span class="s1">'x-user-agent: CURL manual test'</span> <span class="se">\</span>
+  -d <span class="s1">'
+    {
+        "recipients": [4, 2, 42]
+    }
+  '</span>
+</code></pre>
+<blockquote>
+<p>Returns object containing created <a href="#operations-admin-document-recipient-model">document recipients</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"document_recipients"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">List</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">document</span><span class="w"> </span><span class="err">recipients</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"DocumentRecipient model"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>PUT</strong> <code class="prettyprint">v1/operations/documents/:id</code></p>
+
+<p>Adds <a href="#operations-admin-document-recipient-model">recipients</a> to the <a href="#operations-admin-document-model">Document</a> and sends them a notification.</p>
+
+<h4 id="url-parameters">URL Parameters</h4>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>Document ID</td>
+</tr>
+</tbody></table>
+
+<h4 id="post-parameters-json">POST Parameters (JSON)</h4>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>recipients</strong></td>
+<td>integer[]</td>
+<td>IDs of members that should receive the document - max. 1000</td>
+</tr>
+</tbody></table>
+
+<h4 id="error-responses">Error responses</h4>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">404</code></td>
+<td>Document not found</td>
+</tr>
+<tr>
+<td><code class="prettyprint">422</code></td>
+<td>Invalid parameters - see <a href="#invalid-parameters-errors-model">Invalid parameters errors model</a></td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Operations:Api:DocumentRecipients:Create</code> permit
+</aside>
+
+<h3 id="destroy-document"><a name="operations-admin-destroy-document"></a> Destroy Document</h3>
+
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X DELETE <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v1/operations/documents/12 </span><span class="se">\</span><span class="s2">
+  -H 'content-type: application/json' </span><span class="se">\</span><span class="s2">
+  -H 'x-loyalty-club-slug: infinity-mall' </span><span class="se">\</span><span class="s2">
+  -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' </span><span class="se">\</span><span class="s2">
+  -H 'x-product-name: default' </span><span class="se">\</span><span class="s2">
+  -H 'x-user-agent: CURL manual test'
+</span></code></pre>
+<blockquote>
+<p>When successful, returns object containing destroyed <a href="#operations-admin-document-model">document</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"document"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Document</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Document model"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>DELETE</strong> <code class="prettyprint">v1/operations/documents/:id</code></p>
+
+<p>Destroys the <a href="#operations-admin-document-model">Document</a>.</p>
+
+<h4 id="url-parameters">URL Parameters</h4>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>Document ID</td>
+</tr>
+</tbody></table>
+
+<h4 id="response-json-object">Response (JSON object)</h4>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>document</td>
+<td>Document</td>
+<td>See: <a href="#operations-admin-document-model">Document model</a></td>
+</tr>
+</tbody></table>
+
+<h4 id="error-responses">Error responses</h4>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">404</code></td>
+<td>Document not found</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Operations:Api:Documents:Destroy</code> permit
+</aside>
