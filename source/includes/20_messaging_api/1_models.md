@@ -100,10 +100,14 @@ Service is used to provide special treatment for some types of Messages that are
 
 A permit is required for managing Messages of each Service.
 
-Service   | Permit                                     | Description
---------- | -----------------------------------------  | -----------------------------------------
-campaigns | Messages:Api:Messages:UseService:Campaigns | For MPC Campaigns Messages
-tenants   | Messages:Api:Messages:UseService:Tenants   | For MPC Tenant Engagement Module Messages
+Service                 | Permit                                                 | Description
+---------               | -----------------------------------------              | -----------------------------------------
+campaigns               | Messages:Api:Messages:UseService:Campaigns             | MPC Campaigns messages
+campaigns_testing       | Messages:Api:Messages:UseService:CampaignsTesting      | MPC Campaigns test messages
+tenants                 | Messages:Api:Messages:UseService:Tenants               | For MPC TEM tenant messages
+tenants_testing         | Messages:Api:Messages:UseService:TenantsTesting        | For MPC TEM tenant test messages
+tem_documents           | Messages:Api:Messages:UseService:TemDocuments          | For MPC TEM documents notifications
+tem_documents_reminders | Messages:Api:Messages:UseService:TemDocumentsReminders | For MPC TEM documents reminder notifications
 
 ### <a name="messaging-channel-model"></a> Channel model
 
