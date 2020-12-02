@@ -1,6 +1,6 @@
 # <a name="offers-api"></a> Offers API
 
-This section describes endpoints destined for end user (e.g. for mobile apps) and work within context of (signed in) member.
+This section describes endpoints destined for end user (e.g. for mobile apps) that work only within context of (signed in) member.
 Navigate to [Offers Admin](#offers-admin) section to see docs for offers management endpoints.
 
 ## Introduction

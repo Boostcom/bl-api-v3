@@ -1,5 +1,8 @@
 # Changelog
 
+#### 02.12.2020 | Piotr Świtlicki
+* Add [Operations API &bull; Documents](#operations-documents)
+
 #### 01.12.2020 | Piotr Świtlicki
 * Add [Operations Admin API &bull; Documents](#operations-admin-documents)
 

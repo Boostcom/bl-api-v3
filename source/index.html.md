@@ -37,7 +37,9 @@ includes:
   - 40_stores_api/0_stores
   - 40_stores_api/1_departments
   - 45_events_api/0_events
-  - 47_operations_admin_api/0_models
+  - 46_operations_api/0_introduction
+  - 46_operations_api/1_documents
+  - 47_operations_admin_api/0_introduction
   - 47_operations_admin_api/1_documents
   - 50_files_api/0_files
   - 999_changelog/0_changelog
