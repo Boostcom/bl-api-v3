@@ -1,6 +1,6 @@
 <h1 id="offers-api"><a name="offers-api"></a> Offers API</h1>
 
-<p>This section describes endpoints destined for end user (e.g. for mobile apps) and work within context of (signed in) member.
+<p>This section describes endpoints destined for end user (e.g. for mobile apps) that work only within context of (signed in) member.
 Navigate to <a href="#offers-admin">Offers Admin</a> section to see docs for offers management endpoints.</p>
 
 <h2 id="introduction">Introduction</h2>

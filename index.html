@@ -9030,7 +9030,7 @@ Requires <code>Messages:Api:Bulks:Process</code> permit
 
           <h1 id="offers-api"><a name="offers-api"></a> Offers API</h1>
 
-<p>This section describes endpoints destined for end user (e.g. for mobile apps) and work within context of (signed in) member.
+<p>This section describes endpoints destined for end user (e.g. for mobile apps) that work only within context of (signed in) member.
 Navigate to <a href="#offers-admin">Offers Admin</a> section to see docs for offers management endpoints.</p>
 
 <h2 id="introduction">Introduction</h2>
@@ -16310,11 +16310,274 @@ Requires <code>Events:Api:Invitation:Create</code> permit
 </tr>
 </tbody></table>
 
+          <h1 id="operations-api"><a name="operations"></a> Operations API</h1>
+
+<p>This section describes endpoints destined for end user that work only within context of (signed in) user.</p>
+
+<p>Navigate to <a href="#operations-admin">Operations Admin</a> section to see docs for management endpoints.</p>
+
+          <h2 id="documents"><a name="operations-documents"></a> Documents</h2>
+
+<h3 id="document-model"><a name="operations-document-model"></a> Document model</h3>
+
+<blockquote>
+<p>Document example:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"confirmable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fire instructions"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"deadline_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-12-15T15:43:32.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-11-30T17:12:46.435Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-11-30T17:12:50.235Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"confirmed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-11-30T17:12:50.235Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Optional</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>no</td>
+<td></td>
+</tr>
+<tr>
+<td>confirmable</td>
+<td>boolean</td>
+<td>no</td>
+<td>Is document meant to be confirmed by recipient?</td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td>no</td>
+<td></td>
+</tr>
+<tr>
+<td>deadline_at</td>
+<td>datetime</td>
+<td>when not confirmable</td>
+<td>Time until document is meant to be confirmed by recipients - only for <code class="prettyprint">confirmable</code> documents</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>datetime</td>
+<td>no</td>
+<td>Time of creation</td>
+</tr>
+<tr>
+<td>updated_at</td>
+<td>datetime</td>
+<td>no</td>
+<td>Time of last update</td>
+</tr>
+<tr>
+<td>confirmed_at</td>
+<td>datetime</td>
+<td>yes</td>
+<td>Time of confirmation by current user</td>
+</tr>
+</tbody></table>
+
+<p>For more details, see <a href="#operations-admin-document-model">Document model</a> in Operations Admin API</p>
+
+<h3 id="list-documents"><a name="operations-list-documents"></a> List Documents</h3>
+
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v1/users/me/operations/documents"</span> <span class="se">\</span>
+  -H <span class="s1">'authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICIyOE'</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'x-loyalty-club-slug: infinity-mall'</span> <span class="se">\</span>
+  -H <span class="s1">'x-user-agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>Returns object containing <a href="#operations-document-model">documents</a> and <a href="#pagination-model">pagination_info</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"documents"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">List</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">documents</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Document model"</span><span class="w">
+  </span><span class="s2">"pagination_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Pagination</span><span class="w"> </span><span class="err">info</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="s2">"Pagination info"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>GET</strong> <code class="prettyprint">v1/users/me/operations/documents</code></p>
+
+<p>Returns list of <a href="#operations-document-model">Documents</a> shared with current user.</p>
+
+<h4 id="query-parameters">Query Parameters</h4>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>per_page</td>
+<td>integer</td>
+<td>100</td>
+<td>Number of results to be returned per request (100 is the maximum)</td>
+</tr>
+<tr>
+<td>page_no</td>
+<td>integer</td>
+<td>1</td>
+<td>Number of results page</td>
+</tr>
+<tr>
+<td>confirmable</td>
+<td>boolean</td>
+<td>null</td>
+<td>When true, returns only confirmable Documents - and vice versa</td>
+</tr>
+<tr>
+<td>requiring_confirmation</td>
+<td>boolean</td>
+<td>null</td>
+<td>When present, returns only Documents that require confirmation (are confirmable and are not confirmed)</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Operations:Api:Users:Documents:List</code> permit
+</aside>
+
+<h3 id="get-document"><a name="operations-show-document"></a> Get Document</h3>
+
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v1/users/me/operations/documents/5"</span> <span class="se">\</span>
+  -H <span class="s1">'authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICIyOE'</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'x-loyalty-club-slug: infinity-mall'</span> <span class="se">\</span>
+  -H <span class="s1">'x-user-agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>Returns object containing <a href="#operations-document-model">document</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"document"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Document model"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>GET</strong> <code class="prettyprint">v1/users/me/operations/documents/:id</code></p>
+
+<p>Returns given <a href="#operations-document-model">Document</a> shared with current user. </p>
+
+<h4 id="url-parameters">URL Parameters</h4>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>Document ID</td>
+</tr>
+</tbody></table>
+
+<h4 id="error-responses">Error responses</h4>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">404</code></td>
+<td>Document not found</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Operations:Api:Users:Documents:Show</code> permit
+</aside>
+
+<h3 id="confirm-document"><a name="operations-show-document"></a> Confirm Document</h3>
+
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X PUT <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v1/users/me/operations/documents/5/confirm"</span> <span class="se">\</span>
+  -H <span class="s1">'authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICIyOE'</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'x-loyalty-club-slug: infinity-mall'</span> <span class="se">\</span>
+  -H <span class="s1">'x-user-agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>Returns object containing <a href="#operations-document-model">document</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"document"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Document model"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>PUT</strong> <code class="prettyprint">v1/users/me/operations/documents/:id/confirm</code></p>
+
+<p>Confirms given <a href="#operations-document-model">Document</a>. </p>
+
+<h4 id="url-parameters">URL Parameters</h4>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>Document ID</td>
+</tr>
+</tbody></table>
+
+<h4 id="error-responses">Error responses</h4>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">404</code></td>
+<td>Document not found</td>
+</tr>
+<tr>
+<td><code class="prettyprint">405</code></td>
+<td>Document is not confirmable</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Operations:Api:Users:Documents:Confirm</code> permit
+</aside>
+
           <h1 id="operations-admin-api"><a name="operations-admin"></a> Operations Admin API</h1>
 
-<h2 id="common-models"><a name="operations-admin-models"></a> Common models</h2>
+<p>This section describes endpoints destined for Operations management.</p>
 
-<h3 id="document"><a name="operations-admin-document-model"></a> Document</h3>
+<p>Navigate to <a href="#operations">Operations</a> section to see docs for user-facing endpoints.</p>
+
+          <h2 id="documents"><a name="operations-admin-documents"></a> Documents</h2>
+
+<h3 id="document-model"><a name="operations-admin-document-model"></a> Document model</h3>
 
 <blockquote>
 <p>Document example:</p>
@@ -16341,9 +16604,9 @@ Requires <code>Events:Api:Invitation:Create</code> permit
     </span><span class="s2">"recipients_confirmation_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>The document is an entity that has some files (with <code class="prettyprint">type: &quot;document&quot;</code> and Document&rsquo;s ID as <code class="prettyprint">identifier</code>) attached to it. </p>
+<p>The document is an entity that has some files (with <code class="prettyprint">type: &quot;document&quot;</code> and Document&rsquo;s ID as <code class="prettyprint">identifier</code>) attached to it.</p>
 
-<p>Upon creation, a notification containing the document is sent via specified channel to given recipients (members of Tenant community). </p>
+<p>Upon creation, a notification containing a link to the document is sent via specified channel to given recipients (members of Tenant community).</p>
 
 <p>When document is <code class="prettyprint">confirmable</code>, recipients may need to confirm it. In such case, a <code class="prettyprint">deadline_at</code> must be specified.
 Also, it is possible to configure automated <a href="#operations-admin-document-reminder-model">reminder</a> messages that
@@ -16524,8 +16787,6 @@ are sent to recipients which didn&rsquo;t confirm the document.</p>
 </tr>
 </tbody></table>
 
-          <h2 id="documents"><a name="operations-admin-documents"></a> Documents</h2>
-
 <h3 id="list-documents"><a name="operations-admin-list-documents"></a> List Documents</h3>
 
 <blockquote>
@@ -16577,7 +16838,7 @@ are sent to recipients which didn&rsquo;t confirm the document.</p>
 <td>confirmable</td>
 <td>boolean</td>
 <td>null</td>
-<td>When present, returns only confirmable Documents - and vice versa</td>
+<td>When true, returns only confirmable Documents - and vice versa</td>
 </tr>
 <tr>
 <td>recipients_confirmation_status</td>
@@ -17925,6 +18186,12 @@ Requires <code>Files:Api:Delete</code> permit
 </aside>
 
           <h1 id="changelog">Changelog</h1>
+
+<h4 id="02-12-2020-piotr-witlicki">02.12.2020 | Piotr Świtlicki</h4>
+
+<ul>
+<li>Add <a href="#operations-documents">Operations API &bull; Documents</a></li>
+</ul>
 
 <h4 id="01-12-2020-piotr-witlicki">01.12.2020 | Piotr Świtlicki</h4>
 
