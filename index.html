@@ -14484,15 +14484,13 @@ Requires <code>Transaction:Api:Points:List</code> permit
 
           <h1 id="pos-campaign-api">POS Campaign API</h1>
 
-<h2 id="points-config">Points Config</h2>
-
-<h3 id="create"><a name="pos-campaign-points-config-create"></a> Create</h3>
+<h2 id="create"><a name="pos-campaigns-config-create"></a> Create</h2>
 
 <blockquote>
 <p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
-<span class="s2">"https://api.mpc.placewise.com/v3/:loyalty_club_slug/pos-campaign/points"</span> <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v3/:loyalty_club_slug/pos-campaigns/points"</span> <span class="se">\</span>
     -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
     -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
@@ -14539,9 +14537,25 @@ Requires <code>Transaction:Api:Points:List</code> permit
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>POST</strong> <code class="prettyprint">v3/:loyalty_club_slug/pos-campaign/points</code></p>
+<p><strong>POST</strong> <code class="prettyprint">v3/:loyalty_club_slug/pos-campaigns/:type</code></p>
 
 <p>Create POS Campaign.</p>
+
+<h4 id="url-parameters">URL Parameters</h4>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>type</td>
+<td>POS Campaign type</td>
+<td>enum [&ldquo;points&rdquo;, &ldquo;stamps&rdquo;]</td>
+</tr>
+</tbody></table>
 
 <h4 id="messages-post-parameters-json">Messages POST Parameters (JSON)</h4>
 
@@ -14599,7 +14613,7 @@ Requires <code>Transaction:Api:Points:List</code> permit
 </thead><tbody>
 <tr>
 <td>type*</td>
-<td>enum: [&ldquo;amount&rdquo;, &ldquo;percentage&rdquo;]</td>
+<td>enum: [&ldquo;amount&rdquo;, &ldquo;percentage&rdquo;, &ldquo;extra&rdquo;]</td>
 <td>n/a</td>
 <td></td>
 </tr>
@@ -14639,7 +14653,7 @@ Requires <code>Transaction:Api:Points:List</code> permit
 
 <p>* required</p>
 
-<h4 id="conditions-list"><a name="pos-campaign-points-config-conditions"></a> Conditions List</h4>
+<h3 id="conditions-list"><a name="pos-campaigns-config-conditions"></a> Conditions List</h3>
 
 <table><thead>
 <tr>
@@ -14719,23 +14733,13 @@ Requires <code>Transaction:Api:Points:List</code> permit
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<h4 id="example">Example:</h4>
-
-<p>MR = Meets Requirements</p>
-
-<p>Condition <code class="prettyprint">Or</code> MR  when <code class="prettyprint">StoreId</code> MR or <code class="prettyprint">And</code> MR.
-<code class="prettyprint">And</code> MR when <code class="prettyprint">ItemId</code> MR and <code class="prettyprint">Not</code> MR.
-<code class="prettyprint">Not</code> MR when <code class="prettyprint">StoreId</code> not MR. </p>
-
-<p>Bonus will apply when StoreId = &ldquo;910&rdquo; or (ItemId = &ldquo;112&rdquo; and StoreId != &ldquo;910&rdquo;)</p>
-
-<h3 id="delete"><a name="pos-campaign-points-config-delete"></a> Delete</h3>
+<h2 id="delete"><a name="pos-campaigns-config-delete"></a> Delete</h2>
 
 <blockquote>
 <p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X DELETE <span class="se">\</span>
-<span class="s2">"https://api.mpc.placewise.com/v3/:loyalty_club_slug/pos-campaign/points"</span> <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v3/:loyalty_club_slug/pos-campaigns/points"</span> <span class="se">\</span>
     -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
     -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
@@ -14757,9 +14761,25 @@ Requires <code>Transaction:Api:Points:List</code> permit
     </span><span class="s2">"error"</span><span class="p">:</span><span class="s2">"Can not delete campaign. Campaign does not exist."</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>DELETE</strong> <code class="prettyprint">v3/:loyalty_club_slug/pos-campaign/points</code></p>
+<p><strong>DELETE</strong> <code class="prettyprint">v3/:loyalty_club_slug/pos-campaigns/:type</code></p>
 
 <p>Remove POS Campaign.</p>
+
+<h4 id="url-parameters">URL Parameters</h4>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>type</td>
+<td>POS Campaign type</td>
+<td>enum [&ldquo;points&rdquo;, &ldquo;stamps&rdquo;]</td>
+</tr>
+</tbody></table>
 
 <h4 id="messages-delete-parameters-json">Messages DELETE Parameters (JSON)</h4>
 
@@ -14775,7 +14795,7 @@ Requires <code>Transaction:Api:Points:List</code> permit
 <td>id*</td>
 <td>integer</td>
 <td>n/a</td>
-<td>ID obtained by <a href="#pos-campaign-points-config-create">CREATE</a>  method</td>
+<td>ID obtained by <a href="#pos-campaigns-config-create">CREATE</a>  method</td>
 </tr>
 </tbody></table>
 
@@ -18186,6 +18206,12 @@ Requires <code>Files:Api:Delete</code> permit
 </aside>
 
           <h1 id="changelog">Changelog</h1>
+
+<h4 id="04-12-2020-pawe-buczkowski">04.12.2020 | Paweł Buczkowski</h4>
+
+<ul>
+<li>Update <a href="#pos-campaign-api">POS Campaigns</a></li>
+</ul>
 
 <h4 id="02-12-2020-piotr-witlicki">02.12.2020 | Piotr Świtlicki</h4>
 
