@@ -1,5 +1,8 @@
 # Changelog
 
+#### 04.12.2020 | Paweł Buczkowski
+* Update [POS Campaigns](#pos-campaign-api)
+
 #### 02.12.2020 | Piotr Świtlicki
 * Add [Operations API &bull; Documents](#operations-documents)
 

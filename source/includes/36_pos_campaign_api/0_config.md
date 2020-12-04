@@ -1,14 +1,13 @@
 # POS Campaign API
 
-##  Points Config
 
-### <a name="pos-campaign-points-config-create"></a> Create
+##<a name="pos-campaigns-config-create"></a> Create
 
 > Example:
 
 ```shell
 curl -X POST \
-"https://api.mpc.placewise.com/v3/:loyalty_club_slug/pos-campaign/points" \
+"https://api.mpc.placewise.com/v3/:loyalty_club_slug/pos-campaigns/points" \
     -H 'content-type: application/json' \
     -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
     -H 'x-product-name: default' \
@@ -58,9 +57,15 @@ curl -X POST \
 }
 ``` 
 
-**POST** `v3/:loyalty_club_slug/pos-campaign/points`
+**POST** `v3/:loyalty_club_slug/pos-campaigns/:type`
 
 Create POS Campaign.
+
+#### URL Parameters
+
+Parameter | Description                                  | Type
+--------- | -------------------------------------------- | ------
+type |        POS Campaign type                          | enum ["points", "stamps"]   
 
 #### Messages POST Parameters (JSON)
 
@@ -78,7 +83,7 @@ end* | string | use format with timezone |
 
 Key | Type | Default | Description
 --------- | --------- | --------- | --------- 
-type* | enum: ["amount", "percentage"] | n/a |
+type* | enum: ["amount", "percentage", "extra"] | n/a |
 value* | integer | n/a |  |
 \* required
 
@@ -90,7 +95,7 @@ condition* | string | n/a | Class name
 args* | Condition, Condition[], integer, string, array | n/a |  |
 \* required
 
-#### <a name="pos-campaign-points-config-conditions"></a> Conditions List
+### <a name="pos-campaigns-config-conditions"></a> Conditions List
 Condition | Args | Type | Meets requirements when
 --------- | --------- | --------- | ---------  
 `Or` | Condition[] | One of| One of conditions meets requirements
@@ -133,22 +138,13 @@ Condition | Args | Type | Meets requirements when
 }
 ```
 
-
-#### Example:
-MR = Meets Requirements
-
-Condition `Or` MR  when `StoreId` MR or `And` MR.
-`And` MR when `ItemId` MR and `Not` MR.
-`Not` MR when `StoreId` not MR. 
-
-Bonus will apply when StoreId = "910" or (ItemId = "112" and StoreId != "910")
-### <a name="pos-campaign-points-config-delete"></a> Delete
+## <a name="pos-campaigns-config-delete"></a> Delete
 
 > Example:
 
 ```shell
 curl -X DELETE \
-"https://api.mpc.placewise.com/v3/:loyalty_club_slug/pos-campaign/points" \
+"https://api.mpc.placewise.com/v3/:loyalty_club_slug/pos-campaigns/points" \
     -H 'content-type: application/json' \
     -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
     -H 'x-product-name: default' \
@@ -173,14 +169,21 @@ curl -X DELETE \
 }
 ``` 
 
-**DELETE** `v3/:loyalty_club_slug/pos-campaign/points`
+**DELETE** `v3/:loyalty_club_slug/pos-campaigns/:type`
 
 Remove POS Campaign.
 
-#### Messages DELETE Parameters (JSON)
 
+#### URL Parameters
+
+Parameter | Description                                  | Type
+--------- | -------------------------------------------- | ------
+type |        POS Campaign type                          | enum ["points", "stamps"]   
+
+
+#### Messages DELETE Parameters (JSON)
 
 Key | Type | Default | Description
 --------- | --------- | --------- | --------- 
-id* | integer | n/a | ID obtained by [CREATE](#pos-campaign-points-config-create)  method
+id* | integer | n/a | ID obtained by [CREATE](#pos-campaigns-config-create)  method
 \* required
