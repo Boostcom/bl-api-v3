@@ -1,5 +1,11 @@
 <h1 id="changelog">Changelog</h1>
 
+<h4 id="08-12-2020-piotr-witlicki">08.12.2020 | Piotr Świtlicki</h4>
+
+<ul>
+<li>Add <code class="prettyprint">dispatches_count</code> to <code class="prettyprint">Sending</code> and <code class="prettyprint">MessageSending</code> models in <a href="#messaging">Messaging API</a></li>
+</ul>
+
 <h4 id="04-12-2020-pawe-buczkowski">04.12.2020 | Paweł Buczkowski</h4>
 
 <ul>

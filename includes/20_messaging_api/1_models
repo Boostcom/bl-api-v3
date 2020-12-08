@@ -43,7 +43,8 @@ This API is under development. Therefore, it may not be ready for use and is a s
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3920</span><span class="p">,</span><span class="w">
     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"scheduled"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"audience_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">107103</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"recipients_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">83</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"recipients_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"dispatches_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">9513</span><span class="p">,</span><span class="w">
     </span><span class="s2">"scheduled_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-10-15T15:27:02.853Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-15T12:45:08.625Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-15T12:45:08.625Z"</span><span class="w">
@@ -170,6 +171,10 @@ This API is under development. Therefore, it may not be ready for use and is a s
 <tr>
 <td><strong>recipients_count</strong></td>
 <td>Number of recipients</td>
+</tr>
+<tr>
+<td>dispatches_count</td>
+<td>Number of dispatches, when sending has not been executed yet it&rsquo;s <code class="prettyprint">null</code></td>
 </tr>
 </tbody></table>
 
@@ -754,6 +759,7 @@ template A will be wrapped by Template B, but template B will not be wrapped by 
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-18T09:13:59.937Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-18T09:13:59.937Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"dispatches_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">4912</span><span class="p">,</span><span class="w">
   </span><span class="s2">"recipients"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="s2">"member_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">150</span><span class="p">,</span><span class="w">
@@ -796,6 +802,11 @@ template A will be wrapped by Template B, but template B will not be wrapped by 
 <td>scheduled_with</td>
 <td>Object</td>
 <td>Params the sending has been scheduled with - See <a href="#messaging-sending-schedule-payload-model">SendingSchedulePayload</a></td>
+</tr>
+<tr>
+<td>dispatches_count</td>
+<td>Number of dispatches, when sending has not been executed yet it&rsquo;s <code class="prettyprint">null</code></td>
+<td></td>
 </tr>
 <tr>
 <td><strong>created_at</strong></td>
