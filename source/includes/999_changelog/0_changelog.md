@@ -1,5 +1,8 @@
 # Changelog
 
+#### 08.12.2020 | Piotr Świtlicki
+* Add `dispatches_count` to `Sending` and `MessageSending` models in [Messaging API](#messaging)
+
 #### 04.12.2020 | Paweł Buczkowski
 * Update [POS Campaigns](#pos-campaign-api)
 
