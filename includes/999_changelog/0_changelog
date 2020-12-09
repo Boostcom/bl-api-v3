@@ -3,6 +3,12 @@
 <h4 id="08-12-2020-piotr-witlicki">08.12.2020 | Piotr Świtlicki</h4>
 
 <ul>
+<li>Add <code class="prettyprint">background_url</code> to <code class="prettyprint">ImageTemplate</code> model in <a href="#offers-admin">Offers Admin API</a></li>
+</ul>
+
+<h4 id="08-12-2020-piotr-witlicki">08.12.2020 | Piotr Świtlicki</h4>
+
+<ul>
 <li>Add <code class="prettyprint">dispatches_count</code> to <code class="prettyprint">Sending</code> and <code class="prettyprint">MessageSending</code> models in <a href="#messaging">Messaging API</a></li>
 </ul>
 
