@@ -1,6 +1,9 @@
 # Changelog
 
 #### 08.12.2020 | Piotr Świtlicki
+* Add `background_url` to `ImageTemplate` model in [Offers Admin API](#offers-admin)
+
+#### 08.12.2020 | Piotr Świtlicki
 * Add `dispatches_count` to `Sending` and `MessageSending` models in [Messaging API](#messaging)
 
 #### 04.12.2020 | Paweł Buczkowski

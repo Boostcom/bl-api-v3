@@ -147,7 +147,7 @@ The output image is rendered from template after offer creation/update request, 
 
 Rendering process draws (up to 4) [rectangles](#offer-image-template-rectangle) over an optional background image.
 
-The background image must be uploaded as `offer_template_background` and with identifier of given
+The background image must be uploaded to Files API as `offer_template_background` and with identifier of given
 `ImageTemplate` record.
 
 When rendering is done, the image is stored as a regular file of the subject offer. 
@@ -160,6 +160,9 @@ When rendering is done, the image is stored as a regular file of the subject off
 {
     "id": 2,
     "name": "Majadada3",
+    "width": 600,
+    "height": 800,
+    "background_url": "https://cdn-files.placewise.com/files/uuUHXAoLdRIX3Am4SHaR1iGyv8yK6-G_a845txA7HUqYhETqgo9",
     "default": false,
     "rectangles": [], // List of rectangles - see "ImageTemplate Rectangle"
     "created_at": "2020-09-04T14:55:44.385Z",
@@ -175,6 +178,7 @@ id             | integer             |
 name           | string              | 
 width          | integer             | Defines width of the image in pixels, between 1 and 2000
 height         | integer             | Defines height of the image in pixels, between 1 and 2000
+background_url | string              | URL of background image. Static, needs to be uploaded to Files API.
 default        | boolean             | See below
 rectangles     | TemplateRectangle[] | See [ImageTemplate Rectangle](#offer-image-template-rectangle)
 created_at     | Date                | When template has been created
