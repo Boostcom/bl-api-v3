@@ -212,9 +212,9 @@ When the array is empty, all Recipients are removed from Sending.
 
 #### URL Parameters
 
-Parameter  |                   Type                | Description
----------- | -------------------------------------------- | ------
-id | integer                                   | Sending ID 
+Parameter  | Type    | Description
+---        | ---     | ----
+id         | integer | Sending ID 
 
 #### POST Parameters (JSON)
 
@@ -236,6 +236,55 @@ Status | Description
 `404` | Sending not found
 `405` | Sending is not editable - execution process has started or finished
 `422` | Invalid parameters - see [Invalid parameters errors model](#invalid-parameters-errors-model)
+
+<aside class="notice">
+Requires <code>Messages:Api:Sendings:Update</code> permit
+</aside>
+
+### <a name="messaging-cancel-sending"></a> Cancel Sending
+
+> Example - cancels the Sending execution
+
+```shell
+curl -X PUT \
+"https://api.mpc.placewise.com/v1/sendings/42/cancel" \
+  -H 'content-type: application/json' \
+  -H 'x-loyalty-club-slug: infinity-mall' \
+  -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+  -H 'x-product-name: default' \
+  -H 'x-user-agent: CURL manual test'
+```
+
+> When successful, returns object containing cancelled [sending](#messaging-sending-model)
+
+```json
+{
+  "sending": {} // Sending - See: "Sending model"
+}
+```
+
+**PUT** `v1/messages/sendings/:id`
+
+Cancels Sending execution process. See [Sending status](#messaging-sending-status).
+
+#### URL Parameters
+
+Parameter  | Type    | Description
+---------- | ---     | ------
+id         | integer | Sending ID 
+
+#### Response (JSON object)
+
+Key     | Type    | Description
+------- | ------- | ---------
+sending | Sending | See: [Sending model](#messaging-sending-model)
+
+#### Error responses
+
+Status | Description
+-------| -----------
+`404`  | Sending not found
+`405`  | Sending is not cancellable - execution is not in progress
 
 <aside class="notice">
 Requires <code>Messages:Api:Sendings:Update</code> permit

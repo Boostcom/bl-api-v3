@@ -1,5 +1,8 @@
 # Changelog
 
+#### 15.12.2020 | Piotr Świtlicki
+* Add [Messaging API &bull; Sendings &bull; Cancel](#messaging-cancel-sending)
+
 #### 08.12.2020 | Piotr Świtlicki
 * Add `background_url` to `ImageTemplate` model in [Offers Admin API](#offers-admin)
 
@@ -19,7 +22,7 @@
 * Add [Offers Admin API &bull; Image Templates &bull; Preview](#offer-admin-image-templates-preview)
 
 #### 23.11.2020 | Piotr Świtlicki
-* Add [Messages API &bull; Sending](#messaging-list-sending-dispatches)
+* Add [Messaging API &bull; Sending](#messaging-list-sending-dispatches)
 
 #### 23.11.2020 | Piotr Świtlicki
 * Add periodic limits feature to [Offers](#offers-api)

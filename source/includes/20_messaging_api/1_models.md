@@ -513,7 +513,7 @@ so it may take some time to build Dispatches for all of them. Therefore, the pre
 * **final outcomes**: 
     * **transmitted** - When the Dispatches have been transmitted
     * **skipped** - When no recipients could be resolved for it (for example, Audience may lose its members over time).
-    * **cancelled** - When cancelled by API client at any point of execution (see: [Sending cancellation](#todo-cancel-endpoint).
+    * **cancelled** - When cancelled by API client at any point of execution (see: [Sending cancellation](#messaging-cancel-sending).
     * **failed** - When the execution couldn't be finished in about 20 minutes after the desired time 
 
 Whenever Sending is `cancelled` or `failed`, it cannot be rescheduled again. 
