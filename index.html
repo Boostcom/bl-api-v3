@@ -7342,7 +7342,7 @@ so it may take some time to build Dispatches for all of them. Therefore, the pre
 <ul>
 <li><strong>transmitted</strong> - When the Dispatches have been transmitted</li>
 <li><strong>skipped</strong> - When no recipients could be resolved for it (for example, Audience may lose its members over time).</li>
-<li><strong>cancelled</strong> - When cancelled by API client at any point of execution (see: <a href="#todo-cancel-endpoint">Sending cancellation</a>.</li>
+<li><strong>cancelled</strong> - When cancelled by API client at any point of execution (see: <a href="#messaging-cancel-sending">Sending cancellation</a>.</li>
 <li><strong>failed</strong> - When the execution couldn&rsquo;t be finished in about 20 minutes after the desired time </li>
 </ul></li>
 </ul>
@@ -8734,6 +8734,84 @@ When the array is empty, all Recipients are removed from Sending.</p>
 <tr>
 <td><code class="prettyprint">422</code></td>
 <td>Invalid parameters - see <a href="#invalid-parameters-errors-model">Invalid parameters errors model</a></td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Messages:Api:Sendings:Update</code> permit
+</aside>
+
+<h3 id="cancel-sending"><a name="messaging-cancel-sending"></a> Cancel Sending</h3>
+
+<blockquote>
+<p>Example - cancels the Sending execution</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X PUT <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v1/sendings/42/cancel"</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'x-loyalty-club-slug: infinity-mall'</span> <span class="se">\</span>
+  -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
+  -H <span class="s1">'x-user-agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>When successful, returns object containing cancelled <a href="#messaging-sending-model">sending</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"sending"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Sending</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sending model"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>PUT</strong> <code class="prettyprint">v1/messages/sendings/:id</code></p>
+
+<p>Cancels Sending execution process. See <a href="#messaging-sending-status">Sending status</a>.</p>
+
+<h4 id="url-parameters">URL Parameters</h4>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>Sending ID</td>
+</tr>
+</tbody></table>
+
+<h4 id="response-json-object">Response (JSON object)</h4>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>sending</td>
+<td>Sending</td>
+<td>See: <a href="#messaging-sending-model">Sending model</a></td>
+</tr>
+</tbody></table>
+
+<h4 id="error-responses">Error responses</h4>
+
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">404</code></td>
+<td>Sending not found</td>
+</tr>
+<tr>
+<td><code class="prettyprint">405</code></td>
+<td>Sending is not cancellable - execution is not in progress</td>
 </tr>
 </tbody></table>
 
@@ -18226,6 +18304,12 @@ Requires <code>Files:Api:Delete</code> permit
 
           <h1 id="changelog">Changelog</h1>
 
+<h4 id="15-12-2020-piotr-witlicki">15.12.2020 | Piotr Świtlicki</h4>
+
+<ul>
+<li>Add <a href="#messaging-cancel-sending">Messaging API &bull; Sendings &bull; Cancel</a></li>
+</ul>
+
 <h4 id="08-12-2020-piotr-witlicki">08.12.2020 | Piotr Świtlicki</h4>
 
 <ul>
@@ -18265,7 +18349,7 @@ Requires <code>Files:Api:Delete</code> permit
 <h4 id="23-11-2020-piotr-witlicki">23.11.2020 | Piotr Świtlicki</h4>
 
 <ul>
-<li>Add <a href="#messaging-list-sending-dispatches">Messages API &bull; Sending</a></li>
+<li>Add <a href="#messaging-list-sending-dispatches">Messaging API &bull; Sending</a></li>
 </ul>
 
 <h4 id="23-11-2020-piotr-witlicki">23.11.2020 | Piotr Świtlicki</h4>

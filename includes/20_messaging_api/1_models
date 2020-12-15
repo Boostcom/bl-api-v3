@@ -859,7 +859,7 @@ so it may take some time to build Dispatches for all of them. Therefore, the pre
 <ul>
 <li><strong>transmitted</strong> - When the Dispatches have been transmitted</li>
 <li><strong>skipped</strong> - When no recipients could be resolved for it (for example, Audience may lose its members over time).</li>
-<li><strong>cancelled</strong> - When cancelled by API client at any point of execution (see: <a href="#todo-cancel-endpoint">Sending cancellation</a>.</li>
+<li><strong>cancelled</strong> - When cancelled by API client at any point of execution (see: <a href="#messaging-cancel-sending">Sending cancellation</a>.</li>
 <li><strong>failed</strong> - When the execution couldn&rsquo;t be finished in about 20 minutes after the desired time </li>
 </ul></li>
 </ul>
