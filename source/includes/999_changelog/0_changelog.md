@@ -1,6 +1,9 @@
 # Changelog
 
 #### 15.12.2020 | Piotr Świtlicki
+* Add [Messaging API &bull; Settings &bull; Show](#messaging-show-settings)
+
+#### 15.12.2020 | Piotr Świtlicki
 * Add [Messaging API &bull; Sendings &bull; Cancel](#messaging-cancel-sending)
 
 #### 08.12.2020 | Piotr Świtlicki

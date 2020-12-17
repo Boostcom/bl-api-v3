@@ -6,7 +6,7 @@
 
 ```shell
 curl -X GET \
-"https://api.mpc.placewise.com/v1/sendings/32" \
+"https://api.mpc.placewise.com/v1/messages/sendings/32" \
   -H 'content-type: application/json' \
   -H 'x-loyalty-club-slug: infinity-mall' \
   -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
@@ -22,7 +22,7 @@ curl -X GET \
 }
 ```
 
-**GET** `v1/mgessages/sendings/:id`
+**GET** `v1/messages/sendings/:id`
 
 Returns [Sending](#messaging-sending-model).  
 
@@ -48,7 +48,7 @@ Requires <code>Messages:Api:Sendings:Get</code> permit
 
 ```shell
 curl -X GET \
-"https://api.mpc.placewise.com/v1/sendings/32/dispatches" \
+"https://api.mpc.placewise.com/v1/messages/sendings/32/dispatches" \
   -H 'content-type: application/json' \
   -H 'x-loyalty-club-slug: infinity-mall' \
   -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
@@ -174,7 +174,7 @@ Requires <code>Messages:Api:Sendings:Create</code> permit
 
 ```shell
 curl -X PUT \
-"https://api.mpc.placewise.com/v1/sendings/42" \
+"https://api.mpc.placewise.com/v1/messages/sendings/42" \
   -H 'content-type: application/json' \
   -H 'x-loyalty-club-slug: infinity-mall' \
   -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
@@ -247,7 +247,7 @@ Requires <code>Messages:Api:Sendings:Update</code> permit
 
 ```shell
 curl -X PUT \
-"https://api.mpc.placewise.com/v1/sendings/42/cancel" \
+"https://api.mpc.placewise.com/v1/messages/sendings/42/cancel" \
   -H 'content-type: application/json' \
   -H 'x-loyalty-club-slug: infinity-mall' \
   -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \

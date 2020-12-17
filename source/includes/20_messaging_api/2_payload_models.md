@@ -35,10 +35,11 @@ sending | [SendingPayload](#messaging-sending-payload-model) | Sending to schedu
 
 #### Validation errors specific to the payload
 
-Attribute   | Error key                             | Description
----         | ---                                   | ---                                                         
-campaign_id | is_relevant_only_for_campaign_service | When campaign_id is given and service is not "campaigns"
-channels    | types_must_be_unique                  | 
+Attribute       | Error key                             | Description
+---             | ---                                   | ---                                                         
+campaign_id     | is_relevant_only_for_campaign_service | When campaign_id is given and service is not "campaigns"
+channels        | types_must_be_unique                  | 
+channels[].type | not_configured                        | Channel is not configured for Loyalty Club - see [Messaging &bull; Settings](#messaging-show-settings)
 
 ### <a name="messaging-channel-payload-model"></a> ChannelPayload model
 
