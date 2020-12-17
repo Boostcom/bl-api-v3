@@ -6,7 +6,7 @@
 <p>Example</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
-<span class="s2">"https://api.mpc.placewise.com/v1/sendings/32"</span> <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v1/messages/sendings/32"</span> <span class="se">\</span>
   -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'x-loyalty-club-slug: infinity-mall'</span> <span class="se">\</span>
   -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
@@ -20,7 +20,7 @@
   </span><span class="s2">"sending"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Sending</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sending model"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>GET</strong> <code class="prettyprint">v1/mgessages/sendings/:id</code></p>
+<p><strong>GET</strong> <code class="prettyprint">v1/messages/sendings/:id</code></p>
 
 <p>Returns <a href="#messaging-sending-model">Sending</a>.  </p>
 
@@ -64,7 +64,7 @@ Requires <code>Messages:Api:Sendings:Get</code> permit
 <p>Example</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
-<span class="s2">"https://api.mpc.placewise.com/v1/sendings/32/dispatches"</span> <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v1/messages/sendings/32/dispatches"</span> <span class="se">\</span>
   -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'x-loyalty-club-slug: infinity-mall'</span> <span class="se">\</span>
   -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
@@ -295,7 +295,7 @@ Requires <code>Messages:Api:Sendings:Create</code> permit
 <p>Example - updates the Sending - it&rsquo;s unscheduled and audience is removed</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X PUT <span class="se">\</span>
-<span class="s2">"https://api.mpc.placewise.com/v1/sendings/42"</span> <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v1/messages/sendings/42"</span> <span class="se">\</span>
   -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'x-loyalty-club-slug: infinity-mall'</span> <span class="se">\</span>
   -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
@@ -413,7 +413,7 @@ Requires <code>Messages:Api:Sendings:Update</code> permit
 <p>Example - cancels the Sending execution</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X PUT <span class="se">\</span>
-<span class="s2">"https://api.mpc.placewise.com/v1/sendings/42/cancel"</span> <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v1/messages/sendings/42/cancel"</span> <span class="se">\</span>
   -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'x-loyalty-club-slug: infinity-mall'</span> <span class="se">\</span>
   -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>

@@ -86,6 +86,11 @@
 <td>types_must_be_unique</td>
 <td></td>
 </tr>
+<tr>
+<td>channels[].type</td>
+<td>not_configured</td>
+<td>Channel is not configured for Loyalty Club - see <a href="#messaging-show-settings">Messaging &bull; Settings</a></td>
+</tr>
 </tbody></table>
 
 <h3 id="channelpayload-model"><a name="messaging-channel-payload-model"></a> ChannelPayload model</h3>
