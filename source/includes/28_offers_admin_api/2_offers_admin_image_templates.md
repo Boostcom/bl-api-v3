@@ -95,30 +95,52 @@ Requires <code>Offers:Api:ImageTemplates:Get</code> permit
 > Example:
 
 ```shell
-curl --request GET 'https://api.mpc.placewise.com/v3/infinity-mall/offers/image_templates' \
+curl --request GET 'https://api.mpc.placewise.com/v3/infinity-mall/offers/image_templates/preview' \
 --header 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
 --header 'x-product-name: default' \
---header 'x-user-agent: cURL Manual Testing'
+--header 'x-user-agent: cURL Manual Testing' \
+--data-raw '{
+	"image_template": {
+        "background_url": "https://cdn-files.dev.placewise.com/files/KnakgqRCMyj8V0jKnkR7i40eFmwKsg2Rbm7cqMN4vka0Mu1fyGAdbhRISzJzWlFzb2loRVY",
+        "width": 400,
+        "height": 600,
+        "rectangles": [
+            {
+                "number": 1,
+                "name": "Title",
+                "offset_top": 510,
+                "offset_left": 0,
+                "width": 400,
+                "height": 200,
+                "font_size": 30,
+                "font_family": "'Playfair Display', serif",
+                "font_url": "https://fonts.googleapis.com/css?family=Raleway:400,700&display=swap",
+                "color": "#eb4034",
+                "text_align": "center",
+                "content": "WOW {{name}}!"
+            }
+        ]
+    }
+}'
 ```
 
 > Returns generated image - `application/png`
 
+**GET** `v3/:loyalty_club_slug/offers/image_templates/preview`
 
-**GET** `v3/:loyalty_club_slug/offers/image_templates/:image_template_id/preview`
+Generates image (`image/png` MIME) for given [ImageTemplate model](#offer-image-template-model).
 
-Generates image (`image/png` MIME) from given ImageTemplate.
+#### POST Parameters (JSON object)
 
-#### URL Parameters
-
-Key | Type 
---- | ----
-image_template_id | Integer
+Parameter | Type
+--------- |  -----
+image_template | [ImageTemplate model](#offer-image-template-model)
 
 #### Error responses
 
-Status | Description
+Status    | Description
 --------- | ----------- 
-`404` | ImageTemplate does not exist
+`422`     | Invalid parameters - see [Invalid parameters errors model](#invalid-parameters-errors-model)
 
 <aside class="notice">
 Requires <code>Offers:Api:ImageTemplates:Preview</code> permit
@@ -137,6 +159,8 @@ curl --request POST 'https://api.mpc.placewise.com/v3/infinity-mall/offers/image
 --data-raw '{
 	"image_template": {
 		"name": "My Group 1",
+        "width": 1000,
+        "height": 1000,
         "rectangles": [
             {
                 "number": 1,
@@ -173,7 +197,7 @@ Creates a new template.
 
 Parameter | Type
 --------- |  -----
-image_template | [ImageTemplate Payload](#offer-image-template-record-payload) 
+image_template | [ImageTemplate Payload](#offer-image-template-payload) 
 
 #### Response (JSON object)
 
@@ -183,9 +207,9 @@ image_template | ImageTemplate | Created [ImageTemplate](#offer-image-template-r
 
 #### Error responses
 
-Status | Description
+Status    | Description
 --------- | ----------- 
-`422` | Invalid parameters - see [Invalid parameters errors model](#invalid-parameters-errors-model)
+`422`     | Invalid parameters - see [Invalid parameters errors model](#invalid-parameters-errors-model)
 
 <aside class="notice">
 Requires <code>Offers:Api:ImageTemplates:Create</code> permit
@@ -240,7 +264,7 @@ Updates given template.
 
 Parameter | Type
 --------- |  -----
-image_template | [ImageTemplate Payload](#offer-image-template-record-payload) 
+image_template | [ImageTemplate Payload](#offer-image-template-payload) 
 
 #### Response (JSON object)
 

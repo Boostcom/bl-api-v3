@@ -1,5 +1,8 @@
 # Changelog
 
+#### 18.12.2020 | Piotr Świtlicki
+* Rework [Offers Admin API &bull; ImageTemplates &bull; Preview](#offer-admin-image-templates-preview)
+
 #### 15.12.2020 | Piotr Świtlicki
 * Add [Messaging API &bull; Settings &bull; Show](#messaging-show-settings)
 

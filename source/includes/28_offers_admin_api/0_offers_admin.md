@@ -76,22 +76,20 @@ updated_at | Date | no | Last time when the offer has been updated
 archived_at | Date | yes | Time when the offer has been archived
 uses_count | Date | no | Total number of times the offer has been used by members   
 image_template | Object | yes | See [image_template](#offer-image-template-attr) below
-image_template.background_url | string | yes | The URL of image that will be used for the background
 image_template.rectangles | ImageTemplateRectangle[] | yes | See [ImageTemplate Rectangle](#offer-image-template-rectangle)
 
 #### <a name="admin-offer-model-image-template"></a> `image_template` attribute
 
-With this object, you can determine that offer's image will be rendered according to the given definition.
-
-It reflects the [ImageTemplate model](#offer-image-template-model) - with additional `background_url` attribute.
+With this object, you can determine that offer's image will be rendered according to the given definition which
+reflects the [ImageTemplate model](#offer-image-template-model).
 
 However, it **is not** a reference to existing [ImageTemplate record](#offer-image-template-record). 
-If you want to apply record's model to the offer, you must use some of its attributes (copy them) as the offer's `image_template` attribute.
+If you want to apply record's model to the Offer, you must use it's 
+[ImageTemplate model](#offer-image-template-model) (copy it) as the offer's `image_template` attribute.
 
-The attribute `background_url` determines what image will be used for the background. If you want to use ImageTemplate's
-background, supply it's URL here.
+When custom `background_url` is desired for given Offer, a new file may be uploaded to Files API 
+as `offer_inline_template_background` and with identifier of given Offer.
 
-`back`
 ### <a name="admin-offer-payload"></a> OfferPayload
 
 Following Offer attributes (described above) are available to set when creating or updating offers.
@@ -127,28 +125,34 @@ Following Offer attributes (described above) are available to set when creating 
 
 ```json
 {
+    "width": 600,
+    "height": 800,
+    "background_url": "https://cdn-files.placewise.com/files/uuUHXAoLdRIX3Am4SHaR1iGyv8yK6-G_a845txA7HUqYhETqgo9",
     "rectangles": [], // List of rectangles - see "ImageTemplate Rectangle"
 }
 ```
 
 Defines how offer image should be rendered. 
 
-It's an interface used both by [Offer's `image_template` attribute](#admin-offer-model-image-template) and 
-[ImageTemplate record](#offer-image-template-record).
+It's a common interface used for:
+
+* [Offer's `image_template` attribute](#admin-offer-model-image-template)
+* creating and updating [ImageTemplate records](#offer-image-template-record)
+* generating [ImageTemplate preview](#offer-admin-image-templates-preview)
 
 
 Attribute      | Type                | Description
 -------------- | ------------------- | ---------------------------------------------------
+width          | integer             | Defines width of the image in pixels, between 1 and 2000
+height         | integer             | Defines height of the image in pixels, between 1 and 2000
+background_url | string              | URL of background image. 
 rectangles     | TemplateRectangle[] | See [ImageTemplate Rectangle](#offer-image-template-rectangle)
 
-##### Rendering
+##### <a name="offer-image-template-rendering"></a> Rendering
 
-The output image is rendered from template after offer creation/update request, asynchronously. 
+The output image is rendered from the template after offer creation/update request, asynchronously. 
 
-Rendering process draws (up to 4) [rectangles](#offer-image-template-rectangle) over an optional background image.
-
-The background image must be uploaded to Files API as `offer_template_background` and with identifier of given
-`ImageTemplate` record.
+Rendering process draws [rectangles](#offer-image-template-rectangle) (up to 4) over an optional background image.
 
 When rendering is done, the image is stored as a regular file of the subject offer. 
 
@@ -175,14 +179,19 @@ Stores `ImageTemplate` model (see above) for re-usage. Managed with [ImageTempla
 Attribute      | Type                | Description
 -------------- | ------------------- | ---------------------------------------------------
 id             | integer             | 
-name           | string              | 
-width          | integer             | Defines width of the image in pixels, between 1 and 2000
-height         | integer             | Defines height of the image in pixels, between 1 and 2000
-background_url | string              | URL of background image. Static, needs to be uploaded to Files API.
+name           | string              |
+width          | integer             | Part of [ImageTemplate model](#offer-image-template-model)
+height         | integer             | Part of [ImageTemplate model](#offer-image-template-model)
+background_url | string              | Part of [ImageTemplate model](#offer-image-template-model). See below.
+rectangles     | TemplateRectangle[] | Part of [ImageTemplate model](#offer-image-template-model)
 default        | boolean             | See below
-rectangles     | TemplateRectangle[] | See [ImageTemplate Rectangle](#offer-image-template-rectangle)
 created_at     | Date                | When template has been created
 updated_at     | Date                | Last time the template has been updated
+
+##### `background_url` attribute
+
+The background image for record must be uploaded to Files API as `offer_template_background` and with identifier of given
+`ImageTemplate` record.
 
 ##### `default` attribute
 
@@ -190,26 +199,29 @@ It's possible to mark template as default for LC (doing this will un-mark previo
 
 It's up to API client how to utilize this feature.
 
-#### <a name="offer-image-template-record-payload"></a> ImageTemplate Record payload
+##### <a name="offer-image-template-payload"></a> ImageTemplate payload
 
-> ImageTemplate record payload example:
+> ImageTemplate payload example:
 
 ```json
 {
-    "id": 2,
     "name": "Majadada3",
+    "width": 600,
+    "height": 800,
     "default": false,
     "rectangles": [] // List of rectangles - see "ImageTemplate Rectangle"
 }
 ```
 
-Used for creating and updating ImageTemplate
+Used for [creating](#offer-admin-image-templates-create) and [updating](#offer-admin-image-templates-update) ImageTemplates.
 
-Attribute      | Type                | Required? | Description
--------------- | ------------------- | --------- | ---------------------------------------------------
-name           | string              | yes       |
-default        | boolean             | no        | See below
-rectangles     | TemplateRectangle[] | yes       | See [ImageTemplate Rectangle](#offer-image-template-rectangle)
+Attribute      | Type                | Required? | Comment
+-------------- | ------------------- | --------- | --------
+name           | string              | yes       | See [ImageTemplate record](#offer-image-template-record)
+default        | boolean             | no        | See [ImageTemplate record](#offer-image-template-record)
+width          | string              | yes       | See [ImageTemplate model](#offer-image-template-model)
+height         | string              | yes       | See [ImageTemplate model](#offer-image-template-model)
+rectangles     | TemplateRectangle[] | yes       | See [ImageTemplate model](#offer-image-template-model)
 
 ### <a name="offer-image-template-rectangle"></a> ImageTemplate Rectangle
 
