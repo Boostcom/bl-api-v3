@@ -153,30 +153,53 @@ Requires <code>Offers:Api:ImageTemplates:Get</code> permit
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl --request GET <span class="s1">'https://api.mpc.placewise.com/v3/infinity-mall/offers/image_templates'</span> <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl --request GET <span class="s1">'https://api.mpc.placewise.com/v3/infinity-mall/offers/image_templates/preview'</span> <span class="se">\</span>
 --header <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
 --header <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
---header <span class="s1">'x-user-agent: cURL Manual Testing'</span>
+--header <span class="s1">'x-user-agent: cURL Manual Testing'</span> <span class="se">\</span>
+--data-raw <span class="s1">'{
+    "image_template": {
+        "background_url": "https://cdn-files.dev.placewise.com/files/KnakgqRCMyj8V0jKnkR7i40eFmwKsg2Rbm7cqMN4vka0Mu1fyGAdbhRISzJzWlFzb2loRVY",
+        "width": 400,
+        "height": 600,
+        "rectangles": [
+            {
+                "number": 1,
+                "name": "Title",
+                "offset_top": 510,
+                "offset_left": 0,
+                "width": 400,
+                "height": 200,
+                "font_size": 30,
+                "font_family": "'</span>Playfair Display<span class="s1">', serif",
+                "font_url": "https://fonts.googleapis.com/css?family=Raleway:400,700&amp;display=swap",
+                "color": "#eb4034",
+                "text_align": "center",
+                "content": "WOW {{name}}!"
+            }
+        ]
+    }
+}'</span>
 </code></pre>
 <blockquote>
 <p>Returns generated image - <code class="prettyprint">application/png</code></p>
 </blockquote>
 
-<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/offers/image_templates/:image_template_id/preview</code></p>
+<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/offers/image_templates/preview</code></p>
 
-<p>Generates image (<code class="prettyprint">image/png</code> MIME) from given ImageTemplate.</p>
+<p>Generates image (<code class="prettyprint">image/png</code> MIME) for given <a href="#offer-image-template-model">ImageTemplate model</a>.</p>
 
-<h4 id="url-parameters">URL Parameters</h4>
+<h4 id="post-parameters-json-object">POST Parameters (JSON object)</h4>
 
 <table><thead>
 <tr>
-<th>Key</th>
+<th>Parameter</th>
 <th>Type</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>image_template_id</td>
-<td>Integer</td>
+<td>image_template</td>
+<td><a href="#offer-image-template-model">ImageTemplate model</a></td>
 </tr>
 </tbody></table>
 
@@ -189,8 +212,8 @@ Requires <code>Offers:Api:ImageTemplates:Get</code> permit
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">404</code></td>
-<td>ImageTemplate does not exist</td>
+<td><code class="prettyprint">422</code></td>
+<td>Invalid parameters - see <a href="#invalid-parameters-errors-model">Invalid parameters errors model</a></td>
 </tr>
 </tbody></table>
 
@@ -211,6 +234,8 @@ Requires <code>Offers:Api:ImageTemplates:Preview</code> permit
 --data-raw <span class="s1">'{
     "image_template": {
         "name": "My Group 1",
+        "width": 1000,
+        "height": 1000,
         "rectangles": [
             {
                 "number": 1,
@@ -251,7 +276,7 @@ Requires <code>Offers:Api:ImageTemplates:Preview</code> permit
 </thead><tbody>
 <tr>
 <td>image_template</td>
-<td><a href="#offer-image-template-record-payload">ImageTemplate Payload</a></td>
+<td><a href="#offer-image-template-payload">ImageTemplate Payload</a></td>
 </tr>
 </tbody></table>
 
@@ -342,7 +367,7 @@ Requires <code>Offers:Api:ImageTemplates:Create</code> permit
 </thead><tbody>
 <tr>
 <td>image_template</td>
-<td><a href="#offer-image-template-record-payload">ImageTemplate Payload</a></td>
+<td><a href="#offer-image-template-payload">ImageTemplate Payload</a></td>
 </tr>
 </tbody></table>
 
