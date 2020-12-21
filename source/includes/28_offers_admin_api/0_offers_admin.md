@@ -232,6 +232,7 @@ rectangles     | TemplateRectangle[] | yes       | See [ImageTemplate model](#of
     "name": "Title",
     "width": 100,
     "height": 200,
+    "padding": 5,
     "offset_top": 5,
     "offset_left": 15,
     "text_align": "center",
@@ -248,6 +249,7 @@ Key         | Type                                | Required? | Description
 name        | string                              | yes       | Identifies rectangle in the template
 width       | integer                             | yes       | Width of rendered rectangle
 height      | integer                             | yes       | Height of rendered rectangle
+padding     | integer                             | yes       | Padding inside of rendered rectangle
 offset_left | integer                             | yes       | x position relative to the top left corner of image
 offset_top  | integer                             | yes       | y position relative to the top left corner of image
 text_align  | enum: `['left', 'center', 'right']` | yes       | Text alignment inside the rectangle
