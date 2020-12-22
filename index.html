@@ -8036,6 +8036,12 @@ regex:
 <td>null</td>
 <td>When present, returns only Messages having given <a href="#messaging-message-service">Service</a></td>
 </tr>
+<tr>
+<td>campaign_id</td>
+<td>integer</td>
+<td>null</td>
+<td>When present, returns only Messages having given campaign_id</td>
+</tr>
 </tbody></table>
 
 <aside class="notice">
@@ -11010,6 +11016,7 @@ as <code class="prettyprint">offer_inline_template_background</code> and with id
     </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Title"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
     </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"padding"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
     </span><span class="s2">"offset_top"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
     </span><span class="s2">"offset_left"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
     </span><span class="s2">"text_align"</span><span class="p">:</span><span class="w"> </span><span class="s2">"center"</span><span class="p">,</span><span class="w">
@@ -11045,6 +11052,12 @@ as <code class="prettyprint">offer_inline_template_background</code> and with id
 <td>integer</td>
 <td>yes</td>
 <td>Height of rendered rectangle</td>
+</tr>
+<tr>
+<td>padding</td>
+<td>integer</td>
+<td>yes</td>
+<td>Padding inside of rendered rectangle</td>
 </tr>
 <tr>
 <td>offset_left</td>
@@ -11890,6 +11903,7 @@ Requires <code>Offers:Api:ImageTemplates:Get</code> permit
                 "offset_left": 0,
                 "width": 400,
                 "height": 200,
+                "padding": 5,
                 "font_size": 30,
                 "font_family": "'</span>Playfair Display<span class="s1">', serif",
                 "font_url": "https://fonts.googleapis.com/css?family=Raleway:400,700&amp;display=swap",
@@ -11964,6 +11978,7 @@ Requires <code>Offers:Api:ImageTemplates:Preview</code> permit
                 "offset_left": 150,
                 "width": 300,
                 "height": 200,
+                "padding": 5,
                 "font_size": 40,
                 "font_family": "'</span>Playfair Display<span class="s1">', serif",
                 "font_url": "https://fonts.googleapis.com/css?family=Raleway:400,700&amp;display=swap",
@@ -12055,6 +12070,7 @@ Requires <code>Offers:Api:ImageTemplates:Create</code> permit
                 "offset_left": 150,
                 "width": 300,
                 "height": 200,
+                "padding": 5,
                 "font_size": 40,
                 "font_family": "'</span>Playfair Display<span class="s1">', serif",
                 "font_url": "https://fonts.googleapis.com/css?family=Raleway:400,700&amp;display=swap",
