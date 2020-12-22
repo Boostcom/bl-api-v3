@@ -35,6 +35,7 @@ per_page        | integer     | 100       | Number of results to be returned per
 page_no         | integer     | 1         | Number of results page 
 sendings_status | enum        | null      | When present, returns only Messages having given [Aggregated Sendings status](#messaging-message-sendings-status)
 service         | enum        | null      | When present, returns only Messages having given [Service](#messaging-message-service)
+campaign_id     | integer     | null      | When present, returns only Messages having given campaign_id
 
 <aside class="notice">
 Requires <code>Messages:Api:Messages:List</code> permit
