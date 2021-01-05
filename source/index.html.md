@@ -40,6 +40,7 @@ includes:
   - 45_events_api/0_events
   - 46_operations_api/0_introduction
   - 46_operations_api/1_documents
+  - 46_operations_api/2_resources
   - 47_operations_admin_api/0_introduction
   - 47_operations_admin_api/1_documents
   - 50_files_api/0_files
