@@ -18,24 +18,24 @@ curl -X GET \
 
 ```json
 {
-  "sending": {} // Sending - See: "Sending model"
+  "sending": {} // Sending - see 'Sending model'
 }
 ```
 
 **GET** `v1/messages/sendings/:id`
 
-Returns [Sending](#messaging-sending-model).  
+Returns [Sending](#messaging-sending-model).
 
 #### URL Parameters
 
 Parameter  |                   Type                | Description
 ---------- | -------------------------------------------- | ------
-id | integer                                   | Sending ID 
+id | integer                                   | Sending ID
 
 #### Error responses
 
 Status | Description
---------- | ----------- 
+--------- | -----------
 `404` | Sending not found
 
 <aside class="notice">
@@ -60,27 +60,27 @@ curl -X GET \
 
 ```json
 {
-  "dispatches": [], // List of messages - See: "Dispatch model"
-  "pagination_info": {} // Pagination info - see "Pagination info"
+  "dispatches": [], // List of messages - see 'Dispatch model'
+  "pagination_info": {} // Pagination info - see 'Pagination info'
 }
 ```
 
 **GET** `v1/messages/sendings/:id`
 
-Returns [Dispatches](#messaging-dispatch-model) created for Sending.  
+Returns [Dispatches](#messaging-dispatch-model) created for Sending.
 
 #### URL Parameters
 
 Parameter  |                   Type                | Description
 ---------- | -------------------------------------------- | ------
-id | integer                                   | Sending ID 
+id | integer                                   | Sending ID
 
 #### Query Parameters
 
 Parameter            | Type        | Default   | Description
 --------------       | ----------- | --------- | -----------
 per_page             | integer     | 100       | Number of results to be returned per request (100 is the maximum)
-page_no              | integer     | 1         | Number of results page 
+page_no              | integer     | 1         | Number of results page
 transmission_status  | enum        | null      | When present, returns only Messages having given [transmission_status](#messaging-dispatch-model)
 delivery_status      | enum        | null      | When present, returns only Dispatches with given [delivery_status](#messaging-dispatch-model)
 member_id            | integer     | null      | When present, returns only Dispatches sent to recipient identified by given id
@@ -91,7 +91,7 @@ app_token            | string      | null      | When present, returns only Disp
 #### Error responses
 
 Status | Description
---------- | ----------- 
+--------- | -----------
 `404` | Sending not found
 
 <aside class="notice">
@@ -130,7 +130,7 @@ curl -X POST \
 
 ```json
 {
-  "sending": {} // Sending - See: "Sending model"
+  "sending": {} // Sending - see 'Sending model'
 }
 ```
 
@@ -142,7 +142,7 @@ Creates (and schedules if demanded) Sending for given Message.
 
 Parameter  |                   Type                | Description
 ---------- | -------------------------------------------- | ------
-message_id | integer                                   | Message ID 
+message_id | integer                                   | Message ID
 
 #### POST Parameters (JSON)
 
@@ -159,7 +159,7 @@ sending | Sending | See: [Sending model](#messaging-sending-model)
 #### Error responses
 
 Status | Description
---------- | ----------- 
+--------- | -----------
 `403` | Unauthorized to set Sending priority
 `404` | Message not found
 `422` | Invalid parameters - see [Invalid parameters errors model](#invalid-parameters-errors-model)
@@ -194,27 +194,27 @@ curl -X PUT \
 
 ```json
 {
-  "sending": {} // Sending - See: "Sending model"
+  "sending": {} // Sending - see 'Sending model'
 }
 ```
 
 **PUT** `v1/messages/sendings/:id`
 
-Updates Sending attributes. 
+Updates Sending attributes.
 
-The update is partial - only attributes present in the payload are updated. 
+The update is partial - only attributes present in the payload are updated.
 If attribute removal is intended, it should be provided with `null` value.
 
 ##### Updating recipients
 
-If `recipients` are given, the Sending Recipients are replaced with given ones. 
+If `recipients` are given, the Sending Recipients are replaced with given ones.
 When the array is empty, all Recipients are removed from Sending.
 
 #### URL Parameters
 
 Parameter  | Type    | Description
 ---        | ---     | ----
-id         | integer | Sending ID 
+id         | integer | Sending ID
 
 #### POST Parameters (JSON)
 
@@ -231,7 +231,7 @@ sending | Sending | See: [Sending model](#messaging-sending-model)
 #### Error responses
 
 Status | Description
---------- | ----------- 
+--------- | -----------
 `403` | Unauthorized to set Sending priority
 `404` | Sending not found
 `405` | Sending is not editable - execution process has started or finished
@@ -259,7 +259,7 @@ curl -X PUT \
 
 ```json
 {
-  "sending": {} // Sending - See: "Sending model"
+  "sending": {} // Sending - see 'Sending model'
 }
 ```
 
@@ -271,7 +271,7 @@ Cancels Sending execution process. See [Sending status](#messaging-sending-statu
 
 Parameter  | Type    | Description
 ---------- | ---     | ------
-id         | integer | Sending ID 
+id         | integer | Sending ID
 
 #### Response (JSON object)
 

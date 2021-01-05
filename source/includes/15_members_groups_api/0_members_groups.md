@@ -114,8 +114,8 @@ curl --request GET 'https://api.mpc.placewise.com/v3/infinity-mall/members_group
 
 ```json
 {
-  "members_groups": [], // List of members groups - See: "MemberGroup model"
-  "pagination_info": {} // Pagination info - see "Pagination info"
+  "members_groups": [], // List of members groups - see 'MemberGroup model'
+  "pagination_info": {} // Pagination info - see 'Pagination info'
 }
 ```
 
@@ -161,7 +161,7 @@ curl --request GET 'https://api.mpc.placewise.com/v3/infinity-mall/members_group
 
 ```json
 {
-  "members_group": {}, // Members groups - See: "MemberGroup model"
+  "members_group": {}, // Members groups - see 'MemberGroup model'
 }
 ```
 
@@ -214,7 +214,7 @@ curl --request POST 'https://api.mpc.placewise.com/v3/infinity-mall/members_grou
 
 ```json
 {
-  "members_group": {}, // Members groups - See: "MemberGroup model"
+  "members_group": {}, // Members groups - see 'MemberGroup model'
 }
 ```
 
@@ -279,7 +279,7 @@ curl --request PUT 'https://api.mpc.placewise.com/v3/infinity-mall/members_group
 
 ```json
 {
-  "members_group": {}, // Members groups - See: "MemberGroup model"
+  "members_group": {}, // Members groups - see 'MemberGroup model'
 }
 ```
 
@@ -326,7 +326,7 @@ curl --request DELETE 'https://api.mpc.placewise.com/v3/infinity-mall/members_gr
 
 ```json
 {
-  "members_group": {}, // Members groups - See: "MemberGroup model"
+  "members_group": {}, // Members groups - see 'MemberGroup model'
 }
 ```
 
@@ -498,8 +498,8 @@ curl --request GET 'https://api.mpc.placewise.com/v3/infinity-mall/members_group
 
 ```json
 {
-  "members": [], // List of members - See: "Member model"
-  "pagination_info": {} // Pagination info - see "Pagination info"
+  "members": [], // List of members - see 'Member model'
+  "pagination_info": {} // Pagination info - see 'Pagination info'
 }
 
 ```
@@ -545,8 +545,8 @@ curl --request GET 'https://api.mpc.placewise.com/v3/infinity-mall/members/54912
 
 ```json
 {
-  "members_groups": [], // List of members groups - See: "MemberGroup model"
-  "pagination_info": {} // Pagination info - see "Pagination info"
+  "members_groups": [], // List of members groups - see 'MemberGroup model'
+  "pagination_info": {} // Pagination info - see 'Pagination info'
 }
 ```
 

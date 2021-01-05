@@ -16,8 +16,8 @@ size_type | string | e.x. `base`, see: [File sizes](#file-sizes)
 
 ### <a name="file-schema"></a> File schema
 
-File schema defines a list of files kinds available in the Loyalty club. 
-Each file kind is also available in multiple sizes. 
+File schema defines a list of files kinds available in the Loyalty club.
+Each file kind is also available in multiple sizes.
 
 The schema may get retrieved with [Files&bull; Get schema](#get-file-schema) endpoint.
 
@@ -150,7 +150,7 @@ identifier | string | See: [Standard file kinds](#file-kinds)
 type | string | Currently, only `IMAGE` (MIME: `image/gif`, `image/jpeg`, `image/png`) is supported
 ratio | string | Describes ratio of an image. See: [Ratio](#file-kind-ratio) (optional)
 sizes| Array<Object> | See: [File sizes](#file-sizes)
-sizes[]['identifier'] | string | 
+sizes[]['identifier'] | string |
 sizes[]['min_width'] | integer | (optional)
 sizes[]['min_height'] | integer | (optional)
 sizes[]['max_width'] | integer | (optional)
@@ -172,7 +172,7 @@ Images may have fixed proportions ratio which is represented as a string: `"<wid
 
 ### <a name="file-sizes"></a> File sizes
 
-Every file has at least three file sizes available: 
+Every file has at least three file sizes available:
 
 #### `base`
 
@@ -200,7 +200,7 @@ Examples:
 Original file that that has been uploaded and used for generating other file sizes.
 
 Currently, we require all original files to have proper ratios and minimum sizes of at least the `base` size.
-Because of that, you can expect them to have `min_height` and `min_width` that match the `base` size, 
+Because of that, you can expect them to have `min_height` and `min_width` that match the `base` size,
 but they never have `max_width` or `max_height` defined.
 
 #### <a name="file-cropping"></a> File cropping
@@ -226,27 +226,27 @@ but they never have `max_width` or `max_height` defined.
 When file is uploaded and it's too large to match the required base size, it may get cropped.
 This can be achieved by providing cropping param (`crop_to`).
 
-The param has following syntax: `x_top_left,y_top_left,x_bottom_right,y_bottom_right` and represents boundaries of a cropping area. 
+The param has following syntax: `x_top_left,y_top_left,x_bottom_right,y_bottom_right` and represents boundaries of a cropping area.
 
 When uploaded file is too large and `crop_to` param is not provided, the file will be automatically cropped with gravity set in center of image.
 
 ##### Example
 
-The kind's base size is 400x200px and the uploaded file is 1000x1000px. 
+The kind's base size is 400x200px and the uploaded file is 1000x1000px.
 
 With crop_to="0,250,1000,750", a rectangle of "1000x500" size will be cropped, with 250px left offset.
 The file will be then also resized to 400x200.
 
 #### <a name="projected-file-versions"></a> Uploaded instances projections
 
-When file is uploaded, only original file is physically processed and stored. `base` and other versions are processed asynchronously. 
+When file is uploaded, only original file is physically processed and stored. `base` and other versions are processed asynchronously.
 So, the responses returned on upload contains only "projected" info about files.
 
 Key | Type | Description
 --------- | --------- | ---------
-size_type | string |  
+size_type | string |
 url | string | An URL the file be available on **after** it gets processed.
-min_width | integer | 
+min_width | integer |
 max_width | integer |
 min_height | integer |
 max_height | integer |
@@ -333,8 +333,8 @@ Creates new file for given Fileable (e.g. Offer).
 Parameter | Type | Description
 --------- | ----------- | -----------
 fileable_type | enum: `['offers', 'collections']` |
-fileable_id | integer 
-kind | enum | see [Standard file kinds](#file-kinds)  
+fileable_id | integer
+kind | enum | see [Standard file kinds](#file-kinds)
 
 #### <a name="create-file-post-parameters"></a> POST Parameters
 
@@ -347,13 +347,13 @@ crop_to | string | no | See: [cropping](#file-cropping)
 
 Key | Type | Description
 --------- | --------- | ---------
-original | File | See [File model](#file-model) 
+original | File | See [File model](#file-model)
 projected_versions | ProjectedVersion[] | See [Projected file versions](#projected-file-versions)
 
 #### Error responses
 
 Status | Reason
---------- | ----------- 
+--------- | -----------
 `404` | The Fileable does not exist
 `422` | Invalid parameters
 
@@ -381,7 +381,7 @@ curl -X PUT \
 
 ```json
 {
-  // (...) - see "Create file" example response
+  // (...) - see 'Create file' example response
 }
 ```
 
@@ -404,7 +404,7 @@ See: [Create File Response](#create-file-response)
 #### Error responses
 
 Status | Reason
---------- | ----------- 
+--------- | -----------
 `404` | Fileable not found
 `404` | File not found
 `422` | Invalid parameters
@@ -432,14 +432,14 @@ curl -X PUT \
 
 ```json
 {
-  // (...) - see "Create file" example response
+  // (...) - see 'Create file' example response
 }
 ```
 
 **PUT** `v3/:loyalty_club_slug/files/:fileable_type/:fileable_id/kind/reprocess`
 
 Reprocesses file for given Fileable (e.g. Offer).
-It means that no file needs to be uploaded, instead the original file will be reprocessed according to given parameters. 
+It means that no file needs to be uploaded, instead the original file will be reprocessed according to given parameters.
 
 #### URL Parameters
 
@@ -456,7 +456,7 @@ See: [Create File Response](#create-file-response)
 #### Error responses
 
 Status | Reason
---------- | ----------- 
+--------- | -----------
 `404` | Fileable not found
 `404` | File not found
 `422` | Invalid parameters
@@ -496,7 +496,7 @@ See: [Create File URL Parameters](#create-file-url-parameters)
 #### Error responses
 
 Status | Reason
---------- | ----------- 
+--------- | -----------
 `404` | Fileable not found
 `404` | File not found
 

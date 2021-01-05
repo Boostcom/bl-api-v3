@@ -17,8 +17,8 @@ curl --request GET 'https://api.mpc.placewise.com/v3/infinity-mall/offers/image_
 
 ```json
 {
-  "image_templates": [],// List of image_templates - See: "ImageTemplate record"
-  "pagination_info": {} // Pagination info - see "Pagination info"
+  "image_templates": [],// List of image_templates - see 'ImageTemplate record'
+  "pagination_info": {} // Pagination info - see 'Pagination info'
 }
 ```
 
@@ -60,7 +60,7 @@ curl --request GET 'https://api.mpc.placewise.com/v3/infinity-mall/offers/image_
 
 ```json
 {
-  "image_template": {}, // Image template - See: "ImageTemplate record"
+  "image_template": {}, // Image template - see 'ImageTemplate record'
 }
 ```
 
@@ -187,7 +187,7 @@ curl --request POST 'https://api.mpc.placewise.com/v3/infinity-mall/offers/image
 
 ```json
 {
-  "image_template": {}, // Image templates - See: "ImageTemplate record"
+  "image_template": {}, // Image templates - see 'ImageTemplate record'
 }
 ```
 
@@ -255,7 +255,7 @@ curl --request PUT 'https://api.mpc.placewise.com/v3/infinity-mall/offers/image_
 
 ```json
 {
-  "image_template": {}, // Image templates - See: "ImageTemplate record"
+  "image_template": {}, // Image templates - see 'ImageTemplate record'
 }
 ```
 
@@ -302,7 +302,7 @@ curl --request DELETE 'https://api.mpc.placewise.com/v3/infinity-mall/offers/ima
 
 ```json
 {
-  "image_template": {}, // Image templates - See: "ImageTemplate record"
+  "image_template": {}, // Image templates - see 'ImageTemplate record'
 }
 ```
 

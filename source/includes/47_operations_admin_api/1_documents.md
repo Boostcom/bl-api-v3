@@ -110,21 +110,21 @@ curl -X GET \
 
 ```json
 {
-  "documents": [], // List of documents - See: "Document model"
-  "pagination_info": {} // Pagination info - see "Pagination info"
+  "documents": [], // List of documents - see 'Document model'
+  "pagination_info": {} // Pagination info - see 'Pagination info'
 }
 ````
 
 **GET** `v1/operations/documents`
 
-Returns list of [Documents](#operations-admin-document-model).  
+Returns list of [Documents](#operations-admin-document-model).
 
 #### Query Parameters
 
 Parameter                      | Type                            | Default   | Description
 --------------                 | -----------                     | --------- | -----------
 per_page                       | integer                         | 100       | Number of results to be returned per request (100 is the maximum)
-page_no                        | integer                         | 1         | Number of results page 
+page_no                        | integer                         | 1         | Number of results page
 confirmable                    | boolean                         | null      | When true, returns only confirmable Documents - and vice versa
 recipients_confirmation_status | enum: `['all', 'some', 'none']` | null      | When present, returns only Documents having given `recipients_confirmation_status`
 
@@ -150,24 +150,24 @@ curl -X GET \
 
 ```json
 {
-  "document": {} // See: "Document model"
+  "document": {} // see: 'Document model'
 }
 ````
 
 **GET** `v1/operations/documents/:id`
 
-Returns given [Document](#operations-admin-document-model).  
+Returns given [Document](#operations-admin-document-model).
 
 #### URL Parameters
 
 Parameter  | Type    | Description
 ---------- | --------| ------
-id         | integer | Document ID 
+id         | integer | Document ID
 
 #### Error responses
 
 Status    | Description
---------- | ----------- 
+--------- | -----------
 `404`     | Document not found
 
 <aside class="notice">
@@ -192,8 +192,8 @@ curl -X GET \
 
 ```json
 {
-  "document_recipients": [], // List of document recipients - See: "DocumentRecipient model"
-  "pagination_info": {} // Pagination info - see "Pagination info"
+  "document_recipients": [], // List of document recipients - see 'DocumentRecipient model'
+  "pagination_info": {} // Pagination info - see 'Pagination info'
 }
 ````
 
@@ -205,20 +205,20 @@ Returns list of [DocumentRecipients](#operations-admin-document-recipient-model)
 
 Parameter  | Type    | Description
 ---------- | --------| ------
-id         | integer | Document ID 
+id         | integer | Document ID
 
 #### Query Parameters
 
 Parameter | Type    | Default   | Description
 --------- | ------- | --------- | -----------
 per_page  | integer | 100       | Number of results to be returned per request (100 is the maximum)
-page_no   | integer | 1         | Number of results page 
+page_no   | integer | 1         | Number of results page
 confirmed | boolean | null      | When true, returns only recipients that confirmed - and vice versa
 
 #### Error responses
 
 Status    | Description
---------- | ----------- 
+--------- | -----------
 `404`     | Document not found
 
 <aside class="notice">
@@ -256,7 +256,7 @@ curl -X POST \
 
 ```json
 {
-  "document": {} // Document - See: "Document model"
+  "document": {} // Document - see: 'Document model'
 }
 ```
 
@@ -268,8 +268,8 @@ Creates a new [Document](#operations-admin-document-model) and sends it to given
 
 Key                          | Type                             | Description
 ---------                    | ---------                        | ---------
-**document.title**           | string                           |   
-**document.message_channel** | enum: `['sms', 'email', 'push']` | The channel for sending a notification and reminders  
+**document.title**           | string                           |
+**document.message_channel** | enum: `['sms', 'email', 'push']` | The channel for sending a notification and reminders
 **document.recipients**      | integer[]                        | IDs of members that should receive the document - max. 1000
 document.confirmable         | boolean                          | Is document meant to be confirmed by recipients? Default: `false`
 
@@ -295,7 +295,7 @@ Status | Description
 
 #### Specific validation errors
 
-Key                                             | Error 
+Key                                             | Error
 ---                                             | ----------------
 `document.second_reminder`                      | `cannot_be_present_without_first_reminder`
 `document.second_reminder.days_before_deadline` | `cannot_be_before_first_reminder`
@@ -336,7 +336,7 @@ curl -X PUT \
 
 ```json
 {
-  "document": {} // Document - See: "Document model"
+  "document": {} // Document - see 'Document model'
 }
 ```
 
@@ -348,13 +348,13 @@ Updates the [Document](#operations-admin-document-model).
 
 Parameter  | Type    | Description
 ---------- | --------| ------
-id         | integer | Document ID 
+id         | integer | Document ID
 
 #### POST Parameters (JSON)
 
 Key                          | Type                             | Description
 ---------                    | ---------                        | ---------
-**document.title**           | string                           |   
+**document.title**           | string                           |
 
 When the document is confirmable:
 
@@ -379,7 +379,7 @@ Status | Description
 
 #### Specific validation errors
 
-Key                                             | Error 
+Key                                             | Error
 ---                                             | ----------------
 `document.first_reminder`                       | `already_sent`
 `document.second_reminder`                      | `already_sent`
@@ -413,7 +413,7 @@ curl -X POST \
 
 ```json
 {
-  "document_recipients": [] // List of document recipients - See: "DocumentRecipient model"
+  "document_recipients": [] // List of document recipients - see: 'DocumentRecipient model'
 }
 ```
 
@@ -425,7 +425,7 @@ Adds [recipients](#operations-admin-document-recipient-model) to the [Document](
 
 Parameter  | Type    | Description
 ---------- | --------| ------
-id         | integer | Document ID 
+id         | integer | Document ID
 
 #### POST Parameters (JSON)
 
@@ -462,7 +462,7 @@ curl -X DELETE \
 
 ```json
 {
-  "document": {} // Document - See: "Document model"
+  "document": {} // Document - see: 'Document model'
 }
 ```
 
@@ -474,7 +474,7 @@ Destroys the [Document](#operations-admin-document-model).
 
 Parameter  | Type    | Description
 ---------- | --------| ------
-id         | integer | Document ID 
+id         | integer | Document ID
 
 #### Response (JSON object)
 
