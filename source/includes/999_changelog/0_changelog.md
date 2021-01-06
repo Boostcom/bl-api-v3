@@ -45,7 +45,7 @@
 * Add [POS Campaigns &bull; PointsConfig](#points-config)
 
 #### 29.10.2020 | Natalia Styrska
-* Add [Members &bull; Stores](#members-stores-get)
+* Add [Operations Admin API &bull; Members &bull; Stores](#members-stores-get)
 
 #### 09.09.2020 | Piotr Świtlicki
 * Add [Offers Admin API &bull; ImageTemplates API](#image-templates)

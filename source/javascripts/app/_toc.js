@@ -51,7 +51,7 @@
     setupLanguages($('body').data('languages'));
     $('.content').imagesLoaded( function() {
       global.toc.calculateHeights();
-    });
+    });z
   });
 })(window);
 
