@@ -161,7 +161,7 @@ Status    | Description
 `405`     | Resource is not accepttable
 
 <aside class="notice">
-Requires <code>Operations:Api:Users:Resources:Accept</code> permit
+Requires <code>Operations:Api:Resources:Accept</code> accept
 </aside>
 
 ### <a name="operations-show-resource"></a> Reject Resource
@@ -204,5 +204,5 @@ Status    | Description
 `405`     | Resource is not rejecttable
 
 <aside class="notice">
-Requires <code>Operations:Api:Users:Resources:Reject</code> permit
+Requires <code>Operations:Api:Resources:Reject</code> reject
 </aside>
