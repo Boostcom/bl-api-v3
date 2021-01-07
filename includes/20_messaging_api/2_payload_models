@@ -1,5 +1,4 @@
-<h3 id="messagepayload-model"><a name="messaging-message-payload-model"></a> MessagePayload model</h3>
-
+<h3 id='a-name-messaging-message-payload-model-a-messagepayload-model-1'><span id=a-name-messaging-message-payload-model-a-messagepayload-model></span><a name="messaging-message-payload-model"></a> MessagePayload model</h3>
 <blockquote>
 <p>MessagePayload example - it creates an SMS message which will be sent at given time to members of given audience:</p>
 </blockquote>
@@ -36,17 +35,17 @@
 <tr>
 <td>shorten_urls</td>
 <td>boolean</td>
-<td>Should sendings for this message have URLs shortened? Default: <code class="prettyprint">true</code></td>
+<td>Should sendings for this message have URLs shortened? Default: <code>true</code></td>
 </tr>
 <tr>
 <td>shorten_urls</td>
 <td>boolean</td>
-<td>Should MPC&rsquo;s Shortener track users? Default: <code class="prettyprint">false</code></td>
+<td>Should MPC&#39;s Shortener track users? Default: <code>false</code></td>
 </tr>
 <tr>
 <td>campaign_id</td>
 <td>integer</td>
-<td>MPC&rsquo;s Campaign ID</td>
+<td>MPC&#39;s Campaign ID</td>
 </tr>
 <tr>
 <td>service</td>
@@ -66,9 +65,7 @@
 </tbody></table>
 
 <p><br /></p>
-
-<h4 id="validation-errors-specific-to-the-payload">Validation errors specific to the payload</h4>
-
+<h4 id='validation-errors-specific-to-the-payload-1'><span id=validation-errors-specific-to-the-payload></span>Validation errors specific to the payload</h4>
 <table><thead>
 <tr>
 <th>Attribute</th>
@@ -79,7 +76,7 @@
 <tr>
 <td>campaign_id</td>
 <td>is_relevant_only_for_campaign_service</td>
-<td>When campaign_id is given and service is not &ldquo;campaigns&rdquo;</td>
+<td>When campaign_id is given and service is not &quot;campaigns&quot;</td>
 </tr>
 <tr>
 <td>channels</td>
@@ -92,9 +89,7 @@
 <td>Channel is not configured for Loyalty Club - see <a href="#messaging-show-settings">Messaging &bull; Settings</a></td>
 </tr>
 </tbody></table>
-
-<h3 id="channelpayload-model"><a name="messaging-channel-payload-model"></a> ChannelPayload model</h3>
-
+<h3 id='a-name-messaging-channel-payload-model-a-channelpayload-model-1'><span id=a-name-messaging-channel-payload-model-a-channelpayload-model></span><a name="messaging-channel-payload-model"></a> ChannelPayload model</h3>
 <blockquote>
 <p>ChannelPayload example:</p>
 </blockquote>
@@ -116,23 +111,23 @@
 </thead><tbody>
 <tr>
 <td><strong>type</strong></td>
-<td>enum: <code class="prettyprint">[&#39;sms&#39;, &#39;email&#39;, &#39;push&#39;]</code></td>
+<td>enum: <code>[&#39;sms&#39;, &#39;email&#39;, &#39;push&#39;]</code></td>
 <td></td>
 </tr>
 <tr>
 <td><strong>template.type</strong></td>
-<td>enum: <code class="prettyprint">[&#39;inline&#39;, &#39;reference&#39;]</code></td>
+<td>enum: <code>[&#39;inline&#39;, &#39;reference&#39;]</code></td>
 <td></td>
 </tr>
 <tr>
 <td>template.id</td>
 <td>integer</td>
-<td>ID of Template to assign (when <code class="prettyprint">reference</code>)</td>
+<td>ID of Template to assign (when <code>reference</code>)</td>
 </tr>
 <tr>
 <td>template.definition</td>
 <td><a href="#messaging-template-payload-model">TemplatePayload</a></td>
-<td>Definition of Template to assign (when <code class="prettyprint">inline</code>)</td>
+<td>Definition of Template to assign (when <code>inline</code>)</td>
 </tr>
 <tr>
 <td><a href="#messaging-channel-specific-attributes">(channel-specific attributes)</a></td>
@@ -144,12 +139,10 @@
 <p>There are two ways to provide template:</p>
 
 <ul>
-<li><code class="prettyprint">inline</code> - you will need provide new template <code class="prettyprint">definition</code> </li>
-<li><code class="prettyprint">reference</code> - template definition will be copied from template identified by <code class="prettyprint">id</code> </li>
+<li><code>inline</code> - you will need provide new template <code>definition</code> </li>
+<li><code>reference</code> - template definition will be copied from template identified by <code>id</code> </li>
 </ul>
-
-<h4 id="validation-errors-specific-to-the-payload">Validation errors specific to the payload</h4>
-
+<h4 id='validation-errors-specific-to-the-payload-1'><span id=validation-errors-specific-to-the-payload></span>Validation errors specific to the payload</h4>
 <table><thead>
 <tr>
 <th>Attribute</th>
@@ -173,9 +166,7 @@
 <td>template_does_not_match_channel</td>
 </tr>
 </tbody></table>
-
-<h3 id="templatepayload-model"><a name="messaging-template-payload-model"></a> TemplatePayload model</h3>
-
+<h3 id='a-name-messaging-template-payload-model-a-templatepayload-model-1'><span id=a-name-messaging-template-payload-model-a-templatepayload-model></span><a name="messaging-template-payload-model"></a> TemplatePayload model</h3>
 <blockquote>
 <p>Template example:</p>
 </blockquote>
@@ -194,7 +185,7 @@
 </thead><tbody>
 <tr>
 <td><strong>type</strong></td>
-<td>enum: <code class="prettyprint">[&#39;plain&#39;, &#39;email&#39;, &#39;bee_email&#39;, &#39;push&#39;]</code></td>
+<td>enum: <code>[&#39;plain&#39;, &#39;email&#39;, &#39;bee_email&#39;, &#39;push&#39;]</code></td>
 <td></td>
 </tr>
 <tr>
@@ -208,9 +199,7 @@
 <td>ID of <a href="#messaging-template-wrapping">wrapping template</a></td>
 </tr>
 </tbody></table>
-
-<h4 id="validation-errors-specific-to-the-payload">Validation errors specific to the payload</h4>
-
+<h4 id='validation-errors-specific-to-the-payload-1'><span id=validation-errors-specific-to-the-payload></span>Validation errors specific to the payload</h4>
 <table><thead>
 <tr>
 <th>Attribute</th>
@@ -226,9 +215,7 @@
 <td>wrapper_type_does_not_match</td>
 </tr>
 </tbody></table>
-
-<h3 id="sendingpayload-model"><a name="messaging-sending-payload-model"></a> SendingPayload model</h3>
-
+<h3 id='a-name-messaging-sending-payload-model-a-sendingpayload-model-1'><span id=a-name-messaging-sending-payload-model-a-sendingpayload-model></span><a name="messaging-sending-payload-model"></a> SendingPayload model</h3>
 <blockquote>
 <p>Example #1 - Creates Sending without schedule to audience defined by given conditions</p>
 </blockquote>
@@ -272,7 +259,7 @@
 <tr>
 <td>priority</td>
 <td>Integer (1-10)</td>
-<td>Requires <code class="prettyprint">Messages:Api:Sendings:SetPriority</code> permit</td>
+<td>Requires <code>Messages:Api:Sendings:SetPriority</code> permit</td>
 </tr>
 <tr>
 <td>schedule</td>
@@ -296,18 +283,16 @@
 <p>There are two methods to define recipients of the sending:</p>
 
 <ul>
-<li><code class="prettyprint">audience</code> - members of the audience will be used as recipients</li>
-<li><code class="prettyprint">recipients</code> - inline receivers</li>
+<li><code>audience</code> - members of the audience will be used as recipients</li>
+<li><code>recipients</code> - inline receivers</li>
 </ul>
 
 <p>Both methods can be used at the same time.</p>
 
-<p><code class="prettyprint">schedule</code> is optional - when not provided, sending will not be scheduled (will have <code class="prettyprint">draft</code> status).</p>
+<p><code>schedule</code> is optional - when not provided, sending will not be scheduled (will have <code>draft</code> status).</p>
 
 <div class="clear"></div>
-
-<h4 id="validation-errors-specific-to-the-payload">Validation errors specific to the payload</h4>
-
+<h4 id='validation-errors-specific-to-the-payload-1'><span id=validation-errors-specific-to-the-payload></span>Validation errors specific to the payload</h4>
 <table><thead>
 <tr>
 <th>Attribute</th>
@@ -319,9 +304,7 @@
 <td>sending_must_have_audience_or_recipients</td>
 </tr>
 </tbody></table>
-
-<h4 id="sendingschedulepayload-model"><a name="messaging-sending-schedule-payload-model"></a> SendingSchedulePayload model</h4>
-
+<h4 id='a-name-messaging-sending-schedule-payload-model-a-sendingschedulepayload-model-1'><span id=a-name-messaging-sending-schedule-payload-model-a-sendingschedulepayload-model></span><a name="messaging-sending-schedule-payload-model"></a> SendingSchedulePayload model</h4>
 <blockquote>
 <p>Example #1 - immediate schedule</p>
 </blockquote>
@@ -354,41 +337,39 @@
 </thead><tbody>
 <tr>
 <td><strong>type</strong></td>
-<td>enum: <code class="prettyprint">[&#39;immediate&#39;, &#39;absolute&#39;, &#39;relative&#39;]</code></td>
+<td>enum: <code>[&#39;immediate&#39;, &#39;absolute&#39;, &#39;relative&#39;]</code></td>
 <td></td>
 </tr>
 <tr>
 <td>at</td>
 <td>ISO 8601 DateTime</td>
-<td>For <code class="prettyprint">absolute</code> type - defines exact time the sending should be executed at</td>
+<td>For <code>absolute</code> type - defines exact time the sending should be executed at</td>
 </tr>
 <tr>
 <td>in</td>
 <td>string</td>
-<td>For <code class="prettyprint">relative</code> type - see below</td>
+<td>For <code>relative</code> type - see below</td>
 </tr>
 </tbody></table>
 
 <p><br /></p>
 
-<p><strong><code class="prettyprint">in</code> format</strong></p>
+<p><strong><code>in</code> format</strong></p>
 
-<p>You can provide <code class="prettyprint">number</code> of time <code class="prettyprint">unit</code>s the sending will be scheduled at in format described by following 
+<p>You can provide <code>number</code> of time <code>unit</code>s the sending will be scheduled at in format described by following 
 regex: 
-<code class="prettyprint">^(?&lt;number&gt;\d+) (?&lt;unit&gt;second|minute|hour|day|week|month|year)s?$</code>.</p>
+<code>^(?&lt;number&gt;\d+) (?&lt;unit&gt;second|minute|hour|day|week|month|year)s?$</code>.</p>
 
 <p>Examples:</p>
 
 <ul>
-<li><code class="prettyprint">30 minutes</code></li>
-<li><code class="prettyprint">1 day</code></li>
-<li><code class="prettyprint">5 months</code></li>
+<li><code>30 minutes</code></li>
+<li><code>1 day</code></li>
+<li><code>5 months</code></li>
 </ul>
 
 <div class="clear"></div>
-
-<h4 id="sendingaudiencepayload-model"><a name="messaging-sending-audience-payload-model"></a> SendingAudiencePayload model</h4>
-
+<h4 id='a-name-messaging-sending-audience-payload-model-a-sendingaudiencepayload-model-1'><span id=a-name-messaging-sending-audience-payload-model-a-sendingaudiencepayload-model></span><a name="messaging-sending-audience-payload-model"></a> SendingAudiencePayload model</h4>
 <blockquote>
 <p>Example #1 - audience by reference</p>
 </blockquote>
@@ -419,23 +400,21 @@ regex:
 </thead><tbody>
 <tr>
 <td><strong>type</strong></td>
-<td>enum: <code class="prettyprint">[&#39;reference&#39;, &#39;inline&#39;]</code></td>
+<td>enum: <code>[&#39;reference&#39;, &#39;inline&#39;]</code></td>
 <td></td>
 </tr>
 <tr>
 <td>id</td>
 <td>integer</td>
-<td>For <code class="prettyprint">reference</code> type - ID of audience the sending should be sent to</td>
+<td>For <code>reference</code> type - ID of audience the sending should be sent to</td>
 </tr>
 <tr>
 <td>conditions</td>
 <td>Object[]</td>
-<td>For <code class="prettyprint">inline</code> type - See <a href="https://dmp.boostcom.no/docs/#conditions">DMP docs</a></td>
+<td>For <code>inline</code> type - See <a href="https://dmp.boostcom.no/docs/#conditions">DMP docs</a></td>
 </tr>
 </tbody></table>
-
-<h4 id="validation-errors-specific-to-the-payload">Validation errors specific to the payload</h4>
-
+<h4 id='validation-errors-specific-to-the-payload-1'><span id=validation-errors-specific-to-the-payload></span>Validation errors specific to the payload</h4>
 <table><thead>
 <tr>
 <th>Attribute</th>

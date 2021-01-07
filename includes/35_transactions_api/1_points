@@ -1,7 +1,4 @@
-<h2 id="points">Points</h2>
-
-<h3 id="create"><a name="points-create"></a> Create</h3>
-
+<h2 id='points-1'><span id=points></span>Points</h2><h3 id='a-name-points-create-a-create-1'><span id=a-name-points-create-a-create></span><a name="points-create"></a> Create</h3>
 <blockquote>
 <p>Example:</p>
 </blockquote>
@@ -55,12 +52,10 @@
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>POST</strong> <code class="prettyprint">v3/:loyalty_club_slug/transactions/points</code></p>
+<p><strong>POST</strong> <code>v3/:loyalty_club_slug/transactions/points</code></p>
 
 <p>Add or remove points from member wallets. All unasigned points belongs to default wallet</p>
-
-<h4 id="post-parameters-json">POST Parameters (JSON)</h4>
-
+<h4 id='post-parameters-json-1'><span id=post-parameters-json></span>POST Parameters (JSON)</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -140,10 +135,8 @@
 </tr>
 </tbody></table>
 
-<p>Parameters with <code class="prettyprint">*</code> are required</p>
-
-<h4 id="type-of-events">Type of events</h4>
-
+<p>Parameters with <code>*</code> are required</p>
+<h4 id='type-of-events-1'><span id=type-of-events></span>Type of events</h4>
 <table><thead>
 <tr>
 <th>Type</th>
@@ -179,9 +172,7 @@
 <td></td>
 </tr>
 </tbody></table>
-
-<h4 id="feedback-statuses">Feedback statuses</h4>
-
+<h4 id='feedback-statuses-1'><span id=feedback-statuses></span>Feedback statuses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -209,9 +200,7 @@
 <td>Not enough points when using a points</td>
 </tr>
 </tbody></table>
-
-<h4 id="error-responses">Error responses</h4>
-
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -219,7 +208,7 @@
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">422</code></td>
+<td><code>422</code></td>
 <td>Invalid parameters (see example on the right)</td>
 </tr>
 </tbody></table>
@@ -227,9 +216,7 @@
 <aside class="notice">
 Requires <code>Transaction:Api:Points:Create</code>
 </aside>
-
-<h3 id="member-points"><a name="member-points"></a> Member points</h3>
-
+<h3 id='a-name-member-points-a-member-points-1'><span id=a-name-member-points-a-member-points></span><a name="member-points"></a> Member points</h3>
 <blockquote>
 <p>Example:</p>
 </blockquote>
@@ -248,16 +235,14 @@ Requires <code>Transaction:Api:Points:Create</code>
         </span><span class="s2">"other_wallet"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/transactions/points/by_member_id/:member_id</code></p>
+<p><strong>GET</strong> <code>v3/:loyalty_club_slug/transactions/points/by_member_id/:member_id</code></p>
 
-<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/transactions/points/by_msisdn/:msisdn</code></p>
+<p><strong>GET</strong> <code>v3/:loyalty_club_slug/transactions/points/by_msisdn/:msisdn</code></p>
 
-<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/transactions/points/by_email/:email</code></p>
+<p><strong>GET</strong> <code>v3/:loyalty_club_slug/transactions/points/by_email/:email</code></p>
 
 <p>Return number of points that member has filtered by different wallets</p>
-
-<h4 id="url-parameters">URL Parameters</h4>
-
+<h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -281,9 +266,7 @@ Requires <code>Transaction:Api:Points:Create</code>
 <td>string</td>
 </tr>
 </tbody></table>
-
-<h4 id="error-responses">Error responses</h4>
-
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -291,7 +274,7 @@ Requires <code>Transaction:Api:Points:Create</code>
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">422</code></td>
+<td><code>422</code></td>
 <td>Invalid parameters (see example on the right)</td>
 </tr>
 </tbody></table>
@@ -299,9 +282,7 @@ Requires <code>Transaction:Api:Points:Create</code>
 <aside class="notice">
 Requires <code>Transaction:Api:Points:Get</code> permit
 </aside>
-
-<h3 id="member-points-list"><a name="member-points-list"></a> Member points list</h3>
-
+<h3 id='a-name-member-points-list-a-member-points-list-1'><span id=a-name-member-points-list-a-member-points-list></span><a name="member-points-list"></a> Member points list</h3>
 <blockquote>
 <p>Example:</p>
 </blockquote>
@@ -331,12 +312,10 @@ Requires <code>Transaction:Api:Points:Get</code> permit
     </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
-<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/transactions/points/events/:member_id</code></p>
+<p><strong>GET</strong> <code>v3/:loyalty_club_slug/transactions/points/events/:member_id</code></p>
 
 <p>Return list of point events that member has, filtered by event type</p>
-
-<h4 id="url-parameters">URL Parameters</h4>
-
+<h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -400,9 +379,7 @@ Requires <code>Transaction:Api:Points:Get</code> permit
 <td>optional</td>
 </tr>
 </tbody></table>
-
-<h4 id="error-responses">Error responses</h4>
-
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -410,7 +387,7 @@ Requires <code>Transaction:Api:Points:Get</code> permit
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">422</code></td>
+<td><code>422</code></td>
 <td>Invalid parameters (see example on the right)</td>
 </tr>
 </tbody></table>

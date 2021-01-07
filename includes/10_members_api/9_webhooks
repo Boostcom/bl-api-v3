@@ -1,35 +1,26 @@
-<h2 id="members-webhooks">Members Webhooks</h2>
-
+<h2 id='members-webhooks-1'><span id=members-webhooks></span>Members Webhooks</h2>
 <p>A Loyalty Club may be configured to send notifications (as HTTP POST requests) when a change occurs within its member 
 database (e.g. when member registers).</p>
 
 <p>If you wish to configure a Loyalty Club to have such notifications enabled, please contact us us.
-You will need to provide us a HTTPS (for security reasons, we don&rsquo;t support HTTP) URL that notifications will
+You will need to provide us a HTTPS (for security reasons, we don&#39;t support HTTP) URL that notifications will
 be sent to.</p>
-
-<h3 id="subscription">Subscription</h3>
-
+<h3 id='subscription-1'><span id=subscription></span>Subscription</h3>
 <p>As it is possible to have multiple endpoints configured for receiving notifications in one Loyalty Club, for each 
 endpoint we setup a Subscription.</p>
 
 <p>Each Subscription has its own Secret Token (see below) and may be configured to send notifications only on specific 
-changes (<code class="prettyprint">import</code>, <code class="prettyprint">update</code>, <code class="prettyprint">delete</code>).</p>
-
-<h3 id="authentication-token">Authentication token</h3>
-
-<p>Each notification request is signed with <code class="prettyprint">X-Secret-Token</code> header that contains Secret Token configured for given 
+changes (<code>import</code>, <code>update</code>, <code>delete</code>).</p>
+<h3 id='authentication-token-1'><span id=authentication-token></span>Authentication token</h3>
+<p>Each notification request is signed with <code>X-Secret-Token</code> header that contains Secret Token configured for given 
 Subscription.</p>
 
 <p>In order to assure that notifications you receive are sent from us, you should check if its value matches 
 the Secret Token that you received from us when the subscription has been set up.</p>
-
-<h3 id="notifications-format">Notifications format</h3>
-
+<h3 id='notifications-format-1'><span id=notifications-format></span>Notifications format</h3>
 <p>Currently, notifications are generated in two versions. 
 Version 1 is deprecated and new subscriptions are going to be configured to receive v2 notifications.</p>
-
-<h4 id="notifications-v2">Notifications v2</h4>
-
+<h4 id='notifications-v2-1'><span id=notifications-v2></span>Notifications v2</h4>
 <blockquote>
 <p>Example for v2</p>
 </blockquote>
@@ -75,7 +66,7 @@ Version 1 is deprecated and new subscriptions are going to be configured to rece
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Each change in the <code class="prettyprint">events</code> array consists of following objects:</p>
+<p>Each change in the <code>events</code> array consists of following objects:</p>
 
 <table><thead>
 <tr>
@@ -89,20 +80,18 @@ Version 1 is deprecated and new subscriptions are going to be configured to rece
 </tr>
 <tr>
 <td>loyalty_club</td>
-<td>Information about member&rsquo;s Loyalty Club - it&rsquo;s ID and slug.</td>
+<td>Information about member&#39;s Loyalty Club - it&#39;s ID and slug.</td>
 </tr>
 <tr>
 <td>member</td>
-<td>Member attributes after the event - See <a href="https://docs.mpc.placewise.com/#introduction36">Member JSON model</a>. For <code class="prettyprint">delete</code> events it contains only <code class="prettyprint">id</code> and <code class="prettyprint">person_id</code></td>
+<td>Member attributes after the event - See <a href="https://docs.mpc.placewise.com/#introduction36">Member JSON model</a>. For <code>delete</code> events it contains only <code>id</code> and <code>person_id</code></td>
 </tr>
 <tr>
 <td>member_changes</td>
-<td>See <a href="#v2-event">Event model</a>. It&rsquo;s empty for <code class="prettyprint">delete</code> events</td>
+<td>See <a href="#v2-event">Event model</a>. It&#39;s empty for <code>delete</code> events</td>
 </tr>
 </tbody></table>
-
-<h5 id="event-model"><a name="v2-event"></a> Event model</h5>
-
+<h5 id='a-name-v2-event-a-event-model-1'><span id=a-name-v2-event-a-event-model></span><a name="v2-event"></a> Event model</h5>
 <p>Contains meta information about the change event. </p>
 
 <table><thead>
@@ -114,7 +103,7 @@ Version 1 is deprecated and new subscriptions are going to be configured to rece
 </thead><tbody>
 <tr>
 <td>type</td>
-<td><code class="prettyprint">import</code>, <code class="prettyprint">update</code>, or <code class="prettyprint">delete</code></td>
+<td><code>import</code>, <code>update</code>, or <code>delete</code></td>
 <td>A type of the change event</td>
 </tr>
 <tr>
@@ -123,24 +112,22 @@ Version 1 is deprecated and new subscriptions are going to be configured to rece
 <td>When the event occurred</td>
 </tr>
 </tbody></table>
-
-<h5 id="changes-object"><a name="v2-changes"></a> Changes object</h5>
-
+<h5 id='a-name-v2-changes-a-changes-object-1'><span id=a-name-v2-changes-a-changes-object></span><a name="v2-changes"></a> Changes object</h5>
 <p>Represents changes that happened to member within the event. Includes only properties that have been actually changed
 within the event.</p>
 
 <p>Changes object may contain following fields:</p>
 
 <ul>
-<li><code class="prettyprint">msisdn</code></li>
-<li><code class="prettyprint">email</code></li>
-<li><code class="prettyprint">sms_status</code></li>
-<li><code class="prettyprint">email_status</code></li>
-<li><code class="prettyprint">push_status</code></li>
-<li><code class="prettyprint">optin_channel</code></li>
-<li><code class="prettyprint">optin_subchannel</code></li>
-<li><code class="prettyprint">consents</code>, which contains changes for consents </li>
-<li><code class="prettyprint">properties</code>, which contains changes for properties</li>
+<li><code>msisdn</code></li>
+<li><code>email</code></li>
+<li><code>sms_status</code></li>
+<li><code>email_status</code></li>
+<li><code>push_status</code></li>
+<li><code>optin_channel</code></li>
+<li><code>optin_subchannel</code></li>
+<li><code>consents</code>, which contains changes for consents </li>
+<li><code>properties</code>, which contains changes for properties</li>
 </ul>
 
 <p>Each change consists of three fields:</p>
@@ -154,8 +141,8 @@ within the event.</p>
 </thead><tbody>
 <tr>
 <td>change</td>
-<td><code class="prettyprint">~</code>, <code class="prettyprint">+</code> or <code class="prettyprint">-</code></td>
-<td>Whether the property has been changed (<code class="prettyprint">~</code>), added (<code class="prettyprint">+</code>) or removed (<code class="prettyprint">-</code>)</td>
+<td><code>~</code>, <code>+</code> or <code>-</code></td>
+<td>Whether the property has been changed (<code>~</code>), added (<code>+</code>) or removed (<code>-</code>)</td>
 </tr>
 <tr>
 <td>before</td>
@@ -168,9 +155,7 @@ within the event.</p>
 <td>The value of property after the change</td>
 </tr>
 </tbody></table>
-
-<h4 id="notifications-v1-deprecated">Notifications v1 (deprecated)</h4>
-
+<h4 id='notifications-v1-deprecated-1'><span id=notifications-v1-deprecated></span>Notifications v1 (deprecated)</h4>
 <blockquote>
 <p>Example for v1</p>
 </blockquote>
@@ -207,7 +192,7 @@ within the event.</p>
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Each change in the <code class="prettyprint">bulk</code> is identified by following attributes:</p>
+<p>Each change in the <code>bulk</code> is identified by following attributes:</p>
 
 <table><thead>
 <tr>
@@ -228,7 +213,7 @@ within the event.</p>
 </tr>
 <tr>
 <td>event_type</td>
-<td><code class="prettyprint">import</code>, <code class="prettyprint">update</code>, or <code class="prettyprint">delete</code></td>
+<td><code>import</code>, <code>update</code>, or <code>delete</code></td>
 <td>A type of the change</td>
 </tr>
 <tr>
@@ -239,12 +224,12 @@ within the event.</p>
 <tr>
 <td>properties</td>
 <td>Object</td>
-<td>Member properties. Each of them has a <code class="prettyprint">type &lt;String&gt;</code> and <code class="prettyprint">value &lt;String&gt;</code>. When <code class="prettyprint">event_type</code> is <code class="prettyprint">delete</code>, contains only member identifiers (<code class="prettyprint">msisdn</code>, <code class="prettyprint">email</code>)</td>
+<td>Member properties. Each of them has a <code>type &lt;String&gt;</code> and <code>value &lt;String&gt;</code>. When <code>event_type</code> is <code>delete</code>, contains only member identifiers (<code>msisdn</code>, <code>email</code>)</td>
 </tr>
 <tr>
 <td>consents</td>
 <td>Object</td>
-<td>Member consents and their values. Empty when <code class="prettyprint">event_type</code> is <code class="prettyprint">delete</code>.</td>
+<td>Member consents and their values. Empty when <code>event_type</code> is <code>delete</code>.</td>
 </tr>
 <tr>
 <td>created_at</td>
@@ -257,13 +242,11 @@ within the event.</p>
 <td>When the member has been created</td>
 </tr>
 </tbody></table>
-
-<h3 id="notifications-delivery">Notifications delivery</h3>
-
-<p>Your endpoint must return a <code class="prettyprint">2xx</code> (<code class="prettyprint">200</code> or <code class="prettyprint">201</code> preferably) HTTP status code. Only then the notification 
+<h3 id='notifications-delivery-1'><span id=notifications-delivery></span>Notifications delivery</h3>
+<p>Your endpoint must return a <code>2xx</code> (<code>200</code> or <code>201</code> preferably) HTTP status code. Only then the notification 
 will be treated as delivered.</p>
 
-<p>If your server returns <code class="prettyprint">5xx</code> code, the delivery will be treated as failed, and our system will make another attempt later.
+<p>If your server returns <code>5xx</code> code, the delivery will be treated as failed, and our system will make another attempt later.
 On consequent failures, deliveries will be attempted up to 20 days.</p>
 
-<p>If your server returns a <code class="prettyprint">4xx</code> code, the delivery will be ignored.</p>
+<p>If your server returns a <code>4xx</code> code, the delivery will be ignored.</p>

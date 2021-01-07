@@ -1,8 +1,5 @@
-<h2 id="offers"><a name="offer-admin-offers"></a> Offers</h2>
-
-<h3 id="get-offer"><a name="get-offer"></a> Get offer</h3>
-
-<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/offers/:id</code></p>
+<h2 id='a-name-offer-admin-offers-a-offers-1'><span id=a-name-offer-admin-offers-a-offers></span><a name="offer-admin-offers"></a> Offers</h2><h3 id='a-name-get-offer-a-get-offer-1'><span id=a-name-get-offer-a-get-offer></span><a name="get-offer"></a> Get offer</h3>
+<p><strong>GET</strong> <code>v3/:loyalty_club_slug/offers/:id</code></p>
 
 <blockquote>
 <p>Example:</p>
@@ -15,7 +12,7 @@
     -H <span class="s1">'x-user-agent: CURL manual test'</span>
 </code></pre>
 <blockquote>
-<p>When successful (200), returns an Offer object under &ldquo;offer&rdquo; key. See <a href="#admin-offer-model">Offer model</a></p>
+<p>When successful (200), returns an Offer object under &quot;offer&quot; key. See <a href="#admin-offer-model">Offer model</a></p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"offer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -24,9 +21,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Returns details of the specified offer.</p>
-
-<h4 id="response-json-object">Response (JSON object)</h4>
-
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -46,9 +41,7 @@
 <aside class="notice">
 Requires <code>Offers:Api:Offers:Get</code> permit
 </aside>
-
-<h3 id="list-offers"><a name="list-offers"></a> List offers</h3>
-
+<h3 id='a-name-list-offers-a-list-offers-1'><span id=a-name-list-offers-a-list-offers></span><a name="list-offers"></a> List offers</h3>
 <blockquote>
 <p>Example:</p>
 </blockquote>
@@ -74,12 +67,10 @@ Requires <code>Offers:Api:Offers:Get</code> permit
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/offers</code></p>
+<p><strong>GET</strong> <code>v3/:loyalty_club_slug/offers</code></p>
 
 <p>Returns offers list.</p>
-
-<h4 id="query-parameters">Query Parameters</h4>
-
+<h4 id='query-parameters-1'><span id=query-parameters></span>Query Parameters</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -109,14 +100,14 @@ Requires <code>Offers:Api:Offers:Get</code> permit
 <tr>
 <td>sort_by</td>
 <td>string</td>
-<td>&ldquo;name&rdquo;</td>
-<td>What attribute should results be sorted by? Supported attributes are: <code class="prettyprint">[&quot;name&quot;, &quot;usable_since&quot;, &quot;usable_until&quot;, &quot;visible_since&quot;, &quot;visible_until&quot;, &quot;created_at&quot;, &quot;updated_at&quot;, &quot;archived_at&quot;]</code></td>
+<td>&quot;name&quot;</td>
+<td>What attribute should results be sorted by? Supported attributes are: <code>[&quot;name&quot;, &quot;usable_since&quot;, &quot;usable_until&quot;, &quot;visible_since&quot;, &quot;visible_until&quot;, &quot;created_at&quot;, &quot;updated_at&quot;, &quot;archived_at&quot;]</code></td>
 </tr>
 <tr>
 <td>sort_direction</td>
 <td>string</td>
-<td>&ldquo;asc&rdquo;</td>
-<td>Direction of sorting: &ldquo;asc&rdquo; or &ldquo;desc&rdquo;</td>
+<td>&quot;asc&quot;</td>
+<td>Direction of sorting: &quot;asc&quot; or &quot;desc&quot;</td>
 </tr>
 <tr>
 <td>collection_ids</td>
@@ -205,9 +196,7 @@ Requires <code>Offers:Api:Offers:Get</code> permit
 </tbody></table>
 
 <p>All parameters are optional.</p>
-
-<h4 id="response-json-object">Response (JSON object)</h4>
-
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -233,9 +222,7 @@ Requires <code>Offers:Api:Offers:Get</code> permit
 <aside class="notice">
 Requires <code>Offers:Api:Offers:List</code> permit
 </aside>
-
-<h3 id="create-offers"><a name="create-offers"></a> Create offers</h3>
-
+<h3 id='a-name-create-offers-a-create-offers-1'><span id=a-name-create-offers-a-create-offers></span><a name="create-offers"></a> Create offers</h3>
 <blockquote>
 <p>Example:</p>
 </blockquote>
@@ -273,12 +260,10 @@ Requires <code>Offers:Api:Offers:List</code> permit
     </span><span class="s2">"ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1000284</span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>POST</strong> <code class="prettyprint">v3/:loyalty_club_slug/offers</code></p>
+<p><strong>POST</strong> <code>v3/:loyalty_club_slug/offers</code></p>
 
 <p>Creates offer(s) with given lists of attributes (OfferPayloads). </p>
-
-<h4 id="post-parameters-json">POST Parameters (JSON)</h4>
-
+<h4 id='post-parameters-json-1'><span id=post-parameters-json></span>POST Parameters (JSON)</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -292,9 +277,7 @@ Requires <code>Offers:Api:Offers:List</code> permit
 <td>List of offers to create. See <a href="#admin-offer-payload">Offer payload</a></td>
 </tr>
 </tbody></table>
-
-<h4 id="response-json-object">Response (JSON object)</h4>
-
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -315,16 +298,14 @@ Requires <code>Offers:Api:Offers:List</code> permit
 <tr>
 <td>errors</td>
 <td>Object</td>
-<td>Errors of offers that couldn&rsquo;t be created</td>
+<td>Errors of offers that couldn&#39;t be created</td>
 </tr>
 </tbody></table>
 
 <aside class="notice">
 Requires <code>Offers:Api:Offers:Create</code> permit
 </aside>
-
-<h3 id="update-offers"><a name="update-offers"></a> Update offers</h3>
-
+<h3 id='a-name-update-offers-a-update-offers-1'><span id=a-name-update-offers-a-update-offers></span><a name="update-offers"></a> Update offers</h3>
 <blockquote>
 <p>Example:</p>
 </blockquote>
@@ -363,13 +344,11 @@ Requires <code>Offers:Api:Offers:Create</code> permit
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>PUT</strong> <code class="prettyprint">v3/:loyalty_club_slug/offers</code></p>
+<p><strong>PUT</strong> <code>v3/:loyalty_club_slug/offers</code></p>
 
 <p>Updates offer(s) with given lists of attributes (OfferPayloads). Also, each payload record must contain offer ID that is meant to be updated.
-Update is not partial, so all attributes that aren&rsquo;t present in the payload will be nullified. </p>
-
-<h4 id="post-parameters-json">POST Parameters (JSON)</h4>
-
+Update is not partial, so all attributes that aren&#39;t present in the payload will be nullified. </p>
+<h4 id='post-parameters-json-1'><span id=post-parameters-json></span>POST Parameters (JSON)</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -383,9 +362,7 @@ Update is not partial, so all attributes that aren&rsquo;t present in the payloa
 <td>List of offers to update. See <a href="#admin-offer-payload">Offer payload</a>.</td>
 </tr>
 </tbody></table>
-
-<h4 id="response-json-object">Response (JSON object)</h4>
-
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -406,16 +383,14 @@ Update is not partial, so all attributes that aren&rsquo;t present in the payloa
 <tr>
 <td>errors</td>
 <td>Object</td>
-<td>Errors of offers that couldn&rsquo;t be created</td>
+<td>Errors of offers that couldn&#39;t be created</td>
 </tr>
 </tbody></table>
 
 <aside class="notice">
 Requires <code>Offers:Api:Offers:Update</code> permit
 </aside>
-
-<h3 id="clone-offers"><a name="clone-offers"></a> Clone offers</h3>
-
+<h3 id='a-name-clone-offers-a-clone-offers-1'><span id=a-name-clone-offers-a-clone-offers></span><a name="clone-offers"></a> Clone offers</h3>
 <blockquote>
 <p>Example:</p>
 </blockquote>
@@ -438,12 +413,10 @@ Requires <code>Offers:Api:Offers:Update</code> permit
     </span><span class="s2">"ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1000301</span><span class="p">,</span><span class="w"> </span><span class="mi">1000302</span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>POST</strong> <code class="prettyprint">v3/:loyalty_club_slug/offers/clone</code></p>
+<p><strong>POST</strong> <code>v3/:loyalty_club_slug/offers/clone</code></p>
 
 <p>Clones given offers (by their IDs)</p>
-
-<h4 id="post-parameters-json">POST Parameters (JSON)</h4>
-
+<h4 id='post-parameters-json-1'><span id=post-parameters-json></span>POST Parameters (JSON)</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -457,9 +430,7 @@ Requires <code>Offers:Api:Offers:Update</code> permit
 <td>List of offers ids to clone</td>
 </tr>
 </tbody></table>
-
-<h4 id="response-json-object">Response (JSON object)</h4>
-
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -477,9 +448,7 @@ Requires <code>Offers:Api:Offers:Update</code> permit
 <aside class="notice">
 Requires <code>Offers:Api:Offers:Clone</code> permit
 </aside>
-
-<h3 id="grant-offers"><a name="grant-offers"></a> Grant offers</h3>
-
+<h3 id='a-name-grant-offers-a-grant-offers-1'><span id=a-name-grant-offers-a-grant-offers></span><a name="grant-offers"></a> Grant offers</h3>
 <blockquote>
 <p>Example:</p>
 </blockquote>
@@ -510,12 +479,10 @@ Requires <code>Offers:Api:Offers:Clone</code> permit
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{}</span><span class="w">
 </span></code></pre>
-<p><strong>POST</strong> <code class="prettyprint">v3/:loyalty_club_slug/offers/grant</code></p>
+<p><strong>POST</strong> <code>v3/:loyalty_club_slug/offers/grant</code></p>
 
 <p>Grants offer(s) to members of given audience(s).</p>
-
-<h4 id="post-parameters-json">POST Parameters (JSON)</h4>
-
+<h4 id='post-parameters-json-1'><span id=post-parameters-json></span>POST Parameters (JSON)</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -543,9 +510,7 @@ Requires <code>Offers:Api:Offers:Clone</code> permit
 <aside class="notice">
 Requires <code>Offers:Api:Offers:Grant</code> permit
 </aside>
-
-<h3 id="delete-offers"><a name="update-offers"></a> Delete offers</h3>
-
+<h3 id='a-name-update-offers-a-delete-offers-1'><span id=a-name-update-offers-a-delete-offers></span><a name="update-offers"></a> Delete offers</h3>
 <blockquote>
 <p>Example:</p>
 </blockquote>
@@ -568,12 +533,10 @@ Requires <code>Offers:Api:Offers:Grant</code> permit
   </span><span class="err">//</span><span class="w"> </span><span class="err">Empty</span><span class="w"> </span><span class="err">object</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>DELETE</strong> <code class="prettyprint">v3/:loyalty_club_slug/offers</code></p>
+<p><strong>DELETE</strong> <code>v3/:loyalty_club_slug/offers</code></p>
 
 <p>Deletes given offers (by their IDs).</p>
-
-<h4 id="post-parameters-json">POST Parameters (JSON)</h4>
-
+<h4 id='post-parameters-json-1'><span id=post-parameters-json></span>POST Parameters (JSON)</h4>
 <table><thead>
 <tr>
 <th>Key</th>

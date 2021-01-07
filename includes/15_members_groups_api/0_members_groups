@@ -1,32 +1,23 @@
-<h1 id="members-groups-api"><a name="members-groups"></a> Members Groups API</h1>
-
+<h1 id='a-name-members-groups-a-members-groups-api-1'><span id=a-name-members-groups-a-members-groups-api></span><a name="members-groups"></a> Members Groups API</h1>
 <aside class="warning">
 This API is in development. Therefore, it may not be ready for use and is a subject to change at any time.
 </aside>
 
-<p>Members may be grouped into groups. It&rsquo;s up to API client / customer how they are utilized. </p>
+<p>Members may be grouped into groups. It&#39;s up to API client / customer how they are utilized. </p>
+<h2 id='a-name-members-groups-introduction-a-introduction-1'><span id=a-name-members-groups-introduction-a-introduction></span><a name="members-groups-introduction"></a> Introduction</h2><h3 id='a-name-automatic-members-groups-a-automatic-groups-1'><span id=a-name-automatic-members-groups-a-automatic-groups></span><a name="automatic-members-groups"></a> Automatic groups</h3>
+<p>Group is automatic (and has <code>&quot;automatic&quot;: true</code> attribute ) when it has been created with <code>audience_id</code> or 
+<code>audience_conditions</code> param.</p>
 
-<h2 id="introduction"><a name="members-groups-introduction"></a> Introduction</h2>
-
-<h3 id="automatic-groups"><a name="automatic-members-groups"></a> Automatic groups</h3>
-
-<p>Group is automatic (and has <code class="prettyprint">&quot;automatic&quot;: true</code> attribute ) when it has been created with <code class="prettyprint">audience_id</code> or 
-<code class="prettyprint">audience_conditions</code> param.</p>
-
-<p>Automatic group doesn&rsquo;t allow API client to manually manage its members - instead, those are fetched from the given audience.</p>
+<p>Automatic group doesn&#39;t allow API client to manually manage its members - instead, those are fetched from the given audience.</p>
 
 <p>See more <a href="#members-groups-create">here</a></p>
-
-<h3 id="system-groups">System groups</h3>
-
-<p>System groups (with <code class="prettyprint">&quot;system&quot;: true</code> attribute) are created automatically by system and are not editable
+<h3 id='system-groups-1'><span id=system-groups></span>System groups</h3>
+<p>System groups (with <code>&quot;system&quot;: true</code> attribute) are created automatically by system and are not editable
 by API client - only MPC system can create, edit and destroy system groups.</p>
 
 <p>The set of system groups present in given Loyalty Club depends on its configuration. An example of system group could be
-&ldquo;All members&rdquo; group that would contain all Loyalty Club members.</p>
-
-<h3 id="membersgroup-model"><a name="members-group-model"></a> MembersGroup model</h3>
-
+&quot;All members&quot; group that would contain all Loyalty Club members.</p>
+<h3 id='a-name-members-group-model-a-membersgroup-model-1'><span id=a-name-members-group-model-a-membersgroup-model></span><a name="members-group-model"></a> MembersGroup model</h3>
 <blockquote>
 <p>JSON example:</p>
 </blockquote>
@@ -75,7 +66,7 @@ by API client - only MPC system can create, edit and destroy system groups.</p>
 <td>type</td>
 <td>string</td>
 <td>yes</td>
-<td>Types are not predefined. It&rsquo;s up to API client to define them.</td>
+<td>Types are not predefined. It&#39;s up to API client to define them.</td>
 </tr>
 <tr>
 <td>automatic</td>
@@ -114,9 +105,7 @@ by API client - only MPC system can create, edit and destroy system groups.</p>
 <td>Conditions of related audience - See <a href="https://dmp.boostcom.no/docs/#conditions">DMP docs</a></td>
 </tr>
 </tbody></table>
-
-<h3 id="membersgroup-payload-model"><a name="members-group-payload-model"></a> MembersGroup payload model</h3>
-
+<h3 id='a-name-members-group-payload-model-a-membersgroup-payload-model-1'><span id=a-name-members-group-payload-model-a-membersgroup-payload-model></span><a name="members-group-payload-model"></a> MembersGroup payload model</h3>
 <p>Used as an input of creations and updates.</p>
 
 <blockquote>
@@ -158,7 +147,7 @@ by API client - only MPC system can create, edit and destroy system groups.</p>
 <td>type</td>
 <td>string</td>
 <td>yes</td>
-<td>Types are not predefined. It&rsquo;s up to API client to define them.</td>
+<td>Types are not predefined. It&#39;s up to API client to define them.</td>
 </tr>
 <tr>
 <td>system</td>
@@ -185,11 +174,7 @@ by API client - only MPC system can create, edit and destroy system groups.</p>
 <td>Conditions of related audience</td>
 </tr>
 </tbody></table>
-
-<h2 id="members-groups">Members Groups</h2>
-
-<h3 id="list"><a name="members-groups-list"></a> List</h3>
-
+<h2 id='members-groups-1'><span id=members-groups></span>Members Groups</h2><h3 id='a-name-members-groups-list-a-list-1'><span id=a-name-members-groups-list-a-list></span><a name="members-groups-list"></a> List</h3>
 <blockquote>
 <p>Example:</p>
 </blockquote>
@@ -206,12 +191,10 @@ by API client - only MPC system can create, edit and destroy system groups.</p>
   </span><span class="s2">"pagination_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Pagination</span><span class="w"> </span><span class="err">info</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="s2">"Pagination info"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members_groups</code></p>
+<p><strong>GET</strong> <code>v3/:loyalty_club_slug/members_groups</code></p>
 
 <p>Returns groups defined within Loyalty Club.</p>
-
-<h4 id="query-parameters">Query Parameters</h4>
-
+<h4 id='query-parameters-1'><span id=query-parameters></span>Query Parameters</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -263,9 +246,7 @@ by API client - only MPC system can create, edit and destroy system groups.</p>
 <td>When given, returns groups that have name, type or description matching the query string</td>
 </tr>
 </tbody></table>
-
-<h4 id="response-json-object">Response (JSON object)</h4>
-
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -288,9 +269,7 @@ by API client - only MPC system can create, edit and destroy system groups.</p>
 <aside class="notice">
 Requires <code>BL:Api:MembersGroups:Index</code> permit
 </aside>
-
-<h3 id="get"><a name="members-groups-get"></a> Get</h3>
-
+<h3 id='a-name-members-groups-get-a-get-1'><span id=a-name-members-groups-get-a-get></span><a name="members-groups-get"></a> Get</h3>
 <blockquote>
 <p>Example:</p>
 </blockquote>
@@ -306,12 +285,10 @@ Requires <code>BL:Api:MembersGroups:Index</code> permit
   </span><span class="s2">"members_group"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Members</span><span class="w"> </span><span class="err">groups</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"MemberGroup model"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members_groups/:members_group_id</code></p>
+<p><strong>GET</strong> <code>v3/:loyalty_club_slug/members_groups/:members_group_id</code></p>
 
 <p>Returns group identified by id.</p>
-
-<h4 id="url-parameters">URL Parameters</h4>
-
+<h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -323,9 +300,7 @@ Requires <code>BL:Api:MembersGroups:Index</code> permit
 <td>Integer</td>
 </tr>
 </tbody></table>
-
-<h4 id="response-json-object">Response (JSON object)</h4>
-
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -339,9 +314,7 @@ Requires <code>BL:Api:MembersGroups:Index</code> permit
 <td><a href="#members-group-model">MembersGroup</a></td>
 </tr>
 </tbody></table>
-
-<h4 id="error-responses">Error responses</h4>
-
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -349,7 +322,7 @@ Requires <code>BL:Api:MembersGroups:Index</code> permit
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">404</code></td>
+<td><code>404</code></td>
 <td>MembersGroup does not exist</td>
 </tr>
 </tbody></table>
@@ -357,9 +330,7 @@ Requires <code>BL:Api:MembersGroups:Index</code> permit
 <aside class="notice">
 Requires <code>BL:Api:MembersGroups:Get</code> permit
 </aside>
-
-<h3 id="create"><a name="members-groups-create"></a> Create</h3>
-
+<h3 id='a-name-members-groups-create-a-create-1'><span id=a-name-members-groups-create-a-create></span><a name="members-groups-create"></a> Create</h3>
 <blockquote>
 <p>Example:</p>
 </blockquote>
@@ -383,24 +354,22 @@ Requires <code>BL:Api:MembersGroups:Get</code> permit
   </span><span class="s2">"members_group"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Members</span><span class="w"> </span><span class="err">groups</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"MemberGroup model"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>POST</strong> <code class="prettyprint">v3/:loyalty_club_slug/members_groups</code></p>
+<p><strong>POST</strong> <code>v3/:loyalty_club_slug/members_groups</code></p>
 
 <p>Creates a new group.</p>
 
-<p>When <code class="prettyprint">audience_id</code> or <code class="prettyprint">audience_conditions</code> param is provided, the group is treated 
+<p>When <code>audience_id</code> or <code>audience_conditions</code> param is provided, the group is treated 
 as <a href="#automatic-members-groups">automatic</a>.</p>
 
 <p>Specifically:</p>
 
 <ul>
-<li>when <code class="prettyprint">audience_id</code> is given, the group relates to existing audience</li>
-<li>when <code class="prettyprint">audience_conditions</code> is given, a new audience is created with specified conditions </li>
+<li>when <code>audience_id</code> is given, the group relates to existing audience</li>
+<li>when <code>audience_conditions</code> is given, a new audience is created with specified conditions </li>
 <li>when none of those parameters is given, a new audience is created with conditions that will return only members 
 manually assigned to the group by API client</li>
 </ul>
-
-<h4 id="post-parameters-json-object">POST Parameters (JSON object)</h4>
-
+<h4 id='post-parameters-json-object-1'><span id=post-parameters-json-object></span>POST Parameters (JSON object)</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -420,9 +389,7 @@ manually assigned to the group by API client</li>
 <td>Conditions of audience that the group should relate to</td>
 </tr>
 </tbody></table>
-
-<h4 id="response-json-object">Response (JSON object)</h4>
-
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -436,9 +403,7 @@ manually assigned to the group by API client</li>
 <td>Created <a href="#members-group-model">MembersGroup</a></td>
 </tr>
 </tbody></table>
-
-<h4 id="error-responses">Error responses</h4>
-
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -446,7 +411,7 @@ manually assigned to the group by API client</li>
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">422</code></td>
+<td><code>422</code></td>
 <td>Invalid parameters - see <a href="#invalid-parameters-errors-model">Invalid parameters errors model</a></td>
 </tr>
 </tbody></table>
@@ -454,9 +419,7 @@ manually assigned to the group by API client</li>
 <aside class="notice">
 Requires <code>BL:Api:MembersGroups:Create</code> permit
 </aside>
-
-<h3 id="update"><a name="members-groups-update"></a> Update</h3>
-
+<h3 id='a-name-members-groups-update-a-update-1'><span id=a-name-members-groups-update-a-update></span><a name="members-groups-update"></a> Update</h3>
 <blockquote>
 <p>Example:</p>
 </blockquote>
@@ -480,12 +443,10 @@ Requires <code>BL:Api:MembersGroups:Create</code> permit
   </span><span class="s2">"members_group"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Members</span><span class="w"> </span><span class="err">groups</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"MemberGroup model"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>PUT</strong> <code class="prettyprint">v3/:loyalty_club_slug/members_groups/:members_group_id</code></p>
+<p><strong>PUT</strong> <code>v3/:loyalty_club_slug/members_groups/:members_group_id</code></p>
 
 <p>Updates given group.</p>
-
-<h4 id="post-parameters-json-object">POST Parameters (JSON object)</h4>
-
+<h4 id='post-parameters-json-object-1'><span id=post-parameters-json-object></span>POST Parameters (JSON object)</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -497,9 +458,7 @@ Requires <code>BL:Api:MembersGroups:Create</code> permit
 <td><a href="#members-group-payload-model">MembersGroup Payload</a></td>
 </tr>
 </tbody></table>
-
-<h4 id="response-json-object">Response (JSON object)</h4>
-
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -513,9 +472,7 @@ Requires <code>BL:Api:MembersGroups:Create</code> permit
 <td>Created <a href="#members-group-model">MembersGroup</a></td>
 </tr>
 </tbody></table>
-
-<h4 id="error-responses">Error responses</h4>
-
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -523,11 +480,11 @@ Requires <code>BL:Api:MembersGroups:Create</code> permit
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">404</code></td>
+<td><code>404</code></td>
 <td>MembersGroup does not exist</td>
 </tr>
 <tr>
-<td><code class="prettyprint">422</code></td>
+<td><code>422</code></td>
 <td>Invalid parameters - see <a href="#invalid-parameters-errors-model">Invalid parameters errors model</a></td>
 </tr>
 </tbody></table>
@@ -535,9 +492,7 @@ Requires <code>BL:Api:MembersGroups:Create</code> permit
 <aside class="notice">
 Requires <code>BL:Api:MembersGroups:Update</code> permit
 </aside>
-
-<h3 id="destroy"><a name="members-groups-destroy"></a> Destroy</h3>
-
+<h3 id='a-name-members-groups-destroy-a-destroy-1'><span id=a-name-members-groups-destroy-a-destroy></span><a name="members-groups-destroy"></a> Destroy</h3>
 <blockquote>
 <p>Example:</p>
 </blockquote>
@@ -554,12 +509,10 @@ Requires <code>BL:Api:MembersGroups:Update</code> permit
   </span><span class="s2">"members_group"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Members</span><span class="w"> </span><span class="err">groups</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"MemberGroup model"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>DELETE</strong> <code class="prettyprint">v3/:loyalty_club_slug/members_groups/:members_group_id</code></p>
+<p><strong>DELETE</strong> <code>v3/:loyalty_club_slug/members_groups/:members_group_id</code></p>
 
 <p>Deletes given group.</p>
-
-<h4 id="url-parameters">URL Parameters</h4>
-
+<h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -571,9 +524,7 @@ Requires <code>BL:Api:MembersGroups:Update</code> permit
 <td>Integer</td>
 </tr>
 </tbody></table>
-
-<h4 id="response-json-object">Response (JSON object)</h4>
-
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -587,9 +538,7 @@ Requires <code>BL:Api:MembersGroups:Update</code> permit
 <td>The deleted <a href="#members-group-model">MembersGroup</a></td>
 </tr>
 </tbody></table>
-
-<h4 id="error-responses">Error responses</h4>
-
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -597,7 +546,7 @@ Requires <code>BL:Api:MembersGroups:Update</code> permit
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">404</code></td>
+<td><code>404</code></td>
 <td>MembersGroup does not exist</td>
 </tr>
 </tbody></table>
@@ -605,11 +554,7 @@ Requires <code>BL:Api:MembersGroups:Update</code> permit
 <aside class="notice">
 Requires <code>BL:Api:MembersGroups:Destroy</code> permit
 </aside>
-
-<h2 id="types">Types</h2>
-
-<h3 id="list-types"><a name="members-groups-types"></a> List types</h3>
-
+<h2 id='types-1'><span id=types></span>Types</h2><h3 id='a-name-members-groups-types-a-list-types-1'><span id=a-name-members-groups-types-a-list-types></span><a name="members-groups-types"></a> List types</h3>
 <blockquote>
 <p>Example:</p>
 </blockquote>
@@ -634,13 +579,11 @@ Requires <code>BL:Api:MembersGroups:Destroy</code> permit
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members_groups/types</code></p>
+<p><strong>GET</strong> <code>v3/:loyalty_club_slug/members_groups/types</code></p>
 
 <p>Returns all group types defined for groups in the Loyalty Club. 
 It may (depends on Loyalty Club setup) include special system types.</p>
-
-<h4 id="response-json-object">Response (JSON object)</h4>
-
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -668,11 +611,7 @@ It may (depends on Loyalty Club setup) include special system types.</p>
 <aside class="notice">
 Requires <code>BL:Api:MembersGroups:Types:Index</code> permit
 </aside>
-
-<h2 id="members-management">Members Management</h2>
-
-<h3 id="add-member"><a name="members-groups-add-member"></a> Add member</h3>
-
+<h2 id='members-management-1'><span id=members-management></span>Members Management</h2><h3 id='a-name-members-groups-add-member-a-add-member-1'><span id=a-name-members-groups-add-member-a-add-member></span><a name="members-groups-add-member"></a> Add member</h3>
 <blockquote>
 <p>Example:</p>
 </blockquote>
@@ -682,12 +621,10 @@ Requires <code>BL:Api:MembersGroups:Types:Index</code> permit
 --header <span class="s1">'x-user-agent: cURL Manual Testing'</span> <span class="se">\</span>
 --data-raw <span class="s1">''</span>
 </code></pre>
-<p><strong>POST</strong> <code class="prettyprint">v3/:loyalty_club_slug/members_groups/:members_group_id/members/:member_id</code></p>
+<p><strong>POST</strong> <code>v3/:loyalty_club_slug/members_groups/:members_group_id/members/:member_id</code></p>
 
 <p>Adds member to the group.</p>
-
-<h4 id="url-parameters">URL Parameters</h4>
-
+<h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -703,13 +640,9 @@ Requires <code>BL:Api:MembersGroups:Types:Index</code> permit
 <td>Integer</td>
 </tr>
 </tbody></table>
-
-<h4 id="response-json-object">Response (JSON object)</h4>
-
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
 <p>Returns empty object.</p>
-
-<h4 id="error-responses">Error responses</h4>
-
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -717,15 +650,15 @@ Requires <code>BL:Api:MembersGroups:Types:Index</code> permit
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">404</code></td>
+<td><code>404</code></td>
 <td>MembersGroup does not exist</td>
 </tr>
 <tr>
-<td><code class="prettyprint">404</code></td>
+<td><code>404</code></td>
 <td>Member does not exist</td>
 </tr>
 <tr>
-<td><code class="prettyprint">422</code></td>
+<td><code>422</code></td>
 <td>Invalid parameters - see <a href="#invalid-parameters-errors-model">Invalid parameters errors model</a></td>
 </tr>
 </tbody></table>
@@ -733,9 +666,7 @@ Requires <code>BL:Api:MembersGroups:Types:Index</code> permit
 <aside class="notice">
 Requires <code>BL:Api:MembersGroups:Members:Add</code> permit
 </aside>
-
-<h3 id="remove-member"><a name="members-groups-remove-member"></a> Remove member</h3>
-
+<h3 id='a-name-members-groups-remove-member-a-remove-member-1'><span id=a-name-members-groups-remove-member-a-remove-member></span><a name="members-groups-remove-member"></a> Remove member</h3>
 <blockquote>
 <p>Example:</p>
 </blockquote>
@@ -745,12 +676,10 @@ Requires <code>BL:Api:MembersGroups:Members:Add</code> permit
 --header <span class="s1">'x-user-agent: cURL Manual Testing'</span> <span class="se">\</span>
 --data-raw <span class="s1">''</span>
 </code></pre>
-<p><strong>DELETE</strong> <code class="prettyprint">v3/:loyalty_club_slug/members_groups/:members_group_id/members/:member_id</code></p>
+<p><strong>DELETE</strong> <code>v3/:loyalty_club_slug/members_groups/:members_group_id/members/:member_id</code></p>
 
 <p>Removes member from the group.</p>
-
-<h4 id="url-parameters">URL Parameters</h4>
-
+<h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -766,13 +695,9 @@ Requires <code>BL:Api:MembersGroups:Members:Add</code> permit
 <td>Integer</td>
 </tr>
 </tbody></table>
-
-<h4 id="response-json-object">Response (JSON object)</h4>
-
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
 <p>Returns empty object.</p>
-
-<h4 id="error-responses">Error responses</h4>
-
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -780,15 +705,15 @@ Requires <code>BL:Api:MembersGroups:Members:Add</code> permit
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">404</code></td>
+<td><code>404</code></td>
 <td>MembersGroup does not exist</td>
 </tr>
 <tr>
-<td><code class="prettyprint">404</code></td>
+<td><code>404</code></td>
 <td>Member does not exist</td>
 </tr>
 <tr>
-<td><code class="prettyprint">422</code></td>
+<td><code>422</code></td>
 <td>Invalid parameters - see <a href="#invalid-parameters-errors-model">Invalid parameters errors model</a></td>
 </tr>
 </tbody></table>
@@ -796,9 +721,7 @@ Requires <code>BL:Api:MembersGroups:Members:Add</code> permit
 <aside class="notice">
 Requires <code>BL:Api:MembersGroups:Members:Remove</code> permit
 </aside>
-
-<h3 id="list-members-of-a-group"><a name="members-groups-list-group-members"></a> List members of a group</h3>
-
+<h3 id='a-name-members-groups-list-group-members-a-list-members-of-a-group-1'><span id=a-name-members-groups-list-group-members-a-list-members-of-a-group></span><a name="members-groups-list-group-members"></a> List members of a group</h3>
 <blockquote>
 <p>Example:</p>
 </blockquote>
@@ -817,10 +740,8 @@ Requires <code>BL:Api:MembersGroups:Members:Remove</code> permit
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
-<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members_groups/:members_group_id/members</code></p>
-
-<h4 id="query-parameters">Query Parameters</h4>
-
+<p><strong>GET</strong> <code>v3/:loyalty_club_slug/members_groups/:members_group_id/members</code></p>
+<h4 id='query-parameters-1'><span id=query-parameters></span>Query Parameters</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -842,9 +763,7 @@ Requires <code>BL:Api:MembersGroups:Members:Remove</code> permit
 <td>Number of results page</td>
 </tr>
 </tbody></table>
-
-<h4 id="url-parameters">URL Parameters</h4>
-
+<h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -858,9 +777,7 @@ Requires <code>BL:Api:MembersGroups:Members:Remove</code> permit
 <td>integer</td>
 </tr>
 </tbody></table>
-
-<h4 id="response-json-object">Response (JSON object)</h4>
-
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -883,9 +800,7 @@ Requires <code>BL:Api:MembersGroups:Members:Remove</code> permit
 <aside class="notice">
 Requires <code>BL:Api:MembersGroups:Members:List</code> permit
 </aside>
-
-<h3 id="list-groups-of-a-member"><a name="members-groups-list-member-groups"></a> List groups of a member</h3>
-
+<h3 id='a-name-members-groups-list-member-groups-a-list-groups-of-a-member-1'><span id=a-name-members-groups-list-member-groups-a-list-groups-of-a-member></span><a name="members-groups-list-member-groups"></a> List groups of a member</h3>
 <blockquote>
 <p>Example: </p>
 </blockquote>
@@ -902,16 +817,14 @@ Requires <code>BL:Api:MembersGroups:Members:List</code> permit
   </span><span class="s2">"pagination_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Pagination</span><span class="w"> </span><span class="err">info</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="s2">"Pagination info"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/:member_id/groups</code></p>
+<p><strong>GET</strong> <code>v3/:loyalty_club_slug/members/:member_id/groups</code></p>
 
-<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/by_email/:member_email/groups</code></p>
+<p><strong>GET</strong> <code>v3/:loyalty_club_slug/members/by_email/:member_email/groups</code></p>
 
-<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/by_msisdn/:member_msisdn/groups</code></p>
+<p><strong>GET</strong> <code>v3/:loyalty_club_slug/members/by_msisdn/:member_msisdn/groups</code></p>
 
 <p>Returns groups of given member.</p>
-
-<h4 id="query-parameters">Query Parameters</h4>
-
+<h4 id='query-parameters-1'><span id=query-parameters></span>Query Parameters</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -933,9 +846,7 @@ Requires <code>BL:Api:MembersGroups:Members:List</code> permit
 <td>Number of results page</td>
 </tr>
 </tbody></table>
-
-<h4 id="url-parameters">URL Parameters</h4>
-
+<h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -945,23 +856,21 @@ Requires <code>BL:Api:MembersGroups:Members:List</code> permit
 </thead><tbody>
 <tr>
 <td>member_id</td>
-<td>Member&rsquo;s ID</td>
+<td>Member&#39;s ID</td>
 <td>integer</td>
 </tr>
 <tr>
 <td>member_msisdn</td>
-<td>Member&rsquo;s msisdn</td>
-<td>string (format as defined <a href="#msisdn-param">here</a> - example: <code class="prettyprint">4740485124</code>)</td>
+<td>Member&#39;s msisdn</td>
+<td>string (format as defined <a href="#msisdn-param">here</a> - example: <code>4740485124</code>)</td>
 </tr>
 <tr>
 <td>member_email</td>
-<td>Member&rsquo;s email</td>
+<td>Member&#39;s email</td>
 <td>string (email)</td>
 </tr>
 </tbody></table>
-
-<h4 id="response-json-object">Response (JSON object)</h4>
-
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -980,9 +889,7 @@ Requires <code>BL:Api:MembersGroups:Members:List</code> permit
 <td><a href="#pagination-model">Pagination</a> object</td>
 </tr>
 </tbody></table>
-
-<h4 id="error-responses">Error responses</h4>
-
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -990,7 +897,7 @@ Requires <code>BL:Api:MembersGroups:Members:List</code> permit
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">404</code></td>
+<td><code>404</code></td>
 <td>Member does not exist</td>
 </tr>
 </tbody></table>

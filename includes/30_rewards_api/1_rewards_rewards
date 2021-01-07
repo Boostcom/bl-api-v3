@@ -1,7 +1,4 @@
-<h2 id="rewards">Rewards</h2>
-
-<h3 id="list"><a name="rewards-list"></a> List</h3>
-
+<h2 id='rewards-1'><span id=rewards></span>Rewards</h2><h3 id='a-name-rewards-list-a-list-1'><span id=a-name-rewards-list-a-list></span><a name="rewards-list"></a> List</h3>
 <blockquote>
 <p>Example:</p>
 </blockquote>
@@ -53,14 +50,12 @@
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
-<p><strong>GET</strong> <code class="prettyprint">v3/infinity-mall/members/me/rewards-program/rewards</code></p>
+<p><strong>GET</strong> <code>v3/infinity-mall/members/me/rewards-program/rewards</code></p>
 
 <p>Returns list of rewards available to purchase by member.</p>
 
 <p>As a member-related action, it requires member authorization. See <a href="#oauth2">OAuth</a>.</p>
-
-<h4 id="response-json-object">Response (JSON object)</h4>
-
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -74,9 +69,7 @@
 <td>List of Rewards - see below</td>
 </tr>
 </tbody></table>
-
-<h4 id="reward"><a name="reward-model"></a> Reward</h4>
-
+<h4 id='a-name-reward-model-a-reward-1'><span id=a-name-reward-model-a-reward></span><a name="reward-model"></a> Reward</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -124,9 +117,7 @@
 <aside class="notice">
 Requires <code>Rewards:Api:OAuth:Rewards:List</code> permit
 </aside>
-
-<h3 id="list-purchased"><a name="rewards-list-purchased"></a> List purchased</h3>
-<pre class="highlight shell tab-shell"><code>curl <span class="se">\</span>
+<h3 id='a-name-rewards-list-purchased-a-list-purchased-1'><span id=a-name-rewards-list-purchased-a-list-purchased></span><a name="rewards-list-purchased"></a> List purchased</h3><pre class="highlight shell tab-shell"><code>curl <span class="se">\</span>
 <span class="s2">"https://api.mpc.placewise.com/v3/infinity-mall/members/me/rewards-program/rewards/purchased"</span> <span class="se">\</span>
     -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522'</span> <span class="se">\</span>
@@ -175,18 +166,14 @@ Requires <code>Rewards:Api:OAuth:Rewards:List</code> permit
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>GET</strong> <code class="prettyprint">v3/infinity-mall/members/me/rewards-program/rewards/purchased</code></p>
+<p><strong>GET</strong> <code>v3/infinity-mall/members/me/rewards-program/rewards/purchased</code></p>
 
 <p>Returns list of rewards purchased by member.</p>
 
 <p>As a member-related action, it requires member authorization. See <a href="#oauth2">OAuth</a>.</p>
-
-<h4 id="response-json-object">Response (JSON object)</h4>
-
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
 <p>Response looks as in <a href="#rewards-list">Reward list</a>, but with reward usage instead of purchasing info</p>
-
-<h4 id="usage"><a name="rewards-usage"></a> Usage</h4>
-
+<h4 id='a-name-rewards-usage-a-usage-1'><span id=a-name-rewards-usage-a-usage></span><a name="rewards-usage"></a> Usage</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -197,7 +184,7 @@ Requires <code>Rewards:Api:OAuth:Rewards:List</code> permit
 <tr>
 <td>left</td>
 <td>integer</td>
-<td>(optional) How many more times the member can use the Reward. Null, when there&rsquo;s no usage limit</td>
+<td>(optional) How many more times the member can use the Reward. Null, when there&#39;s no usage limit</td>
 </tr>
 <tr>
 <td>active_until</td>
@@ -214,9 +201,7 @@ Requires <code>Rewards:Api:OAuth:Rewards:List</code> permit
 <aside class="notice">
 Requires <code>Rewards:Api:OAuth:Rewards:ListPurchased</code> permit
 </aside>
-
-<h3 id="purchase"><a name="rewards-purchase"></a> Purchase</h3>
-<pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
+<h3 id='a-name-rewards-purchase-a-purchase-1'><span id=a-name-rewards-purchase-a-purchase></span><a name="rewards-purchase"></a> Purchase</h3><pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
 <span class="s2">"https://api.mpc.placewise.com/v3/infinity-mall/members/me/rewards-program/rewards/153/purchase"</span> <span class="se">\</span>
     -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522'</span> <span class="se">\</span>
@@ -231,14 +216,12 @@ Requires <code>Rewards:Api:OAuth:Rewards:ListPurchased</code> permit
   </span><span class="err">//</span><span class="w"> </span><span class="err">Empty</span><span class="w"> </span><span class="err">object</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>POST</strong> <code class="prettyprint">v3/infinity-mall/members/me/rewards-program/rewards/:id/purchase</code></p>
+<p><strong>POST</strong> <code>v3/infinity-mall/members/me/rewards-program/rewards/:id/purchase</code></p>
 
-<p>Adds one of available rewards to member&rsquo;s purchased list and reduces member&rsquo;s balance by price.</p>
+<p>Adds one of available rewards to member&#39;s purchased list and reduces member&#39;s balance by price.</p>
 
 <p>As a member-related action, it requires member authorization. See <a href="#oauth2">OAuth</a>.</p>
-
-<h4 id="error-responses">Error responses</h4>
-
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -247,28 +230,28 @@ Requires <code>Rewards:Api:OAuth:Rewards:ListPurchased</code> permit
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">404</code></td>
-<td><code class="prettyprint">{&quot;error&quot;: &quot;Reward#10000951 not found&quot;}</code></td>
+<td><code>404</code></td>
+<td><code>{&quot;error&quot;: &quot;Reward#10000951 not found&quot;}</code></td>
 <td>-</td>
 </tr>
 <tr>
-<td><code class="prettyprint">422</code></td>
-<td><code class="prettyprint">{&quot;error&quot;: &quot;Not enough points&quot;}</code></td>
+<td><code>422</code></td>
+<td><code>{&quot;error&quot;: &quot;Not enough points&quot;}</code></td>
 <td>Member has no enough points to purchase the reward</td>
 </tr>
 <tr>
-<td><code class="prettyprint">422</code></td>
-<td><code class="prettyprint">{&quot;error&quot;: &quot;Member level is not high enough&quot;}</code></td>
+<td><code>422</code></td>
+<td><code>{&quot;error&quot;: &quot;Member level is not high enough&quot;}</code></td>
 <td>Member level is not high enough to purchase the reward</td>
 </tr>
 <tr>
-<td><code class="prettyprint">422</code></td>
-<td><code class="prettyprint">{&quot;error&quot;: &quot;Global limit exceeded&quot;}</code></td>
+<td><code>422</code></td>
+<td><code>{&quot;error&quot;: &quot;Global limit exceeded&quot;}</code></td>
 <td>There are no more rewards available to purchase</td>
 </tr>
 <tr>
-<td><code class="prettyprint">467</code></td>
-<td><code class="prettyprint">{&quot;error&quot;: &quot;Member is banned!&quot;, &quot;banned_until&quot;: &quot;2137-10-28T17:24:06.207Z&quot;}</code></td>
+<td><code>467</code></td>
+<td><code>{&quot;error&quot;: &quot;Member is banned!&quot;, &quot;banned_until&quot;: &quot;2137-10-28T17:24:06.207Z&quot;}</code></td>
 <td>Member is banned</td>
 </tr>
 </tbody></table>
@@ -276,9 +259,7 @@ Requires <code>Rewards:Api:OAuth:Rewards:ListPurchased</code> permit
 <aside class="notice">
 Requires <code>Rewards:Api:OAuth:Rewards:Purchase</code> permit
 </aside>
-
-<h3 id="use"><a name="rewards-use"></a> Use</h3>
-<pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
+<h3 id='a-name-rewards-use-a-use-1'><span id=a-name-rewards-use-a-use></span><a name="rewards-use"></a> Use</h3><pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
 <span class="s2">"https://api.mpc.placewise.com/v3/infinity-mall/members/me/rewards-program/rewards/153/use"</span> <span class="se">\</span>
     -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522'</span> <span class="se">\</span>
@@ -297,14 +278,12 @@ Requires <code>Rewards:Api:OAuth:Rewards:Purchase</code> permit
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>POST</strong> <code class="prettyprint">v3/infinity-mall/members/me/rewards-program/rewards/:id/use</code></p>
+<p><strong>POST</strong> <code>v3/infinity-mall/members/me/rewards-program/rewards/:id/use</code></p>
 
 <p>Uses (activates) one of usable rewards purchased by member.</p>
 
 <p>As a member-related action, it requires member authorization. See <a href="#oauth2">OAuth</a>.</p>
-
-<h4 id="response-json-object">Response (JSON object)</h4>
-
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -318,9 +297,7 @@ Requires <code>Rewards:Api:OAuth:Rewards:Purchase</code> permit
 <td>See <a href="#rewards-usage">Reward Usage</a></td>
 </tr>
 </tbody></table>
-
-<h4 id="error-responses">Error responses</h4>
-
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -329,28 +306,28 @@ Requires <code>Rewards:Api:OAuth:Rewards:Purchase</code> permit
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">404</code></td>
-<td><code class="prettyprint">{&quot;error&quot;: &quot;Reward#10000951 not found&quot;}</code></td>
+<td><code>404</code></td>
+<td><code>{&quot;error&quot;: &quot;Reward#10000951 not found&quot;}</code></td>
 <td>-</td>
 </tr>
 <tr>
-<td><code class="prettyprint">422</code></td>
-<td><code class="prettyprint">{&quot;error&quot;: &quot;Already active&quot;}</code></td>
+<td><code>422</code></td>
+<td><code>{&quot;error&quot;: &quot;Already active&quot;}</code></td>
 <td>The reward has been just used</td>
 </tr>
 <tr>
-<td><code class="prettyprint">422</code></td>
-<td><code class="prettyprint">{&quot;error&quot;: &quot;Not granted&quot;}</code></td>
+<td><code>422</code></td>
+<td><code>{&quot;error&quot;: &quot;Not granted&quot;}</code></td>
 <td>The reward has not been purchased by member</td>
 </tr>
 <tr>
-<td><code class="prettyprint">422</code></td>
-<td><code class="prettyprint">{&quot;error&quot;: &quot;User limit exceeded&quot;}</code></td>
+<td><code>422</code></td>
+<td><code>{&quot;error&quot;: &quot;User limit exceeded&quot;}</code></td>
 <td>There are no more rewards available to purchase for the member</td>
 </tr>
 <tr>
-<td><code class="prettyprint">467</code></td>
-<td><code class="prettyprint">{&quot;error&quot;: &quot;Member is banned!&quot;, &quot;banned_until&quot;: &quot;2137-10-28T17:24:06.207Z&quot;}</code></td>
+<td><code>467</code></td>
+<td><code>{&quot;error&quot;: &quot;Member is banned!&quot;, &quot;banned_until&quot;: &quot;2137-10-28T17:24:06.207Z&quot;}</code></td>
 <td>Member is banned</td>
 </tr>
 </tbody></table>

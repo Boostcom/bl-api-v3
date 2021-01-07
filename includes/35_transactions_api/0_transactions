@@ -1,9 +1,4 @@
-<h1 id="transactions-api">Transactions API</h1>
-
-<h2 id="transactions">Transactions</h2>
-
-<h3 id="create"><a name="transactions-create"></a> Create</h3>
-
+<h1 id='transactions-api-1'><span id=transactions-api></span>Transactions API</h1><h2 id='transactions-1'><span id=transactions></span>Transactions</h2><h3 id='a-name-transactions-create-a-create-1'><span id=a-name-transactions-create-a-create></span><a name="transactions-create"></a> Create</h3>
 <blockquote>
 <p>Example:</p>
 </blockquote>
@@ -120,13 +115,11 @@
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>POST</strong> <code class="prettyprint">v3/:loyalty_club_slug/transactions</code></p>
+<p><strong>POST</strong> <code>v3/:loyalty_club_slug/transactions</code></p>
 
 <p>Register transactions, stamps or bonus points will be calculated based on the configured loyalty program.</p>
-
-<h4 id="messages-post-parameters-json-array">Messages POST Parameters (JSON array)</h4>
-
-<p>Expected payload is either object with <code class="prettyprint">transactions</code> attribute containing array of <code class="prettyprint">transaction</code> objects with attributes as described below or single <code class="prettyprint">transaction</code> object:</p>
+<h4 id='messages-post-parameters-json-array-1'><span id=messages-post-parameters-json-array></span>Messages POST Parameters (JSON array)</h4>
+<p>Expected payload is either object with <code>transactions</code> attribute containing array of <code>transaction</code> objects with attributes as described below or single <code>transaction</code> object:</p>
 
 <table><thead>
 <tr>
@@ -182,7 +175,7 @@
 <td>items *</td>
 <td>array</td>
 <td>n/a</td>
-<td>array of <code class="prettyprint">item</code> objects</td>
+<td>array of <code>item</code> objects</td>
 </tr>
 <tr>
 <td>calculate_rewards</td>
@@ -193,7 +186,7 @@
 <tr>
 <td>currency</td>
 <td>string</td>
-<td>Loyalty Club&rsquo;s currency</td>
+<td>Loyalty Club&#39;s currency</td>
 <td></td>
 </tr>
 <tr>
@@ -242,7 +235,7 @@
 
 <p>* required</p>
 
-<p><code class="prettyprint">item</code> object is a hash with following attributes:</p>
+<p><code>item</code> object is a hash with following attributes:</p>
 
 <table><thead>
 <tr>
@@ -348,8 +341,8 @@
 
 <p>Negative price and amount will result in error.</p>
 
-<p>You can provide <code class="prettyprint">callback_url</code> in the root object. If it&rsquo;s available after processing we will send <code class="prettyprint">POST</code> request to that URL with body as below:
-<code class="prettyprint">
+<p>You can provide <code>callback_url</code> in the root object. If it&#39;s available after processing we will send <code>POST</code> request to that URL with body as below:
+<code>
 {
     &quot;transaction_id&quot;: &quot;UUID&quot;,
     &quot;receipt_id&quot;: &quot;id&quot;,
@@ -357,9 +350,7 @@
     &quot;result&quot; =&gt; &quot;OK|error message&quot;
 }
 </code></p>
-
-<h4 id="feedback-statuses">Feedback statuses</h4>
-
+<h4 id='feedback-statuses-1'><span id=feedback-statuses></span>Feedback statuses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -371,13 +362,11 @@
 <td>Message has been accepted for sending</td>
 </tr>
 <tr>
-<td>Member doesn&rsquo;t exist</td>
+<td>Member doesn&#39;t exist</td>
 <td></td>
 </tr>
 </tbody></table>
-
-<h4 id="error-responses">Error responses</h4>
-
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -385,7 +374,7 @@
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">422</code></td>
+<td><code>422</code></td>
 <td>Invalid parameters (see example on the right)</td>
 </tr>
 </tbody></table>
@@ -393,9 +382,7 @@
 <aside class="notice">
 Requires <code>Transaction:Api:Transactions:Create</code> and <code>BL:Api:Members:Get</code> permits
 </aside>
-
-<h3 id="list"><a name="transactions-list"></a> List</h3>
-
+<h3 id='a-name-transactions-list-a-list-1'><span id=a-name-transactions-list-a-list></span><a name="transactions-list"></a> List</h3>
 <blockquote>
 <p>Example:</p>
 </blockquote>
@@ -437,12 +424,10 @@ Requires <code>Transaction:Api:Transactions:Create</code> and <code>BL:Api:Membe
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/transactions</code></p>
+<p><strong>GET</strong> <code>v3/:loyalty_club_slug/transactions</code></p>
 
 <p>List registered transactions</p>
-
-<h4 id="request-parameters">Request Parameters</h4>
-
+<h4 id='request-parameters-1'><span id=request-parameters></span>Request Parameters</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -508,9 +493,7 @@ Requires <code>Transaction:Api:Transactions:Create</code> and <code>BL:Api:Membe
 </tbody></table>
 
 <p>* required at least one of starred parameters </p>
-
-<h4 id="error-responses">Error responses</h4>
-
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -518,7 +501,7 @@ Requires <code>Transaction:Api:Transactions:Create</code> and <code>BL:Api:Membe
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">422</code></td>
+<td><code>422</code></td>
 <td>Invalid parameters (see example on the right)</td>
 </tr>
 </tbody></table>
@@ -526,9 +509,7 @@ Requires <code>Transaction:Api:Transactions:Create</code> and <code>BL:Api:Membe
 <aside class="notice">
 Requires <code>Transaction:Api:Transactions:Get</code> permit
 </aside> 
-
-<h3 id="get"><a name="transactions-get"></a> Get</h3>
-
+<h3 id='a-name-transactions-get-a-get-1'><span id=a-name-transactions-get-a-get></span><a name="transactions-get"></a> Get</h3>
 <blockquote>
 <p>Example:</p>
 </blockquote>
@@ -572,18 +553,16 @@ Requires <code>Transaction:Api:Transactions:Get</code> permit
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
-<p>When <code class="prettyprint">transaction_id</code> is invalid (422), returns:</p>
+<p>When <code>transaction_id</code> is invalid (422), returns:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Transaction not found"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/transactions/:id</code></p>
+<p><strong>GET</strong> <code>v3/:loyalty_club_slug/transactions/:id</code></p>
 
 <p>Get transaction with items</p>
-
-<h4 id="error-responses">Error responses</h4>
-
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -591,7 +570,7 @@ Requires <code>Transaction:Api:Transactions:Get</code> permit
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">422</code></td>
+<td><code>422</code></td>
 <td>Invalid parameters (see example on the right)</td>
 </tr>
 </tbody></table>
@@ -599,11 +578,7 @@ Requires <code>Transaction:Api:Transactions:Get</code> permit
 <aside class="notice">
 Requires <code>Transaction:Api:Transactions:Get</code> permit
 </aside> 
-
-<h2 id="categories">Categories</h2>
-
-<h3 id="list"><a name="transactions-categories-get"></a> List</h3>
-
+<h2 id='categories-1'><span id=categories></span>Categories</h2><h3 id='a-name-transactions-categories-get-a-list-1'><span id=a-name-transactions-categories-get-a-list></span><a name="transactions-categories-get"></a> List</h3>
 <blockquote>
 <p>Example:</p>
 </blockquote>
@@ -655,12 +630,10 @@ Requires <code>Transaction:Api:Transactions:Get</code> permit
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/transactions/categories</code></p>
+<p><strong>GET</strong> <code>v3/:loyalty_club_slug/transactions/categories</code></p>
 
 <p>Get categories</p>
-
-<h4 id="request-parameters">Request Parameters</h4>
-
+<h4 id='request-parameters-1'><span id=request-parameters></span>Request Parameters</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -694,9 +667,7 @@ Requires <code>Transaction:Api:Transactions:Get</code> permit
 <td></td>
 </tr>
 </tbody></table>
-
-<h4 id="error-responses">Error responses</h4>
-
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -704,7 +675,7 @@ Requires <code>Transaction:Api:Transactions:Get</code> permit
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">422</code></td>
+<td><code>422</code></td>
 <td>Invalid parameters (see example on the right)</td>
 </tr>
 </tbody></table>
@@ -712,11 +683,7 @@ Requires <code>Transaction:Api:Transactions:Get</code> permit
 <aside class="notice">
 Requires <code>Transaction:Api:Transactions:Get</code> permit
 </aside> 
-
-<h2 id="events">Events</h2>
-
-<h3 id="create-events"><a name="transactions-events-create"></a> Create events</h3>
-
+<h2 id='events-1'><span id=events></span>Events</h2><h3 id='a-name-transactions-events-create-a-create-events-1'><span id=a-name-transactions-events-create-a-create-events></span><a name="transactions-events-create"></a> Create events</h3>
 <blockquote>
 <p>Example:</p>
 
@@ -858,12 +825,10 @@ Requires <code>Transaction:Api:Transactions:Get</code> permit
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>POST</strong> <code class="prettyprint">v3/:loyalty_club_slug/transactions/events</code></p>
+<p><strong>POST</strong> <code>v3/:loyalty_club_slug/transactions/events</code></p>
 
 <p>Send different bonus events events</p>
-
-<h4 id="request-parameters">Request Parameters</h4>
-
+<h4 id='request-parameters-1'><span id=request-parameters></span>Request Parameters</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -996,9 +961,7 @@ Requires <code>Transaction:Api:Transactions:Get</code> permit
 <td></td>
 </tr>
 </tbody></table>
-
-<h4 id="error-responses">Error responses</h4>
-
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -1006,7 +969,7 @@ Requires <code>Transaction:Api:Transactions:Get</code> permit
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">422</code></td>
+<td><code>422</code></td>
 <td>Invalid parameters (see example on the right)</td>
 </tr>
 </tbody></table>

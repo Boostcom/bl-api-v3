@@ -1,21 +1,14 @@
-<h1 id="rewards-api">Rewards API</h1>
-
-<h2 id="introduction">Introduction</h2>
-
+<h1 id='rewards-api-1'><span id=rewards-api></span>Rewards API</h1><h2 id='introduction-1'><span id=introduction></span>Introduction</h2>
 <p>Placewise Rewards is a Loyalty Program that awards members for achieving some defined goals with points.</p>
 
 <p>The points may be spent on acquiring (purchasing) special rewards and then using them.
 Points may expire after some time.</p>
 
 <p>Participation in program is optional, so member can enroll (join) to it and leave it.</p>
-
-<h3 id="achievements">Achievements</h3>
-
+<h3 id='achievements-1'><span id=achievements></span>Achievements</h3>
 <p>Every Loyalty Club that has Placewise Rewards enabled, has defined list of achievements that have rules attached to them.
 The rules are described below.</p>
-
-<h3 id="achievement-model"><a name="rewards-program-achievements"></a> Achievement model</h3>
-
+<h3 id='a-name-rewards-program-achievements-a-achievement-model-1'><span id=a-name-rewards-program-achievements-a-achievement-model></span><a name="rewards-program-achievements"></a> Achievement model</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -36,27 +29,25 @@ The rules are described below.</p>
 <tr>
 <td>limit</td>
 <td>integer</td>
-<td>Maximum number of times the member can have the achievement granted (when null, there&rsquo;s no limit)</td>
+<td>Maximum number of times the member can have the achievement granted (when null, there&#39;s no limit)</td>
 </tr>
 <tr>
 <td>frequency</td>
 <td>Object</td>
-<td>How often the achievement may be granted to member (when null, there are no constraints). For example, achievement with frequency defined as <code class="prettyprint">{&quot;timespan&quot;: &quot;day&quot;, &quot;limit&quot;: 5}</code> means that member may get points for it at most 5 times a day.</td>
+<td>How often the achievement may be granted to member (when null, there are no constraints). For example, achievement with frequency defined as <code>{&quot;timespan&quot;: &quot;day&quot;, &quot;limit&quot;: 5}</code> means that member may get points for it at most 5 times a day.</td>
 </tr>
 <tr>
-<td>frequency[&lsquo;timespan&rsquo;]</td>
+<td>frequency[&#39;timespan&#39;]</td>
 <td>string</td>
-<td>One of: <code class="prettyprint">[&#39;hour&#39;, &#39;day&#39;, &#39;week&#39;, &#39;month&#39;, &#39;year&#39;]</code></td>
+<td>One of: <code>[&#39;hour&#39;, &#39;day&#39;, &#39;week&#39;, &#39;month&#39;, &#39;year&#39;]</code></td>
 </tr>
 <tr>
-<td>frequency[&lsquo;limit&rsquo;]</td>
+<td>frequency[&#39;limit&#39;]</td>
 <td>integer</td>
 <td></td>
 </tr>
 </tbody></table>
-
-<h4 id="achievement-types"><a name="rewards-program-achievement-types"></a> Achievement types</h4>
-
+<h4 id='a-name-rewards-program-achievement-types-a-achievement-types-1'><span id=a-name-rewards-program-achievement-types-a-achievement-types></span><a name="rewards-program-achievement-types"></a> Achievement types</h4>
 <table><thead>
 <tr>
 <th>type</th>
@@ -85,7 +76,7 @@ The rules are described below.</p>
 </tr>
 <tr>
 <td>wifi_approached</td>
-<td>Member approached (logged in to) loyalty club&rsquo;s WiFi</td>
+<td>Member approached (logged in to) loyalty club&#39;s WiFi</td>
 </tr>
 <tr>
 <td>geofence_approached</td>
@@ -93,16 +84,14 @@ The rules are described below.</p>
 </tr>
 <tr>
 <td>beacon_approached</td>
-<td>Member approached one of loyalty club&rsquo;s beacons</td>
+<td>Member approached one of loyalty club&#39;s beacons</td>
 </tr>
 <tr>
 <td>consent_granted</td>
-<td>Member granted one of loyalty club&rsquo;s consents</td>
+<td>Member granted one of loyalty club&#39;s consents</td>
 </tr>
 </tbody></table>
-
-<h3 id="member-levels"><a name="rewards-program-levels-program"></a> Member levels</h3>
-
+<h3 id='a-name-rewards-program-levels-program-a-member-levels-1'><span id=a-name-rewards-program-levels-program-a-member-levels></span><a name="rewards-program-levels-program"></a> Member levels</h3>
 <blockquote>
 <p>Example configuration for regular levels</p>
 </blockquote>
@@ -137,24 +126,18 @@ The rules are described below.</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Loyalty Club may have members level defined (available in <a href="#rewards-program-info">Rewards Program &bull; Get info</a> response).
-There are two types of them: <code class="prettyprint">regular</code> and <code class="prettyprint">virtual_level</code>.</p>
-
-<h4 id="regular-levels">Regular levels</h4>
-
+There are two types of them: <code>regular</code> and <code>virtual_level</code>.</p>
+<h4 id='regular-levels-1'><span id=regular-levels></span>Regular levels</h4>
 <p>When regular levels are enabled, members get levels based on the amount of points that they have earned 
 in program (in <strong>total</strong>, not the current balance) and may need to have minimal level to purchase some rewards. </p>
 
-<p>Each level has <code class="prettyprint">points_threshold</code> value (integer) that describes how many points are needed to reach the level (first level always requires 0 points to have).
-Levels are returned in ascending order, sorted by the <code class="prettyprint">points_threshold</code> attribute. </p>
-
-<h4 id="single-virtual-level">Single virtual level</h4>
-
+<p>Each level has <code>points_threshold</code> value (integer) that describes how many points are needed to reach the level (first level always requires 0 points to have).
+Levels are returned in ascending order, sorted by the <code>points_threshold</code> attribute. </p>
+<h4 id='single-virtual-level-1'><span id=single-virtual-level></span>Single virtual level</h4>
 <p>When single virtual level is enabled, it is just used to show member how he performs in the Rewards Program.</p>
 
-<p>It defines <code class="prettyprint">maximum_points</code> value, that is meant to be compared with member&rsquo;s <strong>current</strong> points balance.</p>
-
-<h4 id="common-error-responses">Common error responses</h4>
-
+<p>It defines <code>maximum_points</code> value, that is meant to be compared with member&#39;s <strong>current</strong> points balance.</p>
+<h4 id='common-error-responses-1'><span id=common-error-responses></span>Common error responses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -162,19 +145,15 @@ Levels are returned in ascending order, sorted by the <code class="prettyprint">
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">467</code></td>
-<td><code class="prettyprint">{&quot;error&quot;: &quot;Member is banned!&quot;, &quot;banned_until&quot;: &quot;2020-10-28T17:24:06.207Z&quot;}</code></td>
+<td><code>467</code></td>
+<td><code>{&quot;error&quot;: &quot;Member is banned!&quot;, &quot;banned_until&quot;: &quot;2020-10-28T17:24:06.207Z&quot;}</code></td>
 </tr>
 <tr>
-<td><code class="prettyprint">480</code></td>
-<td><code class="prettyprint">{&quot;error&quot;: &quot;Member is not participating in Rewards Program&quot;}</code></td>
+<td><code>480</code></td>
+<td><code>{&quot;error&quot;: &quot;Member is not participating in Rewards Program&quot;}</code></td>
 </tr>
 </tbody></table>
-
-<h2 id="rewards-program">Rewards Program</h2>
-
-<h3 id="get-info"><a name="rewards-program-info"></a> Get info</h3>
-
+<h2 id='rewards-program-1'><span id=rewards-program></span>Rewards Program</h2><h3 id='a-name-rewards-program-info-a-get-info-1'><span id=a-name-rewards-program-info-a-get-info></span><a name="rewards-program-info"></a> Get info</h3>
 <blockquote>
 <p>Example:</p>
 </blockquote>
@@ -226,12 +205,10 @@ Levels are returned in ascending order, sorted by the <code class="prettyprint">
   </span><span class="s2">"reward_activation_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">35</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>GET</strong> <code class="prettyprint">v3/infinity-mall/rewards-program/info</code></p>
+<p><strong>GET</strong> <code>v3/infinity-mall/rewards-program/info</code></p>
 
 <p>Returns information about Rewards Program in Loyalty Club. </p>
-
-<h4 id="response-json-object">Response (JSON object)</h4>
-
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -259,9 +236,7 @@ Levels are returned in ascending order, sorted by the <code class="prettyprint">
 <aside class="notice">
 Requires <code>Rewards:Api:Program:GetInfo</code> permit
 </aside>
-
-<h3 id="join"><a name="rewards-program-join"></a> Join</h3>
-
+<h3 id='a-name-rewards-program-join-a-join-1'><span id=a-name-rewards-program-join-a-join></span><a name="rewards-program-join"></a> Join</h3>
 <blockquote>
 <p>Example:</p>
 </blockquote>
@@ -280,18 +255,16 @@ Requires <code>Rewards:Api:Program:GetInfo</code> permit
   </span><span class="err">//</span><span class="w"> </span><span class="err">Empty</span><span class="w"> </span><span class="err">object</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>POST</strong> <code class="prettyprint">v3/infinity-mall/members/me/rewards-program/join</code></p>
+<p><strong>POST</strong> <code>v3/infinity-mall/members/me/rewards-program/join</code></p>
 
-<p>Registers current member in Rewards Program. This results granting &ldquo;rewards_enrollment&rdquo; consent to user.</p>
+<p>Registers current member in Rewards Program. This results granting &quot;rewards_enrollment&quot; consent to user.</p>
 
 <p>As a member-related action, it requires member authorization. See <a href="#oauth2">OAuth</a>.</p>
 
 <aside class="notice">
 Requires <code>Rewards:Api:OAuth:Memberships:Create</code> permit
 </aside>
-
-<h3 id="leave"><a name="rewards-program-leave"></a> Leave</h3>
-
+<h3 id='a-name-rewards-program-leave-a-leave-1'><span id=a-name-rewards-program-leave-a-leave></span><a name="rewards-program-leave"></a> Leave</h3>
 <blockquote>
 <p>Example:</p>
 </blockquote>
@@ -310,9 +283,9 @@ Requires <code>Rewards:Api:OAuth:Memberships:Create</code> permit
   </span><span class="err">//</span><span class="w"> </span><span class="err">Empty</span><span class="w"> </span><span class="err">object</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>DELETE</strong> <code class="prettyprint">v3/infinity-mall/members/me/rewards-program/leave</code></p>
+<p><strong>DELETE</strong> <code>v3/infinity-mall/members/me/rewards-program/leave</code></p>
 
-<p>Removes current member from Rewards Program. This results in removing &ldquo;rewards_enrollment&rdquo; consent from member
+<p>Removes current member from Rewards Program. This results in removing &quot;rewards_enrollment&quot; consent from member
 and <strong>deletion of all points and transaction from Rewards Program.</strong></p>
 
 <p>As a member-related action, it requires member authorization. See <a href="#oauth2">OAuth</a>.</p>
@@ -320,9 +293,7 @@ and <strong>deletion of all points and transaction from Rewards Program.</strong
 <aside class="notice">
 Requires <code>Rewards:Api:OAuth:Memberships:Delete</code> permit
 </aside>
-
-<h3 id="get-status"><a name="rewards-program-status"></a> Get status</h3>
-
+<h3 id='a-name-rewards-program-status-a-get-status-1'><span id=a-name-rewards-program-status-a-get-status></span><a name="rewards-program-status"></a> Get status</h3>
 <blockquote>
 <p>Example:</p>
 </blockquote>
@@ -392,20 +363,18 @@ Requires <code>Rewards:Api:OAuth:Memberships:Delete</code> permit
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
-<p>When member hasn&rsquo;t joined the program, returns a response having only one key:</p>
+<p>When member hasn&#39;t joined the program, returns a response having only one key:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"membership"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>GET</strong> <code class="prettyprint">v3/infinity-mall/members/me/rewards-program/status</code></p>
+<p><strong>GET</strong> <code>v3/infinity-mall/members/me/rewards-program/status</code></p>
 
 <p>Returns Rewards Program status for current member.</p>
 
 <p>As a member-related action, it requires member authorization. See <a href="#oauth2">OAuth</a>.</p>
-
-<h4 id="query-parameters">Query Parameters</h4>
-
+<h4 id='query-parameters-1'><span id=query-parameters></span>Query Parameters</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -430,9 +399,7 @@ Requires <code>Rewards:Api:OAuth:Memberships:Delete</code> permit
 <td>Number of transactions page</td>
 </tr>
 </tbody></table>
-
-<h4 id="response-json-object">Response (JSON object)</h4>
-
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -453,7 +420,7 @@ Requires <code>Rewards:Api:OAuth:Memberships:Delete</code> permit
 <tr>
 <td>balance</td>
 <td>integer</td>
-<td>Member&rsquo;s current points number</td>
+<td>Member&#39;s current points number</td>
 </tr>
 <tr>
 <td>transactions</td>
@@ -466,9 +433,7 @@ Requires <code>Rewards:Api:OAuth:Memberships:Delete</code> permit
 <td><a href="#pagination-model">Pagination</a> object describing transactions list</td>
 </tr>
 </tbody></table>
-
-<h4 id="transaction-object">Transaction object</h4>
-
+<h4 id='transaction-object-1'><span id=transaction-object></span>Transaction object</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -478,8 +443,8 @@ Requires <code>Rewards:Api:OAuth:Memberships:Delete</code> permit
 </thead><tbody>
 <tr>
 <td>type</td>
-<td>One of: &lsquo;achievement&rsquo;, &lsquo;reward_purchase&rsquo;, &lsquo;expiration&rsquo; and &lsquo;correction&rsquo;</td>
-<td>see &ldquo;Transaction types&rdquo; below</td>
+<td>One of: &#39;achievement&#39;, &#39;reward_purchase&#39;, &#39;expiration&#39; and &#39;correction&#39;</td>
+<td>see &quot;Transaction types&quot; below</td>
 </tr>
 <tr>
 <td>date</td>
@@ -494,17 +459,15 @@ Requires <code>Rewards:Api:OAuth:Memberships:Delete</code> permit
 <tr>
 <td>expired_at</td>
 <td>Date</td>
-<td>(optional) When the points granted by the transaction expired. When null, they&rsquo;re not expired</td>
+<td>(optional) When the points granted by the transaction expired. When null, they&#39;re not expired</td>
 </tr>
 <tr>
 <td>details</td>
 <td>Object</td>
-<td>Transaction-specific details - see &ldquo;Transaction details&rdquo; below</td>
+<td>Transaction-specific details - see &quot;Transaction details&quot; below</td>
 </tr>
 </tbody></table>
-
-<h4 id="transaction-types">Transaction types</h4>
-
+<h4 id='transaction-types-1'><span id=transaction-types></span>Transaction types</h4>
 <table><thead>
 <tr>
 <th>Type</th>
@@ -525,12 +488,10 @@ Requires <code>Rewards:Api:OAuth:Memberships:Delete</code> permit
 </tr>
 <tr>
 <td>correction</td>
-<td>Change of points caused by admin&rsquo;s manual correction</td>
+<td>Change of points caused by admin&#39;s manual correction</td>
 </tr>
 </tbody></table>
-
-<h4 id="transaction-details">Transaction details</h4>
-
+<h4 id='transaction-details-1'><span id=transaction-details></span>Transaction details</h4>
 <p>Depending on transaction type, the details contain different kind of data.</p>
 
 <table><thead>
@@ -553,16 +514,14 @@ Requires <code>Rewards:Api:OAuth:Memberships:Delete</code> permit
 <tr>
 <td>correction</td>
 <td>comment</td>
-<td>(optional) Admin&rsquo;s notes</td>
+<td>(optional) Admin&#39;s notes</td>
 </tr>
 </tbody></table>
 
 <aside class="notice">
 Requires <code>Rewards:Api:OAuth:Memberships:CheckStatus</code> permit
 </aside>
-
-<h3 id="get-status-by-member-id"><a name="rewards-program-status-by-member-id"></a> Get status by member ID</h3>
-
+<h3 id='a-name-rewards-program-status-by-member-id-a-get-status-by-member-id-1'><span id=a-name-rewards-program-status-by-member-id-a-get-status-by-member-id></span><a name="rewards-program-status-by-member-id"></a> Get status by member ID</h3>
 <blockquote>
 <p>Example:</p>
 </blockquote>
@@ -577,7 +536,7 @@ Requires <code>Rewards:Api:OAuth:Memberships:CheckStatus</code> permit
 <p>Returns response as in <a href="$rewards-program-status">Rewards Program &bull; Get Status</a></p>
 </blockquote>
 
-<p><strong>GET</strong> <code class="prettyprint">v3/infinity-mall/members/:id/rewards-program/status</code></p>
+<p><strong>GET</strong> <code>v3/infinity-mall/members/:id/rewards-program/status</code></p>
 
 <p>Returns Rewards Program status for member identified by given ID.
 Works just the same as <a href="#rewards-program-status">Rewards Program &bull; Get Status</a>.</p>
@@ -585,9 +544,7 @@ Works just the same as <a href="#rewards-program-status">Rewards Program &bull; 
 <aside class="notice">
 Requires <code>Rewards:Api:Memberships:CheckStatus</code> permit
 </aside>
-
-<h3 id="achievements-summary"><a name="rewards-program-achievements-summary"></a> Achievements summary</h3>
-
+<h3 id='a-name-rewards-program-achievements-summary-a-achievements-summary-1'><span id=a-name-rewards-program-achievements-summary-a-achievements-summary></span><a name="rewards-program-achievements-summary"></a> Achievements summary</h3>
 <blockquote>
 <p>Example:</p>
 </blockquote>
@@ -643,14 +600,12 @@ Requires <code>Rewards:Api:Memberships:CheckStatus</code> permit
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>GET</strong> <code class="prettyprint">v3/infinity-mall/members/me/rewards-program/status/achievements_summary</code></p>
+<p><strong>GET</strong> <code>v3/infinity-mall/members/me/rewards-program/status/achievements_summary</code></p>
 
 <p>Returns a summary for achievements made by member, grouped by type and month.</p>
 
 <p>As a member-related action, it requires member authorization. See <a href="#oauth2">OAuth</a>.</p>
-
-<h4 id="query-parameters">Query Parameters</h4>
-
+<h4 id='query-parameters-1'><span id=query-parameters></span>Query Parameters</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -668,9 +623,7 @@ Requires <code>Rewards:Api:Memberships:CheckStatus</code> permit
 <td>Number of last months to fetch. Must be in (0..999) range</td>
 </tr>
 </tbody></table>
-
-<h4 id="achievement-by-type-json-object">Achievement by type JSON object</h4>
-
+<h4 id='achievement-by-type-json-object-1'><span id=achievement-by-type-json-object></span>Achievement by type JSON object</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -694,9 +647,7 @@ Requires <code>Rewards:Api:Memberships:CheckStatus</code> permit
 <td>Sum of points member get with this achievement type</td>
 </tr>
 </tbody></table>
-
-<h4 id="achievement-by-month-json-object">Achievement by month JSON object</h4>
-
+<h4 id='achievement-by-month-json-object-1'><span id=achievement-by-month-json-object></span>Achievement by month JSON object</h4>
 <table><thead>
 <tr>
 <th>Key</th>

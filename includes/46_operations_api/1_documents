@@ -1,7 +1,4 @@
-<h2 id="documents"><a name="operations-documents"></a> Documents</h2>
-
-<h3 id="document-model"><a name="operations-document-model"></a> Document model</h3>
-
+<h2 id='a-name-operations-documents-a-documents-1'><span id=a-name-operations-documents-a-documents></span><a name="operations-documents"></a> Documents</h2><h3 id='a-name-operations-document-model-a-document-model-1'><span id=a-name-operations-document-model-a-document-model></span><a name="operations-document-model"></a> Document model</h3>
 <blockquote>
 <p>Document example:</p>
 </blockquote>
@@ -45,7 +42,7 @@
 <td>deadline_at</td>
 <td>datetime</td>
 <td>when not confirmable</td>
-<td>Time until document is meant to be confirmed by recipients - only for <code class="prettyprint">confirmable</code> documents</td>
+<td>Time until document is meant to be confirmed by recipients - only for <code>confirmable</code> documents</td>
 </tr>
 <tr>
 <td>created_at</td>
@@ -68,9 +65,7 @@
 </tbody></table>
 
 <p>For more details, see <a href="#operations-admin-document-model">Document model</a> in Operations Admin API</p>
-
-<h3 id="list-documents"><a name="operations-list-documents"></a> List Documents</h3>
-
+<h3 id='a-name-operations-list-documents-a-list-documents-1'><span id=a-name-operations-list-documents-a-list-documents></span><a name="operations-list-documents"></a> List Documents</h3>
 <blockquote>
 <p>Example</p>
 </blockquote>
@@ -89,12 +84,10 @@
   </span><span class="s2">"pagination_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Pagination</span><span class="w"> </span><span class="err">info</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="s2">"Pagination info"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>GET</strong> <code class="prettyprint">v1/users/me/operations/documents</code></p>
+<p><strong>GET</strong> <code>v1/users/me/operations/documents</code></p>
 
 <p>Returns list of <a href="#operations-document-model">Documents</a> shared with current user.</p>
-
-<h4 id="query-parameters">Query Parameters</h4>
-
+<h4 id='query-parameters-1'><span id=query-parameters></span>Query Parameters</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -132,9 +125,7 @@
 <aside class="notice">
 Requires <code>Operations:Api:Users:Documents:List</code> permit
 </aside>
-
-<h3 id="get-document"><a name="operations-show-document"></a> Get Document</h3>
-
+<h3 id='a-name-operations-show-document-a-get-document-1'><span id=a-name-operations-show-document-a-get-document></span><a name="operations-show-document"></a> Get Document</h3>
 <blockquote>
 <p>Example</p>
 </blockquote>
@@ -152,12 +143,10 @@ Requires <code>Operations:Api:Users:Documents:List</code> permit
   </span><span class="s2">"document"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Document model"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>GET</strong> <code class="prettyprint">v1/users/me/operations/documents/:id</code></p>
+<p><strong>GET</strong> <code>v1/users/me/operations/documents/:id</code></p>
 
 <p>Returns given <a href="#operations-document-model">Document</a> shared with current user. </p>
-
-<h4 id="url-parameters">URL Parameters</h4>
-
+<h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -171,9 +160,7 @@ Requires <code>Operations:Api:Users:Documents:List</code> permit
 <td>Document ID</td>
 </tr>
 </tbody></table>
-
-<h4 id="error-responses">Error responses</h4>
-
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -181,7 +168,7 @@ Requires <code>Operations:Api:Users:Documents:List</code> permit
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">404</code></td>
+<td><code>404</code></td>
 <td>Document not found</td>
 </tr>
 </tbody></table>
@@ -189,9 +176,7 @@ Requires <code>Operations:Api:Users:Documents:List</code> permit
 <aside class="notice">
 Requires <code>Operations:Api:Users:Documents:Show</code> permit
 </aside>
-
-<h3 id="confirm-document"><a name="operations-show-document"></a> Confirm Document</h3>
-
+<h3 id='a-name-operations-show-document-a-confirm-document-1'><span id=a-name-operations-show-document-a-confirm-document></span><a name="operations-show-document"></a> Confirm Document</h3>
 <blockquote>
 <p>Example</p>
 </blockquote>
@@ -209,12 +194,10 @@ Requires <code>Operations:Api:Users:Documents:Show</code> permit
   </span><span class="s2">"document"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Document model"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>PUT</strong> <code class="prettyprint">v1/users/me/operations/documents/:id/confirm</code></p>
+<p><strong>PUT</strong> <code>v1/users/me/operations/documents/:id/confirm</code></p>
 
 <p>Confirms given <a href="#operations-document-model">Document</a>. </p>
-
-<h4 id="url-parameters">URL Parameters</h4>
-
+<h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -228,9 +211,7 @@ Requires <code>Operations:Api:Users:Documents:Show</code> permit
 <td>Document ID</td>
 </tr>
 </tbody></table>
-
-<h4 id="error-responses">Error responses</h4>
-
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -238,11 +219,11 @@ Requires <code>Operations:Api:Users:Documents:Show</code> permit
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">404</code></td>
+<td><code>404</code></td>
 <td>Document not found</td>
 </tr>
 <tr>
-<td><code class="prettyprint">405</code></td>
+<td><code>405</code></td>
 <td>Document is not confirmable</td>
 </tr>
 </tbody></table>

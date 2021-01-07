@@ -1,7 +1,4 @@
-<h2 id="sendings"><a name="messaging-sendings"></a> Sendings</h2>
-
-<h3 id="get-sending"><a name="messaging-get-sending"></a> Get Sending</h3>
-
+<h2 id='a-name-messaging-sendings-a-sendings-1'><span id=a-name-messaging-sendings-a-sendings></span><a name="messaging-sendings"></a> Sendings</h2><h3 id='a-name-messaging-get-sending-a-get-sending-1'><span id=a-name-messaging-get-sending-a-get-sending></span><a name="messaging-get-sending"></a> Get Sending</h3>
 <blockquote>
 <p>Example</p>
 </blockquote>
@@ -20,12 +17,10 @@
   </span><span class="s2">"sending"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Sending</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sending model"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>GET</strong> <code class="prettyprint">v1/messages/sendings/:id</code></p>
+<p><strong>GET</strong> <code>v1/messages/sendings/:id</code></p>
 
 <p>Returns <a href="#messaging-sending-model">Sending</a>.  </p>
-
-<h4 id="url-parameters">URL Parameters</h4>
-
+<h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -39,9 +34,7 @@
 <td>Sending ID</td>
 </tr>
 </tbody></table>
-
-<h4 id="error-responses">Error responses</h4>
-
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -49,7 +42,7 @@
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">404</code></td>
+<td><code>404</code></td>
 <td>Sending not found</td>
 </tr>
 </tbody></table>
@@ -57,9 +50,7 @@
 <aside class="notice">
 Requires <code>Messages:Api:Sendings:Get</code> permit
 </aside>
-
-<h3 id="list-sending-dispatches"><a name="messaging-list-sending-dispatches"></a> List Sending Dispatches</h3>
-
+<h3 id='a-name-messaging-list-sending-dispatches-a-list-sending-dispatches-1'><span id=a-name-messaging-list-sending-dispatches-a-list-sending-dispatches></span><a name="messaging-list-sending-dispatches"></a> List Sending Dispatches</h3>
 <blockquote>
 <p>Example</p>
 </blockquote>
@@ -79,12 +70,10 @@ Requires <code>Messages:Api:Sendings:Get</code> permit
   </span><span class="s2">"pagination_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Pagination</span><span class="w"> </span><span class="err">info</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="s2">"Pagination info"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>GET</strong> <code class="prettyprint">v1/messages/sendings/:id</code></p>
+<p><strong>GET</strong> <code>v1/messages/sendings/:id</code></p>
 
 <p>Returns <a href="#messaging-dispatch-model">Dispatches</a> created for Sending.  </p>
-
-<h4 id="url-parameters">URL Parameters</h4>
-
+<h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -98,9 +87,7 @@ Requires <code>Messages:Api:Sendings:Get</code> permit
 <td>Sending ID</td>
 </tr>
 </tbody></table>
-
-<h4 id="query-parameters">Query Parameters</h4>
-
+<h4 id='query-parameters-1'><span id=query-parameters></span>Query Parameters</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -158,9 +145,7 @@ Requires <code>Messages:Api:Sendings:Get</code> permit
 <td>When present, returns only Dispatches sent to recipient identified by given app_token</td>
 </tr>
 </tbody></table>
-
-<h4 id="error-responses">Error responses</h4>
-
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -168,7 +153,7 @@ Requires <code>Messages:Api:Sendings:Get</code> permit
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">404</code></td>
+<td><code>404</code></td>
 <td>Sending not found</td>
 </tr>
 </tbody></table>
@@ -176,9 +161,7 @@ Requires <code>Messages:Api:Sendings:Get</code> permit
 <aside class="notice">
 Requires <code>Messages:Api:Dispatches:List</code> permit
 </aside>
-
-<h3 id="create-sending"><a name="messaging-create-sending"></a> Create Sending</h3>
-
+<h3 id='a-name-messaging-create-sending-a-create-sending-1'><span id=a-name-messaging-create-sending-a-create-sending></span><a name="messaging-create-sending"></a> Create Sending</h3>
 <blockquote>
 <p>Example - creates a Sending scheduled immediately, sent to given audience and one inline recipient.</p>
 </blockquote>
@@ -211,12 +194,10 @@ Requires <code>Messages:Api:Dispatches:List</code> permit
   </span><span class="s2">"sending"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Sending</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sending model"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>POST</strong> <code class="prettyprint">v1/messages/:message_id/sendings</code></p>
+<p><strong>POST</strong> <code>v1/messages/:message_id/sendings</code></p>
 
 <p>Creates (and schedules if demanded) Sending for given Message.</p>
-
-<h4 id="url-parameters">URL Parameters</h4>
-
+<h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -230,9 +211,7 @@ Requires <code>Messages:Api:Dispatches:List</code> permit
 <td>Message ID</td>
 </tr>
 </tbody></table>
-
-<h4 id="post-parameters-json">POST Parameters (JSON)</h4>
-
+<h4 id='post-parameters-json-1'><span id=post-parameters-json></span>POST Parameters (JSON)</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -246,9 +225,7 @@ Requires <code>Messages:Api:Dispatches:List</code> permit
 <td>See: <a href="#messaging-sending-payload-model">SendingPayload model</a></td>
 </tr>
 </tbody></table>
-
-<h4 id="response-json-object">Response (JSON object)</h4>
-
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -262,9 +239,7 @@ Requires <code>Messages:Api:Dispatches:List</code> permit
 <td>See: <a href="#messaging-sending-model">Sending model</a></td>
 </tr>
 </tbody></table>
-
-<h4 id="error-responses">Error responses</h4>
-
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -272,15 +247,15 @@ Requires <code>Messages:Api:Dispatches:List</code> permit
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">403</code></td>
+<td><code>403</code></td>
 <td>Unauthorized to set Sending priority</td>
 </tr>
 <tr>
-<td><code class="prettyprint">404</code></td>
+<td><code>404</code></td>
 <td>Message not found</td>
 </tr>
 <tr>
-<td><code class="prettyprint">422</code></td>
+<td><code>422</code></td>
 <td>Invalid parameters - see <a href="#invalid-parameters-errors-model">Invalid parameters errors model</a></td>
 </tr>
 </tbody></table>
@@ -288,11 +263,9 @@ Requires <code>Messages:Api:Dispatches:List</code> permit
 <aside class="notice">
 Requires <code>Messages:Api:Sendings:Create</code> permit
 </aside>
-
-<h3 id="update-sending"><a name="messaging-update-sending"></a> Update Sending</h3>
-
+<h3 id='a-name-messaging-update-sending-a-update-sending-1'><span id=a-name-messaging-update-sending-a-update-sending></span><a name="messaging-update-sending"></a> Update Sending</h3>
 <blockquote>
-<p>Example - updates the Sending - it&rsquo;s unscheduled and audience is removed</p>
+<p>Example - updates the Sending - it&#39;s unscheduled and audience is removed</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X PUT <span class="se">\</span>
 <span class="s2">"https://api.mpc.placewise.com/v1/messages/sendings/42"</span> <span class="se">\</span>
@@ -317,20 +290,16 @@ Requires <code>Messages:Api:Sendings:Create</code> permit
   </span><span class="s2">"sending"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Sending</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sending model"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>PUT</strong> <code class="prettyprint">v1/messages/sendings/:id</code></p>
+<p><strong>PUT</strong> <code>v1/messages/sendings/:id</code></p>
 
 <p>Updates Sending attributes. </p>
 
 <p>The update is partial - only attributes present in the payload are updated. 
-If attribute removal is intended, it should be provided with <code class="prettyprint">null</code> value.</p>
-
-<h5 id="updating-recipients">Updating recipients</h5>
-
-<p>If <code class="prettyprint">recipients</code> are given, the Sending Recipients are replaced with given ones. 
+If attribute removal is intended, it should be provided with <code>null</code> value.</p>
+<h5 id='updating-recipients-1'><span id=updating-recipients></span>Updating recipients</h5>
+<p>If <code>recipients</code> are given, the Sending Recipients are replaced with given ones. 
 When the array is empty, all Recipients are removed from Sending.</p>
-
-<h4 id="url-parameters">URL Parameters</h4>
-
+<h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -344,9 +313,7 @@ When the array is empty, all Recipients are removed from Sending.</p>
 <td>Sending ID</td>
 </tr>
 </tbody></table>
-
-<h4 id="post-parameters-json">POST Parameters (JSON)</h4>
-
+<h4 id='post-parameters-json-1'><span id=post-parameters-json></span>POST Parameters (JSON)</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -360,9 +327,7 @@ When the array is empty, all Recipients are removed from Sending.</p>
 <td>See: <a href="#messaging-sending-payload-model">SendingPayload model</a></td>
 </tr>
 </tbody></table>
-
-<h4 id="response-json-object">Response (JSON object)</h4>
-
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -376,9 +341,7 @@ When the array is empty, all Recipients are removed from Sending.</p>
 <td>See: <a href="#messaging-sending-model">Sending model</a></td>
 </tr>
 </tbody></table>
-
-<h4 id="error-responses">Error responses</h4>
-
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -386,19 +349,19 @@ When the array is empty, all Recipients are removed from Sending.</p>
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">403</code></td>
+<td><code>403</code></td>
 <td>Unauthorized to set Sending priority</td>
 </tr>
 <tr>
-<td><code class="prettyprint">404</code></td>
+<td><code>404</code></td>
 <td>Sending not found</td>
 </tr>
 <tr>
-<td><code class="prettyprint">405</code></td>
+<td><code>405</code></td>
 <td>Sending is not editable - execution process has started or finished</td>
 </tr>
 <tr>
-<td><code class="prettyprint">422</code></td>
+<td><code>422</code></td>
 <td>Invalid parameters - see <a href="#invalid-parameters-errors-model">Invalid parameters errors model</a></td>
 </tr>
 </tbody></table>
@@ -406,9 +369,7 @@ When the array is empty, all Recipients are removed from Sending.</p>
 <aside class="notice">
 Requires <code>Messages:Api:Sendings:Update</code> permit
 </aside>
-
-<h3 id="cancel-sending"><a name="messaging-cancel-sending"></a> Cancel Sending</h3>
-
+<h3 id='a-name-messaging-cancel-sending-a-cancel-sending-1'><span id=a-name-messaging-cancel-sending-a-cancel-sending></span><a name="messaging-cancel-sending"></a> Cancel Sending</h3>
 <blockquote>
 <p>Example - cancels the Sending execution</p>
 </blockquote>
@@ -427,12 +388,10 @@ Requires <code>Messages:Api:Sendings:Update</code> permit
   </span><span class="s2">"sending"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Sending</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sending model"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>PUT</strong> <code class="prettyprint">v1/messages/sendings/:id</code></p>
+<p><strong>PUT</strong> <code>v1/messages/sendings/:id</code></p>
 
 <p>Cancels Sending execution process. See <a href="#messaging-sending-status">Sending status</a>.</p>
-
-<h4 id="url-parameters">URL Parameters</h4>
-
+<h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -446,9 +405,7 @@ Requires <code>Messages:Api:Sendings:Update</code> permit
 <td>Sending ID</td>
 </tr>
 </tbody></table>
-
-<h4 id="response-json-object">Response (JSON object)</h4>
-
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -462,9 +419,7 @@ Requires <code>Messages:Api:Sendings:Update</code> permit
 <td>See: <a href="#messaging-sending-model">Sending model</a></td>
 </tr>
 </tbody></table>
-
-<h4 id="error-responses">Error responses</h4>
-
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -472,11 +427,11 @@ Requires <code>Messages:Api:Sendings:Update</code> permit
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">404</code></td>
+<td><code>404</code></td>
 <td>Sending not found</td>
 </tr>
 <tr>
-<td><code class="prettyprint">405</code></td>
+<td><code>405</code></td>
 <td>Sending is not cancellable - execution is not in progress</td>
 </tr>
 </tbody></table>

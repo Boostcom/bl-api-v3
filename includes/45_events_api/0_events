@@ -1,13 +1,8 @@
-<h1 id="events-api">Events API</h1>
-
+<h1 id='events-api-1'><span id=events-api></span>Events API</h1>
 <aside class="warning">
 This API is in development. Therefore, it may not be ready for use and is a subject to change at any time.
 </aside>
-
-<h2 id="events">Events</h2>
-
-<h3 id="list"><a name="events-list"></a> List</h3>
-
+<h2 id='events-1'><span id=events></span>Events</h2><h3 id='a-name-events-list-a-list-1'><span id=a-name-events-list-a-list></span><a name="events-list"></a> List</h3>
 <blockquote>
 <p>Example:</p>
 </blockquote>
@@ -38,16 +33,14 @@ This API is in development. Therefore, it may not be ready for use and is a subj
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
-<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/events</code></p>
+<p><strong>GET</strong> <code>v3/:loyalty_club_slug/events</code></p>
 
 <p>List of events</p>
 
 <aside class="notice">
 Requires <code>Events:Api:Events:Get</code> permit
 </aside>
-
-<h3 id="get"><a name="event-get"></a> Get</h3>
-
+<h3 id='a-name-event-get-a-get-1'><span id=a-name-event-get-a-get></span><a name="event-get"></a> Get</h3>
 <blockquote>
 <p>Example:</p>
 </blockquote>
@@ -76,16 +69,14 @@ Requires <code>Events:Api:Events:Get</code> permit
       </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/events/:event_id</code></p>
+<p><strong>GET</strong> <code>v3/:loyalty_club_slug/events/:event_id</code></p>
 
 <p>Single event information</p>
 
 <aside class="notice">
 Requires <code>Events:Api:Events:Get</code> permit
 </aside>
-
-<h3 id="member-validation"><a name="events-validate-member"></a> Member validation</h3>
-
+<h3 id='a-name-events-validate-member-a-member-validation-1'><span id=a-name-events-validate-member-a-member-validation></span><a name="events-validate-member"></a> Member validation</h3>
 <blockquote>
 <p>Example:</p>
 </blockquote>
@@ -111,22 +102,20 @@ Requires <code>Events:Api:Events:Get</code> permit
   </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
-<p>When <code class="prettyprint">event_id</code> is invalid (422), returns:</p>
+<p>When <code>event_id</code> is invalid (422), returns:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Event not found"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>POST</strong> <code class="prettyprint">v3/:loyalty_club_slug/events/validate</code></p>
+<p><strong>POST</strong> <code>v3/:loyalty_club_slug/events/validate</code></p>
 
 <p>Check if member is registered to the event, should be uses only for closed events</p>
 
 <aside class="notice">
 Requires <code>Events:Api:Validation:Create</code> permit
 </aside>
-
-<h4 id="parameters">Parameters</h4>
-
+<h4 id='parameters-1'><span id=parameters></span>Parameters</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -145,9 +134,7 @@ Requires <code>Events:Api:Validation:Create</code> permit
 <td>integer</td>
 </tr>
 </tbody></table>
-
-<h4 id="error-responses">Error responses</h4>
-
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -155,15 +142,11 @@ Requires <code>Events:Api:Validation:Create</code> permit
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">422</code></td>
+<td><code>422</code></td>
 <td>Invalid parameters (see example on the right)</td>
 </tr>
 </tbody></table>
-
-<h2 id="checkins">Checkins</h2>
-
-<h3 id="create"><a name="events-checkin-member"></a> Create</h3>
-
+<h2 id='checkins-1'><span id=checkins></span>Checkins</h2><h3 id='a-name-events-checkin-member-a-create-1'><span id=a-name-events-checkin-member-a-create></span><a name="events-checkin-member"></a> Create</h3>
 <blockquote>
 <p>Example:</p>
 </blockquote>
@@ -194,7 +177,7 @@ Requires <code>Events:Api:Validation:Create</code> permit
   </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
-<p>When <code class="prettyprint">event_id</code> is invalid (422), returns:</p>
+<p>When <code>event_id</code> is invalid (422), returns:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Event not found"</span><span class="w">
@@ -205,9 +188,7 @@ Requires <code>Events:Api:Validation:Create</code> permit
 <aside class="notice">
 Requires <code>Events:Api:Checkin:Create</code> permit
 </aside> 
-
-<h4 id="parameters">Parameters</h4>
-
+<h4 id='parameters-1'><span id=parameters></span>Parameters</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -235,9 +216,7 @@ Requires <code>Events:Api:Checkin:Create</code> permit
 <td>1 - not a member, 2 - member not registered to the event, 3 - member scanned in the time limit</td>
 </tr>
 </tbody></table>
-
-<h4 id="error-responses">Error responses</h4>
-
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -245,15 +224,13 @@ Requires <code>Events:Api:Checkin:Create</code> permit
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">422</code></td>
+<td><code>422</code></td>
 <td>Invalid parameters (see example on the right)</td>
 </tr>
 </tbody></table>
 
-<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/events/checkin</code></p>
-
-<h3 id="list"><a name="events-checkin-list"></a> List</h3>
-
+<p><strong>GET</strong> <code>v3/:loyalty_club_slug/events/checkin</code></p>
+<h3 id='a-name-events-checkin-list-a-list-1'><span id=a-name-events-checkin-list-a-list></span><a name="events-checkin-list"></a> List</h3>
 <blockquote>
 <p>Example:</p>
 </blockquote>
@@ -275,18 +252,14 @@ Requires <code>Events:Api:Checkin:Create</code> permit
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
-<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/events/checkin/:event_id</code></p>
+<p><strong>GET</strong> <code>v3/:loyalty_club_slug/events/checkin/:event_id</code></p>
 
 <p>List scanned/checked in events</p>
 
 <aside class="notice">
 Requires <code>Events:Api:Checkin:Get</code> permit
 </aside>
-
-<h2 id="invitations">Invitations</h2>
-
-<h3 id="send-invitation"><a name="events-invitation"></a> Send invitation</h3>
-
+<h2 id='invitations-1'><span id=invitations></span>Invitations</h2><h3 id='a-name-events-invitation-a-send-invitation-1'><span id=a-name-events-invitation-a-send-invitation></span><a name="events-invitation"></a> Send invitation</h3>
 <blockquote>
 <p>Example:</p>
 </blockquote>
@@ -310,22 +283,20 @@ Requires <code>Events:Api:Checkin:Get</code> permit
     </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
-<p>When <code class="prettyprint">event_id</code> is invalid (422), returns:</p>
+<p>When <code>event_id</code> is invalid (422), returns:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Event not found"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/events/invitation</code></p>
+<p><strong>GET</strong> <code>v3/:loyalty_club_slug/events/invitation</code></p>
 
 <p>Send email invitation to loyalty club</p>
 
 <aside class="notice">
 Requires <code>Events:Api:Invitation:Create</code> permit
 </aside>
-
-<h4 id="payload-parameters">Payload Parameters</h4>
-
+<h4 id='payload-parameters-1'><span id=payload-parameters></span>Payload Parameters</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -344,9 +315,7 @@ Requires <code>Events:Api:Invitation:Create</code> permit
 <td>string</td>
 </tr>
 </tbody></table>
-
-<h4 id="error-responses">Error responses</h4>
-
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -354,7 +323,7 @@ Requires <code>Events:Api:Invitation:Create</code> permit
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">422</code></td>
+<td><code>422</code></td>
 <td>Invalid parameters (see example on the right)</td>
 </tr>
 </tbody></table>

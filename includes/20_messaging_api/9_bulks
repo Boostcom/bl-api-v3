@@ -1,5 +1,4 @@
-<h2 id="bulk-operations"><a name="messaging-bulk-processing"></a> Bulk Operations</h2>
-
+<h2 id='a-name-messaging-bulk-processing-a-bulk-operations-1'><span id=a-name-messaging-bulk-processing-a-bulk-operations></span><a name="messaging-bulk-processing"></a> Bulk Operations</h2>
 <blockquote>
 <p>Example - simultaneously updates Message, creates one Sending and updates another one</p>
 </blockquote>
@@ -113,7 +112,7 @@
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
-<p><strong>POST</strong> <code class="prettyprint">v1/messages/bulks</code></p>
+<p><strong>POST</strong> <code>v1/messages/bulks</code></p>
 
 <p>Allows to perform multiple operations (up to 10) on Messaging records (Messages, Sendings, Channels and Templates) 
 in a single request.</p>
@@ -122,13 +121,11 @@ in a single request.</p>
 <a href="#messaging-bulk-processing-operations">this</a> table depicts it.</p>
 
 <p>Operations are performed in a transactional way - if one of them fails, processing stops and other operations 
-are cancelled. Special code - <code class="prettyprint">470</code> - is returned as the status. 
-Actual error for operation that failed is included in the returned <code class="prettyprint">results</code> array.</p>
+are cancelled. Special code - <code>470</code> - is returned as the status. 
+Actual error for operation that failed is included in the returned <code>results</code> array.</p>
 
-<p>If all operations are successful, <code class="prettyprint">200</code> code is returned.</p>
-
-<h4 id="post-parameters-json">POST Parameters (JSON)</h4>
-
+<p>If all operations are successful, <code>200</code> code is returned.</p>
+<h4 id='post-parameters-json-1'><span id=post-parameters-json></span>POST Parameters (JSON)</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -142,9 +139,7 @@ Actual error for operation that failed is included in the returned <code class="
 <td>Array of operations (max. 10) to perform</td>
 </tr>
 </tbody></table>
-
-<h5 id="operation-model"><a name="messaging-bulk-processing-operation-model"></a> Operation model</h5>
-
+<h5 id='a-name-messaging-bulk-processing-operation-model-a-operation-model-1'><span id=a-name-messaging-bulk-processing-operation-model-a-operation-model></span><a name="messaging-bulk-processing-operation-model"></a> Operation model</h5>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -154,12 +149,12 @@ Actual error for operation that failed is included in the returned <code class="
 </thead><tbody>
 <tr>
 <td>type</td>
-<td>enum: [&lsquo;create&rsquo;, &lsquo;update&rsquo;, &lsquo;delete&rsquo;]</td>
+<td>enum: [&#39;create&#39;, &#39;update&#39;, &#39;delete&#39;]</td>
 <td>Type of operation to perform</td>
 </tr>
 <tr>
 <td>entity</td>
-<td>enum: [&lsquo;message&rsquo;, &lsquo;sending&rsquo;, &lsquo;channel&rsquo;, &lsquo;template&rsquo;]</td>
+<td>enum: [&#39;message&#39;, &#39;sending&#39;, &#39;channel&#39;, &#39;template&#39;]</td>
 <td>Type of entity to change</td>
 </tr>
 <tr>
@@ -173,9 +168,7 @@ Actual error for operation that failed is included in the returned <code class="
 <td>Attributes of identity, specific to type and operation</td>
 </tr>
 </tbody></table>
-
-<h5 id="supported-operation-types-and-their-params-and-payloads"><a name="messaging-bulk-processing-operations"></a> Supported operation types and their params and payloads</h5>
-
+<h5 id='a-name-messaging-bulk-processing-operations-a-supported-operation-types-and-their-params-and-payloads-1'><span id=a-name-messaging-bulk-processing-operations-a-supported-operation-types-and-their-params-and-payloads></span><a name="messaging-bulk-processing-operations"></a> Supported operation types and their params and payloads</h5>
 <table><thead>
 <tr>
 <th>Entity</th>
@@ -186,37 +179,35 @@ Actual error for operation that failed is included in the returned <code class="
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">message</code></td>
-<td><code class="prettyprint">create</code></td>
+<td><code>message</code></td>
+<td><code>create</code></td>
 <td>none</td>
 <td><a href="#messaging-message-creation-payload">Message creation payload</a></td>
 <td><a href="#messaging-create-message">Create Message</a></td>
 </tr>
 <tr>
-<td><code class="prettyprint">message</code></td>
-<td><code class="prettyprint">update</code></td>
-<td><code class="prettyprint">id</code></td>
+<td><code>message</code></td>
+<td><code>update</code></td>
+<td><code>id</code></td>
 <td><a href="#messaging-message-update-payload">Message update payload</a></td>
 <td><a href="#messaging-update-message">Update Message</a></td>
 </tr>
 <tr>
-<td><code class="prettyprint">sending</code></td>
-<td><code class="prettyprint">create</code></td>
-<td><code class="prettyprint">message_id</code></td>
+<td><code>sending</code></td>
+<td><code>create</code></td>
+<td><code>message_id</code></td>
 <td><a href="#messaging-sending-payload-model">SendingPayload</a></td>
 <td><a href="#messaging-create-sending">Create Sending</a></td>
 </tr>
 <tr>
-<td><code class="prettyprint">sending</code></td>
-<td><code class="prettyprint">update</code></td>
-<td><code class="prettyprint">id</code></td>
+<td><code>sending</code></td>
+<td><code>update</code></td>
+<td><code>id</code></td>
 <td><a href="#messaging-sending-payload-model">SendingPayload</a></td>
 <td><a href="#messaging-update-sending">Update Sending</a></td>
 </tr>
 </tbody></table>
-
-<h4 id="response-json-object">Response (JSON object)</h4>
-
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -228,9 +219,7 @@ Actual error for operation that failed is included in the returned <code class="
 <td><a href="#messaging-bulk-processing-result">Result[]</a></td>
 </tr>
 </tbody></table>
-
-<h5 id="result-model"><a name="messaging-bulk-processing-result"></a> Result model</h5>
-
+<h5 id='a-name-messaging-bulk-processing-result-a-result-model-1'><span id=a-name-messaging-bulk-processing-result-a-result-model></span><a name="messaging-bulk-processing-result"></a> Result model</h5>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -269,9 +258,7 @@ Actual error for operation that failed is included in the returned <code class="
 <td>JSON response of operation</td>
 </tr>
 </tbody></table>
-
-<h4 id="error-responses">Error responses</h4>
-
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -279,15 +266,15 @@ Actual error for operation that failed is included in the returned <code class="
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">200</code></td>
+<td><code>200</code></td>
 <td>All operations succeeded</td>
 </tr>
 <tr>
-<td><code class="prettyprint">470</code></td>
+<td><code>470</code></td>
 <td>At least one operation failed</td>
 </tr>
 <tr>
-<td><code class="prettyprint">422</code></td>
+<td><code>422</code></td>
 <td>Invalid parameters - see <a href="#invalid-parameters-errors-model">Invalid parameters errors model</a></td>
 </tr>
 </tbody></table>

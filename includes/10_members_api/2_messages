@@ -1,9 +1,4 @@
-<h2 id="members-messages"><a name="members-messages"></a> Members Messages</h2>
-
-<h3 id="introduction"><a name="member-messages-introduction"> Introduction</h3>
-
-<h4 id="membermessage-model"><a name="member-message-model"></a> MemberMessage model</h4>
-
+<h2 id='a-name-members-messages-a-members-messages-1'><span id=a-name-members-messages-a-members-messages></span><a name="members-messages"></a> Members Messages</h2><h3 id='a-name-member-messages-introduction-introduction-1'><span id=a-name-member-messages-introduction-introduction></span><a name="member-messages-introduction"> Introduction</h3><h4 id='a-name-member-message-model-a-membermessage-model-1'><span id=a-name-member-message-model-a-membermessage-model></span><a name="member-message-model"></a> MemberMessage model</h4>
 <blockquote>
 <p>Example:</p>
 </blockquote>
@@ -30,9 +25,9 @@
 </tr>
 <tr>
 <td>type</td>
-<td>Object with member&rsquo;s properties</td>
+<td>Object with member&#39;s properties</td>
 <td>yes</td>
-<td>enum: [&ldquo;sms&rdquo;, &ldquo;email&rdquo;, &ldquo;push&rdquo;]</td>
+<td>enum: [&quot;sms&quot;, &quot;email&quot;, &quot;push&quot;]</td>
 </tr>
 <tr>
 <td>created_at</td>
@@ -47,9 +42,7 @@
 <td>string</td>
 </tr>
 </tbody></table>
-
-<h3 id="list-member-messages"><a name="members-messages-list"></a> List Member Messages</h3>
-
+<h3 id='a-name-members-messages-list-a-list-member-messages-1'><span id=a-name-members-messages-list-a-list-member-messages></span><a name="members-messages-list"></a> List Member Messages</h3>
 <blockquote>
 <p>Example:</p>
 </blockquote>
@@ -67,15 +60,13 @@
   </span><span class="s2">"pagination_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Pagination</span><span class="w"> </span><span class="err">info</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="s2">"Pagination info"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/:member_id/messages</code></p>
+<p><strong>GET</strong> <code>v3/:loyalty_club_slug/members/:member_id/messages</code></p>
 
 <p>Returns messages sent to given Member from our system, after merging properties and shortening urls so this is the content Member received. 
-Does not translate id to other identifiers and vice versa. If no messages are found, returns an empty <code class="prettyprint">messages</code> array. </p>
+Does not translate id to other identifiers and vice versa. If no messages are found, returns an empty <code>messages</code> array. </p>
 
 <p><strong>Messages are removed when Member is deleted.</strong></p>
-
-<h4 id="url-parameters">URL Parameters</h4>
-
+<h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -103,9 +94,7 @@ Does not translate id to other identifiers and vice versa. If no messages are fo
 <td>integer</td>
 </tr>
 </tbody></table>
-
-<h4 id="response-json-object">Response (JSON object)</h4>
-
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -130,9 +119,7 @@ Requires <code>BL:Api:Members:MessagesHistory:List</code> permit
 </aside>
 
 <!--- ############################################################################################################# --->
-
-<h3 id="get-member-message"><a name="members-message-get"></a> Get Member Message</h3>
-
+<h3 id='a-name-members-message-get-a-get-member-message-1'><span id=a-name-members-message-get-a-get-member-message></span><a name="members-message-get"></a> Get Member Message</h3>
 <blockquote>
 <p>Example:</p>
 </blockquote>
@@ -149,12 +136,10 @@ Requires <code>BL:Api:Members:MessagesHistory:List</code> permit
   </span><span class="s2">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">MemberMessage</span><span class="w"> </span><span class="err">record</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"MemberMessage model"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/:member_id/messages/:id</code></p>
+<p><strong>GET</strong> <code>v3/:loyalty_club_slug/members/:member_id/messages/:id</code></p>
 
 <p>Returns specific message sent to member.</p>
-
-<h4 id="url-parameters">URL Parameters</h4>
-
+<h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -176,9 +161,7 @@ Requires <code>BL:Api:Members:MessagesHistory:List</code> permit
 <td>string</td>
 </tr>
 </tbody></table>
-
-<h4 id="response-json-object">Response (JSON object)</h4>
-
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -192,9 +175,7 @@ Requires <code>BL:Api:Members:MessagesHistory:List</code> permit
 <td><a href="#member-message-model">MemberMessage</a></td>
 </tr>
 </tbody></table>
-
-<h4 id="error-responses">Error responses</h4>
-
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -202,7 +183,7 @@ Requires <code>BL:Api:Members:MessagesHistory:List</code> permit
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">404</code></td>
+<td><code>404</code></td>
 <td>Message not found</td>
 </tr>
 </tbody></table>

@@ -1,37 +1,26 @@
-<h1 id="introduction">Introduction</h1>
-
-<p>This documentation describes Placewise&rsquo;s MPC APIs that allow to manage Loyalty Club, its members and content.</p>
-
-<h2 id="hosts">Hosts</h2>
-
+<h1 id='introduction-1'><span id=introduction></span>Introduction</h1>
+<p>This documentation describes Placewise&#39;s MPC APIs that allow to manage Loyalty Club, its members and content.</p>
+<h2 id='hosts-1'><span id=hosts></span>Hosts</h2>
 <p>Production: <a href="https://api.mpc.placewise.com">https://api.mpc.placewise.com</a></p>
 
 <p>Production (APAC region): <a href="https://api.mpc.apac.placewise.com">https://api.mpc.apac.placewise.com</a></p>
 
 <p>Staging: <a href="https://api.mpc.dev.placewise.com">https://api.mpc.dev.placewise.com</a></p>
-
-<h3 id="https-tls-requirement">HTTPS (TLS) requirement</h3>
-
-<p>To make connection to Placewise&rsquo;s MPC APIs you have to use HTTPS with TLS encryption.
+<h3 id='https-tls-requirement-1'><span id=https-tls-requirement></span>HTTPS (TLS) requirement</h3>
+<p>To make connection to Placewise&#39;s MPC APIs you have to use HTTPS with TLS encryption.
 Your client has to support TLS1.2+ with strong ciphers.</p>
+<h2 id='common-params-and-headers-1'><span id=common-params-and-headers></span>Common params and headers</h2><h3 id='quot-content-type-quot-header-1'><span id=quot-content-type-quot-header></span>&quot;content-type&quot; header</h3>
+<p>This API supports <code>application/json</code> only. </p>
 
-<h2 id="common-params-and-headers">Common params and headers</h2>
+<p>Both payload and response body are supposed to be a valid JSON so when making a request send a <code>content-type: application/json</code> header.</p>
 
-<h3 id="content-type-header">&ldquo;content-type&rdquo; header</h3>
-
-<p>This API supports <code class="prettyprint">application/json</code> only. </p>
-
-<p>Both payload and response body are supposed to be a valid JSON so when making a request send a <code class="prettyprint">content-type: application/json</code> header.</p>
-
-<p>If payload is not a valid JSON, then <code class="prettyprint">406 Not Acceptable</code> HTTP code and empty response body are returned.</p>
-
-<h3 id="x-client-authorization-header">&ldquo;x-client-authorization&rdquo; header</h3>
-
+<p>If payload is not a valid JSON, then <code>406 Not Acceptable</code> HTTP code and empty response body are returned.</p>
+<h3 id='quot-x-client-authorization-quot-header-1'><span id=quot-x-client-authorization-quot-header></span>&quot;x-client-authorization&quot; header</h3>
 <blockquote>
-<p>Example header: <code class="prettyprint">x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM</code></p>
+<p>Example header: <code>x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM</code></p>
 </blockquote>
 
-<p>All of the endpoints <strong>require</strong> a client authorization header - <code class="prettyprint">x-client-authorization</code>.</p>
+<p>All of the endpoints <strong>require</strong> a client authorization header - <code>x-client-authorization</code>.</p>
 
 <p>It should be used only on backend and never exposed in frontend code.</p>
 
@@ -39,55 +28,43 @@ Your client has to support TLS1.2+ with strong ciphers.</p>
 may be restricted.</p>
 
 <p>If you miss your authentication token, please <a href="https://placewise.com">let us know</a>.</p>
-
-<h3 id="x-user-agent-header">&ldquo;x-user-agent&rdquo; header</h3>
-
+<h3 id='quot-x-user-agent-quot-header-1'><span id=quot-x-user-agent-quot-header></span>&quot;x-user-agent&quot; header</h3>
 <blockquote>
-<p>Example header: <code class="prettyprint">x-user-agent: Infinity Mall Android App</code></p>
+<p>Example header: <code>x-user-agent: Infinity Mall Android App</code></p>
 </blockquote>
 
-<p><code class="prettyprint">x-user-agent</code> is <strong>required</strong> to distinguish specific client for information and debugging purposes so we better know who uses the service.</p>
+<p><code>x-user-agent</code> is <strong>required</strong> to distinguish specific client for information and debugging purposes so we better know who uses the service.</p>
 
-<p>It should be arbitrarily chosen to represent client specifics (e.g. &lsquo;Infinity Mall Android App v1.2&rsquo; or &lsquo;Infinity Mall Backend Service&rsquo;)</p>
-
-<h3 id="x-product-name-header">&ldquo;x-product-name&rdquo; header</h3>
-
+<p>It should be arbitrarily chosen to represent client specifics (e.g. &#39;Infinity Mall Android App v1.2&#39; or &#39;Infinity Mall Backend Service&#39;)</p>
+<h3 id='quot-x-product-name-quot-header-1'><span id=quot-x-product-name-quot-header></span>&quot;x-product-name&quot; header</h3>
 <blockquote>
-<p>Example header: <code class="prettyprint">x-product-name: android-app</code></p>
+<p>Example header: <code>x-product-name: android-app</code></p>
 </blockquote>
 
 <p>Each system that is communicating with us should uniquely identify itself so it is possible to distinguish optin/update channels.
 That will allow further targeting members by communication channel.</p>
 
-<p>For that we use product name. It should be passed as <strong>required</strong> header <code class="prettyprint">x-product-name</code> that is intended to provide the necessary granularity.</p>
+<p>For that we use product name. It should be passed as <strong>required</strong> header <code>x-product-name</code> that is intended to provide the necessary granularity.</p>
 
 <p>If you miss your product name, please <a href="https://placewise.com">let us know</a>.</p>
-
-<h3 id="authorization-header">&ldquo;authorization&rdquo; header</h3>
-
+<h3 id='quot-authorization-quot-header-1'><span id=quot-authorization-quot-header></span>&quot;authorization&quot; header</h3>
 <blockquote>
-<p>Example header: <code class="prettyprint">authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522</code></p>
+<p>Example header: <code>authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522</code></p>
 </blockquote>
 
 <p>See: <a href="#oauth2">OAuth2</a></p>
-
-<h3 id="loyalty-club-slug-param">Loyalty club slug param</h3>
-
+<h3 id='loyalty-club-slug-param-1'><span id=loyalty-club-slug-param></span>Loyalty club slug param</h3>
 <blockquote>
-<p>Example slug: &lsquo;infinity-mall&rsquo;</p>
+<p>Example slug: &#39;infinity-mall&#39;</p>
 </blockquote>
 
-<p>As all of the API endpoints work in the context of specific Loyalty Club, they&rsquo;re scoped within it&rsquo;s identifier - <code class="prettyprint">:loyalty_club_slug</code></p>
+<p>As all of the API endpoints work in the context of specific Loyalty Club, they&#39;re scoped within it&#39;s identifier - <code>:loyalty_club_slug</code></p>
 
-<p>It&rsquo;s an unique slugified name of the Loyalty Club.</p>
-
-<h3 id="msisdn-param"><a name="msisdn-param"></a> Msisdn param</h3>
-
+<p>It&#39;s an unique slugified name of the Loyalty Club.</p>
+<h3 id='a-name-msisdn-param-a-msisdn-param-1'><span id=a-name-msisdn-param-a-msisdn-param></span><a name="msisdn-param"></a> Msisdn param</h3>
 <p>Members in our systems may be identified with their phone numbers (msisdns) according to <a href="https://en.wikipedia.org/wiki/E.164">E.164</a>
-We use format without leading <code class="prettyprint">00</code> or <code class="prettyprint">+</code> and without spaces, so that it contains only digits, i.e. <code class="prettyprint">4740485124</code>.</p>
-
-<h2 id="common-http-error-codes">Common HTTP error codes</h2>
-
+We use format without leading <code>00</code> or <code>+</code> and without spaces, so that it contains only digits, i.e. <code>4740485124</code>.</p>
+<h2 id='common-http-error-codes-1'><span id=common-http-error-codes></span>Common HTTP error codes</h2>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -95,49 +72,47 @@ We use format without leading <code class="prettyprint">00</code> or <code class
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">401</code></td>
-<td><code class="prettyprint">x-client-authorization</code> is invalid (or doesn&rsquo;t match provided loyalty club or product)</td>
+<td><code>401</code></td>
+<td><code>x-client-authorization</code> is invalid (or doesn&#39;t match provided loyalty club or product)</td>
 </tr>
 <tr>
-<td><code class="prettyprint">402</code></td>
+<td><code>402</code></td>
 <td>Feature is not enabled for the Loyalty Club</td>
 </tr>
 <tr>
-<td><code class="prettyprint">403</code></td>
-<td>Not authorized to perform this action (provided <code class="prettyprint">x-client-authorization</code> doesn&rsquo;t have required permit)</td>
+<td><code>403</code></td>
+<td>Not authorized to perform this action (provided <code>x-client-authorization</code> doesn&#39;t have required permit)</td>
 </tr>
 <tr>
-<td><code class="prettyprint">404</code></td>
-<td>The requested resource doesn&rsquo;t exist</td>
+<td><code>404</code></td>
+<td>The requested resource doesn&#39;t exist</td>
 </tr>
 <tr>
-<td><code class="prettyprint">422</code></td>
+<td><code>422</code></td>
 <td>Invalid parameters are provided (e.g. incorrect properties on member creation)</td>
 </tr>
 <tr>
-<td><code class="prettyprint">460</code></td>
+<td><code>460</code></td>
 <td>OAuth token required for the action is invalid (applies only to OAuth-related actions - see <a href="#oauth2">OAuth2</a>)</td>
 </tr>
 <tr>
-<td><code class="prettyprint">470</code></td>
+<td><code>470</code></td>
 <td>Some of required header is missing</td>
 </tr>
 <tr>
-<td><code class="prettyprint">471</code></td>
+<td><code>471</code></td>
 <td>Some of headers is incorrect</td>
 </tr>
 <tr>
-<td><code class="prettyprint">503</code></td>
+<td><code>503</code></td>
 <td>Server is down for maintenance</td>
 </tr>
 </tbody></table>
 
 <p>Also, most of handled errors have JSON response body like this:</p>
 
-<p><code class="prettyprint">{&quot;error&quot;: &quot;Message describing what went wrong&quot;}</code></p>
-
-<h2 id="pagination-json-model"><a name="pagination-model"></a> Pagination JSON model</h2>
-
+<p><code>{&quot;error&quot;: &quot;Message describing what went wrong&quot;}</code></p>
+<h2 id='a-name-pagination-model-a-pagination-json-model-1'><span id=a-name-pagination-model-a-pagination-json-model></span><a name="pagination-model"></a> Pagination JSON model</h2>
 <blockquote>
 <p>Example:</p>
 </blockquote>
@@ -185,12 +160,12 @@ We use format without leading <code class="prettyprint">00</code> or <code class
 <tr>
 <td>next_page</td>
 <td>integer</td>
-<td>Next available page (<code class="prettyprint">null</code> when it&rsquo;s a last page)</td>
+<td>Next available page (<code>null</code> when it&#39;s a last page)</td>
 </tr>
 <tr>
 <td>prev_page</td>
 <td>integer</td>
-<td>Previous available page (<code class="prettyprint">null</code> when it&rsquo;s a first page)</td>
+<td>Previous available page (<code>null</code> when it&#39;s a first page)</td>
 </tr>
 <tr>
 <td>is_first_page</td>
@@ -205,12 +180,10 @@ We use format without leading <code class="prettyprint">00</code> or <code class
 <tr>
 <td>is_out_of_range</td>
 <td>boolean</td>
-<td>Is given <code class="prettyprint">per_page</code> param out of range?</td>
+<td>Is given <code>per_page</code> param out of range?</td>
 </tr>
 </tbody></table>
-
-<h2 id="invalid-parameters-errors-422"><a name="invalid-parameters-errors-model"></a> Invalid parameters errors (422)</h2>
-
+<h2 id='a-name-invalid-parameters-errors-model-a-invalid-parameters-errors-422-1'><span id=a-name-invalid-parameters-errors-model-a-invalid-parameters-errors-422></span><a name="invalid-parameters-errors-model"></a> Invalid parameters errors (422)</h2>
 <blockquote>
 <p>Example:</p>
 </blockquote>
@@ -277,7 +250,7 @@ We use format without leading <code class="prettyprint">00</code> or <code class
 <span class="c1">// * member.msisdns[0] is not a valid MSISDN</span>
 <span class="c1">// * member.msisdns[2] is blank</span>
 </code></pre>
-<p>Some of the endpoints (it&rsquo;s noted on specific request&rsquo;s description) return invalid parameters errors in the standardized way.</p>
+<p>Some of the endpoints (it&#39;s noted on specific request&#39;s description) return invalid parameters errors in the standardized way.</p>
 
 <p>For them, when some of parameter (either JSON body or URL/Query) is invalid, server responds with 422 with a following 
 object:  </p>
@@ -292,7 +265,7 @@ object:  </p>
 <tr>
 <td>error</td>
 <td>String</td>
-<td>Always &ldquo;Invalid parameters&rdquo;</td>
+<td>Always &quot;Invalid parameters&quot;</td>
 </tr>
 <tr>
 <td>details</td>
@@ -305,16 +278,12 @@ object:  </p>
 <td>See <a href="#parameter-error-object">ParameterError</a> below</td>
 </tr>
 </tbody></table>
-
-<h4 id="errors-object"><a name="errors-object"></a> Errors object</h4>
-
-<p>It&rsquo;s a recursive tree structure, corresponding to the structure original payload.
+<h4 id='a-name-errors-object-a-errors-object-1'><span id=a-name-errors-object-a-errors-object></span><a name="errors-object"></a> Errors object</h4>
+<p>It&#39;s a recursive tree structure, corresponding to the structure original payload.
 Objects being parts of arrays are represented by their array indexes.</p>
 
 <p>Each leaf node is an array of <a href="#parameter-error-object">ParameterError</a> objects for given parameter.</p>
-
-<h4 id="parametererror-object"><a name="parameter-error-object""></a> ParameterError object</h4>
-
+<h4 id='a-name-parameter-error-object-a-parametererror-object-1'><span id=a-name-parameter-error-object-a-parametererror-object></span><a name="parameter-error-object""></a> ParameterError object</h4>
 <table><thead>
 <tr>
 <th>key</th>
@@ -335,7 +304,7 @@ Objects being parts of arrays are represented by their array indexes.</p>
 <tr>
 <td>options</td>
 <td>Object</td>
-<td>Contains options of specific validation rule. For example <code class="prettyprint">{&quot;max&quot;: 15}</code>.</td>
+<td>Contains options of specific validation rule. For example <code>{&quot;max&quot;: 15}</code>.</td>
 </tr>
 <tr>
 <td>message</td>
@@ -343,9 +312,7 @@ Objects being parts of arrays are represented by their array indexes.</p>
 <td>Human-readable error message</td>
 </tr>
 </tbody></table>
-
-<h4 id="common-validation-errors"><a name="common-validation-errors"></a> Common validation errors</h4>
-
+<h4 id='a-name-common-validation-errors-a-common-validation-errors-1'><span id=a-name-common-validation-errors-a-common-validation-errors></span><a name="common-validation-errors"></a> Common validation errors</h4>
 <table><thead>
 <tr>
 <th>Error key</th>
@@ -360,8 +327,8 @@ Objects being parts of arrays are represented by their array indexes.</p>
 </tr>
 <tr>
 <td>inclusion</td>
-<td><code class="prettyprint">in</code> - contains permitted values</td>
-<td>When doesn&rsquo;t match list of permitted values</td>
+<td><code>in</code> - contains permitted values</td>
+<td>When doesn&#39;t match list of permitted values</td>
 </tr>
 <tr>
 <td>must_be_an_object</td>
@@ -380,7 +347,7 @@ Objects being parts of arrays are represented by their array indexes.</p>
 </tr>
 <tr>
 <td>must_have_elements_of_type</td>
-<td><code class="prettyprint">type</code> - required type</td>
+<td><code>type</code> - required type</td>
 <td></td>
 </tr>
 <tr>
@@ -405,22 +372,22 @@ Objects being parts of arrays are represented by their array indexes.</p>
 </tr>
 <tr>
 <td>attribute_cannot_be_present_with</td>
-<td><code class="prettyprint">with</code> - other attribute name</td>
+<td><code>with</code> - other attribute name</td>
 <td>Mutually exclusive with another attribute</td>
 </tr>
 <tr>
 <td>size_too_small</td>
-<td><code class="prettyprint">number</code> - min size</td>
+<td><code>number</code> - min size</td>
 <td>When array has not enough elements</td>
 </tr>
 <tr>
 <td>size_too_large</td>
-<td><code class="prettyprint">number</code> - max size</td>
+<td><code>number</code> - max size</td>
 <td>When array has too many elements</td>
 </tr>
 <tr>
 <td>size_not_match</td>
-<td><code class="prettyprint">number</code> - exact size</td>
+<td><code>number</code> - exact size</td>
 <td>When array has not exactly required number of elements</td>
 </tr>
 <tr>
@@ -435,32 +402,32 @@ Objects being parts of arrays are represented by their array indexes.</p>
 </tr>
 <tr>
 <td>greater_than</td>
-<td><code class="prettyprint">number</code> - min value</td>
-<td>When not &gt; <code class="prettyprint">number</code></td>
+<td><code>number</code> - min value</td>
+<td>When not &gt; <code>number</code></td>
 </tr>
 <tr>
 <td>greater_or_equal_to</td>
-<td><code class="prettyprint">number</code> - min value</td>
-<td>When not &gt;= <code class="prettyprint">number</code></td>
+<td><code>number</code> - min value</td>
+<td>When not &gt;= <code>number</code></td>
 </tr>
 <tr>
 <td>less_than</td>
-<td><code class="prettyprint">number</code> - max value</td>
-<td>When not &lt; <code class="prettyprint">number</code></td>
+<td><code>number</code> - max value</td>
+<td>When not &lt; <code>number</code></td>
 </tr>
 <tr>
 <td>less_or_equal_to</td>
-<td><code class="prettyprint">number</code> - max value</td>
-<td>When not &lt;= <code class="prettyprint">number</code></td>
+<td><code>number</code> - max value</td>
+<td>When not &lt;= <code>number</code></td>
 </tr>
 <tr>
 <td>invalid</td>
-<td><code class="prettyprint">format</code> - regex</td>
+<td><code>format</code> - regex</td>
 <td>When does not match regex</td>
 </tr>
 <tr>
 <td>liquid_syntax_error</td>
-<td><code class="prettyprint">syntax_error</code> - error description</td>
+<td><code>syntax_error</code> - error description</td>
 <td>When not valid <a href="https://shopify.github.io/liquid/">liquid</a> syntax</td>
 </tr>
 <tr>

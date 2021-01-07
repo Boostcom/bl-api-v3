@@ -1,13 +1,8 @@
-<h1 id="messaging-api"><a name="messaging"></a> Messaging API</h1>
-
+<h1 id='a-name-messaging-a-messaging-api-1'><span id=a-name-messaging-a-messaging-api></span><a name="messaging"></a> Messaging API</h1>
 <aside class="warning">
 This API is under development. Therefore, it may not be ready for use and is a subject to change at any time.
 </aside>
-
-<h2 id="common-models"><a name="messaging-models"></a> Common models</h2>
-
-<h3 id="message-model"><a name="messaging-message-model"></a> Message model</h3>
-
+<h2 id='a-name-messaging-models-a-common-models-1'><span id=a-name-messaging-models-a-common-models></span><a name="messaging-models"></a> Common models</h2><h3 id='a-name-messaging-message-model-a-message-model-1'><span id=a-name-messaging-message-model-a-message-model></span><a name="messaging-message-model"></a> Message model</h3>
 <blockquote>
 <p>Message example:</p>
 </blockquote>
@@ -92,7 +87,7 @@ This API is under development. Therefore, it may not be ready for use and is a s
 <tr>
 <td>campaign_id</td>
 <td>integer</td>
-<td>MPC&rsquo;s campaign ID (applicable to <code class="prettyprint">campaigns</code> service)</td>
+<td>MPC&#39;s campaign ID (applicable to <code>campaigns</code> service)</td>
 </tr>
 <tr>
 <td><strong>channels</strong></td>
@@ -125,18 +120,14 @@ This API is under development. Therefore, it may not be ready for use and is a s
 <td>Time of last update</td>
 </tr>
 </tbody></table>
+<h5 id='a-name-messaging-message-sendings-status-a-aggregated-sendings-status-1'><span id=a-name-messaging-message-sendings-status-a-aggregated-sendings-status></span><a name="messaging-message-sendings-status"></a> Aggregated Sendings status</h5>
+<p>If all Message&#39;s Sendings are <code>transmitted</code>, <code>cancelled</code>, <code>failed</code> or <code>skipped</code>, then <code>sendings_status</code> is <code>finished</code>.</p>
 
-<h5 id="aggregated-sendings-status"><a name="messaging-message-sendings-status"></a> Aggregated Sendings status</h5>
+<p>If all Message&#39;s Sendings are <code>draft</code>, then <code>sendings_status</code> is <code>draft</code>.</p>
 
-<p>If all Message&rsquo;s Sendings are <code class="prettyprint">transmitted</code>, <code class="prettyprint">cancelled</code>, <code class="prettyprint">failed</code> or <code class="prettyprint">skipped</code>, then <code class="prettyprint">sendings_status</code> is <code class="prettyprint">finished</code>.</p>
-
-<p>If all Message&rsquo;s Sendings are <code class="prettyprint">draft</code>, then <code class="prettyprint">sendings_status</code> is <code class="prettyprint">draft</code>.</p>
-
-<p>If both above conditions are not true, then <code class="prettyprint">sendings_status</code> is <code class="prettyprint">scheduled</code>.</p>
-
-<h5 id="messagesending-model"><a name="messaging-message-sending-model"></a> MessageSending model</h5>
-
-<p>Simplified version of <a href="#messaging-sending-model">Sending</a>&lsquo;s with limited set of attributes:</p>
+<p>If both above conditions are not true, then <code>sendings_status</code> is <code>scheduled</code>.</p>
+<h5 id='a-name-messaging-message-sending-model-a-messagesending-model-1'><span id=a-name-messaging-message-sending-model-a-messagesending-model></span><a name="messaging-message-sending-model"></a> MessageSending model</h5>
+<p>Simplified version of <a href="#messaging-sending-model">Sending</a>&#39;s with limited set of attributes:</p>
 
 <table><thead>
 <tr>
@@ -174,12 +165,10 @@ This API is under development. Therefore, it may not be ready for use and is a s
 </tr>
 <tr>
 <td>dispatches_count</td>
-<td>Number of dispatches, when sending has not been executed yet it&rsquo;s <code class="prettyprint">null</code></td>
+<td>Number of dispatches, when sending has not been executed yet it&#39;s <code>null</code></td>
 </tr>
 </tbody></table>
-
-<h4 id="service"><a name="messaging-message-service"></a> Service</h4>
-
+<h4 id='a-name-messaging-message-service-a-service-1'><span id=a-name-messaging-message-service-a-service></span><a name="messaging-message-service"></a> Service</h4>
 <p>Service is used to provide special treatment for some types of Messages that are bound to specific MPC features.</p>
 
 <p>A permit is required for managing Messages of each Service.</p>
@@ -222,9 +211,7 @@ This API is under development. Therefore, it may not be ready for use and is a s
 <td>For MPC TEM documents reminder notifications</td>
 </tr>
 </tbody></table>
-
-<h3 id="channel-model"><a name="messaging-channel-model"></a> Channel model</h3>
-
+<h3 id='a-name-messaging-channel-model-a-channel-model-1'><span id=a-name-messaging-channel-model-a-channel-model></span><a name="messaging-channel-model"></a> Channel model</h3>
 <blockquote>
 <p>Channel example:</p>
 </blockquote>
@@ -247,7 +234,7 @@ This API is under development. Therefore, it may not be ready for use and is a s
 should be sent through this channel.</p>
 
 <p>Please note that while we allow to set multiple channels on single message for future usage, 
-currently just one (the first) is utilized as the Message&rsquo;s single channel.</p>
+currently just one (the first) is utilized as the Message&#39;s single channel.</p>
 
 <table><thead>
 <tr>
@@ -261,7 +248,7 @@ currently just one (the first) is utilized as the Message&rsquo;s single channel
 </tr>
 <tr>
 <td><strong>type</strong></td>
-<td>enum: <code class="prettyprint">[&#39;sms&#39;, &#39;email&#39;, &#39;push&#39;]</code></td>
+<td>enum: <code>[&#39;sms&#39;, &#39;email&#39;, &#39;push&#39;]</code></td>
 </tr>
 <tr>
 <td><strong>created_at</strong></td>
@@ -280,9 +267,7 @@ currently just one (the first) is utilized as the Message&rsquo;s single channel
 <td></td>
 </tr>
 </tbody></table>
-
-<h4 id="channel-specific-attributes"><a name="messaging-channel-specific-attributes"></a> Channel-specific attributes</h4>
-
+<h4 id='a-name-messaging-channel-specific-attributes-a-channel-specific-attributes-1'><span id=a-name-messaging-channel-specific-attributes-a-channel-specific-attributes></span><a name="messaging-channel-specific-attributes"></a> Channel-specific attributes</h4>
 <p>When not provided explicitly, values of all the following attributes are taken from Loyalty Club configuration.</p>
 
 <table><thead>
@@ -294,30 +279,30 @@ currently just one (the first) is utilized as the Message&rsquo;s single channel
 </thead><tbody>
 <tr>
 <td>sender.type</td>
-<td><code class="prettyprint">sms</code></td>
-<td>enum: <code class="prettyprint">[&#39;alphanumeric&#39;, &#39;international&#39;]</code></td>
+<td><code>sms</code></td>
+<td>enum: <code>[&#39;alphanumeric&#39;, &#39;international&#39;]</code></td>
 </tr>
 <tr>
 <td>sender.value</td>
-<td><code class="prettyprint">sms</code></td>
+<td><code>sms</code></td>
 <td>string</td>
 </tr>
 <tr>
 <td>from_email</td>
-<td><code class="prettyprint">email</code></td>
+<td><code>email</code></td>
 <td>string</td>
 </tr>
 <tr>
 <td>from_name</td>
-<td><code class="prettyprint">email</code></td>
+<td><code>email</code></td>
 <td>string</td>
 </tr>
 </tbody></table>
 
-<p>The <code class="prettyprint">sender</code> describes how SMS sender will be displayed to the receiver of SMS.
+<p>The <code>sender</code> describes how SMS sender will be displayed to the receiver of SMS.
 By default, a value from Loyalty Club configuration is used (see <a href="#messaging-show-settings">Messaging &bull; Settings</a>).</p>
 
-<p>Depending on selected <code class="prettyprint">sender.type</code>, <code class="prettyprint">sender.value</code> can be provided according to the following table:  </p>
+<p>Depending on selected <code>sender.type</code>, <code>sender.value</code> can be provided according to the following table:  </p>
 
 <table><thead>
 <tr>
@@ -326,17 +311,15 @@ By default, a value from Loyalty Club configuration is used (see <a href="#messa
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">alphanumeric</code></td>
+<td><code>alphanumeric</code></td>
 <td>String consisting of 2-11 characters</td>
 </tr>
 <tr>
-<td><code class="prettyprint">international</code></td>
+<td><code>international</code></td>
 <td>Any MSISDN</td>
 </tr>
 </tbody></table>
-
-<h3 id="template-model"><a name="messaging-template-model"></a> Template model</h3>
-
+<h3 id='a-name-messaging-template-model-a-template-model-1'><span id=a-name-messaging-template-model-a-template-model></span><a name="messaging-template-model"></a> Template model</h3>
 <blockquote>
 <p>Template example:</p>
 </blockquote>
@@ -370,13 +353,13 @@ By default, a value from Loyalty Club configuration is used (see <a href="#messa
 </tr>
 <tr>
 <td><strong>type</strong></td>
-<td>enum: <code class="prettyprint">[&#39;plain&#39;, &#39;email&#39;, &#39;bee_email&#39;, &#39;push&#39;, &#39;generic&#39;]</code></td>
+<td>enum: <code>[&#39;plain&#39;, &#39;email&#39;, &#39;bee_email&#39;, &#39;push&#39;, &#39;generic&#39;]</code></td>
 <td></td>
 </tr>
 <tr>
 <td><strong>content</strong></td>
 <td>Object</td>
-<td>Definition depends on the <code class="prettyprint">type</code>. See below</td>
+<td>Definition depends on the <code>type</code>. See below</td>
 </tr>
 <tr>
 <td><strong>created_at</strong></td>
@@ -391,9 +374,7 @@ By default, a value from Loyalty Club configuration is used (see <a href="#messa
 </tbody></table>
 
 <div class="clear"></div>
-
-<h4 id="plain-template"><a name="messaging-template-model-plain"></a> <code class="prettyprint">plain</code> template</h4>
-
+<h4 id='a-name-messaging-template-model-plain-a-code-plain-code-template-1'><span id=a-name-messaging-template-model-plain-a-code-plain-code-template></span><a name="messaging-template-model-plain"></a> <code>plain</code> template</h4>
 <blockquote>
 <p>Plain Template example:</p>
 </blockquote>
@@ -423,9 +404,7 @@ By default, a value from Loyalty Club configuration is used (see <a href="#messa
 </tbody></table>
 
 <div class="clear"></div>
-
-<h4 id="email-template"><a name="messaging-template-model-email"></a> <code class="prettyprint">email</code> template</h4>
-
+<h4 id='a-name-messaging-template-model-email-a-code-email-code-template-1'><span id=a-name-messaging-template-model-email-a-code-email-code-template></span><a name="messaging-template-model-email"></a> <code>email</code> template</h4>
 <blockquote>
 <p>Email Template example:</p>
 </blockquote>
@@ -438,7 +417,7 @@ By default, a value from Loyalty Club configuration is used (see <a href="#messa
   </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-15T12:45:08.618Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This type of template can be assigned to <code class="prettyprint">email</code> channel.</p>
+<p>This type of template can be assigned to <code>email</code> channel.</p>
 
 <table><thead>
 <tr>
@@ -457,9 +436,7 @@ By default, a value from Loyalty Club configuration is used (see <a href="#messa
 </tbody></table>
 
 <div class="clear"></div>
-
-<h4 id="bee_email-template"><a name="messaging-template-model-bee-email"></a> <code class="prettyprint">bee_email</code> template</h4>
-
+<h4 id='a-name-messaging-template-model-bee-email-a-code-bee_email-code-template-1'><span id=a-name-messaging-template-model-bee-email-a-code-bee_email-code-template></span><a name="messaging-template-model-bee-email"></a> <code>bee_email</code> template</h4>
 <blockquote>
 <p>BeeEmail Template example:</p>
 </blockquote>
@@ -474,7 +451,7 @@ By default, a value from Loyalty Club configuration is used (see <a href="#messa
 </span></code></pre>
 <p>This type of template is used internally by MPC UI. </p>
 
-<p>It differs from <code class="prettyprint">email</code> by containing JSON source which is used by <a href="https://docs.beefree.io/">Bee Plugin</a> to generate HTML <code class="prettyprint">body</code>. </p>
+<p>It differs from <code>email</code> by containing JSON source which is used by <a href="https://docs.beefree.io/">Bee Plugin</a> to generate HTML <code>body</code>. </p>
 
 <table><thead>
 <tr>
@@ -497,9 +474,7 @@ By default, a value from Loyalty Club configuration is used (see <a href="#messa
 </tbody></table>
 
 <div class="clear"></div>
-
-<h4 id="push-template"><a name="messaging-template-model-push"></a> <code class="prettyprint">push</code> template</h4>
-
+<h4 id='a-name-messaging-template-model-push-a-code-push-code-template-1'><span id=a-name-messaging-template-model-push-a-code-push-code-template></span><a name="messaging-template-model-push"></a> <code>push</code> template</h4>
 <blockquote>
 <p>Push Template example:</p>
 </blockquote>
@@ -512,7 +487,7 @@ By default, a value from Loyalty Club configuration is used (see <a href="#messa
   </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-15T12:45:08.618Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This type of template can be assigned to <code class="prettyprint">push</code> channel.</p>
+<p>This type of template can be assigned to <code>push</code> channel.</p>
 
 <table><thead>
 <tr>
@@ -535,9 +510,7 @@ By default, a value from Loyalty Club configuration is used (see <a href="#messa
 </tbody></table>
 
 <div class="clear"></div>
-
-<h4 id="generic-template"><a name="messaging-template-model-generic"></a> <code class="prettyprint">generic</code> template</h4>
-
+<h4 id='a-name-messaging-template-model-generic-a-code-generic-code-template-1'><span id=a-name-messaging-template-model-generic-a-code-generic-code-template></span><a name="messaging-template-model-generic"></a> <code>generic</code> template</h4>
 <blockquote>
 <p>Generic Template example:</p>
 </blockquote>
@@ -552,7 +525,7 @@ By default, a value from Loyalty Club configuration is used (see <a href="#messa
 </span></code></pre>
 <p>This type of template also can be assigned to any channel. But any possible content attribute can be set.</p>
 
-<p>It&rsquo;s designed to be used as a generic wrapper or in appliances where the template needs to be utilized by messages
+<p>It&#39;s designed to be used as a generic wrapper or in appliances where the template needs to be utilized by messages
 sent with various channels.</p>
 
 <table><thead>
@@ -574,13 +547,11 @@ sent with various channels.</p>
 <td>URL</td>
 </tr>
 </tbody></table>
-
-<h4 id="templating-system"><a name="messaging-template-templating-system"></a> Templating system</h4>
-
+<h4 id='a-name-messaging-template-templating-system-a-templating-system-1'><span id=a-name-messaging-template-templating-system-a-templating-system></span><a name="messaging-template-templating-system"></a> Templating system</h4>
 <p>We use <a href="https://shopify.github.io/liquid">Liquid</a> template language for generating dynamic Message content.</p>
 
 <p>NOTE: Currently, because of technical reasons, in e-mail messages very limited set of Liquid features is supported - 
-it&rsquo;s demonstrated in examples of this section. However, in pushes and SMSes, full set of features is available.</p>
+it&#39;s demonstrated in examples of this section. However, in pushes and SMSes, full set of features is available.</p>
 
 <p>The set of merge-tags available for given Message depends on recipient type the Message is being sent to.</p>
 
@@ -613,39 +584,39 @@ their MPC data may be used as merge-tags:</p>
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">member.id</code></td>
+<td><code>member.id</code></td>
 <td></td>
 </tr>
 <tr>
-<td><code class="prettyprint">member.secret_id</code></td>
-<td>Special member&rsquo;s ID of used to authorize member in some MPC services</td>
+<td><code>member.secret_id</code></td>
+<td>Special member&#39;s ID of used to authorize member in some MPC services</td>
 </tr>
 <tr>
-<td><code class="prettyprint">member.msisdn</code></td>
+<td><code>member.msisdn</code></td>
 <td></td>
 </tr>
 <tr>
-<td><code class="prettyprint">member.email</code></td>
+<td><code>member.email</code></td>
 <td></td>
 </tr>
 <tr>
-<td><code class="prettyprint">member.app_token</code></td>
+<td><code>member.app_token</code></td>
 <td></td>
 </tr>
 <tr>
-<td><code class="prettyprint">member.*</code></td>
-<td>Member property (e.g. <code class="prettyprint">member.first_name</code>) - the set depends on LC configuration</td>
+<td><code>member.*</code></td>
+<td>Member property (e.g. <code>member.first_name</code>) - the set depends on LC configuration</td>
 </tr>
 <tr>
-<td><code class="prettyprint">dmp.*</code></td>
-<td>DMP value for member (e.g. <code class="prettyprint">dmp.bonus_points</code>) - available for audience members only, <br />the set depends on LC configuration</td>
+<td><code>dmp.*</code></td>
+<td>DMP value for member (e.g. <code>dmp.bonus_points</code>) - available for audience members only, <br />the set depends on LC configuration</td>
 </tr>
 </tbody></table>
 
 <div class="clearfix"></div>
 
 <p>For <a href="#messaging-arbitrary-recipient-model">arbitrary recipients</a>, only their identifiers and arbitrary data provided 
-within <code class="prettyprint">properties</code>  may be used - see example.</p>
+within <code>properties</code>  may be used - see example.</p>
 
 <blockquote>
 <p>Having arbitrary recipients provided as follows: </p>
@@ -656,16 +627,14 @@ within <code class="prettyprint">properties</code>  may be used - see example.</
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 <blockquote>
-<p>A Template&rsquo;s content may be defined this way:</p>
+<p>A Template&#39;s content may be defined this way:</p>
 </blockquote>
 <pre class="highlight plaintext"><code>Hello {{ first_name }}.
 Your email is {{ email }}.
 Your points balance is {{ some_object.points }}.
 </code></pre>
 <div class="clear"></div>
-
-<h5 id="template-wrapping"><a name="messaging-template-wrapping"></a> Template wrapping</h5>
-
+<h5 id='a-name-messaging-template-wrapping-a-template-wrapping-1'><span id=a-name-messaging-template-wrapping-a-template-wrapping></span><a name="messaging-template-wrapping"></a> Template wrapping</h5>
 <blockquote>
 <p>Sample wrapper definition:</p>
 </blockquote>
@@ -703,10 +672,10 @@ Your points balance is {{ some_object.points }}.
   </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"foo://bar"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Any template may be wrapped by another template by providing <code class="prettyprint">wrapper_id</code>.</p>
+<p>Any template may be wrapped by another template by providing <code>wrapper_id</code>.</p>
 
-<p>On sending execution, if channel&rsquo;s template has a wrapper assigned, each content attribute (body, subject, etc) 
-of the template will be injected into special <code class="prettyprint">{{ content }}</code> merge-tag of corresponding wrapper&rsquo;s attribute.</p>
+<p>On sending execution, if channel&#39;s template has a wrapper assigned, each content attribute (body, subject, etc) 
+of the template will be injected into special <code>{{ content }}</code> merge-tag of corresponding wrapper&#39;s attribute.</p>
 
 <p>When wrapper has no specific content attribute defined, it will be ignored. </p>
 
@@ -722,29 +691,27 @@ template A will be wrapped by Template B, but template B will not be wrapped by 
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">plain</code></td>
-<td><code class="prettyprint">generic</code>, <code class="prettyprint">email</code>, <code class="prettyprint">bee_email</code>, <code class="prettyprint">push</code>, <code class="prettyprint">plain</code></td>
+<td><code>plain</code></td>
+<td><code>generic</code>, <code>email</code>, <code>bee_email</code>, <code>push</code>, <code>plain</code></td>
 </tr>
 <tr>
-<td><code class="prettyprint">generic</code></td>
-<td><code class="prettyprint">generic</code>, <code class="prettyprint">email</code>, <code class="prettyprint">bee_email</code>, <code class="prettyprint">push</code></td>
+<td><code>generic</code></td>
+<td><code>generic</code>, <code>email</code>, <code>bee_email</code>, <code>push</code></td>
 </tr>
 <tr>
-<td><code class="prettyprint">email</code></td>
-<td><code class="prettyprint">generic</code>, <code class="prettyprint">email</code>, <code class="prettyprint">bee_email</code></td>
+<td><code>email</code></td>
+<td><code>generic</code>, <code>email</code>, <code>bee_email</code></td>
 </tr>
 <tr>
-<td><code class="prettyprint">push</code></td>
-<td><code class="prettyprint">generic</code>, <code class="prettyprint">push</code></td>
+<td><code>push</code></td>
+<td><code>generic</code>, <code>push</code></td>
 </tr>
 <tr>
-<td><code class="prettyprint">bee_email</code></td>
-<td><code class="prettyprint">generic</code></td>
+<td><code>bee_email</code></td>
+<td><code>generic</code></td>
 </tr>
 </tbody></table>
-
-<h3 id="sending-model"><a name="messaging-sending-model"></a> Sending model</h3>
-
+<h3 id='a-name-messaging-sending-model-a-sending-model-1'><span id=a-name-messaging-sending-model-a-sending-model></span><a name="messaging-sending-model"></a> Sending model</h3>
 <blockquote>
 <p>Sending example:</p>
 </blockquote>
@@ -805,7 +772,7 @@ template A will be wrapped by Template B, but template B will not be wrapped by 
 </tr>
 <tr>
 <td>dispatches_count</td>
-<td>Number of dispatches, when sending has not been executed yet it&rsquo;s <code class="prettyprint">null</code></td>
+<td>Number of dispatches, when sending has not been executed yet it&#39;s <code>null</code></td>
 <td></td>
 </tr>
 <tr>
@@ -824,21 +791,19 @@ template A will be wrapped by Template B, but template B will not be wrapped by 
 <td>Inline recipients the sending is directed to</td>
 </tr>
 </tbody></table>
-
-<h4 id="sending-status"><a name="messaging-sending-status"></a> Sending status</h4>
-
+<h4 id='a-name-messaging-sending-status-a-sending-status-1'><span id=a-name-messaging-sending-status-a-sending-status></span><a name="messaging-sending-status"></a> Sending status</h4>
 <p>The Sending may have one of following statuses, which may be grouped into <strong>initial states</strong>, <strong>execution steps</strong> and the <strong>final outcomes</strong>:</p>
 
 <ul>
 <li><strong>initial states</strong>:
 
 <ul>
-<li><strong>draft</strong> - When API client didn&rsquo;t&rsquo;t define the schedule (or has <code class="prettyprint">draft: true</code> flag)</li>
+<li><strong>draft</strong> - When API client didn&#39;t&#39;t define the schedule (or has <code>draft: true</code> flag)</li>
 <li><strong>scheduled</strong> - When scheduled to be sent at specific time by API client</li>
 </ul></li>
 </ul>
 
-<p>Sending may have status changed from <code class="prettyprint">draft</code> to <code class="prettyprint">scheduled</code>  and vice versa, as long as the execution haven&rsquo;t started yet.  </p>
+<p>Sending may have status changed from <code>draft</code> to <code>scheduled</code>  and vice versa, as long as the execution haven&#39;t started yet.  </p>
 
 <ul>
 <li><strong>execution steps</strong>:
@@ -860,15 +825,13 @@ so it may take some time to build Dispatches for all of them. Therefore, the pre
 <li><strong>transmitted</strong> - When the Dispatches have been transmitted</li>
 <li><strong>skipped</strong> - When no recipients could be resolved for it (for example, Audience may lose its members over time).</li>
 <li><strong>cancelled</strong> - When cancelled by API client at any point of execution (see: <a href="#messaging-cancel-sending">Sending cancellation</a>.</li>
-<li><strong>failed</strong> - When the execution couldn&rsquo;t be finished in about 20 minutes after the desired time </li>
+<li><strong>failed</strong> - When the execution couldn&#39;t be finished in about 20 minutes after the desired time </li>
 </ul></li>
 </ul>
 
-<p>Whenever Sending is <code class="prettyprint">cancelled</code> or <code class="prettyprint">failed</code>, it cannot be rescheduled again. 
+<p>Whenever Sending is <code>cancelled</code> or <code>failed</code>, it cannot be rescheduled again. 
 It must be created again, for example with <a href="#todo">Clone sending endpoint</a>. </p>
-
-<h3 id="dispatch-model"><a name="messaging-dispatch-model"></a> Dispatch model</h3>
-
+<h3 id='a-name-messaging-dispatch-model-a-dispatch-model-1'><span id=a-name-messaging-dispatch-model-a-dispatch-model></span><a name="messaging-dispatch-model"></a> Dispatch model</h3>
 <blockquote>
 <p>Sending example:</p>
 </blockquote>
@@ -907,7 +870,7 @@ It must be created again, for example with <a href="#todo">Clone sending endpoin
 </tr>
 <tr>
 <td><strong>type</strong></td>
-<td>enum: [&#39;sms&rsquo;, &lsquo;email&rsquo;, &lsquo;push&rsquo;]</td>
+<td>enum: [&#39;sms&#39;, &#39;email&#39;, &#39;push&#39;]</td>
 <td></td>
 </tr>
 <tr>
@@ -937,12 +900,12 @@ It must be created again, for example with <a href="#todo">Clone sending endpoin
 </tr>
 <tr>
 <td><strong>transmission_status</strong></td>
-<td>enum: [&lsquo;scheduled&rsquo;, &lsquo;transmitted&rsquo;, &lsquo;failed&rsquo;]</td>
+<td>enum: [&#39;scheduled&#39;, &#39;transmitted&#39;, &#39;failed&#39;]</td>
 <td>Describes status of transmission within Messages API</td>
 </tr>
 <tr>
 <td><strong>delivery_status</strong></td>
-<td>enum: [&lsquo;pending&rsquo;, &lsquo;delivered&rsquo;, &lsquo;failed&rsquo;]</td>
+<td>enum: [&#39;pending&#39;, &#39;delivered&#39;, &#39;failed&#39;]</td>
 <td>Describes status of delivery within external senders</td>
 </tr>
 <tr>
@@ -976,9 +939,7 @@ It must be created again, for example with <a href="#todo">Clone sending endpoin
 <td>Time when the Dispatch has been stripped off from personal data (content and identifiers)</td>
 </tr>
 </tbody></table>
-
-<h3 id="recipient-model"><a name="messaging-recipient-model"></a> Recipient model</h3>
-
+<h3 id='a-name-messaging-recipient-model-a-recipient-model-1'><span id=a-name-messaging-recipient-model-a-recipient-model></span><a name="messaging-recipient-model"></a> Recipient model</h3>
 <blockquote>
 <p>Recipient example:</p>
 </blockquote>
@@ -1025,19 +986,15 @@ It must be created again, for example with <a href="#todo">Clone sending endpoin
 </tbody></table>
 
 <p><br />
-Recipient may be an MPC member (identified by <code class="prettyprint">member_id</code>) or an arbitrary sending receivers - <code class="prettyprint">msisdn</code>, <code class="prettyprint">email</code> or <code class="prettyprint">push</code>.  </p>
+Recipient may be an MPC member (identified by <code>member_id</code>) or an arbitrary sending receivers - <code>msisdn</code>, <code>email</code> or <code>push</code>.  </p>
+<h4 id='a-name-messaging-mpc-recipient-model-a-mpc-member-recipient-1'><span id=a-name-messaging-mpc-recipient-model-a-mpc-member-recipient></span><a name="messaging-mpc-recipient-model"></a> MPC member recipient</h4>
+<p>When <code>member_id</code> is provided, other identifiers will be ignored and actual identifiers for sending execution will 
+be fetched from MPC member&#39;s data (for example, for <code>sms</code> channel member&#39;s <code>msisdn</code> will be used as a sending receiver).</p>
 
-<h4 id="mpc-member-recipient"><a name="messaging-mpc-recipient-model"></a> MPC member recipient</h4>
+<p>merge-tags for template will be fetched from MPC Members - but may be extended/replaced with provided <code>properties</code>.</p>
+<h4 id='a-name-messaging-arbtrary-recipient-model-a-arbitrary-identifier-recipient-1'><span id=a-name-messaging-arbtrary-recipient-model-a-arbitrary-identifier-recipient></span><a name="messaging-arbtrary-recipient-model"></a> Arbitrary identifier recipient</h4>
+<p>Without <code>member_id</code>, at least one identifier relevant to message&#39;s channels definition is required.</p>
 
-<p>When <code class="prettyprint">member_id</code> is provided, other identifiers will be ignored and actual identifiers for sending execution will 
-be fetched from MPC member&rsquo;s data (for example, for <code class="prettyprint">sms</code> channel member&rsquo;s <code class="prettyprint">msisdn</code> will be used as a sending receiver).</p>
+<p>For example, if <code>sms</code> and <code>email</code> channels are defined on message, <code>msisdn</code> or <code>email</code> is required.</p>
 
-<p>merge-tags for template will be fetched from MPC Members - but may be extended/replaced with provided <code class="prettyprint">properties</code>.</p>
-
-<h4 id="arbitrary-identifier-recipient"><a name="messaging-arbtrary-recipient-model"></a> Arbitrary identifier recipient</h4>
-
-<p>Without <code class="prettyprint">member_id</code>, at least one identifier relevant to message&rsquo;s channels definition is required.</p>
-
-<p>For example, if <code class="prettyprint">sms</code> and <code class="prettyprint">email</code> channels are defined on message, <code class="prettyprint">msisdn</code> or <code class="prettyprint">email</code> is required.</p>
-
-<p>Given <code class="prettyprint">properties</code> will be used as template&rsquo;s merge-tags. </p>
+<p>Given <code>properties</code> will be used as template&#39;s merge-tags. </p>

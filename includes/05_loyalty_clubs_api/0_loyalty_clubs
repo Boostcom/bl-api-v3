@@ -1,9 +1,4 @@
-<h1 id="loyalty-clubs-api">Loyalty Clubs API</h1>
-
-<h2 id="loyalty-clubs">Loyalty Clubs</h2>
-
-<h3 id="loyalty-club-model"><a name="loyalty-club-model"></a> Loyalty Club model</h3>
-
+<h1 id='loyalty-clubs-api-1'><span id=loyalty-clubs-api></span>Loyalty Clubs API</h1><h2 id='loyalty-clubs-1'><span id=loyalty-clubs></span>Loyalty Clubs</h2><h3 id='a-name-loyalty-club-model-a-loyalty-club-model-1'><span id=a-name-loyalty-club-model-a-loyalty-club-model></span><a name="loyalty-club-model"></a> Loyalty Club model</h3>
 <blockquote>
 <p>Loyalty Club example:</p>
 </blockquote>
@@ -48,12 +43,12 @@
 <tr>
 <td>main_slug</td>
 <td>slug</td>
-<td>Main LC&rsquo;s slug</td>
+<td>Main LC&#39;s slug</td>
 </tr>
 <tr>
 <td>short_slug</td>
 <td>slug</td>
-<td>Short LC&rsquo;s slug, used in Placewise Shortener</td>
+<td>Short LC&#39;s slug, used in Placewise Shortener</td>
 </tr>
 <tr>
 <td>other_slugs</td>
@@ -78,7 +73,7 @@
 <tr>
 <td>member_identifiers</td>
 <td>array<string></td>
-<td>May consist of following values: <code class="prettyprint">msisdn</code> and <code class="prettyprint">email</code></td>
+<td>May consist of following values: <code>msisdn</code> and <code>email</code></td>
 </tr>
 <tr>
 <td>new_offers_api_enabled</td>
@@ -86,9 +81,7 @@
 <td>Is <a href="#endpoints-offers">New Offers API</a> enabled for this Loyalty Club?</td>
 </tr>
 </tbody></table>
-
-<h3 id="list"><a name="loyalty-clubs-list"></a> List</h3>
-
+<h3 id='a-name-loyalty-clubs-list-a-list-1'><span id=a-name-loyalty-clubs-list-a-list></span><a name="loyalty-clubs-list"></a> List</h3>
 <blockquote>
 <p>Example</p>
 </blockquote>
@@ -112,12 +105,10 @@
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>GET</strong> <code class="prettyprint">v3/loyalty_clubs/</code></p>
+<p><strong>GET</strong> <code>v3/loyalty_clubs/</code></p>
 
 <p>Returns <a href="#loyalty-club-model">Loyalty Clubs</a> accessible by API client.</p>
-
-<h4 id="query-parameters">Query Parameters</h4>
-
+<h4 id='query-parameters-1'><span id=query-parameters></span>Query Parameters</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -140,7 +131,7 @@
 </tr>
 <tr>
 <td>type</td>
-<td>enum: [&lsquo;REGULAR&rsquo;, &lsquo;TENANTS&rsquo;, &lsquo;ICOM&rsquo;]</td>
+<td>enum: [&#39;REGULAR&#39;, &#39;TENANTS&#39;, &#39;ICOM&#39;]</td>
 <td>null</td>
 <td>When present, filters results by this type</td>
 </tr>
@@ -151,9 +142,7 @@
 <td>When present, filters results by this customer</td>
 </tr>
 </tbody></table>
-
-<h4 id="response-json-object">Response (JSON object)</h4>
-
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -176,9 +165,7 @@
 <aside class="notice">
 Requires <code>BL:Api:LoyaltyClubs:ListMine</code> permit
 </aside>
-
-<h3 id="get"><a name="loyalty-clubs-get"></a> Get</h3>
-
+<h3 id='a-name-loyalty-clubs-get-a-get-1'><span id=a-name-loyalty-clubs-get-a-get></span><a name="loyalty-clubs-get"></a> Get</h3>
 <blockquote>
 <p>Example</p>
 </blockquote>
@@ -195,20 +182,16 @@ Requires <code>BL:Api:LoyaltyClubs:ListMine</code> permit
   </span><span class="err">//</span><span class="w"> </span><span class="err">(...)</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">Loyalty</span><span class="w"> </span><span class="err">Club</span><span class="w"> </span><span class="err">model</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>GET</strong> <code class="prettyprint">v3/loyalty_clubs/:loyalty_club_slug</code></p>
+<p><strong>GET</strong> <code>v3/loyalty_clubs/:loyalty_club_slug</code></p>
 
-<p><strong>GET</strong> <code class="prettyprint">v3/loyalty_clubs/by_community_id/:community_id</code></p>
+<p><strong>GET</strong> <code>v3/loyalty_clubs/by_community_id/:community_id</code></p>
 
-<p>Returns basic information about the <a href="#loyalty-club-model">Loyalty Clubs</a>, by one of it&rsquo;s slugs or by it&rsquo;s <code class="prettyprint">community_id</code>.</p>
+<p>Returns basic information about the <a href="#loyalty-club-model">Loyalty Clubs</a>, by one of it&#39;s slugs or by it&#39;s <code>community_id</code>.</p>
 
 <aside class="notice">
 Requires <code>BL:Api:LoyaltyClubs:Get</code> permit
 </aside>
-
-<h2 id="schema">Schema</h2>
-
-<h3 id="get"><a name="loyalty-clubs-schema"></a> Get</h3>
-
+<h2 id='schema-1'><span id=schema></span>Schema</h2><h3 id='a-name-loyalty-clubs-schema-a-get-1'><span id=a-name-loyalty-clubs-schema-a-get></span><a name="loyalty-clubs-schema"></a> Get</h3>
 <blockquote>
 <p>Example</p>
 </blockquote>
@@ -265,17 +248,15 @@ Requires <code>BL:Api:LoyaltyClubs:Get</code> permit
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/member_schema</code></p>
+<p><strong>GET</strong> <code>v3/:loyalty_club_slug/member_schema</code></p>
 
 <p>Properties for members are defined as part of the loyalty club they belong to.</p>
 
 <p>To describe member properties we use <a href="http://json-schema.org/documentation.html">JSON Schema</a> definition.
 Properties of each member must conform to the defined schema.</p>
 
-<p>We support <strong>JSON schema Draft V4</strong> with format extension for <code class="prettyprint">date</code> (YYYY-MM-DD).</p>
-
-<h4 id="response-json-object">Response (JSON object)</h4>
-
+<p>We support <strong>JSON schema Draft V4</strong> with format extension for <code>date</code> (YYYY-MM-DD).</p>
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -290,7 +271,7 @@ Properties of each member must conform to the defined schema.</p>
 </tr>
 <tr>
 <td>consents</td>
-<td>Definition of available consents. Versions are now <code class="prettyprint">&#39;&#39;</code>.</td>
+<td>Definition of available consents. Versions are now <code>&#39;&#39;</code>.</td>
 <td>JSON Object</td>
 </tr>
 <tr>
@@ -305,12 +286,12 @@ Properties of each member must conform to the defined schema.</p>
 </tr>
 <tr>
 <td>version</td>
-<td>Version of schema, currently the newest is <code class="prettyprint">v2</code></td>
+<td>Version of schema, currently the newest is <code>v2</code></td>
 <td>string</td>
 </tr>
 <tr>
 <td>products</td>
-<td>Properties scoping and ordering by product name, default one is <code class="prettyprint">default</code></td>
+<td>Properties scoping and ordering by product name, default one is <code>default</code></td>
 <td>object</td>
 </tr>
 <tr>
@@ -328,11 +309,7 @@ Properties of each member must conform to the defined schema.</p>
 <aside class="notice">
 Requires <code>BL:Api:Schema:Get</code> permit
 </aside>
-
-<h2 id="products">Products</h2>
-
-<h3 id="list"><a name="loyalty-clubs-products"></a> List</h3>
-
+<h2 id='products-1'><span id=products></span>Products</h2><h3 id='a-name-loyalty-clubs-products-a-list-1'><span id=a-name-loyalty-clubs-products-a-list></span><a name="loyalty-clubs-products"></a> List</h3>
 <blockquote>
 <p>Example</p>
 </blockquote>
@@ -362,12 +339,10 @@ Requires <code>BL:Api:Schema:Get</code> permit
     </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
-<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/products</code></p>
+<p><strong>GET</strong> <code>v3/:loyalty_club_slug/products</code></p>
 
 <p>Returns list of Products (AKA Channels, AKA Sources) defined for Loyalty Club.</p>
-
-<h4 id="product-response-model-in-json-array">Product response model (in JSON array)</h4>
-
+<h4 id='product-response-model-in-json-array-1'><span id=product-response-model-in-json-array></span>Product response model (in JSON array)</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -405,11 +380,7 @@ Requires <code>BL:Api:Schema:Get</code> permit
 <aside class="notice">
 Requires <code>BL:Api:Products:Index</code> permit
 </aside>
-
-<h2 id="translations">Translations</h2>
-
-<h3 id="list"><a name="list-translations"></a> List</h3>
-
+<h2 id='translations-1'><span id=translations></span>Translations</h2><h3 id='a-name-list-translations-a-list-1'><span id=a-name-list-translations-a-list></span><a name="list-translations"></a> List</h3>
 <blockquote>
 <p>Example request</p>
 </blockquote>
@@ -469,12 +440,10 @@ Requires <code>BL:Api:Products:Index</code> permit
     </span><span class="s2">"terms"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;p&gt;&lt;h3&gt;Privacy Policy&lt;/h3&gt;We strive to protect your privacy&lt;/p&gt;"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/translations</code></p>
+<p><strong>GET</strong> <code>v3/:loyalty_club_slug/translations</code></p>
 
 <p>Returns translations for the Loyalty Club.</p>
-
-<h4 id="query-parameters">Query Parameters</h4>
-
+<h4 id='query-parameters-1'><span id=query-parameters></span>Query Parameters</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -490,9 +459,7 @@ Requires <code>BL:Api:Products:Index</code> permit
 <td>Desired language of translations</td>
 </tr>
 </tbody></table>
-
-<h4 id="response-json-object">Response (JSON object)</h4>
-
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
 <table><thead>
 <tr>
 <th>Key</th>

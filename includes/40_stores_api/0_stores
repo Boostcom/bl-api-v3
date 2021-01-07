@@ -1,9 +1,4 @@
-<h1 id="stores-api">Stores API</h1>
-
-<h2 id="stores">Stores</h2>
-
-<h3 id="list"><a name="store-list"></a> List</h3>
-
+<h1 id='stores-api-1'><span id=stores-api></span>Stores API</h1><h2 id='stores-1'><span id=stores></span>Stores</h2><h3 id='a-name-store-list-a-list-1'><span id=a-name-store-list-a-list></span><a name="store-list"></a> List</h3>
 <blockquote>
 <p>Example:</p>
 </blockquote>
@@ -70,12 +65,10 @@
     </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
-<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/stores</code></p>
+<p><strong>GET</strong> <code>v3/:loyalty_club_slug/stores</code></p>
 
 <p>List of all active stores</p>
-
-<h4 id="url-parameters">URL Parameters</h4>
-
+<h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -135,9 +128,7 @@
 <aside class="notice">
 Requires <code>Stores:Api:Stores:Get</code> permit
 </aside> 
-
-<h3 id="get"><a name="store-get"></a> Get</h3>
-
+<h3 id='a-name-store-get-a-get-1'><span id=a-name-store-get-a-get></span><a name="store-get"></a> Get</h3>
 <blockquote>
 <p>Example:</p>
 </blockquote>
@@ -204,20 +195,18 @@ Requires <code>Stores:Api:Stores:Get</code> permit
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
-<p>When <code class="prettyprint">id</code> is invalid (422), returns:</p>
+<p>When <code>id</code> is invalid (422), returns:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Store not found"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/stores/:id</code></p>
+<p><strong>GET</strong> <code>v3/:loyalty_club_slug/stores/:id</code></p>
 
-<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/stores/by_store_id/:store_id</code></p>
+<p><strong>GET</strong> <code>v3/:loyalty_club_slug/stores/by_store_id/:store_id</code></p>
 
-<p>Return store by one of two identifiers: <code class="prettyprint">id</code> or <code class="prettyprint">store_id</code></p>
-
-<h4 id="url-parameters">URL Parameters</h4>
-
+<p>Return store by one of two identifiers: <code>id</code> or <code>store_id</code></p>
+<h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -236,9 +225,7 @@ Requires <code>Stores:Api:Stores:Get</code> permit
 <td>string</td>
 </tr>
 </tbody></table>
-
-<h4 id="error-responses">Error responses</h4>
-
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -246,7 +233,7 @@ Requires <code>Stores:Api:Stores:Get</code> permit
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">422</code></td>
+<td><code>422</code></td>
 <td>Invalid parameters (see example on the right)</td>
 </tr>
 </tbody></table>
@@ -254,9 +241,7 @@ Requires <code>Stores:Api:Stores:Get</code> permit
 <aside class="notice">
 Requires <code>Stores:Api:Stores:Get</code> permit
 </aside>
-
-<h3 id="create"><a name="store-create"></a> Create</h3>
-
+<h3 id='a-name-store-create-a-create-1'><span id=a-name-store-create-a-create></span><a name="store-create"></a> Create</h3>
 <blockquote>
 <p>Example:</p>
 </blockquote>
@@ -334,12 +319,10 @@ Requires <code>Stores:Api:Stores:Get</code> permit
 </span></code></pre>
 <p>Create store</p>
 
-<p><strong>POST</strong> <code class="prettyprint">v3/:loyalty_club_slug/stores</code></p>
+<p><strong>POST</strong> <code>v3/:loyalty_club_slug/stores</code></p>
 
 <p>Create store</p>
-
-<h4 id="post-parameters-json">POST Parameters (JSON)</h4>
-
+<h4 id='post-parameters-json-1'><span id=post-parameters-json></span>POST Parameters (JSON)</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -420,10 +403,8 @@ Requires <code>Stores:Api:Stores:Get</code> permit
 </tr>
 </tbody></table>
 
-<p>Parameters with <code class="prettyprint">*</code> are required</p>
-
-<h4 id="feedback-statuses">Feedback statuses</h4>
-
+<p>Parameters with <code>*</code> are required</p>
+<h4 id='feedback-statuses-1'><span id=feedback-statuses></span>Feedback statuses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -439,9 +420,7 @@ Requires <code>Stores:Api:Stores:Get</code> permit
 <td></td>
 </tr>
 </tbody></table>
-
-<h4 id="error-responses">Error responses</h4>
-
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -449,7 +428,7 @@ Requires <code>Stores:Api:Stores:Get</code> permit
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">422</code></td>
+<td><code>422</code></td>
 <td>Invalid parameters (see example on the right)</td>
 </tr>
 </tbody></table>
@@ -457,9 +436,7 @@ Requires <code>Stores:Api:Stores:Get</code> permit
 <aside class="notice">
 Requires <code>Stores:Api:Stores:Create</code>
 </aside>
-
-<h3 id="update"><a name="store-update"></a> Update</h3>
-
+<h3 id='a-name-store-update-a-update-1'><span id=a-name-store-update-a-update></span><a name="store-update"></a> Update</h3>
 <blockquote>
 <p>Example:</p>
 </blockquote>
@@ -535,7 +512,7 @@ Requires <code>Stores:Api:Stores:Create</code>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
-<p>When <code class="prettyprint">id</code> or <code class="prettyprint">store_id</code> is invalid (422), returns:</p>
+<p>When <code>id</code> or <code>store_id</code> is invalid (422), returns:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Store not found"</span><span class="w">
@@ -543,12 +520,10 @@ Requires <code>Stores:Api:Stores:Create</code>
 </span></code></pre>
 <p>Update store</p>
 
-<p><strong>PUT</strong> <code class="prettyprint">v3/:loyalty_club_slug/stores/:id</code></p>
+<p><strong>PUT</strong> <code>v3/:loyalty_club_slug/stores/:id</code></p>
 
-<p><strong>PUT</strong> <code class="prettyprint">v3/:loyalty_club_slug/stores/by_store_id/:store_id</code></p>
-
-<h4 id="url-parameters">URL Parameters</h4>
-
+<p><strong>PUT</strong> <code>v3/:loyalty_club_slug/stores/by_store_id/:store_id</code></p>
+<h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -567,9 +542,7 @@ Requires <code>Stores:Api:Stores:Create</code>
 <td>string</td>
 </tr>
 </tbody></table>
-
-<h4 id="put-parameters-json">PUT Parameters (JSON)</h4>
-
+<h4 id='put-parameters-json-1'><span id=put-parameters-json></span>PUT Parameters (JSON)</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -645,10 +618,8 @@ Requires <code>Stores:Api:Stores:Create</code>
 </tr>
 </tbody></table>
 
-<p>Parameters with <code class="prettyprint">*</code> are required</p>
-
-<h4 id="feedback-statuses">Feedback statuses</h4>
-
+<p>Parameters with <code>*</code> are required</p>
+<h4 id='feedback-statuses-1'><span id=feedback-statuses></span>Feedback statuses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -664,9 +635,7 @@ Requires <code>Stores:Api:Stores:Create</code>
 <td></td>
 </tr>
 </tbody></table>
-
-<h4 id="error-responses">Error responses</h4>
-
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -674,7 +643,7 @@ Requires <code>Stores:Api:Stores:Create</code>
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">422</code></td>
+<td><code>422</code></td>
 <td>Invalid parameters (see example on the right)</td>
 </tr>
 </tbody></table>
@@ -682,9 +651,7 @@ Requires <code>Stores:Api:Stores:Create</code>
 <aside class="notice">
 Requires <code>Stores:Api:Stores:Update</code>
 </aside>
-
-<h3 id="delete"><a name="store-delete"></a> Delete</h3>
-
+<h3 id='a-name-store-delete-a-delete-1'><span id=a-name-store-delete-a-delete></span><a name="store-delete"></a> Delete</h3>
 <blockquote>
 <p>Example:</p>
 </blockquote>
@@ -705,7 +672,7 @@ Requires <code>Stores:Api:Stores:Update</code>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
-<p>When <code class="prettyprint">id</code> or <code class="prettyprint">store_id</code> is invalid (422), returns:</p>
+<p>When <code>id</code> or <code>store_id</code> is invalid (422), returns:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Store not found"</span><span class="w">
@@ -713,12 +680,10 @@ Requires <code>Stores:Api:Stores:Update</code>
 </span></code></pre>
 <p>Delete store</p>
 
-<p><strong>DELETE</strong> <code class="prettyprint">v3/:loyalty_club_slug/stores/:id</code></p>
+<p><strong>DELETE</strong> <code>v3/:loyalty_club_slug/stores/:id</code></p>
 
-<p><strong>DELETE</strong> <code class="prettyprint">v3/:loyalty_club_slug/stores/by_store_id/:store_id</code></p>
-
-<h4 id="url-parameters">URL Parameters</h4>
-
+<p><strong>DELETE</strong> <code>v3/:loyalty_club_slug/stores/by_store_id/:store_id</code></p>
+<h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -737,9 +702,7 @@ Requires <code>Stores:Api:Stores:Update</code>
 <td>string</td>
 </tr>
 </tbody></table>
-
-<h4 id="feedback-statuses">Feedback statuses</h4>
-
+<h4 id='feedback-statuses-1'><span id=feedback-statuses></span>Feedback statuses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -755,9 +718,7 @@ Requires <code>Stores:Api:Stores:Update</code>
 <td></td>
 </tr>
 </tbody></table>
-
-<h4 id="error-responses">Error responses</h4>
-
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -765,7 +726,7 @@ Requires <code>Stores:Api:Stores:Update</code>
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">422</code></td>
+<td><code>422</code></td>
 <td>Invalid parameters (see example on the right)</td>
 </tr>
 </tbody></table>
@@ -773,11 +734,7 @@ Requires <code>Stores:Api:Stores:Update</code>
 <aside class="notice">
 Requires <code>Stores:Api:Stores:Delete</code>
 </aside>
-
-<h2 id="categories"><a name="stores-categories"></a> Categories</h2>
-
-<h3 id="list"><a name="store-categories-list"></a> List</h3>
-
+<h2 id='a-name-stores-categories-a-categories-1'><span id=a-name-stores-categories-a-categories></span><a name="stores-categories"></a> Categories</h2><h3 id='a-name-store-categories-list-a-list-1'><span id=a-name-store-categories-list-a-list></span><a name="store-categories-list"></a> List</h3>
 <blockquote>
 <p>Example:</p>
 </blockquote>
@@ -797,18 +754,14 @@ Requires <code>Stores:Api:Stores:Delete</code>
     </span><span class="s2">"category C"</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
-<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/stores/categories</code></p>
+<p><strong>GET</strong> <code>v3/:loyalty_club_slug/stores/categories</code></p>
 
 <p>List of all store categories</p>
 
 <aside class="notice">
 Requires <code>Stores:Api:Zones:Get</code> permit
 </aside> 
-
-<h2 id="zones">Zones</h2>
-
-<h3 id="list"><a name="store-zones-list"></a> List</h3>
-
+<h2 id='zones-1'><span id=zones></span>Zones</h2><h3 id='a-name-store-zones-list-a-list-1'><span id=a-name-store-zones-list-a-list></span><a name="store-zones-list"></a> List</h3>
 <blockquote>
 <p>Example:</p>
 </blockquote>
@@ -828,7 +781,7 @@ Requires <code>Stores:Api:Zones:Get</code> permit
     </span><span class="s2">"zone C"</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
-<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/stores/zones</code></p>
+<p><strong>GET</strong> <code>v3/:loyalty_club_slug/stores/zones</code></p>
 
 <p>List of all zones</p>
 

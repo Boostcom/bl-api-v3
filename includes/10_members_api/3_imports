@@ -1,18 +1,11 @@
-<h2 id="members-imports">Members Imports</h2>
-
-<h3 id="introduction"><a name="members-imports-import-flow"></a> Introduction</h3>
-
-<h5 id="import-bulks">Import bulks</h5>
-
+<h2 id='members-imports-1'><span id=members-imports></span>Members Imports</h2><h3 id='a-name-members-imports-import-flow-a-introduction-1'><span id=a-name-members-imports-import-flow-a-introduction></span><a name="members-imports-import-flow"></a> Introduction</h3><h5 id='import-bulks-1'><span id=import-bulks></span>Import bulks</h5>
 <p>At most 1000 member records may be sent in one request.</p>
 
-<p>If you intend to import more than that, you may group them by <code class="prettyprint">import_id</code>, so multiple bulks will be grouped into one import.</p>
+<p>If you intend to import more than that, you may group them by <code>import_id</code>, so multiple bulks will be grouped into one import.</p>
 
 <p>Nevertheless, keep in mind, that import always consists of at least one bulk.</p>
-
-<h5 id="import-statuses">Import statuses</h5>
-
-<p>Each bulk is processed by an asynchronous job, so you need to check it&rsquo;s status some time after sending a request.</p>
+<h5 id='import-statuses-1'><span id=import-statuses></span>Import statuses</h5>
+<p>Each bulk is processed by an asynchronous job, so you need to check it&#39;s status some time after sending a request.</p>
 
 <p>For that, you should firstly check the import status <a href="#members-imports-status">here</a> and then 
 check bulks details for each bulk <a href="#members-imports-bulk-status">here</a>.</p>
@@ -22,40 +15,34 @@ check bulks details for each bulk <a href="#members-imports-bulk-status">here</a
 <ul>
 <li>We recommend to check status in intervals not smaller than 5 seconds</li>
 <li>In extreme cases, it make take even few hours for bulk to be fully processed</li>
-<li>24 hours after import request any potential personal data (contained in <code class="prettyprint">member_payloads</code> and <code class="prettyprint">errors</code>) is permanently removed from server</li>
+<li>24 hours after import request any potential personal data (contained in <code>member_payloads</code> and <code>errors</code>) is permanently removed from server</li>
 </ul>
+<h5 id='bulk-statuses-1'><span id=bulk-statuses></span>Bulk statuses</h5>
+<p>When bulk is created, it gets <code>waiting</code> status.</p>
 
-<h5 id="bulk-statuses">Bulk statuses</h5>
-
-<p>When bulk is created, it gets <code class="prettyprint">waiting</code> status.</p>
-
-<p>When bulk has been picked by asynchronous job, it transitions into <code class="prettyprint">working</code> status.
+<p>When bulk has been picked by asynchronous job, it transitions into <code>working</code> status.
 Depending on the server load, it may get picked instantly or even after few hours in extreme cases.</p>
 
-<p>When the job has been executed successfully (which make take up to few minutes), bulk will have <code class="prettyprint">finished</code> status assigned.
-Please note that it doesn&rsquo;t mean that members have been successfully processed (there may be even none), you&rsquo;ll need to check bulk status
+<p>When the job has been executed successfully (which make take up to few minutes), bulk will have <code>finished</code> status assigned.
+Please note that it doesn&#39;t mean that members have been successfully processed (there may be even none), you&#39;ll need to check bulk status
 for errors.</p>
 
-<p>When job failed for some internal reason, it will have either <code class="prettyprint">failed</code> or <code class="prettyprint">waiting_for_retry</code> status. See below
+<p>When job failed for some internal reason, it will have either <code>failed</code> or <code>waiting_for_retry</code> status. See below
 for more details.  </p>
+<h5 id='asynchronous-job-failures-1'><span id=asynchronous-job-failures></span>Asynchronous job failures</h5>
+<p>Jobs that couldn&#39;t be processed because of some internal reasons will be retried up to 5 times.</p>
 
-<h5 id="asynchronous-job-failures">Asynchronous job failures</h5>
+<p>After each failure, the bulk will have <code>waiting_for_retry</code> status assigned and it&#39;s <code>retries</code> attribute will be incremented.</p>
 
-<p>Jobs that couldn&rsquo;t be processed because of some internal reasons will be retried up to 5 times.</p>
-
-<p>After each failure, the bulk will have <code class="prettyprint">waiting_for_retry</code> status assigned and it&rsquo;s <code class="prettyprint">retries</code> attribute will be incremented.</p>
-
-<p>After 5th failure, the bulk will have <code class="prettyprint">failed</code> status assigned. In such case, please contact us, so we may identify 
+<p>After 5th failure, the bulk will have <code>failed</code> status assigned. In such case, please contact us, so we may identify 
 and resolve the problem.</p>
+<h3 id='a-name-members-imports-a-send-import-request-1'><span id=a-name-members-imports-a-send-import-request></span><a name="members-imports"></a> Send import request</h3>
+<p><strong>POST</strong> <code>v3/:loyalty_club_slug/members/imports</code></p>
 
-<h3 id="send-import-request"><a name="members-imports"></a> Send import request</h3>
-
-<p><strong>POST</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/imports</code></p>
-
-<p>Creates new members or updates existing ones (based on <code class="prettyprint">msisdn</code> and <code class="prettyprint">e-mail</code> identifiers).</p>
+<p>Creates new members or updates existing ones (based on <code>msisdn</code> and <code>e-mail</code> identifiers).</p>
 
 <p>There is a maximum number of members that can be sent in one request (1000). So, if you intend to import more than 
-that, you may want to identify all bulks with the same <code class="prettyprint">import_id</code> and pass consequent <code class="prettyprint">request_number</code> to each of them.</p>
+that, you may want to identify all bulks with the same <code>import_id</code> and pass consequent <code>request_number</code> to each of them.</p>
 
 <blockquote>
 <p>Example:</p>
@@ -100,9 +87,7 @@ that, you may want to identify all bulks with the same <code class="prettyprint"
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"duplicated_msisdns"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-<h4 id="post-parameters-json">POST Parameters (JSON)</h4>
-
+</span></code></pre><h4 id='post-parameters-json-1'><span id=post-parameters-json></span>POST Parameters (JSON)</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -116,14 +101,14 @@ that, you may want to identify all bulks with the same <code class="prettyprint"
 <td>import_id</td>
 <td>no</td>
 <td>auto-generated</td>
-<td>When you&rsquo;re making more than one call you can consider adding it. Otherwise it will be auto-generated</td>
+<td>When you&#39;re making more than one call you can consider adding it. Otherwise it will be auto-generated</td>
 <td>String</td>
 </tr>
 <tr>
 <td>request_number</td>
 <td>no</td>
 <td>-</td>
-<td>A number that you can use for bulk identification in &ldquo;Status&rdquo; endpoint. It&rsquo;s up to you to provide it&rsquo;s uniqueness. Useless without specifying <code class="prettyprint">import_id</code></td>
+<td>A number that you can use for bulk identification in &quot;Status&quot; endpoint. It&#39;s up to you to provide it&#39;s uniqueness. Useless without specifying <code>import_id</code></td>
 <td>Integer</td>
 </tr>
 <tr>
@@ -141,13 +126,11 @@ that, you may want to identify all bulks with the same <code class="prettyprint"
 <td>Boolean</td>
 </tr>
 </tbody></table>
-
-<h5 id="members-array">Members Array</h5>
-
+<h5 id='members-array-1'><span id=members-array></span>Members Array</h5>
 <p>General requirements:</p>
 
 <ul>
-<li>all members must have unique identifiers (<code class="prettyprint">msisdn</code> or <code class="prettyprint">email</code>)</li>
+<li>all members must have unique identifiers (<code>msisdn</code> or <code>email</code>)</li>
 <li>maximum number of items in array is 1000</li>
 </ul>
 
@@ -168,17 +151,17 @@ that, you may want to identify all bulks with the same <code class="prettyprint"
 <td>JSON Object</td>
 </tr>
 <tr>
-<td>properties[&lsquo;msisdn&rsquo;]</td>
+<td>properties[&#39;msisdn&#39;]</td>
 <td>yes*</td>
 <td>none</td>
-<td>Unique member&rsquo;s msisdn as defined <a href="#msisdn-param">here</a>) Example: <code class="prettyprint">4740485124</code>.</td>
+<td>Unique member&#39;s msisdn as defined <a href="#msisdn-param">here</a>) Example: <code>4740485124</code>.</td>
 <td>string</td>
 </tr>
 <tr>
-<td>properties[&lsquo;email&rsquo;]</td>
+<td>properties[&#39;email&#39;]</td>
 <td>yes*</td>
 <td>none</td>
-<td>Member&rsquo;s email</td>
+<td>Member&#39;s email</td>
 <td>string</td>
 </tr>
 <tr>
@@ -212,14 +195,14 @@ that, you may want to identify all bulks with the same <code class="prettyprint"
 <tr>
 <td>optin_channel</td>
 <td>no</td>
-<td>&ldquo;import&rdquo;**</td>
+<td>&quot;import&quot;**</td>
 <td>Source of member</td>
 <td>String</td>
 </tr>
 <tr>
 <td>optin_subchannel</td>
 <td>no</td>
-<td>import&rsquo;s id**</td>
+<td>import&#39;s id**</td>
 <td>Subsource of member</td>
 <td>String</td>
 </tr>
@@ -228,16 +211,14 @@ that, you may want to identify all bulks with the same <code class="prettyprint"
 <td>no</td>
 <td>{}</td>
 <td>Members consents</td>
-<td>See <a href="#member-consents-model">Member&rsquo;s consents JSON model</a></td>
+<td>See <a href="#member-consents-model">Member&#39;s consents JSON model</a></td>
 </tr>
 </tbody></table>
 
 <p>&ast; At least one of those properties must be provided</p>
 
-<p>&ast;&ast; When those member attributes are missing on creation, defaults will be used. When on update, they won&rsquo;t be overwritten.</p>
-
-<h4 id="response-json-object">Response (JSON object)</h4>
-
+<p>&ast;&ast; When those member attributes are missing on creation, defaults will be used. When on update, they won&#39;t be overwritten.</p>
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -251,9 +232,7 @@ that, you may want to identify all bulks with the same <code class="prettyprint"
 <td>String</td>
 </tr>
 </tbody></table>
-
-<h4 id="error-responses">Error responses</h4>
-
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -262,15 +241,13 @@ that, you may want to identify all bulks with the same <code class="prettyprint"
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">422</code></td>
+<td><code>422</code></td>
 <td>Invalid payload</td>
 <td>Returns error object - see below</td>
 </tr>
 </tbody></table>
-
-<h5 id="invalid-payload-error-json-object">Invalid Payload Error (JSON object)</h5>
-
-<p>When payload is invalid, an object is returned: <code class="prettyprint">{&quot;error&quot; =&gt; &lt;reason&gt;}</code></p>
+<h5 id='invalid-payload-error-json-object-1'><span id=invalid-payload-error-json-object></span>Invalid Payload Error (JSON object)</h5>
+<p>When payload is invalid, an object is returned: <code>{&quot;error&quot; =&gt; &lt;reason&gt;}</code></p>
 
 <p>Possible reasons are:</p>
 
@@ -281,23 +258,23 @@ that, you may want to identify all bulks with the same <code class="prettyprint"
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">duplicated_emails</code></td>
+<td><code>duplicated_emails</code></td>
 <td>At least two members in payload share same email</td>
 </tr>
 <tr>
-<td><code class="prettyprint">duplicated_msisdns</code></td>
+<td><code>duplicated_msisdns</code></td>
 <td>At least two members in payload share same msisdn</td>
 </tr>
 <tr>
-<td><code class="prettyprint">members_size_incorrect</code></td>
+<td><code>members_size_incorrect</code></td>
 <td>Members number in payload exceeds maximum (1000)</td>
 </tr>
 <tr>
-<td><code class="prettyprint">members_empty</code></td>
+<td><code>members_empty</code></td>
 <td>Payload is empty</td>
 </tr>
 <tr>
-<td><code class="prettyprint">missing_identifier</code></td>
+<td><code>missing_identifier</code></td>
 <td>At least one member in payload misses required identifier (depends on Community)</td>
 </tr>
 </tbody></table>
@@ -305,12 +282,10 @@ that, you may want to identify all bulks with the same <code class="prettyprint"
 <aside class="notice">
 Requires <code>BL:Api:Members:Imports:Create</code> permit
 </aside>
+<h3 id='a-name-members-imports-status-a-get-import-status-1'><span id=a-name-members-imports-status-a-get-import-status></span><a name="members-imports-status"></a> Get import status</h3>
+<p><strong>GET</strong> <code>v3/:loyalty_club_slug/members/imports/:import_id</code></p>
 
-<h3 id="get-import-status"><a name="members-imports-status"></a> Get import status</h3>
-
-<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/imports/:import_id</code></p>
-
-<p>Returns status of import with a list of references to bulks (<code class="prettyprint">id</code> and <code class="prettyprint">request_number</code>). </p>
+<p>Returns status of import with a list of references to bulks (<code>id</code> and <code>request_number</code>). </p>
 
 <p>You need to call <a href="#members-import-bulk-status">Members Imports &bull; Get bulk status</a> to see bulks details.</p>
 
@@ -340,9 +315,7 @@ Requires <code>BL:Api:Members:Imports:Create</code> permit
         </span><span class="p">{</span><span class="w"> </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">83476</span><span class="p">,</span><span class="w"> </span><span class="s2">"request_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"waiting"</span><span class="w"> </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-<h4 id="url-parameters">URL Parameters</h4>
-
+</span></code></pre><h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -354,9 +327,7 @@ Requires <code>BL:Api:Members:Imports:Create</code> permit
 <td>Import identifier</td>
 </tr>
 </tbody></table>
-
-<h4 id="response-json-object">Response (JSON object)</h4>
-
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -392,12 +363,10 @@ Requires <code>BL:Api:Members:Imports:Create</code> permit
 <tr>
 <td>bulks</td>
 <td>A list of bulks in the import</td>
-<td>Array<Object>, where Object consists: of <code class="prettyprint">id</code>, <code class="prettyprint">request_number</code> and <code class="prettyprint">status</code> attributes</td>
+<td>Array<Object>, where Object consists: of <code>id</code>, <code>request_number</code> and <code>status</code> attributes</td>
 </tr>
 </tbody></table>
-
-<h4 id="error-responses">Error responses</h4>
-
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -405,20 +374,18 @@ Requires <code>BL:Api:Members:Imports:Create</code> permit
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">404</code></td>
-<td>Job with such ID wasn&rsquo;t found.</td>
+<td><code>404</code></td>
+<td>Job with such ID wasn&#39;t found.</td>
 </tr>
 </tbody></table>
 
 <aside class="notice">
 Requires <code>BL:Api:Members:Imports:Get</code> permit
 </aside>
+<h3 id='a-name-members-imports-bulk-status-a-get-bulk-status-1'><span id=a-name-members-imports-bulk-status-a-get-bulk-status></span><a name="members-imports-bulk-status"></a> Get bulk status</h3>
+<p><strong>GET</strong> <code>v3/:loyalty_club_slug/members/imports/:import_id/bulks/:bulk_id</code></p>
 
-<h3 id="get-bulk-status"><a name="members-imports-bulk-status"></a> Get bulk status</h3>
-
-<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/imports/:import_id/bulks/:bulk_id</code></p>
-
-<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/imports/:import_id/bulks/by_request_number/:request_number</code></p>
+<p><strong>GET</strong> <code>v3/:loyalty_club_slug/members/imports/:import_id/bulks/by_request_number/:request_number</code></p>
 
 <p>Returns status of import bulk.</p>
 
@@ -466,9 +433,7 @@ Requires <code>BL:Api:Members:Imports:Get</code> permit
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-30T17:14:03.738Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-<h4 id="url-parameters">URL Parameters</h4>
-
+</span></code></pre><h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -488,9 +453,7 @@ Requires <code>BL:Api:Members:Imports:Get</code> permit
 <td>Request number of the bulk</td>
 </tr>
 </tbody></table>
-
-<h4 id="response-json-object">Response (JSON object)</h4>
-
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -515,7 +478,7 @@ Requires <code>BL:Api:Members:Imports:Get</code> permit
 </tr>
 <tr>
 <td>status</td>
-<td>Job status - one of: &lsquo;waiting&rsquo;, &lsquo;working&rsquo;, &lsquo;finished&rsquo;, &lsquo;failed&rsquo; &lsquo;waiting_for_retry&rsquo; - see more <a href="#members-imports-import-flow">here</a> in &ldquo;Bulk statuses&rdquo; section</td>
+<td>Job status - one of: &#39;waiting&#39;, &#39;working&#39;, &#39;finished&#39;, &#39;failed&#39; &#39;waiting_for_retry&#39; - see more <a href="#members-imports-import-flow">here</a> in &quot;Bulk statuses&quot; section</td>
 <td>String</td>
 </tr>
 <tr>
@@ -545,7 +508,7 @@ Requires <code>BL:Api:Members:Imports:Get</code> permit
 </tr>
 <tr>
 <td>members_errors</td>
-<td>Members errors. Each invalid member will be returned in this object, where key is his identifier (<code class="prettyprint">email</code> or <code class="prettyprint">msisdn</code>) and the value is a list of it&rsquo;s <a href="#validation-on-members">validation errors</a></td>
+<td>Members errors. Each invalid member will be returned in this object, where key is his identifier (<code>email</code> or <code>msisdn</code>) and the value is a list of it&#39;s <a href="#validation-on-members">validation errors</a></td>
 <td>Object</td>
 </tr>
 <tr>
@@ -554,9 +517,7 @@ Requires <code>BL:Api:Members:Imports:Get</code> permit
 <td>Date</td>
 </tr>
 </tbody></table>
-
-<h4 id="error-responses">Error responses</h4>
-
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -564,8 +525,8 @@ Requires <code>BL:Api:Members:Imports:Get</code> permit
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">404</code></td>
-<td>Bulk with such ID wasn&rsquo;t found.</td>
+<td><code>404</code></td>
+<td>Bulk with such ID wasn&#39;t found.</td>
 </tr>
 </tbody></table>
 

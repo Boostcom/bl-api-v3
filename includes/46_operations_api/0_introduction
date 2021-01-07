@@ -1,5 +1,4 @@
-<h1 id="operations-api"><a name="operations"></a> Operations API</h1>
-
+<h1 id='a-name-operations-a-operations-api-1'><span id=a-name-operations-a-operations-api></span><a name="operations"></a> Operations API</h1>
 <p>This section describes endpoints destined for end user that work only within context of (signed in) user.</p>
 
 <p>Navigate to <a href="#operations-admin">Operations Admin</a> section to see docs for management endpoints.</p>

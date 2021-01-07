@@ -1,18 +1,9 @@
-<h1 id="members-api">Members API</h1>
-
-<h2 id="members">Members</h2>
-
-<h3 id="introduction">Introduction</h3>
-
-<h4 id="authentication">Authentication</h4>
-
+<h1 id='members-api-1'><span id=members-api></span>Members API</h1><h2 id='members-1'><span id=members></span>Members</h2><h3 id='introduction-1'><span id=introduction></span>Introduction</h3><h4 id='authentication-1'><span id=authentication></span>Authentication</h4>
 <p>Actions related to specific member (the one that is using your application) require to have member authenticated and we implement
 OAuth2 flow for this.</p>
 
 <p>See <a href="#oauth2">Members OAuth</a> to see how to authenticate the member with OAuth2.</p>
-
-<h4 id="member-model"><a name="member-model"></a> Member model</h4>
-
+<h4 id='a-name-member-model-a-member-model-1'><span id=a-name-member-model-a-member-model></span><a name="member-model"></a> Member model</h4>
 <blockquote>
 <p>Example:</p>
 </blockquote>
@@ -64,17 +55,17 @@ OAuth2 flow for this.</p>
 </tr>
 <tr>
 <td>properties</td>
-<td>Object with member&rsquo;s properties</td>
+<td>Object with member&#39;s properties</td>
 <td>JSON Object</td>
 </tr>
 <tr>
-<td>properties[&lsquo;language&rsquo;]</td>
+<td>properties[&#39;language&#39;]</td>
 <td>Language used by user</td>
 <td>string</td>
 </tr>
 <tr>
 <td>consents</td>
-<td>Member&rsquo;s consents JSON model (see below)</td>
+<td>Member&#39;s consents JSON model (see below)</td>
 <td>JSON Object</td>
 </tr>
 <tr>
@@ -94,12 +85,12 @@ OAuth2 flow for this.</p>
 </tr>
 <tr>
 <td>optin_channel</td>
-<td>Channel (<code class="prettyprint">x-product-name</code> header) which had been used to register member</td>
+<td>Channel (<code>x-product-name</code> header) which had been used to register member</td>
 <td>string</td>
 </tr>
 <tr>
 <td>optin_subchannel</td>
-<td>Subchannel (<code class="prettyprint">X-Subproduct-Name</code> header) which had been used to register member</td>
+<td>Subchannel (<code>X-Subproduct-Name</code> header) which had been used to register member</td>
 <td>string</td>
 </tr>
 <tr>
@@ -119,35 +110,29 @@ OAuth2 flow for this.</p>
 </tr>
 <tr>
 <td>person_id</td>
-<td>Unique Member&rsquo;s identifier (set internally)</td>
+<td>Unique Member&#39;s identifier (set internally)</td>
 <td>string</td>
 </tr>
 </tbody></table>
+<h4 id='a-name-member-consents-model-a-member-39-s-consents-json-model-1'><span id=a-name-member-consents-model-a-member-39-s-consents-json-model></span><a name="member-consents-model"></a> Member&#39;s consents JSON model</h4>
+<p>JSON model for consents. Keys can be dynamically created based on customer&#39;s need.</p>
 
-<h4 id="members-consents-json-model"><a name="member-consents-model"></a> Member&rsquo;s consents JSON model</h4>
-
-<p>JSON model for consents. Keys can be dynamically created based on customer&rsquo;s need.</p>
-
-<p>It consists of: <code class="prettyprint">&#39;consent-slug&#39;: { &quot;status&quot;: &lt;boolean_value&gt;, &quot;updated_at&quot;: &lt;time&gt; }</code></p>
+<p>It consists of: <code>&#39;consent-slug&#39;: { &quot;status&quot;: &lt;boolean_value&gt;, &quot;updated_at&quot;: &lt;time&gt; }</code></p>
 
 <ul>
-<li>If status is <code class="prettyprint">true</code> - Member approved consent.</li>
-<li>If status is <code class="prettyprint">false</code> - Member disapproved consent.</li>
-<li>If you can&rsquo;t find slug on Member: he/she haven&rsquo;t disapproved or approved consent.</li>
+<li>If status is <code>true</code> - Member approved consent.</li>
+<li>If status is <code>false</code> - Member disapproved consent.</li>
+<li>If you can&#39;t find slug on Member: he/she haven&#39;t disapproved or approved consent.</li>
 </ul>
 
-<p><code class="prettyprint">updated_at</code> is the time of last consent update. It can be also not provided or null.</p>
+<p><code>updated_at</code> is the time of last consent update. It can be also not provided or null.</p>
 
 <p>Available consents for Loyalty Club are described in <a href="#loyalty-clubs-schema">schema</a>.</p>
-
-<h4 id="validation-on-members">Validation on members</h4>
-
-<p>All members&rsquo; endpoints have properties validation. Properties are validated to conform loyalty club&rsquo;s schema.</p>
+<h4 id='validation-on-members-1'><span id=validation-on-members></span>Validation on members</h4>
+<p>All members&#39; endpoints have properties validation. Properties are validated to conform loyalty club&#39;s schema.</p>
 
 <p>If something is wrong, you will receive explanation of errors in response.</p>
-
-<h5 id="schema-validation-errors">Schema validation errors</h5>
-<pre class="highlight shell tab-shell"><code>curl -X PUT -H <span class="s2">"x-product-name: custom-product-name"</span> <span class="se">\</span>
+<h5 id='schema-validation-errors-1'><span id=schema-validation-errors></span>Schema validation errors</h5><pre class="highlight shell tab-shell"><code>curl -X PUT -H <span class="s2">"x-product-name: custom-product-name"</span> <span class="se">\</span>
     -H <span class="s2">"X-Customer-Private-Token: token"</span> <span class="se">\</span>
     -H <span class="s2">"content-type: application/json"</span> -d <span class="s1">'{
     "properties": {
@@ -345,9 +330,7 @@ OAuth2 flow for this.</p>
 <td>The email was duplicated in community</td>
 </tr>
 </tbody></table>
-
-<h3 id="list"><a name="members-index"></a> List</h3>
-
+<h3 id='a-name-members-index-a-list-1'><span id=a-name-members-index-a-list></span><a name="members-index"></a> List</h3>
 <blockquote>
 <p>Example:</p>
 </blockquote>
@@ -366,14 +349,12 @@ OAuth2 flow for this.</p>
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
-<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members?per_page=:per_page&amp;page=:page</code></p>
+<p><strong>GET</strong> <code>v3/:loyalty_club_slug/members?per_page=:per_page&amp;page=:page</code></p>
 
-<p>Returns paginated list of all Loyalty Club members, sorted by <code class="prettyprint">created_at ASC</code>.</p>
+<p>Returns paginated list of all Loyalty Club members, sorted by <code>created_at ASC</code>.</p>
 
 <p>Every returned member is represented by <a href="#member-model">Member model</a>.</p>
-
-<h4 id="query-parameters">Query Parameters</h4>
-
+<h4 id='query-parameters-1'><span id=query-parameters></span>Query Parameters</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -412,9 +393,7 @@ OAuth2 flow for this.</p>
 <td>Properties of members that will be returned. A property must be enabled for querying in the Loyalty Club configuration before it can be used here. Please contact us if you need this feature.</td>
 </tr>
 </tbody></table>
-
-<h4 id="response-json-object">Response (JSON object)</h4>
-
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -433,9 +412,7 @@ OAuth2 flow for this.</p>
 <td><a href="#pagination-model">Pagination</a> object</td>
 </tr>
 </tbody></table>
-
-<h4 id="error-responses">Error responses</h4>
-
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -443,24 +420,20 @@ OAuth2 flow for this.</p>
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">422</code></td>
+<td><code>422</code></td>
 <td>:per_page param exceeds the limit</td>
 </tr>
 </tbody></table>
-
-<h4 id="example-queries">Example queries</h4>
-
+<h4 id='example-queries-1'><span id=example-queries></span>Example queries</h4>
 <ul>
-<li><code class="prettyprint">/members?properties[gender]=man&amp;properties[language][]=en&amp;properties[language][]=pl</code> - returns members with <code class="prettyprint">gender=&quot;man&quot; AND language IN (&quot;en&quot;, &quot;pl&quot;)</code></li>
-<li><code class="prettyprint">/members?ids[]=1&amp;ids[]=2</code> - returns members with <code class="prettyprint">id IN (1, 2)</code></li>
+<li><code>/members?properties[gender]=man&amp;properties[language][]=en&amp;properties[language][]=pl</code> - returns members with <code>gender=&quot;man&quot; AND language IN (&quot;en&quot;, &quot;pl&quot;)</code></li>
+<li><code>/members?ids[]=1&amp;ids[]=2</code> - returns members with <code>id IN (1, 2)</code></li>
 </ul>
 
 <aside class="notice">
 Requires <code>BL:Api:Members:Index</code> permit
 </aside>
-
-<h3 id="get"><a name="members-get"></a> Get</h3>
-
+<h3 id='a-name-members-get-a-get-1'><span id=a-name-members-get-a-get></span><a name="members-get"></a> Get</h3>
 <blockquote>
 <p>Example:</p>
 </blockquote>
@@ -474,32 +447,30 @@ Requires <code>BL:Api:Members:Index</code> permit
 <p>When successful, returns member object as depicted <a href="#member-model">here</a></p>
 </blockquote>
 
-<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/:id</code></p>
+<p><strong>GET</strong> <code>v3/:loyalty_club_slug/members/:id</code></p>
 
 <aside class="notice">
 Requires <code>BL:Api:Members:Get</code> permit
 </aside>
 
-<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/by_msisdn/:msisdn</code></p>
+<p><strong>GET</strong> <code>v3/:loyalty_club_slug/members/by_msisdn/:msisdn</code></p>
 
 <aside class="notice">
 Requires <code>BL:Api:Members:Get</code> permit
 </aside>
 
-<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/by_email/:email</code></p>
+<p><strong>GET</strong> <code>v3/:loyalty_club_slug/members/by_email/:email</code></p>
 
 <aside class="notice">
 Requires <code>BL:Api:Members:Get</code> permit
 </aside>
 
-<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/me</code></p>
+<p><strong>GET</strong> <code>v3/:loyalty_club_slug/members/me</code></p>
 
 <aside class="notice">
 Requires <code>BL:Api:Members:OAuth:Get</code> permit
 </aside>
-
-<h4 id="url-parameters">URL Parameters</h4>
-
+<h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -509,27 +480,23 @@ Requires <code>BL:Api:Members:OAuth:Get</code> permit
 </thead><tbody>
 <tr>
 <td>id</td>
-<td>Member&rsquo;s ID</td>
+<td>Member&#39;s ID</td>
 <td>integer</td>
 </tr>
 <tr>
 <td>msisdn</td>
-<td>Member&rsquo;s msisdn</td>
-<td>string (format as defined <a href="#msisdn-param">here</a> - example: <code class="prettyprint">4740485124</code>)</td>
+<td>Member&#39;s msisdn</td>
+<td>string (format as defined <a href="#msisdn-param">here</a> - example: <code>4740485124</code>)</td>
 </tr>
 <tr>
 <td>email</td>
-<td>Member&rsquo;s email</td>
+<td>Member&#39;s email</td>
 <td>string (email)</td>
 </tr>
 </tbody></table>
-
-<h4 id="response-json-object">Response (JSON object)</h4>
-
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
 <p>See: <a href="#member-model">Member model</a></p>
-
-<h5 id="error-responses">Error responses</h5>
-
+<h5 id='error-responses-1'><span id=error-responses></span>Error responses</h5>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -537,17 +504,15 @@ Requires <code>BL:Api:Members:OAuth:Get</code> permit
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">404</code></td>
+<td><code>404</code></td>
 <td>Member with given identifier could not found</td>
 </tr>
 <tr>
-<td><code class="prettyprint">422</code></td>
+<td><code>422</code></td>
 <td>Invalid MSISDN param</td>
 </tr>
 </tbody></table>
-
-<h3 id="get-public-info"><a name="members-public-info"></a> Get public info</h3>
-
+<h3 id='a-name-members-public-info-a-get-public-info-1'><span id=a-name-members-public-info-a-get-public-info></span><a name="members-public-info"></a> Get public info</h3>
 <blockquote>
 <p>Example:</p>
 </blockquote>
@@ -567,16 +532,14 @@ Requires <code>BL:Api:Members:OAuth:Get</code> permit
   </span><span class="s2">"has_password"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/:id/public_info</code></p>
+<p><strong>GET</strong> <code>v3/:loyalty_club_slug/members/:id/public_info</code></p>
 
-<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/by_msisdn/:msisdn/public_info</code></p>
+<p><strong>GET</strong> <code>v3/:loyalty_club_slug/members/by_msisdn/:msisdn/public_info</code></p>
 
-<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/by_email/:email/public_info</code></p>
+<p><strong>GET</strong> <code>v3/:loyalty_club_slug/members/by_email/:email/public_info</code></p>
 
-<p>Returns basic info for given member. If member does not exist, returns `null&rsquo;.</p>
-
-<h4 id="url-parameters">URL Parameters</h4>
-
+<p>Returns basic info for given member. If member does not exist, returns `null&#39;.</p>
+<h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -586,23 +549,21 @@ Requires <code>BL:Api:Members:OAuth:Get</code> permit
 </thead><tbody>
 <tr>
 <td>id</td>
-<td>Member&rsquo;s ID</td>
+<td>Member&#39;s ID</td>
 <td>integer</td>
 </tr>
 <tr>
 <td>msisdn</td>
-<td>Member&rsquo;s msisdn</td>
-<td>string (format as defined <a href="#msisdn-param">here</a> - example: <code class="prettyprint">4740485124</code>)</td>
+<td>Member&#39;s msisdn</td>
+<td>string (format as defined <a href="#msisdn-param">here</a> - example: <code>4740485124</code>)</td>
 </tr>
 <tr>
 <td>email</td>
-<td>Member&rsquo;s email</td>
+<td>Member&#39;s email</td>
 <td>string (email)</td>
 </tr>
 </tbody></table>
-
-<h4 id="response-json-object">Response (JSON object)</h4>
-
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -635,9 +596,7 @@ Requires <code>BL:Api:Members:OAuth:Get</code> permit
 <aside class="notice">
 Requires <code>BL:Api:Members:Check</code> permit
 </aside>
-
-<h4 id="error-responses">Error responses</h4>
-
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -645,15 +604,13 @@ Requires <code>BL:Api:Members:Check</code> permit
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">422</code></td>
+<td><code>422</code></td>
 <td>Invalid MSISDN param</td>
 </tr>
 </tbody></table>
 
 <!--- ############################################################################################################# --->
-
-<h3 id="get-person-id"><a name="members-person-id"></a> Get person id</h3>
-
+<h3 id='a-name-members-person-id-a-get-person-id-1'><span id=a-name-members-person-id-a-get-person-id></span><a name="members-person-id"></a> Get person id</h3>
 <blockquote>
 <p>Example:</p>
 </blockquote>
@@ -671,13 +628,13 @@ Requires <code>BL:Api:Members:Check</code> permit
   </span><span class="s2">"person_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">92</span><span class="w"> 
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/:id/person_id</code></p>
+<p><strong>GET</strong> <code>v3/:loyalty_club_slug/members/:id/person_id</code></p>
 
-<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/by_msisdn/:msisdn/person_id</code></p>
+<p><strong>GET</strong> <code>v3/:loyalty_club_slug/members/by_msisdn/:msisdn/person_id</code></p>
 
-<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/by_email/:email/person_id</code></p>
+<p><strong>GET</strong> <code>v3/:loyalty_club_slug/members/by_email/:email/person_id</code></p>
 
-<p>Returns <code class="prettyprint">person_id</code> for given member. Please note that <code class="prettyprint">person_id</code> cannot be preset in member payload and will be silently ignored. Also, it cannot be updated.</p>
+<p>Returns <code>person_id</code> for given member. Please note that <code>person_id</code> cannot be preset in member payload and will be silently ignored. Also, it cannot be updated.</p>
 
 <blockquote>
 <p>There are 4 possible successful responses:</p>
@@ -716,9 +673,7 @@ Requires <code>BL:Api:Members:Check</code> permit
   </span><span class="s2">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"not_found"</span><span class="p">,</span><span class="w"> 
   </span><span class="s2">"person_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w"> 
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-<h4 id="url-parameters">URL Parameters</h4>
-
+</span></code></pre><h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -728,23 +683,21 @@ Requires <code>BL:Api:Members:Check</code> permit
 </thead><tbody>
 <tr>
 <td>id</td>
-<td>Member&rsquo;s ID</td>
+<td>Member&#39;s ID</td>
 <td>integer</td>
 </tr>
 <tr>
 <td>msisdn</td>
-<td>Member&rsquo;s msisdn</td>
-<td>string (format as defined <a href="#msisdn-param">here</a> - example: <code class="prettyprint">4740485124</code>)</td>
+<td>Member&#39;s msisdn</td>
+<td>string (format as defined <a href="#msisdn-param">here</a> - example: <code>4740485124</code>)</td>
 </tr>
 <tr>
 <td>email</td>
-<td>Member&rsquo;s email</td>
+<td>Member&#39;s email</td>
 <td>string (email)</td>
 </tr>
 </tbody></table>
-
-<h4 id="response-json-object">Response (JSON object)</h4>
-
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -760,21 +713,19 @@ Requires <code>BL:Api:Members:Check</code> permit
 <tr>
 <td>source</td>
 <td>string</td>
-<td>Source of <code class="prettyprint">person_id</code> (possible values are: <code class="prettyprint">not_found</code>, <code class="prettyprint">db</code>, <code class="prettyprint">storage</code>)</td>
+<td>Source of <code>person_id</code> (possible values are: <code>not_found</code>, <code>db</code>, <code>storage</code>)</td>
 </tr>
 <tr>
 <td>person_id</td>
 <td>integer</td>
-<td>Member&rsquo;s <code class="prettyprint">person_id</code></td>
+<td>Member&#39;s <code>person_id</code></td>
 </tr>
 </tbody></table>
 
 <aside class="notice">
 Requires <code>BL:Api:Members:Check</code> permit
 </aside>
-
-<h4 id="error-responses">Error responses</h4>
-
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -782,15 +733,13 @@ Requires <code>BL:Api:Members:Check</code> permit
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">422</code></td>
+<td><code>422</code></td>
 <td>Invalid MSISDN param</td>
 </tr>
 </tbody></table>
 
 <!--- ############################################################################################################# --->
-
-<h3 id="create"><a name="members-create"></a> Create</h3>
-
+<h3 id='a-name-members-create-a-create-1'><span id=a-name-members-create-a-create></span><a name="members-create"></a> Create</h3>
 <blockquote>
 <p>Example:</p>
 </blockquote>
@@ -832,7 +781,7 @@ curl -X POST <span class="se">\</span>
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>POST</strong> <code class="prettyprint">v3/:loyalty_club_slug/members</code></p>
+<p><strong>POST</strong> <code>v3/:loyalty_club_slug/members</code></p>
 
 <p>Create member with given properties.</p>
 
@@ -843,14 +792,10 @@ For example, even if send_email_welcome_message:true param is provided, message 
 or Loyalty has disabled welcome messages or Loyalty Club has no e-mails configured at all.</p>
 
 <p>There is also a possibility to have multiple SMS welcome messages sent. The one that matches Product or default one will be sent.</p>
-
-<h4 id="registration-password"><a name="members-create-registration-password"></a> Registration Password</h4>
-
-<p>Some API clients (depends on Permit assigned to given <code class="prettyprint">x-client-authorization</code> token) may be required to provide 
-valid <code class="prettyprint">registration_password</code> param that is sent to user with <a href="#members-send-registration-password">Members &bull; Send registration password</a> </p>
-
-<h4 id="headers">Headers</h4>
-
+<h4 id='a-name-members-create-registration-password-a-registration-password-1'><span id=a-name-members-create-registration-password-a-registration-password></span><a name="members-create-registration-password"></a> Registration Password</h4>
+<p>Some API clients (depends on Permit assigned to given <code>x-client-authorization</code> token) may be required to provide 
+valid <code>registration_password</code> param that is sent to user with <a href="#members-send-registration-password">Members &bull; Send registration password</a> </p>
+<h4 id='headers-1'><span id=headers></span>Headers</h4>
 <table><thead>
 <tr>
 <th>Header name</th>
@@ -864,9 +809,7 @@ valid <code class="prettyprint">registration_password</code> param that is sent 
 <td>Additional source/optin channel information</td>
 </tr>
 </tbody></table>
-
-<h4 id="post-parameters-json"><a name="members-create-post-parameters"></a> POST Parameters (JSON)</h4>
-
+<h4 id='a-name-members-create-post-parameters-a-post-parameters-json-1'><span id=a-name-members-create-post-parameters-a-post-parameters-json></span><a name="members-create-post-parameters"></a> POST Parameters (JSON)</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -884,31 +827,31 @@ valid <code class="prettyprint">registration_password</code> param that is sent 
 <td>JSON Object</td>
 </tr>
 <tr>
-<td>properties[&lsquo;language&rsquo;]</td>
+<td>properties[&#39;language&#39;]</td>
 <td>no</td>
-<td>&ldquo;default_language&rdquo; from schema</td>
+<td>&quot;default_language&quot; from schema</td>
 <td>Language used by user</td>
 <td>string</td>
 </tr>
 <tr>
-<td>properties[&lsquo;msisdn&rsquo;]</td>
+<td>properties[&#39;msisdn&#39;]</td>
 <td>yes*</td>
 <td>none</td>
-<td>Unique member&rsquo;s msisdn as defined <a href="#msisdn-param">here</a>) Example: <code class="prettyprint">4740485124</code>.</td>
+<td>Unique member&#39;s msisdn as defined <a href="#msisdn-param">here</a>) Example: <code>4740485124</code>.</td>
 <td>string</td>
 </tr>
 <tr>
-<td>properties[&lsquo;email&rsquo;]</td>
+<td>properties[&#39;email&#39;]</td>
 <td>yes*</td>
 <td>none</td>
-<td>Member&rsquo;s email</td>
+<td>Member&#39;s email</td>
 <td>string</td>
 </tr>
 <tr>
 <td>consents</td>
 <td>no</td>
 <td>{}</td>
-<td>Member&rsquo;s consents (similar to <a href="#member-consents-model">Member&rsquo;s consents JSON model</a>)</td>
+<td>Member&#39;s consents (similar to <a href="#member-consents-model">Member&#39;s consents JSON model</a>)</td>
 <td>JSON Object</td>
 </tr>
 <tr>
@@ -950,7 +893,7 @@ valid <code class="prettyprint">registration_password</code> param that is sent 
 <td>password</td>
 <td>depends</td>
 <td>none</td>
-<td>Member&rsquo;s password. Not required, but user won&rsquo;t be able to log in without this when only its email is provided</td>
+<td>Member&#39;s password. Not required, but user won&#39;t be able to log in without this when only its email is provided</td>
 <td>string</td>
 </tr>
 <tr>
@@ -963,13 +906,9 @@ valid <code class="prettyprint">registration_password</code> param that is sent 
 </tbody></table>
 
 <p>&ast; At least one of those properties must be provided</p>
-
-<h4 id="response-json-object">Response (JSON object)</h4>
-
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
 <p>Created member properties - see: <a href="#member-model">Member model</a></p>
-
-<h4 id="error-responses">Error responses</h4>
-
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -977,16 +916,16 @@ valid <code class="prettyprint">registration_password</code> param that is sent 
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">422</code></td>
+<td><code>422</code></td>
 <td><a href="#validation-on-members">validation errors</a> JSON object.</td>
 </tr>
 <tr>
-<td><code class="prettyprint">465</code></td>
-<td><code class="prettyprint">registration_password</code> or <code class="prettyprint">password</code> param is missing</td>
+<td><code>465</code></td>
+<td><code>registration_password</code> or <code>password</code> param is missing</td>
 </tr>
 <tr>
-<td><code class="prettyprint">466</code></td>
-<td><code class="prettyprint">registration_password</code> param is invalid</td>
+<td><code>466</code></td>
+<td><code>registration_password</code> param is invalid</td>
 </tr>
 </tbody></table>
 
@@ -995,9 +934,7 @@ Requires <code>BL:Api:Members:Create</code> or <code>BL:Api:Members:CreateWithVe
 </aside>
 
 <!--- ############################################################################################################# --->
-
-<h3 id="update"><a name="members-update"></a> Update</h3>
-
+<h3 id='a-name-members-update-a-update-1'><span id=a-name-members-update-a-update></span><a name="members-update"></a> Update</h3>
 <blockquote>
 <p>Example:</p>
 </blockquote>
@@ -1022,34 +959,32 @@ curl -X PUT <span class="se">\</span>
 <p>When payload is invalid, validation errors as depicted <a href="#members-create">here</a></p>
 </blockquote>
 
-<p><strong>PUT</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/:id</code></p>
+<p><strong>PUT</strong> <code>v3/:loyalty_club_slug/members/:id</code></p>
 
 <aside class="notice">
 Requires <code>BL:Api:Members:Update</code> permit
 </aside>
 
-<p><strong>PUT</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/me</code> <a href="#oauth2">OAuth</a></p>
+<p><strong>PUT</strong> <code>v3/:loyalty_club_slug/members/me</code> <a href="#oauth2">OAuth</a></p>
 
 <aside class="notice">
 Requires <code>BL:Api:Members:OAuth:Update</code> permit.
 </aside>
 
-<p>Update member&rsquo;s properties, consents and other with given ones.</p>
+<p>Update member&#39;s properties, consents and other with given ones.</p>
 
 <p>It is intended for partial updates:
 * not given properties are neither deleted nor overwritten,
-* not given attributes (like consents) won&rsquo;t be changed in any way.</p>
+* not given attributes (like consents) won&#39;t be changed in any way.</p>
 
-<p>If deleting properties is intended, their value should be sent as <code class="prettyprint">null</code>.</p>
+<p>If deleting properties is intended, their value should be sent as <code>null</code>.</p>
 
-<p>This endpoint may return validation errors (<code class="prettyprint">422</code>) even for current member properties. 
-That&rsquo;s because loyalty club schema may get changed over time which results in invalidating existing users.</p>
+<p>This endpoint may return validation errors (<code>422</code>) even for current member properties. 
+That&#39;s because loyalty club schema may get changed over time which results in invalidating existing users.</p>
 
-<p>To bypass such validation errors, you may provide <code class="prettyprint">validate_partially: true</code> param which will validate and update only 
+<p>To bypass such validation errors, you may provide <code>validate_partially: true</code> param which will validate and update only 
 attributes that were provided in payload. </p>
-
-<h4 id="url-parameters">URL Parameters</h4>
-
+<h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1059,13 +994,11 @@ attributes that were provided in payload. </p>
 </thead><tbody>
 <tr>
 <td>id</td>
-<td>Member&rsquo;s ID</td>
+<td>Member&#39;s ID</td>
 <td>integer</td>
 </tr>
 </tbody></table>
-
-<h4 id="put-parameters-json">PUT Parameters (JSON)</h4>
-
+<h4 id='put-parameters-json-1'><span id=put-parameters-json></span>PUT Parameters (JSON)</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1082,13 +1015,13 @@ attributes that were provided in payload. </p>
 </tr>
 <tr>
 <td>consents</td>
-<td>Member&rsquo;s consents (similar to <a href="#member-consents-model">Member&rsquo;s consents JSON model</a>)</td>
+<td>Member&#39;s consents (similar to <a href="#member-consents-model">Member&#39;s consents JSON model</a>)</td>
 <td>JSON Object</td>
 <td>null</td>
 </tr>
 <tr>
 <td>password</td>
-<td>Member&rsquo;s password</td>
+<td>Member&#39;s password</td>
 <td>string</td>
 <td>null</td>
 </tr>
@@ -1118,25 +1051,19 @@ attributes that were provided in payload. </p>
 </tr>
 <tr>
 <td>event_occurred_at</td>
-<td>See: <a href="#member-event-occured-at-param"><code class="prettyprint">event_occurred_at</code> param</a></td>
+<td>See: <a href="#member-event-occured-at-param"><code>event_occurred_at</code> param</a></td>
 <td>Date</td>
 <td>(current time)</td>
 </tr>
 </tbody></table>
-
-<h5 id="event_occurred_at-param"><a name="member-event-occured-at-param"></a> <code class="prettyprint">event_occurred_at</code> param</h5>
-
-<p>When actual member data change occurred at the time different than request&rsquo;s time, you can utilize the `event_occurred_at&rsquo; param to pass
+<h5 id='a-name-member-event-occured-at-param-a-code-event_occurred_at-code-param-1'><span id=a-name-member-event-occured-at-param-a-code-event_occurred_at-code-param></span><a name="member-event-occured-at-param"></a> <code>event_occurred_at</code> param</h5>
+<p>When actual member data change occurred at the time different than request&#39;s time, you can utilize the `event_occurred_at&#39; param to pass
 the actual update time.</p>
 
-<p>This may be relevant when you want this to be reflected in the member&rsquo;s changes history.</p>
-
-<h4 id="response-json-object">Response (JSON object)</h4>
-
+<p>This may be relevant when you want this to be reflected in the member&#39;s changes history.</p>
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
 <p>Member properties after update - see: <a href="#member-model">Member model</a></p>
-
-<h4 id="error-responses">Error responses</h4>
-
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -1144,19 +1071,17 @@ the actual update time.</p>
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">404</code></td>
+<td><code>404</code></td>
 <td>Member could not be found</td>
 </tr>
 <tr>
-<td><code class="prettyprint">422</code></td>
+<td><code>422</code></td>
 <td><a href="#validation-on-members">validation errors</a> JSON object.</td>
 </tr>
 </tbody></table>
 
 <!--- ############################################################################################################# --->
-
-<h3 id="update-password"><a name="me-update-password"></a> Update password</h3>
-
+<h3 id='a-name-me-update-password-a-update-password-1'><span id=a-name-me-update-password-a-update-password></span><a name="me-update-password"></a> Update password</h3>
 <blockquote>
 <p>Example:</p>
 </blockquote>
@@ -1180,12 +1105,10 @@ the actual update time.</p>
   </span><span class="err">//</span><span class="w"> </span><span class="err">Empty</span><span class="w"> </span><span class="err">object</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>PUT</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/update_password</code> <a href="#oauth2">OAuth</a></p>
+<p><strong>PUT</strong> <code>v3/:loyalty_club_slug/members/update_password</code> <a href="#oauth2">OAuth</a></p>
 
-<p>Updates members&rsquo;s password.</p>
-
-<h4 id="url-parameters">URL Parameters</h4>
-
+<p>Updates members&#39;s password.</p>
+<h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1195,18 +1118,16 @@ the actual update time.</p>
 </thead><tbody>
 <tr>
 <td>password</td>
-<td>Member&rsquo;s new password</td>
+<td>Member&#39;s new password</td>
 <td>string</td>
 </tr>
 <tr>
 <td>current_password</td>
-<td>Member&rsquo;s current password</td>
+<td>Member&#39;s current password</td>
 <td>string</td>
 </tr>
 </tbody></table>
-
-<h4 id="error-responses">Error responses</h4>
-
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -1214,19 +1135,19 @@ the actual update time.</p>
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">404</code></td>
+<td><code>404</code></td>
 <td>Member associated with given Authorization token does not exist</td>
 </tr>
 <tr>
-<td><code class="prettyprint">422</code></td>
+<td><code>422</code></td>
 <td>Invalid password - returns <a href="#validation-on-members">validation errors</a> JSON object.</td>
 </tr>
 <tr>
-<td><code class="prettyprint">460</code></td>
+<td><code>460</code></td>
 <td>Member not authorized (Invalid or expired OAuth token)</td>
 </tr>
 <tr>
-<td><code class="prettyprint">464</code></td>
+<td><code>464</code></td>
 <td>Invalid current_password</td>
 </tr>
 </tbody></table>
@@ -1234,9 +1155,7 @@ the actual update time.</p>
 <aside class="notice">
 Requires <code>BL:Api:Members:OAuth:UpdatePassword</code> permit.
 </aside>
-
-<h3 id="update-app-token"><a name="members-update-app-token"></a> Update app token</h3>
-
+<h3 id='a-name-members-update-app-token-a-update-app-token-1'><span id=a-name-members-update-app-token-a-update-app-token></span><a name="members-update-app-token"></a> Update app token</h3>
 <blockquote>
 <p>Example:</p>
 </blockquote>
@@ -1275,25 +1194,23 @@ curl -X PUT <span class="se">\</span>
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>PUT</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/:id/update_app_token</code></p>
+<p><strong>PUT</strong> <code>v3/:loyalty_club_slug/members/:id/update_app_token</code></p>
 
 <aside class="notice">
 Requires <code>BL:Api:Members:UpdateAppToken</code> permit
 </aside>
 
-<p><strong>PUT</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/me/update_app_token</code> <a href="#oauth2">OAuth</a></p>
+<p><strong>PUT</strong> <code>v3/:loyalty_club_slug/members/me/update_app_token</code> <a href="#oauth2">OAuth</a></p>
 
 <aside class="notice">
 Requires <code>BL:Api:Members:OAuth:UpdateAppToken</code> permit
 </aside>
 
-<p>Updates member&rsquo;s Firebase token, along with platform it&rsquo;s that it&rsquo;s associated with. </p>
+<p>Updates member&#39;s Firebase token, along with platform it&#39;s that it&#39;s associated with. </p>
 
 <p>Token may be removed by sending it as empty string or null, empty payload will also be treated as token removal.
 Platform is automatically removed when token is empty.</p>
-
-<h4 id="put-parameters-json">PUT Parameters (JSON)</h4>
-
+<h4 id='put-parameters-json-1'><span id=put-parameters-json></span>PUT Parameters (JSON)</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1309,12 +1226,10 @@ Platform is automatically removed when token is empty.</p>
 <tr>
 <td>app_platform</td>
 <td>string</td>
-<td>One of: <code class="prettyprint">[&#39;android&#39;, &#39;ios&#39;]</code></td>
+<td>One of: <code>[&#39;android&#39;, &#39;ios&#39;]</code></td>
 </tr>
 </tbody></table>
-
-<h4 id="error-responses">Error responses</h4>
-
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -1322,26 +1237,24 @@ Platform is automatically removed when token is empty.</p>
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">404</code></td>
+<td><code>404</code></td>
 <td>Member could not be found</td>
 </tr>
 <tr>
-<td><code class="prettyprint">422</code></td>
+<td><code>422</code></td>
 <td>Invalid parameters</td>
 </tr>
 </tbody></table>
 
 <!--- ############################################################################################################# --->
-
-<h3 id="destroy"><a name="members-destroy"></a> Destroy</h3>
-
-<p><strong>DELETE</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/:id</code></p>
+<h3 id='a-name-members-destroy-a-destroy-1'><span id=a-name-members-destroy-a-destroy></span><a name="members-destroy"></a> Destroy</h3>
+<p><strong>DELETE</strong> <code>v3/:loyalty_club_slug/members/:id</code></p>
 
 <aside class="notice">
 Requires <code>BL:Api:Members:Destroy</code> permit
 </aside>
 
-<p><strong>DELETE</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/me</code> <a href="#oauth2">OAuth</a></p>
+<p><strong>DELETE</strong> <code>v3/:loyalty_club_slug/members/me</code> <a href="#oauth2">OAuth</a></p>
 
 <aside class="notice">
 Requires <code>BL:Api:Members:OAuth:Destroy</code> permit.
@@ -1349,7 +1262,7 @@ Requires <code>BL:Api:Members:OAuth:Destroy</code> permit.
 
 <p>Permanently removes member.</p>
 
-<p>It is possible to trigger optout message by setting <code class="prettyprint">send_unsubscribe_message=true</code> query string parameter.
+<p>It is possible to trigger optout message by setting <code>send_unsubscribe_message=true</code> query string parameter.
 Same as welcome messages, optout messages sending also depends on Loyalty Club and Product configuration.</p>
 
 <blockquote>
@@ -1365,9 +1278,7 @@ Same as welcome messages, optout messages sending also depends on Loyalty Club a
 <blockquote>
 <p>When successful, the above command returns destroyed member object as depicted <a href="#member-model">here</a></p>
 </blockquote>
-
-<h4 id="url-parameters">URL Parameters</h4>
-
+<h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1377,13 +1288,11 @@ Same as welcome messages, optout messages sending also depends on Loyalty Club a
 </thead><tbody>
 <tr>
 <td>id</td>
-<td>Member&rsquo;s ID</td>
+<td>Member&#39;s ID</td>
 <td>integer</td>
 </tr>
 </tbody></table>
-
-<h4 id="query-parameters">Query Parameters</h4>
-
+<h4 id='query-parameters-1'><span id=query-parameters></span>Query Parameters</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1401,13 +1310,9 @@ Same as welcome messages, optout messages sending also depends on Loyalty Club a
 <td>Boolean</td>
 </tr>
 </tbody></table>
-
-<h4 id="response-json-object">Response (JSON object)</h4>
-
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
 <p>Properties of member that has been destroyed - see: <a href="#member-model">Member model</a></p>
-
-<h4 id="error-responses">Error responses</h4>
-
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -1415,19 +1320,17 @@ Same as welcome messages, optout messages sending also depends on Loyalty Club a
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">404</code></td>
+<td><code>404</code></td>
 <td>Member could not be found</td>
 </tr>
 <tr>
-<td><code class="prettyprint">422</code></td>
+<td><code>422</code></td>
 <td><a href="#validation-on-members">validation errors</a> JSON object.</td>
 </tr>
 </tbody></table>
 
 <!--- ############################################################################################################# --->
-
-<h3 id="validate"><a name="members-validate"></a> Validate</h3>
-
+<h3 id='a-name-members-validate-a-validate-1'><span id=a-name-members-validate-a-validate></span><a name="members-validate"></a> Validate</h3>
 <blockquote>
 <p>Example:</p>
 </blockquote>
@@ -1481,26 +1384,22 @@ curl -X POST <span class="se">\</span>
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>POST</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/validate</code></p>
+<p><strong>POST</strong> <code>v3/:loyalty_club_slug/members/validate</code></p>
 
 <p>Checks if given data is valid for new member registration. Returns successful response (200), regardless of data validity.</p>
-
-<h4 id="about-partial-validation-mechanism">About partial validation mechanism</h4>
-
+<h4 id='about-partial-validation-mechanism-1'><span id=about-partial-validation-mechanism></span>About partial validation mechanism</h4>
 <p>Only properties which keys are present in given payload will be checked against presence validation.</p>
 
-<p>For example, let&rsquo;s say that Loyalty Club configuration requires member to have <code class="prettyprint">msisdn</code> property set.</p>
+<p>For example, let&#39;s say that Loyalty Club configuration requires member to have <code>msisdn</code> property set.</p>
 
 <ul>
-<li>if <code class="prettyprint">&quot;msisdn&quot;: &quot;&quot;</code> or<code class="prettyprint">&quot;msisdn&quot;: null</code>&ldquo; is present in the payload, the validation will return error stating that <code class="prettyprint">msisdn</code> must be present.</li>
-<li>however, when payload doesn&rsquo;t include the <code class="prettyprint">msisdn</code> key, such error will not be returned.</li>
+<li>if <code>&quot;msisdn&quot;: &quot;&quot;</code> or<code>&quot;msisdn&quot;: null</code>&quot; is present in the payload, the validation will return error stating that <code>msisdn</code> must be present.</li>
+<li>however, when payload doesn&#39;t include the <code>msisdn</code> key, such error will not be returned.</li>
 </ul>
 
 <p>This behaviour has been designed to allow validate member partially, property by property. This way you can choose 
 what values should be validated at specific point of registration.</p>
-
-<h4 id="post-parameters-json"><a name="members-validate-post-parameters"></a> POST Parameters (JSON)</h4>
-
+<h4 id='a-name-members-validate-post-parameters-a-post-parameters-json-1'><span id=a-name-members-validate-post-parameters-a-post-parameters-json></span><a name="members-validate-post-parameters"></a> POST Parameters (JSON)</h4>
 <p>Following keys of <a href="#members-create-post-parameters">Members &bull; Create</a> payload are supported when validating:</p>
 
 <ul>
@@ -1508,9 +1407,7 @@ what values should be validated at specific point of registration.</p>
 <li>consents</li>
 <li>registration_password</li>
 </ul>
-
-<h4 id="response-json-object">Response (JSON object)</h4>
-
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -1526,16 +1423,14 @@ what values should be validated at specific point of registration.</p>
 <tr>
 <td>errors</td>
 <td>object</td>
-<td><a href="#validation-on-members">validation errors</a> JSON object, <code class="prettyprint">null</code> when data is valid</td>
+<td><a href="#validation-on-members">validation errors</a> JSON object, <code>null</code> when data is valid</td>
 </tr>
 </tbody></table>
 
 <aside class="notice">
 Requires <code>BL:Api:Members:Validate</code> permit
 </aside>
-
-<h3 id="reset-password"><a name="members-reset-password"></a> Reset password</h3>
-
+<h3 id='a-name-members-reset-password-a-reset-password-1'><span id=a-name-members-reset-password-a-reset-password></span><a name="members-reset-password"></a> Reset password</h3>
 <blockquote>
 <p>Example:</p>
 </blockquote>
@@ -1558,12 +1453,10 @@ Requires <code>BL:Api:Members:Validate</code> permit
   </span><span class="err">//</span><span class="w"> </span><span class="err">Empty</span><span class="w"> </span><span class="err">object</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>PUT</strong> <code class="prettyprint">/v3/:loyalty_club_slug/members/by_email/:email/reset_password</code></p>
+<p><strong>PUT</strong> <code>/v3/:loyalty_club_slug/members/by_email/:email/reset_password</code></p>
 
 <p>Updates given member password if token is valid.</p>
-
-<h4 id="url-parameters">URL Parameters</h4>
-
+<h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1573,7 +1466,7 @@ Requires <code>BL:Api:Members:Validate</code> permit
 </thead><tbody>
 <tr>
 <td>password</td>
-<td>Member&rsquo;s new password</td>
+<td>Member&#39;s new password</td>
 <td>string</td>
 </tr>
 <tr>
@@ -1582,9 +1475,7 @@ Requires <code>BL:Api:Members:Validate</code> permit
 <td>string</td>
 </tr>
 </tbody></table>
-
-<h4 id="error-responses">Error responses</h4>
-
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -1592,19 +1483,19 @@ Requires <code>BL:Api:Members:Validate</code> permit
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">400</code></td>
-<td><code class="prettyprint">password</code> or <code class="prettyprint">token</code> param is missing</td>
+<td><code>400</code></td>
+<td><code>password</code> or <code>token</code> param is missing</td>
 </tr>
 <tr>
-<td><code class="prettyprint">404</code></td>
+<td><code>404</code></td>
 <td>Member could not be found</td>
 </tr>
 <tr>
-<td><code class="prettyprint">422</code></td>
+<td><code>422</code></td>
 <td>Invalid password - returns <a href="#validation-on-members">validation errors</a> JSON object.</td>
 </tr>
 <tr>
-<td><code class="prettyprint">463</code></td>
+<td><code>463</code></td>
 <td>Invalid confirmation token</td>
 </tr>
 </tbody></table>
@@ -1614,9 +1505,7 @@ Requires <code>BL:Api:Members:ResetPassword</code> permit
 </aside>
 
 <!--- ############################################################################################################# --->
-
-<h3 id="send-password-reset-token"><a name="members-send-password-reset-token"></a> Send password reset token</h3>
-
+<h3 id='a-name-members-send-password-reset-token-a-send-password-reset-token-1'><span id=a-name-members-send-password-reset-token-a-send-password-reset-token></span><a name="members-send-password-reset-token"></a> Send password reset token</h3>
 <blockquote>
 <p>Example:</p>
 </blockquote>
@@ -1633,7 +1522,7 @@ Requires <code>BL:Api:Members:ResetPassword</code> permit
   </span><span class="err">//</span><span class="w"> </span><span class="err">Empty</span><span class="w"> </span><span class="err">object</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>POST</strong> <code class="prettyprint">/v3/:loyalty_club_slug/members/by_email/:email/send_password_reset_token</code></p>
+<p><strong>POST</strong> <code>/v3/:loyalty_club_slug/members/by_email/:email/send_password_reset_token</code></p>
 
 <p>Sends password reset link to given e-mail address if it is associated with member in given loyalty club.</p>
 
@@ -1641,9 +1530,7 @@ Requires <code>BL:Api:Members:ResetPassword</code> permit
 
 <p>The token can be then used to reset password with <a href="#members-reset-password">Members &bull; Reset password</a>.
 It also may be verified with <a href="#members-verify-token">Members &bull; Verify token</a></p>
-
-<h4 id="url-parameters">URL Parameters</h4>
-
+<h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1653,7 +1540,7 @@ It also may be verified with <a href="#members-verify-token">Members &bull; Veri
 </thead><tbody>
 <tr>
 <td>email</td>
-<td>Member&rsquo;s email</td>
+<td>Member&#39;s email</td>
 <td>string (email)</td>
 </tr>
 </tbody></table>
@@ -1663,9 +1550,7 @@ Requires <code>BL:Api:Members:Tokens:Create</code> permit
 </aside>
 
 <!--- ############################################################################################################# --->
-
-<h3 id="send-one-time-password-sms"><a name="members-send-one-time-password"></a> Send one time password SMS</h3>
-
+<h3 id='a-name-members-send-one-time-password-a-send-one-time-password-sms-1'><span id=a-name-members-send-one-time-password-a-send-one-time-password-sms></span><a name="members-send-one-time-password"></a> Send one time password SMS</h3>
 <blockquote>
 <p>Example:</p>
 </blockquote>
@@ -1675,16 +1560,14 @@ Requires <code>BL:Api:Members:Tokens:Create</code> permit
   -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
   -H <span class="s1">'x-user-agent: CURL manual test'</span>
 </code></pre>
-<p><strong>POST</strong> <code class="prettyprint">/v3/:loyalty_club_slug/members/by_msisdn/:msisdn/send_one_time_password</code></p>
+<p><strong>POST</strong> <code>/v3/:loyalty_club_slug/members/by_msisdn/:msisdn/send_one_time_password</code></p>
 
 <p>Sends an SMS to given msisdn if it is associated with member in given loyalty club.</p>
 
 <p>The SMS contains 4-digit One-Time-Password generated for member, valid for 1 hour.</p>
 
-<p>This password then can be used to sign in, just as &quot;regular&rdquo; member password - see:  <a href="#token-create">OAuth Token &bull; Create</a>.</p>
-
-<h4 id="url-parameters">URL Parameters</h4>
-
+<p>This password then can be used to sign in, just as &quot;regular&quot; member password - see:  <a href="#token-create">OAuth Token &bull; Create</a>.</p>
+<h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1694,8 +1577,8 @@ Requires <code>BL:Api:Members:Tokens:Create</code> permit
 </thead><tbody>
 <tr>
 <td>msisdn</td>
-<td>Member&rsquo;s msisdn</td>
-<td>string (format as defined <a href="#msisdn-param">here</a> - example: <code class="prettyprint">4740485124</code>)</td>
+<td>Member&#39;s msisdn</td>
+<td>string (format as defined <a href="#msisdn-param">here</a> - example: <code>4740485124</code>)</td>
 </tr>
 </tbody></table>
 
@@ -1704,9 +1587,7 @@ Requires <code>BL:Api:Members:CreateOneTimePassword</code> permit
 </aside>
 
 <!--- ############################################################################################################# --->
-
-<h3 id="send-one-time-password-e-mail"><a name="members-send-one-time-password-email"></a> Send one time password E-mail</h3>
-
+<h3 id='a-name-members-send-one-time-password-email-a-send-one-time-password-e-mail-1'><span id=a-name-members-send-one-time-password-email-a-send-one-time-password-e-mail></span><a name="members-send-one-time-password-email"></a> Send one time password E-mail</h3>
 <blockquote>
 <p>Example:</p>
 </blockquote>
@@ -1723,16 +1604,14 @@ Requires <code>BL:Api:Members:CreateOneTimePassword</code> permit
   </span><span class="err">//</span><span class="w"> </span><span class="err">Empty</span><span class="w"> </span><span class="err">object</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>POST</strong> <code class="prettyprint">/v3/:loyalty_club_slug/members/by_msisdn/:msisdn/send_one_time_password</code></p>
+<p><strong>POST</strong> <code>/v3/:loyalty_club_slug/members/by_msisdn/:msisdn/send_one_time_password</code></p>
 
-<p>Sends a &ldquo;Login&rdquo; e-mail to given address if it is associated with member in given loyalty club. The e-mail contains a deep link to the mobile app.</p>
+<p>Sends a &quot;Login&quot; e-mail to given address if it is associated with member in given loyalty club. The e-mail contains a deep link to the mobile app.</p>
 
-<p>The link scheme is: <code class="prettyprint">https://&lt;app_scheme&gt;.al.bstcm.no/lgn?member_id=&lt;member_id&gt;&amp;otp=&lt;otp&gt;</code> and contains member id and 16-digit password generated for member, valid for 1 hour.  </p>
+<p>The link scheme is: <code>https://&lt;app_scheme&gt;.al.bstcm.no/lgn?member_id=&lt;member_id&gt;&amp;otp=&lt;otp&gt;</code> and contains member id and 16-digit password generated for member, valid for 1 hour.  </p>
 
-<p>Those params then can be used to sign in the user, just as &ldquo;regular&rdquo; member password - see:  <a href="#token-create">OAuth Token &bull; Create</a>.</p>
-
-<h4 id="url-parameters">URL Parameters</h4>
-
+<p>Those params then can be used to sign in the user, just as &quot;regular&quot; member password - see:  <a href="#token-create">OAuth Token &bull; Create</a>.</p>
+<h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1742,13 +1621,11 @@ Requires <code>BL:Api:Members:CreateOneTimePassword</code> permit
 </thead><tbody>
 <tr>
 <td>email</td>
-<td>Member&rsquo;s email</td>
+<td>Member&#39;s email</td>
 <td>e-mail</td>
 </tr>
 </tbody></table>
-
-<h4 id="error-responses">Error responses</h4>
-
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -1756,7 +1633,7 @@ Requires <code>BL:Api:Members:CreateOneTimePassword</code> permit
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">422</code></td>
+<td><code>422</code></td>
 <td>Invalid e-mail param</td>
 </tr>
 </tbody></table>
@@ -1766,9 +1643,7 @@ Requires <code>BL:Api:Members:CreateOneTimePassword</code> permit
 </aside>
 
 <!--- ############################################################################################################# --->
-
-<h3 id="send-registration-password"><a name="members-send-registration-password"></a> Send registration password</h3>
-
+<h3 id='a-name-members-send-registration-password-a-send-registration-password-1'><span id=a-name-members-send-registration-password-a-send-registration-password></span><a name="members-send-registration-password"></a> Send registration password</h3>
 <blockquote>
 <p>Example:</p>
 </blockquote>
@@ -1789,16 +1664,14 @@ Requires <code>BL:Api:Members:CreateOneTimePassword</code> permit
   </span><span class="err">//</span><span class="w"> </span><span class="err">Empty</span><span class="w"> </span><span class="err">object</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>POST</strong> <code class="prettyprint">/v3/:loyalty_club_slug/members/by_msisdn/:msisdn/send_registration_password</code></p>
+<p><strong>POST</strong> <code>/v3/:loyalty_club_slug/members/by_msisdn/:msisdn/send_registration_password</code></p>
 
 <p>Sends SMS to given MSISDN.</p>
 
 <p>The sent message contains 4-digit registration password, valid for 10 minutes.</p>
 
 <p>This password may be required for member registration - see: <a href="#members-create-registration-password">Registration password</a></p>
-
-<h4 id="url-parameters">URL Parameters</h4>
-
+<h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1809,12 +1682,10 @@ Requires <code>BL:Api:Members:CreateOneTimePassword</code> permit
 <tr>
 <td>msisdn</td>
 <td>MSISDN</td>
-<td>string (format as defined <a href="#msisdn-param">here</a> - example: <code class="prettyprint">4740485124</code>)</td>
+<td>string (format as defined <a href="#msisdn-param">here</a> - example: <code>4740485124</code>)</td>
 </tr>
 </tbody></table>
-
-<h4 id="post-parameters">POST Parameters</h4>
-
+<h4 id='post-parameters-1'><span id=post-parameters></span>POST Parameters</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1828,9 +1699,7 @@ Requires <code>BL:Api:Members:CreateOneTimePassword</code> permit
 <td>string</td>
 </tr>
 </tbody></table>
-
-<h4 id="error-responses">Error responses</h4>
-
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -1838,7 +1707,7 @@ Requires <code>BL:Api:Members:CreateOneTimePassword</code> permit
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">422</code></td>
+<td><code>422</code></td>
 <td>Invalid MSISDN param</td>
 </tr>
 </tbody></table>
@@ -1848,9 +1717,7 @@ Requires <code>BL:Api:Members:CreateRegistrationPassword</code> permit
 </aside>
 
 <!--- ############################################################################################################# --->
-
-<h3 id="verify-token"><a name="members-verify-token"></a> Verify token</h3>
-
+<h3 id='a-name-members-verify-token-a-verify-token-1'><span id=a-name-members-verify-token-a-verify-token></span><a name="members-verify-token"></a> Verify token</h3>
 <blockquote>
 <p>Example:</p>
 </blockquote>
@@ -1867,12 +1734,10 @@ Requires <code>BL:Api:Members:CreateRegistrationPassword</code> permit
   </span><span class="s2">"valid"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>GET</strong> <code class="prettyprint">/v3/:loyalty_club_slug/members/by_email/:email/verify_token/:type/:token</code></p>
+<p><strong>GET</strong> <code>/v3/:loyalty_club_slug/members/by_email/:email/verify_token/:type/:token</code></p>
 
 <p>Verifies given member token. Returns response indicating if given token is (still) valid.</p>
-
-<h4 id="url-parameters">URL Parameters</h4>
-
+<h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1882,13 +1747,13 @@ Requires <code>BL:Api:Members:CreateRegistrationPassword</code> permit
 </thead><tbody>
 <tr>
 <td>email</td>
-<td>Member&rsquo;s email</td>
+<td>Member&#39;s email</td>
 <td>string (email)</td>
 </tr>
 <tr>
 <td>type</td>
 <td>Token type</td>
-<td><code class="prettyprint">password_reset</code> (more types in future)</td>
+<td><code>password_reset</code> (more types in future)</td>
 </tr>
 <tr>
 <td>token</td>
@@ -1896,9 +1761,7 @@ Requires <code>BL:Api:Members:CreateRegistrationPassword</code> permit
 <td>string</td>
 </tr>
 </tbody></table>
-
-<h4 id="response-json-object">Response (JSON object)</h4>
-
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -1910,9 +1773,7 @@ Requires <code>BL:Api:Members:CreateRegistrationPassword</code> permit
 <td>boolean</td>
 </tr>
 </tbody></table>
-
-<h4 id="error-responses">Error responses</h4>
-
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -1920,8 +1781,8 @@ Requires <code>BL:Api:Members:CreateRegistrationPassword</code> permit
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">400</code></td>
-<td>Invalid <code class="prettyprint">type</code></td>
+<td><code>400</code></td>
+<td>Invalid <code>type</code></td>
 </tr>
 </tbody></table>
 
@@ -1930,9 +1791,7 @@ Requires <code>BL:Api:Members:Tokens:Verify</code> permit
 </aside>
 
 <!--- ############################################################################################################# --->
-
-<h3 id="send-msisdn-verification-sms"><a name="members-send-verification-sms"></a> Send MSISDN verification SMS</h3>
-
+<h3 id='a-name-members-send-verification-sms-a-send-msisdn-verification-sms-1'><span id=a-name-members-send-verification-sms-a-send-msisdn-verification-sms></span><a name="members-send-verification-sms"></a> Send MSISDN verification SMS</h3>
 <blockquote>
 <p>Example:</p>
 </blockquote>
@@ -1947,16 +1806,14 @@ Requires <code>BL:Api:Members:Tokens:Verify</code> permit
       "for_mobile_app": false
     }'</span>
 </code></pre>
-<p><strong>PUT</strong> <code class="prettyprint">/v3/:loyalty_club_slug/members/channels/msisdn/:msisdn/send_verification</code></p>
+<p><strong>PUT</strong> <code>/v3/:loyalty_club_slug/members/channels/msisdn/:msisdn/send_verification</code></p>
 
 <p>Generates a verification token for member identified by given MSISDN and sends it to him with an SMS message.
 The token is valid for 30 days.</p>
 
 <p>By default, a link to Webforms is sent.
-When <code class="prettyprint">for_mobile_app = true</code> param is provided, a deep link to mobile app is generated instead.</p>
-
-<h4 id="put-body-parameters">PUT body parameters</h4>
-
+When <code>for_mobile_app = true</code> param is provided, a deep link to mobile app is generated instead.</p>
+<h4 id='put-body-parameters-1'><span id=put-body-parameters></span>PUT body parameters</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1974,19 +1831,15 @@ When <code class="prettyprint">for_mobile_app = true</code> param is provided, a
 <td>Should a deep-link to mobile app be generated?</td>
 </tr>
 </tbody></table>
-
-<h4 id="response">Response</h4>
-
-<p>Always returns <code class="prettyprint">204 (No content)</code></p>
+<h4 id='response-1'><span id=response></span>Response</h4>
+<p>Always returns <code>204 (No content)</code></p>
 
 <aside class="notice">
 Requires <code>BL:Api:Members:Msisdns:Verify</code> permit
 </aside>
 
 <!--- ############################################################################################################# --->
-
-<h3 id="verify-msisdn"><a name="members-verify-msisdn"></a> Verify MSISDN</h3>
-
+<h3 id='a-name-members-verify-msisdn-a-verify-msisdn-1'><span id=a-name-members-verify-msisdn-a-verify-msisdn></span><a name="members-verify-msisdn"></a> Verify MSISDN</h3>
 <blockquote>
 <p>Example:</p>
 </blockquote>
@@ -2008,13 +1861,11 @@ Requires <code>BL:Api:Members:Msisdns:Verify</code> permit
   </span><span class="err">//</span><span class="w"> </span><span class="err">Empty</span><span class="w"> </span><span class="err">object</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>PUT</strong> <code class="prettyprint">/v3/:loyalty_club_slug/members/channels/msisdn/:msisdn/verify</code></p>
+<p><strong>PUT</strong> <code>/v3/:loyalty_club_slug/members/channels/msisdn/:msisdn/verify</code></p>
 
 <p>Uses given token (sent with <a href="#members-send-verification-sms">Members &bull; Send MSISDN verification SMS</a>) to verify
 user identified with given MSISDN.</p>
-
-<h4 id="put-body-parameters">PUT body parameters</h4>
-
+<h4 id='put-body-parameters-1'><span id=put-body-parameters></span>PUT body parameters</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2030,9 +1881,7 @@ user identified with given MSISDN.</p>
 <td>Token generated and sent with <a href="#members-send-verification-sms">Members &bull; Send MSISDN verification SMS</a></td>
 </tr>
 </tbody></table>
-
-<h4 id="error-responses">Error responses</h4>
-
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -2040,239 +1889,15 @@ user identified with given MSISDN.</p>
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">400</code></td>
+<td><code>400</code></td>
 <td>Token missing</td>
 </tr>
 <tr>
-<td><code class="prettyprint">463</code></td>
+<td><code>463</code></td>
 <td>Invalid token (it may not exist, or not match the user or be expired)</td>
 </tr>
 </tbody></table>
 
 <aside class="notice">
 Requires <code>BL:Api:Members:Msisdns:Verify</code> permit
-</aside>
-
-<!--- ############################################################################################################# --->
-
-<h3 id="get-id-of-stores-assigned-to-member"><a name="members-stores-get"></a> Get id of stores assigned to member</h3>
-
-<blockquote>
-<p>Example:</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
-  <span class="s2">"https://api.mpc.placewise.com/v3/infinity-mall/members/12345/stores"</span> <span class="se">\</span>
-  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
-  -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
-  -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
-  -H <span class="s1">'x-user-agent: CURL manual test'</span>
-</code></pre>
-<blockquote>
-<p>When successful, returns an empty object:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"stores_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p><strong>GET</strong> <code class="prettyprint">/v3/:loyalty_club_slug/members/:member_id/stores</code></p>
-
-<p>Show id of stores assigned to member</p>
-
-<aside class="notice">
-Requires <code>BL:Api:Members:Stores:Index</code> permit
-</aside>
-
-<!--- ############################################################################################################# --->
-
-<h3 id="assign-member-to-stores"><a name="members-stores-add"></a> Assign member to stores</h3>
-
-<blockquote>
-<p>Example:</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
-  <span class="s2">"https://api.mpc.placewise.com/v3/infinity-mall/members/12345/stores"</span> <span class="se">\</span>
-  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
-  -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
-  -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
-  -H <span class="s1">'x-user-agent: CURL manual test'</span> <span class="se">\</span>
-  -d <span class="se">\</span>
-    <span class="s1">'{
-      "stores_ids": [1, 2]
-    }'</span>
-</code></pre>
-<blockquote>
-<p>When successful, returns an empty object:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"stores_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p><strong>POST</strong> <code class="prettyprint">/v3/:loyalty_club_slug/members/:member_id/stores</code></p>
-
-<p>Assing stores to member using stores ids</p>
-
-<h4 id="post-body-parameters">POST body parameters</h4>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Required?</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>stores_ids</td>
-<td>array</td>
-<td>yes</td>
-<td>Id of stores</td>
-</tr>
-</tbody></table>
-
-<h4 id="error-responses">Error responses</h4>
-
-<table><thead>
-<tr>
-<th>Status</th>
-<th>Reason</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code class="prettyprint">400</code></td>
-<td>Stores ids missing</td>
-</tr>
-</tbody></table>
-
-<aside class="notice">
-Requires <code>BL:Api:Members:Stores:Create</code> permit
-</aside>
-
-<!--- ############################################################################################################# --->
-
-<h3 id="remove-stores-to-member"><a name="members-stores-remove"></a> Remove stores to member</h3>
-
-<blockquote>
-<p>Example:</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X DELETE <span class="se">\</span>
-  <span class="s2">"https://api.mpc.placewise.com/v3/infinity-mall/members/12345/stores"</span> <span class="se">\</span>
-  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
-  -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
-  -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
-  -H <span class="s1">'x-user-agent: CURL manual test'</span> <span class="se">\</span>
-  -d <span class="se">\</span>
-    <span class="s1">'{
-      "stores_ids": [1, 2]
-    }'</span>
-</code></pre>
-<blockquote>
-<p>When successful, returns an empty object:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"stores_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p><strong>DELETE</strong> <code class="prettyprint">/v3/:loyalty_club_slug/members/:member_id/stores</code></p>
-
-<p>Remove stores assigned from member</p>
-
-<h4 id="delete-body-parameters">DELETE body parameters</h4>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Required?</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>stores_ids</td>
-<td>array</td>
-<td>yes</td>
-<td>Id of stores</td>
-</tr>
-</tbody></table>
-
-<h4 id="error-responses">Error responses</h4>
-
-<table><thead>
-<tr>
-<th>Status</th>
-<th>Reason</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code class="prettyprint">400</code></td>
-<td>Stores ids missing</td>
-</tr>
-</tbody></table>
-
-<aside class="notice">
-Requires <code>BL:Api:Members:Stores:Destroy</code> permit
-</aside>
-
-<!--- ############################################################################################################# --->
-
-<h3 id="transform-member-to-user"><a name="members-user-create"></a> Transform member to user</h3>
-
-<blockquote>
-<p>Example:</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
-  <span class="s2">"https://api.mpc.placewise.com/v3/infinity-mall/members/12345/user"</span> <span class="se">\</span>
-  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
-  -H <span class="s1">'Authorization: Bearer B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
-  -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
-  -H <span class="s1">'x-user-agent: CURL manual test'</span> <span class="se">\</span>
-  -d <span class="se">\</span>
-    <span class="s1">'{
-      "role": "role"
-    }'</span>
-</code></pre>
-<blockquote>
-<p>When successful, returns an empty object:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"created-user-id"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p><strong>POST</strong> <code class="prettyprint">/v3/:loyalty_club_slug/members/:member_id/user</code></p>
-
-<p>Transform member (tenant contact) to user and return user id</p>
-
-<h4 id="post-body-parameters">POST body parameters</h4>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Required?</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>role</td>
-<td>string</td>
-<td>yes</td>
-<td>role</td>
-</tr>
-</tbody></table>
-
-<h4 id="error-responses">Error responses</h4>
-
-<table><thead>
-<tr>
-<th>Status</th>
-<th>Reason</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code class="prettyprint">400</code></td>
-<td>Role missing</td>
-</tr>
-</tbody></table>
-
-<aside class="notice">
-Requires <code>BL:Api:Members:User:Create</code> permit
 </aside>

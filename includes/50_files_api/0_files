@@ -1,9 +1,4 @@
-<h1 id="files-api-deprecated">Files API (deprecated)</h1>
-
-<h2 id="introduction">Introduction</h2>
-
-<h3 id="file-model"><a name="file-model"></a> File model</h3>
-
+<h1 id='files-api-deprecated-1'><span id=files-api-deprecated></span>Files API (deprecated)</h1><h2 id='introduction-1'><span id=introduction></span>Introduction</h2><h3 id='a-name-file-model-a-file-model-1'><span id=a-name-file-model-a-file-model></span><a name="file-model"></a> File model</h3>
 <p>Every file attached to some entity (Offer, Reward, Offer Collection) follows the file schema and is defined like this:</p>
 
 <table><thead>
@@ -31,17 +26,15 @@
 <tr>
 <td>kind</td>
 <td>string</td>
-<td>File kind identifier (e.x. <code class="prettyprint">offer_default</code>), see <a href="#file-kinds">Standard file kinds</a></td>
+<td>File kind identifier (e.x. <code>offer_default</code>), see <a href="#file-kinds">Standard file kinds</a></td>
 </tr>
 <tr>
 <td>size_type</td>
 <td>string</td>
-<td>e.x. <code class="prettyprint">base</code>, see: <a href="#file-sizes">File sizes</a></td>
+<td>e.x. <code>base</code>, see: <a href="#file-sizes">File sizes</a></td>
 </tr>
 </tbody></table>
-
-<h3 id="file-schema"><a name="file-schema"></a> File schema</h3>
-
+<h3 id='a-name-file-schema-a-file-schema-1'><span id=a-name-file-schema-a-file-schema></span><a name="file-schema"></a> File schema</h3>
 <p>File schema defines a list of files kinds available in the Loyalty club. 
 Each file kind is also available in multiple sizes. </p>
 
@@ -166,9 +159,7 @@ Each file kind is also available in multiple sizes. </p>
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-<h3 id="file-kind-model"><a name="file-kind-model"></a> File kind model</h3>
-
+</span></code></pre><h3 id='a-name-file-kind-model-a-file-kind-model-1'><span id=a-name-file-kind-model-a-file-kind-model></span><a name="file-kind-model"></a> File kind model</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -184,7 +175,7 @@ Each file kind is also available in multiple sizes. </p>
 <tr>
 <td>type</td>
 <td>string</td>
-<td>Currently, only <code class="prettyprint">IMAGE</code> (MIME: <code class="prettyprint">image/gif</code>, <code class="prettyprint">image/jpeg</code>, <code class="prettyprint">image/png</code>) is supported</td>
+<td>Currently, only <code>IMAGE</code> (MIME: <code>image/gif</code>, <code>image/jpeg</code>, <code>image/png</code>) is supported</td>
 </tr>
 <tr>
 <td>ratio</td>
@@ -197,34 +188,32 @@ Each file kind is also available in multiple sizes. </p>
 <td>See: <a href="#file-sizes">File sizes</a></td>
 </tr>
 <tr>
-<td>sizes[][&lsquo;identifier&rsquo;]</td>
+<td>sizes[][&#39;identifier&#39;]</td>
 <td>string</td>
 <td></td>
 </tr>
 <tr>
-<td>sizes[][&lsquo;min_width&rsquo;]</td>
+<td>sizes[][&#39;min_width&#39;]</td>
 <td>integer</td>
 <td>(optional)</td>
 </tr>
 <tr>
-<td>sizes[][&lsquo;min_height&rsquo;]</td>
+<td>sizes[][&#39;min_height&#39;]</td>
 <td>integer</td>
 <td>(optional)</td>
 </tr>
 <tr>
-<td>sizes[][&lsquo;max_width&rsquo;]</td>
+<td>sizes[][&#39;max_width&#39;]</td>
 <td>integer</td>
 <td>(optional)</td>
 </tr>
 <tr>
-<td>sizes[][&lsquo;max_height&rsquo;]</td>
+<td>sizes[][&#39;max_height&#39;]</td>
 <td>integer</td>
 <td>(optional)</td>
 </tr>
 </tbody></table>
-
-<h3 id="standard-file-kinds"><a name="file-kinds"></a> Standard file kinds</h3>
-
+<h3 id='a-name-file-kinds-a-standard-file-kinds-1'><span id=a-name-file-kinds-a-standard-file-kinds></span><a name="file-kinds"></a> Standard file kinds</h3>
 <p>There are some standard file kinds, their size definitions differ among Loyalty Clubs.</p>
 
 <table><thead>
@@ -234,41 +223,33 @@ Each file kind is also available in multiple sizes. </p>
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">collection_cover_default</code></td>
+<td><code>collection_cover_default</code></td>
 <td>Cover for Offer collections</td>
 </tr>
 <tr>
-<td><code class="prettyprint">offer_default</code></td>
+<td><code>offer_default</code></td>
 <td>Default Offer image</td>
 </tr>
 <tr>
-<td><code class="prettyprint">reward_default</code></td>
+<td><code>reward_default</code></td>
 <td>Default Reward image</td>
 </tr>
 </tbody></table>
-
-<h3 id="ratio"><a name="file-kind-ratio"></a> Ratio</h3>
-
-<p>Images may have fixed proportions ratio which is represented as a string: <code class="prettyprint">&quot;&lt;width&gt;:&lt;height&gt;&quot;</code></p>
-
-<h3 id="file-sizes"><a name="file-sizes"></a> File sizes</h3>
-
+<h3 id='a-name-file-kind-ratio-a-ratio-1'><span id=a-name-file-kind-ratio-a-ratio></span><a name="file-kind-ratio"></a> Ratio</h3>
+<p>Images may have fixed proportions ratio which is represented as a string: <code>&quot;&lt;width&gt;:&lt;height&gt;&quot;</code></p>
+<h3 id='a-name-file-sizes-a-file-sizes-1'><span id=a-name-file-sizes-a-file-sizes></span><a name="file-sizes"></a> File sizes</h3>
 <p>Every file has at least three file sizes available: </p>
-
-<h4 id="base"><code class="prettyprint">base</code></h4>
-
-<p>Actual file size. Currently all file kinds have this size with fixed proportions (so <code class="prettyprint">min_*</code> == <code class="prettyprint">max_*</code>) that match the ratio.</p>
-
-<h4 id="thumbnail"><code class="prettyprint">thumbnail</code></h4>
-
-<p>Rescaled version of <code class="prettyprint">base</code> size. Currently, rescaling always works this way:</p>
+<h4 id='code-base-code-1'><span id=code-base-code></span><code>base</code></h4>
+<p>Actual file size. Currently all file kinds have this size with fixed proportions (so <code>min_*</code> == <code>max_*</code>) that match the ratio.</p>
+<h4 id='code-thumbnail-code-1'><span id=code-thumbnail-code></span><code>thumbnail</code></h4>
+<p>Rescaled version of <code>base</code> size. Currently, rescaling always works this way:</p>
 
 <ul>
 <li>pick the higher dimension of file</li>
 <li>shrink the image so:
 
 <ul>
-<li>the higher dimension gets shrunk to <code class="prettyprint">300px</code></li>
+<li>the higher dimension gets shrunk to <code>300px</code></li>
 <li>the lower dimensions gets shrunk so the image keeps the original ratio</li>
 </ul></li>
 </ul>
@@ -276,25 +257,21 @@ Each file kind is also available in multiple sizes. </p>
 <p>Examples:</p>
 
 <ul>
-<li>File with resolution <code class="prettyprint">600x800</code> gets shrunk down to <code class="prettyprint">225x300</code></li>
-<li>File with resolution <code class="prettyprint">800x600</code> gets shrunk down to <code class="prettyprint">300x225</code></li>
-<li>File with resolution <code class="prettyprint">400x300</code> gets shrunk down to <code class="prettyprint">300x225</code></li>
-<li>File with resolution <code class="prettyprint">400x200</code> gets shrunk down to <code class="prettyprint">300x150</code></li>
-<li>File with resolution <code class="prettyprint">300x250</code> is not shrunk down</li>
+<li>File with resolution <code>600x800</code> gets shrunk down to <code>225x300</code></li>
+<li>File with resolution <code>800x600</code> gets shrunk down to <code>300x225</code></li>
+<li>File with resolution <code>400x300</code> gets shrunk down to <code>300x225</code></li>
+<li>File with resolution <code>400x200</code> gets shrunk down to <code>300x150</code></li>
+<li>File with resolution <code>300x250</code> is not shrunk down</li>
 </ul>
-
-<h4 id="original"><code class="prettyprint">original</code></h4>
-
+<h4 id='code-original-code-1'><span id=code-original-code></span><code>original</code></h4>
 <p>Original file that that has been uploaded and used for generating other file sizes.</p>
 
-<p>Currently, we require all original files to have proper ratios and minimum sizes of at least the <code class="prettyprint">base</code> size.
-Because of that, you can expect them to have <code class="prettyprint">min_height</code> and <code class="prettyprint">min_width</code> that match the <code class="prettyprint">base</code> size, 
-but they never have <code class="prettyprint">max_width</code> or <code class="prettyprint">max_height</code> defined.</p>
-
-<h4 id="file-cropping"><a name="file-cropping"></a> File cropping</h4>
-
+<p>Currently, we require all original files to have proper ratios and minimum sizes of at least the <code>base</code> size.
+Because of that, you can expect them to have <code>min_height</code> and <code>min_width</code> that match the <code>base</code> size, 
+but they never have <code>max_width</code> or <code>max_height</code> defined.</p>
+<h4 id='a-name-file-cropping-a-file-cropping-1'><span id=a-name-file-cropping-a-file-cropping></span><a name="file-cropping"></a> File cropping</h4>
 <blockquote>
-<p><code class="prettyprint">crop_to</code> param interpretation may be visualized like this:</p>
+<p><code>crop_to</code> param interpretation may be visualized like this:</p>
 </blockquote>
 <pre class="highlight plaintext"><code>
                            x_top_left     x_bottom_right
@@ -310,24 +287,20 @@ but they never have <code class="prettyprint">max_width</code> or <code class="p
                     |
 
 </code></pre>
-<p>When file is uploaded and it&rsquo;s too large to match the required base size, it may get cropped.
-This can be achieved by providing cropping param (<code class="prettyprint">crop_to</code>).</p>
+<p>When file is uploaded and it&#39;s too large to match the required base size, it may get cropped.
+This can be achieved by providing cropping param (<code>crop_to</code>).</p>
 
-<p>The param has following syntax: <code class="prettyprint">x_top_left,y_top_left,x_bottom_right,y_bottom_right</code> and represents boundaries of a cropping area. </p>
+<p>The param has following syntax: <code>x_top_left,y_top_left,x_bottom_right,y_bottom_right</code> and represents boundaries of a cropping area. </p>
 
-<p>When uploaded file is too large and <code class="prettyprint">crop_to</code> param is not provided, the file will be automatically cropped with gravity set in center of image.</p>
+<p>When uploaded file is too large and <code>crop_to</code> param is not provided, the file will be automatically cropped with gravity set in center of image.</p>
+<h5 id='example-1'><span id=example></span>Example</h5>
+<p>The kind&#39;s base size is 400x200px and the uploaded file is 1000x1000px. </p>
 
-<h5 id="example">Example</h5>
-
-<p>The kind&rsquo;s base size is 400x200px and the uploaded file is 1000x1000px. </p>
-
-<p>With crop_to=&ldquo;0,250,1000,750&rdquo;, a rectangle of &ldquo;1000x500&rdquo; size will be cropped, with 250px left offset.
+<p>With crop_to=&quot;0,250,1000,750&quot;, a rectangle of &quot;1000x500&quot; size will be cropped, with 250px left offset.
 The file will be then also resized to 400x200.</p>
-
-<h4 id="uploaded-instances-projections"><a name="projected-file-versions"></a> Uploaded instances projections</h4>
-
-<p>When file is uploaded, only original file is physically processed and stored. <code class="prettyprint">base</code> and other versions are processed asynchronously. 
-So, the responses returned on upload contains only &ldquo;projected&rdquo; info about files.</p>
+<h4 id='a-name-projected-file-versions-a-uploaded-instances-projections-1'><span id=a-name-projected-file-versions-a-uploaded-instances-projections></span><a name="projected-file-versions"></a> Uploaded instances projections</h4>
+<p>When file is uploaded, only original file is physically processed and stored. <code>base</code> and other versions are processed asynchronously. 
+So, the responses returned on upload contains only &quot;projected&quot; info about files.</p>
 
 <table><thead>
 <tr>
@@ -367,11 +340,7 @@ So, the responses returned on upload contains only &ldquo;projected&rdquo; info 
 <td></td>
 </tr>
 </tbody></table>
-
-<h2 id="files">Files</h2>
-
-<h3 id="get-file-schema"><a name="get-file-schema"></a> Get file schema</h3>
-
+<h2 id='files-1'><span id=files></span>Files</h2><h3 id='a-name-get-file-schema-a-get-file-schema-1'><span id=a-name-get-file-schema-a-get-file-schema></span><a name="get-file-schema"></a> Get file schema</h3>
 <blockquote>
 <p>Example request</p>
 </blockquote>
@@ -385,16 +354,14 @@ So, the responses returned on upload contains only &ldquo;projected&rdquo; info 
 <p>Returns the schema as described <a href="#file-schema">here</a></p>
 </blockquote>
 
-<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/files/schema</code></p>
+<p><strong>GET</strong> <code>v3/:loyalty_club_slug/files/schema</code></p>
 
 <p>Returns the Loyalty Club file schema. See: <a href="#file-schema">Files &bull; Schema</a></p>
 
 <aside class="notice">
 Requires <code>Files:Api:GetSchema</code> permit
 </aside>
-
-<h3 id="create-file"><a name="create-file"></a> Create file</h3>
-
+<h3 id='a-name-create-file-a-create-file-1'><span id=a-name-create-file-a-create-file></span><a name="create-file"></a> Create file</h3>
 <blockquote>
 <p>Example request</p>
 </blockquote>
@@ -409,7 +376,7 @@ Requires <code>Files:Api:GetSchema</code> permit
 
 </code></pre>
 <blockquote>
-<p>Returns info about uploaded file and it&rsquo;s projected versions</p>
+<p>Returns info about uploaded file and it&#39;s projected versions</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"original"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -440,12 +407,10 @@ Requires <code>Files:Api:GetSchema</code> permit
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>POST</strong> <code class="prettyprint">v3/:loyalty_club_slug/files/:fileable_type/:fileable_id/kind</code></p>
+<p><strong>POST</strong> <code>v3/:loyalty_club_slug/files/:fileable_type/:fileable_id/kind</code></p>
 
 <p>Creates new file for given Fileable (e.g. Offer).</p>
-
-<h4 id="url-parameters"><a name="create-file-url-parameters"></a> URL Parameters</h4>
-
+<h4 id='a-name-create-file-url-parameters-a-url-parameters-1'><span id=a-name-create-file-url-parameters-a-url-parameters></span><a name="create-file-url-parameters"></a> URL Parameters</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -455,7 +420,7 @@ Requires <code>Files:Api:GetSchema</code> permit
 </thead><tbody>
 <tr>
 <td>fileable_type</td>
-<td>enum: <code class="prettyprint">[&#39;offers&#39;, &#39;collections&#39;]</code></td>
+<td>enum: <code>[&#39;offers&#39;, &#39;collections&#39;]</code></td>
 <td></td>
 </tr>
 <tr>
@@ -469,9 +434,7 @@ Requires <code>Files:Api:GetSchema</code> permit
 <td>see <a href="#file-kinds">Standard file kinds</a></td>
 </tr>
 </tbody></table>
-
-<h4 id="post-parameters"><a name="create-file-post-parameters"></a> POST Parameters</h4>
-
+<h4 id='a-name-create-file-post-parameters-a-post-parameters-1'><span id=a-name-create-file-post-parameters-a-post-parameters></span><a name="create-file-post-parameters"></a> POST Parameters</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -493,9 +456,7 @@ Requires <code>Files:Api:GetSchema</code> permit
 <td>See: <a href="#file-cropping">cropping</a></td>
 </tr>
 </tbody></table>
-
-<h4 id="response-json-object"><a name="create-file-response"></a> Response (JSON object)</h4>
-
+<h4 id='a-name-create-file-response-a-response-json-object-1'><span id=a-name-create-file-response-a-response-json-object></span><a name="create-file-response"></a> Response (JSON object)</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -514,9 +475,7 @@ Requires <code>Files:Api:GetSchema</code> permit
 <td>See <a href="#projected-file-versions">Projected file versions</a></td>
 </tr>
 </tbody></table>
-
-<h4 id="error-responses">Error responses</h4>
-
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -524,11 +483,11 @@ Requires <code>Files:Api:GetSchema</code> permit
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">404</code></td>
+<td><code>404</code></td>
 <td>The Fileable does not exist</td>
 </tr>
 <tr>
-<td><code class="prettyprint">422</code></td>
+<td><code>422</code></td>
 <td>Invalid parameters</td>
 </tr>
 </tbody></table>
@@ -536,9 +495,7 @@ Requires <code>Files:Api:GetSchema</code> permit
 <aside class="notice">
 Requires <code>Files:Api:Create</code> permit
 </aside>
-
-<h3 id="update-file"><a name="update-file"></a> Update file</h3>
-
+<h3 id='a-name-update-file-a-update-file-1'><span id=a-name-update-file-a-update-file></span><a name="update-file"></a> Update file</h3>
 <blockquote>
 <p>Example request</p>
 </blockquote>
@@ -559,24 +516,16 @@ Requires <code>Files:Api:Create</code> permit
   </span><span class="err">//</span><span class="w"> </span><span class="err">(...)</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="s2">"Create file"</span><span class="w"> </span><span class="err">example</span><span class="w"> </span><span class="err">response</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>PUT</strong> <code class="prettyprint">v3/:loyalty_club_slug/files/:fileable_type/:fileable_id/kind</code></p>
+<p><strong>PUT</strong> <code>v3/:loyalty_club_slug/files/:fileable_type/:fileable_id/kind</code></p>
 
 <p>Updates file for given Fileable (e.g. Offer).</p>
-
-<h4 id="url-parameters">URL Parameters</h4>
-
+<h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
 <p>See: <a href="#create-file-url-parameters">Create File URL Parameters</a></p>
-
-<h4 id="post-parameters">POST Parameters</h4>
-
+<h4 id='post-parameters-1'><span id=post-parameters></span>POST Parameters</h4>
 <p>See: <a href="#create-file-post-parameters">Create File POST Parameters</a></p>
-
-<h4 id="response-json-object">Response (JSON object)</h4>
-
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
 <p>See: <a href="#create-file-response">Create File Response</a></p>
-
-<h4 id="error-responses">Error responses</h4>
-
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -584,15 +533,15 @@ Requires <code>Files:Api:Create</code> permit
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">404</code></td>
+<td><code>404</code></td>
 <td>Fileable not found</td>
 </tr>
 <tr>
-<td><code class="prettyprint">404</code></td>
+<td><code>404</code></td>
 <td>File not found</td>
 </tr>
 <tr>
-<td><code class="prettyprint">422</code></td>
+<td><code>422</code></td>
 <td>Invalid parameters</td>
 </tr>
 </tbody></table>
@@ -600,9 +549,7 @@ Requires <code>Files:Api:Create</code> permit
 <aside class="notice">
 Requires <code>Files:Api:Update</code> permit
 </aside>
-
-<h3 id="reprocess-file"><a name="reprocess-file"></a> Reprocess file</h3>
-
+<h3 id='a-name-reprocess-file-a-reprocess-file-1'><span id=a-name-reprocess-file-a-reprocess-file></span><a name="reprocess-file"></a> Reprocess file</h3>
 <blockquote>
 <p>Example request</p>
 </blockquote>
@@ -622,25 +569,17 @@ Requires <code>Files:Api:Update</code> permit
   </span><span class="err">//</span><span class="w"> </span><span class="err">(...)</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="s2">"Create file"</span><span class="w"> </span><span class="err">example</span><span class="w"> </span><span class="err">response</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>PUT</strong> <code class="prettyprint">v3/:loyalty_club_slug/files/:fileable_type/:fileable_id/kind/reprocess</code></p>
+<p><strong>PUT</strong> <code>v3/:loyalty_club_slug/files/:fileable_type/:fileable_id/kind/reprocess</code></p>
 
 <p>Reprocesses file for given Fileable (e.g. Offer).
 It means that no file needs to be uploaded, instead the original file will be reprocessed according to given parameters. </p>
-
-<h4 id="url-parameters">URL Parameters</h4>
-
+<h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
 <p>See: <a href="#create-file-url-parameters">Create File URL Parameters</a></p>
-
-<h4 id="post-parameters">POST Parameters</h4>
-
-<p>See: <a href="#create-file-post-parameters">Create File POST Parameters</a> - except no <code class="prettyprint">file</code> param is accepted here</p>
-
-<h4 id="response-json-object">Response (JSON object)</h4>
-
+<h4 id='post-parameters-1'><span id=post-parameters></span>POST Parameters</h4>
+<p>See: <a href="#create-file-post-parameters">Create File POST Parameters</a> - except no <code>file</code> param is accepted here</p>
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
 <p>See: <a href="#create-file-response">Create File Response</a></p>
-
-<h4 id="error-responses">Error responses</h4>
-
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -648,15 +587,15 @@ It means that no file needs to be uploaded, instead the original file will be re
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">404</code></td>
+<td><code>404</code></td>
 <td>Fileable not found</td>
 </tr>
 <tr>
-<td><code class="prettyprint">404</code></td>
+<td><code>404</code></td>
 <td>File not found</td>
 </tr>
 <tr>
-<td><code class="prettyprint">422</code></td>
+<td><code>422</code></td>
 <td>Invalid parameters</td>
 </tr>
 </tbody></table>
@@ -664,9 +603,7 @@ It means that no file needs to be uploaded, instead the original file will be re
 <aside class="notice">
 Requires <code>Files:Api:Reprocess</code> permit
 </aside>
-
-<h3 id="delete-file"><a name="delete-file"></a> Delete file</h3>
-
+<h3 id='a-name-delete-file-a-delete-file-1'><span id=a-name-delete-file-a-delete-file></span><a name="delete-file"></a> Delete file</h3>
 <blockquote>
 <p>Example request</p>
 </blockquote>
@@ -683,16 +620,12 @@ Requires <code>Files:Api:Reprocess</code> permit
   </span><span class="err">//</span><span class="w"> </span><span class="err">Empty</span><span class="w"> </span><span class="err">object</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>DELETE</strong> <code class="prettyprint">v3/:loyalty_club_slug/files/:fileable_type/:fileable_id/kind</code></p>
+<p><strong>DELETE</strong> <code>v3/:loyalty_club_slug/files/:fileable_type/:fileable_id/kind</code></p>
 
 <p>Deletes file of given Fileable (e.g. Offer).</p>
-
-<h4 id="url-parameters">URL Parameters</h4>
-
+<h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
 <p>See: <a href="#create-file-url-parameters">Create File URL Parameters</a></p>
-
-<h4 id="error-responses">Error responses</h4>
-
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -700,11 +633,11 @@ Requires <code>Files:Api:Reprocess</code> permit
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">404</code></td>
+<td><code>404</code></td>
 <td>Fileable not found</td>
 </tr>
 <tr>
-<td><code class="prettyprint">404</code></td>
+<td><code>404</code></td>
 <td>File not found</td>
 </tr>
 </tbody></table>

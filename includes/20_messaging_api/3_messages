@@ -1,7 +1,4 @@
-<h2 id="messages"><a name="messaging-messages"></a> Messages</h2>
-
-<h3 id="list-messages"><a name="messaging-list-messages"></a> List Messages</h3>
-
+<h2 id='a-name-messaging-messages-a-messages-1'><span id=a-name-messaging-messages-a-messages></span><a name="messaging-messages"></a> Messages</h2><h3 id='a-name-messaging-list-messages-a-list-messages-1'><span id=a-name-messaging-list-messages-a-list-messages></span><a name="messaging-list-messages"></a> List Messages</h3>
 <blockquote>
 <p>Example</p>
 </blockquote>
@@ -21,12 +18,10 @@
   </span><span class="s2">"pagination_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Pagination</span><span class="w"> </span><span class="err">info</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="s2">"Pagination info"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>GET</strong> <code class="prettyprint">v1/messages</code></p>
+<p><strong>GET</strong> <code>v1/messages</code></p>
 
 <p>Returns list of <a href="#messaging-message-model">Messages</a>.  </p>
-
-<h4 id="query-parameters">Query Parameters</h4>
-
+<h4 id='query-parameters-1'><span id=query-parameters></span>Query Parameters</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -70,9 +65,7 @@
 <aside class="notice">
 Requires <code>Messages:Api:Messages:List</code> permit
 </aside>
-
-<h3 id="get-message"><a name="messaging-get-message"></a> Get Message</h3>
-
+<h3 id='a-name-messaging-get-message-a-get-message-1'><span id=a-name-messaging-get-message-a-get-message></span><a name="messaging-get-message"></a> Get Message</h3>
 <blockquote>
 <p>Example</p>
 </blockquote>
@@ -91,12 +84,10 @@ Requires <code>Messages:Api:Messages:List</code> permit
   </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Message</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Message model"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>GET</strong> <code class="prettyprint">v1/messages/:id</code></p>
+<p><strong>GET</strong> <code>v1/messages/:id</code></p>
 
 <p>Returns <a href="#messaging-message-model">Message</a>.  </p>
-
-<h4 id="url-parameters">URL Parameters</h4>
-
+<h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -110,9 +101,7 @@ Requires <code>Messages:Api:Messages:List</code> permit
 <td>Message ID</td>
 </tr>
 </tbody></table>
-
-<h4 id="error-responses">Error responses</h4>
-
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -120,7 +109,7 @@ Requires <code>Messages:Api:Messages:List</code> permit
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">404</code></td>
+<td><code>404</code></td>
 <td>Message not found</td>
 </tr>
 </tbody></table>
@@ -128,9 +117,7 @@ Requires <code>Messages:Api:Messages:List</code> permit
 <aside class="notice">
 Requires <code>Messages:Api:Messages:Get</code> permit
 </aside>
-
-<h3 id="create-message"><a name="messaging-create-message"></a> Create Message</h3>
-
+<h3 id='a-name-messaging-create-message-a-create-message-1'><span id=a-name-messaging-create-message-a-create-message></span><a name="messaging-create-message"></a> Create Message</h3>
 <blockquote>
 <p>Example - creates an SMS message, scheduled in 15 minutes, sent to given audience and one inline recipient.</p>
 </blockquote>
@@ -181,12 +168,10 @@ Requires <code>Messages:Api:Messages:Get</code> permit
   </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Message</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Message model"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>POST</strong> <code class="prettyprint">v1/messages</code></p>
+<p><strong>POST</strong> <code>v1/messages</code></p>
 
 <p>Creates a new Message with Channel(s) and Template(s) and optionally schedules Sending for it.  </p>
-
-<h4 id="post-parameters-json">POST Parameters (JSON)</h4>
-
+<h4 id='post-parameters-json-1'><span id=post-parameters-json></span>POST Parameters (JSON)</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -198,9 +183,7 @@ Requires <code>Messages:Api:Messages:Get</code> permit
 <td><a href="#messaging-message-payload-model">MessagePayload</a></td>
 </tr>
 </tbody></table>
-
-<h4 id="response-json-object">Response (JSON object)</h4>
-
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -214,9 +197,7 @@ Requires <code>Messages:Api:Messages:Get</code> permit
 <td>See: <a href="#messaging-message-model">Message model</a></td>
 </tr>
 </tbody></table>
-
-<h4 id="error-responses">Error responses</h4>
-
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -224,15 +205,15 @@ Requires <code>Messages:Api:Messages:Get</code> permit
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">403</code></td>
+<td><code>403</code></td>
 <td>Unauthorized to set specific <a href="#messaging-message-service">Service</a></td>
 </tr>
 <tr>
-<td><code class="prettyprint">403</code></td>
+<td><code>403</code></td>
 <td>Unauthorized to set Sending priority</td>
 </tr>
 <tr>
-<td><code class="prettyprint">422</code></td>
+<td><code>422</code></td>
 <td>Invalid parameters - see <a href="#invalid-parameters-errors-model">Invalid parameters errors model</a></td>
 </tr>
 </tbody></table>
@@ -240,9 +221,7 @@ Requires <code>Messages:Api:Messages:Get</code> permit
 <aside class="notice">
 Requires <code>Messages:Api:Messages:Create</code> permit
 </aside>
-
-<h3 id="update-message"><a name="messaging-update-message"></a> Update Message</h3>
-
+<h3 id='a-name-messaging-update-message-a-update-message-1'><span id=a-name-messaging-update-message-a-update-message></span><a name="messaging-update-message"></a> Update Message</h3>
 <blockquote>
 <p>Example - updates Message</p>
 </blockquote>
@@ -284,15 +263,13 @@ Requires <code>Messages:Api:Messages:Create</code> permit
   </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Message</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Message model"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>PUT</strong> <code class="prettyprint">v1/messages/:id</code></p>
+<p><strong>PUT</strong> <code>v1/messages/:id</code></p>
 
-<p>Updates Message&rsquo;s attributes and its Channels.</p>
+<p>Updates Message&#39;s attributes and its Channels.</p>
 
 <p>The update is partial - only attributes present in the payload are updated. 
-If attribute removal is intended, it should be provided with <code class="prettyprint">null</code> value.</p>
-
-<h4 id="url-parameters">URL Parameters</h4>
-
+If attribute removal is intended, it should be provided with <code>null</code> value.</p>
+<h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -306,9 +283,7 @@ If attribute removal is intended, it should be provided with <code class="pretty
 <td>Message ID</td>
 </tr>
 </tbody></table>
-
-<h4 id="post-parameters-json">POST Parameters (JSON)</h4>
-
+<h4 id='post-parameters-json-1'><span id=post-parameters-json></span>POST Parameters (JSON)</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -321,11 +296,9 @@ If attribute removal is intended, it should be provided with <code class="pretty
 </tr>
 </tbody></table>
 
-<p>Note that <a href="#messaging-message-payload-model">MessagePayload</a>&lsquo;s <code class="prettyprint">sending</code> attribute is not available, as it&rsquo;s not 
+<p>Note that <a href="#messaging-message-payload-model">MessagePayload</a>&#39;s <code>sending</code> attribute is not available, as it&#39;s not 
 possible to change any Sending during Message update.  </p>
-
-<h4 id="response-json-object">Response (JSON object)</h4>
-
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -339,9 +312,7 @@ possible to change any Sending during Message update.  </p>
 <td>See: <a href="#messaging-message-model">Message model</a></td>
 </tr>
 </tbody></table>
-
-<h4 id="error-responses">Error responses</h4>
-
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -349,15 +320,15 @@ possible to change any Sending during Message update.  </p>
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">403</code></td>
+<td><code>403</code></td>
 <td>Unauthorized to set specific <a href="#messaging-message-service">Service</a></td>
 </tr>
 <tr>
-<td><code class="prettyprint">404</code></td>
+<td><code>404</code></td>
 <td>Message not found</td>
 </tr>
 <tr>
-<td><code class="prettyprint">422</code></td>
+<td><code>422</code></td>
 <td>Invalid parameters - see <a href="#invalid-parameters-errors-model">Invalid parameters errors model</a></td>
 </tr>
 </tbody></table>

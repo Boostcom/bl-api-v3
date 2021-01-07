@@ -1,18 +1,15 @@
-<h2 id="members-oauth"><a name="oauth2"></a> Members OAuth</h2>
-
+<h2 id='a-name-oauth2-a-members-oauth-1'><span id=a-name-oauth2-a-members-oauth></span><a name="oauth2"></a> Members OAuth</h2>
 <blockquote>
-<p>Example header: <code class="prettyprint">authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522</code></p>
+<p>Example header: <code>authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522</code></p>
 </blockquote>
 
 <p>Actions related to specific member (the one that is using your application) require to have member authenticated and we implement
 OAuth2 flow for this.</p>
 
-<p>To authorize those actions, we <strong>require</strong> <code class="prettyprint">authorization</code> header that should contain: <code class="prettyprint">Bearer :access_token</code>. </p>
+<p>To authorize those actions, we <strong>require</strong> <code>authorization</code> header that should contain: <code>Bearer :access_token</code>. </p>
 
 <p>Look at <a href="#token-create">OAuth Token &bull; Create</a> to see how to obtain the :access_token.</p>
-
-<h3 id="create-token"><a name="token-create"></a> Create token</h3>
-
+<h3 id='a-name-token-create-a-create-token-1'><span id=a-name-token-create-a-create-token></span><a name="token-create"></a> Create token</h3>
 <blockquote>
 <p>Create token example:</p>
 </blockquote>
@@ -53,38 +50,32 @@ OAuth2 flow for this.</p>
   </span><span class="s2">"resource_owner_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>POST</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/oauth/token</code></p>
+<p><strong>POST</strong> <code>v3/:loyalty_club_slug/members/oauth/token</code></p>
 
 <p>Creates a new access token by one of two methods (grant types):</p>
 
 <ul>
-<li><code class="prettyprint">password</code> - token is issued by providing user credentials</li>
-<li><code class="prettyprint">refresh_token</code> - token is issued by providing refresh token obtained from <code class="prettyprint">password</code> grant type </li>
+<li><code>password</code> - token is issued by providing user credentials</li>
+<li><code>refresh_token</code> - token is issued by providing refresh token obtained from <code>password</code> grant type </li>
 </ul>
-
-<h4 id="creating-token-password-grant">Creating token (<code class="prettyprint">password</code> grant)</h4>
-
-<p>When creating new access token, <code class="prettyprint">&quot;grant_type&quot;: &quot;password&quot;</code> should be given along with member credentials (see example on the right).</p>
+<h4 id='creating-token-code-password-code-grant-1'><span id=creating-token-code-password-code-grant></span>Creating token (<code>password</code> grant)</h4>
+<p>When creating new access token, <code>&quot;grant_type&quot;: &quot;password&quot;</code> should be given along with member credentials (see example on the right).</p>
 
 <p>In response, two tokens are returned:</p>
 
 <ul>
-<li><code class="prettyprint">access_token</code> that is valid for <strong>24 hours</strong> - may be used to authenticate member in member-related actions (see: <a href="#oauth2">OAuth2</a>).</li>
-<li><code class="prettyprint">refresh_token</code> which is valid for <strong>1 year</strong> - may be used to get a new access token (with <code class="prettyprint">refresh_token</code> grant)</li>
+<li><code>access_token</code> that is valid for <strong>24 hours</strong> - may be used to authenticate member in member-related actions (see: <a href="#oauth2">OAuth2</a>).</li>
+<li><code>refresh_token</code> which is valid for <strong>1 year</strong> - may be used to get a new access token (with <code>refresh_token</code> grant)</li>
 </ul>
 
-<p>Also, <code class="prettyprint">resource_owner_id</code> is returned, is an ID of member that the token has been issued for. </p>
+<p>Also, <code>resource_owner_id</code> is returned, is an ID of member that the token has been issued for. </p>
+<h4 id='refreshing-token-code-refresh_token-code-grant-1'><span id=refreshing-token-code-refresh_token-code-grant></span>Refreshing token (<code>refresh_token</code> grant)</h4>
+<p>You can obtain a new token after (or before) it&#39;s expiration time, by using <code>refresh_token</code> grant.</p>
 
-<h4 id="refreshing-token-refresh_token-grant">Refreshing token (<code class="prettyprint">refresh_token</code> grant)</h4>
+<p>Param <code>grant_type: &quot;refresh_token&quot;</code> must be provided along with <code>refresh_token: &quot;:refresh_token&quot;</code>  (see example on the right).</p>
 
-<p>You can obtain a new token after (or before) it&rsquo;s expiration time, by using <code class="prettyprint">refresh_token</code> grant.</p>
-
-<p>Param <code class="prettyprint">grant_type: &quot;refresh_token&quot;</code> must be provided along with <code class="prettyprint">refresh_token: &quot;:refresh_token&quot;</code>  (see example on the right).</p>
-
-<p>It returns a token response, same as for <code class="prettyprint">password</code> grant, but with new tokens.</p>
-
-<h4 id="post-parameters-json-object">POST Parameters (JSON object)</h4>
-
+<p>It returns a token response, same as for <code>password</code> grant, but with new tokens.</p>
+<h4 id='post-parameters-json-object-1'><span id=post-parameters-json-object></span>POST Parameters (JSON object)</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -96,37 +87,35 @@ OAuth2 flow for this.</p>
 <tr>
 <td>grant_type</td>
 <td>type of grant</td>
-<td>enum: <code class="prettyprint">password</code>, <code class="prettyprint">refresh_token</code></td>
+<td>enum: <code>password</code>, <code>refresh_token</code></td>
 <td>-</td>
 </tr>
 <tr>
 <td>identifier_type</td>
 <td>identifier type that user should be retrieved by</td>
-<td>enum: <code class="prettyprint">id</code>, <code class="prettyprint">email</code>, <code class="prettyprint">msisdn</code></td>
-<td><code class="prettyprint">password</code></td>
+<td>enum: <code>id</code>, <code>email</code>, <code>msisdn</code></td>
+<td><code>password</code></td>
 </tr>
 <tr>
 <td>identifier</td>
 <td>value of member identifier</td>
-<td>mixed (e.g. <code class="prettyprint">134123123</code>, <code class="prettyprint">+47123456789</code> or <code class="prettyprint">alice@example.com</code>)</td>
-<td><code class="prettyprint">password</code></td>
+<td>mixed (e.g. <code>134123123</code>, <code>+47123456789</code> or <code>alice@example.com</code>)</td>
+<td><code>password</code></td>
 </tr>
 <tr>
 <td>password</td>
 <td>member password, One-Time-Password or Registration Password</td>
 <td>string</td>
-<td><code class="prettyprint">password</code></td>
+<td><code>password</code></td>
 </tr>
 <tr>
 <td>refresh_token</td>
 <td>refresh token</td>
 <td>string</td>
-<td><code class="prettyprint">access_token</code></td>
+<td><code>access_token</code></td>
 </tr>
 </tbody></table>
-
-<h4 id="response-json-object">Response (JSON object)</h4>
-
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -141,7 +130,7 @@ OAuth2 flow for this.</p>
 </tr>
 <tr>
 <td>token_type</td>
-<td>Always &ldquo;bearer&rdquo;</td>
+<td>Always &quot;bearer&quot;</td>
 <td>string</td>
 </tr>
 <tr>
@@ -165,9 +154,7 @@ OAuth2 flow for this.</p>
 <td>integer</td>
 </tr>
 </tbody></table>
-
-<h4 id="error-responses">Error responses</h4>
-
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -175,12 +162,12 @@ OAuth2 flow for this.</p>
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">461</code></td>
-<td>Invalid member credentials provided for <code class="prettyprint">password</code> grant. Either member could not be found or password is wrong</td>
+<td><code>461</code></td>
+<td>Invalid member credentials provided for <code>password</code> grant. Either member could not be found or password is wrong</td>
 </tr>
 <tr>
-<td><code class="prettyprint">462</code></td>
-<td>Invalid refresh_token provided for <code class="prettyprint">refresh_token</code> grant (may be expired)</td>
+<td><code>462</code></td>
+<td>Invalid refresh_token provided for <code>refresh_token</code> grant (may be expired)</td>
 </tr>
 </tbody></table>
 
@@ -189,9 +176,7 @@ Requires <code>BL:Api:Members:OAuth</code> permit
 </aside>
 
 <!--- ############################################################################################################# --->
-
-<h3 id="revoke-token"><a name="token-revoke"></a> Revoke token</h3>
-
+<h3 id='a-name-token-revoke-a-revoke-token-1'><span id=a-name-token-revoke-a-revoke-token></span><a name="token-revoke"></a> Revoke token</h3>
 <blockquote>
 <p>Example:</p>
 </blockquote>
@@ -211,14 +196,12 @@ Requires <code>BL:Api:Members:OAuth</code> permit
   </span><span class="err">//</span><span class="w"> </span><span class="err">Empty</span><span class="w"> </span><span class="err">object</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>POST</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/oauth/revoke</code></p>
+<p><strong>POST</strong> <code>v3/:loyalty_club_slug/members/oauth/revoke</code></p>
 
 <p>Revokes a token (access or refresh). </p>
 
 <p>Always returns an empty JSON object (even if given token is invalid).</p>
-
-<h4 id="post-parameters-json">POST Parameters (JSON)</h4>
-
+<h4 id='post-parameters-json-1'><span id=post-parameters-json></span>POST Parameters (JSON)</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -238,9 +221,7 @@ Requires <code>BL:Api:Members:OAuth</code> permit
 </aside>
 
 <!--- ############################################################################################################# --->
-
-<h3 id="get-token-info"><a name="token-info"></a> Get token info</h3>
-
+<h3 id='a-name-token-info-a-get-token-info-1'><span id=a-name-token-info-a-get-token-info></span><a name="token-info"></a> Get token info</h3>
 <blockquote>
 <p>Example:</p>
 </blockquote>
@@ -265,12 +246,10 @@ Requires <code>BL:Api:Members:OAuth</code> permit
     </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1506516784</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/oauth/token/info</code></p>
+<p><strong>GET</strong> <code>v3/:loyalty_club_slug/members/oauth/token/info</code></p>
 
-<p>Returns info of given token (not refresh token) from <code class="prettyprint">authorization</code> header.</p>
-
-<h4 id="response-json-object">Response (JSON object)</h4>
-
+<p>Returns info of given token (not refresh token) from <code>authorization</code> header.</p>
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -304,9 +283,7 @@ Requires <code>BL:Api:Members:OAuth</code> permit
 <td>integer (timestamp)</td>
 </tr>
 </tbody></table>
-
-<h4 id="error-responses">Error responses</h4>
-
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -314,8 +291,8 @@ Requires <code>BL:Api:Members:OAuth</code> permit
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">460</code></td>
-<td>Token from <code class="prettyprint">authorization</code> is invalid (or expired)</td>
+<td><code>460</code></td>
+<td>Token from <code>authorization</code> is invalid (or expired)</td>
 </tr>
 </tbody></table>
 

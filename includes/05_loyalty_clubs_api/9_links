@@ -1,7 +1,4 @@
-<h2 id="links"><a name="links"> Links</h2>
-
-<h3 id="link-model"><a name="link-model"></a> Link model</h3>
-
+<h2 id='a-name-links-links-1'><span id=a-name-links-links></span><a name="links"> Links</h2><h3 id='a-name-link-model-a-link-model-1'><span id=a-name-link-model-a-link-model></span><a name="link-model"></a> Link model</h3>
 <blockquote>
 <p>Example</p>
 </blockquote>
@@ -86,23 +83,15 @@
 <td>Is this link enabled for specific LC?</td>
 </tr>
 </tbody></table>
-
-<h4 id="enabled-links"><a name="enabled-links"></a> Enabled links</h4>
-
-<p>When link is enabled, it&rsquo;s available in MPC&rsquo;s UI for being used within sending (unless the link is parameterized).</p>
-
-<h4 id="global-links">Global links</h4>
-
+<h4 id='a-name-enabled-links-a-enabled-links-1'><span id=a-name-enabled-links-a-enabled-links></span><a name="enabled-links"></a> Enabled links</h4>
+<p>When link is enabled, it&#39;s available in MPC&#39;s UI for being used within sending (unless the link is parameterized).</p>
+<h4 id='global-links-1'><span id=global-links></span>Global links</h4>
 <p>Global links are standard links used within MPC apps. Every LC may be configured to have each of them <a href="#links-enable">enabled</a>.</p>
 
 <p>Non-global links are links created specifically for the Loyalty Club.</p>
-
-<h4 id="system-links">System links</h4>
-
+<h4 id='system-links-1'><span id=system-links></span>System links</h4>
 <p>System links are global links that are essential for LC to operate and are always <a href="#links-enable">enabled</a>..</p>
-
-<h3 id="list"><a name="links-list"></a> List</h3>
-
+<h3 id='a-name-links-list-a-list-1'><span id=a-name-links-list-a-list></span><a name="links-list"></a> List</h3>
 <p>Returns all links available within Loyalty Club.</p>
 
 <blockquote>
@@ -123,10 +112,8 @@
   </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">List</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">links</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Link model"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>GET</strong> <code class="prettyprint">v3/infinity-mall/links</code></p>
-
-<h4 id="response-json-object">Response (JSON object)</h4>
-
+<p><strong>GET</strong> <code>v3/infinity-mall/links</code></p>
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -142,9 +129,7 @@
 <aside class="notice">
 Requires <code>BL:Api:Links:Index</code> permit
 </aside>
-
-<h3 id="get"><a name="links-list"></a> Get</h3>
-
+<h3 id='a-name-links-list-a-get-1'><span id=a-name-links-list-a-get></span><a name="links-list"></a> Get</h3>
 <p>Returns specific link.</p>
 
 <blockquote>
@@ -165,10 +150,8 @@ Requires <code>BL:Api:Links:Index</code> permit
   </span><span class="s2">"link"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Link</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Link model"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>GET</strong> <code class="prettyprint">v3/infinity-mall/links/:link_slug</code></p>
-
-<h4 id="response-json-object">Response (JSON object)</h4>
-
+<p><strong>GET</strong> <code>v3/infinity-mall/links/:link_slug</code></p>
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -180,9 +163,7 @@ Requires <code>BL:Api:Links:Index</code> permit
 <td><a href="#link-model">Link</a></td>
 </tr>
 </tbody></table>
-
-<h4 id="error-responses">Error responses</h4>
-
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -190,7 +171,7 @@ Requires <code>BL:Api:Links:Index</code> permit
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">404</code></td>
+<td><code>404</code></td>
 <td>Link could not be found</td>
 </tr>
 </tbody></table>
@@ -198,9 +179,7 @@ Requires <code>BL:Api:Links:Index</code> permit
 <aside class="notice">
 Requires <code>BL:Api:Links:Get</code> permit
 </aside>
-
-<h3 id="enable"><a name="links-enable"></a> Enable</h3>
-
+<h3 id='a-name-links-enable-a-enable-1'><span id=a-name-links-enable-a-enable></span><a name="links-enable"></a> Enable</h3>
 <p>Enables given link - see <a href="#enabled-links">enabled links</a></p>
 
 <blockquote>
@@ -221,10 +200,8 @@ Requires <code>BL:Api:Links:Get</code> permit
   </span><span class="s2">"link"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Link</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Link model"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>PUT</strong> <code class="prettyprint">v3/infinity-mall/links/:link_slug/enable</code></p>
-
-<h4 id="response-json-object">Response (JSON object)</h4>
-
+<p><strong>PUT</strong> <code>v3/infinity-mall/links/:link_slug/enable</code></p>
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -236,9 +213,7 @@ Requires <code>BL:Api:Links:Get</code> permit
 <td><a href="#link-model">Link</a></td>
 </tr>
 </tbody></table>
-
-<h4 id="error-responses">Error responses</h4>
-
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -246,7 +221,7 @@ Requires <code>BL:Api:Links:Get</code> permit
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">404</code></td>
+<td><code>404</code></td>
 <td>Link could not be found</td>
 </tr>
 </tbody></table>
@@ -254,9 +229,7 @@ Requires <code>BL:Api:Links:Get</code> permit
 <aside class="notice">
 Requires <code>BL:Api:Links:Enable</code> permit
 </aside>
-
-<h3 id="disable"><a name="links-disable"></a> Disable</h3>
-
+<h3 id='a-name-links-disable-a-disable-1'><span id=a-name-links-disable-a-disable></span><a name="links-disable"></a> Disable</h3>
 <p>Disables given link - see <a href="#enabled-links">enabled links</a></p>
 
 <blockquote>
@@ -277,10 +250,8 @@ Requires <code>BL:Api:Links:Enable</code> permit
   </span><span class="s2">"link"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Link</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Link model"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>PUT</strong> <code class="prettyprint">v3/infinity-mall/links/:link_slug/disable</code></p>
-
-<h4 id="response-json-object">Response (JSON object)</h4>
-
+<p><strong>PUT</strong> <code>v3/infinity-mall/links/:link_slug/disable</code></p>
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -292,9 +263,7 @@ Requires <code>BL:Api:Links:Enable</code> permit
 <td><a href="#link-model">Link</a></td>
 </tr>
 </tbody></table>
-
-<h4 id="error-responses">Error responses</h4>
-
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -302,7 +271,7 @@ Requires <code>BL:Api:Links:Enable</code> permit
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">404</code></td>
+<td><code>404</code></td>
 <td>Link could not be found</td>
 </tr>
 </tbody></table>
@@ -310,9 +279,7 @@ Requires <code>BL:Api:Links:Enable</code> permit
 <aside class="notice">
 Requires <code>BL:Api:Links:Enable</code> permit
 </aside>
-
-<h3 id="create"><a name="links-create"></a> Create</h3>
-
+<h3 id='a-name-links-create-a-create-1'><span id=a-name-links-create-a-create></span><a name="links-create"></a> Create</h3>
 <p>Create a new link for the Loyalty Club. Created link is always <a href="#enabled-links">enabled</a> by default.</p>
 
 <blockquote>
@@ -346,10 +313,8 @@ Requires <code>BL:Api:Links:Enable</code> permit
 </blockquote>
 <pre class="highlight plaintext"><code>my-app://some/url
 </code></pre>
-<p><strong>POST</strong> <code class="prettyprint">v3/infinity-mall/links</code></p>
-
-<h4 id="post-parameters-json-object">POST Parameters (JSON object)</h4>
-
+<p><strong>POST</strong> <code>v3/infinity-mall/links</code></p>
+<h4 id='post-parameters-json-object-1'><span id=post-parameters-json-object></span>POST Parameters (JSON object)</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -378,9 +343,7 @@ Requires <code>BL:Api:Links:Enable</code> permit
 <td>no</td>
 </tr>
 </tbody></table>
-
-<h4 id="response-json-object">Response (JSON object)</h4>
-
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -392,9 +355,7 @@ Requires <code>BL:Api:Links:Enable</code> permit
 <td><a href="#link-model">Link</a></td>
 </tr>
 </tbody></table>
-
-<h4 id="error-responses">Error responses</h4>
-
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -402,7 +363,7 @@ Requires <code>BL:Api:Links:Enable</code> permit
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">422</code></td>
+<td><code>422</code></td>
 <td>Invalid parameters - see <a href="#invalid-parameters-errors-model">Invalid parameters errors model</a></td>
 </tr>
 </tbody></table>
@@ -410,9 +371,7 @@ Requires <code>BL:Api:Links:Enable</code> permit
 <aside class="notice">
 Requires <code>BL:Api:Links:Create</code> permit
 </aside>
-
-<h3 id="delete"><a name="links-delete"></a> Delete</h3>
-
+<h3 id='a-name-links-delete-a-delete-1'><span id=a-name-links-delete-a-delete></span><a name="links-delete"></a> Delete</h3>
 <p>Destroys Loyalty Club link.</p>
 
 <blockquote>
@@ -433,10 +392,8 @@ Requires <code>BL:Api:Links:Create</code> permit
   </span><span class="s2">"link"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Link</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Link model"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>DELETE</strong> <code class="prettyprint">v3/infinity-mall/links/:link_slug</code></p>
-
-<h4 id="response-json-object">Response (JSON object)</h4>
-
+<p><strong>DELETE</strong> <code>v3/infinity-mall/links/:link_slug</code></p>
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -448,9 +405,7 @@ Requires <code>BL:Api:Links:Create</code> permit
 <td><a href="#link-model">Link</a></td>
 </tr>
 </tbody></table>
-
-<h4 id="error-responses">Error responses</h4>
-
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -458,11 +413,11 @@ Requires <code>BL:Api:Links:Create</code> permit
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">404</code></td>
+<td><code>404</code></td>
 <td>Link could not be found</td>
 </tr>
 <tr>
-<td><code class="prettyprint">405</code></td>
+<td><code>405</code></td>
 <td>Link cannot be deleted</td>
 </tr>
 </tbody></table>
@@ -470,9 +425,7 @@ Requires <code>BL:Api:Links:Create</code> permit
 <aside class="notice">
 Requires <code>BL:Api:Links:Delete</code> permit
 </aside>
-
-<h3 id="generate"><a name="links-generate"></a> Generate</h3>
-
+<h3 id='a-name-links-generate-a-generate-1'><span id=a-name-links-generate-a-generate></span><a name="links-generate"></a> Generate</h3>
 <blockquote>
 <p>Example:</p>
 </blockquote>
@@ -496,15 +449,13 @@ Requires <code>BL:Api:Links:Delete</code> permit
   </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://member.dev.bstcm.no/infinity-mall/offers/1000487"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>POST</strong> <code class="prettyprint">v3/:loyalty_club_slug/links/(:link_slug)/generate</code></p>
+<p><strong>POST</strong> <code>v3/:loyalty_club_slug/links/(:link_slug)/generate</code></p>
 
 <p>Returns a generated link to given functionality in MPC, so it may be reached by member.</p>
 
-<p>In standard setup, the returned link is generated in a &ldquo;universal&rdquo; form: it points to our Webforms, but it will be captured by mobile app if 
-it&rsquo;s installed on member system.</p>
-
-<h4 id="url-parameters">URL Parameters</h4>
-
+<p>In standard setup, the returned link is generated in a &quot;universal&quot; form: it points to our Webforms, but it will be captured by mobile app if 
+it&#39;s installed on member system.</p>
+<h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -518,9 +469,7 @@ it&rsquo;s installed on member system.</p>
 <td>A slug that identifies the link to generate</td>
 </tr>
 </tbody></table>
-
-<h4 id="post-parameters-json-object">POST Parameters (JSON object)</h4>
-
+<h4 id='post-parameters-json-object-1'><span id=post-parameters-json-object></span>POST Parameters (JSON object)</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -534,9 +483,7 @@ it&rsquo;s installed on member system.</p>
 <td>Params for link generation dependent on specific link definition</td>
 </tr>
 </tbody></table>
-
-<h4 id="response-json-object">Response (JSON object)</h4>
-
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -550,9 +497,7 @@ it&rsquo;s installed on member system.</p>
 <td>The generated link</td>
 </tr>
 </tbody></table>
-
-<h4 id="error-responses">Error responses</h4>
-
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -560,11 +505,11 @@ it&rsquo;s installed on member system.</p>
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">404</code></td>
+<td><code>404</code></td>
 <td>Link could not be found</td>
 </tr>
 <tr>
-<td><code class="prettyprint">422</code></td>
+<td><code>422</code></td>
 <td>Invalid parameters</td>
 </tr>
 </tbody></table>

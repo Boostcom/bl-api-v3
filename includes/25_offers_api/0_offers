@@ -1,40 +1,27 @@
-<h1 id="offers-api"><a name="offers-api"></a> Offers API</h1>
-
+<h1 id='a-name-offers-api-a-offers-api-1'><span id=a-name-offers-api-a-offers-api></span><a name="offers-api"></a> Offers API</h1>
 <p>This section describes endpoints destined for end user (e.g. for mobile apps) that work only within context of (signed in) member.
 Navigate to <a href="#offers-admin">Offers Admin</a> section to see docs for offers management endpoints.</p>
-
-<h2 id="introduction">Introduction</h2>
-
-<h3 id="member-context">Member context</h3>
-
+<h2 id='introduction-1'><span id=introduction></span>Introduction</h2><h3 id='member-context-1'><span id=member-context></span>Member context</h3>
 <p>Offers API supports two distinct approaches to work with context of member.</p>
-
-<h4 id="member-id-oauth-recommended"><a name="offers-oauth-context"></a> Member ID OAuth (recommended)</h4>
-
+<h4 id='a-name-offers-oauth-context-a-member-id-oauth-recommended-1'><span id=a-name-offers-oauth-context-a-member-id-oauth-recommended></span><a name="offers-oauth-context"></a> Member ID OAuth (recommended)</h4>
 <p>In the first one member context is resolved from MPC <a href="#oauth2">OAuth</a> member session.</p>
 
-<p>This setup requires use of endpoints that have <code class="prettyprint">/me/</code> URL segment and requires token provided with <code class="prettyprint">authorization</code> header.</p>
+<p>This setup requires use of endpoints that have <code>/me/</code> URL segment and requires token provided with <code>authorization</code> header.</p>
+<h4 id='a-name-offers-member-id-context-a-member-id-1'><span id=a-name-offers-member-id-context-a-member-id></span><a name="offers-member-id-context"></a> Member ID</h4>
+<p>In this approach member context is resolved from Member&#39;s ID provided within URL.</p>
 
-<h4 id="member-id"><a name="offers-member-id-context"></a> Member ID</h4>
-
-<p>In this approach member context is resolved from Member&rsquo;s ID provided within URL.</p>
-
-<p>This setup requires use of endpoints that have <code class="prettyprint">/:member_id/</code> URL segment and requires no authentication.</p>
+<p>This setup requires use of endpoints that have <code>/:member_id/</code> URL segment and requires no authentication.</p>
 
 <p>This approach is designed for implementations in which member is authenticated by your system and 
 <strong>should not be used on front-end implementations</strong>, where API token is exposed to an end user. </p>
-
-<h4 id="guest-access"><a name="offers-guest-access"></a> Guest access</h4>
-
+<h4 id='a-name-offers-guest-access-a-guest-access-1'><span id=a-name-offers-guest-access-a-guest-access></span><a name="offers-guest-access"></a> Guest access</h4>
 <p>Some API client implementations may need to present content to a non-authenticated user.</p>
 
 <p>In order to allow this, static endpoints (like offers list) may work without member context.</p>
 
-<p>They exist in versions which use <code class="prettyprint">/guest/</code> URL segment instead of <code class="prettyprint">/me/</code> or <code class="prettyprint">/member_id/</code> and may be used by both
+<p>They exist in versions which use <code>/guest/</code> URL segment instead of <code>/me/</code> or <code>/member_id/</code> and may be used by both
 aforementioned approaches.</p>
-
-<h3 id="offer-model"><a name="offer-model"></a> Offer model</h3>
-
+<h3 id='a-name-offer-model-a-offer-model-1'><span id=a-name-offer-model-a-offer-model></span><a name="offer-model"></a> Offer model</h3>
 <blockquote>
 <p>Offer example:</p>
 </blockquote>
@@ -125,7 +112,7 @@ aforementioned approaches.</p>
 </tr>
 <tr>
 <td>type</td>
-<td>enum: [&lsquo;REGULAR&rsquo;, &lsquo;EXCLUSIVE&rsquo;, &lsquo;BIRTHDAY&rsquo;, &lsquo;WELCOME&rsquo;]</td>
+<td>enum: [&#39;REGULAR&#39;, &#39;EXCLUSIVE&#39;, &#39;BIRTHDAY&#39;, &#39;WELCOME&#39;]</td>
 <td>no</td>
 <td></td>
 </tr>
@@ -262,9 +249,7 @@ aforementioned approaches.</p>
 <td></td>
 </tr>
 </tbody></table>
-
-<h3 id="offer-usage-model"><a name="offer-usage-model"></a> Offer usage model</h3>
-
+<h3 id='a-name-offer-usage-model-a-offer-usage-model-1'><span id=a-name-offer-usage-model-a-offer-usage-model></span><a name="offer-usage-model"></a> Offer usage model</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -283,13 +268,13 @@ aforementioned approaches.</p>
 <td>max_uses</td>
 <td>integer</td>
 <td>yes</td>
-<td>Maximum number of times the specific member can use the offer. When null, there&rsquo;s no limit.</td>
+<td>Maximum number of times the specific member can use the offer. When null, there&#39;s no limit.</td>
 </tr>
 <tr>
 <td>uses_left</td>
 <td>integer</td>
 <td>yes</td>
-<td>How many more times the specific member can use the offer - this number can be also affected by global offer limit. When null, there&rsquo;s no limit.</td>
+<td>How many more times the specific member can use the offer - this number can be also affected by global offer limit. When null, there&#39;s no limit.</td>
 </tr>
 <tr>
 <td>active_until</td>
@@ -305,7 +290,7 @@ aforementioned approaches.</p>
 </tr>
 <tr>
 <td>period.timespan</td>
-<td>enum: [&lsquo;MINUTE&rsquo;, &lsquo;HOUR&rsquo;, &lsquo;DAY&rsquo;, &lsquo;WEEK&rsquo;, &lsquo;MONTH&rsquo;, &lsquo;YEAR&rsquo;]</td>
+<td>enum: [&#39;MINUTE&#39;, &#39;HOUR&#39;, &#39;DAY&#39;, &#39;WEEK&#39;, &#39;MONTH&#39;, &#39;YEAR&#39;]</td>
 <td>no</td>
 <td>Defines the period in which usage is limited</td>
 </tr>
@@ -322,9 +307,7 @@ aforementioned approaches.</p>
 <td>Defines how many times member may use the offer until end of current period</td>
 </tr>
 </tbody></table>
-
-<h3 id="collection-model"><a name="offers-collection-model"></a> Collection model</h3>
-
+<h3 id='a-name-offers-collection-model-a-collection-model-1'><span id=a-name-offers-collection-model-a-collection-model></span><a name="offers-collection-model"></a> Collection model</h3>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -370,9 +353,7 @@ aforementioned approaches.</p>
 <td>A list of Offer Files - see <a href="#file-model">File model</a></td>
 </tr>
 </tbody></table>
-
-<h3 id="display-schemas"><a name="offers-display-schemas"></a> Display schemas</h3>
-
+<h3 id='a-name-offers-display-schemas-a-display-schemas-1'><span id=a-name-offers-display-schemas-a-display-schemas></span><a name="offers-display-schemas"></a> Display schemas</h3>
 <blockquote>
 <p>Example schemas:</p>
 </blockquote>
@@ -413,41 +394,37 @@ aforementioned approaches.</p>
 context - and there are two types of schemas:</p>
 
 <ul>
-<li><code class="prettyprint">list</code> - describes how offer should look in an offers list view</li>
-<li><code class="prettyprint">details</code> - describes how offer should look in an offer detail view</li>
+<li><code>list</code> - describes how offer should look in an offers list view</li>
+<li><code>details</code> - describes how offer should look in an offer detail view</li>
 </ul>
 
 <p>Each schema consists of fields with definitions of content that should be put inside the field - there are three of them:</p>
 
 <ul>
-<li><code class="prettyprint">header</code></li>
-<li><code class="prettyprint">body</code></li>
-<li><code class="prettyprint">caption</code></li>
+<li><code>header</code></li>
+<li><code>body</code></li>
+<li><code>caption</code></li>
 </ul>
 
 <p>The fields interpretation (how they are utilized by view) is up to API client design and/or specific Loyalty Club standard.</p>
 
-<p>Fields are described by two attributes: <code class="prettyprint">type</code> and <code class="prettyprint">value</code>. 
+<p>Fields are described by two attributes: <code>type</code> and <code>value</code>. 
 There are three types of fields:</p>
 
 <ul>
-<li><code class="prettyprint">&quot;reference&quot;</code> - some offer attribute should be used for the field content, <code class="prettyprint">value</code> contains <a href="https://support.smartbear.com/readyapi/docs/testing/jsonpath-reference.html">JSONPath</a> reference to element, e.g. <code class="prettyprint">$.name</code><br></li>
-<li><code class="prettyprint">&quot;inline&quot;</code> - the field itself contains content that should be placed inside the field, which is stored in the <code class="prettyprint">value</code> attribute</li>
-<li><code class="prettyprint">&quot;empty&quot;</code> - the field should not be displayed at all</li>
+<li><code>&quot;reference&quot;</code> - some offer attribute should be used for the field content, <code>value</code> contains <a href="https://support.smartbear.com/readyapi/docs/testing/jsonpath-reference.html">JSONPath</a> reference to element, e.g. <code>$.name</code><br></li>
+<li><code>&quot;inline&quot;</code> - the field itself contains content that should be placed inside the field, which is stored in the <code>value</code> attribute</li>
+<li><code>&quot;empty&quot;</code> - the field should not be displayed at all</li>
 </ul>
 
-<p>By default (when no schema is defined on offer by it&rsquo;s creator), all of the schema fields are references to:</p>
+<p>By default (when no schema is defined on offer by it&#39;s creator), all of the schema fields are references to:</p>
 
 <ul>
-<li><code class="prettyprint">caption</code> =&gt; <code class="prettyprint">stores</code></li>
-<li><code class="prettyprint">header</code> =&gt; <code class="prettyprint">name</code></li>
-<li><code class="prettyprint">body</code> =&gt; <code class="prettyprint">description</code></li>
+<li><code>caption</code> =&gt; <code>stores</code></li>
+<li><code>header</code> =&gt; <code>name</code></li>
+<li><code>body</code> =&gt; <code>description</code></li>
 </ul>
-
-<h2 id="offers"><a name="offers"></a> Offers</h2>
-
-<h3 id="get-offers-meta"><a name="offers-meta"></a> Get offers meta</h3>
-
+<h2 id='a-name-offers-a-offers-1'><span id=a-name-offers-a-offers></span><a name="offers"></a> Offers</h2><h3 id='a-name-offers-meta-a-get-offers-meta-1'><span id=a-name-offers-meta-a-get-offers-meta></span><a name="offers-meta"></a> Get offers meta</h3>
 <blockquote>
 <p>Example:</p>
 </blockquote>
@@ -500,19 +477,19 @@ There are three types of fields:</p>
     </span><span class="s2">"activated_seconds_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">35</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/me/offers/meta</code> [<a href="#oauth2">OAuth</a>]</p>
+<p><strong>GET</strong> <code>v3/:loyalty_club_slug/members/me/offers/meta</code> [<a href="#oauth2">OAuth</a>]</p>
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:GetMeta</code> permit
 </aside>
 
-<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/:member_id/offers/meta</code></p>
+<p><strong>GET</strong> <code>v3/:loyalty_club_slug/members/:member_id/offers/meta</code></p>
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:GetMetaByMemberId</code> permit
 </aside>
 
-<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/guest/offers/meta</code></p>
+<p><strong>GET</strong> <code>v3/:loyalty_club_slug/members/guest/offers/meta</code></p>
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:GetMetaPreview</code> permit
@@ -524,9 +501,7 @@ Requires <code>Offers:Api:MemberOffers:GetMetaPreview</code> permit
 <li>aggregated lists of records currently associated with offers (stores, tags, collections)</li>
 <li>Loyalty Club configuration</li>
 </ul>
-
-<h4 id="response-json-object">Response (JSON object)</h4>
-
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -560,22 +535,20 @@ Requires <code>Offers:Api:MemberOffers:GetMetaPreview</code> permit
 <td>Number of seconds the offers stays active after member uses it</td>
 </tr>
 </tbody></table>
-
-<h3 id="get-offer"><a name="get-offer"></a> Get offer</h3>
-
-<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/me/offers/:id</code> [<a href="#oauth2">OAuth</a>]</p>
+<h3 id='a-name-get-offer-a-get-offer-1'><span id=a-name-get-offer-a-get-offer></span><a name="get-offer"></a> Get offer</h3>
+<p><strong>GET</strong> <code>v3/:loyalty_club_slug/members/me/offers/:id</code> [<a href="#oauth2">OAuth</a>]</p>
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:Get</code> permit
 </aside>
 
-<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/:member_id/offers/:id</code></p>
+<p><strong>GET</strong> <code>v3/:loyalty_club_slug/members/:member_id/offers/:id</code></p>
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:GetByMemberId</code> permit
 </aside>
 
-<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/guest/offers/:id</code></p>
+<p><strong>GET</strong> <code>v3/:loyalty_club_slug/members/guest/offers/:id</code></p>
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:GetPreview</code> permit
@@ -593,7 +566,7 @@ Requires <code>Offers:Api:MemberOffers:GetPreview</code> permit
     -H <span class="s1">'x-user-agent: CURL manual test'</span>
 </code></pre>
 <blockquote>
-<p>When successful (200), returns an Offer object under &ldquo;offer&rdquo; key. See <a href="#offer-model">Offer model</a></p>
+<p>When successful (200), returns an Offer object under &quot;offer&quot; key. See <a href="#offer-model">Offer model</a></p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"offer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -602,9 +575,7 @@ Requires <code>Offers:Api:MemberOffers:GetPreview</code> permit
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Returns details of the specified offer.</p>
-
-<h4 id="response-json-object">Response (JSON object)</h4>
-
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -620,9 +591,7 @@ Requires <code>Offers:Api:MemberOffers:GetPreview</code> permit
 <td>See <a href="#offer-model">Offer model</a></td>
 </tr>
 </tbody></table>
-
-<h3 id="list-offers"><a name="list-offers"></a> List offers</h3>
-
+<h3 id='a-name-list-offers-a-list-offers-1'><span id=a-name-list-offers-a-list-offers></span><a name="list-offers"></a> List offers</h3>
 <blockquote>
 <p>Example:</p>
 </blockquote>
@@ -649,28 +618,26 @@ Requires <code>Offers:Api:MemberOffers:GetPreview</code> permit
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/me/offers</code> [<a href="#oauth2">OAuth</a>]</p>
+<p><strong>GET</strong> <code>v3/:loyalty_club_slug/members/me/offers</code> [<a href="#oauth2">OAuth</a>]</p>
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:ListVisible</code> permit
 </aside>
 
-<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/:member_id/offers</code></p>
+<p><strong>GET</strong> <code>v3/:loyalty_club_slug/members/:member_id/offers</code></p>
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:ListVisibleByMemberId</code> permit
 </aside>
 
-<p><strong>GET</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/guest/offers</code></p>
+<p><strong>GET</strong> <code>v3/:loyalty_club_slug/members/guest/offers</code></p>
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:ListVisiblePreview</code> permit
 </aside>
 
 <p>Returns offers list.</p>
-
-<h4 id="query-parameters">Query Parameters</h4>
-
+<h4 id='query-parameters-1'><span id=query-parameters></span>Query Parameters</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -700,8 +667,8 @@ Requires <code>Offers:Api:MemberOffers:ListVisiblePreview</code> permit
 <tr>
 <td>order_by</td>
 <td>string</td>
-<td>&ldquo;name&rdquo;</td>
-<td>See <a href="#offers-list-order-by"><code class="prettyprint">order_by</code> param</a></td>
+<td>&quot;name&quot;</td>
+<td>See <a href="#offers-list-order-by"><code>order_by</code> param</a></td>
 </tr>
 <tr>
 <td>collection_ids</td>
@@ -748,12 +715,10 @@ Requires <code>Offers:Api:MemberOffers:ListVisiblePreview</code> permit
 </tbody></table>
 
 <p>All parameters are optional.</p>
+<h5 id='a-name-offers-list-order-by-a-code-order_by-code-param-1'><span id=a-name-offers-list-order-by-a-code-order_by-code-param></span><a name="offers-list-order-by"></a> <code>order_by</code> param</h5>
+<p>Offers list may be sorted by <code>order_by</code> param, which has similar syntax as ORDER BY keyword in SQL statements.</p>
 
-<h5 id="order_by-param"><a name="offers-list-order-by"></a> <code class="prettyprint">order_by</code> param</h5>
-
-<p>Offers list may be sorted by <code class="prettyprint">order_by</code> param, which has similar syntax as ORDER BY keyword in SQL statements.</p>
-
-<p>For example <code class="prettyprint">order_by=usable ASC, created_at DESC</code> will return offers sorted by their usability, then by their creation date.</p>
+<p>For example <code>order_by=usable ASC, created_at DESC</code> will return offers sorted by their usability, then by their creation date.</p>
 
 <p>Following offer attributes may be used for sorting  in general:</p>
 
@@ -764,7 +729,7 @@ Requires <code>Offers:Api:MemberOffers:ListVisiblePreview</code> permit
 <li>created_at</li>
 </ul>
 
-<p>Only in member context (does not work with <code class="prettyprint">/guest/</code> context: </p>
+<p>Only in member context (does not work with <code>/guest/</code> context: </p>
 
 <ul>
 <li>usable </li>
@@ -777,9 +742,7 @@ Requires <code>Offers:Api:MemberOffers:ListVisiblePreview</code> permit
 <ul>
 <li>collection_position</li>
 </ul>
-
-<h4 id="response-json-object">Response (JSON object)</h4>
-
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -801,9 +764,7 @@ Requires <code>Offers:Api:MemberOffers:ListVisiblePreview</code> permit
 <td>See <a href="#pagination-json-model">Pagination info model</a></td>
 </tr>
 </tbody></table>
-
-<h3 id="use-offer"><a name="use-offer"></a> Use offer</h3>
-<pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
+<h3 id='a-name-use-offer-a-use-offer-1'><span id=a-name-use-offer-a-use-offer></span><a name="use-offer"></a> Use offer</h3><pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
 <span class="s2">"https://api.mpc.placewise.com/v3/infinity-mall/members/me/offers/1000016"</span> <span class="se">\</span>
     -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'authorization: Bearer 8433d608645345a45ce5a0f5ba1225e57546e86ac49e5fec842159dc82218522'</span> <span class="se">\</span>
@@ -828,22 +789,20 @@ Requires <code>Offers:Api:MemberOffers:ListVisiblePreview</code> permit
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>POST</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/me/offers/:id/use</code> [<a href="#oauth2">OAuth</a>]</p>
+<p><strong>POST</strong> <code>v3/:loyalty_club_slug/members/me/offers/:id/use</code> [<a href="#oauth2">OAuth</a>]</p>
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:Use</code> permit
 </aside>
 
-<p><strong>POST</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/:member_id/offers/:id/use</code></p>
+<p><strong>POST</strong> <code>v3/:loyalty_club_slug/members/:member_id/offers/:id/use</code></p>
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:UseByMemberId</code> permit
 </aside>
 
 <p>Uses (activates) the offer by member.</p>
-
-<h4 id="post-parameters-json">POST Parameters (JSON)</h4>
-
+<h4 id='post-parameters-json-1'><span id=post-parameters-json></span>POST Parameters (JSON)</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -859,9 +818,7 @@ Requires <code>Offers:Api:MemberOffers:UseByMemberId</code> permit
 <td>See <a href="#offer-use-authorization">below</a></td>
 </tr>
 </tbody></table>
-
-<h5 id="offer-use-authorization"><a name="offer-use-authorization"></a> Offer use authorization</h5>
-
+<h5 id='a-name-offer-use-authorization-a-offer-use-authorization-1'><span id=a-name-offer-use-authorization-a-offer-use-authorization></span><a name="offer-use-authorization"></a> Offer use authorization</h5>
 <p>Some features (like Rewards Program) may require from member to provide some code (scanned QR code, for example), so we can register
 his physical presence in the store.</p>
 
@@ -869,9 +826,7 @@ his physical presence in the store.</p>
 tied to it may not be granted to the member.</p>
 
 <p>However, when token is provided and happens to be invalid, the offer use is not registered, and 422 error (see below) is returned.  </p>
-
-<h4 id="response-json-object">Response (JSON object)</h4>
-
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -885,9 +840,7 @@ tied to it may not be granted to the member.</p>
 <td>See <a href="#offer-usage-model">Offer usage model</a></td>
 </tr>
 </tbody></table>
-
-<h4 id="error-responses">Error responses</h4>
-
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -896,54 +849,52 @@ tied to it may not be granted to the member.</p>
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">404</code></td>
-<td><code class="prettyprint">{&quot;error&quot;: &quot;Offer#10000951 not found&quot;}</code></td>
+<td><code>404</code></td>
+<td><code>{&quot;error&quot;: &quot;Offer#10000951 not found&quot;}</code></td>
 <td>-</td>
 </tr>
 <tr>
-<td><code class="prettyprint">422</code></td>
-<td><code class="prettyprint">{&quot;error&quot;: &quot;Already active&quot;}</code></td>
+<td><code>422</code></td>
+<td><code>{&quot;error&quot;: &quot;Already active&quot;}</code></td>
 <td>The offer has been just used</td>
 </tr>
 <tr>
-<td><code class="prettyprint">422</code></td>
-<td><code class="prettyprint">{&quot;error&quot;: &quot;Not granted&quot;}</code></td>
+<td><code>422</code></td>
+<td><code>{&quot;error&quot;: &quot;Not granted&quot;}</code></td>
 <td>The offer is not available to  member</td>
 </tr>
 <tr>
-<td><code class="prettyprint">422</code></td>
-<td><code class="prettyprint">{&quot;error&quot;: &quot;Usage authorization token invalid&quot;}</code></td>
+<td><code>422</code></td>
+<td><code>{&quot;error&quot;: &quot;Usage authorization token invalid&quot;}</code></td>
 <td>Provided usage token is invalid</td>
 </tr>
 <tr>
-<td><code class="prettyprint">422</code></td>
-<td><code class="prettyprint">{&quot;error&quot;: &quot;User limit exceeded&quot;}</code></td>
+<td><code>422</code></td>
+<td><code>{&quot;error&quot;: &quot;User limit exceeded&quot;}</code></td>
 <td>Member exhausted his pool of uses</td>
 </tr>
 <tr>
-<td><code class="prettyprint">422</code></td>
-<td><code class="prettyprint">{&quot;error&quot;: &quot;Periodic user limit exceeded&quot;}</code></td>
+<td><code>422</code></td>
+<td><code>{&quot;error&quot;: &quot;Periodic user limit exceeded&quot;}</code></td>
 <td>Member exhausted his pool of uses within current time period</td>
 </tr>
 <tr>
-<td><code class="prettyprint">422</code></td>
-<td><code class="prettyprint">{&quot;error&quot;: &quot;Global limit exceeded&quot;}</code></td>
+<td><code>422</code></td>
+<td><code>{&quot;error&quot;: &quot;Global limit exceeded&quot;}</code></td>
 <td>There are no more offers available globally (stock is empty)</td>
 </tr>
 <tr>
-<td><code class="prettyprint">422</code></td>
-<td><code class="prettyprint">{&quot;error&quot;: &quot;Not in usable timeframes&quot;}</code></td>
+<td><code>422</code></td>
+<td><code>{&quot;error&quot;: &quot;Not in usable timeframes&quot;}</code></td>
 <td>Offer is not usable yet or anymore</td>
 </tr>
 <tr>
-<td><code class="prettyprint">467</code></td>
-<td><code class="prettyprint">{&quot;error&quot;: &quot;Member is banned!&quot;, &quot;banned_until&quot;: &quot;2137-10-28T17:24:06.207Z&quot;}</code></td>
+<td><code>467</code></td>
+<td><code>{&quot;error&quot;: &quot;Member is banned!&quot;, &quot;banned_until&quot;: &quot;2137-10-28T17:24:06.207Z&quot;}</code></td>
 <td>Member is banned</td>
 </tr>
 </tbody></table>
-
-<h3 id="like-offer"><a name="like-offer"></a> Like offer</h3>
-
+<h3 id='a-name-like-offer-a-like-offer-1'><span id=a-name-like-offer-a-like-offer></span><a name="like-offer"></a> Like offer</h3>
 <blockquote>
 <p>Example</p>
 </blockquote>
@@ -962,22 +913,20 @@ tied to it may not be granted to the member.</p>
   </span><span class="err">//</span><span class="w"> </span><span class="err">Empty</span><span class="w"> </span><span class="err">object</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>PUT</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/me/offers/:id/like</code> [<a href="#oauth2">OAuth</a>]</p>
+<p><strong>PUT</strong> <code>v3/:loyalty_club_slug/members/me/offers/:id/like</code> [<a href="#oauth2">OAuth</a>]</p>
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:Like</code> permit
 </aside>
 
-<p><strong>PUT</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/:member_id/offers/:id/like</code></p>
+<p><strong>PUT</strong> <code>v3/:loyalty_club_slug/members/:member_id/offers/:id/like</code></p>
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:LikeByMemberId</code> permit
 </aside>
 
-<p>Marks offer as &ldquo;liked&rdquo; by user.</p>
-
-<h3 id="unlike-offer"><a name="unlike-offer"></a> Unlike offer</h3>
-
+<p>Marks offer as &quot;liked&quot; by user.</p>
+<h3 id='a-name-unlike-offer-a-unlike-offer-1'><span id=a-name-unlike-offer-a-unlike-offer></span><a name="unlike-offer"></a> Unlike offer</h3>
 <blockquote>
 <p>Example</p>
 </blockquote>
@@ -996,22 +945,20 @@ Requires <code>Offers:Api:MemberOffers:LikeByMemberId</code> permit
   </span><span class="err">//</span><span class="w"> </span><span class="err">Empty</span><span class="w"> </span><span class="err">object</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>PUT</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/me/offers/:id/unlike</code> [<a href="#oauth2">OAuth</a>]</p>
+<p><strong>PUT</strong> <code>v3/:loyalty_club_slug/members/me/offers/:id/unlike</code> [<a href="#oauth2">OAuth</a>]</p>
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:Like</code> permit
 </aside>
 
-<p><strong>PUT</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/:member_id/offers/:id/unlike</code></p>
+<p><strong>PUT</strong> <code>v3/:loyalty_club_slug/members/:member_id/offers/:id/unlike</code></p>
 
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:LikeByMemberId</code> permit
 </aside>
 
-<p>Revers marking offer as &ldquo;liked&rdquo; by user.</p>
-
-<h3 id="grant-offer"><a name="grant-offer"></a> Grant offer</h3>
-
+<p>Revers marking offer as &quot;liked&quot; by user.</p>
+<h3 id='a-name-grant-offer-a-grant-offer-1'><span id=a-name-grant-offer-a-grant-offer></span><a name="grant-offer"></a> Grant offer</h3>
 <blockquote>
 <p>Example</p>
 </blockquote>
@@ -1029,7 +976,7 @@ Requires <code>Offers:Api:MemberOffers:LikeByMemberId</code> permit
   </span><span class="err">//</span><span class="w"> </span><span class="err">Empty</span><span class="w"> </span><span class="err">object</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>POST</strong> <code class="prettyprint">v3/:loyalty_club_slug/members/:member_id/members/:member_id/offers/:id/grant</code></p>
+<p><strong>POST</strong> <code>v3/:loyalty_club_slug/members/:member_id/members/:member_id/offers/:id/grant</code></p>
 
 <p>Some types of offers are not available to members until they are granted to them - this endpoint allows to do this. </p>
 
@@ -1041,9 +988,7 @@ In such case, each consecutive grant will increase the number of uses for this m
 <aside class="notice">
 Requires <code>Offers:Api:MemberOffers:GrantByMemberId</code> permit
 </aside>
-
-<h4 id="post-parameters-json">POST Parameters (JSON)</h4>
-
+<h4 id='post-parameters-json-1'><span id=post-parameters-json></span>POST Parameters (JSON)</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -1059,9 +1004,7 @@ Requires <code>Offers:Api:MemberOffers:GrantByMemberId</code> permit
 <td>When present, the granted offer will be available for use by member only for the defined time</td>
 </tr>
 </tbody></table>
-
-<h4 id="error-responses">Error responses</h4>
-
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -1070,23 +1013,23 @@ Requires <code>Offers:Api:MemberOffers:GrantByMemberId</code> permit
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">422</code></td>
-<td><code class="prettyprint">{&quot;error&quot;: &quot;Not grantable&quot;}</code></td>
+<td><code>422</code></td>
+<td><code>{&quot;error&quot;: &quot;Not grantable&quot;}</code></td>
 <td>The offer has type not eligible for granting</td>
 </tr>
 <tr>
-<td><code class="prettyprint">422</code></td>
-<td><code class="prettyprint">{&quot;error&quot;: &quot;Global limit exceeded&quot;}</code></td>
+<td><code>422</code></td>
+<td><code>{&quot;error&quot;: &quot;Global limit exceeded&quot;}</code></td>
 <td>The offer has no more uses available</td>
 </tr>
 <tr>
-<td><code class="prettyprint">422</code></td>
-<td><code class="prettyprint">{&quot;error&quot;: &quot;Member not in audience&quot;}</code></td>
+<td><code>422</code></td>
+<td><code>{&quot;error&quot;: &quot;Member not in audience&quot;}</code></td>
 <td>The offer has been specify to only be available to members in specific audience and the member does not belong to it</td>
 </tr>
 <tr>
-<td><code class="prettyprint">467</code></td>
-<td><code class="prettyprint">{&quot;error&quot;: &quot;Member is banned!&quot;, &quot;banned_until&quot;: &quot;2137-10-28T17:24:06.207Z&quot;}</code></td>
+<td><code>467</code></td>
+<td><code>{&quot;error&quot;: &quot;Member is banned!&quot;, &quot;banned_until&quot;: &quot;2137-10-28T17:24:06.207Z&quot;}</code></td>
 <td>Member is banned</td>
 </tr>
 </tbody></table>

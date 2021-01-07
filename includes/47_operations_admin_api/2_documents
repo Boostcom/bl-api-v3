@@ -1,7 +1,4 @@
-<h2 id="documents"><a name="operations-admin-documents"></a> Documents</h2>
-
-<h3 id="document-model"><a name="operations-admin-document-model"></a> Document model</h3>
-
+<h2 id='a-name-operations-admin-documents-a-documents-1'><span id=a-name-operations-admin-documents-a-documents></span><a name="operations-admin-documents"></a> Documents</h2><h3 id='a-name-operations-admin-document-model-a-document-model-1'><span id=a-name-operations-admin-document-model-a-document-model></span><a name="operations-admin-document-model"></a> Document model</h3>
 <blockquote>
 <p>Document example:</p>
 </blockquote>
@@ -27,13 +24,13 @@
     </span><span class="s2">"recipients_confirmation_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>The document is an entity that has some files (with <code class="prettyprint">type: &quot;document&quot;</code> and Document&rsquo;s ID as <code class="prettyprint">identifier</code>) attached to it.</p>
+<p>The document is an entity that has some files (with <code>type: &quot;document&quot;</code> and Document&#39;s ID as <code>identifier</code>) attached to it.</p>
 
 <p>Upon creation, a notification containing a link to the document is sent via specified channel to given recipients (members of Tenant community).</p>
 
-<p>When document is <code class="prettyprint">confirmable</code>, recipients may need to confirm it. In such case, a <code class="prettyprint">deadline_at</code> must be specified.
+<p>When document is <code>confirmable</code>, recipients may need to confirm it. In such case, a <code>deadline_at</code> must be specified.
 Also, it is possible to configure automated <a href="#operations-admin-document-reminder-model">reminder</a> messages that
-are sent to recipients which didn&rsquo;t confirm the document.</p>
+are sent to recipients which didn&#39;t confirm the document.</p>
 
 <table><thead>
 <tr>
@@ -65,11 +62,11 @@ are sent to recipients which didn&rsquo;t confirm the document.</p>
 <td>deadline_at</td>
 <td>datetime</td>
 <td>when not confirmable</td>
-<td>Time until document is meant to be confirmed by recipients - only for <code class="prettyprint">confirmable</code> documents</td>
+<td>Time until document is meant to be confirmed by recipients - only for <code>confirmable</code> documents</td>
 </tr>
 <tr>
 <td>message_channel</td>
-<td>enum: <code class="prettyprint">[&#39;sms&#39;, &#39;email&#39;, &#39;push&#39;]</code></td>
+<td>enum: <code>[&#39;sms&#39;, &#39;email&#39;, &#39;push&#39;]</code></td>
 <td>no</td>
 <td>Channel that the document (and reminders) should be sent with</td>
 </tr>
@@ -105,14 +102,12 @@ are sent to recipients which didn&rsquo;t confirm the document.</p>
 </tr>
 <tr>
 <td>recipients_confirmation_status</td>
-<td>enum: <code class="prettyprint">[&#39;all&#39;, &#39;some&#39;, &#39;none&#39;]</code></td>
+<td>enum: <code>[&#39;all&#39;, &#39;some&#39;, &#39;none&#39;]</code></td>
 <td>no</td>
 <td>Describes how many recipients have confirmed the document</td>
 </tr>
 </tbody></table>
-
-<h4 id="documentreminder-model"><a name="operations-admin-document-reminder-model"></a> DocumentReminder model</h4>
-
+<h4 id='a-name-operations-admin-document-reminder-model-a-documentreminder-model-1'><span id=a-name-operations-admin-document-reminder-model-a-documentreminder-model></span><a name="operations-admin-document-reminder-model"></a> DocumentReminder model</h4>
 <blockquote>
 <p>Document reminder example:</p>
 </blockquote>
@@ -149,9 +144,7 @@ are sent to recipients which didn&rsquo;t confirm the document.</p>
 <td>When the reminder has been sent</td>
 </tr>
 </tbody></table>
-
-<h3 id="documentrecipient-model"><a name="operations-admin-document-recipient-model"></a> DocumentRecipient model</h3>
-
+<h3 id='a-name-operations-admin-document-recipient-model-a-documentrecipient-model-1'><span id=a-name-operations-admin-document-recipient-model-a-documentrecipient-model></span><a name="operations-admin-document-recipient-model"></a> DocumentRecipient model</h3>
 <blockquote>
 <p>DocumentRecipient example:</p>
 </blockquote>
@@ -209,9 +202,7 @@ are sent to recipients which didn&rsquo;t confirm the document.</p>
 <td>Time of last update</td>
 </tr>
 </tbody></table>
-
-<h3 id="list-documents"><a name="operations-admin-list-documents"></a> List Documents</h3>
-
+<h3 id='a-name-operations-admin-list-documents-a-list-documents-1'><span id=a-name-operations-admin-list-documents-a-list-documents></span><a name="operations-admin-list-documents"></a> List Documents</h3>
 <blockquote>
 <p>Example</p>
 </blockquote>
@@ -231,12 +222,10 @@ are sent to recipients which didn&rsquo;t confirm the document.</p>
   </span><span class="s2">"pagination_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Pagination</span><span class="w"> </span><span class="err">info</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="s2">"Pagination info"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>GET</strong> <code class="prettyprint">v1/operations/documents</code></p>
+<p><strong>GET</strong> <code>v1/operations/documents</code></p>
 
 <p>Returns list of <a href="#operations-admin-document-model">Documents</a>.  </p>
-
-<h4 id="query-parameters">Query Parameters</h4>
-
+<h4 id='query-parameters-1'><span id=query-parameters></span>Query Parameters</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -265,18 +254,16 @@ are sent to recipients which didn&rsquo;t confirm the document.</p>
 </tr>
 <tr>
 <td>recipients_confirmation_status</td>
-<td>enum: <code class="prettyprint">[&#39;all&#39;, &#39;some&#39;, &#39;none&#39;]</code></td>
+<td>enum: <code>[&#39;all&#39;, &#39;some&#39;, &#39;none&#39;]</code></td>
 <td>null</td>
-<td>When present, returns only Documents having given <code class="prettyprint">recipients_confirmation_status</code></td>
+<td>When present, returns only Documents having given <code>recipients_confirmation_status</code></td>
 </tr>
 </tbody></table>
 
 <aside class="notice">
 Requires <code>Operations:Api:Documents:List</code> permit
 </aside>
-
-<h3 id="get-document"><a name="operations-admin-show-document"></a> Get Document</h3>
-
+<h3 id='a-name-operations-admin-show-document-a-get-document-1'><span id=a-name-operations-admin-show-document-a-get-document></span><a name="operations-admin-show-document"></a> Get Document</h3>
 <blockquote>
 <p>Example</p>
 </blockquote>
@@ -295,12 +282,10 @@ Requires <code>Operations:Api:Documents:List</code> permit
   </span><span class="s2">"document"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Document model"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>GET</strong> <code class="prettyprint">v1/operations/documents/:id</code></p>
+<p><strong>GET</strong> <code>v1/operations/documents/:id</code></p>
 
 <p>Returns given <a href="#operations-admin-document-model">Document</a>.  </p>
-
-<h4 id="url-parameters">URL Parameters</h4>
-
+<h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -314,9 +299,7 @@ Requires <code>Operations:Api:Documents:List</code> permit
 <td>Document ID</td>
 </tr>
 </tbody></table>
-
-<h4 id="error-responses">Error responses</h4>
-
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -324,7 +307,7 @@ Requires <code>Operations:Api:Documents:List</code> permit
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">404</code></td>
+<td><code>404</code></td>
 <td>Document not found</td>
 </tr>
 </tbody></table>
@@ -332,9 +315,7 @@ Requires <code>Operations:Api:Documents:List</code> permit
 <aside class="notice">
 Requires <code>Operations:Api:Documents:Show</code> permit
 </aside>
-
-<h3 id="list-document-recipients"><a name="operations-admin-list-document-recipients"></a> List Document Recipients</h3>
-
+<h3 id='a-name-operations-admin-list-document-recipients-a-list-document-recipients-1'><span id=a-name-operations-admin-list-document-recipients-a-list-document-recipients></span><a name="operations-admin-list-document-recipients"></a> List Document Recipients</h3>
 <blockquote>
 <p>Example</p>
 </blockquote>
@@ -354,12 +335,10 @@ Requires <code>Operations:Api:Documents:Show</code> permit
   </span><span class="s2">"pagination_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Pagination</span><span class="w"> </span><span class="err">info</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="s2">"Pagination info"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>GET</strong> <code class="prettyprint">v1/operations/documents/:id/recipients</code></p>
+<p><strong>GET</strong> <code>v1/operations/documents/:id/recipients</code></p>
 
 <p>Returns list of <a href="#operations-admin-document-recipient-model">DocumentRecipients</a> that are assigned to given Document</p>
-
-<h4 id="url-parameters">URL Parameters</h4>
-
+<h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -373,9 +352,7 @@ Requires <code>Operations:Api:Documents:Show</code> permit
 <td>Document ID</td>
 </tr>
 </tbody></table>
-
-<h4 id="query-parameters">Query Parameters</h4>
-
+<h4 id='query-parameters-1'><span id=query-parameters></span>Query Parameters</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -403,9 +380,7 @@ Requires <code>Operations:Api:Documents:Show</code> permit
 <td>When true, returns only recipients that confirmed - and vice versa</td>
 </tr>
 </tbody></table>
-
-<h4 id="error-responses">Error responses</h4>
-
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -413,7 +388,7 @@ Requires <code>Operations:Api:Documents:Show</code> permit
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">404</code></td>
+<td><code>404</code></td>
 <td>Document not found</td>
 </tr>
 </tbody></table>
@@ -421,9 +396,7 @@ Requires <code>Operations:Api:Documents:Show</code> permit
 <aside class="notice">
 Requires <code>Operations:Api:Recipients:List</code> permit
 </aside>
-
-<h3 id="create-document"><a name="operations-admin-create-document"></a> Create Document</h3>
-
+<h3 id='a-name-operations-admin-create-document-a-create-document-1'><span id=a-name-operations-admin-create-document-a-create-document></span><a name="operations-admin-create-document"></a> Create Document</h3>
 <blockquote>
 <p>Example</p>
 </blockquote>
@@ -455,12 +428,10 @@ Requires <code>Operations:Api:Recipients:List</code> permit
   </span><span class="s2">"document"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Document</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Document model"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>POST</strong> <code class="prettyprint">v1/operations/documents</code></p>
+<p><strong>POST</strong> <code>v1/operations/documents</code></p>
 
 <p>Creates a new <a href="#operations-admin-document-model">Document</a> and sends it to given recipients.</p>
-
-<h4 id="post-parameters-json">POST Parameters (JSON)</h4>
-
+<h4 id='post-parameters-json-1'><span id=post-parameters-json></span>POST Parameters (JSON)</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -475,7 +446,7 @@ Requires <code>Operations:Api:Recipients:List</code> permit
 </tr>
 <tr>
 <td><strong>document.message_channel</strong></td>
-<td>enum: <code class="prettyprint">[&#39;sms&#39;, &#39;email&#39;, &#39;push&#39;]</code></td>
+<td>enum: <code>[&#39;sms&#39;, &#39;email&#39;, &#39;push&#39;]</code></td>
 <td>The channel for sending a notification and reminders</td>
 </tr>
 <tr>
@@ -486,7 +457,7 @@ Requires <code>Operations:Api:Recipients:List</code> permit
 <tr>
 <td>document.confirmable</td>
 <td>boolean</td>
-<td>Is document meant to be confirmed by recipients? Default: <code class="prettyprint">false</code></td>
+<td>Is document meant to be confirmed by recipients? Default: <code>false</code></td>
 </tr>
 </tbody></table>
 
@@ -515,9 +486,7 @@ Requires <code>Operations:Api:Recipients:List</code> permit
 <td>Number of days before the deadline the second reminder should be sent</td>
 </tr>
 </tbody></table>
-
-<h4 id="response-json-object">Response (JSON object)</h4>
-
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -531,9 +500,7 @@ Requires <code>Operations:Api:Recipients:List</code> permit
 <td>See: <a href="#operations-admin-document-model">Document model</a></td>
 </tr>
 </tbody></table>
-
-<h4 id="error-responses">Error responses</h4>
-
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -541,13 +508,11 @@ Requires <code>Operations:Api:Recipients:List</code> permit
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">422</code></td>
+<td><code>422</code></td>
 <td>Invalid parameters - see <a href="#invalid-parameters-errors-model">Invalid parameters errors model</a></td>
 </tr>
 </tbody></table>
-
-<h4 id="specific-validation-errors">Specific validation errors</h4>
-
+<h4 id='specific-validation-errors-1'><span id=specific-validation-errors></span>Specific validation errors</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -555,12 +520,12 @@ Requires <code>Operations:Api:Recipients:List</code> permit
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">document.second_reminder</code></td>
-<td><code class="prettyprint">cannot_be_present_without_first_reminder</code></td>
+<td><code>document.second_reminder</code></td>
+<td><code>cannot_be_present_without_first_reminder</code></td>
 </tr>
 <tr>
-<td><code class="prettyprint">document.second_reminder.days_before_deadline</code></td>
-<td><code class="prettyprint">cannot_be_before_first_reminder</code></td>
+<td><code>document.second_reminder.days_before_deadline</code></td>
+<td><code>cannot_be_before_first_reminder</code></td>
 </tr>
 </tbody></table>
 
@@ -571,7 +536,7 @@ Requires <code>Operations:Api:Recipients:List</code> permit
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">422</code></td>
+<td><code>422</code></td>
 <td>Invalid parameters - see <a href="#invalid-parameters-errors-model">Invalid parameters errors model</a></td>
 </tr>
 </tbody></table>
@@ -579,9 +544,7 @@ Requires <code>Operations:Api:Recipients:List</code> permit
 <aside class="notice">
 Requires <code>Operations:Api:Documents:Create</code> permit
 </aside>
-
-<h3 id="update-document"><a name="operations-admin-update-document"></a> Update Document</h3>
-
+<h3 id='a-name-operations-admin-update-document-a-update-document-1'><span id=a-name-operations-admin-update-document-a-update-document></span><a name="operations-admin-update-document"></a> Update Document</h3>
 <blockquote>
 <p>Example</p>
 </blockquote>
@@ -610,12 +573,10 @@ Requires <code>Operations:Api:Documents:Create</code> permit
   </span><span class="s2">"document"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Document</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Document model"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>PUT</strong> <code class="prettyprint">v1/operations/documents/:id</code></p>
+<p><strong>PUT</strong> <code>v1/operations/documents/:id</code></p>
 
 <p>Updates the <a href="#operations-admin-document-model">Document</a>.</p>
-
-<h4 id="url-parameters">URL Parameters</h4>
-
+<h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -629,9 +590,7 @@ Requires <code>Operations:Api:Documents:Create</code> permit
 <td>Document ID</td>
 </tr>
 </tbody></table>
-
-<h4 id="post-parameters-json">POST Parameters (JSON)</h4>
-
+<h4 id='post-parameters-json-1'><span id=post-parameters-json></span>POST Parameters (JSON)</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -671,9 +630,7 @@ Requires <code>Operations:Api:Documents:Create</code> permit
 <td>Number of days before the deadline the second reminder should be sent</td>
 </tr>
 </tbody></table>
-
-<h4 id="response-json-object">Response (JSON object)</h4>
-
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -687,9 +644,7 @@ Requires <code>Operations:Api:Documents:Create</code> permit
 <td>See: <a href="#operations-admin-document-model">Document model</a></td>
 </tr>
 </tbody></table>
-
-<h4 id="error-responses">Error responses</h4>
-
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -697,17 +652,15 @@ Requires <code>Operations:Api:Documents:Create</code> permit
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">404</code></td>
+<td><code>404</code></td>
 <td>Document not found</td>
 </tr>
 <tr>
-<td><code class="prettyprint">422</code></td>
+<td><code>422</code></td>
 <td>Invalid parameters - see <a href="#invalid-parameters-errors-model">Invalid parameters errors model</a></td>
 </tr>
 </tbody></table>
-
-<h4 id="specific-validation-errors">Specific validation errors</h4>
-
+<h4 id='specific-validation-errors-1'><span id=specific-validation-errors></span>Specific validation errors</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -715,29 +668,27 @@ Requires <code>Operations:Api:Documents:Create</code> permit
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">document.first_reminder</code></td>
-<td><code class="prettyprint">already_sent</code></td>
+<td><code>document.first_reminder</code></td>
+<td><code>already_sent</code></td>
 </tr>
 <tr>
-<td><code class="prettyprint">document.second_reminder</code></td>
-<td><code class="prettyprint">already_sent</code></td>
+<td><code>document.second_reminder</code></td>
+<td><code>already_sent</code></td>
 </tr>
 <tr>
-<td><code class="prettyprint">document.second_reminder</code></td>
-<td><code class="prettyprint">cannot_be_present_without_first_reminder</code></td>
+<td><code>document.second_reminder</code></td>
+<td><code>cannot_be_present_without_first_reminder</code></td>
 </tr>
 <tr>
-<td><code class="prettyprint">document.second_reminder.days_before_deadline</code></td>
-<td><code class="prettyprint">cannot_be_before_first_reminder</code></td>
+<td><code>document.second_reminder.days_before_deadline</code></td>
+<td><code>cannot_be_before_first_reminder</code></td>
 </tr>
 </tbody></table>
 
 <aside class="notice">
 Requires <code>Operations:Api:Documents:Update</code> permit
 </aside>
-
-<h3 id="add-recipients-to-the-document"><a name="operations-admin-add-document-recipients"></a> Add recipients to the Document</h3>
-
+<h3 id='a-name-operations-admin-add-document-recipients-a-add-recipients-to-the-document-1'><span id=a-name-operations-admin-add-document-recipients-a-add-recipients-to-the-document></span><a name="operations-admin-add-document-recipients"></a> Add recipients to the Document</h3>
 <blockquote>
 <p>Example</p>
 </blockquote>
@@ -761,12 +712,10 @@ Requires <code>Operations:Api:Documents:Update</code> permit
   </span><span class="s2">"document_recipients"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">List</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">document</span><span class="w"> </span><span class="err">recipients</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"DocumentRecipient model"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>PUT</strong> <code class="prettyprint">v1/operations/documents/:id</code></p>
+<p><strong>PUT</strong> <code>v1/operations/documents/:id</code></p>
 
 <p>Adds <a href="#operations-admin-document-recipient-model">recipients</a> to the <a href="#operations-admin-document-model">Document</a> and sends them a notification.</p>
-
-<h4 id="url-parameters">URL Parameters</h4>
-
+<h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -780,9 +729,7 @@ Requires <code>Operations:Api:Documents:Update</code> permit
 <td>Document ID</td>
 </tr>
 </tbody></table>
-
-<h4 id="post-parameters-json">POST Parameters (JSON)</h4>
-
+<h4 id='post-parameters-json-1'><span id=post-parameters-json></span>POST Parameters (JSON)</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -796,9 +743,7 @@ Requires <code>Operations:Api:Documents:Update</code> permit
 <td>IDs of members that should receive the document - max. 1000</td>
 </tr>
 </tbody></table>
-
-<h4 id="error-responses">Error responses</h4>
-
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -806,11 +751,11 @@ Requires <code>Operations:Api:Documents:Update</code> permit
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">404</code></td>
+<td><code>404</code></td>
 <td>Document not found</td>
 </tr>
 <tr>
-<td><code class="prettyprint">422</code></td>
+<td><code>422</code></td>
 <td>Invalid parameters - see <a href="#invalid-parameters-errors-model">Invalid parameters errors model</a></td>
 </tr>
 </tbody></table>
@@ -818,9 +763,7 @@ Requires <code>Operations:Api:Documents:Update</code> permit
 <aside class="notice">
 Requires <code>Operations:Api:DocumentRecipients:Create</code> permit
 </aside>
-
-<h3 id="destroy-document"><a name="operations-admin-destroy-document"></a> Destroy Document</h3>
-
+<h3 id='a-name-operations-admin-destroy-document-a-destroy-document-1'><span id=a-name-operations-admin-destroy-document-a-destroy-document></span><a name="operations-admin-destroy-document"></a> Destroy Document</h3>
 <blockquote>
 <p>Example</p>
 </blockquote>
@@ -839,12 +782,10 @@ Requires <code>Operations:Api:DocumentRecipients:Create</code> permit
   </span><span class="s2">"document"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Document</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Document model"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>DELETE</strong> <code class="prettyprint">v1/operations/documents/:id</code></p>
+<p><strong>DELETE</strong> <code>v1/operations/documents/:id</code></p>
 
 <p>Destroys the <a href="#operations-admin-document-model">Document</a>.</p>
-
-<h4 id="url-parameters">URL Parameters</h4>
-
+<h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -858,9 +799,7 @@ Requires <code>Operations:Api:DocumentRecipients:Create</code> permit
 <td>Document ID</td>
 </tr>
 </tbody></table>
-
-<h4 id="response-json-object">Response (JSON object)</h4>
-
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -874,9 +813,7 @@ Requires <code>Operations:Api:DocumentRecipients:Create</code> permit
 <td>See: <a href="#operations-admin-document-model">Document model</a></td>
 </tr>
 </tbody></table>
-
-<h4 id="error-responses">Error responses</h4>
-
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -884,7 +821,7 @@ Requires <code>Operations:Api:DocumentRecipients:Create</code> permit
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">404</code></td>
+<td><code>404</code></td>
 <td>Document not found</td>
 </tr>
 </tbody></table>
