@@ -20,7 +20,7 @@ Key | Type | Description
 --------- | --------- | ---------
 type | string | see [Achievement types](#rewards-program-achievement-types)
 points | integer | How many points the achievement grants
-limit | integer | Maximum number of times the member can have the achievement granted (when null, there's no limit)  
+limit | integer | Maximum number of times the member can have the achievement granted (when null, there's no limit)
 frequency | Object | How often the achievement may be granted to member (when null, there are no constraints). For example, achievement with frequency defined as `{"timespan": "day", "limit": 5}` means that member may get points for it at most 5 times a day.
 frequency['timespan'] | string | One of: `['hour', 'day', 'week', 'month', 'year']`
 frequency['limit'] | integer |
@@ -81,11 +81,11 @@ There are two types of them: `regular` and `virtual_level`.
 
 #### Regular levels
 
-When regular levels are enabled, members get levels based on the amount of points that they have earned 
-in program (in **total**, not the current balance) and may need to have minimal level to purchase some rewards. 
+When regular levels are enabled, members get levels based on the amount of points that they have earned
+in program (in **total**, not the current balance) and may need to have minimal level to purchase some rewards.
 
 Each level has `points_threshold` value (integer) that describes how many points are needed to reach the level (first level always requires 0 points to have).
-Levels are returned in ascending order, sorted by the `points_threshold` attribute. 
+Levels are returned in ascending order, sorted by the `points_threshold` attribute.
 
 #### Single virtual level
 
@@ -96,7 +96,7 @@ It defines `maximum_points` value, that is meant to be compared with member's **
 #### Common error responses
 
 Status | Response body
---------- | ----------- 
+--------- | -----------
 `467` | `{"error": "Member is banned!", "banned_until": "2020-10-28T17:24:06.207Z"}` | -
 `480` | `{"error": "Member is not participating in Rewards Program"}` | -
 
@@ -159,7 +159,7 @@ curl \
 
 **GET** `v3/infinity-mall/rewards-program/info`
 
-Returns information about Rewards Program in Loyalty Club. 
+Returns information about Rewards Program in Loyalty Club.
 
 #### Response (JSON object)
 
@@ -306,7 +306,7 @@ curl \
     "is_first_page": true,
     "is_last_page": false,
     "is_out_of_range": false
-  }  
+  }
 }
 ```
 
@@ -345,16 +345,16 @@ pagination_info | Object | [Pagination](#pagination-model) object describing tra
 
 Key | Type | Description
 --------- | --------- | ---------
-type | One of: 'achievement', 'reward_purchase', 'expiration' and 'correction' | see "Transaction types" below
+type | One of: 'achievement', 'reward_purchase', 'expiration' and 'correction' | see 'Transaction types' below
 date | Date | When the transaction has been made
-amount | integer | How many points the transaction added or subtracted  
+amount | integer | How many points the transaction added or subtracted
 expired_at | Date | (optional) When the points granted by the transaction expired. When null, they're not expired
-details | Object | Transaction-specific details - see "Transaction details" below
+details | Object | Transaction-specific details - see 'Transaction details' below
 
 #### Transaction types
 
 Type | Description |
------ | ----------- 
+----- | -----------
 achievement | Addition of points triggered by fulfilling an achievement goal
 reward_purchase | Reduction of points caused by purchasing a reward by member
 expiration | Reduction of points caused by automatic expiration of old transactions
@@ -475,13 +475,13 @@ Key | Type | Description
 --------- | --------- | ---------
 type | string | See: [Achievement types](#rewards-program-achievement-types)
 times_achieved | integer | Number of times member made the achievements of this type
-total_amount_earned | integer | Sum of points member get with this achievement type 
+total_amount_earned | integer | Sum of points member get with this achievement type
 
 #### Achievement by month JSON object
 
 Key | Type | Description
 --------- | --------- | ---------
-year | integer | four-digit year, e.x. 2019 
+year | integer | four-digit year, e.x. 2019
 month | integer | 1-12
 achievements_made | integer |  Number of achievements made by member in that month
 total_amount_earned | integer | Sum of points member achieved in that month

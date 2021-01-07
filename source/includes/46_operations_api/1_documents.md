@@ -45,8 +45,8 @@ curl -X GET \
 
 ```json
 {
-  "documents": [], // List of documents - See: "Document model"
-  "pagination_info": {} // Pagination info - see "Pagination info"
+  "documents": [], // List of documents - see 'Document model'
+  "pagination_info": {} // Pagination info - see 'Pagination info'
 }
 ````
 
@@ -59,7 +59,7 @@ Returns list of [Documents](#operations-document-model) shared with current user
 Parameter              | Type                            | Default   | Description
 --------------         | -----------                     | --------- | -----------
 per_page               | integer                         | 100       | Number of results to be returned per request (100 is the maximum)
-page_no                | integer                         | 1         | Number of results page 
+page_no                | integer                         | 1         | Number of results page
 confirmable            | boolean                         | null      | When true, returns only confirmable Documents - and vice versa
 requiring_confirmation | boolean                         | null      | When present, returns only Documents that require confirmation (are confirmable and are not confirmed)
 
@@ -84,24 +84,24 @@ curl -X GET \
 
 ```json
 {
-  "document": {} // See: "Document model"
+  "document": {} // see 'Document model'
 }
 ````
 
 **GET** `v1/users/me/operations/documents/:id`
 
-Returns given [Document](#operations-document-model) shared with current user. 
+Returns given [Document](#operations-document-model) shared with current user.
 
 #### URL Parameters
 
 Parameter  | Type    | Description
 ---------- | --------| ------
-id         | integer | Document ID 
+id         | integer | Document ID
 
 #### Error responses
 
 Status    | Description
---------- | ----------- 
+--------- | -----------
 `404`     | Document not found
 
 <aside class="notice">
@@ -125,24 +125,24 @@ curl -X PUT \
 
 ```json
 {
-  "document": {} // See: "Document model"
+  "document": {} // see: 'Document model'
 }
 ````
 
 **PUT** `v1/users/me/operations/documents/:id/confirm`
 
-Confirms given [Document](#operations-document-model). 
+Confirms given [Document](#operations-document-model).
 
 #### URL Parameters
 
 Parameter  | Type    | Description
 ---------- | --------| ------
-id         | integer | Document ID 
+id         | integer | Document ID
 
 #### Error responses
 
 Status    | Description
---------- | ----------- 
+--------- | -----------
 `404`     | Document not found
 `405`     | Document is not confirmable
 

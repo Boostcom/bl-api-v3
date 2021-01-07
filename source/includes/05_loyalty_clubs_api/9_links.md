@@ -66,7 +66,7 @@ curl \
 
 ```json
 {
-  "links": [] // List of links - See: "Link model"
+  "links": [] // List of links - see 'Link model'
 }
 ```
 
@@ -74,9 +74,9 @@ curl \
 
 #### Response (JSON object)
 
-Key | Type 
---------- | --------- 
-links | [Links](#link-model)[] 
+Key | Type
+--------- | ---------
+links | [Links](#link-model)[]
 
 <aside class="notice">
 Requires <code>BL:Api:Links:Index</code> permit
@@ -102,7 +102,7 @@ curl \
 
 ```json
 {
-  "link": [] // Link - See: "Link model"
+  "link": [] // Link - see 'Link model'
 }
 ```
 
@@ -110,14 +110,14 @@ curl \
 
 #### Response (JSON object)
 
-Key | Type 
---------- | --------- 
+Key | Type
+--------- | ---------
 link | [Link](#link-model)
 
 #### Error responses
 
 Status | Description
---------- | ----------- 
+--------- | -----------
 `404` | Link could not be found
 
 <aside class="notice">
@@ -144,7 +144,7 @@ curl -X PUT \
 
 ```json
 {
-  "link": [] // Link - See: "Link model"
+  "link": [] // Link - see 'Link model'
 }
 ```
 
@@ -152,14 +152,14 @@ curl -X PUT \
 
 #### Response (JSON object)
 
-Key | Type 
---------- | --------- 
+Key | Type
+--------- | ---------
 link | [Link](#link-model)
 
 #### Error responses
 
 Status | Description
---------- | ----------- 
+--------- | -----------
 `404` | Link could not be found
 
 <aside class="notice">
@@ -186,7 +186,7 @@ curl -X PUT \
 
 ```json
 {
-  "link": [] // Link - See: "Link model"
+  "link": [] // Link - see 'Link model'
 }
 ```
 
@@ -194,14 +194,14 @@ curl -X PUT \
 
 #### Response (JSON object)
 
-Key | Type 
---------- | --------- 
+Key | Type
+--------- | ---------
 link | [Link](#link-model)
 
 #### Error responses
 
 Status | Description
---------- | ----------- 
+--------- | -----------
 `404` | Link could not be found
 
 <aside class="notice">
@@ -237,7 +237,7 @@ curl -X POST \
 
 ```json
 {
-  "link": [] // Link - See: "Link model"
+  "link": [] // Link - see 'Link model'
 }
 ```
 
@@ -245,14 +245,14 @@ curl -X POST \
 
 ```text
 my-app://some/url
-```  
+```
 
 **POST** `v3/infinity-mall/links`
 
 #### POST Parameters (JSON object)
 
 Parameter        | Type   | Required?
----------------- | -----  | ----- 
+---------------- | -----  | -----
 link.name        | string | yes
 link.url         | string | yes
 link.scheme      | string | no
@@ -260,14 +260,14 @@ link.description | string | no
 
 #### Response (JSON object)
 
-Key | Type 
---------- | --------- 
+Key | Type
+--------- | ---------
 link | [Link](#link-model)
 
 #### Error responses
 
 Status | Description
---------- | ----------- 
+--------- | -----------
 `422` | Invalid parameters - see [Invalid parameters errors model](#invalid-parameters-errors-model)
 
 <aside class="notice">
@@ -294,7 +294,7 @@ curl -X DELETE \
 
 ```json
 {
-  "link": [] // Link - See: "Link model"
+  "link": [] // Link - see: 'Link model'
 }
 ```
 
@@ -302,14 +302,14 @@ curl -X DELETE \
 
 #### Response (JSON object)
 
-Key | Type 
---------- | --------- 
+Key | Type
+--------- | ---------
 link | [Link](#link-model)
 
 #### Error responses
 
 Status | Description
---------- | ----------- 
+--------- | -----------
 `404` | Link could not be found
 `405` | Link cannot be deleted
 
@@ -342,13 +342,13 @@ curl -X POST \
 {
   "url": "https://member.dev.bstcm.no/infinity-mall/offers/1000487"
 }
-``` 
+```
 
 **POST** `v3/:loyalty_club_slug/links/(:link_slug)/generate`
 
 Returns a generated link to given functionality in MPC, so it may be reached by member.
 
-In standard setup, the returned link is generated in a "universal" form: it points to our Webforms, but it will be captured by mobile app if 
+In standard setup, the returned link is generated in a "universal" form: it points to our Webforms, but it will be captured by mobile app if
 it's installed on member system.
 
 #### URL Parameters
@@ -372,10 +372,10 @@ url | String | The generated link
 #### Error responses
 
 Status | Description
---------- | ----------- 
+--------- | -----------
 `404` | Link could not be found
 `422` | Invalid parameters
 
 <aside class="notice">
     Requires <code>BL:Api:Links:Generate</code> permit
-</aside> 
+</aside>

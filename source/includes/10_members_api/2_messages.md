@@ -38,15 +38,15 @@ curl "https://api.mpc.placewise.com/v3/infinity-mall/members/509134/messages" \
 
 ```json
 {
-  "messages": [], // List of members - See: "Member message"
-  "pagination_info": {} // Pagination info - see "Pagination info"
+  "messages": [], // List of members - see 'Member message'
+  "pagination_info": {} // Pagination info - see 'Pagination info'
 }
 ```
 
 **GET** `v3/:loyalty_club_slug/members/:member_id/messages`
 
-Returns messages sent to given Member from our system, after merging properties and shortening urls so this is the content Member received. 
-Does not translate id to other identifiers and vice versa. If no messages are found, returns an empty `messages` array. 
+Returns messages sent to given Member from our system, after merging properties and shortening urls so this is the content Member received.
+Does not translate id to other identifiers and vice versa. If no messages are found, returns an empty `messages` array.
 
 **Messages are removed when Member is deleted.**
 
@@ -55,7 +55,7 @@ Does not translate id to other identifiers and vice versa. If no messages are fo
 Parameter | Description                                  | Required? | Type
 --------- | -------------------------------------------- | ----------| ------
 member_id | Member ID                                    | yes       | integer
-per_page  | Number of results to be returned per request | no        | integer 
+per_page  | Number of results to be returned per request | no        | integer
 page_no   | Number of results page                       | no        | integer
 
 #### Response (JSON object)
@@ -87,7 +87,7 @@ curl "https://api.mpc.placewise.com/v3/infinity-mall/members/509134/messages/MTE
 
 ```json
 {
-  "messages": {} // MemberMessage record - See: "MemberMessage model"
+  "messages": {} // MemberMessage record - see: 'MemberMessage model'
 }
 ```
 
@@ -111,7 +111,7 @@ message | MemberMessage | [MemberMessage](#member-message-model)
 #### Error responses
 
 Status    | Reason
---------- | ----------- 
+--------- | -----------
 `404`     | Message not found
 
 <aside class="notice">

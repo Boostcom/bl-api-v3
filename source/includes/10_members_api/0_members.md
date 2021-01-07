@@ -191,8 +191,8 @@ curl "https://api.mpc.placewise.com/v3/infinity-mall/members?per_page=100&page=1
 
 ```json
 {
-  "members": [], // List of members - See: "Member model"
-  "pagination_info": {} // Pagination info - see "Pagination info"
+  "members": [], // List of members - see 'Member model'
+  "pagination_info": {} // Pagination info - see 'Pagination info"
 }
 
 ```

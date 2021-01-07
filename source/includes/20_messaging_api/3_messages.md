@@ -18,21 +18,21 @@ curl -X GET \
 
 ```json
 {
-  "messages": [], // List of messages - See: "Message model"
-  "pagination_info": {} // Pagination info - see "Pagination info"
+  "messages": [], // List of messages - see 'Message model'
+  "pagination_info": {} // Pagination info - see 'Pagination info'
 }
 ````
 
 **GET** `v1/messages`
 
-Returns list of [Messages](#messaging-message-model).  
+Returns list of [Messages](#messaging-message-model).
 
 #### Query Parameters
 
 Parameter       | Type        | Default   | Description
 --------------  | ----------- | --------- | -----------
 per_page        | integer     | 100       | Number of results to be returned per request (100 is the maximum)
-page_no         | integer     | 1         | Number of results page 
+page_no         | integer     | 1         | Number of results page
 sendings_status | enum        | null      | When present, returns only Messages having given [Aggregated Sendings status](#messaging-message-sendings-status)
 service         | enum        | null      | When present, returns only Messages having given [Service](#messaging-message-service)
 campaign_id     | integer     | null      | When present, returns only Messages having given campaign_id
@@ -59,24 +59,24 @@ curl -X GET \
 
 ```json
 {
-  "message": {} // Message - See: "Message model"
+  "message": {} // Message - see 'Message model'
 }
 ```
 
 **GET** `v1/messages/:id`
 
-Returns [Message](#messaging-message-model).  
+Returns [Message](#messaging-message-model).
 
 #### URL Parameters
 
 Parameter  |                   Type                | Description
 ---------- | -------------------------------------------- | ------
-id | integer                                   | Message ID 
+id | integer                                   | Message ID
 
 #### Error responses
 
 Status | Description
---------- | ----------- 
+--------- | -----------
 `404` | Message not found
 
 <aside class="notice">
@@ -101,7 +101,7 @@ curl -X POST \
         "name": "My message", "shorten_urls": false,
         "channels": [
           {
-            "type": "sms", 
+            "type": "sms",
             "sender": { type: "alphanumeric", value: "Infinity" },
             "template": {
               "type": "inline",
@@ -133,19 +133,19 @@ curl -X POST \
 
 ```json
 {
-  "message": {} // Message - See: "Message model"
+  "message": {} // Message - see 'Message model'
 }
 ```
 
 **POST** `v1/messages`
 
-Creates a new Message with Channel(s) and Template(s) and optionally schedules Sending for it.  
+Creates a new Message with Channel(s) and Template(s) and optionally schedules Sending for it.
 
 #### POST Parameters (JSON)
 
-Key | Type 
------ | ---- 
-message | [MessagePayload](#messaging-message-payload-model) 
+Key | Type
+----- | ----
+message | [MessagePayload](#messaging-message-payload-model)
 
 #### Response (JSON object)
 
@@ -156,7 +156,7 @@ message | Message | See: [Message model](#messaging-message-model)
 #### Error responses
 
 Status | Description
---------- | ----------- 
+--------- | -----------
 `403` | Unauthorized to set specific [Service](#messaging-message-service)
 `403` | Unauthorized to set Sending priority
 `422` | Invalid parameters - see [Invalid parameters errors model](#invalid-parameters-errors-model)
@@ -180,7 +180,7 @@ curl -X PUT \
   -d '
     {
       "message": {
-        "name": "My message", 
+        "name": "My message",
         "shorten_urls": false,
         "track_in_shortener": false,
         "campaign_id": 15,
@@ -206,7 +206,7 @@ curl -X PUT \
 
 ```json
 {
-  "message": {} // Message - See: "Message model"
+  "message": {} // Message - see 'Message model'
 }
 ```
 
@@ -214,23 +214,23 @@ curl -X PUT \
 
 Updates Message's attributes and its Channels.
 
-The update is partial - only attributes present in the payload are updated. 
+The update is partial - only attributes present in the payload are updated.
 If attribute removal is intended, it should be provided with `null` value.
 
 #### URL Parameters
 
 Parameter  |                   Type                | Description
 ---------- | -------------------------------------------- | ------
-id | integer                                   | Message ID 
+id | integer                                   | Message ID
 
 #### POST Parameters (JSON)
 
-Key | Type 
------ | ---- 
+Key | Type
+----- | ----
 message | [MessagePayload](#messaging-message-payload-model)
- 
-Note that [MessagePayload](#messaging-message-payload-model)'s `sending` attribute is not available, as it's not 
-possible to change any Sending during Message update.  
+
+Note that [MessagePayload](#messaging-message-payload-model)'s `sending` attribute is not available, as it's not
+possible to change any Sending during Message update.
 
 #### Response (JSON object)
 
@@ -241,7 +241,7 @@ message | Message | See: [Message model](#messaging-message-model)
 #### Error responses
 
 Status | Description
---------- | ----------- 
+--------- | -----------
 `403` | Unauthorized to set specific [Service](#messaging-message-service)
 `404` | Message not found
 `422` | Invalid parameters - see [Invalid parameters errors model](#invalid-parameters-errors-model)
