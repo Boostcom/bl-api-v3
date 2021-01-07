@@ -43,6 +43,7 @@ includes:
   - 46_operations_api/2_resources
   - 47_operations_admin_api/0_introduction
   - 47_operations_admin_api/1_documents
+  - 47_operations_admin_api/2_resources
   - 50_files_api/0_files
   - 999_changelog/0_changelog
 
