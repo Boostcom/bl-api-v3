@@ -153,7 +153,7 @@ schema_cannot_be_found | The extended schema cannot be found
 not_a_valid_schema | The property was not a valid schema
 minimum_string_length | The property was not of a minimum string length of minimum limit.
 maximum_string_length | The property was not of a maximum string length of maximum limit.
-less_item_than_minimum | The property did not contain a minimum number of minimum items limit
+less_item_than_minimum | The property did not contain a minimum number of minimum items limit 
 more_item_than_maximum | The property had more items than the allowed items limit
 less_properties_than_minimum | The property did not contain a minimum number of properties
 more_properties_than_maximum | The property had more properties than allowed
@@ -161,7 +161,7 @@ not_have_value_of_exclusively | The property did not have value of exclusively
 not_have_value_of_inclusively | The property did not have value of inclusively
 more_decimal_places_than_maximum | The property had more decimal places than the allowed maximum
 matched_the_disallowed_schema | The property matched the disallowed schema
-the_regex_not_match | The property did not match the regex
+the_regex_not_match | The property did not match the regex 
 not_contain_required_property | The validated property did not contain a required property
 contained_undefined_properties | The validated property contained undefined properties
 referenced_schema_cannot_be_found | The referenced schema cannot be found
@@ -192,7 +192,7 @@ curl "https://api.mpc.placewise.com/v3/infinity-mall/members?per_page=100&page=1
 ```json
 {
   "members": [], // List of members - see 'Member model'
-  "pagination_info": {} // Pagination info - see 'Pagination info'
+  "pagination_info": {} // Pagination info - see 'Pagination info"
 }
 
 ```
@@ -222,7 +222,7 @@ pagination_info | Object | [Pagination](#pagination-model) object
 #### Error responses
 
 Status | Reason
---------- | -----------
+--------- | ----------- 
 `422` | :per_page param exceeds the limit
 
 #### Example queries
@@ -287,8 +287,8 @@ See: [Member model](#member-model)
 ##### Error responses
 
 Status | Reason
---------- | -----------
-`404` | Member with given identifier could not found
+--------- | ----------- 
+`404` | Member with given identifier could not found 
 `422` | Invalid MSISDN param
 
 ### <a name="members-public-info"></a> Get public info
@@ -307,7 +307,7 @@ curl "https://api.mpc.placewise.com/v3/infinity-mall/members/:id/public_info" \
 
 ```json
 {
-  "exists": true,
+  "exists": true, 
   "can_login": true, // deprecated
   "available_identifiers": ["email"],
   "has_password": true
@@ -335,7 +335,7 @@ email | Member's email | string (email)
 
 Key | Type | Description
 --------- | --------- | ---------
-exists | boolean | Does member with given identifier exist in given Loyalty Club?
+exists | boolean | Does member with given identifier exist in given Loyalty Club? 
 can_login | boolean | Is this member able to sign? (deprecated)
 available_identifiers | string[] | Identifiers that are set on member
 has_password | boolean | Was password set by member?
@@ -347,7 +347,7 @@ Requires <code>BL:Api:Members:Check</code> permit
 #### Error responses
 
 Status | Reason
---------- | -----------
+--------- | ----------- 
 `422` | Invalid MSISDN param
 
 <!--- ############################################################################################################# --->
@@ -368,8 +368,8 @@ curl "https://api.mpc.placewise.com/v3/infinity-mall/members/:id/person_id" \
 
 ```json
 {
-  "source": "storage",
-  "person_id": 92
+  "source": "storage", 
+  "person_id": 92 
 }
 ```
 
@@ -388,8 +388,8 @@ Returns `person_id` for given member. Please note that `person_id` cannot be pre
 ```json
 {
   "success": true,
-  "source": "db",
-  "person_id": 92
+  "source": "db", 
+  "person_id": 92 
 }
 ```
 
@@ -398,8 +398,8 @@ Returns `person_id` for given member. Please note that `person_id` cannot be pre
 ```json
 {
   "success": true,
-  "source": "storage",
-  "person_id": 92
+  "source": "storage", 
+  "person_id": 92 
 }
 ```
 
@@ -408,8 +408,8 @@ Returns `person_id` for given member. Please note that `person_id` cannot be pre
 ```json
 {
   "success": true,
-  "source": "db_and_cache",
-  "person_id": null
+  "source": "db_and_cache", 
+  "person_id": null 
 }
 ```
 
@@ -418,8 +418,8 @@ Returns `person_id` for given member. Please note that `person_id` cannot be pre
 ```json
 {
   "success": true,
-  "source": "not_found",
-  "person_id": null
+  "source": "not_found", 
+  "person_id": null 
 }
 ```
 
@@ -446,7 +446,7 @@ Requires <code>BL:Api:Members:Check</code> permit
 #### Error responses
 
 Status | Reason
---------- | -----------
+--------- | ----------- 
 `422` | Invalid MSISDN param
 
 
@@ -489,7 +489,7 @@ curl -X POST \
 {
     "email": [
         {
-
+        
             "property": "email",
             "error": "duplicated_email_in_community"
         }
@@ -504,15 +504,15 @@ Create member with given properties.
 Available properties and their validation rules are defined by Loyalty Club schema (see: [here](#loyalty-clubs-schema)).
 
 Actual welcome messages sending depends on Loyalty Club and Product configuration.
-For example, even if send_email_welcome_message:true param is provided, message may not be sent because either Product
+For example, even if send_email_welcome_message:true param is provided, message may not be sent because either Product 
 or Loyalty has disabled welcome messages or Loyalty Club has no e-mails configured at all.
 
 There is also a possibility to have multiple SMS welcome messages sent. The one that matches Product or default one will be sent.
 
 #### <a name="members-create-registration-password"></a> Registration Password
 
-Some API clients (depends on Permit assigned to given `x-client-authorization` token) may be required to provide
-valid `registration_password` param that is sent to user with [Members &bull; Send registration password](#members-send-registration-password)
+Some API clients (depends on Permit assigned to given `x-client-authorization` token) may be required to provide 
+valid `registration_password` param that is sent to user with [Members &bull; Send registration password](#members-send-registration-password) 
 
 #### Headers
 
@@ -538,7 +538,7 @@ password | depends | none | Member's password. Not required, but user won't be a
 registration_password | depends | none | Password for registration for member MSISDN verification, see [above](#members-create-registration-password)
 
 &ast; At least one of those properties must be provided
-
+ 
 #### Response (JSON object)
 
 Created member properties - see: [Member model](#member-model)
@@ -546,7 +546,7 @@ Created member properties - see: [Member model](#member-model)
 #### Error responses
 
 Status | Description
---------- | -----------
+--------- | ----------- 
 `422` | [validation errors](#validation-on-members) JSON object.
 `465` | `registration_password` or `password` param is missing
 `466` | `registration_password` param is invalid
@@ -602,11 +602,11 @@ It is intended for partial updates:
 
 If deleting properties is intended, their value should be sent as `null`.
 
-This endpoint may return validation errors (`422`) even for current member properties.
+This endpoint may return validation errors (`422`) even for current member properties. 
 That's because loyalty club schema may get changed over time which results in invalidating existing users.
 
-To bypass such validation errors, you may provide `validate_partially: true` param which will validate and update only
-attributes that were provided in payload.
+To bypass such validation errors, you may provide `validate_partially: true` param which will validate and update only 
+attributes that were provided in payload. 
 
 #### URL Parameters
 
@@ -641,7 +641,7 @@ Member properties after update - see: [Member model](#member-model)
 #### Error responses
 
 Status | Description
---------- | -----------
+--------- | ----------- 
 `404` | Member could not be found
 `422` | [validation errors](#validation-on-members) JSON object.
 
@@ -754,7 +754,7 @@ Requires <code>BL:Api:Members:UpdateAppToken</code> permit
 Requires <code>BL:Api:Members:OAuth:UpdateAppToken</code> permit
 </aside>
 
-Updates member's Firebase token, along with platform it's that it's associated with.
+Updates member's Firebase token, along with platform it's that it's associated with. 
 
 Token may be removed by sending it as empty string or null, empty payload will also be treated as token removal.
 Platform is automatically removed when token is empty.
@@ -764,12 +764,12 @@ Platform is automatically removed when token is empty.
 Parameter | Type | Description
 --------- | ----------- | ------
 app_token | string | Firebase push token
-app_platform | string | One of: `['android', 'ios']`
+app_platform | string | One of: `['android', 'ios']` 
 
 #### Error responses
 
 Status | Description
---------- | -----------
+--------- | ----------- 
 `404` | Member could not be found
 `422` | Invalid parameters
 
@@ -826,7 +826,7 @@ Properties of member that has been destroyed - see: [Member model](#member-model
 #### Error responses
 
 Status | Reason
---------- | -----------
+--------- | ----------- 
 `404` | Member could not be found
 `422` | [validation errors](#validation-on-members) JSON object.
 
@@ -856,7 +856,7 @@ curl -X POST \
 
 ```
 
-> When data is valid, returns JSON object structured like this
+> When data is valid, returns JSON object structured like this 
 
 ```json
 {
@@ -865,7 +865,7 @@ curl -X POST \
 }
 ```
 
-> When data is not valid, returns JSON object structured like this
+> When data is not valid, returns JSON object structured like this 
 
 ```json
 {
@@ -904,7 +904,7 @@ For example, let's say that Loyalty Club configuration requires member to have `
 * if `"msisdn": ""` or`"msisdn": null`" is present in the payload, the validation will return error stating that `msisdn` must be present.
 * however, when payload doesn't include the `msisdn` key, such error will not be returned.
 
-This behaviour has been designed to allow validate member partially, property by property. This way you can choose
+This behaviour has been designed to allow validate member partially, property by property. This way you can choose 
 what values should be validated at specific point of registration.
 
 #### <a name="members-validate-post-parameters"></a> POST Parameters (JSON)
@@ -966,7 +966,7 @@ token | Confirmation token generated and sent with [Members &bull; Send password
 #### Error responses
 
 Status | Reason
---------- | -----------
+--------- | ----------- 
 `400` | `password` or `token` param is missing
 `404` | Member could not be found
 `422` | Invalid password - returns [validation errors](#validation-on-members) JSON object.
@@ -1074,8 +1074,8 @@ curl "https://api.mpc.placewise.com/v3/infinity-mall/members/by_email/user@examp
 **POST** `/v3/:loyalty_club_slug/members/by_msisdn/:msisdn/send_one_time_password`
 
 Sends a "Login" e-mail to given address if it is associated with member in given loyalty club. The e-mail contains a deep link to the mobile app.
-
-The link scheme is: `https://<app_scheme>.al.bstcm.no/lgn?member_id=<member_id>&otp=<otp>` and contains member id and 16-digit password generated for member, valid for 1 hour.
+ 
+The link scheme is: `https://<app_scheme>.al.bstcm.no/lgn?member_id=<member_id>&otp=<otp>` and contains member id and 16-digit password generated for member, valid for 1 hour.  
 
 Those params then can be used to sign in the user, just as "regular" member password - see:  [OAuth Token &bull; Create](#token-create).
 
@@ -1088,7 +1088,7 @@ email | Member's email | e-mail
 #### Error responses
 
 Status | Reason
---------- | -----------
+--------- | ----------- 
 `422` | Invalid e-mail param
 
 <aside class="notice">
@@ -1144,7 +1144,7 @@ language | Language of the registration password message. When not provided, def
 #### Error responses
 
 Status | Reason
---------- | -----------
+--------- | ----------- 
 `422` | Invalid MSISDN param
 
 <aside class="notice">
@@ -1182,7 +1182,7 @@ Verifies given member token. Returns response indicating if given token is (stil
 Parameter | Description | Type
 --------- | ----------- | ------
 email | Member's email | string (email)
-type | Token type | `password_reset` (more types in future)
+type | Token type | `password_reset` (more types in future) 
 token | Token | string
 
 #### Response (JSON object)
@@ -1194,7 +1194,7 @@ valid | boolean
 #### Error responses
 
 Status | Reason
---------- | -----------
+--------- | ----------- 
 `400` | Invalid `type`
 
 <aside class="notice">
@@ -1283,182 +1283,10 @@ token | string | yes | Token generated and sent with [Members &bull; Send MSISDN
 #### Error responses
 
 Status | Reason
---------- | -----------
+--------- | ----------- 
 `400` | Token missing
 `463` | Invalid token (it may not exist, or not match the user or be expired)
 
 <aside class="notice">
 Requires <code>BL:Api:Members:Msisdns:Verify</code> permit
-</aside>
-
-<!--- ############################################################################################################# --->
-
-### <a name="members-stores-get"></a> Get id of stores assigned to member
-
-> Example:
-
-```shell
-curl -X GET \
-  "https://api.mpc.placewise.com/v3/infinity-mall/members/12345/stores" \
-  -H 'content-type: application/json' \
-  -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-  -H 'x-product-name: default' \
-  -H 'x-user-agent: CURL manual test'
-```
-
-> When successful, returns an empty object:
-
-```json
-{
-  "stores_ids": [1, 2]
-}
-```
-
-**GET** `/v3/:loyalty_club_slug/members/:member_id/stores`
-
-Show id of stores assigned to member
-
-<aside class="notice">
-Requires <code>BL:Api:Members:Stores:Index</code> permit
-</aside>
-
-<!--- ############################################################################################################# --->
-
-### <a name="members-stores-add"></a> Assign member to stores
-
-> Example:
-
-```shell
-curl -X POST \
-  "https://api.mpc.placewise.com/v3/infinity-mall/members/12345/stores" \
-  -H 'content-type: application/json' \
-  -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-  -H 'x-product-name: default' \
-  -H 'x-user-agent: CURL manual test' \
-  -d \
-    '{
-      "stores_ids": [1, 2]
-    }'
-```
-
-> When successful, returns an empty object:
-
-```json
-{
-  "stores_ids": [1, 2]
-}
-```
-
-**POST** `/v3/:loyalty_club_slug/members/:member_id/stores`
-
-Assing stores to member using stores ids
-
-#### POST body parameters
-
-Parameter | Type | Required? | Description
---------- | ----------- | ------ | ------
-stores_ids | array | yes | Id of stores
-
-#### Error responses
-
-Status | Reason
---------- | -----------
-`400` | Stores ids missing
-
-<aside class="notice">
-Requires <code>BL:Api:Members:Stores:Create</code> permit
-</aside>
-
-<!--- ############################################################################################################# --->
-
-### <a name="members-stores-remove"></a> Remove stores to member
-
-> Example:
-
-```shell
-curl -X DELETE \
-  "https://api.mpc.placewise.com/v3/infinity-mall/members/12345/stores" \
-  -H 'content-type: application/json' \
-  -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-  -H 'x-product-name: default' \
-  -H 'x-user-agent: CURL manual test' \
-  -d \
-    '{
-      "stores_ids": [1, 2]
-    }'
-```
-
-> When successful, returns an empty object:
-
-```json
-{
-  "stores_ids": [3]
-}
-```
-
-**DELETE** `/v3/:loyalty_club_slug/members/:member_id/stores`
-
-Remove stores assigned from member
-
-#### DELETE body parameters
-
-Parameter | Type | Required? | Description
---------- | ----------- | ------ | ------
-stores_ids | array | yes | Id of stores
-
-#### Error responses
-
-Status | Reason
---------- | -----------
-`400` | Stores ids missing
-
-<aside class="notice">
-Requires <code>BL:Api:Members:Stores:Destroy</code> permit
-</aside>
-
-<!--- ############################################################################################################# --->
-
-### <a name="members-user-create"></a> Transform member to user
-
-> Example:
-
-```shell
-curl -X POST \
-  "https://api.mpc.placewise.com/v3/infinity-mall/members/12345/user" \
-  -H 'content-type: application/json' \
-  -H 'Authorization: Bearer B7t9U9tsoWsGhrv2ouUoSqpM' \
-  -H 'x-product-name: default' \
-  -H 'x-user-agent: CURL manual test' \
-  -d \
-    '{
-      "role": "role"
-    }'
-```
-
-> When successful, returns an empty object:
-
-```json
-{
-  "user_id": "created-user-id"
-}
-```
-
-**POST** `/v3/:loyalty_club_slug/members/:member_id/user`
-
-Transform member (tenant contact) to user and return user id
-
-#### POST body parameters
-
-Parameter | Type | Required? | Description
---------- | ----------- | ------ | ------
-role | string | yes | role
-
-#### Error responses
-
-Status | Reason
---------- | -----------
-`400` | Role missing
-
-<aside class="notice">
-Requires <code>BL:Api:Members:User:Create</code> permit
 </aside>

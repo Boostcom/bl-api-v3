@@ -1,4 +1,14 @@
 activate :livereload
+
+require "middleman-core/renderers/redcarpet"
+$headcount = 0
+class MyRenderer < Middleman::Renderers::MiddlemanRedcarpetHTML
+  def header(text, header_level)
+    $headCount = + 1
+    return "<h#{header_level} id='#{text.parameterize}-#{$headCount.to_s}'><span id=#{text.parameterize}></span>#{text}</h#{header_level}>"
+  end
+end
+
 # Markdown
 set :markdown_engine, :redcarpet
 set :markdown,
@@ -8,7 +18,8 @@ set :markdown,
     prettify: true,
     tables: true,
     with_toc_data: true,
-    no_intra_emphasis: true
+    no_intra_emphasis: true,
+    renderer: MyRenderer
 
 # Assets
 set :css_dir, 'stylesheets'
