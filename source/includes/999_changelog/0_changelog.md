@@ -1,6 +1,9 @@
 # Changelog
 
 #### 18.12.2020 | Piotr Świtlicki
+* Add [Members API &bull; Member Lookup](#members-lookup)
+
+#### 18.12.2020 | Piotr Świtlicki
 * Rework [Offers Admin API &bull; ImageTemplates &bull; Preview](#offer-admin-image-templates-preview)
 
 #### 15.12.2020 | Piotr Świtlicki

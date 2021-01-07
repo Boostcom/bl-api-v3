@@ -17,6 +17,7 @@ includes:
   - 10_members_api/1_oauth
   - 10_members_api/2_messages
   - 10_members_api/3_imports
+  - 10_members_api/4_lookup
   - 10_members_api/9_webhooks
   - 15_members_groups_api/0_members_groups
   - 20_messaging_api/1_models
