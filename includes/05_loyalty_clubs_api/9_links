@@ -109,7 +109,7 @@
 <p>When successful (200), returns list of <a href="#link-model">links</a>:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">List</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">links</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Link model"</span><span class="w">
+  </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">List</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">links</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">'Link</span><span class="w"> </span><span class="err">model'</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p><strong>GET</strong> <code>v3/infinity-mall/links</code></p>
@@ -147,7 +147,7 @@ Requires <code>BL:Api:Links:Index</code> permit
 <p>When successful (200), returns <a href="#link-model">link</a>:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"link"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Link</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Link model"</span><span class="w">
+  </span><span class="s2">"link"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Link</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">'Link</span><span class="w"> </span><span class="err">model'</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p><strong>GET</strong> <code>v3/infinity-mall/links/:link_slug</code></p>
@@ -197,7 +197,7 @@ Requires <code>BL:Api:Links:Get</code> permit
 <p>When successful (200), returns <a href="#link-model">link</a>:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"link"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Link</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Link model"</span><span class="w">
+  </span><span class="s2">"link"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Link</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">'Link</span><span class="w"> </span><span class="err">model'</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p><strong>PUT</strong> <code>v3/infinity-mall/links/:link_slug/enable</code></p>
@@ -247,7 +247,7 @@ Requires <code>BL:Api:Links:Enable</code> permit
 <p>When successful (200), returns <a href="#link-model">link</a>:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"link"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Link</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Link model"</span><span class="w">
+  </span><span class="s2">"link"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Link</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">'Link</span><span class="w"> </span><span class="err">model'</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p><strong>PUT</strong> <code>v3/infinity-mall/links/:link_slug/disable</code></p>
@@ -305,7 +305,7 @@ Requires <code>BL:Api:Links:Enable</code> permit
 <p>When successful (200), returns created <a href="#link-model">link</a>:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"link"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Link</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Link model"</span><span class="w">
+  </span><span class="s2">"link"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Link</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">'Link</span><span class="w"> </span><span class="err">model'</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
@@ -389,7 +389,7 @@ Requires <code>BL:Api:Links:Create</code> permit
 <p>When successful (200), returns deleted <a href="#link-model">link</a>:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"link"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Link</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Link model"</span><span class="w">
+  </span><span class="s2">"link"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Link</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="p">:</span><span class="w"> </span><span class="err">'Link</span><span class="w"> </span><span class="err">model'</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p><strong>DELETE</strong> <code>v3/infinity-mall/links/:link_slug</code></p>
@@ -453,7 +453,7 @@ Requires <code>BL:Api:Links:Delete</code> permit
 
 <p>Returns a generated link to given functionality in MPC, so it may be reached by member.</p>
 
-<p>In standard setup, the returned link is generated in a &quot;universal&quot; form: it points to our Webforms, but it will be captured by mobile app if 
+<p>In standard setup, the returned link is generated in a &quot;universal&quot; form: it points to our Webforms, but it will be captured by mobile app if
 it&#39;s installed on member system.</p>
 <h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
 <table><thead>
@@ -516,4 +516,4 @@ it&#39;s installed on member system.</p>
 
 <aside class="notice">
     Requires <code>BL:Api:Links:Generate</code> permit
-</aside> 
+</aside>

@@ -14,13 +14,13 @@
 <p>Returns object containing <a href="#messaging-message-model">messages</a> and <a href="#pagination-model">pagination_info</a></p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">List</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">messages</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Message model"</span><span class="w">
-  </span><span class="s2">"pagination_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Pagination</span><span class="w"> </span><span class="err">info</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="s2">"Pagination info"</span><span class="w">
+  </span><span class="s2">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">List</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">messages</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">'Message</span><span class="w"> </span><span class="err">model'</span><span class="w">
+  </span><span class="s2">"pagination_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Pagination</span><span class="w"> </span><span class="err">info</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">'Pagination</span><span class="w"> </span><span class="err">info'</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p><strong>GET</strong> <code>v1/messages</code></p>
 
-<p>Returns list of <a href="#messaging-message-model">Messages</a>.  </p>
+<p>Returns list of <a href="#messaging-message-model">Messages</a>.</p>
 <h4 id='query-parameters-1'><span id=query-parameters></span>Query Parameters</h4>
 <table><thead>
 <tr>
@@ -81,12 +81,12 @@ Requires <code>Messages:Api:Messages:List</code> permit
 <p>Returns object containing the requested <a href="#messaging-message-model">message</a></p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Message</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Message model"</span><span class="w">
+  </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Message</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">'Message</span><span class="w"> </span><span class="err">model'</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p><strong>GET</strong> <code>v1/messages/:id</code></p>
 
-<p>Returns <a href="#messaging-message-model">Message</a>.  </p>
+<p>Returns <a href="#messaging-message-model">Message</a>.</p>
 <h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
 <table><thead>
 <tr>
@@ -134,7 +134,7 @@ Requires <code>Messages:Api:Messages:Get</code> permit
         "name": "My message", "shorten_urls": false,
         "channels": [
           {
-            "type": "sms", 
+            "type": "sms",
             "sender": { type: "alphanumeric", value: "Infinity" },
             "template": {
               "type": "inline",
@@ -165,12 +165,12 @@ Requires <code>Messages:Api:Messages:Get</code> permit
 <p>When successful, returns object containing created <a href="#messaging-message-model">message</a></p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Message</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Message model"</span><span class="w">
+  </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Message</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">'Message</span><span class="w"> </span><span class="err">model'</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p><strong>POST</strong> <code>v1/messages</code></p>
 
-<p>Creates a new Message with Channel(s) and Template(s) and optionally schedules Sending for it.  </p>
+<p>Creates a new Message with Channel(s) and Template(s) and optionally schedules Sending for it.</p>
 <h4 id='post-parameters-json-1'><span id=post-parameters-json></span>POST Parameters (JSON)</h4>
 <table><thead>
 <tr>
@@ -235,7 +235,7 @@ Requires <code>Messages:Api:Messages:Create</code> permit
   -d <span class="s1">'
     {
       "message": {
-        "name": "My message", 
+        "name": "My message",
         "shorten_urls": false,
         "track_in_shortener": false,
         "campaign_id": 15,
@@ -260,14 +260,14 @@ Requires <code>Messages:Api:Messages:Create</code> permit
 <p>When successful, returns object containing updated <a href="#messaging-message-model">message</a></p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Message</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Message model"</span><span class="w">
+  </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Message</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">'Message</span><span class="w"> </span><span class="err">model'</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p><strong>PUT</strong> <code>v1/messages/:id</code></p>
 
 <p>Updates Message&#39;s attributes and its Channels.</p>
 
-<p>The update is partial - only attributes present in the payload are updated. 
+<p>The update is partial - only attributes present in the payload are updated.
 If attribute removal is intended, it should be provided with <code>null</code> value.</p>
 <h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
 <table><thead>
@@ -296,8 +296,8 @@ If attribute removal is intended, it should be provided with <code>null</code> v
 </tr>
 </tbody></table>
 
-<p>Note that <a href="#messaging-message-payload-model">MessagePayload</a>&#39;s <code>sending</code> attribute is not available, as it&#39;s not 
-possible to change any Sending during Message update.  </p>
+<p>Note that <a href="#messaging-message-payload-model">MessagePayload</a>&#39;s <code>sending</code> attribute is not available, as it&#39;s not
+possible to change any Sending during Message update.</p>
 <h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
 <table><thead>
 <tr>

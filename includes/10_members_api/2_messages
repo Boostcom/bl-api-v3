@@ -46,7 +46,7 @@
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.mpc.placewise.com/v3/infinity-mall/members/509134/messages"</span> <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.mpc.placewise.com/v3/infinity-mall/members/509134/messages?include_content=true"</span> <span class="se">\</span>
   -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
   -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
@@ -56,14 +56,14 @@
 <p>Returns object containing <a href="#member-message-model">member messages</a> and <a href="#pagination-model">pagination_info</a></p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">List</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">members</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Member message"</span><span class="w">
-  </span><span class="s2">"pagination_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Pagination</span><span class="w"> </span><span class="err">info</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="s2">"Pagination info"</span><span class="w">
+  </span><span class="s2">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">List</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">members</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">'Member</span><span class="w"> </span><span class="err">message'</span><span class="w">
+  </span><span class="s2">"pagination_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Pagination</span><span class="w"> </span><span class="err">info</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">'Pagination</span><span class="w"> </span><span class="err">info'</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p><strong>GET</strong> <code>v3/:loyalty_club_slug/members/:member_id/messages</code></p>
 
-<p>Returns messages sent to given Member from our system, after merging properties and shortening urls so this is the content Member received. 
-Does not translate id to other identifiers and vice versa. If no messages are found, returns an empty <code>messages</code> array. </p>
+<p>Returns messages sent to given Member from our system, after merging properties and shortening urls so this is the content Member received.
+Does not translate id to other identifiers and vice versa. If no messages are found, returns an empty <code>messages</code> array.</p>
 
 <p><strong>Messages are removed when Member is deleted.</strong></p>
 <h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
@@ -73,6 +73,7 @@ Does not translate id to other identifiers and vice versa. If no messages are fo
 <th>Description</th>
 <th>Required?</th>
 <th>Type</th>
+<th>Default</th>
 </tr>
 </thead><tbody>
 <tr>
@@ -80,18 +81,35 @@ Does not translate id to other identifiers and vice versa. If no messages are fo
 <td>Member ID</td>
 <td>yes</td>
 <td>integer</td>
+<td></td>
 </tr>
 <tr>
 <td>per_page</td>
 <td>Number of results to be returned per request</td>
 <td>no</td>
 <td>integer</td>
+<td>1000</td>
 </tr>
 <tr>
 <td>page_no</td>
 <td>Number of results page</td>
 <td>no</td>
 <td>integer</td>
+<td>1</td>
+</tr>
+<tr>
+<td>include_content</td>
+<td>Should content be included in the response?</td>
+<td>no</td>
+<td>boolean</td>
+<td>false</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Specific type of messages to return</td>
+<td>no</td>
+<td>enum: [&quot;sms&quot;, &quot;email&quot;, &quot;push&quot;]</td>
+<td>null</td>
 </tr>
 </tbody></table>
 <h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
@@ -133,7 +151,7 @@ Requires <code>BL:Api:Members:MessagesHistory:List</code> permit
 <p>Returns <a href="#member-message-model">member message</a></p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">MemberMessage</span><span class="w"> </span><span class="err">record</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"MemberMessage model"</span><span class="w">
+  </span><span class="s2">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">MemberMessage</span><span class="w"> </span><span class="err">record</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="p">:</span><span class="w"> </span><span class="err">'MemberMessage</span><span class="w"> </span><span class="err">model'</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p><strong>GET</strong> <code>v3/:loyalty_club_slug/members/:member_id/messages/:id</code></p>

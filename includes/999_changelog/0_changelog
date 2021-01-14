@@ -1,4 +1,8 @@
-<h1 id='changelog-1'><span id=changelog></span>Changelog</h1><h4 id='18-12-2020-piotr-switlicki-1'><span id=18-12-2020-piotr-switlicki></span>18.12.2020 | Piotr Świtlicki</h4>
+<h1 id='changelog-1'><span id=changelog></span>Changelog</h1><h4 id='14-01-2020-piotr-switlicki-1'><span id=14-01-2020-piotr-switlicki></span>14.01.2020 | Piotr Świtlicki</h4>
+<ul>
+<li>Add <code>include_content</code> and <code>type</code> query params to <a href="#members-messages-list">List Member Messages</a></li>
+</ul>
+<h4 id='18-12-2020-piotr-switlicki-1'><span id=18-12-2020-piotr-switlicki></span>18.12.2020 | Piotr Świtlicki</h4>
 <ul>
 <li>Add <a href="#members-lookup">Members API &bull; Member Lookup</a></li>
 </ul>

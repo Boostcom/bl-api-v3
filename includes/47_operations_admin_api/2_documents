@@ -218,13 +218,13 @@ are sent to recipients which didn&#39;t confirm the document.</p>
 <p>Returns object containing <a href="#operations-admin-document-model">documents</a> and <a href="#pagination-model">pagination_info</a></p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"documents"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">List</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">documents</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Document model"</span><span class="w">
-  </span><span class="s2">"pagination_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Pagination</span><span class="w"> </span><span class="err">info</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="s2">"Pagination info"</span><span class="w">
+  </span><span class="s2">"documents"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">List</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">documents</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">'Document</span><span class="w"> </span><span class="err">model'</span><span class="w">
+  </span><span class="s2">"pagination_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Pagination</span><span class="w"> </span><span class="err">info</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">'Pagination</span><span class="w"> </span><span class="err">info'</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p><strong>GET</strong> <code>v1/operations/documents</code></p>
 
-<p>Returns list of <a href="#operations-admin-document-model">Documents</a>.  </p>
+<p>Returns list of <a href="#operations-admin-document-model">Documents</a>.</p>
 <h4 id='query-parameters-1'><span id=query-parameters></span>Query Parameters</h4>
 <table><thead>
 <tr>
@@ -279,12 +279,12 @@ Requires <code>Operations:Api:Documents:List</code> permit
 <p>Returns object containing <a href="#operations-admin-document-model">document</a></p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"document"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Document model"</span><span class="w">
+  </span><span class="s2">"document"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">see</span><span class="p">:</span><span class="w"> </span><span class="err">'Document</span><span class="w"> </span><span class="err">model'</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p><strong>GET</strong> <code>v1/operations/documents/:id</code></p>
 
-<p>Returns given <a href="#operations-admin-document-model">Document</a>.  </p>
+<p>Returns given <a href="#operations-admin-document-model">Document</a>.</p>
 <h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
 <table><thead>
 <tr>
@@ -331,8 +331,8 @@ Requires <code>Operations:Api:Documents:Show</code> permit
 <p>Returns object containing <a href="#operations-admin-document-recipient-model">document recipients</a> and <a href="#pagination-model">pagination_info</a></p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"document_recipients"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">List</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">document</span><span class="w"> </span><span class="err">recipients</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"DocumentRecipient model"</span><span class="w">
-  </span><span class="s2">"pagination_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Pagination</span><span class="w"> </span><span class="err">info</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="s2">"Pagination info"</span><span class="w">
+  </span><span class="s2">"document_recipients"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">List</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">document</span><span class="w"> </span><span class="err">recipients</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">'DocumentRecipient</span><span class="w"> </span><span class="err">model'</span><span class="w">
+  </span><span class="s2">"pagination_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Pagination</span><span class="w"> </span><span class="err">info</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">'Pagination</span><span class="w"> </span><span class="err">info'</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p><strong>GET</strong> <code>v1/operations/documents/:id/recipients</code></p>
@@ -425,7 +425,7 @@ Requires <code>Operations:Api:Recipients:List</code> permit
 <p>When successful, returns object containing created <a href="#operations-admin-document-model">document</a></p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"document"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Document</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Document model"</span><span class="w">
+  </span><span class="s2">"document"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Document</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="p">:</span><span class="w"> </span><span class="err">'Document</span><span class="w"> </span><span class="err">model'</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p><strong>POST</strong> <code>v1/operations/documents</code></p>
@@ -570,7 +570,7 @@ Requires <code>Operations:Api:Documents:Create</code> permit
 <p>When successful, returns object containing updated <a href="#operations-admin-document-model">document</a></p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"document"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Document</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Document model"</span><span class="w">
+  </span><span class="s2">"document"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Document</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">'Document</span><span class="w"> </span><span class="err">model'</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p><strong>PUT</strong> <code>v1/operations/documents/:id</code></p>
@@ -709,7 +709,7 @@ Requires <code>Operations:Api:Documents:Update</code> permit
 <p>Returns object containing created <a href="#operations-admin-document-recipient-model">document recipients</a></p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"document_recipients"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">List</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">document</span><span class="w"> </span><span class="err">recipients</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"DocumentRecipient model"</span><span class="w">
+  </span><span class="s2">"document_recipients"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">List</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">document</span><span class="w"> </span><span class="err">recipients</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="p">:</span><span class="w"> </span><span class="err">'DocumentRecipient</span><span class="w"> </span><span class="err">model'</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p><strong>PUT</strong> <code>v1/operations/documents/:id</code></p>
@@ -779,7 +779,7 @@ Requires <code>Operations:Api:DocumentRecipients:Create</code> permit
 <p>When successful, returns object containing destroyed <a href="#operations-admin-document-model">document</a></p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"document"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Document</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Document model"</span><span class="w">
+  </span><span class="s2">"document"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Document</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="p">:</span><span class="w"> </span><span class="err">'Document</span><span class="w"> </span><span class="err">model'</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p><strong>DELETE</strong> <code>v1/operations/documents/:id</code></p>

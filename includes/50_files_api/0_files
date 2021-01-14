@@ -35,8 +35,8 @@
 </tr>
 </tbody></table>
 <h3 id='a-name-file-schema-a-file-schema-1'><span id=a-name-file-schema-a-file-schema></span><a name="file-schema"></a> File schema</h3>
-<p>File schema defines a list of files kinds available in the Loyalty club. 
-Each file kind is also available in multiple sizes. </p>
+<p>File schema defines a list of files kinds available in the Loyalty club.
+Each file kind is also available in multiple sizes.</p>
 
 <p>The schema may get retrieved with <a href="#get-file-schema">Files&bull; Get schema</a> endpoint.</p>
 
@@ -238,7 +238,7 @@ Each file kind is also available in multiple sizes. </p>
 <h3 id='a-name-file-kind-ratio-a-ratio-1'><span id=a-name-file-kind-ratio-a-ratio></span><a name="file-kind-ratio"></a> Ratio</h3>
 <p>Images may have fixed proportions ratio which is represented as a string: <code>&quot;&lt;width&gt;:&lt;height&gt;&quot;</code></p>
 <h3 id='a-name-file-sizes-a-file-sizes-1'><span id=a-name-file-sizes-a-file-sizes></span><a name="file-sizes"></a> File sizes</h3>
-<p>Every file has at least three file sizes available: </p>
+<p>Every file has at least three file sizes available:</p>
 <h4 id='code-base-code-1'><span id=code-base-code></span><code>base</code></h4>
 <p>Actual file size. Currently all file kinds have this size with fixed proportions (so <code>min_*</code> == <code>max_*</code>) that match the ratio.</p>
 <h4 id='code-thumbnail-code-1'><span id=code-thumbnail-code></span><code>thumbnail</code></h4>
@@ -267,7 +267,7 @@ Each file kind is also available in multiple sizes. </p>
 <p>Original file that that has been uploaded and used for generating other file sizes.</p>
 
 <p>Currently, we require all original files to have proper ratios and minimum sizes of at least the <code>base</code> size.
-Because of that, you can expect them to have <code>min_height</code> and <code>min_width</code> that match the <code>base</code> size, 
+Because of that, you can expect them to have <code>min_height</code> and <code>min_width</code> that match the <code>base</code> size,
 but they never have <code>max_width</code> or <code>max_height</code> defined.</p>
 <h4 id='a-name-file-cropping-a-file-cropping-1'><span id=a-name-file-cropping-a-file-cropping></span><a name="file-cropping"></a> File cropping</h4>
 <blockquote>
@@ -290,16 +290,16 @@ but they never have <code>max_width</code> or <code>max_height</code> defined.</
 <p>When file is uploaded and it&#39;s too large to match the required base size, it may get cropped.
 This can be achieved by providing cropping param (<code>crop_to</code>).</p>
 
-<p>The param has following syntax: <code>x_top_left,y_top_left,x_bottom_right,y_bottom_right</code> and represents boundaries of a cropping area. </p>
+<p>The param has following syntax: <code>x_top_left,y_top_left,x_bottom_right,y_bottom_right</code> and represents boundaries of a cropping area.</p>
 
 <p>When uploaded file is too large and <code>crop_to</code> param is not provided, the file will be automatically cropped with gravity set in center of image.</p>
 <h5 id='example-1'><span id=example></span>Example</h5>
-<p>The kind&#39;s base size is 400x200px and the uploaded file is 1000x1000px. </p>
+<p>The kind&#39;s base size is 400x200px and the uploaded file is 1000x1000px.</p>
 
 <p>With crop_to=&quot;0,250,1000,750&quot;, a rectangle of &quot;1000x500&quot; size will be cropped, with 250px left offset.
 The file will be then also resized to 400x200.</p>
 <h4 id='a-name-projected-file-versions-a-uploaded-instances-projections-1'><span id=a-name-projected-file-versions-a-uploaded-instances-projections></span><a name="projected-file-versions"></a> Uploaded instances projections</h4>
-<p>When file is uploaded, only original file is physically processed and stored. <code>base</code> and other versions are processed asynchronously. 
+<p>When file is uploaded, only original file is physically processed and stored. <code>base</code> and other versions are processed asynchronously.
 So, the responses returned on upload contains only &quot;projected&quot; info about files.</p>
 
 <table><thead>
@@ -513,7 +513,7 @@ Requires <code>Files:Api:Create</code> permit
 <p>When successful (200), Returns info about uploaded file. Same as <a href="#create-file">Create file</a> example response</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="err">//</span><span class="w"> </span><span class="err">(...)</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="s2">"Create file"</span><span class="w"> </span><span class="err">example</span><span class="w"> </span><span class="err">response</span><span class="w">
+  </span><span class="err">//</span><span class="w"> </span><span class="err">(...)</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">'Create</span><span class="w"> </span><span class="err">file'</span><span class="w"> </span><span class="err">example</span><span class="w"> </span><span class="err">response</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p><strong>PUT</strong> <code>v3/:loyalty_club_slug/files/:fileable_type/:fileable_id/kind</code></p>
@@ -566,13 +566,13 @@ Requires <code>Files:Api:Update</code> permit
 <p>When successful (200), Returns info about uploaded file. Same as <a href="#create-file">Create file</a> example response</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="err">//</span><span class="w"> </span><span class="err">(...)</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="s2">"Create file"</span><span class="w"> </span><span class="err">example</span><span class="w"> </span><span class="err">response</span><span class="w">
+  </span><span class="err">//</span><span class="w"> </span><span class="err">(...)</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">'Create</span><span class="w"> </span><span class="err">file'</span><span class="w"> </span><span class="err">example</span><span class="w"> </span><span class="err">response</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p><strong>PUT</strong> <code>v3/:loyalty_club_slug/files/:fileable_type/:fileable_id/kind/reprocess</code></p>
 
 <p>Reprocesses file for given Fileable (e.g. Offer).
-It means that no file needs to be uploaded, instead the original file will be reprocessed according to given parameters. </p>
+It means that no file needs to be uploaded, instead the original file will be reprocessed according to given parameters.</p>
 <h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
 <p>See: <a href="#create-file-url-parameters">Create File URL Parameters</a></p>
 <h4 id='post-parameters-1'><span id=post-parameters></span>POST Parameters</h4>

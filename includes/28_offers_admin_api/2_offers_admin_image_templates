@@ -13,8 +13,8 @@
 <p>Returns object containing <a href="#offer-image-template-record">image_templates</a> and <a href="#pagination-model">pagination_info</a></p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"image_templates"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="err">//</span><span class="w"> </span><span class="err">List</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">image_templates</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"ImageTemplate record"</span><span class="w">
-  </span><span class="s2">"pagination_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Pagination</span><span class="w"> </span><span class="err">info</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="s2">"Pagination info"</span><span class="w">
+  </span><span class="s2">"image_templates"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="err">//</span><span class="w"> </span><span class="err">List</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">image_templates</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">'ImageTemplate</span><span class="w"> </span><span class="err">record'</span><span class="w">
+  </span><span class="s2">"pagination_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Pagination</span><span class="w"> </span><span class="err">info</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">'Pagination</span><span class="w"> </span><span class="err">info'</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p><strong>GET</strong> <code>v3/:loyalty_club_slug/offers/image_templates</code></p>
@@ -84,7 +84,7 @@ Requires <code>Offers:Api:ImageTemplates:List</code> permit
 <p>Returns object containing <a href="#offer-image-template-record">image template</a></p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"image_template"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Image</span><span class="w"> </span><span class="err">template</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"ImageTemplate record"</span><span class="w">
+  </span><span class="s2">"image_template"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Image</span><span class="w"> </span><span class="err">template</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">'ImageTemplate</span><span class="w"> </span><span class="err">record'</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p><strong>GET</strong> <code>v3/:loyalty_club_slug/offers/image_templates/:image_template_id</code></p>
@@ -238,7 +238,7 @@ Requires <code>Offers:Api:ImageTemplates:Preview</code> permit
 <p>Returns object containing created <a href="#offer-image-template-record">image template</a></p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"image_template"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Image</span><span class="w"> </span><span class="err">templates</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"ImageTemplate record"</span><span class="w">
+  </span><span class="s2">"image_template"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Image</span><span class="w"> </span><span class="err">templates</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">'ImageTemplate</span><span class="w"> </span><span class="err">record'</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p><strong>POST</strong> <code>v3/:loyalty_club_slug/offers/image_templates</code></p>
@@ -322,7 +322,7 @@ Requires <code>Offers:Api:ImageTemplates:Create</code> permit
 <p>Returns object containing updated <a href="#offer-image-template-record">image template</a></p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"image_template"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Image</span><span class="w"> </span><span class="err">templates</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"ImageTemplate record"</span><span class="w">
+  </span><span class="s2">"image_template"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Image</span><span class="w"> </span><span class="err">templates</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">'ImageTemplate</span><span class="w"> </span><span class="err">record'</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p><strong>PUT</strong> <code>v3/:loyalty_club_slug/offers/image_templates/:image_template_id</code></p>
@@ -388,7 +388,7 @@ Requires <code>Offers:Api:ImageTemplates:Update</code> permit
 <p>Returns object containing deleted <a href="#offer-image-template-record">image template</a></p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"image_template"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Image</span><span class="w"> </span><span class="err">templates</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"ImageTemplate record"</span><span class="w">
+  </span><span class="s2">"image_template"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Image</span><span class="w"> </span><span class="err">templates</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">'ImageTemplate</span><span class="w"> </span><span class="err">record'</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p><strong>DELETE</strong> <code>v3/:loyalty_club_slug/offers/image_templates/:image_template_id</code></p>

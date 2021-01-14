@@ -3,7 +3,7 @@
 This API is in development. Therefore, it may not be ready for use and is a subject to change at any time.
 </aside>
 
-<p>This section describes endpoints destined for offers management. 
+<p>This section describes endpoints destined for offers management.
 Navigate to <a href="#offers">Offers</a> section to see docs for member-related endpoints.</p>
 <h2 id='common-models-1'><span id=common-models></span>Common models</h2><h3 id='a-name-admin-offer-model-a-offer-1'><span id=a-name-admin-offer-model-a-offer></span><a name="admin-offer-model"></a> Offer</h3>
 <blockquote>
@@ -32,8 +32,8 @@ Navigate to <a href="#offers">Offers</a> section to see docs for member-related 
   </span><span class="p">],</span><span class="w">
   </span><span class="s2">"extras"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
   </span><span class="s2">"image_template"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"rectangles"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">List</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">rectangles</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="s2">"ImageTemplate Rectangle"</span><span class="w">
-  </span><span class="p">}</span><span class="w"> 
+    </span><span class="s2">"rectangles"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">List</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">rectangles</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">'ImageTemplate</span><span class="w"> </span><span class="err">Rectangle'</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <table><thead>
@@ -247,11 +247,11 @@ Navigate to <a href="#offers">Offers</a> section to see docs for member-related 
 <p>With this object, you can determine that offer&#39;s image will be rendered according to the given definition which
 reflects the <a href="#offer-image-template-model">ImageTemplate model</a>.</p>
 
-<p>However, it <strong>is not</strong> a reference to existing <a href="#offer-image-template-record">ImageTemplate record</a>. 
-If you want to apply record&#39;s model to the Offer, you must use it&#39;s 
+<p>However, it <strong>is not</strong> a reference to existing <a href="#offer-image-template-record">ImageTemplate record</a>.
+If you want to apply record&#39;s model to the Offer, you must use it&#39;s
 <a href="#offer-image-template-model">ImageTemplate model</a> (copy it) as the offer&#39;s <code>image_template</code> attribute.</p>
 
-<p>When custom <code>background_url</code> is desired for given Offer, a new file may be uploaded to Files API 
+<p>When custom <code>background_url</code> is desired for given Offer, a new file may be uploaded to Files API
 as <code>offer_inline_template_background</code> and with identifier of given Offer.</p>
 <h3 id='a-name-admin-offer-payload-a-offerpayload-1'><span id=a-name-admin-offer-payload-a-offerpayload></span><a name="admin-offer-payload"></a> OfferPayload</h3>
 <p>Following Offer attributes (described above) are available to set when creating or updating offers.</p>
@@ -287,10 +287,10 @@ as <code>offer_inline_template_background</code> and with identifier of given Of
     </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
     </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">800</span><span class="p">,</span><span class="w">
     </span><span class="s2">"background_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cdn-files.placewise.com/files/uuUHXAoLdRIX3Am4SHaR1iGyv8yK6-G_a845txA7HUqYhETqgo9"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"rectangles"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">List</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">rectangles</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="s2">"ImageTemplate Rectangle"</span><span class="w">
+    </span><span class="s2">"rectangles"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">List</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">rectangles</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">'ImageTemplate</span><span class="w"> </span><span class="err">Rectangle'</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Defines how offer image should be rendered. </p>
+<p>Defines how offer image should be rendered.</p>
 
 <p>It&#39;s a common interface used for:</p>
 
@@ -329,11 +329,11 @@ as <code>offer_inline_template_background</code> and with identifier of given Of
 </tr>
 </tbody></table>
 <h5 id='a-name-offer-image-template-rendering-a-rendering-1'><span id=a-name-offer-image-template-rendering-a-rendering></span><a name="offer-image-template-rendering"></a> Rendering</h5>
-<p>The output image is rendered from the template after offer creation/update request, asynchronously. </p>
+<p>The output image is rendered from the template after offer creation/update request, asynchronously.</p>
 
 <p>Rendering process draws <a href="#offer-image-template-rectangle">rectangles</a> (up to 4) over an optional background image.</p>
 
-<p>When rendering is done, the image is stored as a regular file of the subject offer. </p>
+<p>When rendering is done, the image is stored as a regular file of the subject offer.</p>
 <h4 id='a-name-offer-image-template-record-a-imagetemplate-record-1'><span id=a-name-offer-image-template-record-a-imagetemplate-record></span><a name="offer-image-template-record"></a> ImageTemplate Record</h4>
 <blockquote>
 <p>ImageTemplate record example:</p>
@@ -345,7 +345,7 @@ as <code>offer_inline_template_background</code> and with identifier of given Of
     </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">800</span><span class="p">,</span><span class="w">
     </span><span class="s2">"background_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cdn-files.placewise.com/files/uuUHXAoLdRIX3Am4SHaR1iGyv8yK6-G_a845txA7HUqYhETqgo9"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"default"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"rectangles"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">List</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">rectangles</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="s2">"ImageTemplate Rectangle"</span><span class="w">
+    </span><span class="s2">"rectangles"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">List</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">rectangles</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">'ImageTemplate</span><span class="w"> </span><span class="err">Rectangle'</span><span class="w">
     </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-04T14:55:44.385Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-04T14:55:44.385Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -409,7 +409,7 @@ as <code>offer_inline_template_background</code> and with identifier of given Of
 <p>The background image for record must be uploaded to Files API as <code>offer_template_background</code> and with identifier of given
 <code>ImageTemplate</code> record.</p>
 <h5 id='code-default-code-attribute-1'><span id=code-default-code-attribute></span><code>default</code> attribute</h5>
-<p>It&#39;s possible to mark template as default for LC (doing this will un-mark previous default offer, if such exists). </p>
+<p>It&#39;s possible to mark template as default for LC (doing this will un-mark previous default offer, if such exists).</p>
 
 <p>It&#39;s up to API client how to utilize this feature.</p>
 <h5 id='a-name-offer-image-template-payload-a-imagetemplate-payload-1'><span id=a-name-offer-image-template-payload-a-imagetemplate-payload></span><a name="offer-image-template-payload"></a> ImageTemplate payload</h5>
@@ -421,7 +421,7 @@ as <code>offer_inline_template_background</code> and with identifier of given Of
     </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
     </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">800</span><span class="p">,</span><span class="w">
     </span><span class="s2">"default"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"rectangles"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">List</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">rectangles</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="s2">"ImageTemplate Rectangle"</span><span class="w">
+    </span><span class="s2">"rectangles"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">List</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">rectangles</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">'ImageTemplate</span><span class="w"> </span><span class="err">Rectangle'</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Used for <a href="#offer-admin-image-templates-create">creating</a> and <a href="#offer-admin-image-templates-update">updating</a> ImageTemplates.</p>

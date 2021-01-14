@@ -14,12 +14,12 @@
 <p>Returns object containing the requested <a href="#messaging-sending-model">sending</a></p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"sending"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Sending</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sending model"</span><span class="w">
+  </span><span class="s2">"sending"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Sending</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">'Sending</span><span class="w"> </span><span class="err">model'</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p><strong>GET</strong> <code>v1/messages/sendings/:id</code></p>
 
-<p>Returns <a href="#messaging-sending-model">Sending</a>.  </p>
+<p>Returns <a href="#messaging-sending-model">Sending</a>.</p>
 <h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
 <table><thead>
 <tr>
@@ -66,13 +66,13 @@ Requires <code>Messages:Api:Sendings:Get</code> permit
 <p>Returns object containing <a href="#messaging-dispatch-model">dispatches</a> and <a href="#pagination-model">pagination_info</a></p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"dispatches"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">List</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">messages</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dispatch model"</span><span class="w">
-  </span><span class="s2">"pagination_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Pagination</span><span class="w"> </span><span class="err">info</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="s2">"Pagination info"</span><span class="w">
+  </span><span class="s2">"dispatches"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">List</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">messages</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">'Dispatch</span><span class="w"> </span><span class="err">model'</span><span class="w">
+  </span><span class="s2">"pagination_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Pagination</span><span class="w"> </span><span class="err">info</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">'Pagination</span><span class="w"> </span><span class="err">info'</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p><strong>GET</strong> <code>v1/messages/sendings/:id</code></p>
 
-<p>Returns <a href="#messaging-dispatch-model">Dispatches</a> created for Sending.  </p>
+<p>Returns <a href="#messaging-dispatch-model">Dispatches</a> created for Sending.</p>
 <h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
 <table><thead>
 <tr>
@@ -191,7 +191,7 @@ Requires <code>Messages:Api:Dispatches:List</code> permit
 <p>When successful, returns object containing created <a href="#messaging-sending-model">sending</a></p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"sending"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Sending</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sending model"</span><span class="w">
+  </span><span class="s2">"sending"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Sending</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">'Sending</span><span class="w"> </span><span class="err">model'</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p><strong>POST</strong> <code>v1/messages/:message_id/sendings</code></p>
@@ -287,17 +287,17 @@ Requires <code>Messages:Api:Sendings:Create</code> permit
 <p>When successful, returns object containing updated <a href="#messaging-sending-model">sending</a></p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"sending"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Sending</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sending model"</span><span class="w">
+  </span><span class="s2">"sending"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Sending</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">'Sending</span><span class="w"> </span><span class="err">model'</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p><strong>PUT</strong> <code>v1/messages/sendings/:id</code></p>
 
-<p>Updates Sending attributes. </p>
+<p>Updates Sending attributes.</p>
 
-<p>The update is partial - only attributes present in the payload are updated. 
+<p>The update is partial - only attributes present in the payload are updated.
 If attribute removal is intended, it should be provided with <code>null</code> value.</p>
 <h5 id='updating-recipients-1'><span id=updating-recipients></span>Updating recipients</h5>
-<p>If <code>recipients</code> are given, the Sending Recipients are replaced with given ones. 
+<p>If <code>recipients</code> are given, the Sending Recipients are replaced with given ones.
 When the array is empty, all Recipients are removed from Sending.</p>
 <h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
 <table><thead>
@@ -385,7 +385,7 @@ Requires <code>Messages:Api:Sendings:Update</code> permit
 <p>When successful, returns object containing cancelled <a href="#messaging-sending-model">sending</a></p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"sending"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Sending</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sending model"</span><span class="w">
+  </span><span class="s2">"sending"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Sending</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">'Sending</span><span class="w"> </span><span class="err">model'</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p><strong>PUT</strong> <code>v1/messages/sendings/:id</code></p>

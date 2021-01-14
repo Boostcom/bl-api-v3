@@ -128,11 +128,11 @@ The rules are described below.</p>
 <p>Loyalty Club may have members level defined (available in <a href="#rewards-program-info">Rewards Program &bull; Get info</a> response).
 There are two types of them: <code>regular</code> and <code>virtual_level</code>.</p>
 <h4 id='regular-levels-1'><span id=regular-levels></span>Regular levels</h4>
-<p>When regular levels are enabled, members get levels based on the amount of points that they have earned 
-in program (in <strong>total</strong>, not the current balance) and may need to have minimal level to purchase some rewards. </p>
+<p>When regular levels are enabled, members get levels based on the amount of points that they have earned
+in program (in <strong>total</strong>, not the current balance) and may need to have minimal level to purchase some rewards.</p>
 
 <p>Each level has <code>points_threshold</code> value (integer) that describes how many points are needed to reach the level (first level always requires 0 points to have).
-Levels are returned in ascending order, sorted by the <code>points_threshold</code> attribute. </p>
+Levels are returned in ascending order, sorted by the <code>points_threshold</code> attribute.</p>
 <h4 id='single-virtual-level-1'><span id=single-virtual-level></span>Single virtual level</h4>
 <p>When single virtual level is enabled, it is just used to show member how he performs in the Rewards Program.</p>
 
@@ -207,7 +207,7 @@ Levels are returned in ascending order, sorted by the <code>points_threshold</co
 </span></code></pre>
 <p><strong>GET</strong> <code>v3/infinity-mall/rewards-program/info</code></p>
 
-<p>Returns information about Rewards Program in Loyalty Club. </p>
+<p>Returns information about Rewards Program in Loyalty Club.</p>
 <h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
 <table><thead>
 <tr>
@@ -359,7 +359,7 @@ Requires <code>Rewards:Api:OAuth:Memberships:Delete</code> permit
     </span><span class="s2">"is_first_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="s2">"is_last_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
     </span><span class="s2">"is_out_of_range"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-  </span><span class="p">}</span><span class="w">  
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
@@ -444,7 +444,7 @@ Requires <code>Rewards:Api:OAuth:Memberships:Delete</code> permit
 <tr>
 <td>type</td>
 <td>One of: &#39;achievement&#39;, &#39;reward_purchase&#39;, &#39;expiration&#39; and &#39;correction&#39;</td>
-<td>see &quot;Transaction types&quot; below</td>
+<td>see &#39;Transaction types&#39; below</td>
 </tr>
 <tr>
 <td>date</td>
@@ -464,7 +464,7 @@ Requires <code>Rewards:Api:OAuth:Memberships:Delete</code> permit
 <tr>
 <td>details</td>
 <td>Object</td>
-<td>Transaction-specific details - see &quot;Transaction details&quot; below</td>
+<td>Transaction-specific details - see &#39;Transaction details&#39; below</td>
 </tr>
 </tbody></table>
 <h4 id='transaction-types-1'><span id=transaction-types></span>Transaction types</h4>
