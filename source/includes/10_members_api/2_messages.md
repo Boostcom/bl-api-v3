@@ -27,7 +27,7 @@ content    |                                     | yes       | string
 > Example:
 
 ```shell
-curl "https://api.mpc.placewise.com/v3/infinity-mall/members/509134/messages" \
+curl "https://api.mpc.placewise.com/v3/infinity-mall/members/509134/messages?include_content=true" \
   -H 'content-type: application/json' \
   -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
   -H 'x-product-name: default' \
@@ -52,11 +52,13 @@ Does not translate id to other identifiers and vice versa. If no messages are fo
 
 #### URL Parameters
 
-Parameter | Description                                  | Required? | Type
---------- | -------------------------------------------- | ----------| ------
-member_id | Member ID                                    | yes       | integer
-per_page  | Number of results to be returned per request | no        | integer
-page_no   | Number of results page                       | no        | integer
+Parameter       | Description                                  | Required? | Type                           | Default
+---------       | -------------------------------------------- | ----------| ------                         | ------
+member_id       | Member ID                                    | yes       | integer                        | 
+per_page        | Number of results to be returned per request | no        | integer                        | 1000
+page_no         | Number of results page                       | no        | integer                        | 1
+include_content | Should content be included in the response?  | no        | boolean                        | false
+type            | Specific type of messages to return          | no        | enum: ["sms", "email", "push"] | null
 
 #### Response (JSON object)
 

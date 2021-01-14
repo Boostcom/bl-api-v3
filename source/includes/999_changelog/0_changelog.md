@@ -1,5 +1,8 @@
 # Changelog
 
+#### 14.01.2020 | Piotr Świtlicki
+* Add `include_content` and `type` query params to [List Member Messages](#members-messages-list)
+
 #### 18.12.2020 | Piotr Świtlicki
 * Add [Members API &bull; Member Lookup](#members-lookup)
 
