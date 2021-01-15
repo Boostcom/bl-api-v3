@@ -334,7 +334,7 @@ OAuth2 flow for this.</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.mpc.placewise.com/v3/infinity-mall/members?per_page=100&amp;page=1&amp;ids[]=1&amp;ids[]=2"</span> <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.mpc.placewise.com/v3/infinity-mall/members?per_page=100&amp;page_no=1&amp;ids[]=1&amp;ids[]=2"</span> <span class="se">\</span>
   -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
   -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
@@ -349,7 +349,7 @@ OAuth2 flow for this.</p>
 }
 
 </span></code></pre>
-<p><strong>GET</strong> <code>v3/:loyalty_club_slug/members?per_page=:per_page&amp;page=:page</code></p>
+<p><strong>GET</strong> <code>v3/:loyalty_club_slug/members?per_page=:per_page&amp;page_no=:page_no</code></p>
 
 <p>Returns paginated list of all Loyalty Club members, sorted by <code>created_at ASC</code>.</p>
 

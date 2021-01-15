@@ -343,10 +343,17 @@ Requires <code>Rewards:Api:OAuth:Memberships:Delete</code> permit
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"achievement"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-41T08:00:15063Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-14T08:00:15063Z"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">110</span><span class="p">,</span><span class="w">
       </span><span class="s2">"expired_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-12-15T08:00:15063Z"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"achievement_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"coupon_used"</span><span class="w"> </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"grant"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-12T058:00:13263Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"expired_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"grant_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"receipt"</span><span class="w"> </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="s2">"pagination_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -371,9 +378,19 @@ Requires <code>Rewards:Api:OAuth:Memberships:Delete</code> permit
 </span></code></pre>
 <p><strong>GET</strong> <code>v3/infinity-mall/members/me/rewards-program/status</code></p>
 
-<p>Returns Rewards Program status for current member.</p>
+<aside class="notice">
+Requires <code>Rewards:Api:OAuth:Memberships:CheckStatus</code> permit
+</aside>
 
-<p>As a member-related action, it requires member authorization. See <a href="#oauth2">OAuth</a>.</p>
+<p>Returns Rewards Program status for current member. As a member-related action, it requires member authorization. See <a href="#oauth2">OAuth</a>.</p>
+
+<p><strong>GET</strong> <code>v3/infinity-mall/members/:id/rewards-program/status</code></p>
+
+<p>Returns Rewards Program status for given member.</p>
+
+<aside class="notice">
+Requires <code>Rewards:Api:Memberships:CheckStatus</code> permit
+</aside>
 <h4 id='query-parameters-1'><span id=query-parameters></span>Query Parameters</h4>
 <table><thead>
 <tr>
@@ -517,33 +534,6 @@ Requires <code>Rewards:Api:OAuth:Memberships:Delete</code> permit
 <td>(optional) Admin&#39;s notes</td>
 </tr>
 </tbody></table>
-
-<aside class="notice">
-Requires <code>Rewards:Api:OAuth:Memberships:CheckStatus</code> permit
-</aside>
-<h3 id='a-name-rewards-program-status-by-member-id-a-get-status-by-member-id-1'><span id=a-name-rewards-program-status-by-member-id-a-get-status-by-member-id></span><a name="rewards-program-status-by-member-id"></a> Get status by member ID</h3>
-<blockquote>
-<p>Example:</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="se">\</span>
-<span class="s2">"https://api.mpc.placewise.com/v3/infinity-mall/members/837182/rewards-program/status"</span> <span class="se">\</span>
-    -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
-    -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
-    -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
-    -H <span class="s1">'x-user-agent: CURL manual test'</span>
-</code></pre>
-<blockquote>
-<p>Returns response as in <a href="$rewards-program-status">Rewards Program &bull; Get Status</a></p>
-</blockquote>
-
-<p><strong>GET</strong> <code>v3/infinity-mall/members/:id/rewards-program/status</code></p>
-
-<p>Returns Rewards Program status for member identified by given ID.
-Works just the same as <a href="#rewards-program-status">Rewards Program &bull; Get Status</a>.</p>
-
-<aside class="notice">
-Requires <code>Rewards:Api:Memberships:CheckStatus</code> permit
-</aside>
 <h3 id='a-name-rewards-program-achievements-summary-a-achievements-summary-1'><span id=a-name-rewards-program-achievements-summary-a-achievements-summary></span><a name="rewards-program-achievements-summary"></a> Achievements summary</h3>
 <blockquote>
 <p>Example:</p>
@@ -679,4 +669,76 @@ Requires <code>Rewards:Api:Memberships:CheckStatus</code> permit
 
 <aside class="notice">
 Requires <code>Rewards:Api:OAuth:Memberships:CheckStatus</code> permit
+</aside>
+<h3 id='a-name-rewards-program-grant-points-a-grant-points-1'><span id=a-name-rewards-program-grant-points-a-grant-points></span><a name="rewards-program-grant-points"></a> Grant points</h3>
+<blockquote>
+<p>Example - grants 140 points to member</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v1/infinity-mall/members/4419391/rewards-program/grant_points"</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
+  -H <span class="s1">'x-user-agent: CURL manual test'</span> <span class="se">\</span>
+  -d <span class="s1">'
+    {
+      "points": 140,
+      "grant_type": "receipt",
+      "details" {
+        "store_id": 15 
+      }
+    }
+  '</span>
+</code></pre>
+<blockquote>
+<p>When successful, returns an empty object</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{}</span><span class="w">
+</span></code></pre>
+<p><strong>POST</strong> <code>v1/:loyalty_club_slug/members/:member_id/rewards-program/grant_points</code></p>
+
+<p>Allows to grant arbitrary number of points to given member.</p>
+<h4 id='post-parameters-json-1'><span id=post-parameters-json></span>POST Parameters (JSON)</h4>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Required?</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>points</td>
+<td>integer</td>
+<td>yes</td>
+<td>Number of points to grant</td>
+</tr>
+<tr>
+<td>grant_type</td>
+<td>string</td>
+<td>no</td>
+<td>Arbitrary type of grant - depends on specific use case</td>
+</tr>
+<tr>
+<td>details</td>
+<td>Object</td>
+<td>no</td>
+<td>Arbitrary object containing additional details for analytical purposes - depends on specific use case</td>
+</tr>
+</tbody></table>
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>422</code></td>
+<td>Invalid parameters - see <a href="#invalid-parameters-errors-model">Invalid parameters errors model</a></td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Rewards:Api:GrantPoints</code> permit
 </aside>
