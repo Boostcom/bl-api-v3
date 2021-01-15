@@ -1,6 +1,9 @@
 # Changelog
 
-#### 14.01.2020 | Piotr Świtlicki
+#### 15.01.2021 | Piotr Świtlicki
+* Add [Rewards API &bull; Grant Points](#rewards-program-grant-points)
+
+#### 14.01.2021 | Piotr Świtlicki
 * Add `include_content` and `type` query params to [List Member Messages](#members-messages-list)
 
 #### 18.12.2020 | Piotr Świtlicki

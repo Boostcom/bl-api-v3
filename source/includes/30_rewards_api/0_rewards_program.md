@@ -290,10 +290,17 @@ curl \
     },
     {
       "type": "achievement",
-      "date": "2019-06-41T08:00:15063Z",
+      "date": "2019-06-14T08:00:15063Z",
       "amount": 110,
       "expired_at": "2019-12-15T08:00:15063Z",
       "details": { "achievement_type": "coupon_used" }
+    },
+    {
+      "type": "grant",
+      "date": "2019-06-12T058:00:13263Z",
+      "amount": 42,
+      "expired_at": null,
+      "details": { "grant_type": "receipt" }
     }
   ],
   "pagination_info": {
@@ -320,9 +327,19 @@ curl \
 
 **GET** `v3/infinity-mall/members/me/rewards-program/status`
 
-Returns Rewards Program status for current member.
+<aside class="notice">
+Requires <code>Rewards:Api:OAuth:Memberships:CheckStatus</code> permit
+</aside>
 
-As a member-related action, it requires member authorization. See [OAuth](#oauth2).
+Returns Rewards Program status for current member. As a member-related action, it requires member authorization. See [OAuth](#oauth2).
+
+**GET** `v3/infinity-mall/members/:id/rewards-program/status`
+
+Returns Rewards Program status for given member.
+
+<aside class="notice">
+Requires <code>Rewards:Api:Memberships:CheckStatus</code> permit
+</aside>
 
 #### Query Parameters
 
@@ -369,34 +386,6 @@ Transaction type | Key | Description
 achievement | achievement_type | Type of achievement that granted the points - see [Achievement types](#rewards-program-achievement-types)
 reward_purchase | reward_name | Name of reward that the points have been spent on
 correction | comment | (optional) Admin's notes
-
-<aside class="notice">
-Requires <code>Rewards:Api:OAuth:Memberships:CheckStatus</code> permit
-</aside>
-
-### <a name="rewards-program-status-by-member-id"></a> Get status by member ID
-
-> Example:
-
-```shell
-curl \
-"https://api.mpc.placewise.com/v3/infinity-mall/members/837182/rewards-program/status" \
-    -H 'content-type: application/json' \
-    -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
-    -H 'x-product-name: default' \
-    -H 'x-user-agent: CURL manual test'
-```
-
-> Returns response as in [Rewards Program &bull; Get Status]($rewards-program-status)
-
-**GET** `v3/infinity-mall/members/:id/rewards-program/status`
-
-Returns Rewards Program status for member identified by given ID.
-Works just the same as [Rewards Program &bull; Get Status](#rewards-program-status).
-
-<aside class="notice">
-Requires <code>Rewards:Api:Memberships:CheckStatus</code> permit
-</aside>
 
 ### <a name="rewards-program-achievements-summary"></a> Achievements summary
 
@@ -488,4 +477,54 @@ total_amount_earned | integer | Sum of points member achieved in that month
 
 <aside class="notice">
 Requires <code>Rewards:Api:OAuth:Memberships:CheckStatus</code> permit
+</aside>
+
+### <a name="rewards-program-grant-points"></a> Grant points
+
+> Example - grants 140 points to member
+
+```shell
+curl -X POST \
+"https://api.mpc.placewise.com/v1/infinity-mall/members/4419391/rewards-program/grant_points" \
+  -H 'content-type: application/json' \
+  -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+  -H 'x-product-name: default' \
+  -H 'x-user-agent: CURL manual test' \
+  -d '
+    {
+      "points": 140,
+      "grant_type": "receipt",
+      "details" {
+        "store_id": 15 
+      }
+    }
+  '
+```
+
+> When successful, returns an empty object
+
+```json
+{}
+```
+
+**POST** `v1/:loyalty_club_slug/members/:member_id/rewards-program/grant_points`
+
+Allows to grant arbitrary number of points to given member.
+
+#### POST Parameters (JSON)
+
+Key        | Type    | Required? | Description
+---        | ----    | ---       | --- 
+points     | integer | yes       | Number of points to grant
+grant_type | string  | no        | Arbitrary type of grant - depends on specific use case
+details    | Object  | no        | Arbitrary object containing additional details for analytical purposes - depends on specific use case
+
+#### Error responses
+
+Status | Description
+--------- | -----------
+`422` | Invalid parameters - see [Invalid parameters errors model](#invalid-parameters-errors-model)
+
+<aside class="notice">
+Requires <code>Rewards:Api:GrantPoints</code> permit
 </aside>

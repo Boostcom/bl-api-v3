@@ -180,7 +180,7 @@ duplicated_email | The email was duplicated in community
 > Example:
 
 ```shell
-curl "https://api.mpc.placewise.com/v3/infinity-mall/members?per_page=100&page=1&ids[]=1&ids[]=2" \
+curl "https://api.mpc.placewise.com/v3/infinity-mall/members?per_page=100&page_no=1&ids[]=1&ids[]=2" \
   -H 'content-type: application/json' \
   -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
   -H 'x-product-name: default' \
@@ -197,7 +197,7 @@ curl "https://api.mpc.placewise.com/v3/infinity-mall/members?per_page=100&page=1
 
 ```
 
-**GET** `v3/:loyalty_club_slug/members?per_page=:per_page&page=:page`
+**GET** `v3/:loyalty_club_slug/members?per_page=:per_page&page_no=:page_no`
 
 Returns paginated list of all Loyalty Club members, sorted by `created_at ASC`.
 
