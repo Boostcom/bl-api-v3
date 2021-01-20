@@ -38,7 +38,7 @@
 <tr>
 <td>content</td>
 <td></td>
-<td>yes</td>
+<td>no</td>
 <td>string</td>
 </tr>
 </tbody></table>
@@ -65,6 +65,8 @@
 <p>Returns messages sent to given Member from our system, after merging properties and shortening urls so this is the content Member received.
 Does not translate id to other identifiers and vice versa. If no messages are found, returns an empty <code>messages</code> array.</p>
 
+<p>Content is not returned by default, <code>include_content=true</code> param is required for it. </p>
+
 <p><strong>Messages are removed when Member is deleted.</strong></p>
 <h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
 <table><thead>
@@ -83,6 +85,17 @@ Does not translate id to other identifiers and vice versa. If no messages are fo
 <td>integer</td>
 <td></td>
 </tr>
+</tbody></table>
+<h4 id='query-parameters-1'><span id=query-parameters></span>Query Parameters</h4>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Required?</th>
+<th>Type</th>
+<th>Default</th>
+</tr>
+</thead><tbody>
 <tr>
 <td>per_page</td>
 <td>Number of results to be returned per request</td>
