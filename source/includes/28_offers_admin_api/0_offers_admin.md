@@ -244,20 +244,23 @@ rectangles     | TemplateRectangle[] | yes       | See [ImageTemplate model](#of
 }
 ```
 
-Key         | Type                                | Required? | Description
------------ | ----------------------------------- | --------- | ---------------------------------------------------
-name        | string                              | yes       | Identifies rectangle in the template
-width       | integer                             | yes       | Width of rendered rectangle
-height      | integer                             | yes       | Height of rendered rectangle
-padding     | integer                             | yes       | Padding inside of rendered rectangle
-offset_left | integer                             | yes       | x position relative to the top left corner of image
-offset_top  | integer                             | yes       | y position relative to the top left corner of image
-text_align  | enum: `['left', 'center', 'right']` | yes       | Text alignment inside the rectangle
-color       | hex (e.g. `'#FF00EE'`)              | yes       | Color of the rectangle text
-font_size   | integer                             | yes       | Font size of the rectangle text
-font_family | string                              | yes       | Family definition, related to included `font_url`
-font_url    | URL                                 | yes       | URL of font face
-content     | string                              | no        | Content to display, may contain [merge fields](#image-template-mergefields)
+Key             | Type                                                      | Required? | Description
+---             | ---                                                       | ---       | ---
+name            | string                                                    | yes       | Identifies rectangle in the template
+width           | integer                                                   | yes       | Width of rendered rectangle
+height          | integer                                                   | yes       | Height of rendered rectangle
+padding         | integer                                                   | yes       | Padding inside of rendered rectangle
+offset_left     | integer                                                   | yes       | x position relative to the top left corner of image
+offset_top      | integer                                                   | yes       | y position relative to the top left corner of image
+text_align      | enum: `['left', 'center', 'right']`                       | yes       | Text alignment inside the rectangle
+text_decoration | enum: `['none', 'underline', 'overline', 'line-through']` | no        | Default: `'none'` 
+color           | hex (e.g. `'#FF00EE'`)                                    | yes       | Color of the rectangle text
+font_size       | integer                                                   | yes       | Font size of the rectangle text
+font_family     | string                                                    | yes       | Family definition, related to included `font_url`
+font_url        | URL                                                       | yes       | URL of font face
+font_style      | enum: `['normal', 'italic', 'oblique']`                   | no        | Default: `'normal'`  
+font_weight     | enum: `['normal', 'bold', 'bolder', 'lighter']`           | no        | Default: `'normal'`  
+content         | string                                                    | no        | Content to display, may contain [merge fields](#image-template-mergefields)
 
 ### <a name="image-template-mergefields"></a> ImageTemplate Merge-fields
 

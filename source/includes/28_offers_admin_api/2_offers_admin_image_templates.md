@@ -116,8 +116,11 @@ curl --request GET 'https://api.mpc.placewise.com/v3/infinity-mall/offers/image_
                 "font_size": 30,
                 "font_family": "'Playfair Display', serif",
                 "font_url": "https://fonts.googleapis.com/css?family=Raleway:400,700&display=swap",
+                "font_weight": "bold",
+                "font_style": "italic",
                 "color": "#eb4034",
                 "text_align": "center",
+                "text_decoration": "underline",
                 "content": "WOW {{name}}!"
             }
         ]
