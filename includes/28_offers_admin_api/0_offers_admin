@@ -535,6 +535,12 @@ as <code>offer_inline_template_background</code> and with identifier of given Of
 <td>Text alignment inside the rectangle</td>
 </tr>
 <tr>
+<td>text_decoration</td>
+<td>enum: <code>[&#39;none&#39;, &#39;underline&#39;, &#39;overline&#39;, &#39;line-through&#39;]</code></td>
+<td>no</td>
+<td>Default: <code>&#39;none&#39;</code></td>
+</tr>
+<tr>
 <td>color</td>
 <td>hex (e.g. <code>&#39;#FF00EE&#39;</code>)</td>
 <td>yes</td>
@@ -557,6 +563,18 @@ as <code>offer_inline_template_background</code> and with identifier of given Of
 <td>URL</td>
 <td>yes</td>
 <td>URL of font face</td>
+</tr>
+<tr>
+<td>font_style</td>
+<td>enum: <code>[&#39;normal&#39;, &#39;italic&#39;, &#39;oblique&#39;]</code></td>
+<td>no</td>
+<td>Default: <code>&#39;normal&#39;</code></td>
+</tr>
+<tr>
+<td>font_weight</td>
+<td>enum: <code>[&#39;normal&#39;, &#39;bold&#39;, &#39;bolder&#39;, &#39;lighter&#39;]</code></td>
+<td>no</td>
+<td>Default: <code>&#39;normal&#39;</code></td>
 </tr>
 <tr>
 <td>content</td>
