@@ -265,7 +265,9 @@ curl \
       "date": "2019-12-15T08:00:15063Z",
       "amount": -20,
       "expired_at": null,
-      "details": { "reward_name": "Awesome Toaster" }
+      "details": {
+        "reward_name": "Awesome Toaster"
+      }
     },
     {
       "type": "expiration",
@@ -279,28 +281,37 @@ curl \
       "date": "2019-12-10T08:00:15063Z",
       "amount": 150,
       "expired_at": null,
-      "details": { "achievement_type": "app_opened" }
+      "details": {
+        "achievement_type": "app_opened"
+      }
     },
     {
       "type": "correction",
       "date": "2019-12-05T08:00:15063Z",
       "amount": 50,
       "expired_at": null,
-      "details": { "comment":  "Just for you" }
+      "details": {
+        "comment": "Just for you"
+      }
     },
     {
       "type": "achievement",
       "date": "2019-06-14T08:00:15063Z",
       "amount": 110,
       "expired_at": "2019-12-15T08:00:15063Z",
-      "details": { "achievement_type": "coupon_used" }
+      "details": {
+        "achievement_type": "coupon_used"
+      }
     },
     {
       "type": "grant",
       "date": "2019-06-12T058:00:13263Z",
       "amount": 42,
       "expired_at": null,
-      "details": { "grant_type": "receipt" }
+      "details": {
+        "grant_type": "receipt",
+        "grant_properties": { "store_id":  142 }
+      }
     }
   ],
   "pagination_info": {
@@ -494,7 +505,7 @@ curl -X POST \
     {
       "points": 140,
       "grant_type": "receipt",
-      "details" {
+      "grant_properties" {
         "store_id": 15 
       }
     }
@@ -513,11 +524,11 @@ Allows to grant arbitrary number of points to given member.
 
 #### POST Parameters (JSON)
 
-Key        | Type    | Required? | Description
----        | ----    | ---       | --- 
-points     | integer | yes       | Number of points to grant
-grant_type | string  | no        | Arbitrary type of grant - depends on specific use case
-details    | Object  | no        | Arbitrary object containing additional details for analytical purposes - depends on specific use case
+Key              | Type    | Required? | Description
+---              | ----    | ---       | --- 
+points           | integer | yes       | Number of points to grant
+grant_type       | string  | no        | Arbitrary type of grant - depends on specific use case
+grant_properties | Object  | no        | Arbitrary object containing additional properties of grant - depends on specific use case
 
 #### Error responses
 

@@ -20,7 +20,7 @@ Key        | Description                         | Required? | Type
 id         | Message ID                          | yes       | string
 type       | Object with member's properties     | yes       | enum: ["sms", "email", "push"]
 created_at | Time when the message has been sent | yes       | string
-content    |                                     | yes       | string
+content    |                                     | no        | string
 
 ### <a name="members-messages-list"></a> List Member Messages
 
@@ -48,6 +48,8 @@ curl "https://api.mpc.placewise.com/v3/infinity-mall/members/509134/messages?inc
 Returns messages sent to given Member from our system, after merging properties and shortening urls so this is the content Member received.
 Does not translate id to other identifiers and vice versa. If no messages are found, returns an empty `messages` array.
 
+Content is not returned by default, `include_content=true` param is required for it. 
+
 **Messages are removed when Member is deleted.**
 
 #### URL Parameters
@@ -55,6 +57,11 @@ Does not translate id to other identifiers and vice versa. If no messages are fo
 Parameter       | Description                                  | Required? | Type                           | Default
 ---------       | -------------------------------------------- | ----------| ------                         | ------
 member_id       | Member ID                                    | yes       | integer                        | 
+
+#### Query Parameters
+
+Parameter       | Description                                  | Required? | Type                           | Default
+---------       | -------------------------------------------- | ----------| ------                         | ------
 per_page        | Number of results to be returned per request | no        | integer                        | 1000
 page_no         | Number of results page                       | no        | integer                        | 1
 include_content | Should content be included in the response?  | no        | boolean                        | false
