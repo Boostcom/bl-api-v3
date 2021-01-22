@@ -1,5 +1,8 @@
 # Changelog
 
+#### 22.01.2021 | Paweł Buczkowski
+* Add [Events registration](#events-registration)
+
 #### 15.01.2021 | Piotr Świtlicki
 * Add [Rewards API &bull; Grant Points](#rewards-program-grant-points)
 
