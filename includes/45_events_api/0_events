@@ -327,3 +327,463 @@ Requires <code>Events:Api:Invitation:Create</code> permit
 <td>Invalid parameters (see example on the right)</td>
 </tr>
 </tbody></table>
+<h2 id='a-name-events-registration-a-registration-1'><span id=a-name-events-registration-a-registration></span><a name="events-registration"></a> Registration</h2><h3 id='a-name-events-registration-list-a-list-1'><span id=a-name-events-registration-list-a-list></span><a name="events-registration-list"></a> List</h3>
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v3/:loyalty_club_slug/events/registration"</span> <span class="se">\</span>
+    -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+    -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
+    -H <span class="s1">'x-user-agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>When successful (200), returns an array of objects structured like below:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Events"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"events"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"article_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1097</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"lead"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Lead"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-01 16:24:00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-01 16:24:00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"calendar_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/v3/infinity-mall/events/registration/1/calendar"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"image-url.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"place"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1st"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"open"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"News"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"events"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test 2"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"article_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1099</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test 2"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"lead"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test 2 Lead"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-02 11:25:00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-02 11:25:00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"calendar_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/v3/infinity-mall/events/registration/3/calendar"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"image-url.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"place"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test2"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"open"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p><strong>GET</strong> <code>v3/:loyalty_club_slug/events/registration?menuItem=:menu_item&amp;photoSize=:photo_size</code></p>
+
+<p>Get events list for registration</p>
+
+<p>Fetch events grouped by categories. List could be filtered by menu item</p>
+
+<aside class="notice">
+Requires <code>Events:Api:Registration:Get</code> permit
+</aside>
+<h4 id='payload-parameters-1'><span id=payload-parameters></span>Payload Parameters</h4>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>menu_item</td>
+<td>Configured menu item</td>
+<td>string</td>
+</tr>
+<tr>
+<td>photo_size</td>
+<td>Image size</td>
+<td>enum: [&quot;thumb&quot;, &quot;large&quot;, &quot;medium&quot;, &quot;original&quot;]</td>
+</tr>
+</tbody></table>
+<h3 id='a-name-events-registration-details-a-get-1'><span id=a-name-events-registration-details-a-get></span><a name="events-registration-details"></a> Get</h3>
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v3/:loyalty_club_slug/events/registration/:event_id </span><span class="se">\</span><span class="s2">
+    -H 'content-type: application/json' </span><span class="se">\</span><span class="s2">
+    -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' </span><span class="se">\</span><span class="s2">
+    -H 'x-product-name: default' </span><span class="se">\</span><span class="s2">
+    -H 'x-user-agent: CURL manual test'
+</span></code></pre>
+<blockquote>
+<p>When successful (200), returns an object structured like below:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"article_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Title"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"lead"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lead"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;p&gt;Article content&lt;/p&gt;"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-01 16:24:00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-01 16:24:00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"calendar_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/v3/infinity-mall/events/registration/1/calendar"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"image-url.jpg"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"place"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1st"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"open"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"first_come"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"available_spots"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"signup_deadline"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-12 16:24:00"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>When <code>event_id</code> is invalid (422), returns:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Event does not exist"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>GET</strong> <code>v3/:loyalty_club_slug/events/registration/:event_id</code></p>
+
+<p>Get event details</p>
+
+<aside class="notice">
+Requires <code>Events:Api:Registration:Get</code> permit
+</aside>
+<h4 id='payload-parameters-1'><span id=payload-parameters></span>Payload Parameters</h4>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>event_id</td>
+<td>Event ID</td>
+<td>integer</td>
+</tr>
+</tbody></table>
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>422</code></td>
+<td>Invalid parameters (see example on the right)</td>
+</tr>
+</tbody></table>
+<h3 id='a-name-events-registration-calendar-a-calendar-1'><span id=a-name-events-registration-calendar-a-calendar></span><a name="events-registration-calendar"></a> Calendar</h3>
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v3/:loyalty_club_slug/events/registration/:event_id/calendar </span><span class="se">\</span><span class="s2">
+    -H 'content-type: application/json' </span><span class="se">\</span><span class="s2">
+    -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' </span><span class="se">\</span><span class="s2">
+    -H 'x-product-name: default' </span><span class="se">\</span><span class="s2">
+    -H 'x-user-agent: CURL manual test'
+</span></code></pre>
+<blockquote>
+<p>When successful (200), returns an event.ics file:</p>
+</blockquote>
+<pre class="highlight yaml tab-yaml"><code><span class="s">BEGIN:VCALENDAR</span>
+<span class="s">VERSION:2.0</span>
+<span class="s">BEGIN:VEVENT</span>
+<span class="s">DTSTAMP:20210122T114500Z</span>
+<span class="s">LOCATION:1st</span>
+<span class="s">DTSTART:20200901T162400</span>
+<span class="s">DTEND:20200901T162400</span>
+<span class="s">SUMMARY:Test</span>
+<span class="s">END:VEVENT</span>
+<span class="s">END:VCALENDAR</span>
+</code></pre>
+<blockquote>
+<p>When <code>event_id</code> is invalid (422), returns:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Event does not exist"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>GET</strong> <code>v3/:loyalty_club_slug/events/registration/:event_id/calendar</code></p>
+
+<p>Get event calendar file</p>
+
+<aside class="notice">
+Requires <code>Events:Api:Registration:Get</code> permit
+</aside>
+<h4 id='payload-parameters-1'><span id=payload-parameters></span>Payload Parameters</h4>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>event_id</td>
+<td>Event ID</td>
+<td>integer</td>
+</tr>
+</tbody></table>
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>422</code></td>
+<td>Invalid parameters (see example on the right)</td>
+</tr>
+</tbody></table>
+<h3 id='a-name-events-registration-register-a-register-1'><span id=a-name-events-registration-register-a-register></span><a name="events-registration-register"></a> Register</h3>
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v3/:loyalty_club_slug/events/registration/:event_id/:member_id </span><span class="se">\</span><span class="s2">
+    -H 'content-type: application/json' </span><span class="se">\</span><span class="s2">
+    -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' </span><span class="se">\</span><span class="s2">
+    -H 'x-product-name: default' </span><span class="se">\</span><span class="s2">
+    -H 'x-user-agent: CURL manual test'
+    -d </span><span class="se">\</span><span class="s2">
+    '{
+        "</span>action<span class="s2">": "</span>register<span class="s2">"
+    }
+</span></code></pre>
+<blockquote>
+<p>When successful (200), returns an object structured like below:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>When <code>event_id</code> is invalid (422), returns:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Event does not exist"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>POST</strong> <code>v3/:loyalty_club_slug/events/registration/:event_id/:member_id</code></p>
+
+<p>Register on event</p>
+
+<aside class="notice">
+Requires <code>Events:Api:Registration:Create</code> permit
+</aside>
+<h4 id='payload-parameters-1'><span id=payload-parameters></span>Payload Parameters</h4>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>event_id</td>
+<td>Event ID</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>member_id</td>
+<td>Member ID</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>action</td>
+<td>Register type</td>
+<td>enum: [&quot;register&quot;,&quot;waiting_list&quot;]</td>
+</tr>
+</tbody></table>
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>422</code></td>
+<td>Invalid parameters (see example on the right)</td>
+</tr>
+</tbody></table>
+<h3 id='a-name-events-registration-unregister-a-unregister-1'><span id=a-name-events-registration-unregister-a-unregister></span><a name="events-registration-unregister"></a> Unregister</h3>
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X DELETE <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v3/:loyalty_club_slug/events/registration/:event_id/:member_id </span><span class="se">\</span><span class="s2">
+    -H 'content-type: application/json' </span><span class="se">\</span><span class="s2">
+    -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' </span><span class="se">\</span><span class="s2">
+    -H 'x-product-name: default' </span><span class="se">\</span><span class="s2">
+    -H 'x-user-agent: CURL manual test'
+</span></code></pre>
+<blockquote>
+<p>When successful (200), returns an object structured like below:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>When <code>event_id</code> is invalid (422), returns:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Event does not exist"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>DELETE</strong> <code>v3/:loyalty_club_slug/events/registration/:event_id/:member_id</code></p>
+
+<p>Unregister from an event</p>
+
+<aside class="notice">
+Requires <code>Events:Api:Registration:Delete</code> permit
+</aside>
+<h4 id='payload-parameters-1'><span id=payload-parameters></span>Payload Parameters</h4>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>event_id</td>
+<td>Event ID</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>member_id</td>
+<td>Member ID</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>action</td>
+<td>enum</td>
+<td>string</td>
+</tr>
+</tbody></table>
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>422</code></td>
+<td>Invalid parameters (see example on the right)</td>
+</tr>
+</tbody></table>
+<h3 id='a-name-events-registration-actions-a-event-member-available-actions-1'><span id=a-name-events-registration-actions-a-event-member-available-actions></span><a name="events-registration-actions"></a> Event - Member available actions</h3>
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v3/:loyalty_club_slug/events/registration/:event_id/:member_id </span><span class="se">\</span><span class="s2">
+    -H 'content-type: application/json' </span><span class="se">\</span><span class="s2">
+    -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' </span><span class="se">\</span><span class="s2">
+    -H 'x-product-name: default' </span><span class="se">\</span><span class="s2">
+    -H 'x-user-agent: CURL manual test'
+</span></code></pre>
+<blockquote>
+<p>When successful (200), returns an object structured like below: (non-registered member)</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"member_status"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"actions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"register"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"default_text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Register"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"request_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"POST"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"checkbox"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"invite"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"available_values"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"y"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"n"</span><span class="w">
+          </span><span class="p">],</span><span class="w">
+          </span><span class="s2">"default_value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"n"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"required"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>When successful (200), returns an object structured like below: (registered member)</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"member_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"coming"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"guest"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"actions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"register"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"default_text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unregister"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"request_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELETE"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"options"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>When <code>event_id</code> is invalid (422), returns:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Event does not exist"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>GET</strong> <code>v3/:loyalty_club_slug/events/registration/:event_id/:member_id</code></p>
+
+<p>Get available actions</p>
+
+<aside class="notice">
+Requires <code>Events:Api:Registration:Get</code> permit
+</aside>
+<h4 id='payload-parameters-1'><span id=payload-parameters></span>Payload Parameters</h4>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>event_id</td>
+<td>Event ID</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>member_id</td>
+<td>Member ID</td>
+<td>integer</td>
+</tr>
+</tbody></table>
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>422</code></td>
+<td>Invalid parameters (see example on the right)</td>
+</tr>
+</tbody></table>

@@ -1,4 +1,8 @@
-<h1 id='changelog-1'><span id=changelog></span>Changelog</h1><h4 id='15-01-2021-piotr-switlicki-1'><span id=15-01-2021-piotr-switlicki></span>15.01.2021 | Piotr Świtlicki</h4>
+<h1 id='changelog-1'><span id=changelog></span>Changelog</h1><h4 id='22-01-2021-pawel-buczkowski-1'><span id=22-01-2021-pawel-buczkowski></span>22.01.2021 | Paweł Buczkowski</h4>
+<ul>
+<li>Add <a href="#events-registration">Events registration</a></li>
+</ul>
+<h4 id='15-01-2021-piotr-switlicki-1'><span id=15-01-2021-piotr-switlicki></span>15.01.2021 | Piotr Świtlicki</h4>
 <ul>
 <li>Add <a href="#rewards-program-grant-points">Rewards API &bull; Grant Points</a></li>
 </ul>
