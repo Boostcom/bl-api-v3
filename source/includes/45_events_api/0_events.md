@@ -12,7 +12,7 @@ This API is in development. Therefore, it may not be ready for use and is a subj
 
 ```shell
 curl -X GET \
-"https://api.mpc.placewise.com/v3/:loyalty_club_slug/events" \
+"https://api.mpc.placewise.com/v3/:loyalty_club_slug/events?menuItem=slug" \
     -H 'content-type: application/json' \
     -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
     -H 'x-product-name: default' \
@@ -43,6 +43,14 @@ curl -X GET \
 **GET** `v3/:loyalty_club_slug/events`
 
 List of events
+
+#### Parameters
+
+Parameter | Description | Type
+--------- | ----------- | ------
+menuItem  | Menu item slug | string
+
+All parameters are optional
 
 <aside class="notice">
 Requires <code>Events:Api:Events:Get</code> permit
