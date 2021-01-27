@@ -4,14 +4,14 @@
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"resource_type_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"resource_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Some resource type"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"store_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
     </span><span class="s2">"member_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">33</span><span class="p">,</span><span class="w">
     </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">34</span><span class="p">,</span><span class="w">
     </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a very important document"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"marketing_usable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"accepted"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"resource_attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="s2">"campaign_name"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"November"</span><span class="p">,</span><span class="w"> </span><span class="s2">"October"</span><span class="p">],</span><span class="w">
       </span><span class="s2">"used_so_far"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="s2">"author_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
@@ -35,10 +35,10 @@
 <td></td>
 </tr>
 <tr>
-<td>resource_type_id</td>
-<td>integer</td>
+<td>resource_type</td>
+<td>string</td>
 <td>no</td>
-<td>.id of the ResourceType the resource is assigned to</td>
+<td>name of the ResourceType the resource is assigned to</td>
 </tr>
 <tr>
 <td>store_id</td>
@@ -77,7 +77,7 @@
 <td>current state of the resource (could be <code>pending</code> (the default one), <code>approved</code> or <code>rejected</code>)</td>
 </tr>
 <tr>
-<td>resource_attributes</td>
+<td>properties</td>
 <td>object</td>
 <td>yes</td>
 <td>custom attributes of the resource</td>
@@ -210,10 +210,10 @@ Requires <code>Operations:Api:Users:Resources:Show</code> permit
   -d <span class="s1">'
     {
         "resource": {
-            "resource_type_id": 2,
+            "resource_type": "Some resource type",
             "name": "a very important document",
             "marketing_usable": true,
-            "resource_attributes": {
+            "properties": {
               "campaign_name": ["November", "October"],
               "used_so_far": false,
               "author_count": 3
@@ -241,9 +241,9 @@ Requires <code>Operations:Api:Users:Resources:Show</code> permit
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>resource.resource_type_id</strong></td>
-<td>integer</td>
-<td>id of the resource type the resource will be associated to</td>
+<td><strong>resource.resource_type</strong></td>
+<td>string</td>
+<td>name of the resource type the resource will be associated to</td>
 </tr>
 <tr>
 <td><strong>resource.name</strong></td>
@@ -256,7 +256,7 @@ Requires <code>Operations:Api:Users:Resources:Show</code> permit
 <td>whether the resource will be allowed to be used for marketing purposes</td>
 </tr>
 <tr>
-<td><strong>resource.resource_attributes</strong></td>
+<td><strong>resource.properties</strong></td>
 <td>object</td>
 <td>custom attributes of the resource</td>
 </tr>
@@ -305,10 +305,10 @@ Requires <code>Operations:Api:Resources:Create</code> permit
   -d <span class="s1">'
     {
         "resource": {
-            "resource_type_id": 2,
+            "resource_type": "Some resource type",
             "name": "a very important document",
             "marketing_usable": true,
-            "resource_attributes": {
+            "properties": {
               "campaign_name": ["November", "October"],
               "used_so_far": false,
               "author_count": 3
@@ -350,9 +350,9 @@ Requires <code>Operations:Api:Resources:Create</code> permit
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>resource.resource_type_id</strong></td>
-<td>integer</td>
-<td>id of the resource type the resource will be associated to</td>
+<td><strong>resource.resource_type</strong></td>
+<td>string</td>
+<td>name of the resource type the resource will be associated to</td>
 </tr>
 <tr>
 <td><strong>resource.name</strong></td>
@@ -365,7 +365,7 @@ Requires <code>Operations:Api:Resources:Create</code> permit
 <td>whether the resource will be allowed to be used for marketing purposes</td>
 </tr>
 <tr>
-<td><strong>resource.resource_attributes</strong></td>
+<td><strong>resource.properties</strong></td>
 <td>object</td>
 <td>custom attributes of the resource</td>
 </tr>
