@@ -10,7 +10,7 @@
     "resource_type": "Some resource type",
     "store_id": 3,
     "member_id": 33,
-    "user_id": 34,
+    "user_id": "some-user-uuid",
     "name": "a very important document",
     "marketing_usable": true,
     "state": "accepted",
@@ -33,7 +33,7 @@ id | integer | no |
 resource_type | string | no | name of the ResourceType the resource is assigned to
 store_id | integer | no | .id of the Store the resource is assigned to
 member_id | integer | no | .member_id of the User the resource has been created by
-user_id | integer | no | .id of the User the resource has been created by
+user_id | string | no | uuid of the User the resource has been created by
 name | string | no | name of the resource
 marketing_usable | boolean | no | whether the resource will be allowed to be used for marketing purposes
 state | string | no | current state of the resource (could be `pending` (the default one), `approved` or `rejected`)
