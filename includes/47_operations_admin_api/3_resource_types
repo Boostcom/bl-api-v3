@@ -1,0 +1,234 @@
+<h2 id='a-name-operations-admin-resource-types-a-resource-types-1'><span id=a-name-operations-admin-resource-types-a-resource-types></span><a name="operations-admin-resource-types"></a> Resource types</h2><h3 id='a-name-operations-admin-resource-type-schema-a-resource-type-schema-1'><span id=a-name-operations-admin-resource-type-schema-a-resource-type-schema></span><a name="operations-admin-resource-type-schema"></a> Resource type schema</h3>
+<blockquote>
+<p>Resource type schema example:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"$id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/v1/users/me/operations/resource_types/schema"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"$schema"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://json-schema.org/draft-07/schema#"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Description of available ResourceTypes (with their properties)"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"object"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"ResourceType 2"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"image/jpeg"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"object"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"ResourceTypeAttribute 3"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"ResourceTypeAttribute 4"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"array"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"required"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"ResourceTypeAttribute 4"</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"ResourceType 1"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"image/jpeg"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"object"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"ResourceTypeAttribute 1"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"ResourceTypeAttribute 2"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"array"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"required"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"ResourceTypeAttribute 2"</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Optional</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>$id</td>
+<td>string</td>
+<td>yes</td>
+<td>path of this schema (auto-generated)</td>
+</tr>
+<tr>
+<td>$schema</td>
+<td>string</td>
+<td>yes</td>
+<td>draft which this schema is compatible with (auto-generated)</td>
+</tr>
+<tr>
+<td>description</td>
+<td>string</td>
+<td>yes</td>
+<td>description of this schema (auto-generated)</td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>yes</td>
+<td>type of this schema (auto-generated)</td>
+</tr>
+<tr>
+<td>properties</td>
+<td>object</td>
+<td>no</td>
+<td>description of how the resource type properties look like for each of the resource types and their attributes (and whether they are required)</td>
+</tr>
+</tbody></table>
+<h3 id='a-name-operations-admin-show-resource-type-schema-a-show-resource-type-schema-1'><span id=a-name-operations-admin-show-resource-type-schema-a-show-resource-type-schema></span><a name="operations-admin-show-resource-type-schema"></a> Show resource type schema</h3>
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v1/operations/resource_types/schema"</span> <span class="se">\</span>
+  -H <span class="s1">'authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICIyOE'</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'x-loyalty-club-slug: infinity-mall'</span> <span class="se">\</span>
+  -H <span class="s1">'x-user-agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>Returns object containing <a href="#operations-admin-resource-type-schema">resource type schema</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="err">//</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">'Resource</span><span class="w"> </span><span class="err">type</span><span class="w"> </span><span class="err">schema'</span><span class="w">
+</span></code></pre>
+<p><strong>GET</strong> <code>v1/operations/resource_types/schema</code>
+Returns requested <a href="#operations-admin-resource-type-schema">Resource type schema</a></p>
+
+<aside class="notice">
+Requires <code>Operations:Api:ResourceTypes:Schema::Show</code> permit
+</aside>
+<h3 id='a-name-operations-admin-update-resource-type-schema-a-update-resource-type-schema-1'><span id=a-name-operations-admin-update-resource-type-schema-a-update-resource-type-schema></span><a name="operations-admin-update-resource-type-schema"></a> Update resource type schema</h3>
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X PUT <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v1/operations/resource_types/schema"</span> <span class="se">\</span>
+  -H <span class="s1">'authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICIyOE'</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'x-loyalty-club-slug: infinity-mall'</span> <span class="se">\</span>
+  -H <span class="s1">'x-user-agent: CURL manual test'</span> <span class="se">\</span>
+  -H <span class="s1">'x-b-store-id: 2'</span> <span class="se">\</span>
+  -d <span class="s1">'
+    {
+      "$id": "/v1/users/me/operations/resource_types/schema",
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "description": "Description of available ResourceTypes (with their properties)",
+      "type": "object",
+      "properties": {
+        "ResourceType 2": {
+          "description": "image/jpeg",
+          "type": "object",
+          "properties": {
+            "ResourceTypeAttribute 3": {
+              "type": "string"
+            },
+            "ResourceTypeAttribute 4": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "ResourceTypeAttribute 4"
+          ]
+        },
+        "ResourceType 1": {
+          "description": "image/jpeg",
+          "type": "object",
+          "properties": {
+            "ResourceTypeAttribute 1": {
+              "type": "string"
+            },
+            "ResourceTypeAttribute 2": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "ResourceTypeAttribute 2"
+          ]
+        }
+      }
+    }
+  '</span>
+</code></pre>
+<blockquote>
+<p>Returns object containing <a href="#operations-admin-resource-type-schema">resource type schema</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="err">//</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">'Resource</span><span class="w"> </span><span class="err">type</span><span class="w"> </span><span class="err">schema'</span><span class="w">
+</span></code></pre>
+<p><strong>PUT</strong> <code>v1/operations/resource_types/schema</code></p>
+
+<p>Updates the <a href="#operations-admin-resource-type-schema">resource type schema</a></p>
+<h4 id='post-parameters-json-1'><span id=post-parameters-json></span>POST Parameters (JSON)</h4>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Optional</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>$id</td>
+<td>string</td>
+<td>yes</td>
+<td>path of this schema (auto-generated)</td>
+</tr>
+<tr>
+<td>$schema</td>
+<td>string</td>
+<td>yes</td>
+<td>draft which this schema is compatible with (auto-generated)</td>
+</tr>
+<tr>
+<td>description</td>
+<td>string</td>
+<td>yes</td>
+<td>description of this schema (auto-generated)</td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>yes</td>
+<td>type of this schema (auto-generated)</td>
+</tr>
+<tr>
+<td>properties</td>
+<td>object</td>
+<td>no</td>
+<td>description of how the resource type properties look like for each of the resource types and their attributes (and whether they are required)</td>
+</tr>
+</tbody></table>
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
+<p>see <a href="#operations-admin-resource-type-schema">resource type schema</a></p>
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>422</code></td>
+<td>Invalid parameters - see <a href="#invalid-parameters-errors-model">Invalid parameters errors model</a></td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Operations:Api:ResourceTypes:Schema:Update</code> permit
+</aside>
