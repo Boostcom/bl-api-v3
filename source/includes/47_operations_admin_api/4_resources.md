@@ -7,14 +7,14 @@
 ```json
 {
     "id": 15,
-    "resource_type_id": 2,
+    "resource_type": "Some resource type",
     "store_id": 3,
     "member_id": 33,
     "user_id": 34,
     "name": "a very important document",
     "marketing_usable": true,
     "state": "accepted",
-    "resource_attributes": {
+    "properties": {
       "campaign_name": ["November", "October"],
       "used_so_far": false,
       "author_count": 3
@@ -30,14 +30,14 @@ As an admin, one can list, accept and reject resources submitted by users.
 Key | Type | Optional | Description
 --------- | --------- | --------- | ---------
 id | integer | no |
-resource_type_id | integer | no | .id of the ResourceType the resource is assigned to
+resource_type | string | no | name of the ResourceType the resource is assigned to
 store_id | integer | no | .id of the Store the resource is assigned to
 member_id | integer | no | .member_id of the User the resource has been created by
 user_id | integer | no | .id of the User the resource has been created by
 name | string | no | name of the resource
 marketing_usable | boolean | no | whether the resource will be allowed to be used for marketing purposes
 state | string | no | current state of the resource (could be `pending` (the default one), `approved` or `rejected`)
-resource_attributes | object | yes | custom attributes of the resource
+properties | object | yes | custom attributes of the resource
 created_at | datetime | no | time of creation
 updated_at | datetime | no | time of last update
 
