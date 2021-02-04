@@ -31,7 +31,7 @@
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{}</span><span class="w">
 </span></code></pre>
-<p><strong>GET</strong> <code>v3/:loyalty_club_slug/members/by_msisdn/:msisdn/person_id</code></p>
+<p><strong>GET</strong> <code>v3/:loyalty_club_slug/members/by_msisdn/:msisdn/lookup</code></p>
 <h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
 <table><thead>
 <tr>
@@ -42,7 +42,7 @@
 </thead><tbody>
 <tr>
 <td>msisdn</td>
-<td>string (<a href="#msisdn-param">msisdn</a></td>
+<td>string (<a href="#msisdn-param">msisdn</a>)</td>
 <td></td>
 </tr>
 </tbody></table>
@@ -55,7 +55,7 @@
 </thead><tbody>
 <tr>
 <td><code>402</code></td>
-<td>Not enough funds on customer account. Returned only with <code>BL:Api:Members:Lookup:</code>.</td>
+<td>Not enough funds on customer account. Returned only for clients with <code>BL:Api:Members:Lookup:GetDetailedFeedback</code> permit.</td>
 </tr>
 <tr>
 <td><code>404</code></td>
