@@ -35,19 +35,19 @@ curl -X GET \
 {}
 ```
 
-**GET** `v3/:loyalty_club_slug/members/by_msisdn/:msisdn/person_id`
+**GET** `v3/:loyalty_club_slug/members/by_msisdn/:msisdn/lookup`
 
 #### URL Parameters
 
 Parameter |             Type                | Description
 --------- | ------------------------------- | -----------
-msisdn    | string ([msisdn](#msisdn-param) |
+msisdn    | string ([msisdn](#msisdn-param)) |
 
 #### Error responses
 
 Status  | Description
 ------- | ----------- 
-`402`   | Not enough funds on customer account. Returned only with `BL:Api:Members:Lookup:`.
+`402`   | Not enough funds on customer account. Returned only for clients with `BL:Api:Members:Lookup:GetDetailedFeedback` permit.
 `404`   | Data not found
 `422`   | Invalid parameters - see [Invalid parameters errors model](#invalid-parameters-errors-model)
 
