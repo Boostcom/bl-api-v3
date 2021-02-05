@@ -17341,6 +17341,12 @@ are sent to recipients which didn&#39;t confirm the document.</p>
 <td>When true, returns only confirmable Documents - and vice versa</td>
 </tr>
 <tr>
+<td>title</td>
+<td>string</td>
+<td>null</td>
+<td>When true, returns only Documents that have title matching to given string</td>
+</tr>
+<tr>
 <td>recipients_confirmation_status</td>
 <td>enum: <code>[&#39;all&#39;, &#39;some&#39;, &#39;none&#39;]</code></td>
 <td>null</td>
@@ -19115,7 +19121,11 @@ Requires <code>Files:Api:Reprocess</code> permit
 Requires <code>Files:Api:Delete</code> permit
 </aside>
 
-          <h1 id='changelog-1'><span id=changelog></span>Changelog</h1><h4 id='22-01-2021-pawel-buczkowski-1'><span id=22-01-2021-pawel-buczkowski></span>22.01.2021 | Paweł Buczkowski</h4>
+          <h1 id='changelog-1'><span id=changelog></span>Changelog</h1><h4 id='02-12-2020-piotr-switlicki-1'><span id=02-12-2020-piotr-switlicki></span>02.12.2020 | Piotr Świtlicki</h4>
+<ul>
+<li>Add <code>title</code> param to <a href="#operations-admin-list-documents">Operations API &bull; Documents &bull; Index</a></li>
+</ul>
+<h4 id='22-01-2021-pawel-buczkowski-1'><span id=22-01-2021-pawel-buczkowski></span>22.01.2021 | Paweł Buczkowski</h4>
 <ul>
 <li>Add <a href="#events-registration">Events registration</a></li>
 </ul>
