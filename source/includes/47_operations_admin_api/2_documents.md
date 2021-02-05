@@ -126,6 +126,7 @@ Parameter                      | Type                            | Default   | D
 per_page                       | integer                         | 100       | Number of results to be returned per request (100 is the maximum)
 page_no                        | integer                         | 1         | Number of results page
 confirmable                    | boolean                         | null      | When true, returns only confirmable Documents - and vice versa
+title                          | string                          | null      | When true, returns only Documents that have title matching to given string
 recipients_confirmation_status | enum: `['all', 'some', 'none']` | null      | When present, returns only Documents having given `recipients_confirmation_status`
 
 <aside class="notice">

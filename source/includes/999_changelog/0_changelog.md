@@ -1,5 +1,8 @@
 # Changelog
 
+#### 02.12.2020 | Piotr Świtlicki
+* Add `title` param to [Operations API &bull; Documents &bull; Index](#operations-admin-list-documents)
+
 #### 22.01.2021 | Paweł Buczkowski
 * Add [Events registration](#events-registration)
 
