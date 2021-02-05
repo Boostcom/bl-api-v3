@@ -56,12 +56,13 @@ Returns list of [Documents](#operations-document-model) shared with current user
 
 #### Query Parameters
 
-Parameter              | Type                            | Default   | Description
---------------         | -----------                     | --------- | -----------
-per_page               | integer                         | 100       | Number of results to be returned per request (100 is the maximum)
-page_no                | integer                         | 1         | Number of results page
-confirmable            | boolean                         | null      | When true, returns only confirmable Documents - and vice versa
-requiring_confirmation | boolean                         | null      | When present, returns only Documents that require confirmation (are confirmable and are not confirmed)
+Parameter              | Type        | Default   | Description
+--------------         | ----------- | --------- | -----------
+per_page               | integer     | 100       | Number of results to be returned per request (100 is the maximum)
+page_no                | integer     | 1         | Number of results page
+confirmable            | boolean     | null      | When true, returns only confirmable Documents - and vice versa
+title                  | string      | null      | When true, returns only Documents that have title matching to given string
+requiring_confirmation | boolean     | null      | When present, returns only Documents that require confirmation (are confirmable and are not confirmed)
 
 <aside class="notice">
 Requires <code>Operations:Api:Users:Documents:List</code> permit
