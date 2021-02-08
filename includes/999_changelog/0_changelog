@@ -1,4 +1,8 @@
-<h1 id='changelog-1'><span id=changelog></span>Changelog</h1><h4 id='02-12-2020-piotr-switlicki-1'><span id=02-12-2020-piotr-switlicki></span>02.12.2020 | Piotr Świtlicki</h4>
+<h1 id='changelog-1'><span id=changelog></span>Changelog</h1><h4 id='08-02-2021-jakub-kruczek-1'><span id=08-02-2021-jakub-kruczek></span>08.02.2021 | Jakub Kruczek</h4>
+<ul>
+<li>Initial Files API documentation <a href="#files-api">Files API</a></li>
+</ul>
+<h4 id='02-12-2020-piotr-switlicki-1'><span id=02-12-2020-piotr-switlicki></span>02.12.2020 | Piotr Świtlicki</h4>
 <ul>
 <li>Add <code>title</code> param to <a href="#operations-admin-list-documents">Operations API &bull; Documents &bull; Index</a></li>
 </ul>

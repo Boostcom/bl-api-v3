@@ -18479,6 +18479,188 @@ Requires <code>Operations:Api:Resources:Accept</code> accept
 Requires <code>Operations:Api:Resources:Reject</code> reject
 </aside>
 
+          <h1 id='files-api-1'><span id=files-api></span>Files API</h1><h2 id='introduction-1'><span id=introduction></span>Introduction</h2><h3 id='a-name-file-record-a-filerecord-model-1'><span id=a-name-file-record-a-filerecord-model></span><a name="file-record"></a> FileRecord model</h3><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"logo"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"42-sth"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">447</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"loyalty_club_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">583</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxx-56b1-xxx-a9ca-xxxx"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"filename"</span><span class="p">:</span><span class="w"> </span><span class="s2">"this-is-my-file.png"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"mime_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"image/png"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"size"</span><span class="p">:</span><span class="w"> </span><span class="mi">23172</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-10-13T10:01:35.586Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-10-13T10:01:35.586Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"last_active_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"duplicated_from_file_record_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Optional</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>no</td>
+<td></td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>no</td>
+<td>Type of resource to which file is attributed to</td>
+</tr>
+<tr>
+<td>identifier</td>
+<td>string</td>
+<td>no</td>
+<td>ID of resource to which file is attributed to</td>
+</tr>
+<tr>
+<td>customer_id</td>
+<td>integer</td>
+<td>yes</td>
+<td>ID of customer which owns the file</td>
+</tr>
+<tr>
+<td>loyalty_club_id</td>
+<td>integer</td>
+<td>yes</td>
+<td>ID of loyalty club which owns the file</td>
+</tr>
+<tr>
+<td>user_id</td>
+<td>string</td>
+<td>yes</td>
+<td>ID of user which uploaded file</td>
+</tr>
+<tr>
+<td>url</td>
+<td>string</td>
+<td>yes</td>
+<td>URL to file</td>
+</tr>
+<tr>
+<td>filename</td>
+<td>string</td>
+<td>no</td>
+<td>File&#39;s name</td>
+</tr>
+<tr>
+<td>mime_type</td>
+<td>string</td>
+<td>no</td>
+<td>File&#39;s mime type</td>
+</tr>
+<tr>
+<td>size</td>
+<td>integer</td>
+<td>no</td>
+<td>Size of uploaded file</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>datetime</td>
+<td>no</td>
+<td>Time of creation</td>
+</tr>
+<tr>
+<td>updated_at</td>
+<td>datetime</td>
+<td>no</td>
+<td>Time of last update</td>
+</tr>
+<tr>
+<td>active</td>
+<td>boolean</td>
+<td>no</td>
+<td>Is file currently active</td>
+</tr>
+<tr>
+<td>last_active_at</td>
+<td>datetime</td>
+<td>yes</td>
+<td>Time when file was deactivated</td>
+</tr>
+<tr>
+<td>duplicated_from_file_record_id</td>
+<td>integer</td>
+<td>yes</td>
+<td>ID of file record from which current one was duplicated</td>
+</tr>
+</tbody></table>
+<h2 id='a-name-list-files-a-list-file-records-1'><span id=a-name-list-files-a-list-file-records></span><a name="list-files"></a> List File Records</h2>
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl --location --request GET <span class="s1">'https://api.mpc.dev.placewise.com/v1/files'</span> <span class="se">\</span>
+--header <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
+--header <span class="s1">'x-user-agent: CURL manual test'</span> <span class="se">\</span>
+--header <span class="s1">'x-customer: 447'</span> <span class="se">\</span>
+--header <span class="s1">'authorization: Bearer JWTTOKEN'</span>
+</code></pre>
+<blockquote>
+<p>Returns object containing <a href="#file-record">file record</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"file_records"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">see</span><span class="p">:</span><span class="w"> </span><span class="err">FileRecord</span><span class="w"> </span><span class="err">model</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>GET</strong> <code>v1/files</code></p>
+
+<p>Returns list of file records.</p>
+<h4 id='query-parameters-1'><span id=query-parameters></span>Query Parameters</h4>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>per_page</td>
+<td>integer</td>
+<td>100</td>
+<td>Number of results to be returned per request (100 is the maximum)</td>
+</tr>
+<tr>
+<td>page_no</td>
+<td>integer</td>
+<td>1</td>
+<td>Number of results page</td>
+</tr>
+<tr>
+<td>ids</td>
+<td>integer[]</td>
+<td>null</td>
+<td>When given, returned file records are filtered by id</td>
+</tr>
+<tr>
+<td>file_identifiers</td>
+<td>string[]</td>
+<td>null</td>
+<td>When given, returned file records are filtered by file&#39;s type &amp; identifier. Format: <code>#{type}:#{identifier}</code>.</td>
+</tr>
+<tr>
+<td>with_inactive</td>
+<td>boolean</td>
+<td>false</td>
+<td>When true fetches also inactive file records</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Files:Api:Files:List</code> permit
+</aside>
+
           <h1 id='files-api-deprecated-1'><span id=files-api-deprecated></span>Files API (deprecated)</h1><h2 id='introduction-1'><span id=introduction></span>Introduction</h2><h3 id='a-name-file-model-a-file-model-1'><span id=a-name-file-model-a-file-model></span><a name="file-model"></a> File model</h3>
 <p>Every file attached to some entity (Offer, Reward, Offer Collection) follows the file schema and is defined like this:</p>
 
@@ -19127,7 +19309,11 @@ Requires <code>Files:Api:Reprocess</code> permit
 Requires <code>Files:Api:Delete</code> permit
 </aside>
 
-          <h1 id='changelog-1'><span id=changelog></span>Changelog</h1><h4 id='02-12-2020-piotr-switlicki-1'><span id=02-12-2020-piotr-switlicki></span>02.12.2020 | Piotr Świtlicki</h4>
+          <h1 id='changelog-1'><span id=changelog></span>Changelog</h1><h4 id='08-02-2021-jakub-kruczek-1'><span id=08-02-2021-jakub-kruczek></span>08.02.2021 | Jakub Kruczek</h4>
+<ul>
+<li>Initial Files API documentation <a href="#files-api">Files API</a></li>
+</ul>
+<h4 id='02-12-2020-piotr-switlicki-1'><span id=02-12-2020-piotr-switlicki></span>02.12.2020 | Piotr Świtlicki</h4>
 <ul>
 <li>Add <code>title</code> param to <a href="#operations-admin-list-documents">Operations API &bull; Documents &bull; Index</a></li>
 </ul>

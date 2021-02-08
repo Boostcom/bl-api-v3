@@ -1,647 +1,181 @@
-<h1 id='files-api-deprecated-1'><span id=files-api-deprecated></span>Files API (deprecated)</h1><h2 id='introduction-1'><span id=introduction></span>Introduction</h2><h3 id='a-name-file-model-a-file-model-1'><span id=a-name-file-model-a-file-model></span><a name="file-model"></a> File model</h3>
-<p>Every file attached to some entity (Offer, Reward, Offer Collection) follows the file schema and is defined like this:</p>
-
-<table><thead>
-<tr>
-<th>Key</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>url</td>
-<td>URL</td>
-<td>Link to the file</td>
-</tr>
-<tr>
-<td>width</td>
-<td>integer</td>
-<td>Image width</td>
-</tr>
-<tr>
-<td>height</td>
-<td>integer</td>
-<td>Image height</td>
-</tr>
-<tr>
-<td>kind</td>
-<td>string</td>
-<td>File kind identifier (e.x. <code>offer_default</code>), see <a href="#file-kinds">Standard file kinds</a></td>
-</tr>
-<tr>
-<td>size_type</td>
-<td>string</td>
-<td>e.x. <code>base</code>, see: <a href="#file-sizes">File sizes</a></td>
-</tr>
-</tbody></table>
-<h3 id='a-name-file-schema-a-file-schema-1'><span id=a-name-file-schema-a-file-schema></span><a name="file-schema"></a> File schema</h3>
-<p>File schema defines a list of files kinds available in the Loyalty club.
-Each file kind is also available in multiple sizes.</p>
-
-<p>The schema may get retrieved with <a href="#get-file-schema">Files&bull; Get schema</a> endpoint.</p>
-
-<blockquote>
-<p>Example loyalty club file schema</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"files_kinds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"collection_cover_default"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IMAGE"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"ratio"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2:1"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"sizes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"base"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"min_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"min_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"max_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"max_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"thumbnail"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"min_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"min_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">150</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"max_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"max_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">150</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"original"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"min_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"min_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"max_width"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"max_height"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">]</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"offer_default"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IMAGE"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"ratio"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3:4"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"sizes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"base"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"min_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"min_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">800</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"max_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"max_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">800</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"thumbnail"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"min_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">225</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"min_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"max_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">225</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"max_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"original"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"min_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"min_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">800</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"max_width"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"max_height"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">]</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"reward_default"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IMAGE"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"ratio"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3:4"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"sizes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"base"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"min_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"min_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">800</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"max_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"max_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">800</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"thumbnail"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"min_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">225</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"min_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"max_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">225</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"max_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"original"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"min_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"min_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">800</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"max_width"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"max_height"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">]</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example_without_ratio"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IMAGE"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"ratio"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"sizes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"base"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"min_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"min_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"max_width"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"max_height"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"thumbnail"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"min_width"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"min_height"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"max_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"max_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"original"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"min_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"min_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"max_width"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"max_height"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">]</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
+<h1 id='files-api-1'><span id=files-api></span>Files API</h1><h2 id='introduction-1'><span id=introduction></span>Introduction</h2><h3 id='a-name-file-record-a-filerecord-model-1'><span id=a-name-file-record-a-filerecord-model></span><a name="file-record"></a> FileRecord model</h3><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"logo"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"42-sth"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">447</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"loyalty_club_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">583</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxx-56b1-xxx-a9ca-xxxx"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"filename"</span><span class="p">:</span><span class="w"> </span><span class="s2">"this-is-my-file.png"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"mime_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"image/png"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"size"</span><span class="p">:</span><span class="w"> </span><span class="mi">23172</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-10-13T10:01:35.586Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-10-13T10:01:35.586Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"last_active_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"duplicated_from_file_record_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='a-name-file-kind-model-a-file-kind-model-1'><span id=a-name-file-kind-model-a-file-kind-model></span><a name="file-kind-model"></a> File kind model</h3>
+</span></code></pre>
 <table><thead>
 <tr>
 <th>Key</th>
 <th>Type</th>
+<th>Optional</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>identifier</td>
-<td>string</td>
-<td>See: <a href="#file-kinds">Standard file kinds</a></td>
+<td>id</td>
+<td>integer</td>
+<td>no</td>
+<td></td>
 </tr>
 <tr>
 <td>type</td>
 <td>string</td>
-<td>Currently, only <code>IMAGE</code> (MIME: <code>image/gif</code>, <code>image/jpeg</code>, <code>image/png</code>) is supported</td>
+<td>no</td>
+<td>Type of resource to which file is attributed to</td>
 </tr>
 <tr>
-<td>ratio</td>
+<td>identifier</td>
 <td>string</td>
-<td>Describes ratio of an image. See: <a href="#file-kind-ratio">Ratio</a> (optional)</td>
+<td>no</td>
+<td>ID of resource to which file is attributed to</td>
 </tr>
 <tr>
-<td>sizes</td>
-<td>Array<Object></td>
-<td>See: <a href="#file-sizes">File sizes</a></td>
+<td>customer_id</td>
+<td>integer</td>
+<td>yes</td>
+<td>ID of customer which owns the file</td>
 </tr>
 <tr>
-<td>sizes[][&#39;identifier&#39;]</td>
+<td>loyalty_club_id</td>
+<td>integer</td>
+<td>yes</td>
+<td>ID of loyalty club which owns the file</td>
+</tr>
+<tr>
+<td>user_id</td>
 <td>string</td>
-<td></td>
-</tr>
-<tr>
-<td>sizes[][&#39;min_width&#39;]</td>
-<td>integer</td>
-<td>(optional)</td>
-</tr>
-<tr>
-<td>sizes[][&#39;min_height&#39;]</td>
-<td>integer</td>
-<td>(optional)</td>
-</tr>
-<tr>
-<td>sizes[][&#39;max_width&#39;]</td>
-<td>integer</td>
-<td>(optional)</td>
-</tr>
-<tr>
-<td>sizes[][&#39;max_height&#39;]</td>
-<td>integer</td>
-<td>(optional)</td>
-</tr>
-</tbody></table>
-<h3 id='a-name-file-kinds-a-standard-file-kinds-1'><span id=a-name-file-kinds-a-standard-file-kinds></span><a name="file-kinds"></a> Standard file kinds</h3>
-<p>There are some standard file kinds, their size definitions differ among Loyalty Clubs.</p>
-
-<table><thead>
-<tr>
-<th>Identifier</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code>collection_cover_default</code></td>
-<td>Cover for Offer collections</td>
-</tr>
-<tr>
-<td><code>offer_default</code></td>
-<td>Default Offer image</td>
-</tr>
-<tr>
-<td><code>reward_default</code></td>
-<td>Default Reward image</td>
-</tr>
-</tbody></table>
-<h3 id='a-name-file-kind-ratio-a-ratio-1'><span id=a-name-file-kind-ratio-a-ratio></span><a name="file-kind-ratio"></a> Ratio</h3>
-<p>Images may have fixed proportions ratio which is represented as a string: <code>&quot;&lt;width&gt;:&lt;height&gt;&quot;</code></p>
-<h3 id='a-name-file-sizes-a-file-sizes-1'><span id=a-name-file-sizes-a-file-sizes></span><a name="file-sizes"></a> File sizes</h3>
-<p>Every file has at least three file sizes available:</p>
-<h4 id='code-base-code-1'><span id=code-base-code></span><code>base</code></h4>
-<p>Actual file size. Currently all file kinds have this size with fixed proportions (so <code>min_*</code> == <code>max_*</code>) that match the ratio.</p>
-<h4 id='code-thumbnail-code-1'><span id=code-thumbnail-code></span><code>thumbnail</code></h4>
-<p>Rescaled version of <code>base</code> size. Currently, rescaling always works this way:</p>
-
-<ul>
-<li>pick the higher dimension of file</li>
-<li>shrink the image so:
-
-<ul>
-<li>the higher dimension gets shrunk to <code>300px</code></li>
-<li>the lower dimensions gets shrunk so the image keeps the original ratio</li>
-</ul></li>
-</ul>
-
-<p>Examples:</p>
-
-<ul>
-<li>File with resolution <code>600x800</code> gets shrunk down to <code>225x300</code></li>
-<li>File with resolution <code>800x600</code> gets shrunk down to <code>300x225</code></li>
-<li>File with resolution <code>400x300</code> gets shrunk down to <code>300x225</code></li>
-<li>File with resolution <code>400x200</code> gets shrunk down to <code>300x150</code></li>
-<li>File with resolution <code>300x250</code> is not shrunk down</li>
-</ul>
-<h4 id='code-original-code-1'><span id=code-original-code></span><code>original</code></h4>
-<p>Original file that that has been uploaded and used for generating other file sizes.</p>
-
-<p>Currently, we require all original files to have proper ratios and minimum sizes of at least the <code>base</code> size.
-Because of that, you can expect them to have <code>min_height</code> and <code>min_width</code> that match the <code>base</code> size,
-but they never have <code>max_width</code> or <code>max_height</code> defined.</p>
-<h4 id='a-name-file-cropping-a-file-cropping-1'><span id=a-name-file-cropping-a-file-cropping></span><a name="file-cropping"></a> File cropping</h4>
-<blockquote>
-<p><code>crop_to</code> param interpretation may be visualized like this:</p>
-</blockquote>
-<pre class="highlight plaintext"><code>
-                           x_top_left     x_bottom_right
-                    |-------------------------------------
-                    | ..........................
-                    | ..........................
-     y_top_left     | .....*---------------.....
-                    | .....|..............|.....
-                    | .....|..............|.....
-                    | .....|..............|....
-     y_bottom_right | .....---------------*.....
-                    | ..........................
-                    |
-
-</code></pre>
-<p>When file is uploaded and it&#39;s too large to match the required base size, it may get cropped.
-This can be achieved by providing cropping param (<code>crop_to</code>).</p>
-
-<p>The param has following syntax: <code>x_top_left,y_top_left,x_bottom_right,y_bottom_right</code> and represents boundaries of a cropping area.</p>
-
-<p>When uploaded file is too large and <code>crop_to</code> param is not provided, the file will be automatically cropped with gravity set in center of image.</p>
-<h5 id='example-1'><span id=example></span>Example</h5>
-<p>The kind&#39;s base size is 400x200px and the uploaded file is 1000x1000px.</p>
-
-<p>With crop_to=&quot;0,250,1000,750&quot;, a rectangle of &quot;1000x500&quot; size will be cropped, with 250px left offset.
-The file will be then also resized to 400x200.</p>
-<h4 id='a-name-projected-file-versions-a-uploaded-instances-projections-1'><span id=a-name-projected-file-versions-a-uploaded-instances-projections></span><a name="projected-file-versions"></a> Uploaded instances projections</h4>
-<p>When file is uploaded, only original file is physically processed and stored. <code>base</code> and other versions are processed asynchronously.
-So, the responses returned on upload contains only &quot;projected&quot; info about files.</p>
-
-<table><thead>
-<tr>
-<th>Key</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>size_type</td>
-<td>string</td>
-<td></td>
+<td>yes</td>
+<td>ID of user which uploaded file</td>
 </tr>
 <tr>
 <td>url</td>
 <td>string</td>
-<td>An URL the file be available on <strong>after</strong> it gets processed.</td>
-</tr>
-<tr>
-<td>min_width</td>
-<td>integer</td>
-<td></td>
-</tr>
-<tr>
-<td>max_width</td>
-<td>integer</td>
-<td></td>
-</tr>
-<tr>
-<td>min_height</td>
-<td>integer</td>
-<td></td>
-</tr>
-<tr>
-<td>max_height</td>
-<td>integer</td>
-<td></td>
-</tr>
-</tbody></table>
-<h2 id='files-1'><span id=files></span>Files</h2><h3 id='a-name-get-file-schema-a-get-file-schema-1'><span id=a-name-get-file-schema-a-get-file-schema></span><a name="get-file-schema"></a> Get file schema</h3>
-<blockquote>
-<p>Example request</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.mpc.placewise.com/v3/infinity-mall/files/schema"</span> <span class="se">\</span>
-  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
-  -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
-  -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
-  -H <span class="s1">'x-user-agent: CURL manual test'</span>
-</code></pre>
-<blockquote>
-<p>Returns the schema as described <a href="#file-schema">here</a></p>
-</blockquote>
-
-<p><strong>GET</strong> <code>v3/:loyalty_club_slug/files/schema</code></p>
-
-<p>Returns the Loyalty Club file schema. See: <a href="#file-schema">Files &bull; Schema</a></p>
-
-<aside class="notice">
-Requires <code>Files:Api:GetSchema</code> permit
-</aside>
-<h3 id='a-name-create-file-a-create-file-1'><span id=a-name-create-file-a-create-file></span><a name="create-file"></a> Create file</h3>
-<blockquote>
-<p>Example request</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
-  https://api.mpc.placewise.com/v3/infinity-mall/files/offers/1000289/offer_default <span class="se">\</span>
-  -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
-  -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
-  -H <span class="s1">'x-user-agent: CURL manual test'</span> <span class="se">\</span>
-  -H <span class="s1">'content-type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW'</span> <span class="se">\</span>
-  -F <span class="nv">file</span><span class="o">=</span>@some_file.png <span class="se">\</span>
-  -F <span class="s1">'crop_to=256,256,856,1056'</span>
-
-</code></pre>
-<blockquote>
-<p>Returns info about uploaded file and it&#39;s projected versions</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"original"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"size_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"original"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://offers-api.s3.eu-central-1.amazonaws.com/offer-1000289-offer_default-original.png"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"file_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IMAGE"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">1024</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">1024</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"offer_default"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"projected_versions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"size_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"base"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://offers-api.s3.eu-central-1.amazonaws.com/offer-1000289-offer_default-base.png"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"min_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"min_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">800</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"max_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"max_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">800</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"size_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"thumbnail"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://offers-api.s3.eu-central-1.amazonaws.com/offer-1000289-offer_default-thumbnail.png"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"min_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">225</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"min_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"max_width"</span><span class="p">:</span><span class="w"> </span><span class="mi">225</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"max_height"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p><strong>POST</strong> <code>v3/:loyalty_club_slug/files/:fileable_type/:fileable_id/kind</code></p>
-
-<p>Creates new file for given Fileable (e.g. Offer).</p>
-<h4 id='a-name-create-file-url-parameters-a-url-parameters-1'><span id=a-name-create-file-url-parameters-a-url-parameters></span><a name="create-file-url-parameters"></a> URL Parameters</h4>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>fileable_type</td>
-<td>enum: <code>[&#39;offers&#39;, &#39;collections&#39;]</code></td>
-<td></td>
-</tr>
-<tr>
-<td>fileable_id</td>
-<td>integer</td>
-<td></td>
-</tr>
-<tr>
-<td>kind</td>
-<td>enum</td>
-<td>see <a href="#file-kinds">Standard file kinds</a></td>
-</tr>
-</tbody></table>
-<h4 id='a-name-create-file-post-parameters-a-post-parameters-1'><span id=a-name-create-file-post-parameters-a-post-parameters></span><a name="create-file-post-parameters"></a> POST Parameters</h4>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Required?</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>file</td>
-<td>binary</td>
 <td>yes</td>
-<td>File to upload</td>
+<td>URL to file</td>
 </tr>
 <tr>
-<td>crop_to</td>
+<td>filename</td>
 <td>string</td>
 <td>no</td>
-<td>See: <a href="#file-cropping">cropping</a></td>
+<td>File&#39;s name</td>
+</tr>
+<tr>
+<td>mime_type</td>
+<td>string</td>
+<td>no</td>
+<td>File&#39;s mime type</td>
+</tr>
+<tr>
+<td>size</td>
+<td>integer</td>
+<td>no</td>
+<td>Size of uploaded file</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>datetime</td>
+<td>no</td>
+<td>Time of creation</td>
+</tr>
+<tr>
+<td>updated_at</td>
+<td>datetime</td>
+<td>no</td>
+<td>Time of last update</td>
+</tr>
+<tr>
+<td>active</td>
+<td>boolean</td>
+<td>no</td>
+<td>Is file currently active</td>
+</tr>
+<tr>
+<td>last_active_at</td>
+<td>datetime</td>
+<td>yes</td>
+<td>Time when file was deactivated</td>
+</tr>
+<tr>
+<td>duplicated_from_file_record_id</td>
+<td>integer</td>
+<td>yes</td>
+<td>ID of file record from which current one was duplicated</td>
 </tr>
 </tbody></table>
-<h4 id='a-name-create-file-response-a-response-json-object-1'><span id=a-name-create-file-response-a-response-json-object></span><a name="create-file-response"></a> Response (JSON object)</h4>
+<h2 id='a-name-list-files-a-list-file-records-1'><span id=a-name-list-files-a-list-file-records></span><a name="list-files"></a> List File Records</h2>
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl --location --request GET <span class="s1">'https://api.mpc.dev.placewise.com/v1/files'</span> <span class="se">\</span>
+--header <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
+--header <span class="s1">'x-user-agent: CURL manual test'</span> <span class="se">\</span>
+--header <span class="s1">'x-customer: 447'</span> <span class="se">\</span>
+--header <span class="s1">'authorization: Bearer JWTTOKEN'</span>
+</code></pre>
+<blockquote>
+<p>Returns object containing <a href="#file-record">file record</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"file_records"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">see</span><span class="p">:</span><span class="w"> </span><span class="err">FileRecord</span><span class="w"> </span><span class="err">model</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>GET</strong> <code>v1/files</code></p>
+
+<p>Returns list of file records.</p>
+<h4 id='query-parameters-1'><span id=query-parameters></span>Query Parameters</h4>
 <table><thead>
 <tr>
-<th>Key</th>
+<th>Parameter</th>
 <th>Type</th>
+<th>Default</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>original</td>
-<td>File</td>
-<td>See <a href="#file-model">File model</a></td>
+<td>per_page</td>
+<td>integer</td>
+<td>100</td>
+<td>Number of results to be returned per request (100 is the maximum)</td>
 </tr>
 <tr>
-<td>projected_versions</td>
-<td>ProjectedVersion[]</td>
-<td>See <a href="#projected-file-versions">Projected file versions</a></td>
-</tr>
-</tbody></table>
-<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
-<table><thead>
-<tr>
-<th>Status</th>
-<th>Reason</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code>404</code></td>
-<td>The Fileable does not exist</td>
+<td>page_no</td>
+<td>integer</td>
+<td>1</td>
+<td>Number of results page</td>
 </tr>
 <tr>
-<td><code>422</code></td>
-<td>Invalid parameters</td>
-</tr>
-</tbody></table>
-
-<aside class="notice">
-Requires <code>Files:Api:Create</code> permit
-</aside>
-<h3 id='a-name-update-file-a-update-file-1'><span id=a-name-update-file-a-update-file></span><a name="update-file"></a> Update file</h3>
-<blockquote>
-<p>Example request</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X PUT <span class="se">\</span>
-  https://api.mpc.placewise.com/v3/infinity-mall/files/offers/1000289/offer_default <span class="se">\</span>
-  -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
-  -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
-  -H <span class="s1">'x-user-agent: CURL manual test'</span> <span class="se">\</span>
-  -H <span class="s1">'content-type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW'</span> <span class="se">\</span>
-  -F <span class="nv">file</span><span class="o">=</span>@some_file.png <span class="se">\</span>
-  -F <span class="s1">'crop_to=256,256,856,1056'</span>
-
-</code></pre>
-<blockquote>
-<p>When successful (200), Returns info about uploaded file. Same as <a href="#create-file">Create file</a> example response</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="err">//</span><span class="w"> </span><span class="err">(...)</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">'Create</span><span class="w"> </span><span class="err">file'</span><span class="w"> </span><span class="err">example</span><span class="w"> </span><span class="err">response</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p><strong>PUT</strong> <code>v3/:loyalty_club_slug/files/:fileable_type/:fileable_id/kind</code></p>
-
-<p>Updates file for given Fileable (e.g. Offer).</p>
-<h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
-<p>See: <a href="#create-file-url-parameters">Create File URL Parameters</a></p>
-<h4 id='post-parameters-1'><span id=post-parameters></span>POST Parameters</h4>
-<p>See: <a href="#create-file-post-parameters">Create File POST Parameters</a></p>
-<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
-<p>See: <a href="#create-file-response">Create File Response</a></p>
-<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
-<table><thead>
-<tr>
-<th>Status</th>
-<th>Reason</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code>404</code></td>
-<td>Fileable not found</td>
+<td>ids</td>
+<td>integer[]</td>
+<td>null</td>
+<td>When given, returned file records are filtered by id</td>
 </tr>
 <tr>
-<td><code>404</code></td>
-<td>File not found</td>
+<td>file_identifiers</td>
+<td>string[]</td>
+<td>null</td>
+<td>When given, returned file records are filtered by file&#39;s type &amp; identifier. Format: <code>#{type}:#{identifier}</code>.</td>
 </tr>
 <tr>
-<td><code>422</code></td>
-<td>Invalid parameters</td>
+<td>with_inactive</td>
+<td>boolean</td>
+<td>false</td>
+<td>When true fetches also inactive file records</td>
 </tr>
 </tbody></table>
 
 <aside class="notice">
-Requires <code>Files:Api:Update</code> permit
-</aside>
-<h3 id='a-name-reprocess-file-a-reprocess-file-1'><span id=a-name-reprocess-file-a-reprocess-file></span><a name="reprocess-file"></a> Reprocess file</h3>
-<blockquote>
-<p>Example request</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X PUT <span class="se">\</span>
-  https://api.mpc.placewise.com/v3/infinity-mall/files/offers/1000289/offer_default/reprocess <span class="se">\</span>
-  -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
-  -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
-  -H <span class="s1">'x-user-agent: CURL manual test'</span> <span class="se">\</span>
-  -H <span class="s1">'content-type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW'</span> <span class="se">\</span>
-  -F <span class="s1">'crop_to=256,256,856,1056'</span>
-
-</code></pre>
-<blockquote>
-<p>When successful (200), Returns info about uploaded file. Same as <a href="#create-file">Create file</a> example response</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="err">//</span><span class="w"> </span><span class="err">(...)</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">'Create</span><span class="w"> </span><span class="err">file'</span><span class="w"> </span><span class="err">example</span><span class="w"> </span><span class="err">response</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p><strong>PUT</strong> <code>v3/:loyalty_club_slug/files/:fileable_type/:fileable_id/kind/reprocess</code></p>
-
-<p>Reprocesses file for given Fileable (e.g. Offer).
-It means that no file needs to be uploaded, instead the original file will be reprocessed according to given parameters.</p>
-<h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
-<p>See: <a href="#create-file-url-parameters">Create File URL Parameters</a></p>
-<h4 id='post-parameters-1'><span id=post-parameters></span>POST Parameters</h4>
-<p>See: <a href="#create-file-post-parameters">Create File POST Parameters</a> - except no <code>file</code> param is accepted here</p>
-<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
-<p>See: <a href="#create-file-response">Create File Response</a></p>
-<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
-<table><thead>
-<tr>
-<th>Status</th>
-<th>Reason</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code>404</code></td>
-<td>Fileable not found</td>
-</tr>
-<tr>
-<td><code>404</code></td>
-<td>File not found</td>
-</tr>
-<tr>
-<td><code>422</code></td>
-<td>Invalid parameters</td>
-</tr>
-</tbody></table>
-
-<aside class="notice">
-Requires <code>Files:Api:Reprocess</code> permit
-</aside>
-<h3 id='a-name-delete-file-a-delete-file-1'><span id=a-name-delete-file-a-delete-file></span><a name="delete-file"></a> Delete file</h3>
-<blockquote>
-<p>Example request</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X DELETE <span class="s2">"https://api.mpc.placewise.com/v3/infinity-mall/files/offers/1000289/offer_default </span><span class="se">\</span><span class="s2">
-  -H 'content-type: application/json' </span><span class="se">\</span><span class="s2">
-  -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' </span><span class="se">\</span><span class="s2">
-  -H 'x-product-name: default' </span><span class="se">\</span><span class="s2">
-  -H 'x-user-agent: CURL manual test'
-</span></code></pre>
-<blockquote>
-<p>When successful (200), returns an empty object</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="err">//</span><span class="w"> </span><span class="err">Empty</span><span class="w"> </span><span class="err">object</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p><strong>DELETE</strong> <code>v3/:loyalty_club_slug/files/:fileable_type/:fileable_id/kind</code></p>
-
-<p>Deletes file of given Fileable (e.g. Offer).</p>
-<h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
-<p>See: <a href="#create-file-url-parameters">Create File URL Parameters</a></p>
-<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
-<table><thead>
-<tr>
-<th>Status</th>
-<th>Reason</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code>404</code></td>
-<td>Fileable not found</td>
-</tr>
-<tr>
-<td><code>404</code></td>
-<td>File not found</td>
-</tr>
-</tbody></table>
-
-<aside class="notice">
-Requires <code>Files:Api:Delete</code> permit
+Requires <code>Files:Api:Files:List</code> permit
 </aside>
