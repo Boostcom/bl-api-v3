@@ -1,5 +1,8 @@
 # Changelog
 
+#### 08.02.2021 | Jakub Kruczek
+* Initial Files API documentation [Files API](#files-api)
+
 #### 02.12.2020 | Piotr Świtlicki
 * Add `title` param to [Operations API &bull; Documents &bull; Index](#operations-admin-list-documents)
 

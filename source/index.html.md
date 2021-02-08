@@ -49,6 +49,7 @@ includes:
   - 47_operations_admin_api/3_resource_types
   - 47_operations_admin_api/4_resources
   - 50_files_api/0_files
+  - 998_deprecated_files_api/0_files
   - 999_changelog/0_changelog
 
 search: true
