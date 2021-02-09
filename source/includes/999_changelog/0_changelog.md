@@ -1,5 +1,8 @@
 # Changelog
 
+#### 09.02.2021 | Jakub Kruczek
+* Destroy File Records documentation [Files API](#files-api)
+
 #### 08.02.2021 | Jakub Kruczek
 * Initial Files API documentation [Files API](#files-api)
 

@@ -80,3 +80,38 @@ with_inactive          | boolean     | false     | When true fetches also inacti
 <aside class="notice">
 Requires <code>Files:Api:Files:List</code> permit
 </aside>
+
+## <a name="destroy-files"></a> Destroy File Records
+
+> Example request
+
+```shell
+curl --location --request DELETE 'https://api.mpc.dev.placewise.com/v1/files?file_identifiers[]=offer:1234' \
+--header 'x-product-name: default' \
+--header 'x-user-agent: CURL manual test' \
+--header 'x-customer: 447' \
+--header 'authorization: Bearer JWTTOKEN'
+```
+
+> Returns object containing deactivated [file records](#file-record)
+
+```json
+{
+  "file_records": {} // see: FileRecord model
+}
+```
+
+**DELETE** `v1/files`
+
+Effectively destroys file records by deactivating them.
+
+#### Query Parameters
+
+Parameter         | Type        | Default   | Description
+--------------    | ----------- | --------- | -----------
+ids               | integer[]   | null      | IDs of file records to destroy. Mutually exclusive with `file_identifiers`.
+file_identifiers  | string[]    | null      | When given, returned file records are filtered by file's type & identifier. Format: `#{type}:#{identifier}`. Mutually exclusive with `ids`.
+
+<aside class="notice">
+Requires <code>Files:Api:Files:Destroy</code> permit
+</aside>
