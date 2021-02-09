@@ -179,3 +179,49 @@
 <aside class="notice">
 Requires <code>Files:Api:Files:List</code> permit
 </aside>
+<h2 id='a-name-destroy-files-a-destroy-file-records-1'><span id=a-name-destroy-files-a-destroy-file-records></span><a name="destroy-files"></a> Destroy File Records</h2>
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl --location --request DELETE <span class="s1">'https://api.mpc.dev.placewise.com/v1/files?file_identifiers[]=offer:1234'</span> <span class="se">\</span>
+--header <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
+--header <span class="s1">'x-user-agent: CURL manual test'</span> <span class="se">\</span>
+--header <span class="s1">'x-customer: 447'</span> <span class="se">\</span>
+--header <span class="s1">'authorization: Bearer JWTTOKEN'</span>
+</code></pre>
+<blockquote>
+<p>Returns object containing deactivated <a href="#file-record">file records</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"file_records"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">see</span><span class="p">:</span><span class="w"> </span><span class="err">FileRecord</span><span class="w"> </span><span class="err">model</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>DELETE</strong> <code>v1/files</code></p>
+
+<p>Effectively destroys file records by deactivating them.</p>
+<h4 id='query-parameters-1'><span id=query-parameters></span>Query Parameters</h4>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ids</td>
+<td>integer[]</td>
+<td>null</td>
+<td>IDs of file records to destroy. Mutually exclusive with <code>file_identifiers</code>.</td>
+</tr>
+<tr>
+<td>file_identifiers</td>
+<td>string[]</td>
+<td>null</td>
+<td>When given, returned file records are filtered by file&#39;s type &amp; identifier. Format: <code>#{type}:#{identifier}</code>. Mutually exclusive with <code>ids</code>.</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Files:Api:Files:Destroy</code> permit
+</aside>
