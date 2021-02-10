@@ -1,5 +1,89 @@
 # POS Campaign API
 
+##<a name="pos-campaigns-config-list"></a> List
+> Example:
+
+```shell
+curl -X GET \
+"https://api.mpc.placewise.com/v3/:loyalty_club_slug/pos-campaigns/points?active=false" \
+    -H 'content-type: application/json' \
+    -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+    -H 'x-product-name: default' \
+    -H 'x-user-agent: CURL manual test'
+```
+
+> When successful (200), returns a feedback object structured like this:
+
+```json
+[
+  {
+    "id": 1,
+    "name": "Test 1",
+    "conditions": {
+      "condition": "Or",
+      "arg": [
+        {
+          "condition": "StoreId",
+          "arg": "1"
+        },
+        {
+          "condition": "ItemId",
+          "arg": "112"
+        }
+      ]
+    },
+    "bonus": {
+      "type": "amount",
+      "value": 10
+    },
+    "date_from": "2019-02-02T00:00:00+0000",
+    "date_to": "2022-02-02T00:00:00+0000",
+    "deleted": true
+  },
+  {
+    "id": 2,
+    "name": "Test 2",
+    "conditions": {
+      "condition": "Or",
+      "arg": [
+        {
+          "condition": "StoreId",
+          "arg": "2"
+        },
+        {
+          "condition": "ItemId",
+          "arg": "112"
+        }
+      ]
+    },
+    "bonus": {
+      "type": "amount",
+      "value": 10
+    },
+    "date_from": "2019-02-02T00:00:00+0000",
+    "date_to": "2022-02-02T00:00:00+0000",
+    "deleted": false
+  }
+]
+``` 
+
+**GET** `v3/:loyalty_club_slug/pos-campaigns/:type`
+
+Get POS campaigns.
+
+#### URL Parameters
+
+Parameter | Description                                  | Type
+--------- | -------------------------------------------- | ------
+type |        POS Campaign type                          | enum ["points", "stamps"]
+
+#### GET Parameters (Query String)
+
+Key | Type | Default | Description
+--------- | --------- | --------- | --------- 
+active | boolean | false | Return only active campaigns
+
+
 
 ##<a name="pos-campaigns-config-create"></a> Create
 

@@ -1,5 +1,8 @@
 # Changelog
 
+#### 10.02.2021 | Paweł Buczkowski
+* Add [POS Campaign API &bull; List](#pos-campaigns-config-list)
+
 #### 09.02.2021 | Jakub Kruczek
 * Destroy File Records documentation [Files API](#files-api)
 
