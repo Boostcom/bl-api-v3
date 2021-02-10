@@ -1,4 +1,102 @@
-<h1 id='pos-campaign-api-1'><span id=pos-campaign-api></span>POS Campaign API</h1><h2 id='a-name-pos-campaigns-config-create-a-create-1'><span id=a-name-pos-campaigns-config-create-a-create></span><a name="pos-campaigns-config-create"></a> Create</h2>
+<h1 id='pos-campaign-api-1'><span id=pos-campaign-api></span>POS Campaign API</h1><h2 id='a-name-pos-campaigns-config-list-a-list-1'><span id=a-name-pos-campaigns-config-list-a-list></span><a name="pos-campaigns-config-list"></a> List</h2>
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v3/:loyalty_club_slug/pos-campaigns/points?active=false"</span> <span class="se">\</span>
+    -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+    -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
+    -H <span class="s1">'x-user-agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>When successful (200), returns a feedback object structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test 1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"conditions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"condition"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Or"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"arg"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"condition"</span><span class="p">:</span><span class="w"> </span><span class="s2">"StoreId"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"arg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"condition"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ItemId"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"arg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"112"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"bonus"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"amount"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"date_from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-02T00:00:00+0000"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date_to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-02-02T00:00:00+0000"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test 2"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"conditions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"condition"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Or"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"arg"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"condition"</span><span class="p">:</span><span class="w"> </span><span class="s2">"StoreId"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"arg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"condition"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ItemId"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"arg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"112"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"bonus"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"amount"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"date_from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-02T00:00:00+0000"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date_to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-02-02T00:00:00+0000"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p><strong>GET</strong> <code>v3/:loyalty_club_slug/pos-campaigns/:type</code></p>
+
+<p>Get POS campaigns.</p>
+<h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>type</td>
+<td>POS Campaign type</td>
+<td>enum [&quot;points&quot;, &quot;stamps&quot;]</td>
+</tr>
+</tbody></table>
+<h4 id='get-parameters-query-string-1'><span id=get-parameters-query-string></span>GET Parameters (Query String)</h4>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>active</td>
+<td>boolean</td>
+<td>false</td>
+<td>Return only active campaigns</td>
+</tr>
+</tbody></table>
+<h2 id='a-name-pos-campaigns-config-create-a-create-1'><span id=a-name-pos-campaigns-config-create-a-create></span><a name="pos-campaigns-config-create"></a> Create</h2>
 <blockquote>
 <p>Example:</p>
 </blockquote>

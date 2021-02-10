@@ -1,4 +1,8 @@
-<h1 id='changelog-1'><span id=changelog></span>Changelog</h1><h4 id='09-02-2021-jakub-kruczek-1'><span id=09-02-2021-jakub-kruczek></span>09.02.2021 | Jakub Kruczek</h4>
+<h1 id='changelog-1'><span id=changelog></span>Changelog</h1><h4 id='10-02-2021-pawel-buczkowski-1'><span id=10-02-2021-pawel-buczkowski></span>10.02.2021 | Paweł Buczkowski</h4>
+<ul>
+<li>Add <a href="#pos-campaigns-config-list">POS Campaign API &bull; List</a></li>
+</ul>
+<h4 id='09-02-2021-jakub-kruczek-1'><span id=09-02-2021-jakub-kruczek></span>09.02.2021 | Jakub Kruczek</h4>
 <ul>
 <li>Destroy File Records documentation <a href="#files-api">Files API</a></li>
 </ul>
