@@ -294,7 +294,7 @@ That will allow further targeting members by communication channel.</p>
 <p>It&#39;s an unique slugified name of the Loyalty Club.</p>
 <h3 id='a-name-msisdn-param-a-msisdn-param-1'><span id=a-name-msisdn-param-a-msisdn-param></span><a name="msisdn-param"></a> Msisdn param</h3>
 <p>Members in our systems may be identified with their phone numbers (msisdns) according to <a href="https://en.wikipedia.org/wiki/E.164">E.164</a>
-We use format without leading <code>00</code> or <code>+</code> and without spaces, so that it contains only digits, i.e. <code>4740485124</code>.</p>
+We use format without leading <code>00</code> or <code>+</code> and without spaces, so that it contains only digits, i.e. <code>4740769126</code>.</p>
 <h2 id='common-http-error-codes-1'><span id=common-http-error-codes></span>Common HTTP error codes</h2>
 <table><thead>
 <tr>
@@ -2181,7 +2181,7 @@ Requires <code>BL:Api:Members:OAuth:Get</code> permit
 <tr>
 <td>msisdn</td>
 <td>Member&#39;s msisdn</td>
-<td>string (format as defined <a href="#msisdn-param">here</a> - example: <code>4740485124</code>)</td>
+<td>string (format as defined <a href="#msisdn-param">here</a> - example: <code>4740769126</code>)</td>
 </tr>
 <tr>
 <td>email</td>
@@ -2250,7 +2250,7 @@ Requires <code>BL:Api:Members:OAuth:Get</code> permit
 <tr>
 <td>msisdn</td>
 <td>Member&#39;s msisdn</td>
-<td>string (format as defined <a href="#msisdn-param">here</a> - example: <code>4740485124</code>)</td>
+<td>string (format as defined <a href="#msisdn-param">here</a> - example: <code>4740769126</code>)</td>
 </tr>
 <tr>
 <td>email</td>
@@ -2384,7 +2384,7 @@ Requires <code>BL:Api:Members:Check</code> permit
 <tr>
 <td>msisdn</td>
 <td>Member&#39;s msisdn</td>
-<td>string (format as defined <a href="#msisdn-param">here</a> - example: <code>4740485124</code>)</td>
+<td>string (format as defined <a href="#msisdn-param">here</a> - example: <code>4740769126</code>)</td>
 </tr>
 <tr>
 <td>email</td>
@@ -2449,7 +2449,7 @@ curl -X POST <span class="se">\</span>
   -d <span class="s1">'{
     "properties": {
         "email": "dev+6@example.com",
-        "msisdn": "4740485124",
+        "msisdn": "4740769126",
         "first_name": "The",
         "last_name": "Doge"
     },
@@ -2532,7 +2532,7 @@ valid <code>registration_password</code> param that is sent to user with <a href
 <td>properties[&#39;msisdn&#39;]</td>
 <td>yes*</td>
 <td>none</td>
-<td>Unique member&#39;s msisdn as defined <a href="#msisdn-param">here</a>) Example: <code>4740485124</code>.</td>
+<td>Unique member&#39;s msisdn as defined <a href="#msisdn-param">here</a>) Example: <code>4740769126</code>.</td>
 <td>string</td>
 </tr>
 <tr>
@@ -3249,7 +3249,7 @@ Requires <code>BL:Api:Members:Tokens:Create</code> permit
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.mpc.placewise.com/v3/infinity-mall/members/by_msisdn/4740485124/send_one_time_password"</span> <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.mpc.placewise.com/v3/infinity-mall/members/by_msisdn/4740769126/send_one_time_password"</span> <span class="se">\</span>
   -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
   -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
@@ -3273,7 +3273,7 @@ Requires <code>BL:Api:Members:Tokens:Create</code> permit
 <tr>
 <td>msisdn</td>
 <td>Member&#39;s msisdn</td>
-<td>string (format as defined <a href="#msisdn-param">here</a> - example: <code>4740485124</code>)</td>
+<td>string (format as defined <a href="#msisdn-param">here</a> - example: <code>4740769126</code>)</td>
 </tr>
 </tbody></table>
 
@@ -3342,7 +3342,7 @@ Requires <code>BL:Api:Members:CreateOneTimePassword</code> permit
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.mpc.placewise.com/v3/infinity-mall/members/by_msisdn/4740485124/send_registration_password"</span> <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.mpc.placewise.com/v3/infinity-mall/members/by_msisdn/4740769126/send_registration_password"</span> <span class="se">\</span>
   -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
   -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
@@ -3377,7 +3377,7 @@ Requires <code>BL:Api:Members:CreateOneTimePassword</code> permit
 <tr>
 <td>msisdn</td>
 <td>MSISDN</td>
-<td>string (format as defined <a href="#msisdn-param">here</a> - example: <code>4740485124</code>)</td>
+<td>string (format as defined <a href="#msisdn-param">here</a> - example: <code>4740769126</code>)</td>
 </tr>
 </tbody></table>
 <h4 id='post-parameters-1'><span id=post-parameters></span>POST Parameters</h4>
@@ -3491,7 +3491,7 @@ Requires <code>BL:Api:Members:Tokens:Verify</code> permit
 <p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X PUT <span class="se">\</span>
-  <span class="s2">"https://api.mpc.placewise.com/v3/infinity-mall/members/channels/msisdn/4740485124/send_verification"</span> <span class="se">\</span>
+  <span class="s2">"https://api.mpc.placewise.com/v3/infinity-mall/members/channels/msisdn/4740769126/send_verification"</span> <span class="se">\</span>
   -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
   -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
@@ -3539,7 +3539,7 @@ Requires <code>BL:Api:Members:Msisdns:Verify</code> permit
 <p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X PUT <span class="se">\</span>
-  <span class="s2">"https://api.mpc.placewise.com/v3/infinity-mall/members/channels/msisdn/4740485124/verify"</span> <span class="se">\</span>
+  <span class="s2">"https://api.mpc.placewise.com/v3/infinity-mall/members/channels/msisdn/4740769126/verify"</span> <span class="se">\</span>
   -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
   -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
@@ -4284,7 +4284,7 @@ that, you may want to identify all bulks with the same <code>import_id</code> an
 <td>properties[&#39;msisdn&#39;]</td>
 <td>yes*</td>
 <td>none</td>
-<td>Unique member&#39;s msisdn as defined <a href="#msisdn-param">here</a>) Example: <code>4740485124</code>.</td>
+<td>Unique member&#39;s msisdn as defined <a href="#msisdn-param">here</a>) Example: <code>4740769126</code>.</td>
 <td>string</td>
 </tr>
 <tr>
@@ -5854,7 +5854,7 @@ Requires <code>BL:Api:MembersGroups:Members:List</code> permit
 <tr>
 <td>member_msisdn</td>
 <td>Member&#39;s msisdn</td>
-<td>string (format as defined <a href="#msisdn-param">here</a> - example: <code>4740485124</code>)</td>
+<td>string (format as defined <a href="#msisdn-param">here</a> - example: <code>4740769126</code>)</td>
 </tr>
 <tr>
 <td>member_email</td>
@@ -6845,7 +6845,7 @@ It must be created again, for example with <a href="#todo">Clone sending endpoin
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"member_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">150</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"msisdn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4740485124"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"msisdn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4740769126"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"recipient@example.com"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"app_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c6OE_joK28g:APA91bFkT5fzhdWJMJswPo3btVLxtMmhi7jKdOE_VL1IhkSmuoz3iEQMg4Cq"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Piotr"</span><span class="w"> </span><span class="p">}</span><span class="w">
