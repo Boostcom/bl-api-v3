@@ -571,7 +571,7 @@ app_token | string |
 ```json
 {
   "member_id": 150,
-  "msisdn": "4740485124",
+  "msisdn": "4740769126",
   "email": "recipient@example.com",
   "app_token": "c6OE_joK28g:APA91bFkT5fzhdWJMJswPo3btVLxtMmhi7jKdOE_VL1IhkSmuoz3iEQMg4Cq",
   "properties": { "first_name": "Piotr" }

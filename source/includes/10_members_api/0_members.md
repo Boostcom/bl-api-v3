@@ -277,7 +277,7 @@ Requires <code>BL:Api:Members:OAuth:Get</code> permit
 Parameter | Description | Type
 --------- | ----------- | ------
 id | Member's ID | integer
-msisdn | Member's msisdn | string (format as defined [here](#msisdn-param) - example: `4740485124`)
+msisdn | Member's msisdn | string (format as defined [here](#msisdn-param) - example: `4740769126`)
 email | Member's email | string (email)
 
 #### Response (JSON object)
@@ -328,7 +328,7 @@ Returns basic info for given member. If member does not exist, returns `null'.
 Parameter | Description | Type
 --------- | ----------- | ------
 id | Member's ID | integer
-msisdn | Member's msisdn | string (format as defined [here](#msisdn-param) - example: `4740485124`)
+msisdn | Member's msisdn | string (format as defined [here](#msisdn-param) - example: `4740769126`)
 email | Member's email | string (email)
 
 #### Response (JSON object)
@@ -428,7 +428,7 @@ Returns `person_id` for given member. Please note that `person_id` cannot be pre
 Parameter | Description | Type
 --------- | ----------- | ------
 id | Member's ID | integer
-msisdn | Member's msisdn | string (format as defined [here](#msisdn-param) - example: `4740485124`)
+msisdn | Member's msisdn | string (format as defined [here](#msisdn-param) - example: `4740769126`)
 email | Member's email | string (email)
 
 #### Response (JSON object)
@@ -468,7 +468,7 @@ curl -X POST \
   -d '{
 	"properties": {
 		"email": "dev+6@example.com",
-		"msisdn": "4740485124",
+		"msisdn": "4740769126",
 		"first_name": "The",
 		"last_name": "Doge"
 	},
@@ -526,7 +526,7 @@ Parameter | Required? | Default | Description | Type
 --------- | ----------- | ----------- | --------- | -----------
 properties | **yes** | none | JSON with properties for member | JSON Object
 properties\['language'\] | no | "default_language" from schema | Language used by user | string
-properties\['msisdn'\] | yes* | none | Unique member's msisdn as defined [here](#msisdn-param)) Example: `4740485124`.| string
+properties\['msisdn'\] | yes* | none | Unique member's msisdn as defined [here](#msisdn-param)) Example: `4740769126`.| string
 properties\['email'\] | yes* | none | Member's email | string
 consents | no | {} | Member's consents (similar to [Member's consents JSON model](#member-consents-model)) | JSON Object
 sms_enabled | no | true | Should SMS channel be enabled for member? | Boolean
@@ -1024,7 +1024,7 @@ Requires <code>BL:Api:Members:Tokens:Create</code> permit
 > Example:
 
 ```shell
-curl "https://api.mpc.placewise.com/v3/infinity-mall/members/by_msisdn/4740485124/send_one_time_password" \
+curl "https://api.mpc.placewise.com/v3/infinity-mall/members/by_msisdn/4740769126/send_one_time_password" \
   -H 'content-type: application/json' \
   -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
   -H 'x-product-name: default' \
@@ -1043,7 +1043,7 @@ This password then can be used to sign in, just as "regular" member password - s
 
 Parameter | Description | Type
 --------- | ----------- | ------
-msisdn | Member's msisdn | string (format as defined [here](#msisdn-param) - example: `4740485124`)
+msisdn | Member's msisdn | string (format as defined [here](#msisdn-param) - example: `4740769126`)
 
 <aside class="notice">
 Requires <code>BL:Api:Members:CreateOneTimePassword</code> permit
@@ -1102,7 +1102,7 @@ Requires <code>BL:Api:Members:CreateOneTimePassword</code> permit
 > Example:
 
 ```shell
-curl "https://api.mpc.placewise.com/v3/infinity-mall/members/by_msisdn/4740485124/send_registration_password" \
+curl "https://api.mpc.placewise.com/v3/infinity-mall/members/by_msisdn/4740769126/send_registration_password" \
   -H 'content-type: application/json' \
   -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
   -H 'x-product-name: default' \
@@ -1133,7 +1133,7 @@ This password may be required for member registration - see: [Registration passw
 
 Parameter | Description | Type
 --------- | ----------- | ------
-msisdn | MSISDN | string (format as defined [here](#msisdn-param) - example: `4740485124`)
+msisdn | MSISDN | string (format as defined [here](#msisdn-param) - example: `4740769126`)
 
 #### POST Parameters
 
@@ -1209,7 +1209,7 @@ Requires <code>BL:Api:Members:Tokens:Verify</code> permit
 
 ```shell
 curl -X PUT \
-  "https://api.mpc.placewise.com/v3/infinity-mall/members/channels/msisdn/4740485124/send_verification" \
+  "https://api.mpc.placewise.com/v3/infinity-mall/members/channels/msisdn/4740769126/send_verification" \
   -H 'content-type: application/json' \
   -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
   -H 'x-product-name: default' \
@@ -1250,7 +1250,7 @@ Requires <code>BL:Api:Members:Msisdns:Verify</code> permit
 
 ```shell
 curl -X PUT \
-  "https://api.mpc.placewise.com/v3/infinity-mall/members/channels/msisdn/4740485124/verify" \
+  "https://api.mpc.placewise.com/v3/infinity-mall/members/channels/msisdn/4740769126/verify" \
   -H 'content-type: application/json' \
   -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
   -H 'x-product-name: default' \

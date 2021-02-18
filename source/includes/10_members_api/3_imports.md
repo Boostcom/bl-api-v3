@@ -121,7 +121,7 @@ General requirements:
 Key | Required? | Default | Description | Type
 --- | --- | --- | --- | ---
 properties | yes | - | JSON with properties for member (see: [Member model](#member-model) | JSON Object
-properties\['msisdn'\] | yes* | none | Unique member's msisdn as defined [here](#msisdn-param)) Example: `4740485124`.| string
+properties\['msisdn'\] | yes* | none | Unique member's msisdn as defined [here](#msisdn-param)) Example: `4740769126`.| string
 properties\['email'\] | yes* | none | Member's email | string
 password | no | null | Member’s password. Not required, but user may not be able to log in without this | String
 sms_enabled | no | true | Should SMS channel be enabled for member? | Boolean
