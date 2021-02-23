@@ -1,14 +1,17 @@
-##  Members Imports
+## <a name="members-imports"></a> Members Imports
 
 ### <a name="members-imports-import-flow"></a> Introduction
 
-##### Import bulks
+This API allows to create (or update large amount of members.
 
 At most 1000 member records may be sent in one request.
+If you intend to run an import more than that, you may group them by `import_id`, so multiple bulks will be grouped into one import.
 
-If you intend to import more than that, you may group them by `import_id`, so multiple bulks will be grouped into one import.
+##### Updating
 
-Nevertheless, keep in mind, that import always consists of at least one bulk.
+With `operation: "update"` param given, members will be updated. Only attributes present in payload will be updated.
+
+You can specify by which attribute (`id`, `msisdn`, `email`) members for update will be identified.
 
 ##### Import statuses
 
@@ -68,7 +71,7 @@ curl -X POST \
     '{
       "import_id": "import_21",
       "request_number": 3,
-      "only_create": false,
+      "operation": "create",
       "members": [
         {
           "properties": { "email": "foo@bar.baz" },
@@ -109,7 +112,8 @@ Parameter | Required? | Default | Description | Type
 import_id | no | auto-generated | When you're making more than one call you can consider adding it. Otherwise it will be auto-generated | String
 request_number | no | - | A number that you can use for bulk identification in "Status" endpoint. It's up to you to provide it's uniqueness. Useless without specifying `import_id` | Integer
 members | yes | - | Array with members payloads - See below | Array <JSON Object>
-only_create | no | false | When true, it does not update members | Boolean
+operation | no | `"create"` | Should members be created or updated |  enum: ['create', 'update']
+member_identifier_type | no | `"id"` | (for `"update"` operation) Which member property should be used to identify member for update |  enum: ['id', 'email', 'msisdn']
 
 ##### Members Array 
 
@@ -159,7 +163,9 @@ Code | Description
 `duplicated_msisdns` | At least two members in payload share same msisdn
 `members_size_incorrect` | Members number in payload exceeds maximum (1000)
 `members_empty` | Payload is empty
-`missing_identifier` | At least one member in payload misses required identifier (depends on Community)
+`missing_identifier` | At least one member in payload misses required identifier (depends on Loyalty Club)
+`invalid_operation` | Specified operation is not supported
+`invalid_member_identifier_type` | Specified identifier type is invalid or unavailable in Loyalty Club
 
 <aside class="notice">
 Requires <code>BL:Api:Members:Imports:Create</code> permit
@@ -257,7 +263,7 @@ curl -X GET \
     "id": 11,
     "import_id": "89405ae3-2dd5-46cb-a13b-840bc588199b",
     "request_number": 1,
-    "only_create": false,
+    "operation": "create",
     "status": "finished",
     "members_in_payload_number": 13,
     "members_created_number": 10,
@@ -301,6 +307,7 @@ Key | Description | Type
 id | ID of bulk| Integer
 import_id | Import identifier | String
 request_number | The number of the bulk | Integer
+operation | The operation to perform | String
 status | Job status - one of: 'waiting', 'working', 'finished', 'failed' 'waiting_for_retry' - see more [here](#members-imports-import-flow) in "Bulk statuses" section | String
 members_in_payload_number | A number of members that were requested for importing| Integer
 members_created_number | A number of members that were successfully created | Integer

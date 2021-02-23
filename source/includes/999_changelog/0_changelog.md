@@ -1,5 +1,8 @@
 # Changelog
 
+#### 23.02.2021 | Piotr Świtlicki
+* Add support for direct update in [Members imports](#members-imports) 
+
 #### 10.02.2021 | Paweł Buczkowski
 * Add [POS Campaign API &bull; List](#pos-campaigns-config-list)
 
