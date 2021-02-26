@@ -16,17 +16,19 @@
       "type": "object",
       "properties": {
         "ResourceTypeAttribute 3": {
-          "type": "string"
+          "type": "string",
+          "enum": ["radio input value 1", "radio input value 2"]
         },
         "ResourceTypeAttribute 4": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "string",
+            "enum": ["select input value 1", "select input value 2"]
           }
         }
       },
       "required": [
-        "ResourceTypeAttribute 4"
+        "ResourceTypeAttribute 3"
       ]
     },
     "ResourceType 1": {

@@ -13,6 +13,7 @@
     "user_id": "some-user-uuid",
     "name": "a very important document",
     "marketing_usable": true,
+    "file_url": "https://some.file/url",
     "state": "accepted",
     "properties": {
       "campaign_name": ["November", "October"],
@@ -36,6 +37,7 @@ member_id | integer | no | .member_id of the User the resource has been created 
 user_id | string | no | uuid of the User the resource has been created by
 name | string | no | name of the resource
 marketing_usable | boolean | no | whether the resource will be allowed to be used for marketing purposes
+file_url | string | no | URL of the file where the resource is located at
 state | string | no | current state of the resource (could be `pending` (the default one), `approved` or `rejected`)
 properties | object | yes | custom attributes of the resource
 created_at | datetime | no | time of creation
@@ -74,6 +76,7 @@ Parameter                      | Type                            | Default   | D
 --------------                 | -----------                     | --------- | -----------
 per_page                       | integer                         | 100       | Number of results to be returned per request (100 is the maximum)
 page_no                        | integer                         | 1         | Number of results page
+search_query                   | string                          | null      | If provided, only Resources that have any of their attribute values matching the provided string are returned
 
 <aside class="notice">
 Requires <code>Operations:Api:Resources:List</code> permit
