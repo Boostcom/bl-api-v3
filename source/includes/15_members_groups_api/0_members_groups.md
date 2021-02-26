@@ -512,6 +512,7 @@ Parameter | Type | Default | Description
 --------- | ----------- | --------- | -----------
 per_page | integer | 1000 | Number of results to be returned per request (1000 is the maximum)
 page_no | integer | 1 | Number of results page
+users_only | bool | false | Filter only members transformed to users
 
 #### URL Parameters
 
