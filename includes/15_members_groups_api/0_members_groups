@@ -762,6 +762,12 @@ Requires <code>BL:Api:MembersGroups:Members:Remove</code> permit
 <td>1</td>
 <td>Number of results page</td>
 </tr>
+<tr>
+<td>users_only</td>
+<td>bool</td>
+<td>false</td>
+<td>Filter only members transformed to users</td>
+</tr>
 </tbody></table>
 <h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
 <table><thead>
