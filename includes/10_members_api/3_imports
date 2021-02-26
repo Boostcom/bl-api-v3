@@ -1,9 +1,12 @@
-<h2 id='members-imports-1'><span id=members-imports></span>Members Imports</h2><h3 id='a-name-members-imports-import-flow-a-introduction-1'><span id=a-name-members-imports-import-flow-a-introduction></span><a name="members-imports-import-flow"></a> Introduction</h3><h5 id='import-bulks-1'><span id=import-bulks></span>Import bulks</h5>
-<p>At most 1000 member records may be sent in one request.</p>
+<h2 id='a-name-members-imports-a-members-imports-1'><span id=a-name-members-imports-a-members-imports></span><a name="members-imports"></a> Members Imports</h2><h3 id='a-name-members-imports-import-flow-a-introduction-1'><span id=a-name-members-imports-import-flow-a-introduction></span><a name="members-imports-import-flow"></a> Introduction</h3>
+<p>This API allows to create (or update large amount of members.</p>
 
-<p>If you intend to import more than that, you may group them by <code>import_id</code>, so multiple bulks will be grouped into one import.</p>
+<p>At most 1000 member records may be sent in one request.
+If you intend to run an import more than that, you may group them by <code>import_id</code>, so multiple bulks will be grouped into one import.</p>
+<h5 id='updating-1'><span id=updating></span>Updating</h5>
+<p>With <code>operation: &quot;update&quot;</code> param given, members will be updated. Only attributes present in payload will be updated.</p>
 
-<p>Nevertheless, keep in mind, that import always consists of at least one bulk.</p>
+<p>You can specify by which attribute (<code>id</code>, <code>msisdn</code>, <code>email</code>) members for update will be identified.</p>
 <h5 id='import-statuses-1'><span id=import-statuses></span>Import statuses</h5>
 <p>Each bulk is processed by an asynchronous job, so you need to check it&#39;s status some time after sending a request.</p>
 
@@ -57,7 +60,7 @@ that, you may want to identify all bulks with the same <code>import_id</code> an
     <span class="s1">'{
       "import_id": "import_21",
       "request_number": 3,
-      "only_create": false,
+      "operation": "create",
       "members": [
         {
           "properties": { "email": "foo@bar.baz" },
@@ -119,11 +122,18 @@ that, you may want to identify all bulks with the same <code>import_id</code> an
 <td>Array <JSON Object></td>
 </tr>
 <tr>
-<td>only_create</td>
+<td>operation</td>
 <td>no</td>
-<td>false</td>
-<td>When true, it does not update members</td>
-<td>Boolean</td>
+<td><code>&quot;create&quot;</code></td>
+<td>Should members be created or updated</td>
+<td>enum: [&#39;create&#39;, &#39;update&#39;]</td>
+</tr>
+<tr>
+<td>member_identifier_type</td>
+<td>no</td>
+<td><code>&quot;id&quot;</code></td>
+<td>(for <code>&quot;update&quot;</code> operation) Which member property should be used to identify member for update</td>
+<td>enum: [&#39;id&#39;, &#39;email&#39;, &#39;msisdn&#39;]</td>
 </tr>
 </tbody></table>
 <h5 id='members-array-1'><span id=members-array></span>Members Array</h5>
@@ -275,7 +285,15 @@ that, you may want to identify all bulks with the same <code>import_id</code> an
 </tr>
 <tr>
 <td><code>missing_identifier</code></td>
-<td>At least one member in payload misses required identifier (depends on Community)</td>
+<td>At least one member in payload misses required identifier (depends on Loyalty Club)</td>
+</tr>
+<tr>
+<td><code>invalid_operation</code></td>
+<td>Specified operation is not supported</td>
+</tr>
+<tr>
+<td><code>invalid_member_identifier_type</code></td>
+<td>Specified identifier type is invalid or unavailable in Loyalty Club</td>
 </tr>
 </tbody></table>
 
@@ -406,7 +424,7 @@ Requires <code>BL:Api:Members:Imports:Get</code> permit
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
     </span><span class="s2">"import_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"89405ae3-2dd5-46cb-a13b-840bc588199b"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"request_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"only_create"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"operation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"create"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"finished"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"members_in_payload_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w">
     </span><span class="s2">"members_created_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
@@ -475,6 +493,11 @@ Requires <code>BL:Api:Members:Imports:Get</code> permit
 <td>request_number</td>
 <td>The number of the bulk</td>
 <td>Integer</td>
+</tr>
+<tr>
+<td>operation</td>
+<td>The operation to perform</td>
+<td>String</td>
 </tr>
 <tr>
 <td>status</td>

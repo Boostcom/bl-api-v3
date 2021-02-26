@@ -1,4 +1,8 @@
-<h1 id='changelog-1'><span id=changelog></span>Changelog</h1><h4 id='10-02-2021-pawel-buczkowski-1'><span id=10-02-2021-pawel-buczkowski></span>10.02.2021 | Paweł Buczkowski</h4>
+<h1 id='changelog-1'><span id=changelog></span>Changelog</h1><h4 id='23-02-2021-piotr-switlicki-1'><span id=23-02-2021-piotr-switlicki></span>23.02.2021 | Piotr Świtlicki</h4>
+<ul>
+<li>Add support for direct update in <a href="#members-imports">Members imports</a> </li>
+</ul>
+<h4 id='10-02-2021-pawel-buczkowski-1'><span id=10-02-2021-pawel-buczkowski></span>10.02.2021 | Paweł Buczkowski</h4>
 <ul>
 <li>Add <a href="#pos-campaigns-config-list">POS Campaign API &bull; List</a></li>
 </ul>
