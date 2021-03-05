@@ -1,5 +1,8 @@
 # Changelog
 
+#### 05.03.2021 | Piotr Świtlicki
+* Add `login_url` query param in [Members &bull; Send one time password E-mail](#members-send-one-time-password-email) 
+
 #### 23.02.2021 | Piotr Świtlicki
 * Add support for direct update in [Members imports](#members-imports) 
 

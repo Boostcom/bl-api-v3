@@ -1071,13 +1071,19 @@ curl "https://api.mpc.placewise.com/v3/infinity-mall/members/by_email/user@examp
 }
 ```
 
-**POST** `/v3/:loyalty_club_slug/members/by_msisdn/:msisdn/send_one_time_password`
+**POST** `/v3/:loyalty_club_slug/members/by_email/:email/send_one_time_password`
 
-Sends a "Login" e-mail to given address if it is associated with member in given loyalty club. The e-mail contains a deep link to the mobile app.
- 
-The link scheme is: `https://<app_scheme>.al.bstcm.no/lgn?member_id=<member_id>&otp=<otp>` and contains member id and 16-digit password generated for member, valid for 1 hour.  
+Sends a "Login" e-mail to given address associated with member in given Loyalty Club. 
 
-Those params then can be used to sign in the user, just as "regular" member password - see:  [OAuth Token &bull; Create](#token-create).
+The e-mail contains a link to a page that should sign in the member with MPC API.
+
+The link scheme is: `<login_url>?member_id=<member_id>&otp=<otp>` and contains member id 
+and 16-digit password generated for member, valid for 1 hour.  
+Those params then can be used to sign in the user, just as "regular" member password -
+see:  [OAuth Token &bull; Create](#token-create).
+
+By default, `login_url` leads to MPC Webforms page or mobile app. 
+However, it may by customized by providing `login_url` query param.
 
 #### URL Parameters
 
@@ -1085,11 +1091,18 @@ Parameter | Description | Type
 --------- | ----------- | ------
 email | Member's email | e-mail
 
+#### Query Parameters
+
+Parameter | Description | Type
+--------- | ----------- | ------
+login_url | Custom login URL | String
+
 #### Error responses
 
-Status | Reason
+Status    | Reason
 --------- | ----------- 
-`422` | Invalid e-mail param
+`404`     | Member not found
+`422`     | Invalid e-mail param
 
 <aside class="notice">
 Requires <code>BL:Api:Members:CreateOneTimePassword</code> permit
