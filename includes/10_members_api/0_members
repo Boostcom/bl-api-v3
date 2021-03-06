@@ -1604,13 +1604,19 @@ Requires <code>BL:Api:Members:CreateOneTimePassword</code> permit
   </span><span class="err">//</span><span class="w"> </span><span class="err">Empty</span><span class="w"> </span><span class="err">object</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>POST</strong> <code>/v3/:loyalty_club_slug/members/by_msisdn/:msisdn/send_one_time_password</code></p>
+<p><strong>POST</strong> <code>/v3/:loyalty_club_slug/members/by_email/:email/send_one_time_password</code></p>
 
-<p>Sends a &quot;Login&quot; e-mail to given address if it is associated with member in given loyalty club. The e-mail contains a deep link to the mobile app.</p>
+<p>Sends a &quot;Login&quot; e-mail to given address associated with member in given Loyalty Club. </p>
 
-<p>The link scheme is: <code>https://&lt;app_scheme&gt;.al.bstcm.no/lgn?member_id=&lt;member_id&gt;&amp;otp=&lt;otp&gt;</code> and contains member id and 16-digit password generated for member, valid for 1 hour.  </p>
+<p>The e-mail contains a link to a page that should sign in the member with MPC API.</p>
 
-<p>Those params then can be used to sign in the user, just as &quot;regular&quot; member password - see:  <a href="#token-create">OAuth Token &bull; Create</a>.</p>
+<p>The link scheme is: <code>&lt;login_url&gt;?member_id=&lt;member_id&gt;&amp;otp=&lt;otp&gt;</code> and contains member id 
+and 16-digit password generated for member, valid for 1 hour.<br>
+Those params then can be used to sign in the user, just as &quot;regular&quot; member password -
+see:  <a href="#token-create">OAuth Token &bull; Create</a>.</p>
+
+<p>By default, <code>login_url</code> leads to MPC Webforms page or mobile app. 
+However, it may by customized by providing <code>login_url</code> query param.</p>
 <h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
 <table><thead>
 <tr>
@@ -1625,6 +1631,20 @@ Requires <code>BL:Api:Members:CreateOneTimePassword</code> permit
 <td>e-mail</td>
 </tr>
 </tbody></table>
+<h4 id='query-parameters-1'><span id=query-parameters></span>Query Parameters</h4>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>login_url</td>
+<td>Custom login URL</td>
+<td>String</td>
+</tr>
+</tbody></table>
 <h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
 <table><thead>
 <tr>
@@ -1632,6 +1652,10 @@ Requires <code>BL:Api:Members:CreateOneTimePassword</code> permit
 <th>Reason</th>
 </tr>
 </thead><tbody>
+<tr>
+<td><code>404</code></td>
+<td>Member not found</td>
+</tr>
 <tr>
 <td><code>422</code></td>
 <td>Invalid e-mail param</td>
