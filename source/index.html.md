@@ -49,6 +49,10 @@ includes:
   - 47_operations_admin_api/3_resource_types
   - 47_operations_admin_api/4_resources
   - 50_files_api/0_files
+  - 60_tokens_admin_api/0_introduction
+  - 60_tokens_admin_api/1_tokens
+  - 60_tokens_admin_api/2_permits
+  - 60_tokens_admin_api/3_policies
   - 998_deprecated_files_api/0_files
   - 999_changelog/0_changelog
 
