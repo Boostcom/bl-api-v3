@@ -1,4 +1,12 @@
-<h1 id='changelog-1'><span id=changelog></span>Changelog</h1><h4 id='05-03-2021-piotr-switlicki-1'><span id=05-03-2021-piotr-switlicki></span>05.03.2021 | Piotr Świtlicki</h4>
+<h1 id='changelog-1'><span id=changelog></span>Changelog</h1><h4 id='19-03-2021-pawel-buczkowski-1'><span id=19-03-2021-pawel-buczkowski></span>19.03.2021 | Paweł Buczkowski</h4>
+<ul>
+<li>Add <a href="#stamps-create">Transaction Stamps &bull; Create</a></li>
+</ul>
+<h4 id='11-03-2021-piotr-switlicki-1'><span id=11-03-2021-piotr-switlicki></span>11.03.2021 | Piotr Świtlicki</h4>
+<ul>
+<li><a href="#tokens-admin">Tokens Admin API</a> </li>
+</ul>
+<h4 id='05-03-2021-piotr-switlicki-1'><span id=05-03-2021-piotr-switlicki></span>05.03.2021 | Piotr Świtlicki</h4>
 <ul>
 <li>Add <code>login_url</code> query param in <a href="#members-send-one-time-password-email">Members &bull; Send one time password E-mail</a> </li>
 </ul>

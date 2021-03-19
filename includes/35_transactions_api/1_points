@@ -80,7 +80,7 @@
 </tr>
 <tr>
 <td>amount*</td>
-<td>store name</td>
+<td>Points amount</td>
 <td>int (not 0)</td>
 </tr>
 <tr>

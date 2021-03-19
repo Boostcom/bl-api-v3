@@ -1,0 +1,75 @@
+<h2 id='permits-1'><span id=permits></span>Permits</h2><h3 id='a-name-tokens-admin-permit-model-a-permit-model-1'><span id=a-name-tokens-admin-permit-model-a-permit-model></span><a name="tokens-admin-permit-model"></a> Permit model</h3>
+<blockquote>
+<p>Permit example:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rewards:Api:Program:GetInfo"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Allows to see Rewards Program Info"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"internal"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"required_customer_features"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>description</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>internal</td>
+<td>boolean</td>
+<td></td>
+</tr>
+<tr>
+<td>required_customer_features</td>
+<td>string[]</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id='a-name-tokens-admin-index-permits-a-list-permits-1'><span id=a-name-tokens-admin-index-permits-a-list-permits></span><a name="tokens-admin-index-permits"></a> List Permits</h3>
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v1/tokens/permits"</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'x-user-agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>Returns object containing <a href="#tokens-admin-permit-model">permits</a> </p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"permits"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">List</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">permits</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">'Permit</span><span class="w"> </span><span class="err">model'</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>GET</strong> <code>v1/tokens/permits</code></p>
+
+<p>Returns list of <a href="#tokens-admin-permit-model">Permits</a>.</p>
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>permits</td>
+<td><a href="#tokens-admin-permit-model">Permits</a>[]</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Permits:Api:Permits:Index</code> permit
+</aside>

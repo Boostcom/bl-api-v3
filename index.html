@@ -13529,7 +13529,7 @@ Requires <code>Transaction:Api:Events:Create</code> permit
 </tr>
 <tr>
 <td>amount*</td>
-<td>store name</td>
+<td>Points amount</td>
 <td>int (not 0)</td>
 </tr>
 <tr>
@@ -13843,6 +13843,185 @@ Requires <code>Transaction:Api:Points:Get</code> permit
 
 <aside class="notice">
 Requires <code>Transaction:Api:Points:List</code> permit
+</aside>
+
+          <h2 id='stamps-1'><span id=stamps></span>Stamps</h2><h3 id='a-name-stamps-create-a-create-1'><span id=a-name-stamps-create-a-create></span><a name="stamps-create"></a> Create</h3>
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v3/:loyalty_club_slug/transactions/stamps"</span> <span class="se">\</span>
+    -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+    -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
+    -H <span class="s1">'x-user-agent: CURL manual test'</span>
+    -d <span class="se">\</span>
+    <span class="s1">'[
+        {
+            "identifier_type": "id",
+            "identifier": 3456,
+            "amount": 1,
+            "event_type": "purchase",
+            "event_date": "2019-07-12T15:23:21Z",
+            "message": "Black Friday",
+            "store_id": "12345",
+            "transaction_id": "f4c2b7a6-e0fb-47a3-9b5a-02d3854fcea3",
+            "expiry_date": "2020-02-12"
+        }
+    ]'</span>
+</code></pre>
+<blockquote>
+<p>When successful (200), returns a feedback object structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"event_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"issue"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>When request is invalid (422), returns:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid format"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"[1].property"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The property {property} is required"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>POST</strong> <code>v3/:loyalty_club_slug/transactions/stamps</code></p>
+
+<p>Add or remove stamps</p>
+<h4 id='post-parameters-json-1'><span id=post-parameters-json></span>POST Parameters (JSON)</h4>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>identifier_type*</td>
+<td>Type of identifier</td>
+<td>string (id, msisdn, email)</td>
+</tr>
+<tr>
+<td>identifier*</td>
+<td>Identifier</td>
+<td>msisdn (string), email (string), member_id (int)</td>
+</tr>
+<tr>
+<td>event_type*</td>
+<td>Type of event</td>
+<td>string (issue, campaign, use, revoke, expire)</td>
+</tr>
+<tr>
+<td>amount*</td>
+<td>Stamps amount</td>
+<td>int (not 0)</td>
+</tr>
+<tr>
+<td>event</td>
+<td>description of event</td>
+<td>string</td>
+</tr>
+<tr>
+<td>message</td>
+<td>additional remarks</td>
+<td>string</td>
+</tr>
+<tr>
+<td>store_id</td>
+<td>store id</td>
+<td>string</td>
+</tr>
+<tr>
+<td>transaction_id</td>
+<td>DMP transaction id</td>
+<td>string</td>
+</tr>
+<tr>
+<td>event_date</td>
+<td>date of event allow adding past events</td>
+<td>datetime</td>
+</tr>
+<tr>
+<td>expiry_date</td>
+<td>Points expiry date  (used only by integration without loyalty</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p>Parameters with <code>*</code> are required</p>
+<h4 id='type-of-events-1'><span id=type-of-events></span>Type of events</h4>
+<table><thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>campaign</td>
+<td>stamps added due to campaign event (positive amount required)</td>
+</tr>
+<tr>
+<td>issue</td>
+<td>stamps added (positive amount required)</td>
+</tr>
+<tr>
+<td>use</td>
+<td>stamps used by a member (reward, discount, etc) (negative amount required)</td>
+</tr>
+<tr>
+<td>revoke</td>
+<td>stamps removed from member account due to refund etc. (negative amount required)</td>
+</tr>
+<tr>
+<td>expire</td>
+<td>stamps removed due to expiration (negative amount required)</td>
+</tr>
+</tbody></table>
+<h4 id='feedback-statuses-1'><span id=feedback-statuses></span>Feedback statuses</h4>
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ok</td>
+<td>Stamps saved</td>
+</tr>
+<tr>
+<td>Member does not exist</td>
+<td></td>
+</tr>
+<tr>
+<td>Store does not exists</td>
+<td></td>
+</tr>
+<tr>
+<td>Incorrect amount</td>
+<td>Positive amount when using stamps, negative amount when issuing stamps etc</td>
+</tr>
+</tbody></table>
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>422</code></td>
+<td>Invalid parameters (see example on the right)</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Transaction:Api:Stamps:Create</code>
 </aside>
 
           <h1 id='pos-campaign-api-1'><span id=pos-campaign-api></span>POS Campaign API</h1><h2 id='a-name-pos-campaigns-config-list-a-list-1'><span id=a-name-pos-campaigns-config-list-a-list></span><a name="pos-campaigns-config-list"></a> List</h2>
@@ -18890,6 +19069,722 @@ Requires <code>Files:Api:Files:List</code> permit
 Requires <code>Files:Api:Files:Destroy</code> permit
 </aside>
 
+          <h3 id='a-name-tokens-admin-a-tokens-admin-api-1'><span id=a-name-tokens-admin-a-tokens-admin-api></span><a name="tokens-admin"></a> Tokens Admin API</h3>
+          <h2 id='tokens-1'><span id=tokens></span>Tokens</h2><h3 id='a-name-tokens-admin-token-model-a-token-model-1'><span id=a-name-tokens-admin-token-model-a-token-model></span><a name="tokens-admin-token-model"></a> Token model</h3>
+<blockquote>
+<p>Token example:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000010</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Token"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PpdfXpwqDyh7yavEwXxKTVe3"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"permits"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Stores:Api:Stores:Get"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Stores:Api:Categories:Get"</span><span class="p">],</span><span class="w">
+  </span><span class="s2">"policies"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"OffersRegularAccess"</span><span class="p">,</span><span class="w"> </span><span class="s2">"RewardsRegularAccess"</span><span class="p">],</span><span class="w">
+  </span><span class="s2">"loyalty_club_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">235</span><span class="p">],</span><span class="w">
+  </span><span class="s2">"customers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"language=pl"</span><span class="p">],</span><span class="w">
+  </span><span class="s2">"product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"android"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"internal"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-03-11T09:27:09.561Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-03-11T09:27:09.561Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_by"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"entity_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="p">,</span><span class="w"> </span><span class="s2">"entity_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7db2c508-1758-4b84-bb68-50b5c8e1f458"</span><span class="w"> </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"updated_by"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"entity_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="p">,</span><span class="w"> </span><span class="s2">"entity_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7db2c508-1758-4b84-bb68-50b5c8e1f458"</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td></td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>token</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>permits</td>
+<td>string[]</td>
+<td>Names of permits the token has</td>
+</tr>
+<tr>
+<td>policies</td>
+<td>string[]</td>
+<td>Names of policies the token has</td>
+</tr>
+<tr>
+<td>loyalty_club_ids</td>
+<td>integer[]</td>
+<td>List of Loyalty Clubs the token is permitted to. When null, the token is not limited to specific club(s).</td>
+</tr>
+<tr>
+<td>customers</td>
+<td>string</td>
+<td>List of Customers (in CustomerParam format) the token is permitted to. When null, the token is not limited to specific customers.</td>
+</tr>
+<tr>
+<td>product</td>
+<td>string</td>
+<td>API product the token is permitted to. When null, the token is not limited to specific product.</td>
+</tr>
+<tr>
+<td>internal</td>
+<td>boolean</td>
+<td>Is token internal for Placewise?</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>datetime</td>
+<td>Time of creation</td>
+</tr>
+<tr>
+<td>updated_at</td>
+<td>datetime</td>
+<td>Time of last update</td>
+</tr>
+<tr>
+<td>created_by</td>
+<td>Object</td>
+<td>Author of creation</td>
+</tr>
+<tr>
+<td>updated_by</td>
+<td>Object</td>
+<td>Author of last update</td>
+</tr>
+</tbody></table>
+<h3 id='a-name-tokens-admin-token-payload-model-a-tokenpayload-model-1'><span id=a-name-tokens-admin-token-payload-model-a-tokenpayload-model></span><a name="tokens-admin-token-payload-model"></a> TokenPayload model</h3>
+<blockquote>
+<p>TokenPayload example:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Token"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"permits"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Stores:Api:Stores:Get"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Stores:Api:Categories:Get"</span><span class="p">],</span><span class="w">
+  </span><span class="s2">"policies"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"OffersRegularAccess"</span><span class="p">,</span><span class="w"> </span><span class="s2">"RewardsRegularAccess"</span><span class="p">],</span><span class="w">
+  </span><span class="s2">"loyalty_club_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">235</span><span class="p">],</span><span class="w">
+  </span><span class="s2">"customers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"language=pl"</span><span class="p">],</span><span class="w">
+  </span><span class="s2">"product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"android"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"internal"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>permits</td>
+<td>string[]</td>
+<td>Names of permits the token has</td>
+</tr>
+<tr>
+<td>policies</td>
+<td>string[]</td>
+<td>Names of policies the token has</td>
+</tr>
+<tr>
+<td>loyalty_club_ids</td>
+<td>integer[]</td>
+<td>List of Loyalty Clubs the token is permitted to. When null, the token is not limited to specific club(s).</td>
+</tr>
+<tr>
+<td>customers</td>
+<td>string</td>
+<td>List of Customers (in CustomerParam format) the token is permitted to. When null, the token is not limited to specific customers.</td>
+</tr>
+<tr>
+<td>product</td>
+<td>string</td>
+<td>API product the token is permitted to. When null, the token is not limited to specific product.</td>
+</tr>
+<tr>
+<td>internal</td>
+<td>boolean</td>
+<td>Is token internal for Placewise?</td>
+</tr>
+</tbody></table>
+<h3 id='a-name-tokens-admin-index-tokens-a-list-tokens-1'><span id=a-name-tokens-admin-index-tokens-a-list-tokens></span><a name="tokens-admin-index-tokens"></a> List Tokens</h3>
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v1/tokens"</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'x-user-agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>Returns object containing <a href="#tokens-admin-token-model">tokens</a> and <a href="#pagination-model">pagination_info</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"tokens"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">List</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">tokens</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">'Token</span><span class="w"> </span><span class="err">model'</span><span class="w">
+  </span><span class="s2">"pagination_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Pagination</span><span class="w"> </span><span class="err">info</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">'Pagination</span><span class="w"> </span><span class="err">info'</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>GET</strong> <code>v1/tokens</code></p>
+
+<p>Returns list of <a href="#tokens-admin-token-model">Tokens</a>.</p>
+<h4 id='query-parameters-1'><span id=query-parameters></span>Query Parameters</h4>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>per_page</td>
+<td>integer</td>
+<td>20</td>
+<td>Number of results to be returned per request (20 is the maximum)</td>
+</tr>
+<tr>
+<td>page_no</td>
+<td>integer</td>
+<td>1</td>
+<td>Number of results page</td>
+</tr>
+<tr>
+<td>loyalty_club_id</td>
+<td>integer</td>
+<td>null</td>
+<td>When true, returns only Tokens with access scoped to given LC</td>
+</tr>
+<tr>
+<td>global</td>
+<td>boolean</td>
+<td>null</td>
+<td>When true, returns only Tokens that haven&#39;t access scoped by LC</td>
+</tr>
+<tr>
+<td>internal</td>
+<td>boolean</td>
+<td>null</td>
+<td>When present, returns either only internal or non-internal Tokens</td>
+</tr>
+<tr>
+<td>product</td>
+<td>string</td>
+<td>null</td>
+<td>When present, returns only Tokens scoped by given product</td>
+</tr>
+<tr>
+<td>policy</td>
+<td>string</td>
+<td>null</td>
+<td>When present, returns only Tokens having given policy (direct or through policy)</td>
+</tr>
+<tr>
+<td>permit</td>
+<td>string</td>
+<td>null</td>
+<td>When present, returns only Tokens having given policy</td>
+</tr>
+<tr>
+<td>search</td>
+<td>string</td>
+<td>null</td>
+<td>When present, returns only Tokens with name matched to given search string</td>
+</tr>
+</tbody></table>
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>tokens</td>
+<td><a href="#tokens-admin-token-model">Tokens</a>[]</td>
+</tr>
+<tr>
+<td>pagination_info</td>
+<td><a href="#pagination-model">PaginationInfo</a></td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Tokens:Api:Tokens:Index</code> permit
+</aside>
+<h3 id='a-name-tokens-admin-show-token-a-get-token-1'><span id=a-name-tokens-admin-show-token-a-get-token></span><a name="tokens-admin-show-token"></a> Get Token</h3>
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v1/tokens/5"</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'x-user-agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>Returns object containing <a href="#tokens-admin-token-model">token</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">see</span><span class="p">:</span><span class="w"> </span><span class="err">'Token</span><span class="w"> </span><span class="err">model'</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>GET</strong> <code>v1/tokens/:id_or_token</code></p>
+
+<p>Returns given <a href="#tokens-admin-token-model">Token</a>.</p>
+<h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>mixed (integer or string)</td>
+<td>Token ID or token</td>
+</tr>
+</tbody></table>
+<h4 id='json-resposne-1'><span id=json-resposne></span>JSON resposne</h4>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>token</td>
+<td><a href="#tokens-admin-token-model">Token</a></td>
+</tr>
+</tbody></table>
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>404</code></td>
+<td>Token not found</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Tokens:Api:Tokens:Show</code> permit
+</aside>
+<h3 id='a-name-tokens-admin-create-token-a-create-token-1'><span id=a-name-tokens-admin-create-token-a-create-token></span><a name="tokens-admin-create-token"></a> Create Token</h3>
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v1/tokens"</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'x-user-agent: CURL manual test'</span> <span class="se">\</span>
+  -d <span class="s1">'
+    {
+        "token": {
+          "name": "Token",
+          "permits": ["Stores:Api:Stores:Get", "Stores:Api:Categories:Get"],
+          "policies": ["OffersRegularAccess", "RewardsRegularAccess"],
+          "loyalty_club_ids": [235],
+          "customers": ["language=pl"],
+          "product": "android",
+          "internal": true
+        }
+    }
+  '</span>
+</code></pre>
+<blockquote>
+<p>When successful, returns object containing created <a href="#tokens-admin-token-model">token</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Token</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="p">:</span><span class="w"> </span><span class="err">'Token</span><span class="w"> </span><span class="err">model'</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>POST</strong> <code>v1/tokens</code></p>
+
+<p>Creates a new <a href="#tokens-admin-token-model">Token</a>.</p>
+<h4 id='post-parameters-json-1'><span id=post-parameters-json></span>POST Parameters (JSON)</h4>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>token</td>
+<td><a href="#tokens-admin-token-payload-model">TokenPayload</a></td>
+</tr>
+</tbody></table>
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>token</td>
+<td><a href="#tokens-admin-token-model">Token</a></td>
+</tr>
+</tbody></table>
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>422</code></td>
+<td>Invalid parameters - see <a href="#invalid-parameters-errors-model">Invalid parameters errors model</a></td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Tokens:Api:Tokens:Create</code> permit
+</aside>
+<h3 id='a-name-tokens-admin-update-token-a-update-token-1'><span id=a-name-tokens-admin-update-token-a-update-token></span><a name="tokens-admin-update-token"></a> Update Token</h3>
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X PUT <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v1/tokens/12"</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'x-user-agent: CURL manual test'</span> <span class="se">\</span>
+  -d <span class="s1">'
+    {
+        "token": {
+            "name": "Token",
+            "permits": ["Stores:Api:Stores:Get", "Stores:Api:Categories:Get"],
+            "policies": ["OffersRegularAccess", "RewardsRegularAccess"],
+            "loyalty_club_ids": [235],
+            "customers": ["language=pl"],
+            "product": "android",
+            "internal": true
+        }
+    }
+  '</span>
+</code></pre>
+<blockquote>
+<p>When successful, returns object containing updated <a href="#tokens-admin-token-model">token</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Token</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">'Token</span><span class="w"> </span><span class="err">model'</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>PUT</strong> <code>v1/tokens/:id</code></p>
+
+<p>Updates the <a href="#tokens-admin-token-model">Token</a>.</p>
+<h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>mixed (integer or string)</td>
+<td>Token ID or token</td>
+</tr>
+</tbody></table>
+<h4 id='post-parameters-json-1'><span id=post-parameters-json></span>POST Parameters (JSON)</h4>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>token</td>
+<td><a href="#tokens-admin-token-payload-model">TokenPayload</a></td>
+</tr>
+</tbody></table>
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>token</td>
+<td><a href="#tokens-admin-token-model">Token</a></td>
+</tr>
+</tbody></table>
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>422</code></td>
+<td>Invalid parameters - see <a href="#invalid-parameters-errors-model">Invalid parameters errors model</a></td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Tokens:Api:Tokens:Update</code> permit
+</aside>
+<h3 id='a-name-tokens-admin-destroy-token-a-destroy-token-1'><span id=a-name-tokens-admin-destroy-token-a-destroy-token></span><a name="tokens-admin-destroy-token"></a> Destroy Token</h3>
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X DELETE <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v1/tokens/12 </span><span class="se">\</span><span class="s2">
+  -H 'content-type: application/json' </span><span class="se">\</span><span class="s2">
+  -H 'Authorization: B7t9U9tsoWsGhrv2ouUoSqpM' </span><span class="se">\</span><span class="s2">
+  -H 'x-user-agent: CURL manual test'
+</span></code></pre>
+<blockquote>
+<p>When successful, returns object containing destroyed <a href="#tokens-admin-token-model">token</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Token</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="p">:</span><span class="w"> </span><span class="err">'Token</span><span class="w"> </span><span class="err">model'</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>DELETE</strong> <code>v1/tokens/:id</code></p>
+
+<p>Destroys the <a href="#tokens-admin-token-model">Token</a>.</p>
+<h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>mixed (integer or string)</td>
+<td>Token ID or token</td>
+</tr>
+</tbody></table>
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>token</td>
+<td><a href="#tokens-admin-token-model">Token</a></td>
+</tr>
+</tbody></table>
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>404</code></td>
+<td>Token not found</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Tokens:Api:Tokens:Destroy</code> permit
+</aside>
+
+          <h2 id='permits-1'><span id=permits></span>Permits</h2><h3 id='a-name-tokens-admin-permit-model-a-permit-model-1'><span id=a-name-tokens-admin-permit-model-a-permit-model></span><a name="tokens-admin-permit-model"></a> Permit model</h3>
+<blockquote>
+<p>Permit example:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rewards:Api:Program:GetInfo"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Allows to see Rewards Program Info"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"internal"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"required_customer_features"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>description</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>internal</td>
+<td>boolean</td>
+<td></td>
+</tr>
+<tr>
+<td>required_customer_features</td>
+<td>string[]</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id='a-name-tokens-admin-index-permits-a-list-permits-1'><span id=a-name-tokens-admin-index-permits-a-list-permits></span><a name="tokens-admin-index-permits"></a> List Permits</h3>
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v1/tokens/permits"</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'x-user-agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>Returns object containing <a href="#tokens-admin-permit-model">permits</a> </p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"permits"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">List</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">permits</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">'Permit</span><span class="w"> </span><span class="err">model'</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>GET</strong> <code>v1/tokens/permits</code></p>
+
+<p>Returns list of <a href="#tokens-admin-permit-model">Permits</a>.</p>
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>permits</td>
+<td><a href="#tokens-admin-permit-model">Permits</a>[]</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Permits:Api:Permits:Index</code> permit
+</aside>
+
+          <h2 id='policies-1'><span id=policies></span>Policies</h2><h3 id='a-name-tokens-admin-policy-model-a-policy-model-1'><span id=a-name-tokens-admin-policy-model-a-policy-model></span><a name="tokens-admin-policy-model"></a> Policy model</h3>
+<blockquote>
+<p>Policy example:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MessagesApiRegularAccess"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"internal"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"for_loyalty_club_types"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"taint_produced_permits_with"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NONE"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"permits"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"Messages:Api:Bulks:Process"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Messages:Api:Dispatches:Index"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Messages:Api:Messages:Create"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Messages:Api:Messages:Get"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Messages:Api:Messages:Index"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Messages:Api:Messages:Update"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Messages:Api:Sendings:Create"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Messages:Api:Sendings:Get"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Messages:Api:Sendings:Update"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Messages:Api:Settings:Show"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>description</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>internal</td>
+<td>boolean</td>
+<td></td>
+</tr>
+<tr>
+<td>for_loyalty_club_types</td>
+<td>string[]</td>
+<td></td>
+</tr>
+<tr>
+<td>taint_produced_permits_with</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>permits</td>
+<td>string[]</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id='a-name-tokens-admin-index-policies-a-list-policies-1'><span id=a-name-tokens-admin-index-policies-a-list-policies></span><a name="tokens-admin-index-policies"></a> List Policies</h3>
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v1/tokens/policies"</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'Authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'x-user-agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>Returns object containing <a href="#tokens-admin-policy-model">policies</a> </p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"policies"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">List</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">policies</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">'Policy</span><span class="w"> </span><span class="err">model'</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>GET</strong> <code>v1/tokens/policies</code></p>
+
+<p>Returns list of <a href="#tokens-admin-policy-model">Policies</a>.</p>
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>policies</td>
+<td><a href="#tokens-admin-policy-model">Policies</a>[]</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Policies:Api:Policies:Index</code> policy
+</aside>
+
           <h1 id='files-api-deprecated-1'><span id=files-api-deprecated></span>Files API (deprecated)</h1><h2 id='introduction-1'><span id=introduction></span>Introduction</h2><h3 id='a-name-file-model-a-file-model-1'><span id=a-name-file-model-a-file-model></span><a name="file-model"></a> File model</h3>
 <p>Every file attached to some entity (Offer, Reward, Offer Collection) follows the file schema and is defined like this:</p>
 
@@ -19538,7 +20433,15 @@ Requires <code>Files:Api:Reprocess</code> permit
 Requires <code>Files:Api:Delete</code> permit
 </aside>
 
-          <h1 id='changelog-1'><span id=changelog></span>Changelog</h1><h4 id='05-03-2021-piotr-switlicki-1'><span id=05-03-2021-piotr-switlicki></span>05.03.2021 | Piotr Świtlicki</h4>
+          <h1 id='changelog-1'><span id=changelog></span>Changelog</h1><h4 id='19-03-2021-pawel-buczkowski-1'><span id=19-03-2021-pawel-buczkowski></span>19.03.2021 | Paweł Buczkowski</h4>
+<ul>
+<li>Add <a href="#stamps-create">Transaction Stamps &bull; Create</a></li>
+</ul>
+<h4 id='11-03-2021-piotr-switlicki-1'><span id=11-03-2021-piotr-switlicki></span>11.03.2021 | Piotr Świtlicki</h4>
+<ul>
+<li><a href="#tokens-admin">Tokens Admin API</a> </li>
+</ul>
+<h4 id='05-03-2021-piotr-switlicki-1'><span id=05-03-2021-piotr-switlicki></span>05.03.2021 | Piotr Świtlicki</h4>
 <ul>
 <li>Add <code>login_url</code> query param in <a href="#members-send-one-time-password-email">Members &bull; Send one time password E-mail</a> </li>
 </ul>

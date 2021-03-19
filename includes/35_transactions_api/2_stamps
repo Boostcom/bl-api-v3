@@ -1,0 +1,178 @@
+<h2 id='stamps-1'><span id=stamps></span>Stamps</h2><h3 id='a-name-stamps-create-a-create-1'><span id=a-name-stamps-create-a-create></span><a name="stamps-create"></a> Create</h3>
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v3/:loyalty_club_slug/transactions/stamps"</span> <span class="se">\</span>
+    -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+    -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
+    -H <span class="s1">'x-user-agent: CURL manual test'</span>
+    -d <span class="se">\</span>
+    <span class="s1">'[
+        {
+            "identifier_type": "id",
+            "identifier": 3456,
+            "amount": 1,
+            "event_type": "purchase",
+            "event_date": "2019-07-12T15:23:21Z",
+            "message": "Black Friday",
+            "store_id": "12345",
+            "transaction_id": "f4c2b7a6-e0fb-47a3-9b5a-02d3854fcea3",
+            "expiry_date": "2020-02-12"
+        }
+    ]'</span>
+</code></pre>
+<blockquote>
+<p>When successful (200), returns a feedback object structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"event_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"issue"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>When request is invalid (422), returns:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid format"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"[1].property"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The property {property} is required"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>POST</strong> <code>v3/:loyalty_club_slug/transactions/stamps</code></p>
+
+<p>Add or remove stamps</p>
+<h4 id='post-parameters-json-1'><span id=post-parameters-json></span>POST Parameters (JSON)</h4>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>identifier_type*</td>
+<td>Type of identifier</td>
+<td>string (id, msisdn, email)</td>
+</tr>
+<tr>
+<td>identifier*</td>
+<td>Identifier</td>
+<td>msisdn (string), email (string), member_id (int)</td>
+</tr>
+<tr>
+<td>event_type*</td>
+<td>Type of event</td>
+<td>string (issue, campaign, use, revoke, expire)</td>
+</tr>
+<tr>
+<td>amount*</td>
+<td>Stamps amount</td>
+<td>int (not 0)</td>
+</tr>
+<tr>
+<td>event</td>
+<td>description of event</td>
+<td>string</td>
+</tr>
+<tr>
+<td>message</td>
+<td>additional remarks</td>
+<td>string</td>
+</tr>
+<tr>
+<td>store_id</td>
+<td>store id</td>
+<td>string</td>
+</tr>
+<tr>
+<td>transaction_id</td>
+<td>DMP transaction id</td>
+<td>string</td>
+</tr>
+<tr>
+<td>event_date</td>
+<td>date of event allow adding past events</td>
+<td>datetime</td>
+</tr>
+<tr>
+<td>expiry_date</td>
+<td>Points expiry date  (used only by integration without loyalty</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p>Parameters with <code>*</code> are required</p>
+<h4 id='type-of-events-1'><span id=type-of-events></span>Type of events</h4>
+<table><thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>campaign</td>
+<td>stamps added due to campaign event (positive amount required)</td>
+</tr>
+<tr>
+<td>issue</td>
+<td>stamps added (positive amount required)</td>
+</tr>
+<tr>
+<td>use</td>
+<td>stamps used by a member (reward, discount, etc) (negative amount required)</td>
+</tr>
+<tr>
+<td>revoke</td>
+<td>stamps removed from member account due to refund etc. (negative amount required)</td>
+</tr>
+<tr>
+<td>expire</td>
+<td>stamps removed due to expiration (negative amount required)</td>
+</tr>
+</tbody></table>
+<h4 id='feedback-statuses-1'><span id=feedback-statuses></span>Feedback statuses</h4>
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ok</td>
+<td>Stamps saved</td>
+</tr>
+<tr>
+<td>Member does not exist</td>
+<td></td>
+</tr>
+<tr>
+<td>Store does not exists</td>
+<td></td>
+</tr>
+<tr>
+<td>Incorrect amount</td>
+<td>Positive amount when using stamps, negative amount when issuing stamps etc</td>
+</tr>
+</tbody></table>
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>422</code></td>
+<td>Invalid parameters (see example on the right)</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Transaction:Api:Stamps:Create</code>
+</aside>
