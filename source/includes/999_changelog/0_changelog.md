@@ -1,5 +1,8 @@
 # Changelog
 
+#### 19.03.2021 | Paweł Buczkowski
+* Add [Transaction Stamps &bull; Create](#stamps-create)
+
 #### 11.03.2021 | Piotr Świtlicki
 * [Tokens Admin API](#tokens-admin) 
 

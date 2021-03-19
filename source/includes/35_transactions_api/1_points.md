@@ -69,7 +69,7 @@ Parameter        | Description            | Type
 identifier_type* | Type of identifier     | string (id, msisdn, email)
 identifier*      | Identifier             | msisdn (string), email (string), member_id (int)
 event_type*      | Type of event          | string (purchase, issue, campaign, use, revoke, expire, other)
-amount*          | store name             | int (not 0)
+amount*          | Points amount             | int (not 0)
 event            | description of event   | string
 message          | additional remarks     | string
 store_id         | store id               | string
