@@ -75,6 +75,8 @@ Parameter              | Type                            | Default   | Descripti
 per_page               | integer                         | 100       | Number of results to be returned per request (100 is the maximum)
 page_no                | integer                         | 1         | Number of results page
 search_query           | string                          | null      | If provided, only Resources that have any of their attribute values matching the provided string are returned
+resource_type          | string                          | null      | If provided, only Resources that belong to the resource type of provided name are returned
+state                  | string                          | null      | If provided, only Resources with the provided state are returned
 
 <aside class="notice">
 Requires <code>Operations:Api:Users:Resources:List</code> permit
