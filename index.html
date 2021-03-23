@@ -16841,6 +16841,18 @@ Requires <code>Operations:Api:Users:ResourceTypes:Schema::Show</code> permit
 <td>null</td>
 <td>If provided, only Resources that have any of their attribute values matching the provided string are returned</td>
 </tr>
+<tr>
+<td>resource_type</td>
+<td>string</td>
+<td>null</td>
+<td>If provided, only Resources that belong to the resource type of provided name are returned</td>
+</tr>
+<tr>
+<td>state</td>
+<td>string</td>
+<td>null</td>
+<td>If provided, only Resources with the provided state are returned</td>
+</tr>
 </tbody></table>
 
 <aside class="notice">
@@ -18670,6 +18682,24 @@ As an admin, one can list, accept and reject resources submitted by users.</p>
 <td>string</td>
 <td>null</td>
 <td>If provided, only Resources that have any of their attribute values matching the provided string are returned</td>
+</tr>
+<tr>
+<td>resource_type</td>
+<td>string</td>
+<td>null</td>
+<td>If provided, only Resources that belong to the resource type of provided name are returned</td>
+</tr>
+<tr>
+<td>store_id</td>
+<td>integer</td>
+<td>null</td>
+<td>If provided, only Resources that belong to the store of provided id are returned</td>
+</tr>
+<tr>
+<td>member_id</td>
+<td>integer</td>
+<td>null</td>
+<td>If provided, only Resources that belong to the member of provided id are returned</td>
 </tr>
 </tbody></table>
 

@@ -153,6 +153,18 @@
 <td>null</td>
 <td>If provided, only Resources that have any of their attribute values matching the provided string are returned</td>
 </tr>
+<tr>
+<td>resource_type</td>
+<td>string</td>
+<td>null</td>
+<td>If provided, only Resources that belong to the resource type of provided name are returned</td>
+</tr>
+<tr>
+<td>state</td>
+<td>string</td>
+<td>null</td>
+<td>If provided, only Resources with the provided state are returned</td>
+</tr>
 </tbody></table>
 
 <aside class="notice">
