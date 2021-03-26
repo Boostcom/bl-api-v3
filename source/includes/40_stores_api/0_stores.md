@@ -67,7 +67,8 @@ curl -X GET \
             }
         ],
         "logo_url": "http://foo.foo/foo.png",
-        "description": "Description"
+        "description": "Description",
+        "status": "active"
     }
 ]
 ``` 
@@ -160,7 +161,8 @@ curl -X GET \
             }
         ],
         "logo_url": "http://foo.foo/foo.png",
-        "description": "Description"
+        "description": "Description",
+        "status": "active"
     }
 }
 ``` 
