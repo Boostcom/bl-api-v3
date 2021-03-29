@@ -15531,7 +15531,7 @@ This API is in development. Therefore, it may not be ready for use and is a subj
 <p>Example:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
-<span class="s2">"https://api.mpc.placewise.com/v3/:loyalty_club_slug/events?menuItem=slug"</span> <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v3/:loyalty_club_slug/events?menuItem=slug&amp;status=active,inactive,deleted&amp;search=eventName"</span> <span class="se">\</span>
     -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
     -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
     -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
@@ -15561,17 +15561,33 @@ This API is in development. Therefore, it may not be ready for use and is a subj
 
 <p>List of events</p>
 <h4 id='parameters-1'><span id=parameters></span>Parameters</h4>
+<p>Default - list shows all active events</p>
+
 <table><thead>
 <tr>
 <th>Parameter</th>
 <th>Description</th>
 <th>Type</th>
+<th>Optiona/Required</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>menuItem</td>
-<td>Menu item slug</td>
+<td>Filter by menu item slug</td>
 <td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td>status</td>
+<td>Filter by list of event status (active, inactive, deleted)</td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td>search</td>
+<td>Filter by event name</td>
+<td>string</td>
+<td>optional</td>
 </tr>
 </tbody></table>
 
