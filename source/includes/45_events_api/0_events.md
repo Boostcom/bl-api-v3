@@ -12,7 +12,7 @@ This API is in development. Therefore, it may not be ready for use and is a subj
 
 ```shell
 curl -X GET \
-"https://api.mpc.placewise.com/v3/:loyalty_club_slug/events?menuItem=slug" \
+"https://api.mpc.placewise.com/v3/:loyalty_club_slug/events?menuItem=slug&status=active,inactive,deleted&search=eventName" \
     -H 'content-type: application/json' \
     -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
     -H 'x-product-name: default' \
@@ -46,9 +46,13 @@ List of events
 
 #### Parameters
 
-Parameter | Description | Type
---------- | ----------- | ------
-menuItem  | Menu item slug | string
+Default - list shows all active events
+
+Parameter | Description | Type      | Optiona/Required
+--------- | ----------- | --------- | --------
+menuItem  | Filter by menu item slug | string | optional
+status    | Filter by list of event status (active, inactive, deleted) | string | optional
+search    | Filter by event name | string | optional
 
 All parameters are optional
 
