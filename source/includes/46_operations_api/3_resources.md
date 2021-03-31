@@ -20,6 +20,7 @@
       "used_so_far": false,
       "author_count": 3
     },
+    "notes": "some notes about the resource",
     "created_at": "2020-12-30T17:12:46.435Z",
     "updated_at": "2020-12-30T17:12:50.235Z",
 }
@@ -37,6 +38,7 @@ marketing_usable | boolean | no | whether the resource will be allowed to be use
 file_url | string | no | URL of the file where the resource is located at
 state | string | no | current state of the resource (could be `pending` (the default one), `approved` or `rejected`)
 properties | object | yes | custom attributes of the resource
+notes | string | yes | notes about the resource - used to provide a reason for its acceptance/rejection/resubmission
 created_at | datetime | no | time of creation
 updated_at | datetime | no | time of last update
 
@@ -335,9 +337,10 @@ Resubmits given [Resource](#operations-resource-model).
 
 #### URL Parameters
 
-Parameter  | Type    | Description
----------- | --------| ------
-id         | integer | Resource ID
+Parameter  | Type     | Description
+---------- | -------- | ------
+id         | integer  | Resource ID
+notes      | string   | Notes (thoughts) about the resource - will be visible to the admin
 
 #### Error responses
 
