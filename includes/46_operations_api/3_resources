@@ -17,6 +17,7 @@
       </span><span class="s2">"used_so_far"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
       </span><span class="s2">"author_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
     </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some notes about the resource"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-12-30T17:12:46.435Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-12-30T17:12:50.235Z"</span><span class="p">,</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -88,6 +89,12 @@
 <td>object</td>
 <td>yes</td>
 <td>custom attributes of the resource</td>
+</tr>
+<tr>
+<td>notes</td>
+<td>string</td>
+<td>yes</td>
+<td>notes about the resource - used to provide a reason for its acceptance/rejection/resubmission</td>
 </tr>
 <tr>
 <td>created_at</td>
@@ -528,6 +535,11 @@ Requires <code>Operations:Api:Users:Resources:Destroy</code> permit
 <td>id</td>
 <td>integer</td>
 <td>Resource ID</td>
+</tr>
+<tr>
+<td>notes</td>
+<td>string</td>
+<td>Notes (thoughts) about the resource - will be visible to the admin</td>
 </tr>
 </tbody></table>
 <h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
