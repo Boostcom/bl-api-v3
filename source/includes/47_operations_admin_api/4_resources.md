@@ -20,6 +20,7 @@
       "used_so_far": false,
       "author_count": 3
     },
+    "campaign_type": "some campaign type",
     "notes": "some notes about the resource",
     "created_at": "2020-12-30T17:12:46.435Z",
     "updated_at": "2020-12-30T17:12:50.235Z",
@@ -41,6 +42,7 @@ marketing_usable | boolean | no | whether the resource will be allowed to be use
 file_url | string | no | URL of the file where the resource is located at
 state | string | no | current state of the resource (could be `pending` (the default one), `approved` or `rejected`)
 properties | object | yes | custom attributes of the resource
+campaign_type | string | yes | campaign type of the resource
 notes | string | yes | notes about the resource - used to provide a reason for its acceptance/rejection/resubmission
 created_at | datetime | no | time of creation
 updated_at | datetime | no | time of last update
@@ -80,6 +82,7 @@ per_page                       | integer                         | 100       | N
 page_no                        | integer                         | 1         | Number of results page
 search_query                   | string                          | null      | If provided, only Resources that have any of their attribute values matching the provided string are returned
 resource_type                  | string                          | null      | If provided, only Resources that belong to the resource type of provided name are returned
+campaign_type                  | array[string]                   | null      | If provided, only Resources with the provided campaign types are returned
 store_id                       | integer                         | null      | If provided, only Resources that belong to the store of provided id are returned
 member_id                      | integer                         | null      | If provided, only Resources that belong to the member of provided id are returned
 
