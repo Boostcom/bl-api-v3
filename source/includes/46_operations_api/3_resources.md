@@ -37,7 +37,7 @@ user_id | string | no | uuid of the User the resource has been created by
 name | string | no | name of the resource
 marketing_usable | boolean | no | whether the resource will be allowed to be used for marketing purposes
 file_url | string | no | URL of the file where the resource is located at
-state | string | no | current state of the resource (could be `pending` (the default one), `approved` or `rejected`)
+state | string | no | current state of the resource (could be `pending` (the default one), `accepted` or `rejected`)
 properties | object | yes | custom attributes of the resource
 campaign_type | string | yes | campaign type of the resource
 notes | string | yes | notes about the resource - used to provide a reason for its acceptance/rejection/resubmission
