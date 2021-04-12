@@ -46,7 +46,8 @@ This API is under development. Therefore, it may not be ready for use and is a s
     "recipients_count": 0,
     "dispatches_count": 9513,
     "scheduled_at": "2020-10-15T15:27:02.853Z",
-    "created_at": "2020-09-15T12:45:08.625Z",
+    "transmitted_at": "2020-10-15T12:45:08.625Z",
+    "created_at": "2020-09-15T12:27:02.853Z",
     "updated_at": "2020-09-15T12:45:08.625Z"
   }
 }
@@ -92,6 +93,7 @@ audience_id | [Sending#audience_id](#messaging-sending-model)
 **status** | [Sending#status](#messaging-sending-model)
 **scheduled_at** | [Sending#scheduled_at](#messaging-sending-model)
 **created_at** | [Sending#created_at](#messaging-sending-model) 
+**transmitted_at** | [Sending#transmitted_at](#messaging-sending-model) 
 **updated_at** | [Sending#updated_at](#messaging-sending-model)
 **recipients_count** | Number of recipients 
 dispatches_count | Number of dispatches, when sending has not been executed yet it's `null` 
@@ -467,6 +469,7 @@ Template type | Wrappable with
   },
   "created_at": "2020-09-18T09:13:59.937Z",
   "updated_at": "2020-09-18T09:13:59.937Z",
+  "transmitted_at": "2020-09-18T09:13:59.937Z",
   "dispatches_count": 4912,
   "recipients": [
     {
@@ -488,6 +491,7 @@ audience_id | integer | ID of audience the sending is directed to
 **scheduled_at** | datetime | Time of sending execution
 scheduled_with | Object | Params the sending has been scheduled with - See [SendingSchedulePayload](#messaging-sending-schedule-payload-model)
 dispatches_count | Number of dispatches, when sending has not been executed yet it's `null`
+**transmitted_at** | datetime | Time of sending transmission
 **created_at** | datetime | Time of creation
 **updated_at** | datetime | Time of update
 **recipients** | [Recipient](#messaging-recipient-model)[] | Inline recipients the sending is directed to
@@ -521,7 +525,7 @@ It must be created again, for example with [Clone sending endpoint](#todo).
 
 ### <a name="messaging-dispatch-model"></a> Dispatch model
 
-> Sending example:
+> Dispatch example:
 
 ```json
 {
