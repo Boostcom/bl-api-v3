@@ -25,6 +25,7 @@ curl \
       "price": 300,
       "required_member_level": "2",
       "remaining_stock": 15,
+      "available_until": "2020-15-23 14:42:11",
       "files": [
         {
           "url": "https://offers-api.s3.eu-central-1.amazonaws.com/offer-1000062-default-mobile.jpg",
@@ -76,6 +77,7 @@ description | string | (optional)
 price | integer | Number of points that must be spent to purchase the reward
 required_member_level | string| (optional) Minimal level name the members needs to have to be able to purchase the reward. See [Levels](#rewards-program-levels-program)
 remaining_stock | integer | (optional) Number of items that is available for purchase. When null, there is no limit
+available_until | datetime | (optional) Date until the reward may be purchased. When null, there is no availability limit
 files | Array | A list of Reward Files - see [File model](#file-model)
 
 <aside class="notice">
