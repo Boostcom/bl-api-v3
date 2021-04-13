@@ -183,6 +183,43 @@ We use format without leading <code>00</code> or <code>+</code> and without spac
 <td>Is given <code>per_page</code> param out of range?</td>
 </tr>
 </tbody></table>
+<h2 id='a-name-api-entity-model-a-api-entity-json-model-1'><span id=a-name-api-entity-model-a-api-entity-json-model></span><a name="api-entity-model"></a> API Entity JSON model</h2>
+<blockquote>
+<p>Example - token entity:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"entity_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"token"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"entity_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">491</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example - user entity:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"entity_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"token"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"entity_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24ef9f75-90da-4bae-a5a7-b5361dda718a"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Used to represent API entity related to given resource.</p>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>entity_type</td>
+<td>enum: [&quot;token&quot;, &quot;user&quot;]</td>
+<td>Type of entity</td>
+</tr>
+<tr>
+<td>entity_id</td>
+<td>misc</td>
+<td>ID of entity</td>
+</tr>
+</tbody></table>
 <h2 id='a-name-invalid-parameters-errors-model-a-invalid-parameters-errors-422-1'><span id=a-name-invalid-parameters-errors-model-a-invalid-parameters-errors-422></span><a name="invalid-parameters-errors-model"></a> Invalid parameters errors (422)</h2>
 <blockquote>
 <p>Example:</p>

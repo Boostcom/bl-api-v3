@@ -6,6 +6,7 @@
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
     </span><span class="s2">"confirmable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fire instructions"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_by"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"entity_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"token"</span><span class="p">,</span><span class="w"> </span><span class="s2">"entity_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">491</span><span class="w"> </span><span class="p">},</span><span class="w">
     </span><span class="s2">"deadline_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-12-15T15:43:32.000Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-11-30T17:12:46.435Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-11-30T17:12:50.235Z"</span><span class="p">,</span><span class="w">
@@ -37,6 +38,12 @@
 <td>string</td>
 <td>no</td>
 <td></td>
+</tr>
+<tr>
+<td>created_by</td>
+<td><a href="#api-entity-model">API entity</a></td>
+<td>no</td>
+<td>Author of document</td>
 </tr>
 <tr>
 <td>deadline_at</td>
