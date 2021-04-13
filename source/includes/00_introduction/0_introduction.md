@@ -126,6 +126,33 @@ is_first_page | boolean |
 is_last_page | boolean | 
 is_out_of_range | boolean | Is given `per_page` param out of range?
 
+## <a name="api-entity-model"></a> API Entity JSON model
+
+> Example - token entity:
+
+```json
+{
+    "entity_type": "token",
+    "entity_id": 491
+}
+```
+
+> Example - user entity:
+
+```json
+{
+    "entity_type": "token",
+    "entity_id": "24ef9f75-90da-4bae-a5a7-b5361dda718a"
+}
+```
+
+Used to represent API entity related to given resource.
+
+Key | Type | Description
+--- | ---- | -----------
+entity_type | enum: ["token", "user"] | Type of entity
+entity_id | misc | ID of entity
+
 ## <a name="invalid-parameters-errors-model"></a> Invalid parameters errors (422)
 
 > Example:

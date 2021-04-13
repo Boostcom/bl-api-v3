@@ -21,6 +21,7 @@
         "scheduled_at": "2020-12-13T08:00:00.000Z",
         "sent_at": null
     },
+    "created_by": { "entity_type": "token", "entity_id": 491 },
     "created_at": "2020-11-30T17:12:46.435Z",
     "updated_at": "2020-11-30T17:12:46.435Z",
     "recipients_count": 2,
@@ -45,6 +46,7 @@ deadline_at | datetime | when not confirmable | Time until document is meant to 
 message_channel | enum: `['sms', 'email', 'push']` | no | Channel that the document (and reminders) should be sent with
 first_reminder | [DocumentReminder](#operations-admin-document-reminder-model) | yes |
 second_reminder | [DocumentReminder](#operations-admin-document-reminder-model)| yes | Can only be specified after the first reminder
+created_by | [API entity](#api-entity-model) | no | Author of document
 created_at | datetime | no | Time of creation
 updated_at | datetime | no | Time of last update
 recipients_count | integer | no | Number of recipients

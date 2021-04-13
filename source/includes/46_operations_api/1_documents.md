@@ -9,6 +9,7 @@
     "id": 15,
     "confirmable": true,
     "title": "Fire instructions",
+    "created_by": { "entity_type": "token", "entity_id": 491 },
     "deadline_at": "2020-12-15T15:43:32.000Z",
     "created_at": "2020-11-30T17:12:46.435Z",
     "updated_at": "2020-11-30T17:12:50.235Z",
@@ -21,6 +22,7 @@ Key | Type | Optional | Description
 id | integer | no |
 confirmable | boolean | no | Is document meant to be confirmed by recipient?
 title | string | no |
+created_by | [API entity](#api-entity-model) | no | Author of document
 deadline_at | datetime | when not confirmable | Time until document is meant to be confirmed by recipients - only for `confirmable` documents
 created_at | datetime | no | Time of creation
 updated_at | datetime | no | Time of last update
