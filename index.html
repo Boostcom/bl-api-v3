@@ -19009,7 +19009,69 @@ Requires <code>Operations:Api:Resources:Accept</code> accept
 </tbody></table>
 
 <aside class="notice">
-Requires <code>Operations:Api:Resources:Reject</code> reject
+Requires <code>Operations:Api:Resources:Reject</code> permit
+</aside>
+<h3 id='a-name-operations-show-resource-a-create-a-resource-reminder-1'><span id=a-name-operations-show-resource-a-create-a-resource-reminder></span><a name="operations-show-resource"></a> Create a Resource reminder</h3>
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v1/operations/resources/5/reminders"</span> <span class="se">\</span>
+  -H <span class="s1">'authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICIyOE'</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'x-loyalty-club-slug: infinity-mall'</span> <span class="se">\</span>
+  -H <span class="s1">'x-user-agent: CURL manual test'</span> <span class="se">\</span>
+  -H <span class="s1">'x-b-store-id: 2'</span> <span class="se">\</span>
+</code></pre>
+<blockquote>
+<p>Returns object containing <a href="#operations-resource-model">resource</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"resource"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">see</span><span class="p">:</span><span class="w"> </span><span class="err">'Resource</span><span class="w"> </span><span class="err">model'</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>POST</strong> <code>v1/operations/resources/:id/reminders</code></p>
+
+<p>Creates a reminder for the given <a href="#operations-resource-model">Resource</a>.</p>
+<h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>Resource ID</td>
+</tr>
+<tr>
+<td>reminder</td>
+<td>object</td>
+<td>Object containing a .message of the reminder</td>
+</tr>
+<tr>
+<td>reminder[message]</td>
+<td>string</td>
+<td>Message of the reminder</td>
+</tr>
+</tbody></table>
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>404</code></td>
+<td>Resource not found</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Operations:Api:Resources:Reminders:Create</code> permit
 </aside>
 
           <h1 id='files-api-1'><span id=files-api></span>Files API</h1><h2 id='introduction-1'><span id=introduction></span>Introduction</h2><h3 id='a-name-file-record-a-filerecord-model-1'><span id=a-name-file-record-a-filerecord-model></span><a name="file-record"></a> FileRecord model</h3><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
