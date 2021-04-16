@@ -217,5 +217,49 @@ Status    | Description
 `405`     | Resource is not rejecttable
 
 <aside class="notice">
-Requires <code>Operations:Api:Resources:Reject</code> reject
+Requires <code>Operations:Api:Resources:Reject</code> permit
+</aside>
+
+### <a name="operations-show-resource"></a> Create a Resource reminder
+
+> Example
+
+```shell
+curl -X POST \
+"https://api.mpc.placewise.com/v1/operations/resources/5/reminders" \
+  -H 'authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICIyOE' \
+  -H 'content-type: application/json' \
+  -H 'x-loyalty-club-slug: infinity-mall' \
+  -H 'x-user-agent: CURL manual test' \
+  -H 'x-b-store-id: 2' \
+```
+
+> Returns object containing [resource](#operations-resource-model)
+
+```json
+{
+  "resource": {} // see: 'Resource model'
+}
+````
+
+**POST** `v1/operations/resources/:id/reminders`
+
+Creates a reminder for the given [Resource](#operations-resource-model).
+
+#### URL Parameters
+
+Parameter         | Type     | Description
+----------        | -------- | ------
+id                | integer  | Resource ID
+reminder          | object   | Object containing a .message of the reminder
+reminder[message] | string   | Message of the reminder
+
+#### Error responses
+
+Status    | Description
+--------- | -----------
+`404`     | Resource not found
+
+<aside class="notice">
+Requires <code>Operations:Api:Resources:Reminders:Create</code> permit
 </aside>
