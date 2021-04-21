@@ -43,6 +43,11 @@
           "items": {
             "type": "string"
           }
+        },
+        "Campaign start date": { "type": "datetime" },
+        "Campaign end date": {
+          "type": "datetime",
+          "validates_gt_against": "Campaign start date"
         }
       },
       "required": [
@@ -138,6 +143,11 @@ curl -X PUT \
               "items": {
                 "type": "string"
               }
+            },
+            "Campaign start date": { "type": "datetime" },
+            "Campaign end date": {
+              "type": "datetime",
+              "validates_gt_against": "Campaign start date"
             }
           },
           "required": [
