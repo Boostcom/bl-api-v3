@@ -18440,6 +18440,11 @@ Requires <code>Operations:Api:Documents:Destroy</code> permit
           </span><span class="s2">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
           </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"Campaign start date"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"datetime"</span><span class="w"> </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"Campaign end date"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"datetime"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"validates_gt_against"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Campaign start date"</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="s2">"required"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -18560,6 +18565,11 @@ Requires <code>Operations:Api:ResourceTypes:Schema::Show</code> permit
               "items": {
                 "type": "string"
               }
+            },
+            "Campaign start date": { "type": "datetime" },
+            "Campaign end date": {
+              "type": "datetime",
+              "validates_gt_against": "Campaign start date"
             }
           },
           "required": [
