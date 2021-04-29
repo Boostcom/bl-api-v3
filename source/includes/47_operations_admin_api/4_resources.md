@@ -83,6 +83,7 @@ page_no                        | integer                         | 1         | N
 search_query                   | string                          | null      | If provided, only Resources that have any of their attribute values matching the provided string are returned
 resource_type                  | string                          | null      | If provided, only Resources that belong to the resource type of provided name are returned
 campaign_type                  | array[string]                   | null      | If provided, only Resources with the provided campaign types are returned
+state                          | array[string]                   | null      | If provided, only Resources with the provided states are returned
 store_id                       | integer                         | null      | If provided, only Resources that belong to the store of provided id are returned
 member_id                      | integer                         | null      | If provided, only Resources that belong to the member of provided id are returned
 
