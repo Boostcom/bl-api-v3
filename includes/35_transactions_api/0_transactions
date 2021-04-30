@@ -47,7 +47,8 @@
                  ],
                  "loyalty_points": 100
              }
-         ]
+         ],
+         "callback_url": "https://callback.url"
      }'</span>
 </code></pre>
 <blockquote>
