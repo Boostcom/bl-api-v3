@@ -52,7 +52,8 @@ curl -X POST \
                  ],
                  "loyalty_points": 100
              }
-         ]
+         ],
+         "callback_url": "https://callback.url"
      }'
 ```
 
