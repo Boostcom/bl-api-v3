@@ -1,5 +1,9 @@
 # Changelog
 
+### 07.05.2021 | Piotr Świtlicki
+
+* Add description to [Operations &bull; Documents](#operations-documents) 
+
 #### 19.03.2021 | Paweł Buczkowski
 * Add [Transaction Stamps &bull; Create](#stamps-create)
 
