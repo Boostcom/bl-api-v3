@@ -87,6 +87,47 @@ state                  | array[string]                   | null      | If provid
 Requires <code>Operations:Api:Users:Resources:List</code> permit
 </aside>
 
+### <a name="operations-list-resources-trash"></a> List deleted Resources
+
+> Example
+
+```shell
+curl -X GET \
+"https://api.mpc.placewise.com/v1/users/me/operations/resources/trash" \
+  -H 'authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICIyOE' \
+  -H 'content-type: application/json' \
+  -H 'x-loyalty-club-slug: infinity-mall' \
+  -H 'x-user-agent: CURL manual test'
+```
+
+> Returns object containing [resources](#operations-resource-model) and [pagination_info](#pagination-model)
+
+```json
+{
+  "resources": [], // List of resources - see 'Resource model'
+  "pagination_info": {} // Pagination info - see 'Pagination info'
+}
+````
+
+**GET** `v1/users/me/operations/resources/trash`
+
+Returns list of deleted [Resources](#operations-resource-model) shared with current user.
+
+#### Query Parameters
+
+Parameter              | Type                            | Default   | Description
+--------------         | -----------                     | --------- | -----------
+per_page               | integer                         | 100       | Number of results to be returned per request (100 is the maximum)
+page_no                | integer                         | 1         | Number of results page
+search_query           | string                          | null      | If provided, only Resources that have any of their attribute values matching the provided string are returned
+resource_type          | string                          | null      | If provided, only Resources that belong to the resource type of provided name are returned
+campaign_type          | array[string]                   | null      | If provided, only Resources with the provided campaign types are returned
+state                  | array[string]                   | null      | If provided, only Resources with the provided states are returned
+
+<aside class="notice">
+Requires <code>Operations:Api:Users:Resources:List</code> permit
+</aside>
+
 ### <a name="operations-show-resource"></a> Get Resource
 
 > Example
@@ -354,4 +395,46 @@ Status    | Description
 
 <aside class="notice">
 Requires <code>Operations:Api:Users:Resources:Resubmit</code> permit
+</aside>
+
+### <a name="operations-show-resource"></a> Undelete Resource
+
+> Example
+
+```shell
+curl -X PUT \
+"https://api.mpc.placewise.com/v1/users/me/operations/resources/5/undelete" \
+  -H 'authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICIyOE' \
+  -H 'content-type: application/json' \
+  -H 'x-loyalty-club-slug: infinity-mall' \
+  -H 'x-user-agent: CURL manual test'
+```
+
+> Returns object containing [resource](#operations-resource-model)
+
+```json
+{
+  "resource": {} // see: 'Resource model'
+}
+````
+
+**PUT** `v1/users/me/operations/resources/:id/undelete`
+
+Undeletes given [Resource](#operations-resource-model).
+
+#### URL Parameters
+
+Parameter  | Type     | Description
+---------- | -------- | ------
+id         | integer  | Resource ID
+
+#### Error responses
+
+Status    | Description
+--------- | -----------
+`404`     | Resource not found
+`405`     | Resource is not undeletable
+
+<aside class="notice">
+Requires <code>Operations:Api:Users:Resources:Undelete</code> permit
 </aside>
