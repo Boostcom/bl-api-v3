@@ -1550,9 +1550,9 @@ Requires <code>BL:Api:Members:Tokens:Create</code> permit
 </aside>
 
 <!--- ############################################################################################################# --->
-<h3 id='a-name-members-send-one-time-password-a-send-one-time-password-sms-1'><span id=a-name-members-send-one-time-password-a-send-one-time-password-sms></span><a name="members-send-one-time-password"></a> Send one time password SMS</h3>
+<h3 id='a-name-members-send-one-time-password-a-send-one-time-password-1'><span id=a-name-members-send-one-time-password-a-send-one-time-password></span><a name="members-send-one-time-password"></a> Send one time password</h3>
 <blockquote>
-<p>Example:</p>
+<p>Example - Sending OTP SMS</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.mpc.placewise.com/v3/infinity-mall/members/by_msisdn/4740769126/send_one_time_password"</span> <span class="se">\</span>
   -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
@@ -1560,36 +1560,8 @@ Requires <code>BL:Api:Members:Tokens:Create</code> permit
   -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
   -H <span class="s1">'x-user-agent: CURL manual test'</span>
 </code></pre>
-<p><strong>POST</strong> <code>/v3/:loyalty_club_slug/members/by_msisdn/:msisdn/send_one_time_password</code></p>
-
-<p>Sends an SMS to given msisdn if it is associated with member in given loyalty club.</p>
-
-<p>The SMS contains 4-digit One-Time-Password generated for member, valid for 1 hour.</p>
-
-<p>This password then can be used to sign in, just as &quot;regular&quot; member password - see:  <a href="#token-create">OAuth Token &bull; Create</a>.</p>
-<h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-<th>Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>msisdn</td>
-<td>Member&#39;s msisdn</td>
-<td>string (format as defined <a href="#msisdn-param">here</a> - example: <code>4740769126</code>)</td>
-</tr>
-</tbody></table>
-
-<aside class="notice">
-Requires <code>BL:Api:Members:CreateOneTimePassword</code> permit
-</aside>
-
-<!--- ############################################################################################################# --->
-<h3 id='a-name-members-send-one-time-password-email-a-send-one-time-password-e-mail-1'><span id=a-name-members-send-one-time-password-email-a-send-one-time-password-e-mail></span><a name="members-send-one-time-password-email"></a> Send one time password E-mail</h3>
 <blockquote>
-<p>Example:</p>
+<p>Example - Sending OTP email</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.mpc.placewise.com/v3/infinity-mall/members/by_email/user@example.com/send_one_time_password"</span> <span class="se">\</span>
   -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
@@ -1604,19 +1576,21 @@ Requires <code>BL:Api:Members:CreateOneTimePassword</code> permit
   </span><span class="err">//</span><span class="w"> </span><span class="err">Empty</span><span class="w"> </span><span class="err">object</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+<p><strong>POST</strong> <code>/v3/:loyalty_club_slug/members/by_msisdn/:msisdn/send_one_time_password</code></p>
+
+<p>&nbsp; &nbsp; &nbsp; &nbsp; Sends a login SMS to member identified by msisdn</p>
+
 <p><strong>POST</strong> <code>/v3/:loyalty_club_slug/members/by_email/:email/send_one_time_password</code></p>
 
-<p>Sends a &quot;Login&quot; e-mail to given address associated with member in given Loyalty Club. </p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; Sends a login email to member identified by given email</p>
 
-<p>The e-mail contains a link to a page that should sign in the member with MPC API.</p>
+<p>The message may contain (depending on Loyalty Club configuration):</p>
 
-<p>The link scheme is: <code>&lt;login_url&gt;?member_id=&lt;member_id&gt;&amp;otp=&lt;otp&gt;</code> and contains member id 
-and 16-digit password generated for member, valid for 1 hour.<br>
-Those params then can be used to sign in the user, just as &quot;regular&quot; member password -
-see:  <a href="#token-create">OAuth Token &bull; Create</a>.</p>
-
-<p>By default, <code>login_url</code> leads to MPC Webforms page or mobile app. 
-However, it may by customized by providing <code>login_url</code> query param.</p>
+<ul>
+<li>Generated password, valid for limited time, allows to sign in member - see: <a href="#token-create">OAuth Token &bull; Create</a>. </li>
+<li>Login URL. Scheme of this URL is: <code>&lt;login_url&gt;?otp=&lt;otp&gt;</code>. 
+By default, <code>login_url</code> leads to MPC Webforms page. However, it may by customized by providing <code>login_url</code> query param.</li>
+</ul>
 <h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
 <table><thead>
 <tr>
@@ -1629,6 +1603,11 @@ However, it may by customized by providing <code>login_url</code> query param.</
 <td>email</td>
 <td>Member&#39;s email</td>
 <td>e-mail</td>
+</tr>
+<tr>
+<td>msisdn</td>
+<td>Member&#39;s msisdn</td>
+<td>string (format as defined <a href="#msisdn-param">here</a> - example: <code>4740769126</code>)</td>
 </tr>
 </tbody></table>
 <h4 id='query-parameters-1'><span id=query-parameters></span>Query Parameters</h4>
@@ -1656,10 +1635,6 @@ However, it may by customized by providing <code>login_url</code> query param.</
 <td><code>404</code></td>
 <td>Member not found</td>
 </tr>
-<tr>
-<td><code>422</code></td>
-<td>Invalid e-mail param</td>
-</tr>
 </tbody></table>
 
 <aside class="notice">
@@ -1669,17 +1644,22 @@ Requires <code>BL:Api:Members:CreateOneTimePassword</code> permit
 <!--- ############################################################################################################# --->
 <h3 id='a-name-members-send-registration-password-a-send-registration-password-1'><span id=a-name-members-send-registration-password-a-send-registration-password></span><a name="members-send-registration-password"></a> Send registration password</h3>
 <blockquote>
-<p>Example:</p>
+<p>Example - Sending registration password SMS</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.mpc.placewise.com/v3/infinity-mall/members/by_msisdn/4740769126/send_registration_password"</span> <span class="se">\</span>
   -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
   -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
-  -H <span class="s1">'x-user-agent: CURL manual test'</span> <span class="se">\</span>
-  -d <span class="se">\</span>
-    <span class="s1">'{
-      "language": "en"
-     }'</span>
+  -H <span class="s1">'x-user-agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>Example - Sending registration password email</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.mpc.placewise.com/v3/infinity-mall/members/by_email/user@example.com/send_registration_password"</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
+  -H <span class="s1">'x-user-agent: CURL manual test'</span>
 </code></pre>
 <blockquote>
 <p>Always returns an empty JSON object</p>
@@ -1690,11 +1670,20 @@ Requires <code>BL:Api:Members:CreateOneTimePassword</code> permit
 </span></code></pre>
 <p><strong>POST</strong> <code>/v3/:loyalty_club_slug/members/by_msisdn/:msisdn/send_registration_password</code></p>
 
-<p>Sends SMS to given MSISDN.</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; Sends a registration SMS to member identified by msisdn</p>
 
-<p>The sent message contains 4-digit registration password, valid for 10 minutes.</p>
+<p><strong>POST</strong> <code>/v3/:loyalty_club_slug/members/by_email/:email/send_registration_password</code></p>
 
-<p>This password may be required for member registration - see: <a href="#members-create-registration-password">Registration password</a></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; Sends a registration email to member identified by given email</p>
+
+<p>The message may contain (depending on Loyalty Club configuration):</p>
+
+<ul>
+<li>Generated password, valid for limited time, allows to <a href="#members-create">register</a> the member. </li>
+<li>Registration URL. Scheme of this URL is: <code>&lt;registration_url&gt;?otp=&lt;otp&gt;</code>. 
+By default, <code>registration_url</code> leads to MPC Webforms page. However, it may by customized by 
+providing <code>registration_url</code> query param.</li>
+</ul>
 <h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
 <table><thead>
 <tr>
@@ -1704,12 +1693,17 @@ Requires <code>BL:Api:Members:CreateOneTimePassword</code> permit
 </tr>
 </thead><tbody>
 <tr>
+<td>email</td>
+<td>Member&#39;s email</td>
+<td>e-mail</td>
+</tr>
+<tr>
 <td>msisdn</td>
-<td>MSISDN</td>
+<td>Member&#39;s msisdn</td>
 <td>string (format as defined <a href="#msisdn-param">here</a> - example: <code>4740769126</code>)</td>
 </tr>
 </tbody></table>
-<h4 id='post-parameters-1'><span id=post-parameters></span>POST Parameters</h4>
+<h4 id='query-parameters-1'><span id=query-parameters></span>Query Parameters</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1717,6 +1711,11 @@ Requires <code>BL:Api:Members:CreateOneTimePassword</code> permit
 <th>Type</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>login_url</td>
+<td>Custom login URL</td>
+<td>String</td>
+</tr>
 <tr>
 <td>language</td>
 <td>Language of the registration password message. When not provided, default LC language will be used</td>
@@ -1731,16 +1730,14 @@ Requires <code>BL:Api:Members:CreateOneTimePassword</code> permit
 </tr>
 </thead><tbody>
 <tr>
-<td><code>422</code></td>
-<td>Invalid MSISDN param</td>
+<td><code>404</code></td>
+<td>Member not found</td>
 </tr>
 </tbody></table>
 
 <aside class="notice">
 Requires <code>BL:Api:Members:CreateRegistrationPassword</code> permit
 </aside>
-
-<!--- ############################################################################################################# --->
 <h3 id='a-name-members-verify-token-a-verify-token-1'><span id=a-name-members-verify-token-a-verify-token></span><a name="members-verify-token"></a> Verify token</h3>
 <blockquote>
 <p>Example:</p>

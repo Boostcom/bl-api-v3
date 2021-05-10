@@ -647,12 +647,12 @@ Requires <code>Operations:Api:Users:Resources:Destroy</code> permit
 <aside class="notice">
 Requires <code>Operations:Api:Users:Resources:Resubmit</code> permit
 </aside>
-<h3 id='a-name-operations-show-resource-a-undelete-resource-1'><span id=a-name-operations-show-resource-a-undelete-resource></span><a name="operations-show-resource"></a> Undelete Resource</h3>
+<h3 id='a-name-operations-show-resource-a-restore-resource-1'><span id=a-name-operations-show-resource-a-restore-resource></span><a name="operations-show-resource"></a> Restore Resource</h3>
 <blockquote>
 <p>Example</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X PUT <span class="se">\</span>
-<span class="s2">"https://api.mpc.placewise.com/v1/users/me/operations/resources/5/undelete"</span> <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v1/users/me/operations/resources/5/restore"</span> <span class="se">\</span>
   -H <span class="s1">'authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICIyOE'</span> <span class="se">\</span>
   -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'x-loyalty-club-slug: infinity-mall'</span> <span class="se">\</span>
@@ -665,9 +665,9 @@ Requires <code>Operations:Api:Users:Resources:Resubmit</code> permit
   </span><span class="s2">"resource"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">see</span><span class="p">:</span><span class="w"> </span><span class="err">'Resource</span><span class="w"> </span><span class="err">model'</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>PUT</strong> <code>v1/users/me/operations/resources/:id/undelete</code></p>
+<p><strong>PUT</strong> <code>v1/users/me/operations/resources/:id/restore</code></p>
 
-<p>Undeletes given <a href="#operations-resource-model">Resource</a>.</p>
+<p>Restores given <a href="#operations-resource-model">Resource</a>.</p>
 <h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
 <table><thead>
 <tr>
@@ -695,10 +695,10 @@ Requires <code>Operations:Api:Users:Resources:Resubmit</code> permit
 </tr>
 <tr>
 <td><code>405</code></td>
-<td>Resource is not undeletable</td>
+<td>Resource is not restorable</td>
 </tr>
 </tbody></table>
 
 <aside class="notice">
-Requires <code>Operations:Api:Users:Resources:Undelete</code> permit
+Requires <code>Operations:Api:Users:Resources:Restore</code> permit
 </aside>

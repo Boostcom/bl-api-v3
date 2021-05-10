@@ -3282,9 +3282,9 @@ Requires <code>BL:Api:Members:Tokens:Create</code> permit
 </aside>
 
 <!--- ############################################################################################################# --->
-<h3 id='a-name-members-send-one-time-password-a-send-one-time-password-sms-1'><span id=a-name-members-send-one-time-password-a-send-one-time-password-sms></span><a name="members-send-one-time-password"></a> Send one time password SMS</h3>
+<h3 id='a-name-members-send-one-time-password-a-send-one-time-password-1'><span id=a-name-members-send-one-time-password-a-send-one-time-password></span><a name="members-send-one-time-password"></a> Send one time password</h3>
 <blockquote>
-<p>Example:</p>
+<p>Example - Sending OTP SMS</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.mpc.placewise.com/v3/infinity-mall/members/by_msisdn/4740769126/send_one_time_password"</span> <span class="se">\</span>
   -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
@@ -3292,36 +3292,8 @@ Requires <code>BL:Api:Members:Tokens:Create</code> permit
   -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
   -H <span class="s1">'x-user-agent: CURL manual test'</span>
 </code></pre>
-<p><strong>POST</strong> <code>/v3/:loyalty_club_slug/members/by_msisdn/:msisdn/send_one_time_password</code></p>
-
-<p>Sends an SMS to given msisdn if it is associated with member in given loyalty club.</p>
-
-<p>The SMS contains 4-digit One-Time-Password generated for member, valid for 1 hour.</p>
-
-<p>This password then can be used to sign in, just as &quot;regular&quot; member password - see:  <a href="#token-create">OAuth Token &bull; Create</a>.</p>
-<h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-<th>Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>msisdn</td>
-<td>Member&#39;s msisdn</td>
-<td>string (format as defined <a href="#msisdn-param">here</a> - example: <code>4740769126</code>)</td>
-</tr>
-</tbody></table>
-
-<aside class="notice">
-Requires <code>BL:Api:Members:CreateOneTimePassword</code> permit
-</aside>
-
-<!--- ############################################################################################################# --->
-<h3 id='a-name-members-send-one-time-password-email-a-send-one-time-password-e-mail-1'><span id=a-name-members-send-one-time-password-email-a-send-one-time-password-e-mail></span><a name="members-send-one-time-password-email"></a> Send one time password E-mail</h3>
 <blockquote>
-<p>Example:</p>
+<p>Example - Sending OTP email</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.mpc.placewise.com/v3/infinity-mall/members/by_email/user@example.com/send_one_time_password"</span> <span class="se">\</span>
   -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
@@ -3336,19 +3308,21 @@ Requires <code>BL:Api:Members:CreateOneTimePassword</code> permit
   </span><span class="err">//</span><span class="w"> </span><span class="err">Empty</span><span class="w"> </span><span class="err">object</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+<p><strong>POST</strong> <code>/v3/:loyalty_club_slug/members/by_msisdn/:msisdn/send_one_time_password</code></p>
+
+<p>&nbsp; &nbsp; &nbsp; &nbsp; Sends a login SMS to member identified by msisdn</p>
+
 <p><strong>POST</strong> <code>/v3/:loyalty_club_slug/members/by_email/:email/send_one_time_password</code></p>
 
-<p>Sends a &quot;Login&quot; e-mail to given address associated with member in given Loyalty Club. </p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; Sends a login email to member identified by given email</p>
 
-<p>The e-mail contains a link to a page that should sign in the member with MPC API.</p>
+<p>The message may contain (depending on Loyalty Club configuration):</p>
 
-<p>The link scheme is: <code>&lt;login_url&gt;?member_id=&lt;member_id&gt;&amp;otp=&lt;otp&gt;</code> and contains member id 
-and 16-digit password generated for member, valid for 1 hour.<br>
-Those params then can be used to sign in the user, just as &quot;regular&quot; member password -
-see:  <a href="#token-create">OAuth Token &bull; Create</a>.</p>
-
-<p>By default, <code>login_url</code> leads to MPC Webforms page or mobile app. 
-However, it may by customized by providing <code>login_url</code> query param.</p>
+<ul>
+<li>Generated password, valid for limited time, allows to sign in member - see: <a href="#token-create">OAuth Token &bull; Create</a>. </li>
+<li>Login URL. Scheme of this URL is: <code>&lt;login_url&gt;?otp=&lt;otp&gt;</code>. 
+By default, <code>login_url</code> leads to MPC Webforms page. However, it may by customized by providing <code>login_url</code> query param.</li>
+</ul>
 <h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
 <table><thead>
 <tr>
@@ -3361,6 +3335,11 @@ However, it may by customized by providing <code>login_url</code> query param.</
 <td>email</td>
 <td>Member&#39;s email</td>
 <td>e-mail</td>
+</tr>
+<tr>
+<td>msisdn</td>
+<td>Member&#39;s msisdn</td>
+<td>string (format as defined <a href="#msisdn-param">here</a> - example: <code>4740769126</code>)</td>
 </tr>
 </tbody></table>
 <h4 id='query-parameters-1'><span id=query-parameters></span>Query Parameters</h4>
@@ -3388,10 +3367,6 @@ However, it may by customized by providing <code>login_url</code> query param.</
 <td><code>404</code></td>
 <td>Member not found</td>
 </tr>
-<tr>
-<td><code>422</code></td>
-<td>Invalid e-mail param</td>
-</tr>
 </tbody></table>
 
 <aside class="notice">
@@ -3401,17 +3376,22 @@ Requires <code>BL:Api:Members:CreateOneTimePassword</code> permit
 <!--- ############################################################################################################# --->
 <h3 id='a-name-members-send-registration-password-a-send-registration-password-1'><span id=a-name-members-send-registration-password-a-send-registration-password></span><a name="members-send-registration-password"></a> Send registration password</h3>
 <blockquote>
-<p>Example:</p>
+<p>Example - Sending registration password SMS</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.mpc.placewise.com/v3/infinity-mall/members/by_msisdn/4740769126/send_registration_password"</span> <span class="se">\</span>
   -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
   -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
-  -H <span class="s1">'x-user-agent: CURL manual test'</span> <span class="se">\</span>
-  -d <span class="se">\</span>
-    <span class="s1">'{
-      "language": "en"
-     }'</span>
+  -H <span class="s1">'x-user-agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>Example - Sending registration password email</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.mpc.placewise.com/v3/infinity-mall/members/by_email/user@example.com/send_registration_password"</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
+  -H <span class="s1">'x-user-agent: CURL manual test'</span>
 </code></pre>
 <blockquote>
 <p>Always returns an empty JSON object</p>
@@ -3422,11 +3402,20 @@ Requires <code>BL:Api:Members:CreateOneTimePassword</code> permit
 </span></code></pre>
 <p><strong>POST</strong> <code>/v3/:loyalty_club_slug/members/by_msisdn/:msisdn/send_registration_password</code></p>
 
-<p>Sends SMS to given MSISDN.</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; Sends a registration SMS to member identified by msisdn</p>
 
-<p>The sent message contains 4-digit registration password, valid for 10 minutes.</p>
+<p><strong>POST</strong> <code>/v3/:loyalty_club_slug/members/by_email/:email/send_registration_password</code></p>
 
-<p>This password may be required for member registration - see: <a href="#members-create-registration-password">Registration password</a></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; Sends a registration email to member identified by given email</p>
+
+<p>The message may contain (depending on Loyalty Club configuration):</p>
+
+<ul>
+<li>Generated password, valid for limited time, allows to <a href="#members-create">register</a> the member. </li>
+<li>Registration URL. Scheme of this URL is: <code>&lt;registration_url&gt;?otp=&lt;otp&gt;</code>. 
+By default, <code>registration_url</code> leads to MPC Webforms page. However, it may by customized by 
+providing <code>registration_url</code> query param.</li>
+</ul>
 <h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
 <table><thead>
 <tr>
@@ -3436,12 +3425,17 @@ Requires <code>BL:Api:Members:CreateOneTimePassword</code> permit
 </tr>
 </thead><tbody>
 <tr>
+<td>email</td>
+<td>Member&#39;s email</td>
+<td>e-mail</td>
+</tr>
+<tr>
 <td>msisdn</td>
-<td>MSISDN</td>
+<td>Member&#39;s msisdn</td>
 <td>string (format as defined <a href="#msisdn-param">here</a> - example: <code>4740769126</code>)</td>
 </tr>
 </tbody></table>
-<h4 id='post-parameters-1'><span id=post-parameters></span>POST Parameters</h4>
+<h4 id='query-parameters-1'><span id=query-parameters></span>Query Parameters</h4>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -3449,6 +3443,11 @@ Requires <code>BL:Api:Members:CreateOneTimePassword</code> permit
 <th>Type</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>login_url</td>
+<td>Custom login URL</td>
+<td>String</td>
+</tr>
 <tr>
 <td>language</td>
 <td>Language of the registration password message. When not provided, default LC language will be used</td>
@@ -3463,16 +3462,14 @@ Requires <code>BL:Api:Members:CreateOneTimePassword</code> permit
 </tr>
 </thead><tbody>
 <tr>
-<td><code>422</code></td>
-<td>Invalid MSISDN param</td>
+<td><code>404</code></td>
+<td>Member not found</td>
 </tr>
 </tbody></table>
 
 <aside class="notice">
 Requires <code>BL:Api:Members:CreateRegistrationPassword</code> permit
 </aside>
-
-<!--- ############################################################################################################# --->
 <h3 id='a-name-members-verify-token-a-verify-token-1'><span id=a-name-members-verify-token-a-verify-token></span><a name="members-verify-token"></a> Verify token</h3>
 <blockquote>
 <p>Example:</p>
@@ -16412,6 +16409,7 @@ Requires <code>Events:Api:Registration:Get</code> permit
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
     </span><span class="s2">"confirmable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fire instructions"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Describes how to behave in case of fire"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"created_by"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"entity_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"token"</span><span class="p">,</span><span class="w"> </span><span class="s2">"entity_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">491</span><span class="w"> </span><span class="p">},</span><span class="w">
     </span><span class="s2">"deadline_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-12-15T15:43:32.000Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-11-30T17:12:46.435Z"</span><span class="p">,</span><span class="w">
@@ -16443,6 +16441,12 @@ Requires <code>Events:Api:Registration:Get</code> permit
 <td>title</td>
 <td>string</td>
 <td>no</td>
+<td></td>
+</tr>
+<tr>
+<td>description</td>
+<td>string</td>
+<td>yes</td>
 <td></td>
 </tr>
 <tr>
@@ -16528,10 +16532,10 @@ Requires <code>Events:Api:Registration:Get</code> permit
 <td>When true, returns only confirmable Documents - and vice versa</td>
 </tr>
 <tr>
-<td>title</td>
+<td>search</td>
 <td>string</td>
 <td>null</td>
-<td>When true, returns only Documents that have title matching to given string</td>
+<td>When present, returns only Documents that match the given string</td>
 </tr>
 <tr>
 <td>requiring_confirmation</td>
@@ -17415,12 +17419,12 @@ Requires <code>Operations:Api:Users:Resources:Destroy</code> permit
 <aside class="notice">
 Requires <code>Operations:Api:Users:Resources:Resubmit</code> permit
 </aside>
-<h3 id='a-name-operations-show-resource-a-undelete-resource-1'><span id=a-name-operations-show-resource-a-undelete-resource></span><a name="operations-show-resource"></a> Undelete Resource</h3>
+<h3 id='a-name-operations-show-resource-a-restore-resource-1'><span id=a-name-operations-show-resource-a-restore-resource></span><a name="operations-show-resource"></a> Restore Resource</h3>
 <blockquote>
 <p>Example</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X PUT <span class="se">\</span>
-<span class="s2">"https://api.mpc.placewise.com/v1/users/me/operations/resources/5/undelete"</span> <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v1/users/me/operations/resources/5/restore"</span> <span class="se">\</span>
   -H <span class="s1">'authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICIyOE'</span> <span class="se">\</span>
   -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'x-loyalty-club-slug: infinity-mall'</span> <span class="se">\</span>
@@ -17433,9 +17437,9 @@ Requires <code>Operations:Api:Users:Resources:Resubmit</code> permit
   </span><span class="s2">"resource"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">see</span><span class="p">:</span><span class="w"> </span><span class="err">'Resource</span><span class="w"> </span><span class="err">model'</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>PUT</strong> <code>v1/users/me/operations/resources/:id/undelete</code></p>
+<p><strong>PUT</strong> <code>v1/users/me/operations/resources/:id/restore</code></p>
 
-<p>Undeletes given <a href="#operations-resource-model">Resource</a>.</p>
+<p>Restores given <a href="#operations-resource-model">Resource</a>.</p>
 <h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
 <table><thead>
 <tr>
@@ -17463,12 +17467,12 @@ Requires <code>Operations:Api:Users:Resources:Resubmit</code> permit
 </tr>
 <tr>
 <td><code>405</code></td>
-<td>Resource is not undeletable</td>
+<td>Resource is not restorable</td>
 </tr>
 </tbody></table>
 
 <aside class="notice">
-Requires <code>Operations:Api:Users:Resources:Undelete</code> permit
+Requires <code>Operations:Api:Users:Resources:Restore</code> permit
 </aside>
 
           <h1 id='a-name-operations-admin-a-operations-admin-api-1'><span id=a-name-operations-admin-a-operations-admin-api></span><a name="operations-admin"></a> Operations Admin API</h1>
@@ -17689,6 +17693,7 @@ Requires <code>BL:Api:Members:User:Create</code> permit
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
     </span><span class="s2">"confirmable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fire instructions"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Describes how to behave in case of fire"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"deadline_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-12-15T15:43:32.000Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"message_channel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sms"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"first_reminder"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -17738,6 +17743,12 @@ are sent to recipients which didn&#39;t confirm the document.</p>
 </tr>
 <tr>
 <td>title</td>
+<td>string</td>
+<td>no</td>
+<td></td>
+</tr>
+<tr>
+<td>description</td>
 <td>string</td>
 <td>no</td>
 <td></td>
@@ -17943,10 +17954,10 @@ are sent to recipients which didn&#39;t confirm the document.</p>
 <td>When true, returns only confirmable Documents - and vice versa</td>
 </tr>
 <tr>
-<td>title</td>
+<td>search</td>
 <td>string</td>
 <td>null</td>
-<td>When true, returns only Documents that have title matching to given string</td>
+<td>When true, returns only Documents that match the given string</td>
 </tr>
 <tr>
 <td>recipients_confirmation_status</td>
@@ -18107,6 +18118,7 @@ Requires <code>Operations:Api:Recipients:List</code> permit
     {
         "document": {
             "title": "My name",
+            "description": "Some description",
             "message_channel": "sms",
             "confirmable": true,
             "deadline_at": "2020-12-15T15:43:32",
@@ -18137,6 +18149,11 @@ Requires <code>Operations:Api:Recipients:List</code> permit
 </thead><tbody>
 <tr>
 <td><strong>document.title</strong></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>document.description</td>
 <td>string</td>
 <td></td>
 </tr>
@@ -18255,6 +18272,7 @@ Requires <code>Operations:Api:Documents:Create</code> permit
     {
         "document": {
             "title": "My name",
+            "description": "Some description",
             "deadline_at": "2020-12-15T15:43:32",
             "first_reminder": { "days_before_deadline": 5 },
             "second_reminder": { "days_before_deadline": 2 }
@@ -18296,6 +18314,11 @@ Requires <code>Operations:Api:Documents:Create</code> permit
 </thead><tbody>
 <tr>
 <td><strong>document.title</strong></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>document.description</td>
 <td>string</td>
 <td></td>
 </tr>
@@ -20810,7 +20833,11 @@ Requires <code>Files:Api:Reprocess</code> permit
 Requires <code>Files:Api:Delete</code> permit
 </aside>
 
-          <h1 id='changelog-1'><span id=changelog></span>Changelog</h1><h4 id='19-03-2021-pawel-buczkowski-1'><span id=19-03-2021-pawel-buczkowski></span>19.03.2021 | Paweł Buczkowski</h4>
+          <h1 id='changelog-1'><span id=changelog></span>Changelog</h1><h3 id='07-05-2021-piotr-switlicki-1'><span id=07-05-2021-piotr-switlicki></span>07.05.2021 | Piotr Świtlicki</h3>
+<ul>
+<li>Add description to <a href="#operations-documents">Operations &bull; Documents</a> </li>
+</ul>
+<h4 id='19-03-2021-pawel-buczkowski-1'><span id=19-03-2021-pawel-buczkowski></span>19.03.2021 | Paweł Buczkowski</h4>
 <ul>
 <li>Add <a href="#stamps-create">Transaction Stamps &bull; Create</a></li>
 </ul>
