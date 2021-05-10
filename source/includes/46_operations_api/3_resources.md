@@ -397,13 +397,13 @@ Status    | Description
 Requires <code>Operations:Api:Users:Resources:Resubmit</code> permit
 </aside>
 
-### <a name="operations-show-resource"></a> Undelete Resource
+### <a name="operations-show-resource"></a> Restore Resource
 
 > Example
 
 ```shell
 curl -X PUT \
-"https://api.mpc.placewise.com/v1/users/me/operations/resources/5/undelete" \
+"https://api.mpc.placewise.com/v1/users/me/operations/resources/5/restore" \
   -H 'authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICIyOE' \
   -H 'content-type: application/json' \
   -H 'x-loyalty-club-slug: infinity-mall' \
@@ -418,9 +418,9 @@ curl -X PUT \
 }
 ````
 
-**PUT** `v1/users/me/operations/resources/:id/undelete`
+**PUT** `v1/users/me/operations/resources/:id/restore`
 
-Undeletes given [Resource](#operations-resource-model).
+Restores given [Resource](#operations-resource-model).
 
 #### URL Parameters
 
@@ -433,8 +433,8 @@ id         | integer  | Resource ID
 Status    | Description
 --------- | -----------
 `404`     | Resource not found
-`405`     | Resource is not undeletable
+`405`     | Resource is not restorable
 
 <aside class="notice">
-Requires <code>Operations:Api:Users:Resources:Undelete</code> permit
+Requires <code>Operations:Api:Users:Resources:Restore</code> permit
 </aside>
