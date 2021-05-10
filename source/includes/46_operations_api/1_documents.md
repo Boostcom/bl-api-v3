@@ -9,6 +9,7 @@
     "id": 15,
     "confirmable": true,
     "title": "Fire instructions",
+    "description": "Describes how to behave in case of fire",
     "created_by": { "entity_type": "token", "entity_id": 491 },
     "deadline_at": "2020-12-15T15:43:32.000Z",
     "created_at": "2020-11-30T17:12:46.435Z",
@@ -22,6 +23,7 @@ Key | Type | Optional | Description
 id | integer | no |
 confirmable | boolean | no | Is document meant to be confirmed by recipient?
 title | string | no |
+description | string | yes |
 created_by | [API entity](#api-entity-model) | no | Author of document
 deadline_at | datetime | when not confirmable | Time until document is meant to be confirmed by recipients - only for `confirmable` documents
 created_at | datetime | no | Time of creation
@@ -63,7 +65,7 @@ Parameter              | Type        | Default   | Description
 per_page               | integer     | 100       | Number of results to be returned per request (100 is the maximum)
 page_no                | integer     | 1         | Number of results page
 confirmable            | boolean     | null      | When true, returns only confirmable Documents - and vice versa
-title                  | string      | null      | When true, returns only Documents that have title matching to given string
+search                 | string      | null      | When present, returns only Documents that match the given string
 requiring_confirmation | boolean     | null      | When present, returns only Documents that require confirmation (are confirmable and are not confirmed)
 
 <aside class="notice">

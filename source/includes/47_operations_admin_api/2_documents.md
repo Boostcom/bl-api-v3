@@ -9,6 +9,7 @@
     "id": 15,
     "confirmable": true,
     "title": "Fire instructions",
+    "description": "Describes how to behave in case of fire",
     "deadline_at": "2020-12-15T15:43:32.000Z",
     "message_channel": "sms",
     "first_reminder": {
@@ -42,6 +43,7 @@ Key | Type | Optional | Description
 id | integer | no |
 confirmable | boolean | no | Is document meant to be confirmed by recipients?
 title | string | no |
+description | string | no |
 deadline_at | datetime | when not confirmable | Time until document is meant to be confirmed by recipients - only for `confirmable` documents
 message_channel | enum: `['sms', 'email', 'push']` | no | Channel that the document (and reminders) should be sent with
 first_reminder | [DocumentReminder](#operations-admin-document-reminder-model) | yes |
@@ -128,7 +130,7 @@ Parameter                      | Type                            | Default   | D
 per_page                       | integer                         | 100       | Number of results to be returned per request (100 is the maximum)
 page_no                        | integer                         | 1         | Number of results page
 confirmable                    | boolean                         | null      | When true, returns only confirmable Documents - and vice versa
-title                          | string                          | null      | When true, returns only Documents that have title matching to given string
+search                         | string                          | null      | When true, returns only Documents that match the given string
 recipients_confirmation_status | enum: `['all', 'some', 'none']` | null      | When present, returns only Documents having given `recipients_confirmation_status`
 
 <aside class="notice">
@@ -244,6 +246,7 @@ curl -X POST \
     {
         "document": {
             "title": "My name",
+            "description": "Some description",
             "message_channel": "sms",
             "confirmable": true,
             "deadline_at": "2020-12-15T15:43:32",
@@ -272,6 +275,7 @@ Creates a new [Document](#operations-admin-document-model) and sends it to given
 Key                          | Type                             | Description
 ---------                    | ---------                        | ---------
 **document.title**           | string                           |
+document.description         | string                           |
 **document.message_channel** | enum: `['sms', 'email', 'push']` | The channel for sending a notification and reminders
 **document.recipients**      | integer[]                        | IDs of members that should receive the document - max. 1000
 document.confirmable         | boolean                          | Is document meant to be confirmed by recipients? Default: `false`
@@ -327,6 +331,7 @@ curl -X PUT \
     {
         "document": {
             "title": "My name",
+            "description": "Some description",
             "deadline_at": "2020-12-15T15:43:32",
             "first_reminder": { "days_before_deadline": 5 },
             "second_reminder": { "days_before_deadline": 2 }
@@ -358,6 +363,7 @@ id         | integer | Document ID
 Key                          | Type                             | Description
 ---------                    | ---------                        | ---------
 **document.title**           | string                           |
+document.description         | string                           |
 
 When the document is confirmable:
 

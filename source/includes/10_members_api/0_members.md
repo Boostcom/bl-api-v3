@@ -1019,9 +1019,9 @@ Requires <code>BL:Api:Members:Tokens:Create</code> permit
 
 <!--- ############################################################################################################# --->
 
-### <a name="members-send-one-time-password"></a> Send one time password SMS
+### <a name="members-send-one-time-password"></a> Send one time password
 
-> Example:
+> Example - Sending OTP SMS
 
 ```shell
 curl "https://api.mpc.placewise.com/v3/infinity-mall/members/by_msisdn/4740769126/send_one_time_password" \
@@ -1031,29 +1031,7 @@ curl "https://api.mpc.placewise.com/v3/infinity-mall/members/by_msisdn/474076912
   -H 'x-user-agent: CURL manual test'
 ```
 
-**POST** `/v3/:loyalty_club_slug/members/by_msisdn/:msisdn/send_one_time_password`
-
-Sends an SMS to given msisdn if it is associated with member in given loyalty club.
-
-The SMS contains 4-digit One-Time-Password generated for member, valid for 1 hour.
-
-This password then can be used to sign in, just as "regular" member password - see:  [OAuth Token &bull; Create](#token-create).
-
-#### URL Parameters
-
-Parameter | Description | Type
---------- | ----------- | ------
-msisdn | Member's msisdn | string (format as defined [here](#msisdn-param) - example: `4740769126`)
-
-<aside class="notice">
-Requires <code>BL:Api:Members:CreateOneTimePassword</code> permit
-</aside>
-
-<!--- ############################################################################################################# --->
-
-### <a name="members-send-one-time-password-email"></a> Send one time password E-mail
-
-> Example:
+> Example - Sending OTP email
 
 ```shell
 curl "https://api.mpc.placewise.com/v3/infinity-mall/members/by_email/user@example.com/send_one_time_password" \
@@ -1071,25 +1049,26 @@ curl "https://api.mpc.placewise.com/v3/infinity-mall/members/by_email/user@examp
 }
 ```
 
+**POST** `/v3/:loyalty_club_slug/members/by_msisdn/:msisdn/send_one_time_password`
+
+&nbsp; &nbsp; &nbsp; &nbsp; Sends a login SMS to member identified by msisdn
+
 **POST** `/v3/:loyalty_club_slug/members/by_email/:email/send_one_time_password`
 
-Sends a "Login" e-mail to given address associated with member in given Loyalty Club. 
+&nbsp; &nbsp; &nbsp; &nbsp; Sends a login email to member identified by given email
 
-The e-mail contains a link to a page that should sign in the member with MPC API.
+The message may contain (depending on Loyalty Club configuration):
 
-The link scheme is: `<login_url>?member_id=<member_id>&otp=<otp>` and contains member id 
-and 16-digit password generated for member, valid for 1 hour.  
-Those params then can be used to sign in the user, just as "regular" member password -
-see:  [OAuth Token &bull; Create](#token-create).
-
-By default, `login_url` leads to MPC Webforms page or mobile app. 
-However, it may by customized by providing `login_url` query param.
+* Generated password, valid for limited time, allows to sign in member - see: [OAuth Token &bull; Create](#token-create). 
+* Login URL. Scheme of this URL is: `<login_url>?otp=<otp>`. 
+  By default, `login_url` leads to MPC Webforms page. However, it may by customized by providing `login_url` query param.
 
 #### URL Parameters
 
 Parameter | Description | Type
 --------- | ----------- | ------
 email | Member's email | e-mail
+msisdn | Member's msisdn | string (format as defined [here](#msisdn-param) - example: `4740769126`)
 
 #### Query Parameters
 
@@ -1102,7 +1081,6 @@ login_url | Custom login URL | String
 Status    | Reason
 --------- | ----------- 
 `404`     | Member not found
-`422`     | Invalid e-mail param
 
 <aside class="notice">
 Requires <code>BL:Api:Members:CreateOneTimePassword</code> permit
@@ -1112,18 +1090,24 @@ Requires <code>BL:Api:Members:CreateOneTimePassword</code> permit
 
 ### <a name="members-send-registration-password"></a> Send registration password
 
-> Example:
+> Example - Sending registration password SMS
 
 ```shell
 curl "https://api.mpc.placewise.com/v3/infinity-mall/members/by_msisdn/4740769126/send_registration_password" \
   -H 'content-type: application/json' \
   -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
   -H 'x-product-name: default' \
-  -H 'x-user-agent: CURL manual test' \
-  -d \
-    '{
-      "language": "en"
-     }'
+  -H 'x-user-agent: CURL manual test'
+```
+
+> Example - Sending registration password email
+
+```shell
+curl "https://api.mpc.placewise.com/v3/infinity-mall/members/by_email/user@example.com/send_registration_password" \
+  -H 'content-type: application/json' \
+  -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+  -H 'x-product-name: default' \
+  -H 'x-user-agent: CURL manual test'
 ```
 
 > Always returns an empty JSON object
@@ -1136,35 +1120,42 @@ curl "https://api.mpc.placewise.com/v3/infinity-mall/members/by_msisdn/474076912
 
 **POST** `/v3/:loyalty_club_slug/members/by_msisdn/:msisdn/send_registration_password`
 
-Sends SMS to given MSISDN.
+&nbsp; &nbsp; &nbsp; &nbsp; Sends a registration SMS to member identified by msisdn
 
-The sent message contains 4-digit registration password, valid for 10 minutes.
+**POST** `/v3/:loyalty_club_slug/members/by_email/:email/send_registration_password`
 
-This password may be required for member registration - see: [Registration password](#members-create-registration-password)
+&nbsp; &nbsp; &nbsp; &nbsp; Sends a registration email to member identified by given email
+
+The message may contain (depending on Loyalty Club configuration):
+
+* Generated password, valid for limited time, allows to [register](#members-create) the member. 
+* Registration URL. Scheme of this URL is: `<registration_url>?otp=<otp>`. 
+  By default, `registration_url` leads to MPC Webforms page. However, it may by customized by 
+  providing `registration_url` query param.
 
 #### URL Parameters
 
 Parameter | Description | Type
 --------- | ----------- | ------
-msisdn | MSISDN | string (format as defined [here](#msisdn-param) - example: `4740769126`)
+email | Member's email | e-mail
+msisdn | Member's msisdn | string (format as defined [here](#msisdn-param) - example: `4740769126`)
 
-#### POST Parameters
+#### Query Parameters
 
 Parameter | Description | Type
 --------- | ----------- | ------
+login_url | Custom login URL | String
 language | Language of the registration password message. When not provided, default LC language will be used | string
 
 #### Error responses
 
-Status | Reason
+Status    | Reason
 --------- | ----------- 
-`422` | Invalid MSISDN param
+`404`     | Member not found
 
 <aside class="notice">
 Requires <code>BL:Api:Members:CreateRegistrationPassword</code> permit
 </aside>
-
-<!--- ############################################################################################################# --->
 
 ### <a name="members-verify-token"></a> Verify token
 
