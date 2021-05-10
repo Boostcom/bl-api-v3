@@ -23,7 +23,7 @@ Key | Type | Optional | Description
 id | integer | no |
 confirmable | boolean | no | Is document meant to be confirmed by recipient?
 title | string | no |
-description | string | yes |
+description | string | no |
 created_by | [API entity](#api-entity-model) | no | Author of document
 deadline_at | datetime | when not confirmable | Time until document is meant to be confirmed by recipients - only for `confirmable` documents
 created_at | datetime | no | Time of creation

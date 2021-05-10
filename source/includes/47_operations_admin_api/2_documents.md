@@ -275,7 +275,7 @@ Creates a new [Document](#operations-admin-document-model) and sends it to given
 Key                          | Type                             | Description
 ---------                    | ---------                        | ---------
 **document.title**           | string                           |
-document.description         | string                           |
+**document.description**     | string                           |
 **document.message_channel** | enum: `['sms', 'email', 'push']` | The channel for sending a notification and reminders
 **document.recipients**      | integer[]                        | IDs of members that should receive the document - max. 1000
 document.confirmable         | boolean                          | Is document meant to be confirmed by recipients? Default: `false`
@@ -363,7 +363,7 @@ id         | integer | Document ID
 Key                          | Type                             | Description
 ---------                    | ---------                        | ---------
 **document.title**           | string                           |
-document.description         | string                           |
+**document.description**     | string                           |
 
 When the document is confirmable:
 
