@@ -1,0 +1,494 @@
+<h2 id='a-name-operations-admin-revenue-reporting-policies-a-revenue-reporting-policies-1'><span id=a-name-operations-admin-revenue-reporting-policies-a-revenue-reporting-policies></span><a name="operations-admin-revenue-reporting-policies"></a> Revenue reporting policies</h2><h3 id='a-name-operations-admin-revenue-reporting-policy-model-a-revenue-reporting-policy-model-1'><span id=a-name-operations-admin-revenue-reporting-policy-model-a-revenue-reporting-policy-model></span><a name="operations-admin-revenue-reporting-policy-model"></a> Revenue reporting policy model</h3>
+<blockquote>
+<p>Revenue reporting policy example:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"revenue_reporting_policy"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">89</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Revenue reporting policy 1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"frequency_unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"week"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"is_common"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"report_total_transaction_count"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"tax_categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"25%"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"tax_percentage"</span><span class="p">:</span><span class="w"> </span><span class="mf">25.00</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-11T02:16:43.113Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-11T02:16:43.113Z"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"assigned_store_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">3</span><span class="p">],</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-11T02:16:43.113Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-11T02:16:43.113Z"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>A revenue reporting policy is an entity that represents a policy, according to which the revenue reports for the given store will be generated. It could be assigned to multiple (or none) stores at once.
+There is a special kind of a policy - a <em>default</em> one, represented by the <code>is_common</code> flag set to true. There could only be one <em>default</em> policy per loyalty club at once. Other policies could inherit some of the properties from it.
+As an admin, one can list, create, update and destroy such policies.</p>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Optional</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>no</td>
+<td></td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>no</td>
+<td>name of the policy</td>
+</tr>
+<tr>
+<td>frequency_unit</td>
+<td>string</td>
+<td>no</td>
+<td>unit of the report generation frequency - could be one of <code>day, week, month, quarter, year</code></td>
+</tr>
+<tr>
+<td>is_common</td>
+<td>boolean</td>
+<td>yes</td>
+<td>marks the policy as the default one for the loyalty club</td>
+</tr>
+<tr>
+<td>report_total_transaction_count</td>
+<td>boolean</td>
+<td>yes</td>
+<td>marks the reports generated accordingly to the policy as having to report total transaction count (or not)</td>
+</tr>
+<tr>
+<td>tax_categories</td>
+<td>object</td>
+<td>yes</td>
+<td>represents tax categories represented in the reports generated according to the policy</td>
+</tr>
+<tr>
+<td>assigned_store_ids</td>
+<td>array[int]</td>
+<td>yes</td>
+<td>represents the ids of the stores to which the policy is assigned</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>datetime</td>
+<td>no</td>
+<td>time of the creation</td>
+</tr>
+<tr>
+<td>updated_at</td>
+<td>datetime</td>
+<td>no</td>
+<td>time of the last update</td>
+</tr>
+</tbody></table>
+<h3 id='a-name-operations-admin-list-revenue-reporting-policies-a-list-policies-1'><span id=a-name-operations-admin-list-revenue-reporting-policies-a-list-policies></span><a name="operations-admin-list-revenue-reporting-policies"></a> List policies</h3>
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v1/operations/revenue_reporting_policies"</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'x-loyalty-club-slug: infinity-mall'</span> <span class="se">\</span>
+  -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'x-user-agent: CURL manual test'</span> <span class="se">\</span>
+  -H <span class="s1">'x-b-store-id: 2'</span> <span class="se">\</span>
+</code></pre>
+<blockquote>
+<p>Returns an object containing <a href="#operations-admin-revenue-reporting-policy-model">policies</a> and <a href="#pagination-model">pagination_info</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"revenue_reporting_policies"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">List</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">policies</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">'Revenue</span><span class="w"> </span><span class="err">reporting</span><span class="w"> </span><span class="err">policy</span><span class="w"> </span><span class="err">model'</span><span class="w">
+  </span><span class="s2">"pagination_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Pagination</span><span class="w"> </span><span class="err">info</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">'Pagination</span><span class="w"> </span><span class="err">info'</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>GET</strong> <code>v1/operations/revenue_reporting_policies</code></p>
+
+<p>Returns list of <a href="#operations-admin-revenue-reporting-policy-model">policies</a>.</p>
+<h4 id='query-parameters-1'><span id=query-parameters></span>Query Parameters</h4>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>per_page</td>
+<td>integer</td>
+<td>100</td>
+<td>Number of results to be returned per request (100 is the maximum)</td>
+</tr>
+<tr>
+<td>page_no</td>
+<td>integer</td>
+<td>1</td>
+<td>Number of results page</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Operations:Api:RevenueReportingPolicies:List</code> permit
+</aside>
+<h3 id='a-name-operations-admin-show-revenue-reporting-policy-a-get-policy-1'><span id=a-name-operations-admin-show-revenue-reporting-policy-a-get-policy></span><a name="operations-admin-show-revenue-reporting-policy"></a> Get policy</h3>
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v1/operations/revenue_reporting_policies/5"</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'x-loyalty-club-slug: infinity-mall'</span> <span class="se">\</span>
+  -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'x-user-agent: CURL manual test'</span> <span class="se">\</span>
+  -H <span class="s1">'x-b-store-id: 2'</span> <span class="se">\</span>
+</code></pre>
+<blockquote>
+<p>Returns object containing <a href="#operations-admin-revenue-reporting-policy-model">policy</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"revenue_reporting_policy"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">see</span><span class="p">:</span><span class="w"> </span><span class="err">'Revenue</span><span class="w"> </span><span class="err">reporting</span><span class="w"> </span><span class="err">policy</span><span class="w"> </span><span class="err">model'</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>GET</strong> <code>v1/operations/revenue_reporting_policies/:id</code></p>
+
+<p>Returns given <a href="#operations-admin-revenue-reporting-policy-model">policy</a>.</p>
+<h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>Policy ID</td>
+</tr>
+</tbody></table>
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>404</code></td>
+<td>Policy not found</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Operations:Api:RevenueReportingPolicies:Show</code> permit
+</aside>
+<h3 id='a-name-operations-admin-create-revenue-reporting-policy-a-create-policy-1'><span id=a-name-operations-admin-create-revenue-reporting-policy-a-create-policy></span><a name="operations-admin-create-revenue-reporting-policy"></a> Create policy</h3>
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v1/operations/revenue_reporting_policies"</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'x-loyalty-club-slug: infinity-mall'</span> <span class="se">\</span>
+  -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'x-user-agent: CURL manual test'</span> <span class="se">\</span>
+  -H <span class="s1">'x-b-store-id: 2'</span> <span class="se">\</span>
+  -d <span class="s1">'
+    {
+      "revenue_reporting_policy": {
+        "name": "Revenue reporting policy 1",
+        "frequency_unit": "week",
+        "is_common": null,
+        "report_total_transaction_count": null,
+        "tax_categories": [
+          {
+            "name": "25%",
+            "tax_percentage": 25.00,
+          }
+        ],
+        "assigned_store_ids": [3],
+      }
+    }
+  '</span>
+</code></pre>
+<blockquote>
+<p>When successful, returns object containing created <a href="#operations-admin-revenue-reporting-policy-model">policy</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"revenue_reporting_policy"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Policy</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="p">:</span><span class="w"> </span><span class="err">'Revenue</span><span class="w"> </span><span class="err">reporting</span><span class="w"> </span><span class="err">policy</span><span class="w"> </span><span class="err">model'</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>POST</strong> <code>v1/operations/revenue_reporting_policies</code></p>
+
+<p>Creates a new <a href="#operations-admin-revenue-reporting-policy-model">policy</a></p>
+<h4 id='post-parameters-json-1'><span id=post-parameters-json></span>POST Parameters (JSON)</h4>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>**revenue_reporting_policy.name</td>
+<td>string</td>
+<td>no</td>
+</tr>
+<tr>
+<td>**revenue_reporting_policy.frequency_unit</td>
+<td>string</td>
+<td>no</td>
+</tr>
+<tr>
+<td>**revenue_reporting_policy.is_common</td>
+<td>boolean</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>**revenue_reporting_policy.report_total_transaction_count</td>
+<td>boolean</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>**revenue_reporting_policy.tax_categories</td>
+<td>object</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>**revenue_reporting_policy.assigned_store_ids</td>
+<td>array[int]</td>
+<td>yes</td>
+</tr>
+</tbody></table>
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>revenue_reporting_policy</td>
+<td>Policy</td>
+<td>See: <a href="#operations-admin-revenue-reporting-policy-model">Policy model</a></td>
+</tr>
+</tbody></table>
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>422</code></td>
+<td>Invalid parameters - see <a href="#invalid-parameters-errors-model">Invalid parameters errors model</a></td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Operations:Api:RevenueReportingPolicies:Create</code> permit
+</aside>
+<h3 id='a-name-operations-admin-update-revenue-reporting-policy-a-update-policy-1'><span id=a-name-operations-admin-update-revenue-reporting-policy-a-update-policy></span><a name="operations-admin-update-revenue-reporting-policy"></a> Update policy</h3>
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X PUT <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v1/operations/revenue_reporting_policies/12"</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'x-loyalty-club-slug: infinity-mall'</span> <span class="se">\</span>
+  -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'x-user-agent: CURL manual test'</span> <span class="se">\</span>
+  -H <span class="s1">'x-b-store-id: 2'</span> <span class="se">\</span>
+  -d <span class="s1">'
+    {
+      "revenue_reporting_policy": {
+        "name": "Revenue reporting policy 1",
+        "frequency_unit": "week",
+        "is_common": null,
+        "report_total_transaction_count": null,
+        "tax_categories": [
+          {
+            "name": "25%",
+            "tax_percentage": 25.00,
+          }
+        ],
+        "assigned_store_ids": [3],
+      }
+    }
+  '</span>
+</code></pre>
+<blockquote>
+<p>When successful, returns object containing updated <a href="#operations-admin-revenue-reporting-policy-model">policy</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"revenue_reporting_policy"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Policy</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">'Revenue</span><span class="w"> </span><span class="err">reporting</span><span class="w"> </span><span class="err">policy</span><span class="w"> </span><span class="err">model'</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>PUT</strong> <code>v1/operations/revenue_reporting_policies/:id</code></p>
+
+<p>Updates the <a href="#operations-admin-revenue-reporting-policy-model">Policy</a>.</p>
+<h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>Policy ID</td>
+</tr>
+</tbody></table>
+<h4 id='post-parameters-json-1'><span id=post-parameters-json></span>POST Parameters (JSON)</h4>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>**revenue_reporting_policy.name</td>
+<td>string</td>
+<td>no</td>
+</tr>
+<tr>
+<td>**revenue_reporting_policy.frequency_unit</td>
+<td>string</td>
+<td>no</td>
+</tr>
+<tr>
+<td>**revenue_reporting_policy.is_common</td>
+<td>boolean</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>**revenue_reporting_policy.report_total_transaction_count</td>
+<td>boolean</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>**revenue_reporting_policy.tax_categories</td>
+<td>object</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>**revenue_reporting_policy.assigned_store_ids</td>
+<td>array[int]</td>
+<td>yes</td>
+</tr>
+</tbody></table>
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>revenue_reporting_policy</td>
+<td>Policy</td>
+<td>See: <a href="#operations-admin-revenue-reporting-policy-model">Policy model</a></td>
+</tr>
+</tbody></table>
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>404</code></td>
+<td>Policy not found</td>
+</tr>
+<tr>
+<td><code>422</code></td>
+<td>Invalid parameters - see <a href="#invalid-parameters-errors-model">Invalid parameters errors model</a></td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Operations:Api:Users:RevenueReportingPolicies:Update</code> permit
+</aside>
+<h3 id='a-name-operations-admin-destroy-revenue-reporting-policy-a-destroy-policy-1'><span id=a-name-operations-admin-destroy-revenue-reporting-policy-a-destroy-policy></span><a name="operations-admin-destroy-revenue-reporting-policy"></a> Destroy policy</h3>
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X DELETE <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v1/operations/revenue_reporting_policies/12 </span><span class="se">\</span><span class="s2">
+  -H 'content-type: application/json' </span><span class="se">\</span><span class="s2">
+  -H 'x-loyalty-club-slug: infinity-mall' </span><span class="se">\</span><span class="s2">
+  -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' </span><span class="se">\</span><span class="s2">
+  -H 'x-user-agent: CURL manual test'
+  -H 'x-b-store-id: 2' </span><span class="se">\</span><span class="s2">
+</span></code></pre>
+<blockquote>
+<p>When successful, returns object containing destroyed <a href="#operations-admin-revenue-reporting-policy-model">policy</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"revenue_reporting_policy"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Policy</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="p">:</span><span class="w"> </span><span class="err">'Revenue</span><span class="w"> </span><span class="err">reporting</span><span class="w"> </span><span class="err">policy</span><span class="w"> </span><span class="err">model'</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>DELETE</strong> <code>v1/operations/revenue_reporting_policies/:id</code></p>
+
+<p>Destroys the <a href="#operations-admin-revenue-reporting-policy-model">policy</a>.</p>
+<h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>Policy ID</td>
+</tr>
+</tbody></table>
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>revenue_reporting_policy</td>
+<td>Policy</td>
+<td>See: <a href="#operations-admin-revenue-reporting-policy-model">Policy model</a></td>
+</tr>
+</tbody></table>
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>404</code></td>
+<td>Policy not found</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Operations:Api:Users:RevenueReportingPolicies:Destroy</code> permit
+</aside>

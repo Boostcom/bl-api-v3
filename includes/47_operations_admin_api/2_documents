@@ -466,7 +466,7 @@ Requires <code>Operations:Api:Recipients:List</code> permit
 <td></td>
 </tr>
 <tr>
-<td>document.description</td>
+<td><strong>document.description</strong></td>
 <td>string</td>
 <td></td>
 </tr>
@@ -631,7 +631,7 @@ Requires <code>Operations:Api:Documents:Create</code> permit
 <td></td>
 </tr>
 <tr>
-<td>document.description</td>
+<td><strong>document.description</strong></td>
 <td>string</td>
 <td></td>
 </tr>
