@@ -1,5 +1,9 @@
 # Changelog
 
+### 14.05.2021 | Natalia Styrska
+
+* Add description to [Members &bull; Add app tokens](#members-add-app-tokens) 
+
 ### 07.05.2021 | Piotr Świtlicki
 
 * Add description to [Operations &bull; Documents](#operations-documents) 

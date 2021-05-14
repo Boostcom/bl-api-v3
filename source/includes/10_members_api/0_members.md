@@ -1294,3 +1294,53 @@ Status | Reason
 <aside class="notice">
 Requires <code>BL:Api:Members:Msisdns:Verify</code> permit
 </aside>
+
+### <a name="members-add-app-tokens"></a> Add app tokens
+
+> Example:
+
+```shell
+
+curl -X POST \
+  https://api.mpc.placewise.com/v3/infinity-mall/members/me/app_tokens \
+  -H 'content-type: application/json' \
+  -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+  -H 'x-product-name: facebook' \
+  -H 'X-Subproduct-Name: campaign-10-2017' \
+  -H 'x-user-agent: CURL manual test' \
+  -d '{
+	    "token": "token",
+	    "platform": "ios",
+        "app_installation_id": "app id",
+        "firebase_project_slug": "project slug"
+    }'
+
+```
+
+> When successful, returns 200
+
+**POST** `v3/:loyalty_club_slug/members/me/app_tokens`
+
+<aside class="notice">
+Requires <code>BL:Api:Members:AppTokens:CreateOrUpdate</code> permit
+</aside>
+
+#### Request parameters (JSON)
+
+Parameter | Description | Type
+--------- | ----------- | ------
+token | Push app token | string
+platform | App platform | string (`ios`, `android`)
+app_installation_id | app id | string 
+firebase_project_slug | Firebase project slug | string 
+
+#### Response (JSON object)
+
+Empty object {}
+
+##### Error responses
+
+Status | Reason
+--------- | ----------- 
+`404` | Member with given identifier could not found 
+`422` | Invalid parameters
