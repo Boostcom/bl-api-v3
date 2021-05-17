@@ -1,0 +1,87 @@
+<h2 id='a-name-operations-app-tokens-a-push-app-tokens-1'><span id=a-name-operations-app-tokens-a-push-app-tokens></span><a name="operations-app-tokens"></a>Push App Tokens</h2><h3 id='a-name-operations-app-token-payload-a-app-token-payload-model-1'><span id=a-name-operations-app-token-payload-a-app-token-payload-model></span><a name="operations-app-token-payload"></a> App Token Payload model</h3>
+<blockquote>
+<p>App Token Payload example:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"token"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"platform"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ios"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"app_installation_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PpdfXpwqDyh7yavEwXxKTVe3"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"firebase_project_slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"slug"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>token</td>
+<td>Push app token</td>
+<td>string</td>
+</tr>
+<tr>
+<td>platform</td>
+<td>App platform</td>
+<td>string (<code>ios</code>, <code>android</code>)</td>
+</tr>
+<tr>
+<td>app_installation_id</td>
+<td>app id</td>
+<td>string</td>
+</tr>
+<tr>
+<td>firebase_project_slug</td>
+<td>Firebase project slug</td>
+<td>string</td>
+</tr>
+</tbody></table>
+<h3 id='a-name-operations-users-add-app-tokens-a-add-app-tokens-1'><span id=a-name-operations-users-add-app-tokens-a-add-app-tokens></span><a name="operations-users-add-app-tokens"></a> Add app tokens</h3>
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>
+curl -X POST <span class="se">\</span>
+  https://api.mpc.placewise.com/v1/users/me/app_tokens <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICIyOE'</span> <span class="se">\</span>
+  -H <span class="s1">'X-Product-Name: default'</span> <span class="se">\</span>
+  -H <span class="s1">'X-User-Agent: CURL manual test'</span> <span class="se">\</span>
+  -d <span class="s1">'{
+        "token": "token",
+        "platform": "ios",
+        "app_installation_id": "app-id",
+        "firebase_project_slug": "project slug"
+    }'</span>
+
+</code></pre>
+<blockquote>
+<p>When successful, returns 200</p>
+</blockquote>
+
+<p><strong>POST</strong> <code>v1/users/me/app_tokens</code></p>
+
+<aside class="notice">
+Requires <code>UsersAPI:Users:AppTokens:Create</code> permit
+</aside>
+<h4 id='request-parameters-json-1'><span id=request-parameters-json></span>Request parameters (JSON)</h4>
+<p><a href="#operations-app-token-payload">App Token Payload</a> </p>
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
+<p>Empty object {}</p>
+<h5 id='error-responses-1'><span id=error-responses></span>Error responses</h5>
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>404</code></td>
+<td>User with given token could not found</td>
+</tr>
+<tr>
+<td><code>422</code></td>
+<td>Invalid parameters</td>
+</tr>
+</tbody></table>
