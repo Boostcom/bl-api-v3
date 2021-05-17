@@ -44,6 +44,7 @@ includes:
   - 46_operations_api/1_documents
   - 46_operations_api/2_resource_types
   - 46_operations_api/3_resources
+  - 46_operations_api/4_app_tokens
   - 47_operations_admin_api/0_introduction
   - 47_operations_admin_api/1_members
   - 47_operations_admin_api/2_documents
