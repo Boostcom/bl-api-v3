@@ -19859,6 +19859,44 @@ As an admin, one can list, create, update and destroy such policies.</p>
 <aside class="notice">
 Requires <code>Operations:Api:RevenueReportingPolicies:List</code> permit
 </aside>
+<h3 id='a-name-operations-admin-show-common-revenue-reporting-policy-a-get-the-common-default-policy-1'><span id=a-name-operations-admin-show-common-revenue-reporting-policy-a-get-the-common-default-policy></span><a name="operations-admin-show-common-revenue-reporting-policy"></a> Get the common (default) policy</h3>
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v1/operations/revenue_reporting_policies/common"</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'x-loyalty-club-slug: infinity-mall'</span> <span class="se">\</span>
+  -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'x-user-agent: CURL manual test'</span> <span class="se">\</span>
+  -H <span class="s1">'x-b-store-id: 2'</span> <span class="se">\</span>
+</code></pre>
+<blockquote>
+<p>Returns object containing <a href="#operations-admin-revenue-reporting-policy-model">policy</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"revenue_reporting_policy"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">see</span><span class="p">:</span><span class="w"> </span><span class="err">'Revenue</span><span class="w"> </span><span class="err">reporting</span><span class="w"> </span><span class="err">policy</span><span class="w"> </span><span class="err">model'</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>GET</strong> <code>v1/operations/revenue_reporting_policies/common</code></p>
+
+<p>Returns given <a href="#operations-admin-revenue-reporting-policy-model">policy</a>.</p>
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>404</code></td>
+<td>Policy not found</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Operations:Api:RevenueReportingPolicies:Show</code> permit
+</aside>
 <h3 id='a-name-operations-admin-show-revenue-reporting-policy-a-get-policy-1'><span id=a-name-operations-admin-show-revenue-reporting-policy-a-get-policy></span><a name="operations-admin-show-revenue-reporting-policy"></a> Get policy</h3>
 <blockquote>
 <p>Example</p>
