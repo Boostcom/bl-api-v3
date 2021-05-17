@@ -44,13 +44,15 @@ includes:
   - 46_operations_api/1_documents
   - 46_operations_api/2_resource_types
   - 46_operations_api/3_resources
-  - 46_operations_api/4_app_tokens
+  - 46_operations_api/4_alerts
+  - 46_operations_api/5_app_tokens
   - 47_operations_admin_api/0_introduction
   - 47_operations_admin_api/1_members
   - 47_operations_admin_api/2_documents
   - 47_operations_admin_api/3_resource_types
   - 47_operations_admin_api/4_resources
   - 47_operations_admin_api/5_revenue_reporting_policies
+  - 47_operations_admin_api/6_alerts
   - 50_files_api/0_files
   - 60_tokens_admin_api/0_introduction
   - 60_tokens_admin_api/1_tokens

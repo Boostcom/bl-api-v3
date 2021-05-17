@@ -4,12 +4,14 @@
 
 * Add description to [Operations &bull; Add user app tokens](#operations-app-tokens) 
 
-### 14.05.2021 | Natalia Styrska
+#### 02.12.2020 | Piotr Świtlicki
+* Add [Operations API &bull; Alerts](#operations-alerts)
+* Add [Operations Admin API &bull; Alerts](#operations-admin-alerts)
 
+### 14.05.2021 | Natalia Styrska
 * Add description to [Members &bull; Add app tokens](#members-add-app-tokens) 
 
 ### 07.05.2021 | Piotr Świtlicki
-
 * Add description to [Operations &bull; Documents](#operations-documents) 
 
 #### 19.03.2021 | Paweł Buczkowski

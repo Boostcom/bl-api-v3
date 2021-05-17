@@ -307,10 +307,6 @@ Key                                             | Error
 `document.second_reminder`                      | `cannot_be_present_without_first_reminder`
 `document.second_reminder.days_before_deadline` | `cannot_be_before_first_reminder`
 
-Status | Description
---------- | -----------
-`422` | Invalid parameters - see [Invalid parameters errors model](#invalid-parameters-errors-model)
-
 <aside class="notice">
 Requires <code>Operations:Api:Documents:Create</code> permit
 </aside>

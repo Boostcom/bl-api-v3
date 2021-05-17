@@ -82,6 +82,42 @@ page_no        | integer                         | 1         | Number of results
 Requires <code>Operations:Api:RevenueReportingPolicies:List</code> permit
 </aside>
 
+### <a name="operations-admin-show-common-revenue-reporting-policy"></a> Get the common (default) policy
+
+> Example
+
+```shell
+curl -X GET \
+"https://api.mpc.placewise.com/v1/operations/revenue_reporting_policies/common" \
+  -H 'content-type: application/json' \
+  -H 'x-loyalty-club-slug: infinity-mall' \
+  -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+  -H 'x-user-agent: CURL manual test' \
+  -H 'x-b-store-id: 2' \
+```
+
+> Returns object containing [policy](#operations-admin-revenue-reporting-policy-model)
+
+```json
+{
+  "revenue_reporting_policy": {} // see: 'Revenue reporting policy model'
+}
+````
+
+**GET** `v1/operations/revenue_reporting_policies/common`
+
+Returns given [policy](#operations-admin-revenue-reporting-policy-model).
+
+#### Error responses
+
+Status    | Description
+--------- | -----------
+`404`     | Policy not found
+
+<aside class="notice">
+Requires <code>Operations:Api:RevenueReportingPolicies:Show</code> permit
+</aside>
+
 ### <a name="operations-admin-show-revenue-reporting-policy"></a> Get policy
 
 > Example
