@@ -2,6 +2,11 @@
 <ul>
 <li>Add description to <a href="#operations-app-tokens">Operations &bull; Add user app tokens</a> </li>
 </ul>
+<h4 id='02-12-2020-piotr-switlicki-1'><span id=02-12-2020-piotr-switlicki></span>02.12.2020 | Piotr Świtlicki</h4>
+<ul>
+<li>Add <a href="#operations-alerts">Operations API &bull; Alerts</a></li>
+<li>Add <a href="#operations-admin-alerts">Operations Admin API &bull; Alerts</a></li>
+</ul>
 <h3 id='14-05-2021-natalia-styrska-1'><span id=14-05-2021-natalia-styrska></span>14.05.2021 | Natalia Styrska</h3>
 <ul>
 <li>Add description to <a href="#members-add-app-tokens">Members &bull; Add app tokens</a> </li>

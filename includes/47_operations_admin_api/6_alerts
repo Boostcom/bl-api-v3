@@ -1,0 +1,659 @@
+<h2 id='a-name-operations-admin-alerts-a-alerts-1'><span id=a-name-operations-admin-alerts-a-alerts></span><a name="operations-admin-alerts"></a> Alerts</h2><h3 id='common-models-1'><span id=common-models></span>Common models</h3><h4 id='a-name-operations-admin-alert-model-a-alert-model-1'><span id=a-name-operations-admin-alert-model-a-alert-model></span><a name="operations-admin-alert-model"></a> Alert model</h4>
+<blockquote>
+<p>Alert example:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"audience_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">572</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fire alert"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pending"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fire has broke out"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Parking"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-14T09:26:14.823Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-14T09:26:14.823Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Optional</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>no</td>
+<td></td>
+</tr>
+<tr>
+<td>audience_id</td>
+<td>integer</td>
+<td>no</td>
+<td>Audience the alert is sent to</td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>no</td>
+<td>One of available <a href="#operations-admin-list-alerts">alert types</a> names</td>
+</tr>
+<tr>
+<td>state</td>
+<td>enum: <code>[&#39;pending&#39;, &#39;accepted&#39;, &#39;rejected&#39;]</code></td>
+<td>no</td>
+<td></td>
+</tr>
+<tr>
+<td>message</td>
+<td>string</td>
+<td>no</td>
+<td>Content of message sent to recipients</td>
+</tr>
+<tr>
+<td>location</td>
+<td>string</td>
+<td>yes</td>
+<td></td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>datetime</td>
+<td>no</td>
+<td>Time of creation</td>
+</tr>
+<tr>
+<td>updated_at</td>
+<td>datetime</td>
+<td>no</td>
+<td>Time of last update</td>
+</tr>
+</tbody></table>
+<h4 id='a-name-operations-admin-alert-payload-model-a-alertpayload-model-1'><span id=a-name-operations-admin-alert-payload-model-a-alertpayload-model></span><a name="operations-admin-alert-payload-model"></a> AlertPayload model</h4>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>audience_id</strong></td>
+<td>integer[]</td>
+<td>ID of audience that should receive the alert</td>
+</tr>
+<tr>
+<td><strong>type</strong></td>
+<td>string</td>
+<td>Must match available <a href="#operations-admin-list-alerts">alert types</a> names</td>
+</tr>
+<tr>
+<td><strong>message</strong></td>
+<td>string</td>
+<td>Content of message sent to recipients</td>
+</tr>
+<tr>
+<td>location</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id='a-name-operations-admin-list-alert-types-a-list-alert-types-1'><span id=a-name-operations-admin-list-alert-types-a-list-alert-types></span><a name="operations-admin-list-alert-types"></a> List Alert Types</h3>
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v1/operations/alert_types"</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'x-loyalty-club-slug: infinity-mall'</span> <span class="se">\</span>
+  -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
+  -H <span class="s1">'x-user-agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>Returns object containing available alert types</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"alerts_types"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fire alert"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The fire has broke out"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>GET</strong> <code>v1/operations/alerts</code></p>
+
+<p>Returns list of available alert types with default messages.</p>
+
+<aside class="notice">
+Requires <code>Operations:Api:AlertTypes:List</code> permit
+</aside>
+<h3 id='a-name-operations-admin-list-alerts-a-list-alerts-1'><span id=a-name-operations-admin-list-alerts-a-list-alerts></span><a name="operations-admin-list-alerts"></a> List Alerts</h3>
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v1/operations/alerts"</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'x-loyalty-club-slug: infinity-mall'</span> <span class="se">\</span>
+  -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
+  -H <span class="s1">'x-user-agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>Returns object containing <a href="#operations-admin-alert-model">alerts</a> and <a href="#pagination-model">pagination_info</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"alerts"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">List</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">alerts</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">'Alert</span><span class="w"> </span><span class="err">model'</span><span class="w">
+  </span><span class="s2">"pagination_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Pagination</span><span class="w"> </span><span class="err">info</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">'Pagination</span><span class="w"> </span><span class="err">info'</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>GET</strong> <code>v1/operations/alerts</code></p>
+
+<p>Returns list of <a href="#operations-admin-alert-model">Alerts</a>.</p>
+<h4 id='query-parameters-1'><span id=query-parameters></span>Query Parameters</h4>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>per_page</td>
+<td>integer</td>
+<td>100</td>
+<td>Number of results to be returned per request (100 is the maximum)</td>
+</tr>
+<tr>
+<td>page_no</td>
+<td>integer</td>
+<td>1</td>
+<td>Number of results page</td>
+</tr>
+<tr>
+<td>state</td>
+<td>enum: <code>[&#39;pending&#39;, &#39;accepted&#39;, &#39;rejected&#39;]</code></td>
+<td>null</td>
+<td>When present, returns only Alerts having given <code>state</code></td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Operations:Api:Alerts:List</code> permit
+</aside>
+<h3 id='a-name-operations-admin-show-alert-a-get-alert-1'><span id=a-name-operations-admin-show-alert-a-get-alert></span><a name="operations-admin-show-alert"></a> Get Alert</h3>
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v1/operations/alerts/5"</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'x-loyalty-club-slug: infinity-mall'</span> <span class="se">\</span>
+  -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
+  -H <span class="s1">'x-user-agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>Returns object containing detailed <a href="#operations-admin-alert-model">alert</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"alert"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"audience_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">572</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fire alert"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"accepted"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hi"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Parking"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-15T10:09:48.559Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-15T10:10:21.868Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_by"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"entity_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">277</span><span class="p">,</span><span class="w"> </span><span class="s2">"entity_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="w"> </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"reviewed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-15T10:09:48.559Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"reviewed_by"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"entity_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> </span><span class="s2">"entity_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="w"> </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"sent_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-15T10:10:21.868Z"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>GET</strong> <code>v1/operations/alerts/:id</code></p>
+
+<p>Returns given <a href="#operations-admin-alert-model">Alert</a> with additional details</p>
+<h4 id='additional-alert-details-1'><span id=additional-alert-details></span>Additional alert details</h4>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Optional</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>created_by</td>
+<td><a href="#api-entity-model">API entity</a></td>
+<td>no</td>
+<td>Entity that created the alert</td>
+</tr>
+<tr>
+<td>reviewed_at</td>
+<td>datetime</td>
+<td>yes</td>
+<td>Time when the alert has been reviewed (accepted or rejected)</td>
+</tr>
+<tr>
+<td>reviewed_by</td>
+<td><a href="#api-entity-model">API entity</a></td>
+<td>yes</td>
+<td>Entity that reviewed the alert</td>
+</tr>
+<tr>
+<td>sent_at</td>
+<td>datetime</td>
+<td>yes</td>
+<td>Time when the alert has been sent</td>
+</tr>
+</tbody></table>
+<h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>Alert ID</td>
+</tr>
+</tbody></table>
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>404</code></td>
+<td>Alert not found</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Operations:Api:Alerts:Show</code> permit
+</aside>
+<h3 id='a-name-operations-admin-list-alert-recipients-a-list-alert-recipients-1'><span id=a-name-operations-admin-list-alert-recipients-a-list-alert-recipients></span><a name="operations-admin-list-alert-recipients"></a> List Alert Recipients</h3>
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v1/operations/alerts/15/recipients"</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'x-loyalty-club-slug: infinity-mall'</span> <span class="se">\</span>
+  -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
+  -H <span class="s1">'x-user-agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>Returns object containing <a href="#operations-admin-alert-recipient-model">alert recipients</a> and <a href="#pagination-model">pagination_info</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"alert_recipients"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">List</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">alert</span><span class="w"> </span><span class="err">recipients</span><span class="w">
+  </span><span class="s2">"pagination_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Pagination</span><span class="w"> </span><span class="err">info</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">'Pagination</span><span class="w"> </span><span class="err">info'</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>GET</strong> <code>v1/operations/alerts/:id/recipients</code></p>
+
+<p>Returns list of recipients that are Alert has been sent to.</p>
+<h4 id='alert-recipient-model-1'><span id=alert-recipient-model></span>Alert Recipient model</h4>
+<blockquote>
+<p>DocumentRecipient example:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">137</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"member_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">46849981</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"delivery_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"delivered"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"report_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"safe"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"reported_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-15T12:05:15.639Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"last_seen_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-15T12:06:02.470Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-15T11:41:03.574Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-15T12:06:02.471Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Optional</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>no</td>
+<td></td>
+</tr>
+<tr>
+<td>member_id</td>
+<td>integer</td>
+<td>no</td>
+<td>ID of MPC member</td>
+</tr>
+<tr>
+<td>delivery_status</td>
+<td>enum: <code>[&#39;pending&#39;, &#39;delivered&#39;, &#39;failed&#39;]</code></td>
+<td>no</td>
+<td>Describes if member has received actual message</td>
+</tr>
+<tr>
+<td>report_status</td>
+<td>enum: <code>[&#39;safe&#39;, &#39;need_help&#39;]</code></td>
+<td>yes</td>
+<td>Status reported by member</td>
+</tr>
+<tr>
+<td>reported_at</td>
+<td>datetime</td>
+<td>yes</td>
+<td>Time of report</td>
+</tr>
+<tr>
+<td>last_seen_at</td>
+<td>datetime</td>
+<td>yes</td>
+<td>Last time when the recipient retrieved the Alert record</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>datetime</td>
+<td>no</td>
+<td>Time of creation</td>
+</tr>
+<tr>
+<td>updated_at</td>
+<td>datetime</td>
+<td>no</td>
+<td>Time of last update</td>
+</tr>
+</tbody></table>
+<h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>Alert ID</td>
+</tr>
+</tbody></table>
+<h4 id='query-parameters-1'><span id=query-parameters></span>Query Parameters</h4>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>per_page</td>
+<td>integer</td>
+<td>100</td>
+<td>Number of results to be returned per request (100 is the maximum)</td>
+</tr>
+<tr>
+<td>page_no</td>
+<td>integer</td>
+<td>1</td>
+<td>Number of results page</td>
+</tr>
+</tbody></table>
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>404</code></td>
+<td>Alert not found</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Operations:Api:AlertRecipients:List</code> permit
+</aside>
+<h3 id='a-name-operations-admin-create-alert-a-create-alert-1'><span id=a-name-operations-admin-create-alert-a-create-alert></span><a name="operations-admin-create-alert"></a> Create Alert</h3>
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v1/operations/alerts"</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'x-loyalty-club-slug: infinity-mall'</span> <span class="se">\</span>
+  -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
+  -H <span class="s1">'x-user-agent: CURL manual test'</span> <span class="se">\</span>
+  -d <span class="s1">'
+    {
+        "alert": {
+            "audience_id": 572,
+            "type": "Fire alert",
+            "message": "Hi",
+            "location": "Parking"
+        }
+    }
+  '</span>
+</code></pre>
+<blockquote>
+<p>When successful, returns object containing created <a href="#operations-admin-alert-model">alert</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"alert"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Alert</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="p">:</span><span class="w"> </span><span class="err">'Alert</span><span class="w"> </span><span class="err">model'</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>POST</strong> <code>v1/operations/alerts</code></p>
+
+<p>Creates a new <a href="#operations-admin-alert-model">Alert</a> (with <code>accepted</code> state) and sends it to given audience.</p>
+<h4 id='post-parameters-json-1'><span id=post-parameters-json></span>POST Parameters (JSON)</h4>
+<p>See <a href="#operations-admin-alert-payload-model">AlertPayload model</a></p>
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>alert</td>
+<td>Alert</td>
+<td>See: <a href="#operations-admin-alert-model">Alert model</a></td>
+</tr>
+</tbody></table>
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>422</code></td>
+<td>Invalid parameters - see <a href="#invalid-parameters-errors-model">Invalid parameters errors model</a></td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Operations:Api:Alerts:Create</code> permit
+</aside>
+<h3 id='a-name-operations-admin-accept-alert-a-accept-alert-1'><span id=a-name-operations-admin-accept-alert-a-accept-alert></span><a name="operations-admin-accept-alert"></a> Accept Alert</h3>
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X PUT <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v1/operations/alerts/12/accept"</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'x-loyalty-club-slug: infinity-mall'</span> <span class="se">\</span>
+  -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
+  -H <span class="s1">'x-user-agent: CURL manual test'</span> <span class="se">\</span>
+  -d <span class="s1">'
+    {
+        "alert": {
+            "audience_id": 572,
+            "type": "Fire alert",
+            "message": "Hi",
+            "location": "Parking"
+        }
+    }
+  '</span>
+</code></pre>
+<blockquote>
+<p>When successful, returns object containing updated <a href="#operations-admin-alert-model">alert</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"alert"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Alert</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">'Alert</span><span class="w"> </span><span class="err">model'</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>PUT</strong> <code>v1/operations/alerts/:id/accept</code></p>
+
+<p>Accepts the <a href="#operations-admin-alert-model">Alert</a> which results in message sending. It also allow to
+update the alert before sending.</p>
+<h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>Alert ID</td>
+</tr>
+</tbody></table>
+<h4 id='put-parameters-json-1'><span id=put-parameters-json></span>PUT Parameters (JSON)</h4>
+<p>See <a href="#operations-admin-alert-payload-model">AlertPayload model</a></p>
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>alert</td>
+<td>Alert</td>
+<td>See: <a href="#operations-admin-alert-model">Alert model</a></td>
+</tr>
+</tbody></table>
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>404</code></td>
+<td>Alert not found</td>
+</tr>
+<tr>
+<td><code>405</code></td>
+<td>Alert cannot be accepted</td>
+</tr>
+<tr>
+<td><code>422</code></td>
+<td>Invalid parameters - see <a href="#invalid-parameters-errors-model">Invalid parameters errors model</a></td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Operations:Api:Alerts:Accept</code> permit
+</aside>
+<h3 id='a-name-operations-admin-reject-alert-a-reject-alert-1'><span id=a-name-operations-admin-reject-alert-a-reject-alert></span><a name="operations-admin-reject-alert"></a> Reject Alert</h3>
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X PUT <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v1/operations/alerts/12/reject"</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'x-loyalty-club-slug: infinity-mall'</span> <span class="se">\</span>
+  -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
+  -H <span class="s1">'x-user-agent: CURL manual test'</span>
+  <span class="s1">'
+</span></code></pre>
+<blockquote>
+<p>When successful, returns object containing <a href="#operations-admin-alert-model">alert</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"alert"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Alert</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">'Alert</span><span class="w"> </span><span class="err">model'</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>PUT</strong> <code>v1/operations/alerts/:id/reject</code></p>
+
+<p>Rejects the <a href="#operations-admin-alert-model">Alert</a> which results in ignoring message sending.</p>
+<h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>Alert ID</td>
+</tr>
+</tbody></table>
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>alert</td>
+<td>Alert</td>
+<td>See: <a href="#operations-admin-alert-model">Alert model</a></td>
+</tr>
+</tbody></table>
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>404</code></td>
+<td>Alert not found</td>
+</tr>
+<tr>
+<td><code>405</code></td>
+<td>Alert cannot be rejected</td>
+</tr>
+<tr>
+<td><code>422</code></td>
+<td>Invalid parameters - see <a href="#invalid-parameters-errors-model">Invalid parameters errors model</a></td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Operations:Api:Alerts:Reject</code> permit
+</aside>

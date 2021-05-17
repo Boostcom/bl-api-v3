@@ -18,26 +18,26 @@
 </thead><tbody>
 <tr>
 <td>token</td>
-<td>Push app token</td>
 <td>string</td>
+<td></td>
 </tr>
 <tr>
 <td>platform</td>
-<td>App platform</td>
 <td>string (<code>ios</code>, <code>android</code>)</td>
+<td>App platform</td>
 </tr>
 <tr>
 <td>app_installation_id</td>
-<td>app id</td>
 <td>string</td>
+<td>Id of individual installation of application</td>
 </tr>
 <tr>
 <td>firebase_project_slug</td>
-<td>Firebase project slug</td>
 <td>string</td>
+<td>Firebase project slug</td>
 </tr>
 </tbody></table>
-<h3 id='a-name-operations-users-add-app-tokens-a-add-app-tokens-1'><span id=a-name-operations-users-add-app-tokens-a-add-app-tokens></span><a name="operations-users-add-app-tokens"></a> Add app tokens</h3>
+<h3 id='a-name-operations-add-users-app-tokens-a-add-app-tokens-1'><span id=a-name-operations-add-users-app-tokens-a-add-app-tokens></span><a name="operations-add-users-app-tokens"></a> Add app tokens</h3>
 <blockquote>
 <p>Example:</p>
 </blockquote>
