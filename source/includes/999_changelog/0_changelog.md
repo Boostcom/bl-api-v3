@@ -145,7 +145,6 @@
 
 #### 09.04.2020 | Piotr Świtlicki
 
-* Restructure members docs
 * Add [Invalid parameters errors](#invalid-parameters-errors-model)
 * Add [Members Groups](#members-groups)
 
@@ -177,7 +176,6 @@
 #### 11.12.2019 | Piotr Świtlicki
 
 * Update [Offers &bull; Display schemas](#offers-display-schemas) to have [JSONPath](https://support.smartbear.com/readyapi/docs/testing/jsonpath-reference.html) references
-
 
 #### 05.12.2019 | Piotr Świtlicki
 

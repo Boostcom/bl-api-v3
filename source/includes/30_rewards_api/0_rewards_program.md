@@ -261,53 +261,76 @@ curl \
   "balance": 180,
   "transactions": [
     {
+      "id": 7,
       "type": "reward_purchase",
       "date": "2019-12-15T08:00:15063Z",
       "amount": -20,
       "expired_at": null,
+      "cancelled_at": null,
       "details": {
         "reward_name": "Awesome Toaster"
       }
     },
     {
+      "id": 6,
       "type": "expiration",
       "date": "2019-12-14T08:00:15063Z",
       "amount": -110,
       "expired_at": null,
+      "cancelled_at": null,
       "details": {}
     },
     {
+      "id": 5,
       "type": "achievement",
       "date": "2019-12-10T08:00:15063Z",
       "amount": 150,
       "expired_at": null,
+      "cancelled_at": null,
       "details": {
         "achievement_type": "app_opened"
       }
     },
     {
+      "id": 4,
       "type": "correction",
       "date": "2019-12-05T08:00:15063Z",
       "amount": 50,
       "expired_at": null,
+      "cancelled_at": null,
       "details": {
         "comment": "Just for you"
       }
     },
     {
+      "id": 3,
       "type": "achievement",
       "date": "2019-06-14T08:00:15063Z",
       "amount": 110,
       "expired_at": "2019-12-15T08:00:15063Z",
+      "cancelled_at": null,
       "details": {
         "achievement_type": "coupon_used"
       }
     },
     {
+      "id": 2,
+      "type": "cancellation",
+      "date": "2019-06-12T058:00:13263Z",
+      "amount": -42,
+      "expired_at": null,
+      "cancelled_at": "2019-06-12T058:00:13263Z",
+      "details": {
+        "cancelled_transaction_id": 1
+      }
+    },
+    {
+      "id": 1,
       "type": "grant",
       "date": "2019-06-12T058:00:13263Z",
       "amount": 42,
       "expired_at": null,
+      "cancelled_at": "2019-06-12T058:00:13263Z",
       "details": {
         "grant_type": "receipt",
         "grant_properties": { "store_id":  142 }
@@ -369,10 +392,11 @@ balance | integer | Member's current points number
 transactions | Array| List of Transactions objects, ordered by date descending. See below
 pagination_info | Object | [Pagination](#pagination-model) object describing transactions list
 
-#### Transaction object
+#### <a name="rewards-transaction-object"></a> Transaction object
 
 Key | Type | Description
 --------- | --------- | ---------
+id | integer | 
 type | One of: 'achievement', 'reward_purchase', 'expiration' and 'correction' | see 'Transaction types' below
 date | Date | When the transaction has been made
 amount | integer | How many points the transaction added or subtracted
@@ -387,6 +411,8 @@ achievement | Addition of points triggered by fulfilling an achievement goal
 reward_purchase | Reduction of points caused by purchasing a reward by member
 expiration | Reduction of points caused by automatic expiration of old transactions
 correction | Change of points caused by admin's manual correction
+grant | Arbitrary addition of points 
+cancellation | Cancellation of another transaction
 
 #### Transaction details
 
@@ -397,6 +423,9 @@ Transaction type | Key | Description
 achievement | achievement_type | Type of achievement that granted the points - see [Achievement types](#rewards-program-achievement-types)
 reward_purchase | reward_name | Name of reward that the points have been spent on
 correction | comment | (optional) Admin's notes
+grant | grant_type | (optional) See [Grant points](#rewards-program-grant-points-payload)
+grant | grant_properties | (optional) See [Grant points](#rewards-program-grant-points-payload)
+cancellation | cancelled_transaction_id | (optional) ID of cancelled transaction - see [Cancel transaction](#rewards-program-cancel-transaction)
 
 ### <a name="rewards-program-achievements-summary"></a> Achievements summary
 
@@ -512,17 +541,19 @@ curl -X POST \
   '
 ```
 
-> When successful, returns an empty object
+> When successful, returns created [transaction](#rewards-transaction-object)
 
 ```json
-{}
+{
+  "transaction": {} // See: 'Transaction object'
+}
 ```
 
 **POST** `v1/:loyalty_club_slug/members/:member_id/rewards-program/grant_points`
 
 Allows to grant arbitrary number of points to given member.
 
-#### POST Parameters (JSON)
+#### <a name="rewards-program-grant-points-payload"></a> POST Parameters (JSON)
 
 Key              | Type    | Required? | Description
 ---              | ----    | ---       | --- 
@@ -538,4 +569,43 @@ Status | Description
 
 <aside class="notice">
 Requires <code>Rewards:Api:GrantPoints</code> permit
+</aside>
+
+### <a name="rewards-program-cancel-transaction"></a> Cancel transaction
+
+> Example - cancels 
+
+```shell
+curl -X DELETE \
+"https://api.mpc.placewise.com/v1/infinity-mall/members/4419391/rewards-program/transactions/9391/cancel" \
+  -H 'content-type: application/json' \
+  -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+  -H 'x-product-name: default' \
+  -H 'x-user-agent: CURL manual test'
+```
+
+> When successful, returns created [transaction](#rewards-transaction-object)
+
+```json
+{
+  "transaction": {} // See: 'Transaction object'
+}
+```
+
+**DELETE** `v1/:loyalty_club_slug/members/:member_id/rewards-program/transactions/:id/cancel`
+
+Cancels given transaction. 
+
+This results in registering a new `cancellation` transaction - which subtracts points added by original transaction.
+Original transaction also is marked as "cancelled", by setting "cancelled_at" date.
+
+#### Error responses
+
+Status | Description
+--------- | -----------
+`404` | Transaction not found
+`405` | Transaction cannot be cancelled
+
+<aside class="notice">
+Requires <code>Rewards:Api:Transactions:Cancel</code> permit
 </aside>
