@@ -794,7 +794,7 @@ or Loyalty has disabled welcome messages or Loyalty Club has no e-mails configur
 <p>There is also a possibility to have multiple SMS welcome messages sent. The one that matches Product or default one will be sent.</p>
 <h4 id='a-name-members-create-registration-password-a-registration-password-1'><span id=a-name-members-create-registration-password-a-registration-password></span><a name="members-create-registration-password"></a> Registration Password</h4>
 <p>Some API clients (depends on Permit assigned to given <code>x-client-authorization</code> token) may be required to provide 
-valid <code>registration_password</code> param that is sent to user with <a href="#members-send-registration-password">Members &bull; Send registration password</a> </p>
+valid <code>registration_password</code> param that is sent to user with <a href="#members-send-registration-password">Members &gt; Send registration password</a> </p>
 <h4 id='headers-1'><span id=headers></span>Headers</h4>
 <table><thead>
 <tr>
@@ -1400,7 +1400,7 @@ curl -X POST <span class="se">\</span>
 <p>This behaviour has been designed to allow validate member partially, property by property. This way you can choose 
 what values should be validated at specific point of registration.</p>
 <h4 id='a-name-members-validate-post-parameters-a-post-parameters-json-1'><span id=a-name-members-validate-post-parameters-a-post-parameters-json></span><a name="members-validate-post-parameters"></a> POST Parameters (JSON)</h4>
-<p>Following keys of <a href="#members-create-post-parameters">Members &bull; Create</a> payload are supported when validating:</p>
+<p>Following keys of <a href="#members-create-post-parameters">Members &gt; Create</a> payload are supported when validating:</p>
 
 <ul>
 <li>properties</li>
@@ -1471,7 +1471,7 @@ Requires <code>BL:Api:Members:Validate</code> permit
 </tr>
 <tr>
 <td>token</td>
-<td>Confirmation token generated and sent with <a href="#members-send-password-reset-token">Members &bull; Send password reset token</a></td>
+<td>Confirmation token generated and sent with <a href="#members-send-password-reset-token">Members &gt; Send password reset token</a></td>
 <td>string</td>
 </tr>
 </tbody></table>
@@ -1528,8 +1528,8 @@ Requires <code>BL:Api:Members:ResetPassword</code> permit
 
 <p>The e-mail contains a token generated for member, valid for 24 hours.</p>
 
-<p>The token can be then used to reset password with <a href="#members-reset-password">Members &bull; Reset password</a>.
-It also may be verified with <a href="#members-verify-token">Members &bull; Verify token</a></p>
+<p>The token can be then used to reset password with <a href="#members-reset-password">Members &gt; Reset password</a>.
+It also may be verified with <a href="#members-verify-token">Members &gt; Verify token</a></p>
 <h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
 <table><thead>
 <tr>
@@ -1587,7 +1587,7 @@ Requires <code>BL:Api:Members:Tokens:Create</code> permit
 <p>The message may contain (depending on Loyalty Club configuration):</p>
 
 <ul>
-<li>Generated password, valid for limited time, allows to sign in member - see: <a href="#token-create">OAuth Token &bull; Create</a>. </li>
+<li>Generated password, valid for limited time, allows to sign in member - see: <a href="#token-create">OAuth Token &gt; Create</a>. </li>
 <li>Login URL. Scheme of this URL is: <code>&lt;login_url&gt;?otp=&lt;otp&gt;</code>. 
 By default, <code>login_url</code> leads to MPC Webforms page. However, it may by customized by providing <code>login_url</code> query param.</li>
 </ul>
@@ -1884,7 +1884,7 @@ Requires <code>BL:Api:Members:Msisdns:Verify</code> permit
 </span></code></pre>
 <p><strong>PUT</strong> <code>/v3/:loyalty_club_slug/members/channels/msisdn/:msisdn/verify</code></p>
 
-<p>Uses given token (sent with <a href="#members-send-verification-sms">Members &bull; Send MSISDN verification SMS</a>) to verify
+<p>Uses given token (sent with <a href="#members-send-verification-sms">Members &gt; Send MSISDN verification SMS</a>) to verify
 user identified with given MSISDN.</p>
 <h4 id='put-body-parameters-1'><span id=put-body-parameters></span>PUT body parameters</h4>
 <table><thead>
@@ -1899,7 +1899,7 @@ user identified with given MSISDN.</p>
 <td>token</td>
 <td>string</td>
 <td>yes</td>
-<td>Token generated and sent with <a href="#members-send-verification-sms">Members &bull; Send MSISDN verification SMS</a></td>
+<td>Token generated and sent with <a href="#members-send-verification-sms">Members &gt; Send MSISDN verification SMS</a></td>
 </tr>
 </tbody></table>
 <h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>

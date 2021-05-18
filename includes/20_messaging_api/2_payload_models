@@ -86,7 +86,7 @@
 <tr>
 <td>channels[].type</td>
 <td>not_configured</td>
-<td>Channel is not configured for Loyalty Club - see <a href="#messaging-show-settings">Messaging &bull; Settings</a></td>
+<td>Channel is not configured for Loyalty Club - see <a href="#messaging-show-settings">Messaging &gt; Settings</a></td>
 </tr>
 </tbody></table>
 <h3 id='a-name-messaging-channel-payload-model-a-channelpayload-model-1'><span id=a-name-messaging-channel-payload-model-a-channelpayload-model></span><a name="messaging-channel-payload-model"></a> ChannelPayload model</h3>

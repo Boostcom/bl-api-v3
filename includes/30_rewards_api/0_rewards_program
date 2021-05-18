@@ -125,7 +125,7 @@ The rules are described below.</p>
     </span><span class="s2">"maximum_points"</span><span class="p">:</span><span class="w"> </span><span class="mi">1500</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Loyalty Club may have members level defined (available in <a href="#rewards-program-info">Rewards Program &bull; Get info</a> response).
+<p>Loyalty Club may have members level defined (available in <a href="#rewards-program-info">Rewards Program &gt; Get info</a> response).
 There are two types of them: <code>regular</code> and <code>virtual_level</code>.</p>
 <h4 id='regular-levels-1'><span id=regular-levels></span>Regular levels</h4>
 <p>When regular levels are enabled, members get levels based on the amount of points that they have earned
@@ -314,53 +314,76 @@ Requires <code>Rewards:Api:OAuth:Memberships:Delete</code> permit
   </span><span class="s2">"balance"</span><span class="p">:</span><span class="w"> </span><span class="mi">180</span><span class="p">,</span><span class="w">
   </span><span class="s2">"transactions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
       </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"reward_purchase"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-12-15T08:00:15063Z"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">-20</span><span class="p">,</span><span class="w">
       </span><span class="s2">"expired_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"cancelled_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"reward_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Awesome Toaster"</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
       </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"expiration"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-12-14T08:00:15063Z"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">-110</span><span class="p">,</span><span class="w">
       </span><span class="s2">"expired_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"cancelled_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
       </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"achievement"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-12-10T08:00:15063Z"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">150</span><span class="p">,</span><span class="w">
       </span><span class="s2">"expired_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"cancelled_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"achievement_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"app_opened"</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
       </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"correction"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-12-05T08:00:15063Z"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w">
       </span><span class="s2">"expired_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"cancelled_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Just for you"</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
       </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"achievement"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-14T08:00:15063Z"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">110</span><span class="p">,</span><span class="w">
       </span><span class="s2">"expired_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-12-15T08:00:15063Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"cancelled_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"achievement_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"coupon_used"</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cancellation"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-12T058:00:13263Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">-42</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"expired_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"cancelled_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-12T058:00:13263Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"cancelled_transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
       </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"grant"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-12T058:00:13263Z"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span><span class="w">
       </span><span class="s2">"expired_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"cancelled_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-12T058:00:13263Z"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"grant_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"receipt"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"grant_properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"store_id"</span><span class="p">:</span><span class="w">  </span><span class="mi">142</span><span class="w"> </span><span class="p">}</span><span class="w">
@@ -461,7 +484,7 @@ Requires <code>Rewards:Api:Memberships:CheckStatus</code> permit
 <td><a href="#pagination-model">Pagination</a> object describing transactions list</td>
 </tr>
 </tbody></table>
-<h4 id='transaction-object-1'><span id=transaction-object></span>Transaction object</h4>
+<h4 id='a-name-rewards-transaction-object-a-transaction-object-1'><span id=a-name-rewards-transaction-object-a-transaction-object></span><a name="rewards-transaction-object"></a> Transaction object</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -469,6 +492,11 @@ Requires <code>Rewards:Api:Memberships:CheckStatus</code> permit
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td></td>
+</tr>
 <tr>
 <td>type</td>
 <td>One of: &#39;achievement&#39;, &#39;reward_purchase&#39;, &#39;expiration&#39; and &#39;correction&#39;</td>
@@ -518,6 +546,14 @@ Requires <code>Rewards:Api:Memberships:CheckStatus</code> permit
 <td>correction</td>
 <td>Change of points caused by admin&#39;s manual correction</td>
 </tr>
+<tr>
+<td>grant</td>
+<td>Arbitrary addition of points</td>
+</tr>
+<tr>
+<td>cancellation</td>
+<td>Cancellation of another transaction</td>
+</tr>
 </tbody></table>
 <h4 id='transaction-details-1'><span id=transaction-details></span>Transaction details</h4>
 <p>Depending on transaction type, the details contain different kind of data.</p>
@@ -543,6 +579,21 @@ Requires <code>Rewards:Api:Memberships:CheckStatus</code> permit
 <td>correction</td>
 <td>comment</td>
 <td>(optional) Admin&#39;s notes</td>
+</tr>
+<tr>
+<td>grant</td>
+<td>grant_type</td>
+<td>(optional) See <a href="#rewards-program-grant-points-payload">Grant points</a></td>
+</tr>
+<tr>
+<td>grant</td>
+<td>grant_properties</td>
+<td>(optional) See <a href="#rewards-program-grant-points-payload">Grant points</a></td>
+</tr>
+<tr>
+<td>cancellation</td>
+<td>cancelled_transaction_id</td>
+<td>(optional) ID of cancelled transaction - see <a href="#rewards-program-cancel-transaction">Cancel transaction</a></td>
 </tr>
 </tbody></table>
 <h3 id='a-name-rewards-program-achievements-summary-a-achievements-summary-1'><span id=a-name-rewards-program-achievements-summary-a-achievements-summary></span><a name="rewards-program-achievements-summary"></a> Achievements summary</h3>
@@ -702,14 +753,16 @@ Requires <code>Rewards:Api:OAuth:Memberships:CheckStatus</code> permit
   '</span>
 </code></pre>
 <blockquote>
-<p>When successful, returns an empty object</p>
+<p>When successful, returns created <a href="#rewards-transaction-object">transaction</a></p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{}</span><span class="w">
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"transaction"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="err">'Transaction</span><span class="w"> </span><span class="err">object'</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p><strong>POST</strong> <code>v1/:loyalty_club_slug/members/:member_id/rewards-program/grant_points</code></p>
 
 <p>Allows to grant arbitrary number of points to given member.</p>
-<h4 id='post-parameters-json-1'><span id=post-parameters-json></span>POST Parameters (JSON)</h4>
+<h4 id='a-name-rewards-program-grant-points-payload-a-post-parameters-json-1'><span id=a-name-rewards-program-grant-points-payload-a-post-parameters-json></span><a name="rewards-program-grant-points-payload"></a> POST Parameters (JSON)</h4>
 <table><thead>
 <tr>
 <th>Key</th>
@@ -752,4 +805,48 @@ Requires <code>Rewards:Api:OAuth:Memberships:CheckStatus</code> permit
 
 <aside class="notice">
 Requires <code>Rewards:Api:GrantPoints</code> permit
+</aside>
+<h3 id='a-name-rewards-program-cancel-transaction-a-cancel-transaction-1'><span id=a-name-rewards-program-cancel-transaction-a-cancel-transaction></span><a name="rewards-program-cancel-transaction"></a> Cancel transaction</h3>
+<blockquote>
+<p>Example - cancels </p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X DELETE <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v1/infinity-mall/members/4419391/rewards-program/transactions/9391/cancel"</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
+  -H <span class="s1">'x-user-agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>When successful, returns created <a href="#rewards-transaction-object">transaction</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"transaction"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">See</span><span class="p">:</span><span class="w"> </span><span class="err">'Transaction</span><span class="w"> </span><span class="err">object'</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>DELETE</strong> <code>v1/:loyalty_club_slug/members/:member_id/rewards-program/transactions/:id/cancel</code></p>
+
+<p>Cancels given transaction. </p>
+
+<p>This results in registering a new <code>cancellation</code> transaction - which subtracts points added by original transaction.
+Original transaction also is marked as &quot;cancelled&quot;, by setting &quot;cancelled_at&quot; date.</p>
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>404</code></td>
+<td>Transaction not found</td>
+</tr>
+<tr>
+<td><code>405</code></td>
+<td>Transaction cannot be cancelled</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Rewards:Api:Transactions:Cancel</code> permit
 </aside>

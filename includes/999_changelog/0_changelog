@@ -1,23 +1,25 @@
-<h1 id='changelog-1'><span id=changelog></span>Changelog</h1><h3 id='17-05-2021-natalia-styrska-1'><span id=17-05-2021-natalia-styrska></span>17.05.2021 | Natalia Styrska</h3>
+<h1 id='changelog-1'><span id=changelog></span>Changelog</h1><h4 id='18-05-2020-piotr-switlicki-1'><span id=18-05-2020-piotr-switlicki></span>18.05.2020 | Piotr Świtlicki</h4>
 <ul>
-<li>Add description to <a href="#operations-app-tokens">Operations &bull; Add user app tokens</a> </li>
+<li>Add <a href="#rewards-program-cancel-transaction">Rewards API &gt; Rewards Program &gt; Cancel</a></li>
+<li>Update <a href="#rewards-program-grant-points">Rewards API &gt; Rewards Program &gt; Grant Points</a> to return created transaction</li>
+<li>Add <code>cancellation</code> transaction type in <a href="#rewards-transaction-object">RewardsAPI &gt; Transactions</a></li>
 </ul>
-<h4 id='02-12-2020-piotr-switlicki-1'><span id=02-12-2020-piotr-switlicki></span>02.12.2020 | Piotr Świtlicki</h4>
+<h4 id='17-05-2020-piotr-switlicki-1'><span id=17-05-2020-piotr-switlicki></span>17.05.2020 | Piotr Świtlicki</h4>
 <ul>
-<li>Add <a href="#operations-alerts">Operations API &bull; Alerts</a></li>
-<li>Add <a href="#operations-admin-alerts">Operations Admin API &bull; Alerts</a></li>
+<li>Add <a href="#operations-alerts">Operations API &gt; Alerts</a></li>
+<li>Add <a href="#operations-admin-alerts">Operations Admin API &gt; Alerts</a></li>
 </ul>
 <h3 id='14-05-2021-natalia-styrska-1'><span id=14-05-2021-natalia-styrska></span>14.05.2021 | Natalia Styrska</h3>
 <ul>
-<li>Add description to <a href="#members-add-app-tokens">Members &bull; Add app tokens</a> </li>
+<li>Add description to <a href="#members-add-app-tokens">Members &gt; Add app tokens</a> </li>
 </ul>
 <h3 id='07-05-2021-piotr-switlicki-1'><span id=07-05-2021-piotr-switlicki></span>07.05.2021 | Piotr Świtlicki</h3>
 <ul>
-<li>Add description to <a href="#operations-documents">Operations &bull; Documents</a> </li>
+<li>Add description to <a href="#operations-documents">Operations &gt; Documents</a> </li>
 </ul>
 <h4 id='19-03-2021-pawel-buczkowski-1'><span id=19-03-2021-pawel-buczkowski></span>19.03.2021 | Paweł Buczkowski</h4>
 <ul>
-<li>Add <a href="#stamps-create">Transaction Stamps &bull; Create</a></li>
+<li>Add <a href="#stamps-create">Transaction Stamps &gt; Create</a></li>
 </ul>
 <h4 id='11-03-2021-piotr-switlicki-1'><span id=11-03-2021-piotr-switlicki></span>11.03.2021 | Piotr Świtlicki</h4>
 <ul>
@@ -25,7 +27,7 @@
 </ul>
 <h4 id='05-03-2021-piotr-switlicki-1'><span id=05-03-2021-piotr-switlicki></span>05.03.2021 | Piotr Świtlicki</h4>
 <ul>
-<li>Add <code>login_url</code> query param in <a href="#members-send-one-time-password-email">Members &bull; Send one time password E-mail</a> </li>
+<li>Add <code>login_url</code> query param in <a href="#members-send-one-time-password-email">Members &gt; Send one time password E-mail</a> </li>
 </ul>
 <h4 id='23-02-2021-piotr-switlicki-1'><span id=23-02-2021-piotr-switlicki></span>23.02.2021 | Piotr Świtlicki</h4>
 <ul>
@@ -33,7 +35,7 @@
 </ul>
 <h4 id='10-02-2021-pawel-buczkowski-1'><span id=10-02-2021-pawel-buczkowski></span>10.02.2021 | Paweł Buczkowski</h4>
 <ul>
-<li>Add <a href="#pos-campaigns-config-list">POS Campaign API &bull; List</a></li>
+<li>Add <a href="#pos-campaigns-config-list">POS Campaign API &gt; List</a></li>
 </ul>
 <h4 id='09-02-2021-jakub-kruczek-1'><span id=09-02-2021-jakub-kruczek></span>09.02.2021 | Jakub Kruczek</h4>
 <ul>
@@ -45,7 +47,7 @@
 </ul>
 <h4 id='02-12-2020-piotr-switlicki-1'><span id=02-12-2020-piotr-switlicki></span>02.12.2020 | Piotr Świtlicki</h4>
 <ul>
-<li>Add <code>title</code> param to <a href="#operations-admin-list-documents">Operations API &bull; Documents &bull; Index</a></li>
+<li>Add <code>title</code> param to <a href="#operations-admin-list-documents">Operations API &gt; Documents &gt; Index</a></li>
 </ul>
 <h4 id='22-01-2021-pawel-buczkowski-1'><span id=22-01-2021-pawel-buczkowski></span>22.01.2021 | Paweł Buczkowski</h4>
 <ul>
@@ -53,7 +55,7 @@
 </ul>
 <h4 id='15-01-2021-piotr-switlicki-1'><span id=15-01-2021-piotr-switlicki></span>15.01.2021 | Piotr Świtlicki</h4>
 <ul>
-<li>Add <a href="#rewards-program-grant-points">Rewards API &bull; Grant Points</a></li>
+<li>Add <a href="#rewards-program-grant-points">Rewards API &gt; Grant Points</a></li>
 </ul>
 <h4 id='14-01-2021-piotr-switlicki-1'><span id=14-01-2021-piotr-switlicki></span>14.01.2021 | Piotr Świtlicki</h4>
 <ul>
@@ -61,19 +63,19 @@
 </ul>
 <h4 id='18-12-2020-piotr-switlicki-1'><span id=18-12-2020-piotr-switlicki></span>18.12.2020 | Piotr Świtlicki</h4>
 <ul>
-<li>Add <a href="#members-lookup">Members API &bull; Member Lookup</a></li>
+<li>Add <a href="#members-lookup">Members API &gt; Member Lookup</a></li>
 </ul>
 <h4 id='18-12-2020-piotr-switlicki-1'><span id=18-12-2020-piotr-switlicki></span>18.12.2020 | Piotr Świtlicki</h4>
 <ul>
-<li>Rework <a href="#offer-admin-image-templates-preview">Offers Admin API &bull; ImageTemplates &bull; Preview</a></li>
+<li>Rework <a href="#offer-admin-image-templates-preview">Offers Admin API &gt; ImageTemplates &gt; Preview</a></li>
 </ul>
 <h4 id='15-12-2020-piotr-switlicki-1'><span id=15-12-2020-piotr-switlicki></span>15.12.2020 | Piotr Świtlicki</h4>
 <ul>
-<li>Add <a href="#messaging-show-settings">Messaging API &bull; Settings &bull; Show</a></li>
+<li>Add <a href="#messaging-show-settings">Messaging API &gt; Settings &gt; Show</a></li>
 </ul>
 <h4 id='15-12-2020-piotr-switlicki-1'><span id=15-12-2020-piotr-switlicki></span>15.12.2020 | Piotr Świtlicki</h4>
 <ul>
-<li>Add <a href="#messaging-cancel-sending">Messaging API &bull; Sendings &bull; Cancel</a></li>
+<li>Add <a href="#messaging-cancel-sending">Messaging API &gt; Sendings &gt; Cancel</a></li>
 </ul>
 <h4 id='08-12-2020-piotr-switlicki-1'><span id=08-12-2020-piotr-switlicki></span>08.12.2020 | Piotr Świtlicki</h4>
 <ul>
@@ -89,19 +91,19 @@
 </ul>
 <h4 id='02-12-2020-piotr-switlicki-1'><span id=02-12-2020-piotr-switlicki></span>02.12.2020 | Piotr Świtlicki</h4>
 <ul>
-<li>Add <a href="#operations-documents">Operations API &bull; Documents</a></li>
+<li>Add <a href="#operations-documents">Operations API &gt; Documents</a></li>
 </ul>
 <h4 id='01-12-2020-piotr-switlicki-1'><span id=01-12-2020-piotr-switlicki></span>01.12.2020 | Piotr Świtlicki</h4>
 <ul>
-<li>Add <a href="#operations-admin-documents">Operations Admin API &bull; Documents</a></li>
+<li>Add <a href="#operations-admin-documents">Operations Admin API &gt; Documents</a></li>
 </ul>
 <h4 id='23-11-2020-piotr-switlicki-1'><span id=23-11-2020-piotr-switlicki></span>23.11.2020 | Piotr Świtlicki</h4>
 <ul>
-<li>Add <a href="#offer-admin-image-templates-preview">Offers Admin API &bull; Image Templates &bull; Preview</a></li>
+<li>Add <a href="#offer-admin-image-templates-preview">Offers Admin API &gt; Image Templates &gt; Preview</a></li>
 </ul>
 <h4 id='23-11-2020-piotr-switlicki-1'><span id=23-11-2020-piotr-switlicki></span>23.11.2020 | Piotr Świtlicki</h4>
 <ul>
-<li>Add <a href="#messaging-list-sending-dispatches">Messaging API &bull; Sending</a></li>
+<li>Add <a href="#messaging-list-sending-dispatches">Messaging API &gt; Sending</a></li>
 </ul>
 <h4 id='23-11-2020-piotr-switlicki-1'><span id=23-11-2020-piotr-switlicki></span>23.11.2020 | Piotr Świtlicki</h4>
 <ul>
@@ -115,24 +117,24 @@
 </ul>
 <h4 id='09-11-2020-piotr-switlicki-1'><span id=09-11-2020-piotr-switlicki></span>09.11.2020 | Piotr Świtlicki</h4>
 <ul>
-<li>Add <a href="#grant-offers">Offers &bull; Grant</a></li>
+<li>Add <a href="#grant-offers">Offers &gt; Grant</a></li>
 </ul>
 <h4 id='30-10-2020-pawel-buczkowski-1'><span id=30-10-2020-pawel-buczkowski></span>30.10.2020 | Paweł Buczkowski</h4>
 <ul>
-<li>Add <a href="#points-config">POS Campaigns &bull; PointsConfig</a></li>
+<li>Add <a href="#points-config">POS Campaigns &gt; PointsConfig</a></li>
 </ul>
 <h4 id='29-10-2020-natalia-styrska-1'><span id=29-10-2020-natalia-styrska></span>29.10.2020 | Natalia Styrska</h4>
 <ul>
-<li>Add <a href="#members-stores-get">Operations Admin API &bull; Members &bull; Stores</a></li>
+<li>Add <a href="#members-stores-get">Operations Admin API &gt; Members &gt; Stores</a></li>
 </ul>
 <h4 id='09-09-2020-piotr-switlicki-1'><span id=09-09-2020-piotr-switlicki></span>09.09.2020 | Piotr Świtlicki</h4>
 <ul>
-<li>Add <a href="#image-templates">Offers Admin API &bull; ImageTemplates API</a></li>
+<li>Add <a href="#image-templates">Offers Admin API &gt; ImageTemplates API</a></li>
 <li>Add <a href="#offer-image-template">Offer ImageTemplate model</a></li>
 </ul>
 <h4 id='09-09-2020-natalia-styrska-1'><span id=09-09-2020-natalia-styrska></span>09.09.2020 | Natalia Styrska</h4>
 <ul>
-<li>Update <a href="#transactions-events-create">Transactions &bull; Create events</a></li>
+<li>Update <a href="#transactions-events-create">Transactions &gt; Create events</a></li>
 </ul>
 <h4 id='17-08-2020-piotr-switlicki-1'><span id=17-08-2020-piotr-switlicki></span>17.08.2020 | Piotr Świtlicki</h4>
 <ul>
@@ -141,8 +143,8 @@
 <h4 id='17-08-2020-jakub-kruczek-1'><span id=17-08-2020-jakub-kruczek></span>17.08.2020 | Jakub Kruczek</h4>
 <ul>
 <li>Use lowercase header keys to match HTTP/2 standard</li>
-<li>Add HTTPS (TLS) section <a href="#https-tls-requirement">Introduction &bull; Hosts &bull; HTTPS (TLS) requirement</a></li>
-<li>Add new common HTTP code for incorrect headers <a href="#common-http-error-codes">Introduction &bull; Common HTTP error codes</a></li>
+<li>Add HTTPS (TLS) section <a href="#https-tls-requirement">Introduction &gt; Hosts &gt; HTTPS (TLS) requirement</a></li>
+<li>Add new common HTTP code for incorrect headers <a href="#common-http-error-codes">Introduction &gt; Common HTTP error codes</a></li>
 </ul>
 <h4 id='13-08-2020-piotr-switlicki-1'><span id=13-08-2020-piotr-switlicki></span>13.08.2020 | Piotr Świtlicki</h4>
 <ul>
@@ -150,25 +152,25 @@
 </ul>
 <h4 id='07-08-2020-natalia-styrska-1'><span id=07-08-2020-natalia-styrska></span>07.08.2020 | Natalia Styrska</h4>
 <ul>
-<li>Add <a href="#member-points-list">Points &bull; List</a></li>
+<li>Add <a href="#member-points-list">Points &gt; List</a></li>
 </ul>
 <h4 id='02-07-2020-natalia-styrska-1'><span id=02-07-2020-natalia-styrska></span>02.07.2020 | Natalia Styrska</h4>
 <ul>
-<li>Add <a href="#events-list">Events &bull; Index</a></li>
-<li>Add <a href="#event-get">Events &bull; Get</a></li>
-<li>Add <a href="#events-validate-member">Events &bull; Validate</a></li>
-<li>Add <a href="#events-checkin-member">Events &bull; Checkin</a></li>
-<li>Add <a href="#events-invitation">Events &bull; Invitation</a></li>
+<li>Add <a href="#events-list">Events &gt; Index</a></li>
+<li>Add <a href="#event-get">Events &gt; Get</a></li>
+<li>Add <a href="#events-validate-member">Events &gt; Validate</a></li>
+<li>Add <a href="#events-checkin-member">Events &gt; Checkin</a></li>
+<li>Add <a href="#events-invitation">Events &gt; Invitation</a></li>
 </ul>
 <h4 id='02-06-2020-piotr-switlicki-1'><span id=02-06-2020-piotr-switlicki></span>02.06.2020 | Piotr Świtlicki</h4>
 <ul>
-<li>Extend <a href="#members-groups-list">Members Groups &bull; Index</a> with filtering parameters</li>
-<li>Add <a href="#members-groups-types">Members Groups &bull; Types</a></li>
+<li>Extend <a href="#members-groups-list">Members Groups &gt; Index</a> with filtering parameters</li>
+<li>Add <a href="#members-groups-types">Members Groups &gt; Types</a></li>
 </ul>
 <h4 id='28-05-2020-natalia-styrska-1'><span id=28-05-2020-natalia-styrska></span>28.05.2020 | Natalia Styrska</h4>
 <ul>
 <li>Extend (<a href="#store-list">#  Stores</a>) all endpoints with new properties</li>
-<li>Add (<a href="#store-zones-list">Stores &bull; Zones</a>) endpoint </li>
+<li>Add (<a href="#store-zones-list">Stores &gt; Zones</a>) endpoint </li>
 </ul>
 <h4 id='21-05-2020-piotr-switlicki-1'><span id=21-05-2020-piotr-switlicki></span>21.05.2020 | Piotr Świtlicki</h4>
 <ul>
@@ -181,21 +183,20 @@
 </ul>
 <h4 id='09-04-2020-piotr-switlicki-1'><span id=09-04-2020-piotr-switlicki></span>09.04.2020 | Piotr Świtlicki</h4>
 <ul>
-<li>Restructure members docs</li>
 <li>Add <a href="#invalid-parameters-errors-model">Invalid parameters errors</a></li>
 <li>Add <a href="#members-groups">Members Groups</a></li>
 </ul>
 <h4 id='13-03-2020-natalia-styrska-1'><span id=13-03-2020-natalia-styrska></span>13.03.2020 | Natalia Styrska</h4>
 <ul>
-<li>Extend <a href="#transactions-events-create">Transaction Events &bull; Create</a> endpoint </li>
+<li>Extend <a href="#transactions-events-create">Transaction Events &gt; Create</a> endpoint </li>
 </ul>
 <h4 id='12-03-2020-natalia-styrska-1'><span id=12-03-2020-natalia-styrska></span>12.03.2020 | Natalia Styrska</h4>
 <ul>
-<li>Extend <a href="#points-create">Points &bull; Create</a> endpoint </li>
+<li>Extend <a href="#points-create">Points &gt; Create</a> endpoint </li>
 </ul>
 <h4 id='05-03-2020-piotr-switlicki-1'><span id=05-03-2020-piotr-switlicki></span>05.03.2020 | Piotr Świtlicki</h4>
 <ul>
-<li>Extend <a href="#loyalty-clubs-list">Loyalty Clubs &bull; List</a> endpoint </li>
+<li>Extend <a href="#loyalty-clubs-list">Loyalty Clubs &gt; List</a> endpoint </li>
 </ul>
 <h4 id='01-03-2020-piotr-switlicki-1'><span id=01-03-2020-piotr-switlicki></span>01.03.2020 | Piotr Świtlicki</h4>
 <ul>
@@ -204,28 +205,28 @@
 </ul>
 <h4 id='11-02-2020-piotr-switlicki-1'><span id=11-02-2020-piotr-switlicki></span>11.02.2020 | Piotr Świtlicki</h4>
 <ul>
-<li>Add <a href="#grant-offer">Offers &bull; Grant offer</a></li>
+<li>Add <a href="#grant-offer">Offers &gt; Grant offer</a></li>
 </ul>
 <h4 id='03-02-2020-natalia-styrska-1'><span id=03-02-2020-natalia-styrska></span>03.02.2020 | Natalia Styrska</h4>
 <ul>
-<li>Add (<a href="#transactions-events-create">Transactions &bull; Events</a>) endpoint</li>
+<li>Add (<a href="#transactions-events-create">Transactions &gt; Events</a>) endpoint</li>
 </ul>
 <h4 id='11-12-2019-piotr-switlicki-1'><span id=11-12-2019-piotr-switlicki></span>11.12.2019 | Piotr Świtlicki</h4>
 <ul>
-<li>Update <a href="#offers-display-schemas">Offers &bull; Display schemas</a> to have <a href="https://support.smartbear.com/readyapi/docs/testing/jsonpath-reference.html">JSONPath</a> references</li>
+<li>Update <a href="#offers-display-schemas">Offers &gt; Display schemas</a> to have <a href="https://support.smartbear.com/readyapi/docs/testing/jsonpath-reference.html">JSONPath</a> references</li>
 </ul>
 <h4 id='05-12-2019-piotr-switlicki-1'><span id=05-12-2019-piotr-switlicki></span>05.12.2019 | Piotr Świtlicki</h4>
 <ul>
-<li>Add <a href="#links-generate">Links &bull; Generate</a> </li>
+<li>Add <a href="#links-generate">Links &gt; Generate</a> </li>
 </ul>
 <h4 id='22-11-2019-piotr-switlicki-1'><span id=22-11-2019-piotr-switlicki></span>22.11.2019 | Piotr Świtlicki</h4>
 <ul>
-<li>Add <a href="#loyalty-clubs-get">Loyalty Clubs &bull; Get</a></li>
+<li>Add <a href="#loyalty-clubs-get">Loyalty Clubs &gt; Get</a></li>
 <li>Add info about new <code>client</code> <a href="#offers-display-schemas">display schema</a> item type </li>
 </ul>
 <h4 id='22-10-2019-piotr-switlicki-1'><span id=22-10-2019-piotr-switlicki></span>22.10.2019 | Piotr Świtlicki</h4>
 <ul>
-<li>Add <code>collection_position</code> order_by key to <a href="#list-offers">Offers &bull; List offers</a></li>
+<li>Add <code>collection_position</code> order_by key to <a href="#list-offers">Offers &gt; List offers</a></li>
 </ul>
 <h4 id='18-10-2019-piotr-switlicki-1'><span id=18-10-2019-piotr-switlicki></span>18.10.2019 | Piotr Świtlicki</h4>
 <ul>
@@ -233,36 +234,36 @@
 </ul>
 <h4 id='16-10-2019-natalia-styrska-1'><span id=16-10-2019-natalia-styrska></span>16.10.2019 | Natalia Styrska</h4>
 <ul>
-<li>Add (<a href="#store-categories-list">Stores &bull; Categories</a>) endpoint</li>
-<li>Add (<a href="#department-create">Departments &bull; Create</a>) endpoint</li>
-<li>Add (<a href="#department-update">Departments &bull; Update</a>) endpoint</li>
+<li>Add (<a href="#store-categories-list">Stores &gt; Categories</a>) endpoint</li>
+<li>Add (<a href="#department-create">Departments &gt; Create</a>) endpoint</li>
+<li>Add (<a href="#department-update">Departments &gt; Update</a>) endpoint</li>
 </ul>
 <h4 id='23-09-2019-piotr-switlicki-1'><span id=23-09-2019-piotr-switlicki></span>23.09.2019 | Piotr Świtlicki</h4>
 <ul>
-<li>Add <code>event_occurred_at</code> param to <a href="#member-event-occured-at-param">Members &bull; Update</a> </li>
+<li>Add <code>event_occurred_at</code> param to <a href="#member-event-occured-at-param">Members &gt; Update</a> </li>
 </ul>
 <h4 id='21-09-2019-piotr-switlicki-1'><span id=21-09-2019-piotr-switlicki></span>21.09.2019 | Piotr Świtlicki</h4>
 <ul>
-<li>Add <code>membership_started_at</code> to <a href="#rewards-program-status">Rewards Program &bull; Get Status</a> </li>
+<li>Add <code>membership_started_at</code> to <a href="#rewards-program-status">Rewards Program &gt; Get Status</a> </li>
 </ul>
 <h4 id='19-09-2019-natalia-styrska-1'><span id=19-09-2019-natalia-styrska></span>19.09.2019 | Natalia Styrska</h4>
 <ul>
-<li>Add (<a href="#member-points">Points &bull; Member points</a>) endpoint</li>
-<li>Add (<a href="#points-create">Points &bull; Create</a>) endpoint</li>
+<li>Add (<a href="#member-points">Points &gt; Member points</a>) endpoint</li>
+<li>Add (<a href="#points-create">Points &gt; Create</a>) endpoint</li>
 </ul>
 <h4 id='02-09-2019-natalia-styrska-1'><span id=02-09-2019-natalia-styrska></span>02.09.2019 | Natalia Styrska</h4>
 <ul>
-<li>Change (<a href="#store-list">Stores &bull; List</a>) rename malls to departments</li>
-<li>Change (<a href="#store-get">Stores &bull; Get</a>) rename malls to departments</li>
-<li>Change (<a href="#store-create">Stores &bull; Create</a>) rename malls to departments</li>
-<li>Change (<a href="#store-update">Stores &bull; Update</a>) rename malls to departments</li>
-<li>Add (<a href="#department-list">Departments &bull; List</a>) rename malls to departments</li>
-<li>Add (<a href="#department-get">Departments &bull; Get</a>) rename malls to departments</li>
+<li>Change (<a href="#store-list">Stores &gt; List</a>) rename malls to departments</li>
+<li>Change (<a href="#store-get">Stores &gt; Get</a>) rename malls to departments</li>
+<li>Change (<a href="#store-create">Stores &gt; Create</a>) rename malls to departments</li>
+<li>Change (<a href="#store-update">Stores &gt; Update</a>) rename malls to departments</li>
+<li>Add (<a href="#department-list">Departments &gt; List</a>) rename malls to departments</li>
+<li>Add (<a href="#department-get">Departments &gt; Get</a>) rename malls to departments</li>
 </ul>
 <h4 id='29-08-2019-piotr-switlicki-1'><span id=29-08-2019-piotr-switlicki></span>29.08.2019 | Piotr Świtlicki</h4>
 <ul>
-<li>Add <a href="#members-update-app-token">Members &bull; Update app token</a> endpoint</li>
-<li>Add <a href="#me-update-app-token">OAuth &bull; Update app token</a> endpoint</li>
+<li>Add <a href="#members-update-app-token">Members &gt; Update app token</a> endpoint</li>
+<li>Add <a href="#me-update-app-token">OAuth &gt; Update app token</a> endpoint</li>
 </ul>
 <h4 id='27-08-2019-piotr-switlicki-1'><span id=27-08-2019-piotr-switlicki></span>27.08.2019 | Piotr Świtlicki</h4>
 <ul>
@@ -270,32 +271,32 @@
 </ul>
 <h4 id='23-08-2019-piotr-switlicki-1'><span id=23-08-2019-piotr-switlicki></span>23.08.2019 | Piotr Świtlicki</h4>
 <ul>
-<li>Add <a href="#members-validate">Members &bull; Validate</a> endpoint</li>
-<li>Change <a href="#offers-list">Offers &bull; List</a> to accept <code>include_pagination_info</code> instead of <code>include_total</code> param</li>
+<li>Add <a href="#members-validate">Members &gt; Validate</a> endpoint</li>
+<li>Change <a href="#offers-list">Offers &gt; List</a> to accept <code>include_pagination_info</code> instead of <code>include_total</code> param</li>
 </ul>
 <h4 id='19-08-2019-piotr-switlicki-1'><span id=19-08-2019-piotr-switlicki></span>19.08.2019 | Piotr Świtlicki</h4>
 <ul>
-<li>Add <a href="#reprocess-file">Offers &bull; Reprocess</a></li>
+<li>Add <a href="#reprocess-file">Offers &gt; Reprocess</a></li>
 <li>Add <a href="#offers-list-order-by"><code>order_by</code> param</a> to Offers List</li>
 </ul>
 <h4 id='09-08-2019-piotr-switlicki-1'><span id=09-08-2019-piotr-switlicki></span>09.08.2019 | Piotr Świtlicki</h4>
 <ul>
 <li>Add <a href="#offers-admin">Offers Admin</a> section</li>
-<li>Add <a href="#create-file">Files &bull; Create</a></li>
-<li>Add <a href="#update-file">Files &bull; Update</a></li>
-<li>Add <a href="#delete-file">Files &bull; Delete</a></li>
+<li>Add <a href="#create-file">Files &gt; Create</a></li>
+<li>Add <a href="#update-file">Files &gt; Update</a></li>
+<li>Add <a href="#delete-file">Files &gt; Delete</a></li>
 </ul>
 <h4 id='08-08-2019-natalia-styrska-1'><span id=08-08-2019-natalia-styrska></span>08.08.2019 | Natalia Styrska</h4>
 <p>Stores</p>
 
 <ul>
-<li>Add <code>GET /v3/:loyalty_club_slug/stores</code> (<a href="#store-list">Stores &bull; List</a>)</li>
-<li>Add <code>GET /v3/:loyalty_club_slug/stores/:id</code> (<a href="#store-get">Stores &bull; Get</a>)</li>
-<li>Add <code>POST /v3/:loyalty_club_slug/stores</code> (<a href="#store-create">Stores &bull; Create</a>)</li>
-<li>Add <code>PUT /v3/:loyalty_club_slug/stores</code> (<a href="#store-update">Stores &bull; Update</a>)</li>
-<li>Add <code>DELETE /v3/:loyalty_club_slug/stores</code> (<a href="#store-delete">Stores &bull; Delete</a>)</li>
-<li>Add <code>GET /v3/:loyalty_club_slug/stores/malls</code> (<a href="#mall-list">Malls &bull; List</a>)</li>
-<li>Add <code>GET /v3/:loyalty_club_slug/stores/malls/:id</code> (<a href="#mall-get">Malls &bull; Get</a>)</li>
+<li>Add <code>GET /v3/:loyalty_club_slug/stores</code> (<a href="#store-list">Stores &gt; List</a>)</li>
+<li>Add <code>GET /v3/:loyalty_club_slug/stores/:id</code> (<a href="#store-get">Stores &gt; Get</a>)</li>
+<li>Add <code>POST /v3/:loyalty_club_slug/stores</code> (<a href="#store-create">Stores &gt; Create</a>)</li>
+<li>Add <code>PUT /v3/:loyalty_club_slug/stores</code> (<a href="#store-update">Stores &gt; Update</a>)</li>
+<li>Add <code>DELETE /v3/:loyalty_club_slug/stores</code> (<a href="#store-delete">Stores &gt; Delete</a>)</li>
+<li>Add <code>GET /v3/:loyalty_club_slug/stores/malls</code> (<a href="#mall-list">Malls &gt; List</a>)</li>
+<li>Add <code>GET /v3/:loyalty_club_slug/stores/malls/:id</code> (<a href="#mall-get">Malls &gt; Get</a>)</li>
 </ul>
 <h4 id='27-06-2019-piotr-switlicki-1'><span id=27-06-2019-piotr-switlicki></span>27.06.2019 | Piotr Świtlicki</h4>
 <ul>
@@ -303,62 +304,62 @@
 </ul>
 <h4 id='13-05-2019-piotr-switlicki-1'><span id=13-05-2019-piotr-switlicki></span>13.05.2019 | Piotr Świtlicki:</h4>
 <ul>
-<li>Add <code>GET /v3/:loyalty_club_slug/translations</code> (<a href="#list-translations">Translations &bull; List</a>)</li>
+<li>Add <code>GET /v3/:loyalty_club_slug/translations</code> (<a href="#list-translations">Translations &gt; List</a>)</li>
 </ul>
 <h4 id='06-05-2019-piotr-switlicki-1'><span id=06-05-2019-piotr-switlicki></span>06.05.2019 | Piotr Świtlicki:</h4>
 <p>Offers</p>
 
 <ul>
-<li>Add <code>GET /v3/:loyalty_club_slug/members/me/offers/meta</code> (<a href="#offers-meta">Offers &bull; Get offers meta</a>)</li>
-<li>Add <code>GET /v3/:loyalty_club_slug/members/me/offers/:id</code> (<a href="#get-offer">Offers &bull; Get offer</a>)</li>
-<li>Add <code>GET /v3/:loyalty_club_slug/members/me/offers</code> (<a href="#list-offers">Offers &bull; List offers</a>)</li>
-<li>Add <code>POST /v3/:loyalty_club_slug/members/me/offers/:id/use</code> (<a href="#use-offer">Offers &bull; Use offer</a>)</li>
-<li>Add <code>PUT /v3/:loyalty_club_slug/members/me/offers/:id/like</code> (<a href="#like-offer">Offers &bull; Like offer</a>)</li>
-<li>Add <code>PUT /v3/:loyalty_club_slug/members/me/offers/:id/unlike</code> (<a href="#unlike-offer">Offers &bull; Unlike offer</a>)</li>
+<li>Add <code>GET /v3/:loyalty_club_slug/members/me/offers/meta</code> (<a href="#offers-meta">Offers &gt; Get offers meta</a>)</li>
+<li>Add <code>GET /v3/:loyalty_club_slug/members/me/offers/:id</code> (<a href="#get-offer">Offers &gt; Get offer</a>)</li>
+<li>Add <code>GET /v3/:loyalty_club_slug/members/me/offers</code> (<a href="#list-offers">Offers &gt; List offers</a>)</li>
+<li>Add <code>POST /v3/:loyalty_club_slug/members/me/offers/:id/use</code> (<a href="#use-offer">Offers &gt; Use offer</a>)</li>
+<li>Add <code>PUT /v3/:loyalty_club_slug/members/me/offers/:id/like</code> (<a href="#like-offer">Offers &gt; Like offer</a>)</li>
+<li>Add <code>PUT /v3/:loyalty_club_slug/members/me/offers/:id/unlike</code> (<a href="#unlike-offer">Offers &gt; Unlike offer</a>)</li>
 </ul>
 <h4 id='16-04-2019-piotr-switlicki-1'><span id=16-04-2019-piotr-switlicki></span>16.04.2019 | Piotr Świtlicki:</h4>
 <ul>
-<li>Add <code>X-Usage-Token</code> header to <a href="#rewards-use">Rewards &bull; Use</a></li>
+<li>Add <code>X-Usage-Token</code> header to <a href="#rewards-use">Rewards &gt; Use</a></li>
 </ul>
 <h4 id='07-03-2019-piotr-switlicki-1'><span id=07-03-2019-piotr-switlicki></span>07.03.2019 | Piotr Świtlicki:</h4>
 <ul>
-<li>Add <code>GET /v3/:loyalty_club_slug/rewards-program/status/achievements_summary</code> (<a href="#rewards-program-achievements-summary">Rewards Program &bull; Achievements summary</a>)</li>
+<li>Add <code>GET /v3/:loyalty_club_slug/rewards-program/status/achievements_summary</code> (<a href="#rewards-program-achievements-summary">Rewards Program &gt; Achievements summary</a>)</li>
 </ul>
 <h4 id='06-03-2019-piotr-switlicki-1'><span id=06-03-2019-piotr-switlicki></span>06.03.2019 | Piotr Świtlicki:</h4>
 <ul>
-<li>Add file schema info (<a href="#file-schema">General info&bull; Files schema</a>)</li>
-<li>Add <code>GET /v3/:loyalty_club_slug/files/schema</code> (<a href="#get-file-schema">Files&bull; Get schema</a>)</li>
+<li>Add file schema info (<a href="#file-schema">General info&gt; Files schema</a>)</li>
+<li>Add <code>GET /v3/:loyalty_club_slug/files/schema</code> (<a href="#get-file-schema">Files&gt; Get schema</a>)</li>
 </ul>
 <h4 id='27-02-2019-jakub-kruczek-1'><span id=27-02-2019-jakub-kruczek></span>27.02.2019 | Jakub Kruczek:</h4>
 <ul>
-<li>Extend consent definitions example (<a href="#loyalty-clubs-schema">Loyalty Clubs &bull; Get schema</a>)</li>
+<li>Extend consent definitions example (<a href="#loyalty-clubs-schema">Loyalty Clubs &gt; Get schema</a>)</li>
 </ul>
 <h4 id='27-02-2019-adam-kus-1'><span id=27-02-2019-adam-kus></span>27.02.2019 | Adam Kuś:</h4>
 <ul>
-<li>Add <code>POST /v3/:loyalty_club_slug/transactions</code> (<a href="#transactions-create">Transactions &bull; Create</a>)</li>
-<li>Add <code>GET /v3/:loyalty_club_slug/transactions</code> (<a href="#transactions-list">Transactions &bull; List</a>)</li>
-<li>Add <code>GET /v3/:loyalty_club_slug/transactions/:id</code> (<a href="#transactions-get">Transactions &bull; Get</a>)</li>
+<li>Add <code>POST /v3/:loyalty_club_slug/transactions</code> (<a href="#transactions-create">Transactions &gt; Create</a>)</li>
+<li>Add <code>GET /v3/:loyalty_club_slug/transactions</code> (<a href="#transactions-list">Transactions &gt; List</a>)</li>
+<li>Add <code>GET /v3/:loyalty_club_slug/transactions/:id</code> (<a href="#transactions-get">Transactions &gt; Get</a>)</li>
 </ul>
 <h4 id='19-02-2019-piotr-switlicki-1'><span id=19-02-2019-piotr-switlicki></span>19.02.2019 | Piotr Świtlicki:</h4>
 <ul>
-<li>Add <code>GET /v3/:loyalty_club_slug/members/:id/rewards-program/status</code> (<a href="#rewards-program-status-by-member-id">Rewards Program &bull; Get status by member ID</a>)</li>
+<li>Add <code>GET /v3/:loyalty_club_slug/members/:id/rewards-program/status</code> (<a href="#rewards-program-status-by-member-id">Rewards Program &gt; Get status by member ID</a>)</li>
 </ul>
 <h4 id='08-02-2019-piotr-switlicki-1'><span id=08-02-2019-piotr-switlicki></span>08.02.2019 | Piotr Świtlicki:</h4>
 <p>Boostcom Rewards draft</p>
 
 <ul>
-<li>Add <code>GET /v3/:loyalty_club_slug/rewards-program/info</code> (<a href="#rewards-program-info">Rewards Program &bull; Get Info</a>)</li>
-<li>Add <code>POST /v3/:loyalty_club_slug/members/me/rewards-program/join</code> (<a href="#rewards-program-join">Rewards Program &bull; Join</a>)</li>
-<li>Add <code>DELETE /v3/:loyalty_club_slug/members/me/rewards-program/leave</code> (<a href="#rewards-program-leave">Rewards Program &bull; Leave</a>)</li>
-<li>Add <code>GET /v3/:loyalty_club_slug/members/me/rewards-program/status</code> (<a href="#rewards-program-status">Rewards Program &bull; Get status</a>)</li>
-<li>Add <code>GET /v3/:loyalty_club_slug/members/me/rewards-program/rewards</code> (<a href="#rewards-list">Rewards &bull; List</a>)</li>
-<li>Add <code>GET /v3/:loyalty_club_slug/members/me/rewards-program/rewards/purchased</code> (<a href="#rewards-list-purchased">Rewards &bull; List purchased</a>)</li>
-<li>Add <code>POST /v3/:loyalty_club_slug/members/me/rewards-program/rewards/:id/purchase</code> (<a href="#rewards-purchase">Rewards &bull; Purchase</a>)</li>
-<li>Add <code>POST /v3/:loyalty_club_slug/members/me/rewards-program/rewards/:id/use</code> (<a href="#rewards-use">Rewards &bull; Use</a>)</li>
+<li>Add <code>GET /v3/:loyalty_club_slug/rewards-program/info</code> (<a href="#rewards-program-info">Rewards Program &gt; Get Info</a>)</li>
+<li>Add <code>POST /v3/:loyalty_club_slug/members/me/rewards-program/join</code> (<a href="#rewards-program-join">Rewards Program &gt; Join</a>)</li>
+<li>Add <code>DELETE /v3/:loyalty_club_slug/members/me/rewards-program/leave</code> (<a href="#rewards-program-leave">Rewards Program &gt; Leave</a>)</li>
+<li>Add <code>GET /v3/:loyalty_club_slug/members/me/rewards-program/status</code> (<a href="#rewards-program-status">Rewards Program &gt; Get status</a>)</li>
+<li>Add <code>GET /v3/:loyalty_club_slug/members/me/rewards-program/rewards</code> (<a href="#rewards-list">Rewards &gt; List</a>)</li>
+<li>Add <code>GET /v3/:loyalty_club_slug/members/me/rewards-program/rewards/purchased</code> (<a href="#rewards-list-purchased">Rewards &gt; List purchased</a>)</li>
+<li>Add <code>POST /v3/:loyalty_club_slug/members/me/rewards-program/rewards/:id/purchase</code> (<a href="#rewards-purchase">Rewards &gt; Purchase</a>)</li>
+<li>Add <code>POST /v3/:loyalty_club_slug/members/me/rewards-program/rewards/:id/use</code> (<a href="#rewards-use">Rewards &gt; Use</a>)</li>
 </ul>
 <h4 id='07-02-2019-dominik-halat-1'><span id=07-02-2019-dominik-halat></span>07.02.2019 | Dominik Halat:</h4>
 <ul>
-<li>Remove <code>shortening_enabled</code> param from Emails API (<a href="#emails-create">Emails &bull; Create</a>)</li>
+<li>Remove <code>shortening_enabled</code> param from Emails API (<a href="#emails-create">Emails &gt; Create</a>)</li>
 </ul>
 <h4 id='07-02-2019-piotr-switlicki-1'><span id=07-02-2019-piotr-switlicki></span>07.02.2019 | Piotr Świtlicki:</h4>
 <ul>
@@ -366,7 +367,7 @@
 </ul>
 <h4 id='25-01-2019-dominik-halat-1'><span id=25-01-2019-dominik-halat></span>25.01.2019 | Dominik Halat:</h4>
 <ul>
-<li>Add <code>POST /v3/:loyalty_club_slug/emails</code> (<a href="#emails-create">Emails &bull; Create</a>)</li>
+<li>Add <code>POST /v3/:loyalty_club_slug/emails</code> (<a href="#emails-create">Emails &gt; Create</a>)</li>
 <li>Add <code>db_and_cache</code> response type for Member#person_id (<a href="#members-person-id">Get person id</a>)</li>
 </ul>
 <h4 id='14-12-2018-jakub-kruczek-1'><span id=14-12-2018-jakub-kruczek></span>14.12.2018 | Jakub Kruczek:</h4>
@@ -379,12 +380,12 @@
 </ul>
 <h4 id='13-11-2018-piotr-switlicki-1'><span id=13-11-2018-piotr-switlicki></span>13.11.2018 | Piotr Świtlicki:</h4>
 <ul>
-<li>Add <code>PUT /v3/:loyalty_club_slug/members/channels/msisdn/:msisdn/send_verification</code>(<a href="#members-send-verification-sms">Members &bull; Send MSISDN verification SMS</a>)</li>
-<li>Add <code>PUT /v3/:loyalty_club_slug/members/channels/msisdn/:msisdn/verify</code> (<a href="#members-verify-msisdn">Members &bull; Verify MSISDN</a>)</li>
+<li>Add <code>PUT /v3/:loyalty_club_slug/members/channels/msisdn/:msisdn/send_verification</code>(<a href="#members-send-verification-sms">Members &gt; Send MSISDN verification SMS</a>)</li>
+<li>Add <code>PUT /v3/:loyalty_club_slug/members/channels/msisdn/:msisdn/verify</code> (<a href="#members-verify-msisdn">Members &gt; Verify MSISDN</a>)</li>
 </ul>
 <h4 id='08-11-2018-piotr-switlicki-1'><span id=08-11-2018-piotr-switlicki></span>08.11.2018 | Piotr Świtlicki:</h4>
 <ul>
-<li>Add <code>POST /v3/:loyalty_club_slug/smses</code> (<a href="#smses-create">SMSes &bull; Create</a>)</li>
+<li>Add <code>POST /v3/:loyalty_club_slug/smses</code> (<a href="#smses-create">SMSes &gt; Create</a>)</li>
 </ul>
 <h4 id='12-10-2018-piotr-switlicki-1'><span id=12-10-2018-piotr-switlicki></span>12.10.2018 | Piotr Świtlicki:</h4>
 <ul>
@@ -396,27 +397,27 @@
 </ul>
 <h4 id='27-04-2018-piotr-switlicki-1'><span id=27-04-2018-piotr-switlicki></span>27.04.2018 | Piotr Świtlicki:</h4>
 <ul>
-<li>Add <code>POST /v3/:loyalty_club_slug/members/by_email/:email/send_one_time_password</code> (<a href="#members-send-one-time-password-email">Members &bull; Send one time password E-mail</a>)</li>
+<li>Add <code>POST /v3/:loyalty_club_slug/members/by_email/:email/send_one_time_password</code> (<a href="#members-send-one-time-password-email">Members &gt; Send one time password E-mail</a>)</li>
 </ul>
 <h4 id='27-04-2018-piotr-switlicki-1'><span id=27-04-2018-piotr-switlicki></span>27.04.2018 | Piotr Świtlicki:</h4>
 <ul>
 <li>Add <code>channel</code> and <code>subchannel</code> attributes to <code>Member</code></li>
-<li>Add <code>validate_partially</code> param in (<a href="members-update">Members &bull; Update</a> and (<a href="#me-update">Me &bull; Update</a></li>
-<li>Add <code>GET /v3/:loyalty_club_slug/products</code> (<a href="#loyalty-clubs-products">Loyalty Clubs &bull; List Products</a>)</li>
-<li>Add <code>POST /v3/:loyalty_club_slug/push_notifications</code> (<a href="#push-notification-create">Push Notifications &bull; Create</a>)</li>
+<li>Add <code>validate_partially</code> param in (<a href="members-update">Members &gt; Update</a> and (<a href="#me-update">Me &gt; Update</a></li>
+<li>Add <code>GET /v3/:loyalty_club_slug/products</code> (<a href="#loyalty-clubs-products">Loyalty Clubs &gt; List Products</a>)</li>
+<li>Add <code>POST /v3/:loyalty_club_slug/push_notifications</code> (<a href="#push-notification-create">Push Notifications &gt; Create</a>)</li>
 </ul>
 <h4 id='11-04-2018-dominik-halat-1'><span id=11-04-2018-dominik-halat></span>11.04.2018 | Dominik Halat</h4>
 <ul>
 <li>Add <code>person_id</code> to <code>Member</code></li>
-<li>Add new endpoint <code>GET /v3/:loyalty_club_slug/members/person_id</code> (<a href="#members-index">Members &bull; List</a>)</li>
+<li>Add new endpoint <code>GET /v3/:loyalty_club_slug/members/person_id</code> (<a href="#members-index">Members &gt; List</a>)</li>
 </ul>
 <h4 id='01-02-2017-piotr-switlicki-1'><span id=01-02-2017-piotr-switlicki></span>01.02.2017 | Piotr Świtlicki:</h4>
 <ul>
-<li>Add <code>ids</code> query param to <code>GET /v3/:loyalty_club_slug/members</code> (<a href="#members-index">Members &bull; List</a>)</li>
+<li>Add <code>ids</code> query param to <code>GET /v3/:loyalty_club_slug/members</code> (<a href="#members-index">Members &gt; List</a>)</li>
 </ul>
 <h4 id='29-01-2017-piotr-switlicki-1'><span id=29-01-2017-piotr-switlicki></span>29.01.2017 | Piotr Świtlicki:</h4>
 <ul>
-<li>Add <code>GET /v3/:loyalty_club_slug/members</code> (<a href="#members-index">Members &bull; List</a>)</li>
+<li>Add <code>GET /v3/:loyalty_club_slug/members</code> (<a href="#members-index">Members &gt; List</a>)</li>
 </ul>
 <h4 id='22-01-2017-jakub-kruczek-1'><span id=22-01-2017-jakub-kruczek></span>22.01.2017 | Jakub Kruczek:</h4>
 <ul>
@@ -433,7 +434,7 @@
 <h4 id='15-12-2017-piotr-switlicki-1'><span id=15-12-2017-piotr-switlicki></span>15.12.2017 | Piotr Świtlicki:</h4>
 <ul>
 <li>Add <code>POST /v3/:loyalty_club_slug/members/by_msisdn/:msisdn/send_registration_password</code></li>
-<li>Add information about <code>registration_password</code> in <a href="#members-create">Members &bull; Create</a></li>
+<li>Add information about <code>registration_password</code> in <a href="#members-create">Members &gt; Create</a></li>
 <li>Add some other minor fixes</li>
 </ul>
 <h4 id='10-11-2017-piotr-switlicki-1'><span id=10-11-2017-piotr-switlicki></span>10.11.2017 | Piotr Świtlicki:</h4>

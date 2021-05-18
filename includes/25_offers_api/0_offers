@@ -150,7 +150,7 @@ aforementioned approaches.</p>
 <td>tags</td>
 <td>string[]</td>
 <td>no (may be empty)</td>
-<td>List of tags identifiers associated with the offer. Information from <a href="#list-translations">Translations &bull; List</a> should be used to display the tags.</td>
+<td>List of tags identifiers associated with the offer. Information from <a href="#list-translations">Translations &gt; List</a> should be used to display the tags.</td>
 </tr>
 <tr>
 <td>stores</td>

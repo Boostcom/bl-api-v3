@@ -64,7 +64,7 @@ That will allow further targeting members by communication channel.</p>
 <h3 id='a-name-msisdn-param-a-msisdn-param-1'><span id=a-name-msisdn-param-a-msisdn-param></span><a name="msisdn-param"></a> Msisdn param</h3>
 <p>Members in our systems may be identified with their phone numbers (msisdns) according to <a href="https://en.wikipedia.org/wiki/E.164">E.164</a>
 We use format without leading <code>00</code> or <code>+</code> and without spaces, so that it contains only digits, i.e. <code>4740769126</code>.</p>
-<h2 id='common-http-error-codes-1'><span id=common-http-error-codes></span>Common HTTP error codes</h2>
+<h2 id='a-name-common-http-error-codes-a-common-http-error-codes-1'><span id=a-name-common-http-error-codes-a-common-http-error-codes></span><a name="common-http-error-codes"></a> Common HTTP error codes</h2>
 <table><thead>
 <tr>
 <th>Status</th>

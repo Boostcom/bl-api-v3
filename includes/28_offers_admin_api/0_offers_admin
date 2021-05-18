@@ -156,13 +156,13 @@ Navigate to <a href="#offers">Offers</a> section to see docs for member-related 
 <td>tags</td>
 <td>string[]</td>
 <td>no (may be empty)</td>
-<td>List of tags identifiers associated with the offer. Information from <a href="#list-translations">Translations &bull; List</a> should be used to display the tags.</td>
+<td>List of tags identifiers associated with the offer. Information from <a href="#list-translations">Translations &gt; List</a> should be used to display the tags.</td>
 </tr>
 <tr>
 <td>stores</td>
 <td>string[]</td>
 <td>no (may be empty)</td>
-<td>List of stores names associated with the offer. See <a href="#store-list">Stores &bull; List</a>.</td>
+<td>List of stores names associated with the offer. See <a href="#store-list">Stores &gt; List</a>.</td>
 </tr>
 <tr>
 <td>audience_id</td>

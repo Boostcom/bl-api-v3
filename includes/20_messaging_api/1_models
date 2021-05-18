@@ -305,7 +305,7 @@ currently just one (the first) is utilized as the Message&#39;s single channel.<
 </tbody></table>
 
 <p>The <code>sender</code> describes how SMS sender will be displayed to the receiver of SMS.
-By default, a value from Loyalty Club configuration is used (see <a href="#messaging-show-settings">Messaging &bull; Settings</a>).</p>
+By default, a value from Loyalty Club configuration is used (see <a href="#messaging-show-settings">Messaging &gt; Settings</a>).</p>
 
 <p>Depending on selected <code>sender.type</code>, <code>sender.value</code> can be provided according to the following table:  </p>
 

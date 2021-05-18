@@ -305,7 +305,7 @@ Requires <code>BL:Api:Members:Imports:Create</code> permit
 
 <p>Returns status of import with a list of references to bulks (<code>id</code> and <code>request_number</code>). </p>
 
-<p>You need to call <a href="#members-import-bulk-status">Members Imports &bull; Get bulk status</a> to see bulks details.</p>
+<p>You need to call <a href="#members-import-bulk-status">Members Imports &gt; Get bulk status</a> to see bulks details.</p>
 
 <blockquote>
 <p>Example:</p>

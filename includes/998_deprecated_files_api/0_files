@@ -38,7 +38,7 @@
 <p>File schema defines a list of files kinds available in the Loyalty club.
 Each file kind is also available in multiple sizes.</p>
 
-<p>The schema may get retrieved with <a href="#get-file-schema">Files&bull; Get schema</a> endpoint.</p>
+<p>The schema may get retrieved with <a href="#get-file-schema">Files&gt; Get schema</a> endpoint.</p>
 
 <blockquote>
 <p>Example loyalty club file schema</p>
@@ -356,7 +356,7 @@ So, the responses returned on upload contains only &quot;projected&quot; info ab
 
 <p><strong>GET</strong> <code>v3/:loyalty_club_slug/files/schema</code></p>
 
-<p>Returns the Loyalty Club file schema. See: <a href="#file-schema">Files &bull; Schema</a></p>
+<p>Returns the Loyalty Club file schema. See: <a href="#file-schema">Files &gt; Schema</a></p>
 
 <aside class="notice">
 Requires <code>Files:Api:GetSchema</code> permit

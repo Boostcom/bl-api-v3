@@ -8,7 +8,7 @@ OAuth2 flow for this.</p>
 
 <p>To authorize those actions, we <strong>require</strong> <code>authorization</code> header that should contain: <code>Bearer :access_token</code>. </p>
 
-<p>Look at <a href="#token-create">OAuth Token &bull; Create</a> to see how to obtain the :access_token.</p>
+<p>Look at <a href="#token-create">OAuth Token &gt; Create</a> to see how to obtain the :access_token.</p>
 <h3 id='a-name-token-create-a-create-token-1'><span id=a-name-token-create-a-create-token></span><a name="token-create"></a> Create token</h3>
 <blockquote>
 <p>Create token example:</p>
@@ -211,7 +211,7 @@ Requires <code>BL:Api:Members:OAuth</code> permit
 </thead><tbody>
 <tr>
 <td>token</td>
-<td>access or refresh token obtained from <a href="#token-create">OAuth Token &bull; Create</a></td>
+<td>access or refresh token obtained from <a href="#token-create">OAuth Token &gt; Create</a></td>
 <td>string</td>
 </tr>
 </tbody></table>
