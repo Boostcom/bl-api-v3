@@ -177,7 +177,7 @@ Requires <code>BL:Api:Members:Imports:Create</code> permit
 
 Returns status of import with a list of references to bulks (`id` and `request_number`). 
 
-You need to call [Members Imports &bull; Get bulk status](#members-import-bulk-status) to see bulks details.
+You need to call [Members Imports > Get bulk status](#members-import-bulk-status) to see bulks details.
 
 > Example:
 

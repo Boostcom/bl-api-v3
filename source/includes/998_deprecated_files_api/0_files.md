@@ -19,7 +19,7 @@ size_type | string | e.x. `base`, see: [File sizes](#file-sizes)
 File schema defines a list of files kinds available in the Loyalty club.
 Each file kind is also available in multiple sizes.
 
-The schema may get retrieved with [Files&bull; Get schema](#get-file-schema) endpoint.
+The schema may get retrieved with [Files> Get schema](#get-file-schema) endpoint.
 
 > Example loyalty club file schema
 
@@ -269,7 +269,7 @@ curl "https://api.mpc.placewise.com/v3/infinity-mall/files/schema" \
 
 **GET** `v3/:loyalty_club_slug/files/schema`
 
-Returns the Loyalty Club file schema. See: [Files &bull; Schema](#file-schema)
+Returns the Loyalty Club file schema. See: [Files > Schema](#file-schema)
 
 <aside class="notice">
 Requires <code>Files:Api:GetSchema</code> permit

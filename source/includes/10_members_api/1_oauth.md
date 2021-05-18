@@ -7,7 +7,7 @@ OAuth2 flow for this.
 
 To authorize those actions, we **require** `authorization` header that should contain: `Bearer :access_token`. 
 
-Look at [OAuth Token &bull; Create](#token-create) to see how to obtain the :access_token.
+Look at [OAuth Token > Create](#token-create) to see how to obtain the :access_token.
 
 ### <a name="token-create"></a> Create token
 
@@ -147,7 +147,7 @@ Always returns an empty JSON object (even if given token is invalid).
 
 Parameter | Description | Type
 --------- | ------- | -------
-token | access or refresh token obtained from [OAuth Token &bull; Create](#token-create) | string
+token | access or refresh token obtained from [OAuth Token > Create](#token-create) | string
 
 <aside class="notice">
 Requires <code>BL:Api:Members:OAuth</code> permit

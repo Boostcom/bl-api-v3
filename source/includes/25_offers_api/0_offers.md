@@ -114,7 +114,7 @@ external_url | string| yes | The URL the offer may be linked with
 usable_since | Date | yes | Time since the offer may be used. If null, there is no restriction. 
 usable_until | Date | yes | Time until the offer may be used. If null, there is no restriction.
 collection_ids | integer[] | no (may be empty) | List of collections ids the offer belongs to
-tags | string[] | no (may be empty) | List of tags identifiers associated with the offer. Information from [Translations &bull; List](#list-translations) should be used to display the tags. 
+tags | string[] | no (may be empty) | List of tags identifiers associated with the offer. Information from [Translations > List](#list-translations) should be used to display the tags. 
 stores | string[] | no (may be empty) | List of shop names associated with the offer
 files | File[] | no | A list of offer files - see [File model](#file-model)
 liked | Boolean | no | Has offer been liked by user?

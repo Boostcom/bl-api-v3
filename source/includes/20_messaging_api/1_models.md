@@ -161,7 +161,7 @@ from_email | `email` | string
 from_name | `email` | string
 
 The `sender` describes how SMS sender will be displayed to the receiver of SMS.
-By default, a value from Loyalty Club configuration is used (see [Messaging &bull; Settings](#messaging-show-settings)).
+By default, a value from Loyalty Club configuration is used (see [Messaging > Settings](#messaging-show-settings)).
 
 Depending on selected `sender.type`, `sender.value` can be provided according to the following table:  
 

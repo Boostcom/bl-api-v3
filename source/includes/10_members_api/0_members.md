@@ -512,7 +512,7 @@ There is also a possibility to have multiple SMS welcome messages sent. The one 
 #### <a name="members-create-registration-password"></a> Registration Password
 
 Some API clients (depends on Permit assigned to given `x-client-authorization` token) may be required to provide 
-valid `registration_password` param that is sent to user with [Members &bull; Send registration password](#members-send-registration-password) 
+valid `registration_password` param that is sent to user with [Members > Send registration password](#members-send-registration-password) 
 
 #### Headers
 
@@ -909,7 +909,7 @@ what values should be validated at specific point of registration.
 
 #### <a name="members-validate-post-parameters"></a> POST Parameters (JSON)
 
-Following keys of [Members &bull; Create](#members-create-post-parameters) payload are supported when validating:
+Following keys of [Members > Create](#members-create-post-parameters) payload are supported when validating:
 
 * properties
 * consents
@@ -961,7 +961,7 @@ Updates given member password if token is valid.
 Parameter | Description | Type
 --------- | ----------- | ------
 password | Member's new password | string
-token | Confirmation token generated and sent with [Members &bull; Send password reset token](#members-send-password-reset-token) | string
+token | Confirmation token generated and sent with [Members > Send password reset token](#members-send-password-reset-token) | string
 
 #### Error responses
 
@@ -1004,8 +1004,8 @@ Sends password reset link to given e-mail address if it is associated with membe
 
 The e-mail contains a token generated for member, valid for 24 hours.
 
-The token can be then used to reset password with [Members &bull; Reset password](#members-reset-password).
-It also may be verified with [Members &bull; Verify token](#members-verify-token)
+The token can be then used to reset password with [Members > Reset password](#members-reset-password).
+It also may be verified with [Members > Verify token](#members-verify-token)
 
 #### URL Parameters
 
@@ -1059,7 +1059,7 @@ curl "https://api.mpc.placewise.com/v3/infinity-mall/members/by_email/user@examp
 
 The message may contain (depending on Loyalty Club configuration):
 
-* Generated password, valid for limited time, allows to sign in member - see: [OAuth Token &bull; Create](#token-create). 
+* Generated password, valid for limited time, allows to sign in member - see: [OAuth Token > Create](#token-create). 
 * Login URL. Scheme of this URL is: `<login_url>?otp=<otp>`. 
   By default, `login_url` leads to MPC Webforms page. However, it may by customized by providing `login_url` query param.
 
@@ -1275,14 +1275,14 @@ curl -X PUT \
 
 **PUT** `/v3/:loyalty_club_slug/members/channels/msisdn/:msisdn/verify`
 
-Uses given token (sent with [Members &bull; Send MSISDN verification SMS](#members-send-verification-sms)) to verify
+Uses given token (sent with [Members > Send MSISDN verification SMS](#members-send-verification-sms)) to verify
 user identified with given MSISDN.
 
 #### PUT body parameters
 
 Parameter | Type | Required? | Description
 --------- | ----------- | ------ | ------
-token | string | yes | Token generated and sent with [Members &bull; Send MSISDN verification SMS](#members-send-verification-sms)
+token | string | yes | Token generated and sent with [Members > Send MSISDN verification SMS](#members-send-verification-sms)
 
 #### Error responses
 

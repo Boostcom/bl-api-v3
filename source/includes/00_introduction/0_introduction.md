@@ -76,7 +76,7 @@ It's an unique slugified name of the Loyalty Club.
 Members in our systems may be identified with their phone numbers (msisdns) according to [E.164](https://en.wikipedia.org/wiki/E.164)
 We use format without leading `00` or `+` and without spaces, so that it contains only digits, i.e. `4740769126`.
 
-## Common HTTP error codes
+## <a name="common-http-error-codes"></a> Common HTTP error codes
 
 Status | Reason
 -------|-----|-------

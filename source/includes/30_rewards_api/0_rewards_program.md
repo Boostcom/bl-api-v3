@@ -76,7 +76,7 @@ consent_granted | Member granted one of loyalty club's consents
 }
 ```
 
-Loyalty Club may have members level defined (available in [Rewards Program &bull; Get info](#rewards-program-info) response).
+Loyalty Club may have members level defined (available in [Rewards Program > Get info](#rewards-program-info) response).
 There are two types of them: `regular` and `virtual_level`.
 
 #### Regular levels
