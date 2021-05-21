@@ -8,7 +8,6 @@
 {
   "token": "token",
   "platform": "ios",
-  "app_installation_id": "PpdfXpwqDyh7yavEwXxKTVe3",
   "firebase_project_slug": "slug"
 }
 ```
@@ -17,7 +16,6 @@ Key | Type | Description
 --------- | ------ | ------
 token | string | 
 platform | string (`ios`, `android`) | App platform
-app_installation_id | string | Id of individual installation of application
 firebase_project_slug | string | Firebase project slug
 
 ### <a name="operations-add-users-app-tokens"></a> Add app tokens
@@ -35,7 +33,6 @@ curl -X POST \
   -d '{
 	    "token": "token",
 	    "platform": "ios",
-        "app_installation_id": "app-id",
         "firebase_project_slug": "project slug"
     }'
 
