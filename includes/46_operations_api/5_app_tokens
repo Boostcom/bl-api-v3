@@ -5,7 +5,6 @@
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"token"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"platform"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ios"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"app_installation_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PpdfXpwqDyh7yavEwXxKTVe3"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"firebase_project_slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"slug"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -27,11 +26,6 @@
 <td>App platform</td>
 </tr>
 <tr>
-<td>app_installation_id</td>
-<td>string</td>
-<td>Id of individual installation of application</td>
-</tr>
-<tr>
 <td>firebase_project_slug</td>
 <td>string</td>
 <td>Firebase project slug</td>
@@ -51,7 +45,6 @@ curl -X POST <span class="se">\</span>
   -d <span class="s1">'{
         "token": "token",
         "platform": "ios",
-        "app_installation_id": "app-id",
         "firebase_project_slug": "project slug"
     }'</span>
 
