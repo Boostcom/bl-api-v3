@@ -15443,6 +15443,33 @@ Requires <code>Stores:Api:Zones:Get</code> permit
 <aside class="notice">
 Requires <code>Stores:Api:Zones:Get</code> permit
 </aside>
+<h2 id='floors-1'><span id=floors></span>Floors</h2><h3 id='a-name-store-floors-list-a-floors-list-1'><span id=a-name-store-floors-list-a-floors-list></span><a name="store-floors-list"></a> Floors list</h3>
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v3/:loyalty_club_slug/stores/floors"</span> <span class="se">\</span>
+    -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+    -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
+    -H <span class="s1">'x-user-agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>When successful (200), returns an array of store objects structured like below. Some values may be omitted if were not provided:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="s2">"Basement"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"1st Floor"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"2nd Floor"</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p><strong>GET</strong> <code>v3/:loyalty_club_slug/stores/floors</code></p>
+
+<p>List of all floors</p>
+
+<aside class="notice">
+Requires <code>Stores:Api:Floors:Get</code> permit
+</aside>
 
           <h2 id='departments-1'><span id=departments></span>Departments</h2><h3 id='a-name-department-list-a-list-1'><span id=a-name-department-list-a-list></span><a name="department-list"></a> List</h3>
 <blockquote>
@@ -22680,7 +22707,11 @@ Requires <code>Files:Api:Reprocess</code> permit
 Requires <code>Files:Api:Delete</code> permit
 </aside>
 
-          <h1 id='changelog-1'><span id=changelog></span>Changelog</h1><h4 id='18-05-2020-piotr-switlicki-1'><span id=18-05-2020-piotr-switlicki></span>18.05.2020 | Piotr Świtlicki</h4>
+          <h1 id='changelog-1'><span id=changelog></span>Changelog</h1><h3 id='25-05-2021-natalia-styrska-1'><span id=25-05-2021-natalia-styrska></span>25.05.2021 | Natalia Styrska</h3>
+<ul>
+<li>Add <a href="#store-floors-list">Stores -&gt; List of floors</a> </li>
+</ul>
+<h4 id='18-05-2020-piotr-switlicki-1'><span id=18-05-2020-piotr-switlicki></span>18.05.2020 | Piotr Świtlicki</h4>
 <ul>
 <li>Add <a href="#rewards-program-cancel-transaction">Rewards API -&gt; Rewards Program -&gt; Cancel</a></li>
 <li>Update <a href="#rewards-program-grant-points">Rewards API -&gt; Rewards Program -&gt; Grant Points</a> to return created transaction</li>
