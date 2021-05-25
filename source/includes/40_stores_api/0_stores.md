@@ -595,3 +595,37 @@ List of all zones
 <aside class="notice">
 Requires <code>Stores:Api:Zones:Get</code> permit
 </aside>
+
+## Floors
+
+### <a name="store-floors-list"></a> Floors list
+
+> Example:
+
+```shell
+curl -X GET \
+"https://api.mpc.placewise.com/v3/:loyalty_club_slug/stores/floors" \
+    -H 'content-type: application/json' \
+    -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+    -H 'x-product-name: default' \
+    -H 'x-user-agent: CURL manual test'
+```
+
+> When successful (200), returns an array of store objects structured like below. Some values may be omitted if were not provided:
+
+```json
+[
+    "Basement",
+    "1st Floor",
+    "2nd Floor"
+]
+``` 
+
+**GET** `v3/:loyalty_club_slug/stores/floors`
+
+List of all floors
+
+
+<aside class="notice">
+Requires <code>Stores:Api:Floors:Get</code> permit
+</aside>

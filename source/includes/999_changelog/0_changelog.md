@@ -1,5 +1,9 @@
 # Changelog
 
+### 25.05.2021 | Natalia Styrska
+
+* Add [Stores -> List of floors](#store-floors-list) 
+
 #### 18.05.2020 | Piotr Świtlicki
 * Add [Rewards API -> Rewards Program -> Cancel](#rewards-program-cancel-transaction)
 * Update [Rewards API -> Rewards Program -> Grant Points](#rewards-program-grant-points) to return created transaction
