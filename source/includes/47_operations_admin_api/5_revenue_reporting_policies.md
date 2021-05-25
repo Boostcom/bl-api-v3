@@ -21,7 +21,7 @@
         "updated_at": "2021-05-11T02:16:43.113Z"
       }
     ],
-    "assigned_store_ids": [3],
+    "excluded_store_ids": [3],
     "created_at": "2021-05-11T02:16:43.113Z",
     "updated_at": "2021-05-11T02:16:43.113Z"
   }
@@ -40,7 +40,7 @@ frequency_unit                 | string     | no  | unit of the report generatio
 is_common                      | boolean    | yes | marks the policy as the default one for the loyalty club
 report_total_transaction_count | boolean    | yes | marks the reports generated accordingly to the policy as having to report total transaction count (or not)
 tax_categories                 | object     | yes | represents tax categories represented in the reports generated according to the policy
-assigned_store_ids             | array[int] | yes | represents the ids of the stores to which the policy is assigned
+excluded_store_ids             | array[int] | yes | represents the ids of the stores to which the policy is *NOT* assigned (all others are in by default)
 created_at                     | datetime   | no  | time of the creation
 updated_at                     | datetime   | no  | time of the last update
 
@@ -185,7 +185,7 @@ curl -X POST \
             "tax_percentage": 25.00,
           }
         ],
-        "assigned_store_ids": [3],
+        "excluded_store_ids": [3],
       }
     }
   '
@@ -212,7 +212,7 @@ Key                              | Type      | Description
 **revenue_reporting_policy.is_common                      | boolean    | yes | marks the policy as the default one for the loyalty club
 **revenue_reporting_policy.report_total_transaction_count | boolean    | yes | marks the reports generated accordingly to the policy as having to report total transaction count (or not)
 **revenue_reporting_policy.tax_categories                 | object     | yes | represents tax categories represented in the reports generated according to the policy
-**revenue_reporting_policy.assigned_store_ids             | array[int] | yes | represents the ids of the stores to which the policy is assigned
+**revenue_reporting_policy.excluded_store_ids             | array[int] | yes | represents the ids of the stores to which the policy is *NOT* assigned (all others are in by default)
 
 #### Response (JSON object)
 
@@ -255,7 +255,7 @@ curl -X PUT \
             "tax_percentage": 25.00,
           }
         ],
-        "assigned_store_ids": [3],
+        "excluded_store_ids": [3],
       }
     }
   '
@@ -288,7 +288,7 @@ Key                              | Type      | Description
 **revenue_reporting_policy.is_common                      | boolean    | yes | marks the policy as the default one for the loyalty club
 **revenue_reporting_policy.report_total_transaction_count | boolean    | yes | marks the reports generated accordingly to the policy as having to report total transaction count (or not)
 **revenue_reporting_policy.tax_categories                 | object     | yes | represents tax categories represented in the reports generated according to the policy
-**revenue_reporting_policy.assigned_store_ids             | array[int] | yes | represents the ids of the stores to which the policy is assigned
+**revenue_reporting_policy.excluded_store_ids             | array[int] | yes | represents the ids of the stores to which the policy is *NOT* assigned (all others are in by default)
 
 #### Response (JSON object)
 
