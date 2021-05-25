@@ -18,7 +18,7 @@
         </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-11T02:16:43.113Z"</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
-    </span><span class="s2">"assigned_store_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">3</span><span class="p">],</span><span class="w">
+    </span><span class="s2">"excluded_store_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">3</span><span class="p">],</span><span class="w">
     </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-11T02:16:43.113Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-11T02:16:43.113Z"</span><span class="w">
   </span><span class="p">}</span><span class="w">
@@ -73,10 +73,10 @@ As an admin, one can list, create, update and destroy such policies.</p>
 <td>represents tax categories represented in the reports generated according to the policy</td>
 </tr>
 <tr>
-<td>assigned_store_ids</td>
+<td>excluded_store_ids</td>
 <td>array[int]</td>
 <td>yes</td>
-<td>represents the ids of the stores to which the policy is assigned</td>
+<td>represents the ids of the stores to which the policy is <em>NOT</em> assigned (all others are in by default)</td>
 </tr>
 <tr>
 <td>created_at</td>
@@ -254,7 +254,7 @@ Requires <code>Operations:Api:RevenueReportingPolicies:Show</code> permit
             "tax_percentage": 25.00,
           }
         ],
-        "assigned_store_ids": [3],
+        "excluded_store_ids": [3],
       }
     }
   '</span>
@@ -303,7 +303,7 @@ Requires <code>Operations:Api:RevenueReportingPolicies:Show</code> permit
 <td>yes</td>
 </tr>
 <tr>
-<td>**revenue_reporting_policy.assigned_store_ids</td>
+<td>**revenue_reporting_policy.excluded_store_ids</td>
 <td>array[int]</td>
 <td>yes</td>
 </tr>
@@ -362,7 +362,7 @@ Requires <code>Operations:Api:RevenueReportingPolicies:Create</code> permit
             "tax_percentage": 25.00,
           }
         ],
-        "assigned_store_ids": [3],
+        "excluded_store_ids": [3],
       }
     }
   '</span>
@@ -425,7 +425,7 @@ Requires <code>Operations:Api:RevenueReportingPolicies:Create</code> permit
 <td>yes</td>
 </tr>
 <tr>
-<td>**revenue_reporting_policy.assigned_store_ids</td>
+<td>**revenue_reporting_policy.excluded_store_ids</td>
 <td>array[int]</td>
 <td>yes</td>
 </tr>
