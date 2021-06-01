@@ -1,0 +1,324 @@
+<h2 id='a-name-operations-admin-revenue-reports-a-revenue-reports-1'><span id=a-name-operations-admin-revenue-reports-a-revenue-reports></span><a name="operations-admin-revenue-reports"></a> Revenue reports</h2><h3 id='a-name-operations-admin-revenue-report-model-a-revenue-report-model-1'><span id=a-name-operations-admin-revenue-report-model-a-revenue-report-model></span><a name="operations-admin-revenue-report-model"></a> Revenue report model</h3>
+<blockquote>
+<p>Revenue report example:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"revenue_report"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">128</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"revenue_reporting_policy"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">282</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Some policy"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"frequency_unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"week"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"is_common"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"report_total_transaction_count"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"tax_categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">192</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Some tax category"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"tax_percentage"</span><span class="p">:</span><span class="w"> </span><span class="mf">23.0</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-06-01T14:12:37.658Z"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-06-01T14:12:37.679Z"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"excluded_store_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">],</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-06-01T14:12:37.610Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-06-01T14:12:37.610Z"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"revenue_reporting_policy_tax_category"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">192</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Some tax category"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"tax_percentage"</span><span class="p">:</span><span class="w"> </span><span class="mf">23.0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-06-01T14:12:37.658Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-06-01T14:12:37.679Z"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"transaction_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"value_cents"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">240</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some_user_id"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"member_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"deadline"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-06-03T14:12:37.661Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-06-01T14:12:37.735Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-06-01T14:12:37.735Z"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Optional</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>no</td>
+<td></td>
+</tr>
+<tr>
+<td>revenue_reporting_policy</td>
+<td>object</td>
+<td>no</td>
+<td>see <a href="#operations-admin-revenue-reporting-policy-model">Revenue Reporting policy model</a></td>
+</tr>
+<tr>
+<td>revenue_reporting_policy_tax_category</td>
+<td>object</td>
+<td>no</td>
+<td>see <a href="#operations-admin-revenue-reporting-policy-model">Revenue Reporting policy/tax categories model</a></td>
+</tr>
+<tr>
+<td>transaction_count</td>
+<td>integer</td>
+<td>no</td>
+<td>total count of the transactions for the given day</td>
+</tr>
+<tr>
+<td>value_cents</td>
+<td>integer</td>
+<td>no</td>
+<td>total value of the transactions for the given day in cents</td>
+</tr>
+<tr>
+<td>value</td>
+<td>integer</td>
+<td>no</td>
+<td>same as value_cents - used for convenience</td>
+</tr>
+<tr>
+<td>total</td>
+<td>integer</td>
+<td>no</td>
+<td>value_cents multiplied by the associated tax category tax_percentage</td>
+</tr>
+<tr>
+<td>user_id</td>
+<td>string</td>
+<td>yes</td>
+<td>user_id of the tenant that has most recently updated the record (could be blank)</td>
+</tr>
+<tr>
+<td>member_id</td>
+<td>integer</td>
+<td>yes</td>
+<td>member_id of the tenant that has most recently updated the record (could be blank)</td>
+</tr>
+<tr>
+<td>deadline</td>
+<td>datetime</td>
+<td>no</td>
+<td>time of the deadline by which the report has to be fulfilled</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>datetime</td>
+<td>no</td>
+<td>time of the report creation</td>
+</tr>
+<tr>
+<td>updated_at</td>
+<td>datetime</td>
+<td>no</td>
+<td>time of the last report update</td>
+</tr>
+</tbody></table>
+
+<p>For more details, see <a href="#operations-admin-revenue-report-model">Revenue report model</a> in Operations Admin API</p>
+<h3 id='a-name-operations-admin-list-revenue-reports-a-list-revenue-reports-1'><span id=a-name-operations-admin-list-revenue-reports-a-list-revenue-reports></span><a name="operations-admin-list-revenue-reports"></a> List Revenue reports</h3>
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v1/operations/revenue_reports"</span> <span class="se">\</span>
+  -H <span class="s1">'authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICIyOE'</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'x-loyalty-club-slug: infinity-mall'</span> <span class="se">\</span>
+  -H <span class="s1">'x-user-agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>Returns object containing <a href="#operations-admin-revenue-report-model">reports</a> and <a href="#pagination-model">pagination_info</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"revenue_reports"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">List</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">revenue</span><span class="w"> </span><span class="err">reports</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">'Revenue</span><span class="w"> </span><span class="err">report</span><span class="w"> </span><span class="err">model'</span><span class="w">
+  </span><span class="s2">"pagination_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Pagination</span><span class="w"> </span><span class="err">info</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">'Pagination</span><span class="w"> </span><span class="err">info'</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>GET</strong> <code>v1/operations/revenue_reports</code></p>
+
+<p>Returns list of <a href="#operations-admin-revenue-report-model">Revenue reports</a> shared with current user.</p>
+<h4 id='query-parameters-1'><span id=query-parameters></span>Query Parameters</h4>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>per_page</td>
+<td>integer</td>
+<td>100</td>
+<td>Number of results to be returned per request (100 is the maximum)</td>
+</tr>
+<tr>
+<td>page_no</td>
+<td>integer</td>
+<td>1</td>
+<td>Number of results page</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Operations:Api:RevenueReports:List</code> permit
+</aside>
+<h3 id='a-name-operations-show-revenue-report-a-get-revenue-report-1'><span id=a-name-operations-show-revenue-report-a-get-revenue-report></span><a name="operations-show-revenue-report"></a> Get Revenue report</h3>
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v1/operations/revenue_reports/5"</span> <span class="se">\</span>
+  -H <span class="s1">'authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICIyOE'</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'x-loyalty-club-slug: infinity-mall'</span> <span class="se">\</span>
+  -H <span class="s1">'x-user-agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>Returns object containing <a href="#operations-admin-revenue-report-model">revenue report</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"revenue_report"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">see</span><span class="p">:</span><span class="w"> </span><span class="err">'Revenue</span><span class="w"> </span><span class="err">report</span><span class="w"> </span><span class="err">model'</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>GET</strong> <code>v1/operations/revenue_reports/:id</code></p>
+
+<p>Returns given <a href="#operations-admin-revenue-report-model">Revenue report</a> shared with current user.</p>
+<h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>Revenue report ID</td>
+</tr>
+</tbody></table>
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>404</code></td>
+<td>Revenue report not found</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Operations:Api:RevenueReports:Show</code> permit
+</aside>
+<h3 id='a-name-operations-admin-update-revenue-report-a-update-revenue-report-1'><span id=a-name-operations-admin-update-revenue-report-a-update-revenue-report></span><a name="operations-admin-update-revenue-report"></a> Update Revenue report</h3>
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X PUT <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v1/operations/revenue_reports/12"</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'x-loyalty-club-slug: infinity-mall'</span> <span class="se">\</span>
+  -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'x-user-agent: CURL manual test'</span> <span class="se">\</span>
+  -H <span class="s1">'x-b-store-id: 2'</span> <span class="se">\</span>
+  -d <span class="s1">'
+    {
+      "revenue_report": {
+        "transaction_count": 2,
+        "value_cents": 10,
+      }
+    }
+  '</span>
+</code></pre>
+<blockquote>
+<p>When successful, returns object containing updated <a href="#operations-admin-revenue-report-model">report</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"revenue_report"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Report</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">'Revenue</span><span class="w"> </span><span class="err">report</span><span class="w"> </span><span class="err">model'</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>PUT</strong> <code>v1/operations/revenue_reports/:id</code></p>
+
+<p>Updates the <a href="#operations-admin-revenue-report-model">Revenue report</a>.</p>
+<h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>Revenue report ID</td>
+</tr>
+</tbody></table>
+<h4 id='post-parameters-json-1'><span id=post-parameters-json></span>POST Parameters (JSON)</h4>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>revenue_report.transaction_count</strong></td>
+<td>integer</td>
+<td>total count of the transactions for the given day</td>
+</tr>
+<tr>
+<td><strong>revenue_report.value_cents</strong></td>
+<td>integer</td>
+<td>total value of the transactions for the given day in cents</td>
+</tr>
+</tbody></table>
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>revenue_report</td>
+<td>Revenue report</td>
+<td>See: <a href="#operations-admin-revenue-report-model">Revenue report model</a></td>
+</tr>
+</tbody></table>
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>404</code></td>
+<td>Revenue report not found</td>
+</tr>
+<tr>
+<td><code>422</code></td>
+<td>Invalid parameters - see <a href="#invalid-parameters-errors-model">Invalid parameters errors model</a></td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Operations:Api:RevenueReports:Update</code> permit
+</aside>
