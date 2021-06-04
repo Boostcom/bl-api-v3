@@ -96,6 +96,50 @@ Parameter              | Type                            | Default   | Descripti
 --------------         | -----------                     | --------- | -----------
 per_page               | integer                         | 100       | Number of results to be returned per request (100 is the maximum)
 page_no                | integer                         | 1         | Number of results page
+start_date             | datetime                        | null      | Starting range of the created_at report filtering
+end_date               | datetime                        | null      | Ending range of the created_at report filtering
+tax_category_ids       | array[integer]                  | []        | comma-separated ids of the revenue_reporting_policy_tax_categories to filter the entries by
+
+<aside class="notice">
+Requires <code>Operations:Api:RevenueReports:List</code> permit
+</aside>
+
+### <a name="operations-admin-list-store-revenue-reports"></a> List store Revenue reports
+
+> Example
+
+```shell
+curl -X GET \
+"https://api.mpc.placewise.com/v1/operations/revenue_reports/store/3?tax_category_ids=2,3&start_date=2021-01-02&end_date=2021-01-03" \
+  -H 'authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICIyOE' \
+  -H 'content-type: application/json' \
+  -H 'x-loyalty-club-slug: infinity-mall' \
+  -H 'x-user-agent: CURL manual test'
+```
+
+> Returns object containing [reports](#operations-revenue-report-model) and [pagination_info](#pagination-model)
+
+```json
+{
+  "revenue_reports": [], // List of revenue reports - see 'Revenue report model'
+  "pagination_info": {} // Pagination info - see 'Pagination info'
+}
+````
+
+**GET** `v1/operations/revenue_reports/store/:store_id`
+
+Returns list of [Revenue reports](#operations-revenue-report-model) shared with current user.
+
+#### Query Parameters
+
+Parameter              | Type                            | Default   | Description
+--------------         | -----------                     | --------- | -----------
+store_id               | integer                         | null      | .id of the store entries belonging to are to be returned
+per_page               | integer                         | 100       | Number of results to be returned per request (100 is the maximum)
+page_no                | integer                         | 1         | Number of results page
+start_date             | datetime                        | null      | Starting range of the created_at report filtering
+end_date               | datetime                        | null      | Ending range of the created_at report filtering
+tax_category_ids       | array[integer]                  | []        | comma-separated ids of the revenue_reporting_policy_tax_categories to filter the entries by
 
 <aside class="notice">
 Requires <code>Operations:Api:RevenueReports:List</code> permit
