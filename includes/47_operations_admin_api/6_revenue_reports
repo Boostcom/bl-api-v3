@@ -169,6 +169,96 @@
 <td>1</td>
 <td>Number of results page</td>
 </tr>
+<tr>
+<td>start_date</td>
+<td>datetime</td>
+<td>null</td>
+<td>Starting range of the created_at report filtering</td>
+</tr>
+<tr>
+<td>end_date</td>
+<td>datetime</td>
+<td>null</td>
+<td>Ending range of the created_at report filtering</td>
+</tr>
+<tr>
+<td>tax_category_ids</td>
+<td>array[integer]</td>
+<td>[]</td>
+<td>comma-separated ids of the revenue_reporting_policy_tax_categories to filter the entries by</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Operations:Api:RevenueReports:List</code> permit
+</aside>
+<h3 id='a-name-operations-admin-list-store-revenue-reports-a-list-store-revenue-reports-1'><span id=a-name-operations-admin-list-store-revenue-reports-a-list-store-revenue-reports></span><a name="operations-admin-list-store-revenue-reports"></a> List store Revenue reports</h3>
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v1/operations/revenue_reports/store/3?tax_category_ids=2,3&amp;start_date=2021-01-02&amp;end_date=2021-01-03"</span> <span class="se">\</span>
+  -H <span class="s1">'authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICIyOE'</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'x-loyalty-club-slug: infinity-mall'</span> <span class="se">\</span>
+  -H <span class="s1">'x-user-agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>Returns object containing <a href="#operations-revenue-report-model">reports</a> and <a href="#pagination-model">pagination_info</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"revenue_reports"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">List</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">revenue</span><span class="w"> </span><span class="err">reports</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">'Revenue</span><span class="w"> </span><span class="err">report</span><span class="w"> </span><span class="err">model'</span><span class="w">
+  </span><span class="s2">"pagination_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Pagination</span><span class="w"> </span><span class="err">info</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">'Pagination</span><span class="w"> </span><span class="err">info'</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>GET</strong> <code>v1/operations/revenue_reports/store/:store_id</code></p>
+
+<p>Returns list of <a href="#operations-revenue-report-model">Revenue reports</a> shared with current user.</p>
+<h4 id='query-parameters-1'><span id=query-parameters></span>Query Parameters</h4>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>store_id</td>
+<td>integer</td>
+<td>null</td>
+<td>.id of the store entries belonging to are to be returned</td>
+</tr>
+<tr>
+<td>per_page</td>
+<td>integer</td>
+<td>100</td>
+<td>Number of results to be returned per request (100 is the maximum)</td>
+</tr>
+<tr>
+<td>page_no</td>
+<td>integer</td>
+<td>1</td>
+<td>Number of results page</td>
+</tr>
+<tr>
+<td>start_date</td>
+<td>datetime</td>
+<td>null</td>
+<td>Starting range of the created_at report filtering</td>
+</tr>
+<tr>
+<td>end_date</td>
+<td>datetime</td>
+<td>null</td>
+<td>Ending range of the created_at report filtering</td>
+</tr>
+<tr>
+<td>tax_category_ids</td>
+<td>array[integer]</td>
+<td>[]</td>
+<td>comma-separated ids of the revenue_reporting_policy_tax_categories to filter the entries by</td>
+</tr>
 </tbody></table>
 
 <aside class="notice">
