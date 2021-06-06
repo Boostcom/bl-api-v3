@@ -37,7 +37,6 @@
     "transaction_count": 2,
     "value_cents": 10,
     "value": 10,
-    "total": 240,
     "user_id": "some_user_id",
     "member_id": 3,
     "deadline": "2021-06-03T14:12:37.661Z",
@@ -55,7 +54,6 @@ revenue_reporting_policy_tax_category | object | no | see [Revenue Reporting pol
 transaction_count | integer | no | total count of the transactions for the given day
 value_cents | integer | no | total value of the transactions for the given day in cents
 value | integer | no | same as value_cents - used for convenience
-total | integer | no | value_cents multiplied by the associated tax category tax_percentage
 user_id | string | yes | user_id of the tenant that has most recently updated the record (could be blank)
 member_id | integer | yes | member_id of the tenant that has most recently updated the record (could be blank)
 deadline | datetime | no | time of the deadline by which the report has to be fulfilled
