@@ -190,7 +190,7 @@ Requires <code>Operations:Api:Users:RevenueReports:List</code> permit
 <p>Example</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
-<span class="s2">"https://api.mpc.placewise.com/v1/users/me/operations/revenue_reports/store/3?tax_category_ids=2,3&amp;start_date=2021-01-02&amp;end_date=2021-01-03"</span> <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v1/users/me/operations/stores/3/revenue_reports?tax_category_ids=2,3&amp;start_date=2021-01-02&amp;end_date=2021-01-03"</span> <span class="se">\</span>
   -H <span class="s1">'authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICIyOE'</span> <span class="se">\</span>
   -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'x-loyalty-club-slug: infinity-mall'</span> <span class="se">\</span>
@@ -204,7 +204,7 @@ Requires <code>Operations:Api:Users:RevenueReports:List</code> permit
   </span><span class="s2">"pagination_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Pagination</span><span class="w"> </span><span class="err">info</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">'Pagination</span><span class="w"> </span><span class="err">info'</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>GET</strong> <code>v1/users/me/operations/revenue_reports/store/:store_id</code></p>
+<p><strong>GET</strong> <code>v1/users/me/operations/stores/:store_id/revenue_reports</code></p>
 
 <p>Returns list of <a href="#operations-revenue-report-model">Revenue reports</a> shared with current user.</p>
 <h4 id='query-parameters-1'><span id=query-parameters></span>Query Parameters</h4>
