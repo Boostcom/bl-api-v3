@@ -108,7 +108,7 @@ Requires <code>Operations:Api:Users:RevenueReports:List</code> permit
 
 ```shell
 curl -X GET \
-"https://api.mpc.placewise.com/v1/users/me/operations/revenue_reports/store/3?tax_category_ids=2,3&start_date=2021-01-02&end_date=2021-01-03" \
+"https://api.mpc.placewise.com/v1/users/me/operations/stores/3/revenue_reports?tax_category_ids=2,3&start_date=2021-01-02&end_date=2021-01-03" \
   -H 'authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICIyOE' \
   -H 'content-type: application/json' \
   -H 'x-loyalty-club-slug: infinity-mall' \
@@ -124,7 +124,7 @@ curl -X GET \
 }
 ````
 
-**GET** `v1/users/me/operations/revenue_reports/store/:store_id`
+**GET** `v1/users/me/operations/stores/:store_id/revenue_reports`
 
 Returns list of [Revenue reports](#operations-revenue-report-model) shared with current user.
 
