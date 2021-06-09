@@ -1,0 +1,398 @@
+<h2 id='a-name-operations-admin-revenue-reporting-tax-categories-a-revenue-reporting-tax-categories-1'><span id=a-name-operations-admin-revenue-reporting-tax-categories-a-revenue-reporting-tax-categories></span><a name="operations-admin-revenue-reporting-tax-categories"></a> Revenue reporting tax categories</h2><h3 id='a-name-operations-admin-revenue-reporting-tax-category-model-a-revenue-reporting-tax-category-model-1'><span id=a-name-operations-admin-revenue-reporting-tax-category-model-a-revenue-reporting-tax-category-model></span><a name="operations-admin-revenue-reporting-tax-category-model"></a> Revenue reporting tax category model</h3>
+<blockquote>
+<p>Revenue reporting tax category example:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"revenue_reporting_tax_category"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">89</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Revenue reporting tax_category 1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"tax_percentage"</span><span class="p">:</span><span class="w"> </span><span class="mf">23.8</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-11T02:16:43.113Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-11T02:16:43.113Z"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>A revenue reporting tax_category is an entity that represents a category of tax to which a revenue report will be assigned. It comprises of name and tax percentage - the name has to be unique within a loyalty club, but the tax percentage is optional and currently not used anywhere.</p>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Optional</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>no</td>
+<td></td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>no</td>
+<td>name of the tax category</td>
+</tr>
+<tr>
+<td>tax_percentage</td>
+<td>double</td>
+<td>yes</td>
+<td>tax percentage of the tax category</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>datetime</td>
+<td>no</td>
+<td>time of the creation</td>
+</tr>
+<tr>
+<td>updated_at</td>
+<td>datetime</td>
+<td>no</td>
+<td>time of the last update</td>
+</tr>
+</tbody></table>
+<h3 id='a-name-operations-admin-list-revenue-reporting-tax-categories-a-list-tax-categories-1'><span id=a-name-operations-admin-list-revenue-reporting-tax-categories-a-list-tax-categories></span><a name="operations-admin-list-revenue-reporting-tax-categories"></a> List tax categories</h3>
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v1/operations/revenue_reporting_tax_categories"</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'x-loyalty-club-slug: infinity-mall'</span> <span class="se">\</span>
+  -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'x-user-agent: CURL manual test'</span> <span class="se">\</span>
+  -H <span class="s1">'x-b-store-id: 2'</span> <span class="se">\</span>
+</code></pre>
+<blockquote>
+<p>Returns an object containing <a href="#operations-admin-revenue-reporting-tax-category-model">tax categories</a> and <a href="#pagination-model">pagination_info</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"revenue_reporting_tax_categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">List</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">tax</span><span class="w"> </span><span class="err">categories</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">'Revenue</span><span class="w"> </span><span class="err">reporting</span><span class="w"> </span><span class="err">tax</span><span class="w"> </span><span class="err">category</span><span class="w"> </span><span class="err">model'</span><span class="w">
+  </span><span class="s2">"pagination_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Pagination</span><span class="w"> </span><span class="err">info</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">'Pagination</span><span class="w"> </span><span class="err">info'</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>GET</strong> <code>v1/operations/revenue_reporting_tax_categories</code></p>
+
+<p>Returns list of <a href="#operations-admin-revenue-reporting-tax-category-model">tax categories</a>.</p>
+<h4 id='query-parameters-1'><span id=query-parameters></span>Query Parameters</h4>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>per_page</td>
+<td>integer</td>
+<td>100</td>
+<td>Number of results to be returned per request (100 is the maximum)</td>
+</tr>
+<tr>
+<td>page_no</td>
+<td>integer</td>
+<td>1</td>
+<td>Number of results page</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Operations:Api:RevenueReportingTaxCategories:List</code> permit
+</aside>
+<h3 id='a-name-operations-admin-show-revenue-reporting-tax-category-a-get-tax-category-1'><span id=a-name-operations-admin-show-revenue-reporting-tax-category-a-get-tax-category></span><a name="operations-admin-show-revenue-reporting-tax-category"></a> Get tax category</h3>
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v1/operations/revenue_reporting_tax_categories/5"</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'x-loyalty-club-slug: infinity-mall'</span> <span class="se">\</span>
+  -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'x-user-agent: CURL manual test'</span> <span class="se">\</span>
+  -H <span class="s1">'x-b-store-id: 2'</span> <span class="se">\</span>
+</code></pre>
+<blockquote>
+<p>Returns object containing <a href="#operations-admin-revenue-reporting-tax-category-model">tax category</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"revenue_reporting_tax_category"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">see</span><span class="p">:</span><span class="w"> </span><span class="err">'Revenue</span><span class="w"> </span><span class="err">reporting</span><span class="w"> </span><span class="err">tax</span><span class="w"> </span><span class="err">category</span><span class="w"> </span><span class="err">model'</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>GET</strong> <code>v1/operations/revenue_reporting_tax_categories/:id</code></p>
+
+<p>Returns given <a href="#operations-admin-revenue-reporting-tax-category-model">tax category</a>.</p>
+<h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>tax category ID</td>
+</tr>
+</tbody></table>
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>404</code></td>
+<td>tax category not found</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Operations:Api:RevenueReportingTaxCategories:Show</code> permit
+</aside>
+<h3 id='a-name-operations-admin-create-revenue-reporting-tax-category-a-create-tax-category-1'><span id=a-name-operations-admin-create-revenue-reporting-tax-category-a-create-tax-category></span><a name="operations-admin-create-revenue-reporting-tax-category"></a> Create tax category</h3>
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v1/operations/revenue_reporting_tax_categories"</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'x-loyalty-club-slug: infinity-mall'</span> <span class="se">\</span>
+  -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'x-user-agent: CURL manual test'</span> <span class="se">\</span>
+  -H <span class="s1">'x-b-store-id: 2'</span> <span class="se">\</span>
+  -d <span class="s1">'
+    {
+      "revenue_reporting_tax_category": {
+        "name": "Revenue reporting tax category 1",
+        "tax_percentage": 25.00
+      }
+    }
+  '</span>
+</code></pre>
+<blockquote>
+<p>When successful, returns object containing created <a href="#operations-admin-revenue-reporting-tax-category-model">tax category</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"revenue_reporting_tax_category"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">tax_category</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="p">:</span><span class="w"> </span><span class="err">'Revenue</span><span class="w"> </span><span class="err">reporting</span><span class="w"> </span><span class="err">tax</span><span class="w"> </span><span class="err">category</span><span class="w"> </span><span class="err">model'</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>POST</strong> <code>v1/operations/revenue_reporting_tax_categories</code></p>
+
+<p>Creates a new <a href="#operations-admin-revenue-reporting-tax-category-model">tax category</a></p>
+<h4 id='post-parameters-json-1'><span id=post-parameters-json></span>POST Parameters (JSON)</h4>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>**revenue_reporting_tax_category.name</td>
+<td>string</td>
+<td>no</td>
+</tr>
+<tr>
+<td>**revenue_reporting_tax_category.tax_percentage</td>
+<td>double</td>
+<td>no</td>
+</tr>
+</tbody></table>
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>revenue_reporting_tax_category</td>
+<td>tax_category</td>
+<td>See: <a href="#operations-admin-revenue-reporting-tax-category-model">tax category model</a></td>
+</tr>
+</tbody></table>
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>422</code></td>
+<td>Invalid parameters - see <a href="#invalid-parameters-errors-model">Invalid parameters errors model</a></td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Operations:Api:RevenueReportingTaxCategories:Create</code> permit
+</aside>
+<h3 id='a-name-operations-admin-update-revenue-reporting-tax-category-a-update-tax-category-1'><span id=a-name-operations-admin-update-revenue-reporting-tax-category-a-update-tax-category></span><a name="operations-admin-update-revenue-reporting-tax-category"></a> Update tax category</h3>
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X PUT <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v1/operations/revenue_reporting_tax_categories/12"</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'x-loyalty-club-slug: infinity-mall'</span> <span class="se">\</span>
+  -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'x-user-agent: CURL manual test'</span> <span class="se">\</span>
+  -H <span class="s1">'x-b-store-id: 2'</span> <span class="se">\</span>
+  -d <span class="s1">'
+    {
+      "revenue_reporting_tax_category": {
+        "name": "Revenue reporting tax category 1",
+        "tax_percentage": 25.00
+      }
+    }
+  '</span>
+</code></pre>
+<blockquote>
+<p>When successful, returns object containing updated <a href="#operations-admin-revenue-reporting-tax-category-model">tax category</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"revenue_reporting_tax_category"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">tax_category</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">'Revenue</span><span class="w"> </span><span class="err">reporting</span><span class="w"> </span><span class="err">tax</span><span class="w"> </span><span class="err">category</span><span class="w"> </span><span class="err">model'</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>PUT</strong> <code>v1/operations/revenue_reporting_tax_categories/:id</code></p>
+
+<p>Updates the <a href="#operations-admin-revenue-reporting-tax-category-model">tax category</a>.</p>
+<h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>tax category ID</td>
+</tr>
+</tbody></table>
+<h4 id='post-parameters-json-1'><span id=post-parameters-json></span>POST Parameters (JSON)</h4>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>**revenue_reporting_tax_category.name</td>
+<td>string</td>
+<td>no</td>
+</tr>
+<tr>
+<td>**revenue_reporting_tax_category.tax_percentage</td>
+<td>string</td>
+<td>no</td>
+</tr>
+</tbody></table>
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>revenue_reporting_tax_category</td>
+<td>tax_category</td>
+<td>See: <a href="#operations-admin-revenue-reporting-tax-category-model">tax category model</a></td>
+</tr>
+</tbody></table>
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>404</code></td>
+<td>tax category not found</td>
+</tr>
+<tr>
+<td><code>422</code></td>
+<td>Invalid parameters - see <a href="#invalid-parameters-errors-model">Invalid parameters errors model</a></td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Operations:Api:Users:RevenueReportingTaxCategories:Update</code> permit
+</aside>
+<h3 id='a-name-operations-admin-destroy-revenue-reporting-tax-category-a-destroy-tax-category-1'><span id=a-name-operations-admin-destroy-revenue-reporting-tax-category-a-destroy-tax-category></span><a name="operations-admin-destroy-revenue-reporting-tax-category"></a> Destroy tax category</h3>
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X DELETE <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v1/operations/revenue_reporting_tax_categories/12 </span><span class="se">\</span><span class="s2">
+  -H 'content-type: application/json' </span><span class="se">\</span><span class="s2">
+  -H 'x-loyalty-club-slug: infinity-mall' </span><span class="se">\</span><span class="s2">
+  -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' </span><span class="se">\</span><span class="s2">
+  -H 'x-user-agent: CURL manual test'
+  -H 'x-b-store-id: 2' </span><span class="se">\</span><span class="s2">
+</span></code></pre>
+<blockquote>
+<p>When successful, returns object containing destroyed <a href="#operations-admin-revenue-reporting-tax-category-model">tax category</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"revenue_reporting_tax_category"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">tax_category</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="p">:</span><span class="w"> </span><span class="err">'Revenue</span><span class="w"> </span><span class="err">reporting</span><span class="w"> </span><span class="err">tax-category</span><span class="w"> </span><span class="err">model'</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>DELETE</strong> <code>v1/operations/revenue_reporting_tax_categories/:id</code></p>
+
+<p>Destroys the <a href="#operations-admin-revenue-reporting-tax-category-model">tax category</a>.</p>
+<h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>tax category ID</td>
+</tr>
+</tbody></table>
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>revenue_reporting_tax_category</td>
+<td>tax_category</td>
+<td>See: <a href="#operations-admin-revenue-reporting-tax-category-model">tax category model</a></td>
+</tr>
+</tbody></table>
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>404</code></td>
+<td>tax category not found</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Operations:Api:Users:RevenueReportingTaxCategories:Destroy</code> permit
+</aside>
