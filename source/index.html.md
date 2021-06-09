@@ -53,8 +53,9 @@ includes:
   - 47_operations_admin_api/3_resource_types
   - 47_operations_admin_api/4_resources
   - 47_operations_admin_api/5_revenue_reporting_policies
-  - 47_operations_admin_api/6_revenue_reports
-  - 47_operations_admin_api/7_alerts
+  - 47_operations_admin_api/6_revenue_reporting_tax_categories
+  - 47_operations_admin_api/7_revenue_reports
+  - 47_operations_admin_api/8_alerts
   - 50_files_api/0_files
   - 60_tokens_admin_api/0_introduction
   - 60_tokens_admin_api/1_tokens

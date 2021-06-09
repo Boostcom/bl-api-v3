@@ -14,20 +14,11 @@
       "frequency_unit": "week",
       "is_common": null,
       "report_total_transaction_count": null,
-      "tax_categories": [
-        {
-          "id": 192,
-          "name": "Some tax category",
-          "tax_percentage": 23.0,
-          "created_at": "2021-06-01T14:12:37.658Z",
-          "updated_at": "2021-06-01T14:12:37.679Z"
-        }
-      ],
       "excluded_store_ids": [2, 8],
       "created_at": "2021-06-01T14:12:37.610Z",
       "updated_at": "2021-06-01T14:12:37.610Z"
     },
-    "revenue_reporting_policy_tax_category": {
+    "revenue_reporting_tax_category": {
       "id": 192,
       "name": "Some tax category",
       "tax_percentage": 23.0,
@@ -50,7 +41,7 @@ Key | Type | Optional | Description
 --------- | --------- | --------- | ---------
 id | integer | no |
 revenue_reporting_policy | object | no | see [Revenue Reporting policy model](#operations-admin-revenue-reporting-policy-model)
-revenue_reporting_policy_tax_category | object | no | see [Revenue Reporting policy/tax categories model](#operations-admin-revenue-reporting-policy-model)
+revenue_reporting_tax_category | object | no | see [Revenue Reporting policy/tax categories model](#operations-admin-revenue-reporting-policy-model)
 transaction_count | integer | no | total count of the transactions for the given day
 value_cents | integer | no | total value of the transactions for the given day in cents
 value | integer | no | same as value_cents - used for convenience
@@ -96,7 +87,7 @@ per_page               | integer                         | 100       | Number of
 page_no                | integer                         | 1         | Number of results page
 start_date             | datetime                        | null      | Starting range of the created_at report filtering
 end_date               | datetime                        | null      | Ending range of the created_at report filtering
-tax_category_ids       | array[integer]                  | []        | comma-separated ids of the revenue_reporting_policy_tax_categories to filter the entries by
+tax_category_ids       | array[integer]                  | []        | comma-separated ids of the revenue_reporting_tax_categories to filter the entries by
 
 <aside class="notice">
 Requires <code>Operations:Api:Users:RevenueReports:List</code> permit
@@ -137,7 +128,7 @@ per_page               | integer                         | 100       | Number of
 page_no                | integer                         | 1         | Number of results page
 start_date             | datetime                        | null      | Starting range of the created_at report filtering
 end_date               | datetime                        | null      | Ending range of the created_at report filtering
-tax_category_ids       | array[integer]                  | []        | comma-separated ids of the revenue_reporting_policy_tax_categories to filter the entries by
+tax_category_ids       | array[integer]                  | []        | comma-separated ids of the revenue_reporting_tax_categories to filter the entries by
 
 <aside class="notice">
 Requires <code>Operations:Api:Users:RevenueReports:List</code> permit
