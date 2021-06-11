@@ -22,6 +22,7 @@
       }
     ],
     "excluded_store_ids": [3],
+    "currency": "nok",
     "created_at": "2021-05-11T02:16:43.113Z",
     "updated_at": "2021-05-11T02:16:43.113Z"
   }
@@ -41,6 +42,7 @@ is_common                      | boolean    | yes | marks the policy as the defa
 report_total_transaction_count | boolean    | yes | marks the reports generated accordingly to the policy as having to report total transaction count (or not)
 tax_categories                 | object     | yes | represents tax categories represented in the reports generated according to the policy
 excluded_store_ids             | array[int] | yes | represents the ids of the stores to which the policy is *NOT* assigned (all others are in by default)
+currency                       | string     | no  | represents the currency in which the store policy reporting entries will be reported
 created_at                     | datetime   | no  | time of the creation
 updated_at                     | datetime   | no  | time of the last update
 
