@@ -20342,6 +20342,7 @@ Requires <code>Operations:Api:Resources:Reminders:Create</code> permit
       </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
     </span><span class="s2">"excluded_store_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">3</span><span class="p">],</span><span class="w">
+    </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nok"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-11T02:16:43.113Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-11T02:16:43.113Z"</span><span class="w">
   </span><span class="p">}</span><span class="w">
@@ -20400,6 +20401,12 @@ As an admin, one can list, create, update and destroy such policies.</p>
 <td>array[int]</td>
 <td>yes</td>
 <td>represents the ids of the stores to which the policy is <em>NOT</em> assigned (all others are in by default)</td>
+</tr>
+<tr>
+<td>currency</td>
+<td>string</td>
+<td>no</td>
+<td>represents the currency in which the store policy reporting entries will be reported</td>
 </tr>
 <tr>
 <td>created_at</td>
