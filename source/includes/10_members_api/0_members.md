@@ -1024,7 +1024,7 @@ Requires <code>BL:Api:Members:Tokens:Create</code> permit
 > Example - Sending OTP SMS
 
 ```shell
-curl "https://api.mpc.placewise.com/v3/infinity-mall/members/by_msisdn/4740769126/send_one_time_password" \
+curl "https://api.mpc.placewise.com/v3/infinity-mall/members/by_msisdn/4740769126/send_one_time_password_via_sms" \
   -H 'content-type: application/json' \
   -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
   -H 'x-product-name: default' \
@@ -1034,7 +1034,7 @@ curl "https://api.mpc.placewise.com/v3/infinity-mall/members/by_msisdn/474076912
 > Example - Sending OTP email
 
 ```shell
-curl "https://api.mpc.placewise.com/v3/infinity-mall/members/by_email/user@example.com/send_one_time_password" \
+curl "https://api.mpc.placewise.com/v3/infinity-mall/members/by_email/user@example.com/send_one_time_password_via_email" \
   -H 'content-type: application/json' \
   -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
   -H 'x-product-name: default' \
@@ -1049,13 +1049,29 @@ curl "https://api.mpc.placewise.com/v3/infinity-mall/members/by_email/user@examp
 }
 ```
 
+**POST** `/v3/:loyalty_club_slug/members/by_msisdn/:msisdn/send_one_time_password_via_sms`
+
+&nbsp; &nbsp; &nbsp; &nbsp; Sends a login SMS to member identified by given MSISDN
+
+**POST** `/v3/:loyalty_club_slug/members/by_email/:email/send_one_time_password_via_sms`
+
+&nbsp; &nbsp; &nbsp; &nbsp; Sends a login SMS to member identified by given email
+
+**POST** `/v3/:loyalty_club_slug/members/by_msisdn/:msisdn/send_one_time_password_via_email`
+
+&nbsp; &nbsp; &nbsp; &nbsp; Sends a login email to member identified by given MSISDN
+
+**POST** `/v3/:loyalty_club_slug/members/by_email/:email/send_one_time_password_via_email`
+
+&nbsp; &nbsp; &nbsp; &nbsp; Sends a login email to member identified by given email
+
 **POST** `/v3/:loyalty_club_slug/members/by_msisdn/:msisdn/send_one_time_password`
 
-&nbsp; &nbsp; &nbsp; &nbsp; Sends a login SMS to member identified by msisdn
+&nbsp; &nbsp; &nbsp; &nbsp; (DEPRECATED) Sends a login SMS to member identified by msisdn
 
 **POST** `/v3/:loyalty_club_slug/members/by_email/:email/send_one_time_password`
 
-&nbsp; &nbsp; &nbsp; &nbsp; Sends a login email to member identified by given email
+&nbsp; &nbsp; &nbsp; &nbsp; (DEPRECATED) Sends a login email to member identified by given email
 
 The message may contain (depending on Loyalty Club configuration):
 
