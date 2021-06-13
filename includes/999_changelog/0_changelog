@@ -1,8 +1,12 @@
-<h1 id='changelog-1'><span id=changelog></span>Changelog</h1><h3 id='25-05-2021-natalia-styrska-1'><span id=25-05-2021-natalia-styrska></span>25.05.2021 | Natalia Styrska</h3>
+<h1 id='changelog-1'><span id=changelog></span>Changelog</h1><h3 id='13-06-2021-piotr-switlicki-1'><span id=13-06-2021-piotr-switlicki></span>13.06.2021 | Piotr Świtlicki</h3>
+<ul>
+<li>[MPC-2999] Add new endpoint variants to <a href="#members-send-one-time-password">Members -&gt; Send OTP</a></li>
+</ul>
+<h3 id='25-05-2021-natalia-styrska-1'><span id=25-05-2021-natalia-styrska></span>25.05.2021 | Natalia Styrska</h3>
 <ul>
 <li>Add <a href="#store-floors-list">Stores -&gt; List of floors</a> </li>
 </ul>
-<h4 id='18-05-2020-piotr-switlicki-1'><span id=18-05-2020-piotr-switlicki></span>18.05.2020 | Piotr Świtlicki</h4>
+<h4 id='18-05-2021-piotr-switlicki-1'><span id=18-05-2021-piotr-switlicki></span>18.05.2021 | Piotr Świtlicki</h4>
 <ul>
 <li>Add <a href="#rewards-program-cancel-transaction">Rewards API -&gt; Rewards Program -&gt; Cancel</a></li>
 <li>Update <a href="#rewards-program-grant-points">Rewards API -&gt; Rewards Program -&gt; Grant Points</a> to return created transaction</li>
@@ -12,23 +16,23 @@
 <ul>
 <li>Add description to <a href="#operations-app-tokens">Operations -&gt; Add user app tokens</a> </li>
 </ul>
-<h4 id='17-05-2020-piotr-switlicki-1'><span id=17-05-2020-piotr-switlicki></span>17.05.2020 | Piotr Świtlicki</h4>
+<h4 id='17-05-2021-piotr-switlicki-1'><span id=17-05-2021-piotr-switlicki></span>17.05.2021 | Piotr Świtlicki</h4>
 <ul>
 <li>Add <a href="#operations-alerts">Operations API -&gt; Alerts</a></li>
 <li>Add <a href="#operations-admin-alerts">Operations Admin API -&gt; Alerts</a></li>
 </ul>
-<h4 id='02-12-2020-piotr-switlicki-1'><span id=02-12-2020-piotr-switlicki></span>02.12.2020 | Piotr Świtlicki</h4>
+<h4 id='02-12-2021-piotr-switlicki-1'><span id=02-12-2021-piotr-switlicki></span>02.12.2021 | Piotr Świtlicki</h4>
 <ul>
 <li>Add <a href="#operations-alerts">Operations API -&gt; Alerts</a></li>
 <li>Add <a href="#operations-admin-alerts">Operations Admin API -&gt; Alerts</a></li>
 </ul>
-<h4 id='18-05-2020-piotr-switlicki-1'><span id=18-05-2020-piotr-switlicki></span>18.05.2020 | Piotr Świtlicki</h4>
+<h4 id='18-05-2021-piotr-switlicki-1'><span id=18-05-2021-piotr-switlicki></span>18.05.2021 | Piotr Świtlicki</h4>
 <ul>
 <li>Add <a href="#rewards-program-cancel-transaction">Rewards API &gt; Rewards Program &gt; Cancel</a></li>
 <li>Update <a href="#rewards-program-grant-points">Rewards API &gt; Rewards Program &gt; Grant Points</a> to return created transaction</li>
 <li>Add <code>cancellation</code> transaction type in <a href="#rewards-transaction-object">RewardsAPI &gt; Transactions</a></li>
 </ul>
-<h4 id='17-05-2020-piotr-switlicki-1'><span id=17-05-2020-piotr-switlicki></span>17.05.2020 | Piotr Świtlicki</h4>
+<h4 id='17-05-2021-piotr-switlicki-1'><span id=17-05-2021-piotr-switlicki></span>17.05.2021 | Piotr Świtlicki</h4>
 <ul>
 <li>Add <a href="#operations-alerts">Operations API &gt; Alerts</a></li>
 <li>Add <a href="#operations-admin-alerts">Operations Admin API &gt; Alerts</a></li>

@@ -1554,7 +1554,7 @@ Requires <code>BL:Api:Members:Tokens:Create</code> permit
 <blockquote>
 <p>Example - Sending OTP SMS</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.mpc.placewise.com/v3/infinity-mall/members/by_msisdn/4740769126/send_one_time_password"</span> <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.mpc.placewise.com/v3/infinity-mall/members/by_msisdn/4740769126/send_one_time_password_via_sms"</span> <span class="se">\</span>
   -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
   -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
@@ -1563,7 +1563,7 @@ Requires <code>BL:Api:Members:Tokens:Create</code> permit
 <blockquote>
 <p>Example - Sending OTP email</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.mpc.placewise.com/v3/infinity-mall/members/by_email/user@example.com/send_one_time_password"</span> <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.mpc.placewise.com/v3/infinity-mall/members/by_email/user@example.com/send_one_time_password_via_email"</span> <span class="se">\</span>
   -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
   -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
@@ -1576,13 +1576,29 @@ Requires <code>BL:Api:Members:Tokens:Create</code> permit
   </span><span class="err">//</span><span class="w"> </span><span class="err">Empty</span><span class="w"> </span><span class="err">object</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+<p><strong>POST</strong> <code>/v3/:loyalty_club_slug/members/by_msisdn/:msisdn/send_one_time_password_via_sms</code></p>
+
+<p>&nbsp; &nbsp; &nbsp; &nbsp; Sends a login SMS to member identified by given MSISDN</p>
+
+<p><strong>POST</strong> <code>/v3/:loyalty_club_slug/members/by_email/:email/send_one_time_password_via_sms</code></p>
+
+<p>&nbsp; &nbsp; &nbsp; &nbsp; Sends a login SMS to member identified by given email</p>
+
+<p><strong>POST</strong> <code>/v3/:loyalty_club_slug/members/by_msisdn/:msisdn/send_one_time_password_via_email</code></p>
+
+<p>&nbsp; &nbsp; &nbsp; &nbsp; Sends a login email to member identified by given MSISDN</p>
+
+<p><strong>POST</strong> <code>/v3/:loyalty_club_slug/members/by_email/:email/send_one_time_password_via_email</code></p>
+
+<p>&nbsp; &nbsp; &nbsp; &nbsp; Sends a login email to member identified by given email</p>
+
 <p><strong>POST</strong> <code>/v3/:loyalty_club_slug/members/by_msisdn/:msisdn/send_one_time_password</code></p>
 
-<p>&nbsp; &nbsp; &nbsp; &nbsp; Sends a login SMS to member identified by msisdn</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; (DEPRECATED) Sends a login SMS to member identified by msisdn</p>
 
 <p><strong>POST</strong> <code>/v3/:loyalty_club_slug/members/by_email/:email/send_one_time_password</code></p>
 
-<p>&nbsp; &nbsp; &nbsp; &nbsp; Sends a login email to member identified by given email</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; (DEPRECATED) Sends a login email to member identified by given email</p>
 
 <p>The message may contain (depending on Loyalty Club configuration):</p>
 
