@@ -2,6 +2,10 @@
 
 ### 13.06.2021 | Piotr Świtlicki
 
+* [MPC-3045] Add to get member by user_id in [Members -> Get](#members-get)
+
+### 13.06.2021 | Piotr Świtlicki
+
 * [MPC-2999] Add new endpoint variants to [Members -> Send OTP](#members-send-one-time-password)
 
 ### 25.05.2021 | Natalia Styrska
