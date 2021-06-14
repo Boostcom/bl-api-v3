@@ -1,10 +1,18 @@
 # Changelog
 
+### 13.06.2021 | Piotr Świtlicki
+
+* [MPC-3045] Add to get member by user_id in [Members -> Get](#members-get)
+
+### 13.06.2021 | Piotr Świtlicki
+
+* [MPC-2999] Add new endpoint variants to [Members -> Send OTP](#members-send-one-time-password)
+
 ### 25.05.2021 | Natalia Styrska
 
 * Add [Stores -> List of floors](#store-floors-list) 
 
-#### 18.05.2020 | Piotr Świtlicki
+#### 18.05.2021 | Piotr Świtlicki
 * Add [Rewards API -> Rewards Program -> Cancel](#rewards-program-cancel-transaction)
 * Update [Rewards API -> Rewards Program -> Grant Points](#rewards-program-grant-points) to return created transaction
 * Add `cancellation` transaction type in [RewardsAPI -> Transactions](#rewards-transaction-object)
@@ -13,21 +21,21 @@
 
 * Add description to [Operations -> Add user app tokens](#operations-app-tokens) 
 
-#### 17.05.2020 | Piotr Świtlicki
+#### 17.05.2021 | Piotr Świtlicki
 
 * Add [Operations API -> Alerts](#operations-alerts)
 * Add [Operations Admin API -> Alerts](#operations-admin-alerts)
 
-#### 02.12.2020 | Piotr Świtlicki
+#### 02.12.2021 | Piotr Świtlicki
 * Add [Operations API -> Alerts](#operations-alerts)
 * Add [Operations Admin API -> Alerts](#operations-admin-alerts)
 
-#### 18.05.2020 | Piotr Świtlicki
+#### 18.05.2021 | Piotr Świtlicki
 * Add [Rewards API > Rewards Program > Cancel](#rewards-program-cancel-transaction)
 * Update [Rewards API > Rewards Program > Grant Points](#rewards-program-grant-points) to return created transaction
 * Add `cancellation` transaction type in [RewardsAPI > Transactions](#rewards-transaction-object)
 
-#### 17.05.2020 | Piotr Świtlicki
+#### 17.05.2021 | Piotr Świtlicki
 * Add [Operations API > Alerts](#operations-alerts)
 * Add [Operations Admin API > Alerts](#operations-admin-alerts)
 
