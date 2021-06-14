@@ -23,6 +23,7 @@ Key | Type | Optional | Description
 id                             | integer    | no  |
 name                           | string     | no  | name of the tax category
 tax_percentage                 | double     | yes | tax percentage of the tax category
+store_ids                      | array[int] | yes | ids of stores associated to the tax category
 created_at                     | datetime   | no  | time of the creation
 updated_at                     | datetime   | no  | time of the last update
 
@@ -62,6 +63,81 @@ page_no        | integer                         | 1         | Number of results
 
 <aside class="notice">
 Requires <code>Operations:Api:RevenueReportingTaxCategories:List</code> permit
+</aside>
+
+### <a name="operations-admin-list-store-revenue-reporting-tax-categories"></a> List store tax categories
+
+> Example
+
+```shell
+curl -X GET \
+"https://api.mpc.placewise.com/v1/operations/stores/3/revenue_reporting_tax_categories" \
+  -H 'content-type: application/json' \
+  -H 'x-loyalty-club-slug: infinity-mall' \
+  -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+  -H 'x-user-agent: CURL manual test' \
+  -H 'x-b-store-id: 2' \
+```
+
+> Returns an object containing [tax categories](#operations-admin-revenue-reporting-tax-category-model) and [pagination_info](#pagination-model)
+
+```json
+{
+  "revenue_reporting_tax_categories": [], // List of tax categories - see 'Revenue reporting tax category model'
+  "pagination_info": {} // Pagination info - see 'Pagination info'
+}
+````
+
+**GET** `v1/operations/stores/:store_id/revenue_reporting_tax_categories`
+
+Returns list of [tax categories](#operations-admin-revenue-reporting-tax-category-model).
+
+#### Query Parameters
+
+Parameter      | Type                            | Default   | Description
+-------------- | -----------                     | --------- | -----------
+per_page       | integer                         | 100       | Number of results to be returned per request (100 is the maximum)
+page_no        | integer                         | 1         | Number of results page
+
+<aside class="notice">
+Requires <code>Operations:Api:RevenueReportingTaxCategories:List</code> permit
+</aside>
+
+### <a name="operations-admin-bulk-update-store-revenue-reporting-tax-categories"></a> Bulk update store tax categories
+
+> Example
+
+```shell
+curl -X PUT \
+"https://api.mpc.placewise.com/v1/operations/stores/3/revenue_reporting_tax_categories" \
+  -H 'content-type: application/json' \
+  -H 'x-loyalty-club-slug: infinity-mall' \
+  -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+  -H 'x-user-agent: CURL manual test' \
+  -H 'x-b-store-id: 2' \
+```
+
+> Returns an object containing [tax categories](#operations-admin-revenue-reporting-tax-category-model) and [pagination_info](#pagination-model)
+
+```json
+{
+  "revenue_reporting_tax_categories": [], // List of tax categories - see 'Revenue reporting tax category model'
+  "pagination_info": {} // Pagination info - see 'Pagination info'
+}
+````
+
+**PUT** `v1/operations/stores/:store_id/revenue_reporting_tax_categories`
+
+Returns list of [tax categories](#operations-admin-revenue-reporting-tax-category-model).
+
+#### POST Parameters (JSON)
+
+Key                                  | Type       | Description
+---------                            | ---------  | ---------
+**revenue_reporting_tax_categories** | array[revenue_reporting_tax_category] | no  | Array of tax categories - see 'Revenue reporting tax category model'
+
+<aside class="notice">
+Requires <code>Operations:Api:RevenueReportingTaxCategories:Update</code> permit
 </aside>
 
 ### <a name="operations-admin-show-revenue-reporting-tax-category"></a> Get tax category
@@ -142,10 +218,11 @@ Creates a new [tax category](#operations-admin-revenue-reporting-tax-category-mo
 
 #### POST Parameters (JSON)
 
-Key                                             | Type      | Description
----------                                       | --------- | ---------
-**revenue_reporting_tax_category.name           | string    | no  | name of the tax category
-**revenue_reporting_tax_category.tax_percentage | double    | no  | tax percentage of the tax category
+Key                                               | Type       | Description
+---------                                         | ---------  | ---------
+**revenue_reporting_tax_category.name**           | string     | no  | name of the tax category
+**revenue_reporting_tax_category.tax_percentage** | double     | no  | tax percentage of the tax category
+**revenue_reporting_tax_category.store_ids**      | array[int] | yes | ids of stores associated to the tax category
 
 #### Response (JSON object)
 
@@ -205,10 +282,11 @@ id         | integer | tax category ID
 
 #### POST Parameters (JSON)
 
-Key                                             | Type       | Description
----------                                       | ---------  | ---------
-**revenue_reporting_tax_category.name           | string     | no  | name of the tax category
-**revenue_reporting_tax_category.tax_percentage | string     | no  | tax percentage of the tax category
+Key                                               | Type       | Description
+---------                                         | ---------  | ---------
+**revenue_reporting_tax_category.name**           | string     | no  | name of the tax category
+**revenue_reporting_tax_category.tax_percentage** | string     | no  | tax percentage of the tax category
+**revenue_reporting_tax_category.store_ids**      | array[int] | yes | ids of stores associated to the tax category
 
 #### Response (JSON object)
 
