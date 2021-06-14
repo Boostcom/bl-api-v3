@@ -465,6 +465,12 @@ Requires <code>BL:Api:Members:Get</code> permit
 Requires <code>BL:Api:Members:Get</code> permit
 </aside>
 
+<p><strong>GET</strong> <code>v3/:loyalty_club_slug/members/by_user_id/:user_id</code></p>
+
+<aside class="notice">
+Requires <code>BL:Api:Members:Get</code> permit
+</aside>
+
 <p><strong>GET</strong> <code>v3/:loyalty_club_slug/members/me</code></p>
 
 <aside class="notice">

@@ -2197,6 +2197,12 @@ Requires <code>BL:Api:Members:Get</code> permit
 Requires <code>BL:Api:Members:Get</code> permit
 </aside>
 
+<p><strong>GET</strong> <code>v3/:loyalty_club_slug/members/by_user_id/:user_id</code></p>
+
+<aside class="notice">
+Requires <code>BL:Api:Members:Get</code> permit
+</aside>
+
 <p><strong>GET</strong> <code>v3/:loyalty_club_slug/members/me</code></p>
 
 <aside class="notice">
@@ -20920,6 +20926,12 @@ Requires <code>Operations:Api:Users:RevenueReportingPolicies:Destroy</code> perm
 <td>tax percentage of the tax category</td>
 </tr>
 <tr>
+<td>store_ids</td>
+<td>array[int]</td>
+<td>yes</td>
+<td>ids of stores associated to the tax category</td>
+</tr>
+<tr>
 <td>created_at</td>
 <td>datetime</td>
 <td>no</td>
@@ -20980,6 +20992,96 @@ Requires <code>Operations:Api:Users:RevenueReportingPolicies:Destroy</code> perm
 
 <aside class="notice">
 Requires <code>Operations:Api:RevenueReportingTaxCategories:List</code> permit
+</aside>
+<h3 id='a-name-operations-admin-list-store-revenue-reporting-tax-categories-a-list-store-tax-categories-1'><span id=a-name-operations-admin-list-store-revenue-reporting-tax-categories-a-list-store-tax-categories></span><a name="operations-admin-list-store-revenue-reporting-tax-categories"></a> List store tax categories</h3>
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v1/operations/stores/3/revenue_reporting_tax_categories"</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'x-loyalty-club-slug: infinity-mall'</span> <span class="se">\</span>
+  -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'x-user-agent: CURL manual test'</span> <span class="se">\</span>
+  -H <span class="s1">'x-b-store-id: 2'</span> <span class="se">\</span>
+</code></pre>
+<blockquote>
+<p>Returns an object containing <a href="#operations-admin-revenue-reporting-tax-category-model">tax categories</a> and <a href="#pagination-model">pagination_info</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"revenue_reporting_tax_categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">List</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">tax</span><span class="w"> </span><span class="err">categories</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">'Revenue</span><span class="w"> </span><span class="err">reporting</span><span class="w"> </span><span class="err">tax</span><span class="w"> </span><span class="err">category</span><span class="w"> </span><span class="err">model'</span><span class="w">
+  </span><span class="s2">"pagination_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Pagination</span><span class="w"> </span><span class="err">info</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">'Pagination</span><span class="w"> </span><span class="err">info'</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>GET</strong> <code>v1/operations/stores/:store_id/revenue_reporting_tax_categories</code></p>
+
+<p>Returns list of <a href="#operations-admin-revenue-reporting-tax-category-model">tax categories</a>.</p>
+<h4 id='query-parameters-1'><span id=query-parameters></span>Query Parameters</h4>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>per_page</td>
+<td>integer</td>
+<td>100</td>
+<td>Number of results to be returned per request (100 is the maximum)</td>
+</tr>
+<tr>
+<td>page_no</td>
+<td>integer</td>
+<td>1</td>
+<td>Number of results page</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Operations:Api:RevenueReportingTaxCategories:List</code> permit
+</aside>
+<h3 id='a-name-operations-admin-bulk-update-store-revenue-reporting-tax-categories-a-bulk-update-store-tax-categories-1'><span id=a-name-operations-admin-bulk-update-store-revenue-reporting-tax-categories-a-bulk-update-store-tax-categories></span><a name="operations-admin-bulk-update-store-revenue-reporting-tax-categories"></a> Bulk update store tax categories</h3>
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X PUT <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v1/operations/stores/3/revenue_reporting_tax_categories"</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'x-loyalty-club-slug: infinity-mall'</span> <span class="se">\</span>
+  -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'x-user-agent: CURL manual test'</span> <span class="se">\</span>
+  -H <span class="s1">'x-b-store-id: 2'</span> <span class="se">\</span>
+</code></pre>
+<blockquote>
+<p>Returns an object containing <a href="#operations-admin-revenue-reporting-tax-category-model">tax categories</a> and <a href="#pagination-model">pagination_info</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"revenue_reporting_tax_categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">List</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">tax</span><span class="w"> </span><span class="err">categories</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">'Revenue</span><span class="w"> </span><span class="err">reporting</span><span class="w"> </span><span class="err">tax</span><span class="w"> </span><span class="err">category</span><span class="w"> </span><span class="err">model'</span><span class="w">
+  </span><span class="s2">"pagination_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Pagination</span><span class="w"> </span><span class="err">info</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">'Pagination</span><span class="w"> </span><span class="err">info'</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>PUT</strong> <code>v1/operations/stores/:store_id/revenue_reporting_tax_categories</code></p>
+
+<p>Returns list of <a href="#operations-admin-revenue-reporting-tax-category-model">tax categories</a>.</p>
+<h4 id='post-parameters-json-1'><span id=post-parameters-json></span>POST Parameters (JSON)</h4>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>revenue_reporting_tax_categories</strong></td>
+<td>array[revenue_reporting_tax_category]</td>
+<td>no</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Operations:Api:RevenueReportingTaxCategories:Update</code> permit
 </aside>
 <h3 id='a-name-operations-admin-show-revenue-reporting-tax-category-a-get-tax-category-1'><span id=a-name-operations-admin-show-revenue-reporting-tax-category-a-get-tax-category></span><a name="operations-admin-show-revenue-reporting-tax-category"></a> Get tax category</h3>
 <blockquote>
@@ -21072,14 +21174,19 @@ Requires <code>Operations:Api:RevenueReportingTaxCategories:Show</code> permit
 </tr>
 </thead><tbody>
 <tr>
-<td>**revenue_reporting_tax_category.name</td>
+<td><strong>revenue_reporting_tax_category.name</strong></td>
 <td>string</td>
 <td>no</td>
 </tr>
 <tr>
-<td>**revenue_reporting_tax_category.tax_percentage</td>
+<td><strong>revenue_reporting_tax_category.tax_percentage</strong></td>
 <td>double</td>
 <td>no</td>
+</tr>
+<tr>
+<td><strong>revenue_reporting_tax_category.store_ids</strong></td>
+<td>array[int]</td>
+<td>yes</td>
 </tr>
 </tbody></table>
 <h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
@@ -21165,14 +21272,19 @@ Requires <code>Operations:Api:RevenueReportingTaxCategories:Create</code> permit
 </tr>
 </thead><tbody>
 <tr>
-<td>**revenue_reporting_tax_category.name</td>
+<td><strong>revenue_reporting_tax_category.name</strong></td>
 <td>string</td>
 <td>no</td>
 </tr>
 <tr>
-<td>**revenue_reporting_tax_category.tax_percentage</td>
+<td><strong>revenue_reporting_tax_category.tax_percentage</strong></td>
 <td>string</td>
 <td>no</td>
+</tr>
+<tr>
+<td><strong>revenue_reporting_tax_category.store_ids</strong></td>
+<td>array[int]</td>
+<td>yes</td>
 </tr>
 </tbody></table>
 <h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
@@ -23928,6 +24040,10 @@ Requires <code>Files:Api:Delete</code> permit
 </aside>
 
           <h1 id='changelog-1'><span id=changelog></span>Changelog</h1><h3 id='13-06-2021-piotr-switlicki-1'><span id=13-06-2021-piotr-switlicki></span>13.06.2021 | Piotr Świtlicki</h3>
+<ul>
+<li>[MPC-3045] Add to get member by user_id in <a href="#members-get">Members -&gt; Get</a></li>
+</ul>
+<h3 id='13-06-2021-piotr-switlicki-1'><span id=13-06-2021-piotr-switlicki></span>13.06.2021 | Piotr Świtlicki</h3>
 <ul>
 <li>[MPC-2999] Add new endpoint variants to <a href="#members-send-one-time-password">Members -&gt; Send OTP</a></li>
 </ul>

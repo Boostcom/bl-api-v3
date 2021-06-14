@@ -1,5 +1,9 @@
 <h1 id='changelog-1'><span id=changelog></span>Changelog</h1><h3 id='13-06-2021-piotr-switlicki-1'><span id=13-06-2021-piotr-switlicki></span>13.06.2021 | Piotr Świtlicki</h3>
 <ul>
+<li>[MPC-3045] Add to get member by user_id in <a href="#members-get">Members -&gt; Get</a></li>
+</ul>
+<h3 id='13-06-2021-piotr-switlicki-1'><span id=13-06-2021-piotr-switlicki></span>13.06.2021 | Piotr Świtlicki</h3>
+<ul>
 <li>[MPC-2999] Add new endpoint variants to <a href="#members-send-one-time-password">Members -&gt; Send OTP</a></li>
 </ul>
 <h3 id='25-05-2021-natalia-styrska-1'><span id=25-05-2021-natalia-styrska></span>25.05.2021 | Natalia Styrska</h3>
