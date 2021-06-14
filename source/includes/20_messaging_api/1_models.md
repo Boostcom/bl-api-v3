@@ -207,7 +207,7 @@ wrapper_id | integer | ID of [wrapper template](#messaging-template-wrapping)
   "id": 609193,
   "wrapper_id": null,
   "type": "plain",
-  "content": { "subject": "Important message for {{name}}", "body": "Hei {{name}}" },
+  "content": { "body": "Hei {{name}}" },
   "created_at": "2020-09-15T12:45:08.618Z",
   "updated_at": "2020-09-15T12:45:08.618Z"
 }
@@ -230,7 +230,7 @@ Key | Type | Description
   "id": 609194,
   "wrapper_id": null,
   "type": "email",
-  "content": { "subject": "Welcome!", "body": "<b>Hei {{name}}</b>" },
+  "content": { "subject": "Welcome!", "body": "<b>Hei {{name}}</b>", "preheader": "We welcome you" },
   "created_at": "2020-09-15T12:45:08.618Z",
   "updated_at": "2020-09-15T12:45:08.618Z"
 }
@@ -242,6 +242,7 @@ Key | Type
 --------- | ---------
 **content.body** | HTML
 content.subject | string
+content.preheader | string
 
 <div class="clear"></div>
 
@@ -254,7 +255,7 @@ content.subject | string
   "id": 609193,
   "wrapper_id": null,
   "type": "bee_email",
-  "content": { "subject": "Welcome!", "body": "<b>Hei {{name}}</b>", "bee_json": {} },
+  "content": { "subject": "Welcome!", "body": "<b>Hei {{name}}</b>", "preheader": "We welcome you", "bee_json": {} },
   "created_at": "2020-09-15T12:45:08.618Z",
   "updated_at": "2020-09-15T12:45:08.618Z"
 }
@@ -269,6 +270,7 @@ Key | Type
 **content.body** | HTML
 **content.bee_json** | Object
 content.subject | string
+content.preheader | string
 
 <div class="clear"></div>
 
@@ -321,6 +323,7 @@ Key | Type
 --------- | ---------
 content.body | string
 content.subject | string
+content.preheader | string
 content.uri | URL
 
 #### <a name="messaging-template-templating-system"></a> Templating system

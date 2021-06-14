@@ -1,5 +1,9 @@
 # Changelog
 
+### 14.06.2021 | Piotr Świtlicki
+
+* [MPC-2711] Add preheader to [Messages API -> Template](#messaging-template-model)
+
 ### 13.06.2021 | Piotr Świtlicki
 
 * [MPC-3045] Add to get member by user_id in [Members -> Get](#members-get)
