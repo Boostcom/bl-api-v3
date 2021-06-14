@@ -1,4 +1,8 @@
-<h1 id='changelog-1'><span id=changelog></span>Changelog</h1><h3 id='13-06-2021-piotr-switlicki-1'><span id=13-06-2021-piotr-switlicki></span>13.06.2021 | Piotr Świtlicki</h3>
+<h1 id='changelog-1'><span id=changelog></span>Changelog</h1><h3 id='14-06-2021-piotr-switlicki-1'><span id=14-06-2021-piotr-switlicki></span>14.06.2021 | Piotr Świtlicki</h3>
+<ul>
+<li>[MPC-2711] Add preheader to <a href="#messaging-template-model">Messages API -&gt; Template</a></li>
+</ul>
+<h3 id='13-06-2021-piotr-switlicki-1'><span id=13-06-2021-piotr-switlicki></span>13.06.2021 | Piotr Świtlicki</h3>
 <ul>
 <li>[MPC-3045] Add to get member by user_id in <a href="#members-get">Members -&gt; Get</a></li>
 </ul>

@@ -6472,7 +6472,7 @@ By default, a value from Loyalty Club configuration is used (see <a href="#messa
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">609193</span><span class="p">,</span><span class="w">
   </span><span class="s2">"wrapper_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"plain"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"subject"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Important message for {{name}}"</span><span class="p">,</span><span class="w"> </span><span class="s2">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hei {{name}}"</span><span class="w"> </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hei {{name}}"</span><span class="w"> </span><span class="p">},</span><span class="w">
   </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-15T12:45:08.618Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-15T12:45:08.618Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -6502,7 +6502,7 @@ By default, a value from Loyalty Club configuration is used (see <a href="#messa
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">609194</span><span class="p">,</span><span class="w">
   </span><span class="s2">"wrapper_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"email"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"subject"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Welcome!"</span><span class="p">,</span><span class="w"> </span><span class="s2">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;b&gt;Hei {{name}}&lt;/b&gt;"</span><span class="w"> </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"subject"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Welcome!"</span><span class="p">,</span><span class="w"> </span><span class="s2">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;b&gt;Hei {{name}}&lt;/b&gt;"</span><span class="p">,</span><span class="w"> </span><span class="s2">"preheader"</span><span class="p">:</span><span class="w"> </span><span class="s2">"We welcome you"</span><span class="w"> </span><span class="p">},</span><span class="w">
   </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-15T12:45:08.618Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-15T12:45:08.618Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -6523,6 +6523,10 @@ By default, a value from Loyalty Club configuration is used (see <a href="#messa
 <td>content.subject</td>
 <td>string</td>
 </tr>
+<tr>
+<td>content.preheader</td>
+<td>string</td>
+</tr>
 </tbody></table>
 
 <div class="clear"></div>
@@ -6534,7 +6538,7 @@ By default, a value from Loyalty Club configuration is used (see <a href="#messa
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">609193</span><span class="p">,</span><span class="w">
   </span><span class="s2">"wrapper_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bee_email"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"subject"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Welcome!"</span><span class="p">,</span><span class="w"> </span><span class="s2">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;b&gt;Hei {{name}}&lt;/b&gt;"</span><span class="p">,</span><span class="w"> </span><span class="s2">"bee_json"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"subject"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Welcome!"</span><span class="p">,</span><span class="w"> </span><span class="s2">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;b&gt;Hei {{name}}&lt;/b&gt;"</span><span class="p">,</span><span class="w"> </span><span class="s2">"preheader"</span><span class="p">:</span><span class="w"> </span><span class="s2">"We welcome you"</span><span class="p">,</span><span class="w"> </span><span class="s2">"bee_json"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="p">},</span><span class="w">
   </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-15T12:45:08.618Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-15T12:45:08.618Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -6559,6 +6563,10 @@ By default, a value from Loyalty Club configuration is used (see <a href="#messa
 </tr>
 <tr>
 <td>content.subject</td>
+<td>string</td>
+</tr>
+<tr>
+<td>content.preheader</td>
 <td>string</td>
 </tr>
 </tbody></table>
@@ -6630,6 +6638,10 @@ sent with various channels.</p>
 </tr>
 <tr>
 <td>content.subject</td>
+<td>string</td>
+</tr>
+<tr>
+<td>content.preheader</td>
 <td>string</td>
 </tr>
 <tr>
@@ -24039,7 +24051,11 @@ Requires <code>Files:Api:Reprocess</code> permit
 Requires <code>Files:Api:Delete</code> permit
 </aside>
 
-          <h1 id='changelog-1'><span id=changelog></span>Changelog</h1><h3 id='13-06-2021-piotr-switlicki-1'><span id=13-06-2021-piotr-switlicki></span>13.06.2021 | Piotr Świtlicki</h3>
+          <h1 id='changelog-1'><span id=changelog></span>Changelog</h1><h3 id='14-06-2021-piotr-switlicki-1'><span id=14-06-2021-piotr-switlicki></span>14.06.2021 | Piotr Świtlicki</h3>
+<ul>
+<li>[MPC-2711] Add preheader to <a href="#messaging-template-model">Messages API -&gt; Template</a></li>
+</ul>
+<h3 id='13-06-2021-piotr-switlicki-1'><span id=13-06-2021-piotr-switlicki></span>13.06.2021 | Piotr Świtlicki</h3>
 <ul>
 <li>[MPC-3045] Add to get member by user_id in <a href="#members-get">Members -&gt; Get</a></li>
 </ul>
