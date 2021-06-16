@@ -2,7 +2,7 @@
 
 This section describes Member management endpoints that are specific to Operations API.
 
-### <a name="operations-members-delete"></a> Delete contact
+### <a name="operations-admin-members-delete"></a> Delete contact
 
 > Example:
 
