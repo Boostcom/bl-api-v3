@@ -1,5 +1,10 @@
 # Changelog
 
+### 16.06.2021 | Natalia Styrska
+
+* Add [Operationas Admin API -> Delete contact](#operations-members-delete) 
+* Move member actions from Operations Admin API to [Members API] (#members-stores-get)
+
 ### 14.06.2021 | Piotr Świtlicki
 
 * [MPC-2711] Add preheader to [Messages API -> Template](#messaging-template-model)
