@@ -1,6 +1,6 @@
 <h2 id='a-name-operations-admin-members-a-members-1'><span id=a-name-operations-admin-members-a-members></span><a name="operations-admin-members"></a> Members⠀</h2>
 <p>This section describes Member management endpoints that are specific to Operations API.</p>
-<h3 id='a-name-operations-members-delete-a-delete-contact-1'><span id=a-name-operations-members-delete-a-delete-contact></span><a name="operations-members-delete"></a> Delete contact</h3>
+<h3 id='a-name-operations-admin-members-delete-a-delete-contact-1'><span id=a-name-operations-admin-members-delete-a-delete-contact></span><a name="operations-admin-members-delete"></a> Delete contact</h3>
 <blockquote>
 <p>Example:</p>
 </blockquote>
