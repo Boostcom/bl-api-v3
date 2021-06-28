@@ -198,7 +198,23 @@ Requires <code>Operations:Api:Users:Alerts:List</code> permit
 </span></code></pre>
 <p><strong>GET</strong> <code>v1/users/me/operations/alerts/:id</code></p>
 
-<p>Returns given <a href="#operations-alert-model">Alert</a></p>
+<p>Returns given <a href="#operations-alert-model">Alert</a> with additional details</p>
+<h4 id='additional-alert-details-1'><span id=additional-alert-details></span>Additional alert details</h4>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Optional</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>reviewed_at</td>
+<td>datetime</td>
+<td>yes</td>
+<td>Time when the alert has been reviewed (accepted or rejected)</td>
+</tr>
+</tbody></table>
 <h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
 <table><thead>
 <tr>
