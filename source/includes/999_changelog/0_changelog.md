@@ -1,9 +1,13 @@
 # Changelog
 
+### 28.06.2021 | Piotr Świtlicki
+
+* Add `reviewed_at` to [Alerts API -> Show](#operations-show-alert)
+
 ### 16.06.2021 | Natalia Styrska
 
-* Add [Operationas Admin API -> Delete contact](#operations-admin-members-delete) 
-* Move member actions from Operations Admin API to [Members API] (#members-stores-get)
+* Add [Operations Admin API -> Delete contact](#operations-admin-members-delete) 
+* Move member actions from Operations Admin API to [Members API](#members-stores-get)
 
 ### 14.06.2021 | Piotr Świtlicki
 

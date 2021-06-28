@@ -146,7 +146,7 @@ curl -X GET \
     "sent_at": "2021-05-15T10:10:21.868Z"
   }
 }
-````
+```
 
 **GET** `v1/operations/alerts/:id`
 

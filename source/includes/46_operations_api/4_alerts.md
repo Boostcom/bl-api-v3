@@ -134,7 +134,13 @@ curl -X GET \
 
 **GET** `v1/users/me/operations/alerts/:id`
 
-Returns given [Alert](#operations-alert-model)
+Returns given [Alert](#operations-alert-model) with additional details
+
+#### Additional alert details
+
+Key | Type | Optional | Description
+--------- | --------- | --------- | ---------
+reviewed_at | datetime | yes | Time when the alert has been reviewed (accepted or rejected)
 
 #### URL Parameters
 
