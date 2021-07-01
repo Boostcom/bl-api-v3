@@ -1,5 +1,9 @@
 # Changelog
 
+### 01.07.2021 | Piotr Świtlicki
+
+* [MPC-3144] Add [Messages API -> Messages -> Delete](#messaging-destroy-message)
+
 ### 28.06.2021 | Piotr Świtlicki
 
 * Add `reviewed_at` to [Alerts API -> Show](#operations-show-alert)

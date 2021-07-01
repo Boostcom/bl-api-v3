@@ -249,3 +249,52 @@ Status | Description
 <aside class="notice">
 Requires <code>Messages:Api:Messages:Update</code> permit
 </aside>
+
+### <a name="messaging-destroy-message"></a> Delete Message
+
+> Example - deletes (softly) Message
+
+```shell
+curl -X DELETE \
+"https://api.mpc.placewise.com/v1/messages/13" \
+  -H 'content-type: application/json' \
+  -H 'x-loyalty-club-slug: infinity-mall' \
+  -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+  -H 'x-product-name: default' \
+  -H 'x-user-agent: CURL manual test'
+```
+
+> When successful, returns object containing deleted [message](#messaging-message-model)
+
+```json
+{
+  "message": {} // Message - see 'Message model'
+}
+```
+
+**DELETE** `v1/messages/:id`
+
+Deletes (softly) Message and its associated data (Channels, Sendings, Recipients and Dispatches)
+
+#### URL Parameters
+
+Parameter  |                   Type                | Description
+---------- | -------------------------------------------- | ------
+id | integer                                   | Message ID
+
+#### Response (JSON object)
+
+Key | Type  | Description
+---------- | -------- | ---------
+message | Message | See: [Message model](#messaging-message-model)
+
+#### Error responses
+
+Status | Description
+--------- | -----------
+`403` | Unauthorized to set specific [Service](#messaging-message-service)
+`404` | Message not found
+
+<aside class="notice">
+Requires <code>Messages:Api:Messages:Destroy</code> permit
+</aside>
