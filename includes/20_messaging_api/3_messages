@@ -336,3 +336,73 @@ possible to change any Sending during Message update.</p>
 <aside class="notice">
 Requires <code>Messages:Api:Messages:Update</code> permit
 </aside>
+<h3 id='a-name-messaging-destroy-message-a-delete-message-1'><span id=a-name-messaging-destroy-message-a-delete-message></span><a name="messaging-destroy-message"></a> Delete Message</h3>
+<blockquote>
+<p>Example - deletes (softly) Message</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X DELETE <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v1/messages/13"</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'x-loyalty-club-slug: infinity-mall'</span> <span class="se">\</span>
+  -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
+  -H <span class="s1">'x-user-agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>When successful, returns object containing deleted <a href="#messaging-message-model">message</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Message</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">'Message</span><span class="w"> </span><span class="err">model'</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>DELETE</strong> <code>v1/messages/:id</code></p>
+
+<p>Deletes (softly) Message and its associated data (Channels, Sendings, Recipients and Dispatches)</p>
+<h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>Message ID</td>
+</tr>
+</tbody></table>
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>message</td>
+<td>Message</td>
+<td>See: <a href="#messaging-message-model">Message model</a></td>
+</tr>
+</tbody></table>
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>403</code></td>
+<td>Unauthorized to set specific <a href="#messaging-message-service">Service</a></td>
+</tr>
+<tr>
+<td><code>404</code></td>
+<td>Message not found</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Messages:Api:Messages:Destroy</code> permit
+</aside>

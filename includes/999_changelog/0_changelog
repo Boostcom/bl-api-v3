@@ -1,4 +1,13 @@
-<h1 id='changelog-1'><span id=changelog></span>Changelog</h1><h3 id='28-06-2021-piotr-switlicki-1'><span id=28-06-2021-piotr-switlicki></span>28.06.2021 | Piotr Świtlicki</h3>
+<h1 id='changelog-1'><span id=changelog></span>Changelog</h1><h3 id='02-07-2021-pawel-buczkowski-1'><span id=02-07-2021-pawel-buczkowski></span>02.07.2021 | Paweł Buczkowski</h3>
+<ul>
+<li>Add <code>tenant_categories</code> to store model <a href="#store-list">Stores API -&gt; Stores</a></li>
+<li>Add <a href="#stores-tenant-categories">Stores API -&gt; Tenant Categories -&gt; List</a></li>
+</ul>
+<h3 id='01-07-2021-piotr-switlicki-1'><span id=01-07-2021-piotr-switlicki></span>01.07.2021 | Piotr Świtlicki</h3>
+<ul>
+<li>[MPC-3144] Add <a href="#messaging-destroy-message">Messages API -&gt; Messages -&gt; Delete</a></li>
+</ul>
+<h3 id='28-06-2021-piotr-switlicki-1'><span id=28-06-2021-piotr-switlicki></span>28.06.2021 | Piotr Świtlicki</h3>
 <ul>
 <li>Add <code>reviewed_at</code> to <a href="#operations-show-alert">Alerts API -&gt; Show</a></li>
 </ul>

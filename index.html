@@ -8076,6 +8076,76 @@ possible to change any Sending during Message update.</p>
 <aside class="notice">
 Requires <code>Messages:Api:Messages:Update</code> permit
 </aside>
+<h3 id='a-name-messaging-destroy-message-a-delete-message-1'><span id=a-name-messaging-destroy-message-a-delete-message></span><a name="messaging-destroy-message"></a> Delete Message</h3>
+<blockquote>
+<p>Example - deletes (softly) Message</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X DELETE <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v1/messages/13"</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'x-loyalty-club-slug: infinity-mall'</span> <span class="se">\</span>
+  -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
+  -H <span class="s1">'x-user-agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>When successful, returns object containing deleted <a href="#messaging-message-model">message</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Message</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">'Message</span><span class="w"> </span><span class="err">model'</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>DELETE</strong> <code>v1/messages/:id</code></p>
+
+<p>Deletes (softly) Message and its associated data (Channels, Sendings, Recipients and Dispatches)</p>
+<h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>Message ID</td>
+</tr>
+</tbody></table>
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>message</td>
+<td>Message</td>
+<td>See: <a href="#messaging-message-model">Message model</a></td>
+</tr>
+</tbody></table>
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>403</code></td>
+<td>Unauthorized to set specific <a href="#messaging-message-service">Service</a></td>
+</tr>
+<tr>
+<td><code>404</code></td>
+<td>Message not found</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Messages:Api:Messages:Destroy</code> permit
+</aside>
 
           <h2 id='a-name-messaging-sendings-a-sendings-1'><span id=a-name-messaging-sendings-a-sendings></span><a name="messaging-sendings"></a> Sendings</h2><h3 id='a-name-messaging-get-sending-a-get-sending-1'><span id=a-name-messaging-get-sending-a-get-sending></span><a name="messaging-get-sending"></a> Get Sending</h3>
 <blockquote>
@@ -14951,6 +15021,10 @@ Requires <code>Transaction:Api:Stamps:Create</code>
         </span><span class="p">],</span><span class="w">
         </span><span class="s2">"logo_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://foo.foo/foo.png"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Description"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"tenant_categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="s2">"Category1"</span><span class="p">,</span><span class="w"> 
+          </span><span class="s2">"Category2"</span><span class="w">
+        </span><span class="p">],</span><span class="w">
         </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
@@ -15081,6 +15155,10 @@ Requires <code>Stores:Api:Stores:Get</code> permit
         </span><span class="p">],</span><span class="w">
         </span><span class="s2">"logo_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://foo.foo/foo.png"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Description"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"tenant_categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="s2">"Category1"</span><span class="p">,</span><span class="w"> 
+          </span><span class="s2">"Category2"</span><span class="w">
+        </span><span class="p">],</span><span class="w">
         </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -15186,7 +15264,8 @@ Requires <code>Stores:Api:Stores:Get</code> permit
                 "hours":"closed"
             }
             ],
-        "description": "Description"
+        "description": "Description",
+        "tenant_categories": ["Category1", "Category2"]
     }'</span>
 </code></pre>
 <blockquote>
@@ -15270,6 +15349,11 @@ Requires <code>Stores:Api:Stores:Get</code> permit
 <td>description</td>
 <td>description</td>
 <td>string</td>
+</tr>
+<tr>
+<td>tenant_categories</td>
+<td>tenant categories</td>
+<td>array</td>
 </tr>
 </tbody></table>
 
@@ -15380,7 +15464,8 @@ Requires <code>Stores:Api:Stores:Create</code>
                 "hours":"closed"
             }
             ],
-        "description": "Description"
+        "description": "Description",
+        "tenant_categories": ["Category1", "Category2"],
     }'</span>
 </code></pre>
 <blockquote>
@@ -15485,6 +15570,11 @@ Requires <code>Stores:Api:Stores:Create</code>
 <td>description</td>
 <td>description</td>
 <td>string</td>
+</tr>
+<tr>
+<td>tenant_categories</td>
+<td>tenant categories</td>
+<td>array</td>
 </tr>
 </tbody></table>
 
@@ -15650,7 +15740,7 @@ Requires <code>Stores:Api:Stores:Delete</code>
 <p>List of all store categories</p>
 
 <aside class="notice">
-Requires <code>Stores:Api:Zones:Get</code> permit
+Requires <code>Stores:Api:Categories:Get</code> permit
 </aside> 
 <h2 id='zones-1'><span id=zones></span>Zones</h2><h3 id='a-name-store-zones-list-a-list-1'><span id=a-name-store-zones-list-a-list></span><a name="store-zones-list"></a> List</h3>
 <blockquote>
@@ -15706,6 +15796,32 @@ Requires <code>Stores:Api:Zones:Get</code> permit
 <aside class="notice">
 Requires <code>Stores:Api:Floors:Get</code> permit
 </aside>
+<h2 id='a-name-stores-tenant-categories-a-tenant-categories-1'><span id=a-name-stores-tenant-categories-a-tenant-categories></span><a name="stores-tenant-categories"></a> Tenant Categories</h2><h3 id='a-name-store-tenant-categories-list-a-list-1'><span id=a-name-store-tenant-categories-list-a-list></span><a name="store-tenant-categories-list"></a> List</h3>
+<blockquote>
+<p>Example:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v3/:loyalty_club_slug/stores/tenant-categories"</span> <span class="se">\</span>
+    -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+    -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
+    -H <span class="s1">'x-user-agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>When successful (200), returns an array of store objects structured like below. Some values may be omitted if were not provided:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="s2">"category1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"category2"</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p><strong>GET</strong> <code>v3/:loyalty_club_slug/stores/tenant-categories</code></p>
+
+<p>List of all store tenant categories</p>
+
+<aside class="notice">
+Requires <code>Stores:Api:TenantCategories:Get</code> permit
+</aside> 
 
           <h2 id='departments-1'><span id=departments></span>Departments</h2><h3 id='a-name-department-list-a-list-1'><span id=a-name-department-list-a-list></span><a name="department-list"></a> List</h3>
 <blockquote>
@@ -24110,7 +24226,16 @@ Requires <code>Files:Api:Reprocess</code> permit
 Requires <code>Files:Api:Delete</code> permit
 </aside>
 
-          <h1 id='changelog-1'><span id=changelog></span>Changelog</h1><h3 id='28-06-2021-piotr-switlicki-1'><span id=28-06-2021-piotr-switlicki></span>28.06.2021 | Piotr Świtlicki</h3>
+          <h1 id='changelog-1'><span id=changelog></span>Changelog</h1><h3 id='02-07-2021-pawel-buczkowski-1'><span id=02-07-2021-pawel-buczkowski></span>02.07.2021 | Paweł Buczkowski</h3>
+<ul>
+<li>Add <code>tenant_categories</code> to store model <a href="#store-list">Stores API -&gt; Stores</a></li>
+<li>Add <a href="#stores-tenant-categories">Stores API -&gt; Tenant Categories -&gt; List</a></li>
+</ul>
+<h3 id='01-07-2021-piotr-switlicki-1'><span id=01-07-2021-piotr-switlicki></span>01.07.2021 | Piotr Świtlicki</h3>
+<ul>
+<li>[MPC-3144] Add <a href="#messaging-destroy-message">Messages API -&gt; Messages -&gt; Delete</a></li>
+</ul>
+<h3 id='28-06-2021-piotr-switlicki-1'><span id=28-06-2021-piotr-switlicki></span>28.06.2021 | Piotr Świtlicki</h3>
 <ul>
 <li>Add <code>reviewed_at</code> to <a href="#operations-show-alert">Alerts API -&gt; Show</a></li>
 </ul>
