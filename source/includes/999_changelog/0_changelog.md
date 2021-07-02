@@ -1,5 +1,10 @@
 # Changelog
 
+### 02.07.2021 | Paweł Buczkowski
+
+* Add `tenant_categories` to store model [Stores API -> Stores](#store-list)
+* Add [Stores API -> Tenant Categories -> List](#stores-tenant-categories)
+
 ### 01.07.2021 | Piotr Świtlicki
 
 * [MPC-3144] Add [Messages API -> Messages -> Delete](#messaging-destroy-message)

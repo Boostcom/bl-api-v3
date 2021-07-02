@@ -68,6 +68,10 @@ curl -X GET \
         ],
         "logo_url": "http://foo.foo/foo.png",
         "description": "Description",
+        "tenant_categories": [
+          "Category1", 
+          "Category2"
+        ],
         "status": "active"
     }
 ]
@@ -162,6 +166,10 @@ curl -X GET \
         ],
         "logo_url": "http://foo.foo/foo.png",
         "description": "Description",
+        "tenant_categories": [
+          "Category1", 
+          "Category2"
+        ],
         "status": "active"
     }
 }
@@ -254,7 +262,8 @@ curl -X POST \
 			    "hours":"closed"
 			}
         	],
-        "description": "Description"
+        "description": "Description",
+        "tenant_categories": ["Category1", "Category2"]
     }'
 ```
 
@@ -299,6 +308,7 @@ location      | location               | string
 area          | area                   | int
 opening_hours | opening hours          | array of day objects
 description   | description            | string
+tenant_categories   | tenant categories            | array
 
 Day object for opening hours
 
@@ -380,7 +390,8 @@ curl -X PUT \
 			    "hours":"closed"
 			}
         	],
-        "description": "Description"
+        "description": "Description",
+        "tenant_categories": ["Category1", "Category2"],
     }'
 ```
 
@@ -439,6 +450,7 @@ location      | location               | string
 area          | area                   | int
 opening_hours | opening hours          | array of day objects
 description   | description            | string
+tenant_categories   | tenant categories            | array
 
 Day object for opening hours
 
@@ -559,7 +571,7 @@ List of all store categories
 
 
 <aside class="notice">
-Requires <code>Stores:Api:Zones:Get</code> permit
+Requires <code>Stores:Api:Categories:Get</code> permit
 </aside> 
 
 ## Zones
@@ -629,3 +641,36 @@ List of all floors
 <aside class="notice">
 Requires <code>Stores:Api:Floors:Get</code> permit
 </aside>
+
+## <a name="stores-tenant-categories"></a> Tenant Categories
+
+### <a name="store-tenant-categories-list"></a> List
+
+> Example:
+
+```shell
+curl -X GET \
+"https://api.mpc.placewise.com/v3/:loyalty_club_slug/stores/tenant-categories" \
+    -H 'content-type: application/json' \
+    -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+    -H 'x-product-name: default' \
+    -H 'x-user-agent: CURL manual test'
+```
+
+> When successful (200), returns an array of store objects structured like below. Some values may be omitted if were not provided:
+
+```json
+[
+    "category1",
+    "category2"
+]
+``` 
+
+**GET** `v3/:loyalty_club_slug/stores/tenant-categories`
+
+List of all store tenant categories
+
+
+<aside class="notice">
+Requires <code>Stores:Api:TenantCategories:Get</code> permit
+</aside> 
