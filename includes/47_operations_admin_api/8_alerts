@@ -37,7 +37,7 @@
 <td>type</td>
 <td>string</td>
 <td>no</td>
-<td>One of available <a href="#operations-admin-list-alerts">alert types</a> names</td>
+<td>One of available <a href="#operations-admin-list-alert-types">alert types</a> names</td>
 </tr>
 <tr>
 <td>state</td>
@@ -86,7 +86,7 @@
 <tr>
 <td><strong>type</strong></td>
 <td>string</td>
-<td>Must match available <a href="#operations-admin-list-alerts">alert types</a> names</td>
+<td>Must match available <a href="#operations-admin-list-alert-types">alert types</a> names</td>
 </tr>
 <tr>
 <td><strong>message</strong></td>

@@ -1,0 +1,75 @@
+<h2 id='a-name-operations-alert-templates-a-alert-templates-1'><span id=a-name-operations-alert-templates-a-alert-templates></span><a name="operations-alert-templates"></a> Alert Templates</h2><h3 id='a-name-operations-list-alert-templates-a-list-alert-templates-1'><span id=a-name-operations-list-alert-templates-a-list-alert-templates></span><a name="operations-list-alert-templates"></a> List Alert Templates</h3>
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v1/users/me/operations/alert_templates"</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'x-loyalty-club-slug: infinity-mall'</span> <span class="se">\</span>
+  -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
+  -H <span class="s1">'x-user-agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>Returns object containing alert templates and <a href="#pagination-model">pagination_info</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"alert_templates"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fire alert"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fire has broke out"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-14T09:26:14.823Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-14T09:26:14.823Z"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"pagination_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Pagination</span><span class="w"> </span><span class="err">info</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">'Pagination</span><span class="w"> </span><span class="err">info'</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>GET</strong> <code>v1/operations/alert_templates</code></p>
+
+<p>Returns list of Alert Templates.</p>
+<h4 id='response-1'><span id=response></span>Response</h4>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Optional</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>alert_templates[].id</td>
+<td>integer</td>
+<td>no</td>
+<td></td>
+</tr>
+<tr>
+<td>alert_templates[].type</td>
+<td>string</td>
+<td>no</td>
+<td>One of available <a href="#operations-list-alert-types">alert types</a> names</td>
+</tr>
+<tr>
+<td>alert_templates[].message</td>
+<td>string</td>
+<td>no</td>
+<td>Content of message sent to recipients</td>
+</tr>
+<tr>
+<td>alert_templates[].created_at</td>
+<td>datetime</td>
+<td>no</td>
+<td>Time of creation</td>
+</tr>
+<tr>
+<td>alert_templates[].updated_at</td>
+<td>datetime</td>
+<td>no</td>
+<td>Time of last update</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Operations:Api:Users:AlertTemplates:List</code> permit
+</aside>
