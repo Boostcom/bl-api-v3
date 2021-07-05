@@ -1,5 +1,9 @@
 # Changelog
 
+### 05.07.2021 | Piotr Świtlicki
+
+* [MPC-3138] Add [Operations Admin API -> Alert Templates](#operations-admin-alert-templates) and [Operations API -> Alert Templates](#operations-alert-templates)
+
 ### 02.07.2021 | Paweł Buczkowski
 
 * Add `tenant_categories` to store model [Stores API -> Stores](#store-list)

@@ -44,7 +44,8 @@ includes:
   - 46_operations_api/1_documents
   - 46_operations_api/2_resource_types
   - 46_operations_api/3_resources
-  - 46_operations_api/4_alerts
+  - 46_operations_api/4_1_alerts
+  - 46_operations_api/4_2_alert_templates
   - 46_operations_api/5_app_tokens
   - 46_operations_api/6_revenue_reports
   - 47_operations_admin_api/0_introduction
@@ -56,6 +57,7 @@ includes:
   - 47_operations_admin_api/6_revenue_reporting_tax_categories
   - 47_operations_admin_api/7_revenue_reports
   - 47_operations_admin_api/8_alerts
+  - 47_operations_admin_api/9_alert_templates
   - 50_files_api/0_files
   - 60_tokens_admin_api/0_introduction
   - 60_tokens_admin_api/1_tokens

@@ -23,7 +23,7 @@ Key | Type | Optional | Description
 --------- | --------- | --------- | ---------
 id | integer | no |
 audience_id | integer | no | Audience the alert is sent to
-type | string | no | One of available [alert types](#operations-admin-list-alerts) names
+type | string | no | One of available [alert types](#operations-admin-list-alert-types) names
 state |  enum: `['pending', 'accepted', 'rejected']` | no | 
 message | string | no | Content of message sent to recipients
 location | string | yes | 
@@ -35,7 +35,7 @@ updated_at | datetime | no | Time of last update
 Key                   | Type      | Description
 ---------             | --------- | ---------
 **audience_id** | integer[] | ID of audience that should receive the alert
-**type**        | string    | Must match available [alert types](#operations-admin-list-alerts) names
+**type**        | string    | Must match available [alert types](#operations-admin-list-alert-types) names
 **message**     | string    | Content of message sent to recipients 
 location        | string    | 
 
