@@ -1,5 +1,9 @@
 # Changelog
 
+### 09.07.2021 | Piotr Świtlicki
+
+* [MPC-3311] Add [Operations Admin API -> Settings](#operations-admin-settings)
+
 ### 05.07.2021 | Piotr Świtlicki
 
 * [MPC-3138] Add [Operations Admin API -> Alert Templates](#operations-admin-alert-templates) and [Operations API -> Alert Templates](#operations-alert-templates)

@@ -49,6 +49,7 @@ includes:
   - 46_operations_api/5_app_tokens
   - 46_operations_api/6_revenue_reports
   - 47_operations_admin_api/0_introduction
+  - 47_operations_admin_api/01_settings
   - 47_operations_admin_api/1_members
   - 47_operations_admin_api/2_documents
   - 47_operations_admin_api/3_resource_types
