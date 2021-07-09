@@ -19016,6 +19016,156 @@ Requires <code>Operations:Api:Users:RevenueReports:Update</code> permit
 
 <p>Navigate to <a href="#operations">Operations</a> section to see docs for user-facing endpoints.</p>
 
+          <h2 id='a-name-operations-admin-settings-a-settings-1'><span id=a-name-operations-admin-settings-a-settings></span><a name="operations-admin-settings"></a> Settings</h2><h3 id='common-models-1'><span id=common-models></span>Common models</h3><h4 id='a-name-operations-admin-settings-model-a-settings-model-1'><span id=a-name-operations-admin-settings-model-a-settings-model></span><a name="operations-admin-settings-model"></a> Settings model</h4>
+<blockquote>
+<p>Alert example:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"alert_reviewers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"7db2c508-1758-4b84-ba68-50b5c8e1f458"</span><span class="p">],</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-14T09:26:14.823Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Optional</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>alert_reviewers</td>
+<td>string[]</td>
+<td>no</td>
+<td>IDs of users responsible for accepting alerts</td>
+</tr>
+<tr>
+<td>updated_at</td>
+<td>datetime</td>
+<td>no</td>
+<td>When null, the default values are returned.</td>
+</tr>
+</tbody></table>
+<h4 id='a-name-operations-admin-settings-payload-model-a-settingspayload-model-1'><span id=a-name-operations-admin-settings-payload-model-a-settingspayload-model></span><a name="operations-admin-settings-payload-model"></a> SettingsPayload model</h4>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>alert_reviewers</strong></td>
+<td>string[]</td>
+<td>IDs of users responsible for accepting alerts</td>
+</tr>
+</tbody></table>
+<h3 id='a-name-operations-admin-show-settings-a-get-settings-1'><span id=a-name-operations-admin-show-settings-a-get-settings></span><a name="operations-admin-show-settings"></a> Get Settings</h3>
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v1/operations/settings"</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'x-loyalty-club-slug: infinity-mall'</span> <span class="se">\</span>
+  -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
+  -H <span class="s1">'x-user-agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>Returns object containing Operations <a href="#operations-admin-settings-model">settings</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Settings</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">'Settings</span><span class="w"> </span><span class="err">model'</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>GET</strong> <code>v1/operations/settings</code></p>
+
+<p>Returns Operations <a href="#operations-admin-settings-model">settings</a>.</p>
+
+<p>When settings haven&#39;t been set up yet, returns default values.</p>
+
+<aside class="notice">
+Requires <code>Operations:Api:Settings:Show</code> permit
+</aside>
+<h3 id='a-name-operations-admin-update-settings-a-update-settings-1'><span id=a-name-operations-admin-update-settings-a-update-settings></span><a name="operations-admin-update-settings"></a> Update Settings</h3>
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X PUT <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v1/operations/settings"</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'x-loyalty-club-slug: infinity-mall'</span> <span class="se">\</span>
+  -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
+  -H <span class="s1">'x-user-agent: CURL manual test'</span> <span class="se">\</span>
+  -d <span class="s1">'
+    {
+        "settings": {
+            "alert_reviewers": ["7db2c508-1758-4b84-ba68-50b5c8e1f458"]
+        }
+    }
+  '</span>
+</code></pre>
+<blockquote>
+<p>When successful, returns object containing updated <a href="#operations-admin-settings-model">settings</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Settings</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">'Settings</span><span class="w"> </span><span class="err">model'</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>PUT</strong> <code>v1/operations/settings</code></p>
+
+<p>Updates the <a href="#operations-admin-settings-model">Settings</a></p>
+<h4 id='put-parameters-json-1'><span id=put-parameters-json></span>PUT Parameters (JSON)</h4>
+<p>See <a href="#operations-admin-settings-payload-model">SettingsPayload model</a></p>
+<h4 id='response-json-object-1'><span id=response-json-object></span>Response (JSON object)</h4>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>settings</td>
+<td>Settings</td>
+<td>See: <a href="#operations-admin-settings-model">Settings model</a></td>
+</tr>
+</tbody></table>
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>422</code></td>
+<td>Invalid parameters - see <a href="#invalid-parameters-errors-model">Invalid parameters errors model</a></td>
+</tr>
+</tbody></table>
+<h4 id='specific-validation-errors-1'><span id=specific-validation-errors></span>Specific validation errors</h4>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Error</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>settings.alert_reviewers</code></td>
+<td><code>user_not_found</code></td>
+</tr>
+<tr>
+<td><code>settings.alert_reviewers</code></td>
+<td><code>user_msisdn_missing</code></td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Operations:Api:Settings:Update</code> permit
+</aside>
+
           <h2 id='a-name-operations-admin-members-a-members-1'><span id=a-name-operations-admin-members-a-members></span><a name="operations-admin-members"></a> Members⠀</h2>
 <p>This section describes Member management endpoints that are specific to Operations API.</p>
 <h3 id='a-name-operations-admin-members-delete-a-delete-contact-1'><span id=a-name-operations-admin-members-delete-a-delete-contact></span><a name="operations-admin-members-delete"></a> Delete contact</h3>
@@ -24656,7 +24806,11 @@ Requires <code>Files:Api:Reprocess</code> permit
 Requires <code>Files:Api:Delete</code> permit
 </aside>
 
-          <h1 id='changelog-1'><span id=changelog></span>Changelog</h1><h3 id='05-07-2021-piotr-switlicki-1'><span id=05-07-2021-piotr-switlicki></span>05.07.2021 | Piotr Świtlicki</h3>
+          <h1 id='changelog-1'><span id=changelog></span>Changelog</h1><h3 id='09-07-2021-piotr-switlicki-1'><span id=09-07-2021-piotr-switlicki></span>09.07.2021 | Piotr Świtlicki</h3>
+<ul>
+<li>[MPC-3311] Add <a href="#operations-admin-settings">Operations Admin API -&gt; Settings</a></li>
+</ul>
+<h3 id='05-07-2021-piotr-switlicki-1'><span id=05-07-2021-piotr-switlicki></span>05.07.2021 | Piotr Świtlicki</h3>
 <ul>
 <li>[MPC-3138] Add <a href="#operations-admin-alert-templates">Operations Admin API -&gt; Alert Templates</a> and <a href="#operations-alert-templates">Operations API -&gt; Alert Templates</a></li>
 </ul>

@@ -1,4 +1,8 @@
-<h1 id='changelog-1'><span id=changelog></span>Changelog</h1><h3 id='05-07-2021-piotr-switlicki-1'><span id=05-07-2021-piotr-switlicki></span>05.07.2021 | Piotr Świtlicki</h3>
+<h1 id='changelog-1'><span id=changelog></span>Changelog</h1><h3 id='09-07-2021-piotr-switlicki-1'><span id=09-07-2021-piotr-switlicki></span>09.07.2021 | Piotr Świtlicki</h3>
+<ul>
+<li>[MPC-3311] Add <a href="#operations-admin-settings">Operations Admin API -&gt; Settings</a></li>
+</ul>
+<h3 id='05-07-2021-piotr-switlicki-1'><span id=05-07-2021-piotr-switlicki></span>05.07.2021 | Piotr Świtlicki</h3>
 <ul>
 <li>[MPC-3138] Add <a href="#operations-admin-alert-templates">Operations Admin API -&gt; Alert Templates</a> and <a href="#operations-alert-templates">Operations API -&gt; Alert Templates</a></li>
 </ul>
