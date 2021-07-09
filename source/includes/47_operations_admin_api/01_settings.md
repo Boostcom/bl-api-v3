@@ -16,7 +16,7 @@
 Key | Type | Optional | Description
 --------- | --------- | --------- | ---------
 alert_reviewers | string[] | no | IDs of users responsible for accepting alerts
-updated_at | datetime | no | When null, the default values are returned.
+updated_at | datetime | yes | When null, the default values are returned.
 
 #### <a name="operations-admin-settings-payload-model"></a> SettingsPayload model
 
