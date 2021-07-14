@@ -1,4 +1,9 @@
-<h1 id='changelog-1'><span id=changelog></span>Changelog</h1><h3 id='09-07-2021-piotr-switlicki-1'><span id=09-07-2021-piotr-switlicki></span>09.07.2021 | Piotr Świtlicki</h3>
+<h1 id='changelog-1'><span id=changelog></span>Changelog</h1><h3 id='14-07-2021-natalia-styrska-1'><span id=14-07-2021-natalia-styrska></span>14.07.2021 | Natalia Styrska</h3>
+<ul>
+<li>Add <a href="#cms">Cms API</a> </li>
+<li>Add <a href="#cms-admin">Cms Admin API</a> </li>
+</ul>
+<h3 id='09-07-2021-piotr-switlicki-1'><span id=09-07-2021-piotr-switlicki></span>09.07.2021 | Piotr Świtlicki</h3>
 <ul>
 <li>[MPC-3311] Add <a href="#operations-admin-settings">Operations Admin API -&gt; Settings</a></li>
 </ul>

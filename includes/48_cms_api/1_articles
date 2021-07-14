@@ -1,0 +1,179 @@
+<h2 id='a-name-cms-articles-a-articles-1'><span id=a-name-cms-articles-a-articles></span><a name="cms-articles"></a> Articles</h2><h3 id='a-name-cms-article-model-a-article-model-1'><span id=a-name-cms-article-model-a-article-model></span><a name="cms-article-model"></a> Article model</h3>
+<blockquote>
+<p>Document example:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"draft"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Title"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;html&gt;Html content&lt;/html&gt;"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"lead"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"image_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://image.url"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"published_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-07-14T12:54:07.076Z"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-07-14T12:54:07.076Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Optional</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>no</td>
+<td></td>
+</tr>
+<tr>
+<td>status</td>
+<td>enum: <code>[&#39;draft&#39;, &#39;published&#39;]</code></td>
+<td>no</td>
+<td></td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td>no</td>
+<td></td>
+</tr>
+<tr>
+<td>description</td>
+<td>string</td>
+<td>no</td>
+<td></td>
+</tr>
+<tr>
+<td>lead</td>
+<td>string</td>
+<td>yes</td>
+<td>currently not used</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>datetime</td>
+<td>no</td>
+<td>Time of creation</td>
+</tr>
+<tr>
+<td>published_at</td>
+<td>datetime</td>
+<td>yes</td>
+<td>Time of publication</td>
+</tr>
+<tr>
+<td>image_url</td>
+<td>string</td>
+<td>yes</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id='a-name-cms-list-articles-a-list-articles-1'><span id=a-name-cms-list-articles-a-list-articles></span><a name="cms-list-articles"></a> List Articles</h3>
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v1/users/me/content/articles"</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'x-loyalty-club-slug: infinity-mall'</span> <span class="se">\</span>
+  -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
+  -H <span class="s1">'x-user-agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>Returns object containing <a href="#cms-admin-article-model">article</a> and <a href="#pagination-model">pagination_info</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"articles"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">List</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">articles</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">'Article</span><span class="w"> </span><span class="err">model'</span><span class="w">
+  </span><span class="s2">"pagination_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Pagination</span><span class="w"> </span><span class="err">info</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">'Pagination</span><span class="w"> </span><span class="err">info'</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>GET</strong> <code>v1/content/articles</code></p>
+
+<p>Returns list of only currently published <a href="#cms-admin-article-model">Articles</a>.</p>
+<h4 id='query-parameters-1'><span id=query-parameters></span>Query Parameters</h4>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>per_page</td>
+<td>integer</td>
+<td>100</td>
+<td>Number of results to be returned per request (100 is the maximum)</td>
+</tr>
+<tr>
+<td>page_no</td>
+<td>integer</td>
+<td>1</td>
+<td>Number of results page</td>
+</tr>
+<tr>
+<td>search</td>
+<td>string</td>
+<td>null</td>
+<td>When true, returns only Articles with titles that match the given string</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Cms:Api:Users:Articles:List</code> permit
+</aside>
+<h3 id='a-name-cms-show-article-a-get-article-1'><span id=a-name-cms-show-article-a-get-article></span><a name="cms-show-article"></a> Get Article</h3>
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v1/users/me/content/article/5"</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'x-loyalty-club-slug: infinity-mall'</span> <span class="se">\</span>
+  -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
+  -H <span class="s1">'x-user-agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>Returns object containing <a href="#cms-admin-article-model">article</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"article"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">see</span><span class="p">:</span><span class="w"> </span><span class="err">'Article</span><span class="w"> </span><span class="err">model'</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>GET</strong> <code>v1/content/articles/:id</code></p>
+
+<p>Returns only currently published <a href="#cms-admin-article-model">Article</a>.</p>
+<h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>Article ID</td>
+</tr>
+</tbody></table>
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>404</code></td>
+<td>Article not found</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Cms:Api:Articles:Show</code> permit
+</aside>

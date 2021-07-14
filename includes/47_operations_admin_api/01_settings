@@ -24,7 +24,7 @@
 <tr>
 <td>updated_at</td>
 <td>datetime</td>
-<td>no</td>
+<td>yes</td>
 <td>When null, the default values are returned.</td>
 </tr>
 </tbody></table>
