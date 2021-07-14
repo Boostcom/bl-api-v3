@@ -59,6 +59,10 @@ includes:
   - 47_operations_admin_api/7_revenue_reports
   - 47_operations_admin_api/8_alerts
   - 47_operations_admin_api/9_alert_templates
+  - 48_cms_api/0_introduction
+  - 48_cms_api/1_articles
+  - 49_cms_admin_api/0_introduction
+  - 49_cms_admin_api/1_articles  
   - 50_files_api/0_files
   - 60_tokens_admin_api/0_introduction
   - 60_tokens_admin_api/1_tokens

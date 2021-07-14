@@ -1,5 +1,10 @@
 # Changelog
 
+### 14.07.2021 | Natalia Styrska
+
+* Add [Cms API](#cms) 
+* Add [Cms Admin API](#cms-admin) 
+
 ### 09.07.2021 | Piotr Świtlicki
 
 * [MPC-3311] Add [Operations Admin API -> Settings](#operations-admin-settings)
