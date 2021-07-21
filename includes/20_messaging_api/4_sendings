@@ -161,6 +161,117 @@ Requires <code>Messages:Api:Sendings:Get</code> permit
 <aside class="notice">
 Requires <code>Messages:Api:Dispatches:List</code> permit
 </aside>
+<h3 id='a-name-messaging-list-sending-dispatch-members-a-list-sending-members-1'><span id=a-name-messaging-list-sending-dispatch-members-a-list-sending-members></span><a name="messaging-list-sending-dispatch-members"></a> List Sending Members</h3>
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+<span class="s2">"https://api.mpc.placewise.com/v1/messages/sendings/32/dispatches/members"</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'x-loyalty-club-slug: infinity-mall'</span> <span class="se">\</span>
+  -H <span class="s1">'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM'</span> <span class="se">\</span>
+  -H <span class="s1">'x-product-name: default'</span> <span class="se">\</span>
+  -H <span class="s1">'x-user-agent: CURL manual test'</span>
+</code></pre>
+<blockquote>
+<p>Returns object containing <a href="#messaging-dispatch-member-model">Dispatch_member</a> and <a href="#pagination-model">pagination_info</a></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"dispatch_members"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">List</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">distinct</span><span class="w"> </span><span class="err">members</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">'Dispatch</span><span class="w"> </span><span class="err">model'</span><span class="w">
+  </span><span class="s2">"pagination_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Pagination</span><span class="w"> </span><span class="err">info</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">see</span><span class="w"> </span><span class="err">'Pagination</span><span class="w"> </span><span class="err">info'</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>GET</strong> <code>v1/messages/sendings/:id/dispatches/members</code></p>
+
+<p>Returns <a href="#messaging-dispatch-member-model">Dispatch_member</a> created for Sending.</p>
+<h4 id='url-parameters-1'><span id=url-parameters></span>URL Parameters</h4>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>Sending ID</td>
+</tr>
+</tbody></table>
+<h4 id='query-parameters-1'><span id=query-parameters></span>Query Parameters</h4>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>per_page</td>
+<td>integer</td>
+<td>100</td>
+<td>Number of results to be returned per request (100 is the maximum)</td>
+</tr>
+<tr>
+<td>page_no</td>
+<td>integer</td>
+<td>1</td>
+<td>Number of results page</td>
+</tr>
+<tr>
+<td>transmission_status</td>
+<td>enum</td>
+<td>null</td>
+<td>When present, returns only Messages having given <a href="#messaging-dispatch-model">transmission_status</a></td>
+</tr>
+<tr>
+<td>delivery_status</td>
+<td>enum</td>
+<td>null</td>
+<td>When present, returns only Dispatches with given <a href="#messaging-dispatch-model">delivery_status</a></td>
+</tr>
+<tr>
+<td>member_id</td>
+<td>integer</td>
+<td>null</td>
+<td>When present, returns only Dispatches sent to recipient identified by given id</td>
+</tr>
+<tr>
+<td>msisdn</td>
+<td>string</td>
+<td>null</td>
+<td>When present, returns only Dispatches sent to recipient identified by given msisdn</td>
+</tr>
+<tr>
+<td>email</td>
+<td>string</td>
+<td>null</td>
+<td>When present, returns only Dispatches sent to recipient identified by given email</td>
+</tr>
+<tr>
+<td>app_token</td>
+<td>string</td>
+<td>null</td>
+<td>When present, returns only Dispatches sent to recipient identified by given app_token</td>
+</tr>
+</tbody></table>
+<h4 id='error-responses-1'><span id=error-responses></span>Error responses</h4>
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>404</code></td>
+<td>Sending not found</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Requires <code>Messages:Api:Dispatches:Members:Index</code> permit
+</aside>
 <h3 id='a-name-messaging-create-sending-a-create-sending-1'><span id=a-name-messaging-create-sending-a-create-sending></span><a name="messaging-create-sending"></a> Create Sending</h3>
 <blockquote>
 <p>Example - creates a Sending scheduled immediately, sent to given audience and one inline recipient.</p>
