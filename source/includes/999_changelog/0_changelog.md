@@ -1,5 +1,9 @@
 # Changelog
 
+### 21.07.2021 | Natalia Styrska
+
+* Add [List Sending Members](#messaging-list-sending-dispatch-members)
+
 ### 14.07.2021 | Natalia Styrska
 
 * Add [Cms API](#cms) 

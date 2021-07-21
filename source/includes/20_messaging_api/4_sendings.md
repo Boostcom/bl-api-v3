@@ -98,6 +98,63 @@ Status | Description
 Requires <code>Messages:Api:Dispatches:List</code> permit
 </aside>
 
+### <a name="messaging-list-sending-dispatch-members"></a> List Sending Members
+
+> Example
+
+```shell
+curl -X GET \
+"https://api.mpc.placewise.com/v1/messages/sendings/32/dispatches/members" \
+  -H 'content-type: application/json' \
+  -H 'x-loyalty-club-slug: infinity-mall' \
+  -H 'x-client-authorization: B7t9U9tsoWsGhrv2ouUoSqpM' \
+  -H 'x-product-name: default' \
+  -H 'x-user-agent: CURL manual test'
+```
+
+> Returns object containing [Dispatch_member](#messaging-dispatch-member-model) and [pagination_info](#pagination-model)
+
+```json
+{
+  "dispatch_members": [], // List of distinct members - see 'Dispatch model'
+  "pagination_info": {} // Pagination info - see 'Pagination info'
+}
+```
+
+**GET** `v1/messages/sendings/:id/dispatches/members`
+
+Returns [Dispatch_member](#messaging-dispatch-member-model) created for Sending.
+
+#### URL Parameters
+
+Parameter  |                   Type                | Description
+---------- | -------------------------------------------- | ------
+id | integer                                   | Sending ID
+
+#### Query Parameters
+
+Parameter            | Type        | Default   | Description
+--------------       | ----------- | --------- | -----------
+per_page             | integer     | 100       | Number of results to be returned per request (100 is the maximum)
+page_no              | integer     | 1         | Number of results page
+transmission_status  | enum        | null      | When present, returns only Messages having given [transmission_status](#messaging-dispatch-model)
+delivery_status      | enum        | null      | When present, returns only Dispatches with given [delivery_status](#messaging-dispatch-model)
+member_id            | integer     | null      | When present, returns only Dispatches sent to recipient identified by given id
+msisdn               | string      | null      | When present, returns only Dispatches sent to recipient identified by given msisdn
+email                | string      | null      | When present, returns only Dispatches sent to recipient identified by given email
+app_token            | string      | null      | When present, returns only Dispatches sent to recipient identified by given app_token
+
+#### Error responses
+
+Status | Description
+--------- | -----------
+`404` | Sending not found
+
+<aside class="notice">
+Requires <code>Messages:Api:Dispatches:Members:Index</code> permit
+</aside>
+
+
 ### <a name="messaging-create-sending"></a> Create Sending
 
 > Example - creates a Sending scheduled immediately, sent to given audience and one inline recipient.

@@ -45,6 +45,7 @@ This API is under development. Therefore, it may not be ready for use and is a s
     "audience_id": 107103,
     "recipients_count": 0,
     "dispatches_count": 9513,
+    "members_count": 9000,
     "scheduled_at": "2020-10-15T15:27:02.853Z",
     "transmitted_at": "2020-10-15T12:45:08.625Z",
     "created_at": "2020-09-15T12:27:02.853Z",
@@ -97,6 +98,7 @@ audience_id | [Sending#audience_id](#messaging-sending-model)
 **updated_at** | [Sending#updated_at](#messaging-sending-model)
 **recipients_count** | Number of recipients 
 dispatches_count | Number of dispatches, when sending has not been executed yet it's `null` 
+members_count | Number of distinct members to whom messages has been sent
 
 #### <a name="messaging-message-service"></a> Service
 
@@ -610,3 +612,27 @@ Without `member_id`, at least one identifier relevant to message's channels defi
 For example, if `sms` and `email` channels are defined on message, `msisdn` or `email` is required.
 
 Given `properties` will be used as template's merge-tags. 
+
+### <a name="messaging-dispatch-member-model"></a> Dispatch member model
+
+Member to whom dispach has been sent
+
+> Dispatch member example:
+
+```json
+{
+    "id": 173,
+    "type": "sms",
+    "msisdn": null,
+    "email": null,
+    "app_tokens": ["token_1", "token_2"]
+}
+```
+
+Key | Type | Description
+--------- | --------- | ---------
+**id** | integer |  Member id 
+**type** | enum: ['sms', 'email', 'push'] | 
+msisdn | string | 
+email | string | 
+app_tokens | array | array of app_tokens
